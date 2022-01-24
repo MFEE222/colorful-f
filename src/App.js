@@ -1,26 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Exp from './utils/Exp';
 
 function App() {
-  
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    Exp.get();
+    return (
+        <div>
+            {/* <Router>
+                <>
+                    {/* Switch 只會返回一個元件 */}
+                    <Switch>
+                        {/* <Route path="/member">
+                            <Subscrible></Subscrible>
+                        </Route> */}
+                        <Route path="/member/:number?">
+                            <Subscrible></Subscrible>
+                        </Route>
+                        <Route>
+                            <Checkout></Checkout>
+                        </Route>
+                        <Route>
+                            <Register></Register>
+                        </Route>
+                        <Route>
+                            <Order></Order>
+                        </Route>
+                        <Route path="">
+                            <OrderDetail></OrderDetail>
+                        </Route>
+                        <Route path="/cart">
+                            <Cart></Cart>
+                        </Route>
+                        <Route path="/favorite">
+                            <Favorite></Favorite>
+                        </Route>
+                        <Route path="/member/detail">
+                            <ProductDetail></ProductDetail>
+                        </Route>
+                        <Route path="/member">
+                            <Product></Product>
+                        </Route>
+                        <Route path="/member">
+                            <Member></Member>
+                        </Route>
+                        <Route path="/">
+                            <Home></Home>
+                        </Route>
+                    </Switch>
+                </>
+            </Router> */}
+        </div>
+    );
 }
 
 export default App;

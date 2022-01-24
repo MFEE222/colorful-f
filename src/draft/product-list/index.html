@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draft: Product List</title>
+
+    <script defer src="../../../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css"> -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="wrapper">
+    <!-- 1. 視窗是橫向需要動態調整，所以需要包在同一個彈性容器 -->
+    <!-- 2. 視覺 和 排版 用不同元素控制 -->
+    <!-- 3. 容器的高度不要直接調容器，調內容物，用內容物的高度去撐開 -->
+    <!-- 4. 一次寫一層切版，然後加上 RWD 進行縮放觀察 -->
+    <!-- 導覽列 -->
+    <header>
+        <div id="navbar">
+            <div class="container-md">
+                <!-- 為了要 RWD 所以要把 Logo、連結、圖示包在同一個 flex container 裡-->
+                <div
+                    class="row justify-content-sm-center justify-content-md-between align-content-center align-items-center">
+                    <div class="col-md-3 me-auto">
+                        <p class="fs-1 text-center m-0 lh-base" id="logo">Colorful</p>
+                        <!-- <img src="" alt="" /> -->
+                    </div>
+
+                    <!-- Links -->
+                    <div class="col-md-6 col-lg-5" id="links">
+                        <ul class="d-flex justify-content-around">
+                            <li><a href="" class="fs-6">Series</a></li>
+                            <li><a href="" class="fs-6">Example</a></li>
+                            <li><a href="" class="fs-6">About us</a></li>
+                            <li><a href="" class="fs-6">Support</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Icons -->
+                    <div class="col-md-2 col-lg-2 icons">
+                        <ul class="d-flex justify-content-around">
+                            <li><i class="fas fa-envelope"></i></li>
+                            <li><i class="fas fa-heart"></i></li>
+                            <li><i class="fas fa-user"></i></li>
+                            <li><i class="fas fa-cart-plus"></i></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 風格區 -->
+    <div class="row">
+        <!-- 麵包屑 -->
+        <div class="col-12 bread-crumb">
+            <ul>
+                <li>Home</li>
+                <li>Product List</li>
+            </ul>
+        </div>
+
+
+        <div class="visual-main"></div>
+
+    </div>
+
+    <!-- 系列區 -->
+    <div class="row">
+        <!-- 篩選區 -->
+        <div></div>
+        <!-- 標籤頁 -->
+        <div>
+            <ul class="d-flex justify-content-center tab">
+                <li>film</li>
+                <li>food</li>
+                <li>portrait</li>
+                <li>wedding</li>
+                <li>negative</li>
+            </ul>
+            <div class="icon-sort">
+                <ul class="font-awesome">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!-- products -->
+        <div class="products">
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="row">
+
+    </footer>
+
+    <!-- fixed -->
+    <div class="position-absolute">
+    </div>
+
+
+</body>
+
+</html>
