@@ -1,21 +1,18 @@
-export default class {
-    constructor(url) {
-        this.url;
-    }
+// export default class User {
+//     constructor() {
+//         this.user = 'liz';
+//     }
 
-    get() {
-        console.log('this is get method', name);
-    }
+//     whoUser() {
+//         console.log('this is user', this.user);
+//     }
+// }
 
-    post() {
-        console.log('this is post method', name);
-    }
-
-    put() {
-        console.log('this is put method', name);
-    }
-
-    delete() {
-        console.log('this is delete method', name);
-    }
+export function whoUser() {
+    console.log('this is user', this.user);
 }
+
+export default {
+    user: 'liz',
+    whoUser,
+};
