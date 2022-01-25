@@ -6,7 +6,7 @@ function App() {
     Exp.get();
     return (
         <div>
-            {/* <Router>
+            <Router>
                 <>
                     {/* Switch 只會返回一個元件 */}
                     <Switch>
@@ -48,7 +48,7 @@ function App() {
                         </Route>
                     </Switch>
                 </>
-            </Router> */}
+            </Router>
         </div>
     );
 }
