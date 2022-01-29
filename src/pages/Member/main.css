@@ -1,0 +1,6 @@
+main .content {
+    /* background-color: aquamarine; */
+    background-color: #ffffff;
+    border-radius: 20px;
+    min-height: calc(100vh - 150px);
+}

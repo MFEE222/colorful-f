@@ -1,0 +1,18 @@
+#breadcrumb {
+    background-color: #63727d;
+}
+
+#breadcrumb a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#breadcrumb li:before {
+    color: #ffffff;
+}
+
+#breadcrumb li.active {
+    color: #ffffff;
+    opacity: 0.75;
+}
