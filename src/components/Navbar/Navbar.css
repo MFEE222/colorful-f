@@ -14,10 +14,22 @@ body {
   background-color: #FFFFFF;
 }
 
+<<<<<<< HEAD
 .navbar #menu-bar > a {
   display:inline-block;
   height: 100%;
+=======
+.navbar {
+  background-color: #0e1829;
+}
+.navbar #menu-bar {
+  top: 14px;
+  left: 14px;
+}
+.navbar #menu-bar a {
+>>>>>>> c9cf1a9789d96b65680b86ebf75a1ceeb0d42e60
   color: #8d807a;
+  font-size: 24px;
 }
 .navbar #logo {
   height: 48px;

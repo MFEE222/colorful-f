@@ -21,8 +21,13 @@ body {
         
     }
     // 漢堡選單
-    #menu-bar > a {
-        color: $brown;
+    #menu-bar {
+        top: 14px;
+        left: 14px;
+        a {
+            color: $brown;
+            font-size: 24px;
+        }
     }
     // Logo
     #logo {
