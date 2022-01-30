@@ -8,8 +8,13 @@ body {
 .navbar {
   background-color: #0e1829;
 }
-.navbar #menu-bar > a {
+.navbar #menu-bar {
+  top: 14px;
+  left: 14px;
+}
+.navbar #menu-bar a {
   color: #8d807a;
+  font-size: 24px;
 }
 .navbar #logo {
   height: 48px;
