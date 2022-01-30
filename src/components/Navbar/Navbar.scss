@@ -15,7 +15,11 @@ body {
 }
 
 .navbar {
-    background-color: $dark-blue;
+    background-color: #FFFFFF;
+    @media (min-width: $break-point) {
+        background-color: $dark-blue
+        
+    }
     // 漢堡選單
     #menu-bar > a {
         color: $brown;
@@ -31,6 +35,12 @@ body {
 
         @media (min-width: $break-point) {
             height: 56px;
+            
+        }
+    }
+    #d-none-icon{
+        @media (min-width: $break-point) {
+            display: hidden;
         }
     }
     // 連結列表

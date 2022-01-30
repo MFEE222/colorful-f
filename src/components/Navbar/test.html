@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Member</title>
+
+        <!-- Icons -->
+        <!-- <script defer src="../../node_modules/@fortawesome/fontawesome-free/js/all.js"></script> -->
+        <link rel="stylesheet" href="../../../colorful-f/" />
+        <!-- Bootstrap -->
+        <link
+            rel="stylesheet"
+            href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        />
+        <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- 字型 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            body {
+                font-family: "Tenor Sans", sans-serif;
+            }
+
+            .wrapper {
+                height: 100vh;
+                width: 100%;
+                background-color: #ebebe9;
+            }
+
+            .navbar {
+                background-color: #0e1829;
+                height: 120px;
+            }
+            img {
+                display: inline;
+                padding: 12px 30px;
+                width: 260px;
+                height: 95px;
+                float: left;
+            }
+            #link-group ul {
+                display: inline-block;
+                /* float: right; */
+                color: #cf9d3f;
+                font-size: 26px;
+                list-style: none;
+                margin: 44px auto;
+            }
+            #link-group li {
+                float: right;
+                margin: 0 9px;
+            }
+            #icon-group li i {
+                color: #8d807a;
+            }
+
+            /* [992, ] */
+            @media (max-width: 992px) {
+                img {
+                    height: 45px;
+                    width: 123px;
+                    padding: 7px 0;
+                    margin: 0 auto;
+                    display: block;
+                }
+                .navbar {
+                    height: 60px;
+                }
+            }
+
+            /* 
+        /* 連結列表 */
+            /* #link-group a {
+            color: #CF9D3F;
+            list-style-type:none;
+            /* font-size: 18px; */
+            /* } */
+
+            /* #link-group a:hover {
+            color: #CF9D3F;
+            opacity: 0.7;
+        } */
+
+            /* [0, 991.98] */
+
+            /* [992, ] */
+            /* @media (min-width: 992px) {
+            #link-group>img {
+                display: flex;
+                width: auto;
+            }
+        } */
+
+            /* Icon 連結列表 */
+
+            /* [0, 991.98] */
+
+            /* @media (min-width: 992px) {
+            #icon-group {
+                width: auto;
+            }
+        }  */
+        </style>
+    </head>
+
+    <!-- 切版思路：從手機到桌面 -->
+
+    <!-- 切版觀念 -->
+    <!-- 1. RWD 切版思維『從手機出發到桌面』和『桌面出發到手機』擇一 -->
+    <!-- 2. RWD 切版思維『min-width』or『max-width』擇一-->
+    <!-- 3. 『容器』不設高，只設寬：意思是高度由『內容物』而決定（內容物多自然就增高，少自然就減少，但是容器可以設最小高度） -->
+    <!-- 4. 『內容物』不設寬，只設高：意思是寬度設『百分比』吃容器寬、或『格線系統』，高度一般情況也不設，吃『文字大小』-->
+    <!-- 5. 『版面位置』使用 padding、margin 來調整 -->
+    <!-- 6. 『使用 Bootstrap BreakPoint 時』，當 RWD 到大尺寸時有時會殘留小尺寸的設定屬性，可以先重置在設定，例如：m-auto m-lg-0 me-lg-auto -->
+
+    <!-- FIXME: 漢堡選單會跟隨連結列表展開而位移 -->
+
+    <body class="wrapper">
+        <!-- 頁頭 -->
+        <header class="navbar">
+            <!-- container 只是一個有 RWD 和預設 margin, padding 的容器 -->
+            <div class="container-lg">
+                <div class="container-fluid">
+                    <img src="../../images/colorful-logo.png" alt="" />
+                    <div
+                        class="nav collapse text-center multi-link"
+                        id="link-group"
+                    >
+                        <ul>
+                            <li>
+                                <a class="nav-link fs-6" id="link-product"
+                                    >Product</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link fs-6" id="link-tutorial"
+                                    >Tutorial</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link fs-6" id="link-about"
+                                    >About us</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link fs-6" id="link-support"
+                                    >Support</a
+                                >
+                            </li>
+                        </ul>
+                        <!-- icon group -->
+                        <ul id="icon-group">
+                            <li>
+                                <a
+                                    class="nav-icon fs-6"
+                                    href="#"
+                                    id="link-icon-envelope"
+                                >
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="nav-icon fs-6"
+                                    href="#"
+                                    id="link-icon-heart"
+                                >
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="nav-icon fs-6"
+                                    href="#"
+                                    id="link-icon-user"
+                                >
+                                    <i class="fas fa-user"></i>
+                                    <!-- 登入 -->
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <!-- 登出 -->
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="nav-icon fs-6"
+                                    href="#"
+                                    id="link-icon-cart"
+                                >
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>
