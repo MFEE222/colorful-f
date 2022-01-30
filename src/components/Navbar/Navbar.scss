@@ -1,0 +1,63 @@
+// sass 輸出大小寫不敏感
+// @use "variable";
+
+$gray: #ebebe9;
+$dark-blue: #0e1829;
+$brown: #8d807a;
+$gold: #cf9d3f;
+$break-point: 992px;
+
+body {
+    font-family: "Tenor Sans", sans-serif;
+    height: 100vh;
+    width: 100%;
+    background-color: $gray;
+}
+
+.navbar {
+    background-color: $dark-blue;
+    // 漢堡選單
+    #menu-bar > a {
+        color: $brown;
+    }
+    // Logo
+    #logo {
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        height: 48px;
+
+        @media (min-width: $break-point) {
+            height: 56px;
+        }
+    }
+    // 連結列表
+    #link-group {
+        a {
+            color: $gold;
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+
+        width: 100%;
+        @media (min-width: $break-point) {
+            display: flex;
+            width: auto;
+        }
+    }
+    // Icons
+    #icon-group {
+        a {
+            color: $brown;
+        }
+
+        width: 100%;
+        @media (min-width: $break-point) {
+            width: auto;
+        }
+    }
+}
