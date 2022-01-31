@@ -1,9 +1,0 @@
-aside .nav {
-    /* border: 1px solid #0e1829;
-    border-radius: 20px; */
-    min-height: calc(100vh - 150px);
-}
-
-aside .nav-link {
-    color: #0e1829;
-}

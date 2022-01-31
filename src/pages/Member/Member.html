@@ -18,10 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./navbar.css">
-    <link rel="stylesheet" href="./aside.css">
-    <link rel="stylesheet" href="./breadcrumb.css">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./Member.css">
+
 </head>
 
 <!-- 切版思路：從手機到桌面 -->
@@ -103,38 +101,89 @@
     <!-- bread crumb -->
     <nav aria-label="breadcrumb" class="py-2" id="breadcrumb">
         <div class="container-lg">
-            <ol class="breadcrumb m-0">
+            <ol class="breadcrumb mb-0 ps-2 me-auto">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Library</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Data</li>
+                <li class="ms-auto pe-2 d-lg-none" id="expand-alt">
+                    <a href="#sidebar" type="button" data-bs-toggle="collapse" aria-controls="#side-bar"
+                        aria-expanded="false">
+                        <i class="fas fa-expand-alt"></i>
+                    </a>
+                </li>
             </ol>
         </div>
     </nav>
 
     <!-- 主要內容 main -->
-    <div class="container-lg">
+    <!-- // TODO: 新增 fontawesome 箭頭符號 -->
+    <!-- // TODO: container 增加上下 margin -->
+    <!-- // TODO: aside 設定 fixed -->
+    <!-- // TODO: aside li 設定 下 margin -->
+    <!-- // TODO: RWD 設定上下重疊 -->
+    <!-- // position: fixed 是相對於 viewport -->
+    <div class="container-lg my-4">
         <div class="row">
-            <aside class="col-lg-2">
-                <ul class="nav flex-column mt-4">
-                    <li class="nav-item"><a href="" class="nav-link">個人資料</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">訂單管理</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">我的最愛</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">付款資訊</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">下載區</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">評論區</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">登出</a></li>
+            <aside class="col-lg-2 col-12 pe-0 collapse d-lg-block" id="sidebar">
+                <!-- <h2 class="pt-2 d-lg-none">會員中心</h2> -->
+                <ul class="nav flex-column pt-2">
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            個人資料
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            訂單管理
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            我的最愛
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            付款資訊
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            下載區
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            評論區
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="" class="nav-link">
+                            <i class="fas fa-chevron-right"></i>
+                            登出
+                        </a>
+                    </li>
                 </ul>
             </aside>
-            <main class="col-lg-10">
-                <div class="content mt-4 py-4">
+            <main class="col-12 col-lg-10">
+                <div class="content py-4">
                     <div class="container-lg">Main...</div>
                 </div>
-
             </main>
         </div>
     </div>
 
-
+    <!-- // TODO: 小 navbar -->
+    <!-- // TODO: 訂單卡片 -->
+    <!-- // TODO: 訂單列表 -->
+    <!-- // TODO: 購物車卡片 -->
+    <!-- // TODO: 購物車列表 -->
 
     <!-- 頁尾 -->
     <footer></footer>
