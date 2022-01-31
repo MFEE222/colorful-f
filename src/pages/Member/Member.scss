@@ -16,6 +16,8 @@ body {
 
 .navbar {
     background-color: $dark-blue;
+    position: sticky;
+    top: 0;
     // 漢堡選單
     #menu-bar {
         top: 14px;
@@ -71,6 +73,11 @@ body {
 // Bradecrumb
 #breadcrumb {
     background-color: $gray-blue;
+    position: sticky;
+    top: 64px;
+    @media (min-width: $break-point) {
+        top: 72px;
+    }
 
     li:before {
         color: $light;
@@ -92,8 +99,24 @@ body {
     }
 }
 
+// Content
+// #content {
+//     position: sticky;
+//     top: 104px;
+//     @media (min-width: $break-point) {
+//         top: 112px;
+//     }
+// }
+
 // Sidebar
 #sidebar {
+    align-self: start;
+    position: sticky;
+    top: 104px;
+    @media (min-width: $break-point) {
+        top: 112px;
+    }
+
     .nav-link {
         color: $dark_blue;
     }
@@ -105,9 +128,18 @@ body {
 }
 
 // Main
-main .content {
-    /* background-color: aquamarine; */
-    background-color: #ffffff;
-    border-radius: 20px;
-    min-height: calc(100vh - 150px);
+main {
+    & > .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        // min-height: calc(100vh - 150px);
+        min-height: 300vh;
+    }
+
+    #avator {
+        // width: 200px;
+        // height: 200px;
+        // background-color: red;
+        // object-fit: cover;
+    }
 }

@@ -122,7 +122,7 @@
     <!-- // TODO: aside li 設定 下 margin -->
     <!-- // TODO: RWD 設定上下重疊 -->
     <!-- // position: fixed 是相對於 viewport -->
-    <div class="container-lg my-4">
+    <div class="container-lg my-4" id="content">
         <div class="row">
             <aside class="col-lg-2 col-12 pe-0 collapse d-lg-block" id="sidebar">
                 <!-- <h2 class="pt-2 d-lg-none">會員中心</h2> -->
@@ -172,8 +172,23 @@
                 </ul>
             </aside>
             <main class="col-12 col-lg-10">
-                <div class="content py-4">
-                    <div class="container-lg">Main...</div>
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-9">
+                            <p class="h3">個人資料</p>
+                            <p class="ms-1">完成填寫個人資料可享有更多會員專屬權益</p>
+                            <form class="row align-items-center text-center">
+                                <label for="full-name" class="col-2 col-form-label mb-0">姓名</label>
+                                <input type="text" name="full-name" class="w-auto col-10 form-control">
+
+                                <!-- <label for="gender" class="col-2 from-label mb-0">性別</label>
+                                <input type="radio" name="gender" class="col-10 w-auto from-control" id="gender"> -->
+                            </form>
+                        </div>
+                        <div class="col-3">
+                            <img src="" alt="" id="avator">
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

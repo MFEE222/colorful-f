@@ -7,6 +7,8 @@ body {
 
 .navbar {
   background-color: #0e1829;
+  position: sticky;
+  top: 0;
 }
 .navbar #menu-bar {
   top: 14px;
@@ -58,6 +60,13 @@ body {
 
 #breadcrumb {
   background-color: #63727d;
+  position: sticky;
+  top: 64px;
+}
+@media (min-width: 992px) {
+  #breadcrumb {
+    top: 72px;
+  }
 }
 #breadcrumb li:before {
   color: #ffffff;
@@ -76,8 +85,26 @@ body {
   color: #ffffff;
 }
 
+#content {
+  position: sticky;
+  top: 104px;
+}
+@media (min-width: 992px) {
+  #content {
+    top: 112px;
+  }
+}
+
 #sidebar {
+  align-self: start;
+  position: sticky;
+  top: 104px;
   text-align: center;
+}
+@media (min-width: 992px) {
+  #sidebar {
+    top: 112px;
+  }
 }
 #sidebar .nav-link {
   color: #0e1829;
@@ -88,11 +115,10 @@ body {
   }
 }
 
-main .content {
-  /* background-color: aquamarine; */
+main > .container {
   background-color: #ffffff;
   border-radius: 20px;
-  min-height: calc(100vh - 150px);
+  min-height: 300vh;
 }
 
 /*# sourceMappingURL=Member.css.map */
