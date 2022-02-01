@@ -9,8 +9,12 @@ body {
 
 .navbar {
   background-color: #0e1829;
-  position: sticky;
-  top: 0;
+}
+@media (min-width: 992px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+  }
 }
 .navbar #menu-bar {
   top: 14px;
@@ -62,11 +66,11 @@ body {
 
 #breadcrumb {
   background-color: #63727d;
-  position: sticky;
-  top: 64px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
 @media (min-width: 992px) {
   #breadcrumb {
+    position: sticky;
     top: 72px;
   }
 }
@@ -78,7 +82,8 @@ body {
   opacity: 0.75;
 }
 #breadcrumb li,
-#breadcrumb a {
+#breadcrumb a,
+#breadcrumb button {
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
@@ -90,17 +95,19 @@ body {
 #sidebar {
   text-align: center;
 }
-#sidebar ul {
-  position: sticky;
-  top: 136px;
-}
-@media (min-height: 992px) {
+@media (min-width: 992px) {
   #sidebar ul {
-    top: 168px;
+    position: sticky;
+    top: 136px;
   }
 }
 #sidebar .nav-link {
-  color: #0e1829;
+  color: #ffffff;
+}
+@media (min-width: 992px) {
+  #sidebar .nav-link {
+    color: #0e1829;
+  }
 }
 @media (min-width: 992px) {
   #sidebar {

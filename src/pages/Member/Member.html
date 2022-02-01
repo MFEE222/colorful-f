@@ -101,15 +101,15 @@
     <!-- bread crumb -->
     <nav aria-label="breadcrumb" class="py-2" id="breadcrumb">
         <div class="container-lg">
-            <ol class="breadcrumb mb-0 ps-2 me-auto">
+            <ol class="breadcrumb mb-0 ps-2 me-auto align-items-center">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Library</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Data</li>
                 <li class="ms-auto pe-2 d-lg-none" id="expand-alt">
-                    <a href="#sidebar" type="button" data-bs-toggle="collapse" aria-controls="#side-bar"
-                        aria-expanded="false">
+                    <button data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="#side-bar"
+                        aria-expanded="false" class="btn">
                         <i class="fas fa-expand-alt"></i>
-                    </a>
+                    </button>
                 </li>
             </ol>
         </div>
@@ -122,9 +122,9 @@
     <!-- // TODO: aside li 設定 下 margin -->
     <!-- // TODO: RWD 設定上下重疊 -->
     <!-- // position: fixed 是相對於 viewport -->
-    <div class="container-lg mt-4" id="page">
+    <div class="container-lg mt-lg-4" id="page">
         <div class="row">
-            <aside class="col-lg-2 col-12 pe-0 collapse d-lg-block" id="sidebar">
+            <aside class="col-lg-2 col-12 collapse d-lg-block" id="sidebar">
                 <!-- <h2 class="pt-2 d-lg-none">會員中心</h2> -->
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
@@ -173,7 +173,7 @@
 
             </aside>
             <main class="col-12 col-lg-10">
-                <div class="container py-4">
+                <div class="container py-4 mt-4 mt-lg-0">
                     <div class="row">
                         <div class="col-9">
                             <p class="h3">個人資料</p>

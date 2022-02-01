@@ -18,8 +18,10 @@ body {
 
 .navbar {
     background-color: $dark-blue;
-    position: sticky;
-    top: 0;
+    @media (min-width: $break-point) {
+        position: sticky;
+        top: 0;
+    }
     // 漢堡選單
     #menu-bar {
         top: 14px;
@@ -75,9 +77,10 @@ body {
 // Bradecrumb
 #breadcrumb {
     background-color: $gray-blue;
-    position: sticky;
-    top: 64px;
+    // top: 64px;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%), inset 0 -1px 0 rgb(0 0 0 / 15%);
     @media (min-width: $break-point) {
+        position: sticky;
         top: 72px;
     }
 
@@ -90,10 +93,15 @@ body {
     }
 
     li,
-    a {
+    a,
+    button {
         color: $light;
         font-weight: bold;
         text-decoration: none;
+    }
+
+    button {
+        // font-size: 18px;
     }
 
     #expand-alt {
@@ -109,19 +117,23 @@ body {
 // Sidebar
 #sidebar {
     ul {
-        position: sticky;
+        // position: sticky;
         // top: 104px;
         // top: 128px;
-        top: 136px;
-        @media (min-height: $break-point) {
+        // top: 136px;
+        @media (min-width: $break-point) {
             // top: 160px;
-            top: 168px;
+            position: sticky;
+            top: 136px;
             // top: 136px;
         }
     }
 
     .nav-link {
-        color: $dark_blue;
+        color: $light;
+        @media (min-width: $break-point) {
+            color: $dark-blue;
+        }
     }
 
     text-align: center;
