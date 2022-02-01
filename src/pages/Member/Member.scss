@@ -8,10 +8,12 @@ $break-point: 992px;
 // sass 輸出大小寫不敏感
 
 body {
+    overflow: scroll;
     font-family: "Tenor Sans", sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: $gray;
+    overflow: scroll;
 }
 
 .navbar {
@@ -99,22 +101,23 @@ body {
     }
 }
 
-// Content
-// #content {
-//     position: sticky;
-//     top: 104px;
-//     @media (min-width: $break-point) {
-//         top: 112px;
-//     }
+// Page
+// #page {
+//     overflow: scroll;
 // }
 
 // Sidebar
 #sidebar {
-    align-self: start;
-    position: sticky;
-    top: 104px;
-    @media (min-width: $break-point) {
-        top: 112px;
+    ul {
+        position: sticky;
+        // top: 104px;
+        // top: 128px;
+        top: 136px;
+        @media (min-height: $break-point) {
+            // top: 160px;
+            top: 168px;
+            // top: 136px;
+        }
     }
 
     .nav-link {
@@ -125,13 +128,17 @@ body {
     @media (min-width: 992px) {
         text-align: start;
     }
+
+    @media (max-width: 991.98px) {
+        background-color: $gray-blue;
+    }
 }
 
 // Main
 main {
     & > .container {
         background-color: #ffffff;
-        border-radius: 20px;
+        // border-radius: 20px;
         // min-height: calc(100vh - 150px);
         min-height: 300vh;
     }

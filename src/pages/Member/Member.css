@@ -1,8 +1,10 @@
 body {
+  overflow: scroll;
   font-family: "Tenor Sans", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #ebebe9;
+  overflow: scroll;
 }
 
 .navbar {
@@ -85,25 +87,16 @@ body {
   color: #ffffff;
 }
 
-#content {
-  position: sticky;
-  top: 104px;
-}
-@media (min-width: 992px) {
-  #content {
-    top: 112px;
-  }
-}
-
 #sidebar {
-  align-self: start;
-  position: sticky;
-  top: 104px;
   text-align: center;
 }
-@media (min-width: 992px) {
-  #sidebar {
-    top: 112px;
+#sidebar ul {
+  position: sticky;
+  top: 136px;
+}
+@media (min-height: 992px) {
+  #sidebar ul {
+    top: 168px;
   }
 }
 #sidebar .nav-link {
@@ -114,10 +107,14 @@ body {
     text-align: start;
   }
 }
+@media (max-width: 991.98px) {
+  #sidebar {
+    background-color: #63727d;
+  }
+}
 
 main > .container {
   background-color: #ffffff;
-  border-radius: 20px;
   min-height: 300vh;
 }
 
