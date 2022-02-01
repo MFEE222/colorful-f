@@ -122,7 +122,17 @@ body {
 
 main > .container {
   background-color: #ffffff;
-  min-height: 300vh;
+  border-radius: 20px;
+  min-height: calc(100vh - 160px);
+  padding: 60px;
+}
+main form button[type=submit] {
+  border-radius: 20px;
+  color: #ffffff;
+  background-color: #cf9d3f;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
 }
 
-/*# sourceMappingURL=Member.css.map */
+/*# sourceMappingURL=MemberProfile.css.map */

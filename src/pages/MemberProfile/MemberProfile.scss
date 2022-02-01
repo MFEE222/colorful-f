@@ -150,15 +150,19 @@ body {
 main {
     & > .container {
         background-color: #ffffff;
-        // border-radius: 20px;
+        border-radius: 20px;
+        min-height: calc(100vh - 160px);
+        padding: 60px;
         // min-height: calc(100vh - 150px);
-        min-height: 300vh;
+        // min-height: 300vh;
     }
 
-    #avator {
-        // width: 200px;
-        // height: 200px;
-        // background-color: red;
-        // object-fit: cover;
+    form button[type="submit"] {
+        border-radius: 20px;
+        color: $light;
+        background-color: $gold;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 20px;
     }
 }

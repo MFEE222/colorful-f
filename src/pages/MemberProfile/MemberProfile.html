@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./Member.css">
+    <link rel="stylesheet" href="./MemberProfile.css">
 
 </head>
 
@@ -32,10 +32,13 @@
 <!-- 5. 『版面位置』使用 padding、margin 來調整 -->
 <!-- 6. 『使用 Bootstrap BreakPoint 時』，當 RWD 到大尺寸時有時會殘留小尺寸的設定屬性，可以先重置在設定，例如：m-auto m-lg-0 me-lg-auto -->
 
-<!-- FIXME: 漢堡選單會跟隨連結列表展開而位移 -->
+<!-- // FIXME: collapse 按鈕邊框異色 -->
+<!-- // TODO: 等待重構 -->
+<!-- // TODO: 手機版底部控制列做一橫條，觸控時才跳出顯示清單 -->
 
 <body class="wrapper">
     <!-- 頁頭 -->
+    <!-- 導覽列 -->
     <header class="navbar">
         <!-- container 只是一個有 RWD 和預設 margin, padding 的容器 -->
         <div class="container-lg">
@@ -99,6 +102,7 @@
     <!-- 副 navbar -->
     <!-- <nav></nav> -->
     <!-- bread crumb -->
+    <!-- 麵包屑 -->
     <nav aria-label="breadcrumb" class="py-2" id="breadcrumb">
         <div class="container-lg">
             <ol class="breadcrumb mb-0 ps-2 me-auto align-items-center">
@@ -108,7 +112,7 @@
                 <li class="ms-auto pe-2 d-lg-none" id="expand-alt">
                     <button data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="#side-bar"
                         aria-expanded="false" class="btn">
-                        <i class="fas fa-expand-alt"></i>
+                        <i class="fas fa-arrows-alt-v"></i>
                     </button>
                 </li>
             </ol>
@@ -116,11 +120,6 @@
     </nav>
 
     <!-- 主要內容 main -->
-    <!-- // TODO: 新增 fontawesome 箭頭符號 -->
-    <!-- // TODO: container 增加上下 margin -->
-    <!-- // TODO: aside 設定 fixed -->
-    <!-- // TODO: aside li 設定 下 margin -->
-    <!-- // TODO: RWD 設定上下重疊 -->
     <!-- // position: fixed 是相對於 viewport -->
     <div class="container-lg mt-lg-4" id="page">
         <div class="row">
@@ -129,43 +128,43 @@
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             個人資料
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             訂單管理
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             我的最愛
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             付款資訊
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             下載區
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             評論區
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="" class="nav-link">
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-caret-right"></i>
                             登出
                         </a>
                     </li>
@@ -173,21 +172,69 @@
 
             </aside>
             <main class="col-12 col-lg-10">
-                <div class="container py-4 mt-4 mt-lg-0">
+                <div class="container mt-4 mt-lg-0">
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-12 col-lg-9 mb-2">
                             <p class="h3">個人資料</p>
-                            <p class="ms-1">完成填寫個人資料可享有更多會員專屬權益</p>
-                            <form class="row align-items-center text-center">
-                                <label for="full-name" class="col-2 col-form-label mb-0">姓名</label>
-                                <input type="text" name="full-name" class="w-auto col-10 form-control">
-
-                                <!-- <label for="gender" class="col-2 from-label mb-0">性別</label>
-                                <input type="radio" name="gender" class="col-10 w-auto from-control" id="gender"> -->
-                            </form>
                         </div>
-                        <div class="col-3">
-                            <img src="" alt="" id="avator">
+                        <div class="col-6 col-md-4 col-lg-3 mb-3">
+                            <img src="../../images/navbar-ex-1.jpg" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="col-12 col-lg-9 mb-2">
+                            <p class="ms-1">完成填寫個人資料可享有更多會員專屬權益</p>
+                        </div>
+                        <div class="col-12 col-lg-9 mb-2">
+                            <form>
+                                <!-- 姓名 -->
+                                <div class="row mb-3">
+                                    <label for="full-name" class="col-12 col-lg-2 col-form-label">姓名</label>
+                                    <div class="col">
+                                        <input type="text" name="full-name" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- 性別 -->
+                                <fieldset class="row mb-3">
+                                    <legend class="col-12 col-lg-2 col-form-label">性別</legend>
+                                    <div class="col">
+                                        <div class="form-check ps-0 d-inline py-2">
+                                            <input type="radio" name="gender" id="gender-male" value="male">
+                                            <label for="gender-male" class="form-check-label">男生</label>
+                                        </div>
+                                        <div class="form-check ps-0 d-inline py-2">
+                                            <input type="radio" name="gender" id="gender-female" value="female">
+                                            <label for="gender-female" class="form-check-label">女生</label>
+                                        </div>
+                                        <div class="form-check ps-0 d-inline py-2">
+                                            <input type="radio" name="gender" id="gender-private" value="private">
+                                            <label for="gender-private" class="form-check-label">不公開</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- 生日 -->
+                                <div class="row mb-3">
+                                    <label id="birthday" class="col-12 col-lg-2 col-form-label">生日</label>
+                                    <div class="col">
+                                        <input type="date" name="birthday" id="birthday" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- 手機 -->
+                                <div class="row mb-3">
+                                    <label for="phone" class="col-12 col-lg-2 col-form-label">手機</label>
+                                    <div class="col">
+                                        <input type="text" name="phone" id="phone" maxlength="10" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- 信箱 -->
+                                <div class="row mb-3">
+                                    <label for="email" class="col-12 col-lg-2 col-form-label">Email</label>
+                                    <div class="col">
+                                        <input type="email" name="email" id="email" class="form-control"
+                                            placeholder="example@mail.com">
+                                    </div>
+                                </div>
+                                <!-- 儲存 -->
+                                <button type="submit" class="btn">儲存</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -195,11 +242,6 @@
         </div>
     </div>
 
-    <!-- // TODO: 小 navbar -->
-    <!-- // TODO: 訂單卡片 -->
-    <!-- // TODO: 訂單列表 -->
-    <!-- // TODO: 購物車卡片 -->
-    <!-- // TODO: 購物車列表 -->
 
     <!-- 頁尾 -->
     <footer></footer>
