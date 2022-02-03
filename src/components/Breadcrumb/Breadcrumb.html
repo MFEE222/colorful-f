@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="./Navbar.scss" /> -->
-    <link rel="stylesheet" href="./Navbar.css" />
+    <link rel="stylesheet" href="./Breadcrumb.css" />
 </head>
 
 <!-- 切版思路：從手機到桌面 -->
@@ -31,10 +31,17 @@
 <!-- 5. 『版面位置』使用 padding、margin 來調整 -->
 <!-- 6. 『使用 Bootstrap BreakPoint 時』，當 RWD 到大尺寸時有時會殘留小尺寸的設定屬性，可以先重置在設定，例如：m-auto m-lg-0 me-lg-auto -->
 
-<!-- FIXME: 漢堡選單會跟隨連結列表展開而位移 -->
+
 
 <body class="wrapper">
-    <!-- 麵包屑 -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Product</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Product Name 001 <div class="dec-bar"></div></li>
+         
+        </ol>
+      </nav>
 </body>
 
 </html>
