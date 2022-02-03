@@ -23,8 +23,11 @@ $break-point: 992px;
 
             &::before {
                 display: block;
-                padding-top: calc(2 / 3 * 100%);
                 content: "";
+                padding-top: 100%;
+                @media (min-width: 992px) {
+                    padding-top: calc(2 / 3 * 100%);
+                }
             }
 
             img {

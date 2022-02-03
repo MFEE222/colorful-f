@@ -8,8 +8,13 @@
 }
 .ocard .ocard-img .ratio-3x2::before {
   display: block;
-  padding-top: 66.6666666667%;
   content: "";
+  padding-top: 100%;
+}
+@media (min-width: 992px) {
+  .ocard .ocard-img .ratio-3x2::before {
+    padding-top: 66.6666666667%;
+  }
 }
 .ocard .ocard-img .ratio-3x2 img {
   position: absolute;
