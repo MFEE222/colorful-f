@@ -1,0 +1,35 @@
+.wrapper {
+    font-family: "Tenor Sans", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    width: 900px;
+    margin-top: 10px;
+}
+.sort-series li {
+    display: inline;
+    padding: 8px 15px;
+    background-color: #CF9D3F;
+    border-radius: 20px;
+    margin-right: 15px;
+    
+}
+.sort-series {
+    padding-left: 11px;
+    /* padding-bottom: 8px; */
+    float: left;
+}
+.sort-icon{
+    float: right;
+}
+.sort-icon li{
+    display: inline;
+}
+.line{
+    clear:both;
+    /* width: 100%; */
+    /* margin-top: -17px; */
+    border-bottom: 1px solid black;
+}
+.sort-series .active{
+    background-color: #0E1829;
+}
