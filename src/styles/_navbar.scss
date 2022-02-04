@@ -1,0 +1,66 @@
+@use "variables" as var;
+@use "library" as lib;
+
+body {
+    font-family: "Tenor Sans", sans-serif;
+    height: 100vh;
+    width: 100%;
+    background-color: var.$gray;
+}
+
+.navbar {
+    // all
+    @include lib.media(
+        background-color,
+        $default: var.$light,
+        $min992: var.$dark-blue
+    );
+
+    // menu 漢堡選單
+    #menu-bar {
+        top: 14px;
+        left: 14px;
+        a {
+            color: var.$brown;
+            font-size: 24px;
+        }
+    }
+    // Logo
+    #logo {
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+        @include lib.media(height, $default: 48px, $min992: 56px);
+    }
+    #d-none-icon {
+        @include lib.media(display, $min992: hidden);
+    }
+    // 連結列表
+    #link-group {
+        a {
+            color: var.$gold;
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+
+        width: 100%;
+        @media (min-width: 992px) {
+            display: flex;
+            width: auto;
+        }
+    }
+    // Icons
+    #icon-group {
+        a {
+            color: var.$brown;
+        }
+
+        width: 100%;
+        @media (min-width: 992px) {
+            width: auto;
+        }
+    }
+}

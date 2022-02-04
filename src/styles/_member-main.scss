@@ -1,0 +1,22 @@
+@use "variables" as var;
+@use "library" as lib;
+
+main {
+    & > .container {
+        background-color: var.$light;
+        border-radius: 20px;
+        min-height: calc(100vh - 160px);
+        padding: 60px;
+        // min-height: calc(100vh - 150px);
+        // min-height: 300vh;
+    }
+
+    form button[type="submit"] {
+        border-radius: 20px;
+        color: var.$light;
+        background-color: var.$gold;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 20px;
+    }
+}

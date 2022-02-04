@@ -1,0 +1,34 @@
+@use "_variables" as var;
+@use "_library" as lib;
+
+// Sidebar
+#sidebar {
+    ul {
+        // position: sticky;
+        // top: 104px;
+        // top: 128px;
+        // top: 136px;
+        @media (min-width: 992px) {
+            // top: 160px;
+            position: sticky;
+            top: 136px;
+            // top: 136px;
+        }
+    }
+
+    .nav-link {
+        color: var.$light;
+        @media (min-width: 992px) {
+            color: var.$dark-blue;
+        }
+    }
+
+    text-align: center;
+    @media (min-width: 992px) {
+        text-align: start;
+    }
+
+    @media (max-width: 991.98px) {
+        background-color: var.$gray-blue;
+    }
+}

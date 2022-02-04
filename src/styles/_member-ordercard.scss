@@ -1,0 +1,148 @@
+// 字型最小 0.75rem
+@use "variables" as var;
+@use "library" as lib;
+
+.ocard {
+    // property for testing
+    background-color: var.$gray;
+
+    // all
+    @include lib.media(border-radius, $default: 5px, $min576: 20px);
+
+    // header
+    .ocard-time,
+    .ocard-number {
+        @include lib.media(
+            font-size,
+            0.7rem,
+            0.75rem,
+            0.8rem,
+            0.85rem,
+            0.9rem,
+            0.95rem
+        );
+    }
+
+    // body 圖
+    .ocard-img {
+        .ratio-3x2 {
+            position: relative;
+            width: 100%;
+
+            &::before {
+                display: block;
+                content: "";
+                @include lib.media(
+                    padding-top,
+                    $default: 100%,
+                    $min768: calc(2 / 3 * 100%)
+                );
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                @include lib.media(border-radius, $min768: 20px, $default: 5px);
+            }
+        }
+    }
+    // body 標頭
+    .ocard-title {
+        @include lib.media(
+            font-size,
+            $default: 1.25rem,
+            $min576: 1.4rem,
+            $min768: 1.55rem,
+            $min992: 1.7rem,
+            $min1200: 1.85rem,
+            $min1400: 2rem
+        );
+    }
+    // body 狀態
+    .ocard-status {
+        @include lib.media(
+            font-size,
+            0.65rem,
+            0.8rem,
+            0.95rem,
+            1.1rem,
+            1.25rem,
+            1.4rem
+        );
+        color: var.$gold;
+    }
+    // body 描述
+    .ocard-descp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        // line-height: 24px;
+
+        // height: 76px;
+        @include lib.media(
+            font-size,
+            0.8rem,
+            0.95rem,
+            1.1rem,
+            1.25rem,
+            1.4rem,
+            1.55rem
+        );
+        @include lib.media(-webkit-line-clamp, 4, 4, 2, 3, 3, 3);
+        // @include lib.media(
+        //     line-height,
+        //     1.1rem,
+        //     1.2rem,
+        //     1.3rem,
+        //     1.4rem,
+        //     1.5rem,
+        //     1.6rem
+        // );
+        // @include lib.media(
+        //         height,
+        //         calc(12px * 3 / 2 * 5),
+        //         calc(14px * 3 / 2 * 5),
+        //         calc(14px * 3 / 2 * 3),
+        //         calc(18px * 3 / 2 * 3),
+        //         calc(20px * 3 / 2 * 3),
+        //         calc(24px * 3 / 2 * 3)
+        //     )
+        // 用於單行
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
+    }
+    // body 價格
+    .ocard-price {
+        @include lib.media(
+            font-size,
+            $default: 1.2rem,
+            $min576: 1.35rem,
+            $min768: 1.5rem,
+            $min992: 1.65rem,
+            $min1200: 1.8rem,
+            $min1400: 1.95rem
+        );
+    }
+    // footer 按鈕
+    .ocard-button {
+        button {
+            border-radius: 20px;
+            border-color: var.$gold;
+            background-color: var.$gold;
+            color: var.$light;
+            @include lib.media(
+                font-size,
+                0.8rem,
+                0.9rem,
+                0.95rem,
+                1.1rem,
+                1.25rem,
+                1.4rem
+            );
+        }
+    }
+}

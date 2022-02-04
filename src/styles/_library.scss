@@ -1,0 +1,38 @@
+@mixin media(
+    $prop,
+    $default: "",
+    $min576: "",
+    $min768: "",
+    $min992: "",
+    $min1200: "",
+    $min1400: ""
+) {
+    @if $default != "" {
+        #{$prop}: $default;
+    }
+    @if $min576 != "" {
+        @media (min-width: 576px) {
+            #{$prop}: $min576;
+        }
+    }
+    @if $min768 != "" {
+        @media (min-width: 768px) {
+            #{$prop}: $min768;
+        }
+    }
+    @if $min992 != "" {
+        @media (min-width: 992px) {
+            #{$prop}: $min992;
+        }
+    }
+    @if $min1200 != "" {
+        @media (min-width: 1200px) {
+            #{$prop}: $min1200;
+        }
+    }
+    @if $min1400 != "" {
+        @media (min-width: 1400px) {
+            #{$prop}: $min1400;
+        }
+    }
+}

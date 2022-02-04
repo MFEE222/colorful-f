@@ -1,0 +1,33 @@
+@use "_variables" as var;
+@use "_library" as lib;
+
+// Bradecrumb
+#breadcrumb {
+    background-color: var.$gray-blue;
+    // top: 64px;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%), inset 0 -1px 0 rgb(0 0 0 / 15%);
+    @media (min-width: 992px) {
+        position: sticky;
+        top: 72px;
+    }
+
+    li:before {
+        color: var.$light;
+    }
+    li:after {
+        color: var.$light;
+        opacity: 0.75;
+    }
+
+    li,
+    a,
+    button {
+        color: var.$light;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    #expand-alt {
+        color: var.$light;
+    }
+}
