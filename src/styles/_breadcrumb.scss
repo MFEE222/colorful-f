@@ -1,11 +1,16 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
+$-breadcrumb-background-color: var.$gray;
+$-breadcrumb-item-color: var.$dark-blue;
+$-breadcrumb-item-opacity: 0.8;
+
 .vice-nav {
     // all
-    background-color: var.$gray-blue;
+    background-color: $-breadcrumb-background-color;
     @include mix.media(position, $md: sticky);
     @include mix.media(top, $md: 64px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
     .container {
         position: relative;
@@ -19,12 +24,14 @@
                 padding-bottom: 0.25rem;
 
                 &::before {
-                    color: var.$light;
-                    opacity: 0.6;
+                    // color: var.$light;
+                    color: $-breadcrumb-item-color;
+                    opacity: $-breadcrumb-item-opacity;
                 }
                 a {
-                    color: var.$light;
-                    opacity: 0.6;
+                    // color: var.$light;
+                    color: $-breadcrumb-item-color;
+                    opacity: $-breadcrumb-item-opacity;
                     font-size: 1rem;
                     text-decoration: none;
                 }
@@ -37,8 +44,8 @@
             right: 0.75rem;
             @include mix.media(display, $xs: block, $md: none);
             font-size: 1rem;
-            color: var.$light;
-            opacity: 0.6;
+            color: $-breadcrumb-item-color;
+            opacity: $-breadcrumb-item-opacity;
         }
     }
 }

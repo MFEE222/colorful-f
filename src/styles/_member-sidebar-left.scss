@@ -1,6 +1,34 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
+$-sidebar-margin-top-for-breadcrumb-boxshadow: 16px;
+$-sidebar-background-color: var.$gray;
+$-sidebar-link-color: var.$dark-blue;
+
+.member-sidebar-left {
+    // test
+    background-color: $-sidebar-background-color;
+    // all
+    @include mix.media(display, $md: block !important);
+    // >= 768px sticky
+    @include mix.media(position, $md: sticky);
+    @include mix.media(top, $md: 104px);
+    margin-top: $-sidebar-margin-top-for-breadcrumb-boxshadow;
+
+    padding-left: 1.75rem;
+
+    // nav
+    .nav {
+        .nav-item {
+            .nav-link {
+                // 設定 link padding-left
+                @include mix.media(padding-left, $xs: 0.25rem, $md: 0.5rem);
+                color: $-sidebar-link-color;
+            }
+        }
+    }
+}
+
 // Sidebar
 #sidebar {
     ul {
