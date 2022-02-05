@@ -1,0 +1,78 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+.navbar {
+    // all
+    background-color: var.$dark-blue;
+    // background-color: var.$gray;
+    @include mix.media(position, $md: sticky);
+    @include mix.media(top, $md: 0);
+
+    .container {
+        // all
+        position: relative;
+        // menu
+        .menu {
+            // position: absolute;
+            // all
+            @include mix.media(position, $xs: absolute);
+            @include mix.media(display, $xs: block, $md: none);
+            top: 5px;
+            right: 0;
+            // button
+            button {
+                font-size: 1rem;
+                color: var.$brown;
+                opacity: 0.8;
+
+                &:focus {
+                    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 25%);
+                }
+            }
+        }
+
+        // company brand
+        .company-brand {
+            img {
+                height: 40px;
+                margin-top: 0.25rem;
+                margin-bottom: 0.25rem;
+            }
+            @include mix.media(
+                margin-left,
+                $xs: auto !important,
+                $md: 0 !important
+            );
+            @include mix.media(margin-right, $xs: auto !important);
+        }
+        // links
+        .links {
+            @include mix.media(margin-right, $xs: 0, $md: calc(1rem + 2vw));
+
+            .nav-item {
+                &:not(:first-child) {
+                    @include mix.media(
+                        margin-left,
+                        $xs: 0,
+                        $md: calc(0.5rem + 1vw)
+                    );
+                }
+                .nav-link {
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    color: var.$gold;
+                }
+            }
+        }
+        // icons
+        .icons {
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 1rem;
+                i {
+                    color: var.$brown;
+                }
+            }
+        }
+    }
+}
