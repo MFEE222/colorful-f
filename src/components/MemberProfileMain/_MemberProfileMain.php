@@ -1,5 +1,66 @@
 <main class="col-12 col-md-10 member-profile-main">
-    123
+    <div class="row">
+        <!-- title -->
+        <div class="col-12">
+            <h2>個人資料</h2>
+        </div>
+        <div class="col-12">
+            <h3>完成填寫個人資料可享有更多會員專屬權益</h3>
+        </div>
+        <!-- form -->
+        <div class="col-12">
+            <form>
+                <!-- name -->
+                <div class="row mb-3">
+                    <label for="member-name" class="col-12 col-md-2 col-form-label">姓名</label>
+                    <div class="col">
+                        <input type="text" name="member-name" class="form-control">
+                    </div>
+                </div>
+                <!-- gender -->
+                <fieldset class="row mb-3">
+                    <legend class="col-12 col-md-2 col-form-label">性別</legend>
+                    <div class="col align-self-center">
+                        <div class="form-check ps-0 d-inline py-2">
+                            <input type="radio" name="gender" id="gender-male" value="male">
+                            <label for="gender-male" class="form-check-label">男生</label>
+                        </div>
+                        <div class="form-check ps-0 d-inline py-2">
+                            <input type="radio" name="gender" id="gender-female" value="female">
+                            <label for="gender-female" class="form-check-label">女生</label>
+                        </div>
+                        <div class="form-check ps-0 d-inline py-2">
+                            <input type="radio" name="gender" id="gender-private" value="private">
+                            <label for="gender-private" class="form-check-label">不公開</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- birthday -->
+                <div class="row mb-3">
+                    <label id="birthday" class="col-12 col-md-2 col-form-label">生日</label>
+                    <div class="col">
+                        <input type="date" name="birthday" id="birthday" class="form-control">
+                    </div>
+                </div>
+                <!-- phone -->
+                <div class="row mb-3">
+                    <label for="phone" class="col-12 col-md-2 col-form-label">手機</label>
+                    <div class="col">
+                        <input type="text" name="phone" id="phone" maxlength="10" class="form-control">
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="row mb-3">
+                    <label for="email" class="col-12 col-md-2 col-form-label">Email</label>
+                    <div class="col">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="example@mail.com">
+                    </div>
+                </div>
+                <!-- submit -->
+                <button type="submit" class="btn">儲存</button>
+            </form>
+        </div>
+    </div>
 </main>
 
 <div class="container mt-4 mt-lg-0 d-none">
@@ -17,50 +78,22 @@
             <form>
                 <!-- 姓名 -->
                 <div class="row mb-3">
-                    <label for="full-name" class="col-12 col-lg-2 col-form-label">姓名</label>
+                    <label for="full-name" class="col-12 col-md-2 col-form-label">姓名</label>
                     <div class="col">
                         <input type="text" name="full-name" class="form-control">
                     </div>
                 </div>
                 <!-- 性別 -->
                 <fieldset class="row mb-3">
-                    <legend class="col-12 col-lg-2 col-form-label">性別</legend>
-                    <div class="col">
-                        <div class="form-check ps-0 d-inline py-2">
-                            <input type="radio" name="gender" id="gender-male" value="male">
-                            <label for="gender-male" class="form-check-label">男生</label>
-                        </div>
-                        <div class="form-check ps-0 d-inline py-2">
-                            <input type="radio" name="gender" id="gender-female" value="female">
-                            <label for="gender-female" class="form-check-label">女生</label>
-                        </div>
-                        <div class="form-check ps-0 d-inline py-2">
-                            <input type="radio" name="gender" id="gender-private" value="private">
-                            <label for="gender-private" class="form-check-label">不公開</label>
-                        </div>
-                    </div>
+                    <legend class="col-12 col-md-2 col-form-label">性別</legend>
+
                 </fieldset>
                 <!-- 生日 -->
-                <div class="row mb-3">
-                    <label id="birthday" class="col-12 col-lg-2 col-form-label">生日</label>
-                    <div class="col">
-                        <input type="date" name="birthday" id="birthday" class="form-control">
-                    </div>
-                </div>
+
                 <!-- 手機 -->
-                <div class="row mb-3">
-                    <label for="phone" class="col-12 col-lg-2 col-form-label">手機</label>
-                    <div class="col">
-                        <input type="text" name="phone" id="phone" maxlength="10" class="form-control">
-                    </div>
-                </div>
+
                 <!-- 信箱 -->
-                <div class="row mb-3">
-                    <label for="email" class="col-12 col-lg-2 col-form-label">Email</label>
-                    <div class="col">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="example@mail.com">
-                    </div>
-                </div>
+
                 <!-- 儲存 -->
                 <button type="submit" class="btn">儲存</button>
             </form>
