@@ -5,6 +5,9 @@
     // all
     background-color: var.$dark-blue;
     // background-color: var.$gray;
+    @include mix.media(position, $md: sticky);
+    @include mix.media(top, $md: 0);
+
     .container {
         // all
         position: relative;

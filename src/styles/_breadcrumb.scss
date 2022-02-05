@@ -1,33 +1,44 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-// Bradecrumb
-#breadcrumb {
+.vice-nav {
+    // all
     background-color: var.$gray-blue;
-    // top: 64px;
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%), inset 0 -1px 0 rgb(0 0 0 / 15%);
-    @media (min-width: 992px) {
-        position: sticky;
-        top: 72px;
-    }
+    @include mix.media(position, $md: sticky);
+    @include mix.media(top, $md: 64px);
 
-    li:before {
-        color: var.$light;
-    }
-    li:after {
-        color: var.$light;
-        opacity: 0.75;
-    }
+    .container {
+        position: relative;
 
-    li,
-    a,
-    button {
-        color: var.$light;
-        font-weight: bold;
-        text-decoration: none;
-    }
+        .breadcrumb {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
 
-    #expand-alt {
-        color: var.$light;
+            .breadcrumb-item {
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+
+                &::before {
+                    color: var.$light;
+                    opacity: 0.6;
+                }
+                a {
+                    color: var.$light;
+                    opacity: 0.6;
+                    font-size: 1rem;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .expand-alt {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.75rem;
+            @include mix.media(display, $xs: block, $md: none);
+            font-size: 1rem;
+            color: var.$light;
+            opacity: 0.6;
+        }
     }
 }
