@@ -12,7 +12,7 @@
     <!-- breadcrumb -->
     <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
-    <div class="overflow-scroll content">
+    <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <!-- member sidebar left -->

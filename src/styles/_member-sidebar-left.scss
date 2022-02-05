@@ -12,7 +12,9 @@ $-sidebar-link-color: var.$dark-blue;
     @include mix.media(display, $md: block !important);
     // >= 768px sticky
     @include mix.media(position, $md: sticky);
-    @include mix.media(top, $md: 104px);
+    @include mix.media(top, $md: calc(64px + 40px + 16px));
+    @include mix.media(max-height, $md: calc(100vh - 64px - 40px - 16px));
+    // @include mix.media(max-height, $md: calc(100vh - 64px - 40px - 16px));
     margin-top: $-sidebar-margin-top-for-breadcrumb-boxshadow;
 
     padding-left: 1.75rem;
