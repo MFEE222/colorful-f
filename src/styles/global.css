@@ -191,6 +191,21 @@ body {
   }
 }
 
+main > .container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  min-height: calc(100vh - 160px);
+  padding: 60px;
+}
+main form button[type=submit] {
+  border-radius: 20px;
+  color: #ffffff;
+  background-color: #cf9d3f;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+}
+
 .ocard {
   background-color: #ebebe9;
   border-radius: 5px;
@@ -434,6 +449,39 @@ body {
 @media (min-width: 1400px) {
   .ocard .ocard-button button {
     font-size: 1.4rem;
+  }
+}
+
+.wishlist {
+  background-color: red;
+}
+.wishlist .hi {
+  display: block;
+  color: white;
+}
+@media (min-width: 576px) {
+  .wishlist .hi {
+    color: aqua;
+  }
+}
+@media (min-width: 768px) {
+  .wishlist .hi {
+    color: black;
+  }
+}
+@media (min-width: 992px) {
+  .wishlist .hi {
+    color: yellow;
+  }
+}
+@media (min-width: 1200px) {
+  .wishlist .hi {
+    color: brown;
+  }
+}
+@media (min-width: 1400px) {
+  .wishlist .hi {
+    color: white;
   }
 }
 

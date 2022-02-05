@@ -1,3 +1,9 @@
+// xs: <576px
+// sm: >=576px
+// md: >=768px
+// lg: >=992px
+// xl: >=1200px
+// xxl: >=1400px
 @mixin media($prop, $xs: "", $sm: "", $md: "", $lg: "", $xl: "", $xxl: "") {
     @if $xs != "" {
         #{$prop}: $xs;
