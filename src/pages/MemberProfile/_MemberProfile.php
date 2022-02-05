@@ -12,7 +12,6 @@
     <!-- breadcrumb -->
     <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
-
     <div class="overflow-scroll content">
         <div class="container-fluid">
             <div class="row">
@@ -20,7 +19,7 @@
                 <?php include "../../components/MemberSideBarLeft/_MemberSideBarLeft.php" ?>
 
                 <!-- member main -->
-                <?php include "../../components/MemberMain/_MemberMain.php" ?>
+                <?php include "../../components/MemberProfileMain/_MemberProfileMain.php" ?>
 
                 <!-- member sidebar right -->
                 <?php include "../../components/MemebrSideBarRight/_MemberSideBarRight.php" ?>

@@ -3,6 +3,8 @@
 # other
 tmp.*
 *.tmp
+*.css
+*.css.map
 
 # dependencies
 /node_modules
