@@ -1,6 +1,15 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
+$-margin-top-for-breadcrumb-boxshadow: 16px;
+
+.member-profile-main {
+    // all
+    background-color: rebeccapurple;
+    margin-top: $-margin-top-for-breadcrumb-boxshadow;
+    padding-right: 1.75rem;
+}
+
 main {
     & > .container {
         background-color: var.$light;
