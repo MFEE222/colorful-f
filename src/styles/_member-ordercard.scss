@@ -1,18 +1,18 @@
 // 字型最小 0.75rem
 @use "variables" as var;
-@use "library" as lib;
+@use "mixins" as mix;
 
 .ocard {
     // property for testing
     background-color: var.$gray;
 
     // all
-    @include lib.media(border-radius, $default: 5px, $min576: 20px);
+    @include mix.media(border-radius, $xs: 5px, $sm: 20px);
 
     // header
     .ocard-time,
     .ocard-number {
-        @include lib.media(
+        @include mix.media(
             font-size,
             0.7rem,
             0.75rem,
@@ -32,10 +32,10 @@
             &::before {
                 display: block;
                 content: "";
-                @include lib.media(
+                @include mix.media(
                     padding-top,
-                    $default: 100%,
-                    $min768: calc(2 / 3 * 100%)
+                    $xs: 100%,
+                    $md: calc(2 / 3 * 100%)
                 );
             }
 
@@ -46,25 +46,25 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                @include lib.media(border-radius, $min768: 20px, $default: 5px);
+                @include mix.media(border-radius, $md: 20px, $xs: 5px);
             }
         }
     }
     // body 標頭
     .ocard-title {
-        @include lib.media(
+        @include mix.media(
             font-size,
-            $default: 1.25rem,
-            $min576: 1.4rem,
-            $min768: 1.55rem,
-            $min992: 1.7rem,
-            $min1200: 1.85rem,
-            $min1400: 2rem
+            $xs: 1.25rem,
+            $sm: 1.4rem,
+            $md: 1.55rem,
+            $lg: 1.7rem,
+            $xl: 1.85rem,
+            $xxl: 2rem
         );
     }
     // body 狀態
     .ocard-status {
-        @include lib.media(
+        @include mix.media(
             font-size,
             0.65rem,
             0.8rem,
@@ -83,7 +83,7 @@
         // line-height: 24px;
 
         // height: 76px;
-        @include lib.media(
+        @include mix.media(
             font-size,
             0.8rem,
             0.95rem,
@@ -92,8 +92,8 @@
             1.4rem,
             1.55rem
         );
-        @include lib.media(-webkit-line-clamp, 4, 4, 2, 3, 3, 3);
-        // @include lib.media(
+        @include mix.media(-webkit-line-clamp, 4, 4, 2, 3, 3, 3);
+        // @include mix.media(
         //     line-height,
         //     1.1rem,
         //     1.2rem,
@@ -102,7 +102,7 @@
         //     1.5rem,
         //     1.6rem
         // );
-        // @include lib.media(
+        // @include mix.media(
         //         height,
         //         calc(12px * 3 / 2 * 5),
         //         calc(14px * 3 / 2 * 5),
@@ -117,14 +117,14 @@
     }
     // body 價格
     .ocard-price {
-        @include lib.media(
+        @include mix.media(
             font-size,
-            $default: 1.2rem,
-            $min576: 1.35rem,
-            $min768: 1.5rem,
-            $min992: 1.65rem,
-            $min1200: 1.8rem,
-            $min1400: 1.95rem
+            $xs: 1.2rem,
+            $sm: 1.35rem,
+            $md: 1.5rem,
+            $lg: 1.65rem,
+            $xl: 1.8rem,
+            $xxl: 1.95rem
         );
     }
     // footer 按鈕
@@ -134,7 +134,7 @@
             border-color: var.$gold;
             background-color: var.$gold;
             color: var.$light;
-            @include lib.media(
+            @include mix.media(
                 font-size,
                 0.8rem,
                 0.9rem,

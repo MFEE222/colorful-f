@@ -1,68 +1,76 @@
 body {
   font-family: "Tenor Sans", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: #ebebe9;
 }
 
 .navbar {
-  background-color: #ffffff;
+  background-color: #0e1829;
 }
-@media (min-width: 992px) {
-  .navbar {
-    background-color: #0e1829;
+.navbar .container {
+  position: relative;
+}
+.navbar .container .menu {
+  position: absolute;
+  display: block;
+  top: 5px;
+  right: 0;
+}
+@media (min-width: 768px) {
+  .navbar .container .menu {
+    display: none;
   }
 }
-.navbar #menu-bar {
-  top: 14px;
-  left: 14px;
-}
-.navbar #menu-bar a {
+.navbar .container .menu button {
+  font-size: 1rem;
   color: #8d807a;
-  font-size: 24px;
+  opacity: 0.8;
 }
-.navbar #logo {
-  height: 48px;
+.navbar .container .menu button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
-.navbar #logo img {
-  height: 100%;
-  object-fit: cover;
+.navbar .container .company-brand {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-@media (min-width: 992px) {
-  .navbar #logo {
-    height: 56px;
+.navbar .container .company-brand img {
+  height: 40px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+@media (min-width: 768px) {
+  .navbar .container .company-brand {
+    margin-left: 0 !important;
   }
 }
-@media (min-width: 992px) {
-  .navbar #d-none-icon {
-    display: hidden;
+.navbar .container .links {
+  margin-right: 0;
+}
+@media (min-width: 768px) {
+  .navbar .container .links {
+    margin-right: calc(1rem + 2vw);
   }
 }
-.navbar #link-group {
-  width: 100%;
+.navbar .container .links .nav-item:not(:first-child) {
+  margin-left: 0;
 }
-.navbar #link-group a {
+@media (min-width: 768px) {
+  .navbar .container .links .nav-item:not(:first-child) {
+    margin-left: calc(0.5rem + 1vw);
+  }
+}
+.navbar .container .links .nav-item .nav-link {
+  padding: 0.5rem;
+  font-size: 1rem;
   color: #cf9d3f;
 }
-.navbar #link-group a:hover {
-  opacity: 0.75;
+.navbar .container .icons .nav-link {
+  padding: 0.5rem;
+  font-size: 1rem;
 }
-@media (min-width: 992px) {
-  .navbar #link-group {
-    display: flex;
-    width: auto;
-  }
-}
-.navbar #icon-group {
-  width: 100%;
-}
-.navbar #icon-group a {
+.navbar .container .icons .nav-link i {
   color: #8d807a;
-}
-@media (min-width: 992px) {
-  .navbar #icon-group {
-    width: auto;
-  }
 }
 
 #breadcrumb {

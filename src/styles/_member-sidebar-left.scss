@@ -1,5 +1,5 @@
-@use "_variables" as var;
-@use "_library" as lib;
+@use "variables" as var;
+@use "mixins" as mix;
 
 // Sidebar
 #sidebar {

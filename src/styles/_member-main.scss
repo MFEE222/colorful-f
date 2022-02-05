@@ -1,5 +1,5 @@
 @use "variables" as var;
-@use "library" as lib;
+@use "mixins" as mix;
 
 main {
     & > .container {

@@ -1,0 +1,30 @@
+@mixin media($prop, $xs: "", $sm: "", $md: "", $lg: "", $xl: "", $xxl: "") {
+    @if $xs != "" {
+        #{$prop}: $xs;
+    }
+    @if $sm != "" {
+        @media (min-width: 576px) {
+            #{$prop}: $sm;
+        }
+    }
+    @if $md != "" {
+        @media (min-width: 768px) {
+            #{$prop}: $md;
+        }
+    }
+    @if $lg != "" {
+        @media (min-width: 992px) {
+            #{$prop}: $lg;
+        }
+    }
+    @if $xl != "" {
+        @media (min-width: 1200px) {
+            #{$prop}: $xl;
+        }
+    }
+    @if $xxl != "" {
+        @media (min-width: 1400px) {
+            #{$prop}: $xxl;
+        }
+    }
+}
