@@ -22,6 +22,7 @@ $-sidebar-link-color: var.$dark-blue;
         .nav-item {
             .nav-link {
                 // 設定 link padding-left
+                padding-right: 0;
                 @include mix.media(padding-left, $xs: 0.25rem, $md: 0.5rem);
                 color: $-sidebar-link-color;
             }
