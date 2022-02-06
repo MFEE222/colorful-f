@@ -39,23 +39,23 @@
 
     <div class="container">
         <div class="row box-1">
-            <div class="col-lg-8  col-12 img-block">
+            <div class="col-md-8  col-12 img-block ps-md-0">
                 <img src="../../../images/navbar-ex-1.jpg">
                 <p>婚禮系列 / WEDDING</p>
             </div>
-            <div class="col-lg-4  col-12 img-block">
+            <div class="col-md-4  col-12 img-block pe-md-0">
                 <img src="../../../images/navbar-ex-2.jpg">
                 <p>婚禮系列 / WEDDING</p>
             </div>
-            <div class="col-lg-5 col-12  img-block">
+            <div class="col-md-5 col-12  img-block ps-md-0">
                 <img src="../../../images/navbar-ex-2.jpg">
                 <p>婚禮系列 / WEDDING</p>
             </div>
-            <div class="col-lg-3 col-12 img-block">
+            <div class="col-md-3 col-12 img-block">
                 <img src="../../../images/navbar-ex-2.jpg">
                 <p> 婚禮系列 / WEDDING</p>
             </div>
-            <div class="col-lg-4 col-12 img-block">
+            <div class="col-md-4 col-12 img-block pe-md-0">
                 <img src="../../../images/navbar-ex-2.jpg">
                 <p>婚禮系列 / WEDDING</p>
             </div>
@@ -69,16 +69,56 @@
     <!-- // TODO: 商品卡片 -->
     <!-- class 只下排版 -->
     <div class="container">
-        <div class="row m-3 pt-3 product-card" style="width: 12rem; background-color: rosybrown; border-radius: 20px;">
-            <div class="col-12 product-card-header position-relative">
-                <img src="../../../images/product-img.jpeg" alt="" class="img-thumbnail">
-                <i class="fas fa-heart position-absolute"></i>
+        <div class="row pt-3 product-card justify-content-between">
+            <div class="col-md-3 col p-2 border inside-b">
+                <div class="product-card-header position-relative">
+                    <div class="ratio ratio-4x3">
+                        <img src="../../../images/navbar-ex-1.jpg" alt="">
+                    </div>
+                    <i class="fas fa-heart position-absolute"></i>
+                </div>
+                <div class="card-body text-center">
+                    <p class="card-title">婚禮／Wedding-1</p>
+                    <p class="card-text ">色彩豐富、溫款且對比自然為人像時尚和大自然
+                        攝影帶來生命力</p>
+                </div>
             </div>
-            <div class="col-12 product-card-body text-center">
-                <p class="d-block pt-2">婚禮</p>
+            <div class="col-md-3  p-2 border inside-b">
+                <div class="product-card-header position-relative">
+                    <div class="ratio ratio-4x3">
+                        <img src="../../../images/navbar-ex-1.jpg" alt="">
+                    </div>
+                    <i class="fas fa-heart position-absolute"></i>
+                </div>
+                <div class="card-body text-center">
+                    <p class="card-title">婚禮／Wedding-1</p>
+                </div>
+            </div>
+            <div class="col-md-3  p-2 border inside-b">
+                <div class="product-card-header position-relative">
+                    <div class="ratio ratio-4x3">
+                        <img src="../../../images/navbar-ex-1.jpg" alt="">
+                    </div>
+                    <i class="fas fa-heart position-absolute"></i>
+                </div>
+                <div class="card-body text-center">
+                    <p class="card-title">婚禮／Wedding-1</p>
+                </div>
+            </div>
+            <div class="col-md-3 p-2 border inside-b">
+                <div class="product-card-header position-relative">
+                    <div class="ratio ratio-4x3">
+                        <img src="../../../images/navbar-ex-1.jpg" alt="">
+                    </div>
+                    <i class="fas fa-heart position-absolute"></i>
+                </div>
+                <div class="card-body text-center">
+                    <p class="card-title">婚禮／Wedding-1</p>
+                </div>
             </div>
         </div>
     </div>
+    <!-- 把之前做好的元件貼過來 建資料夾 -->
     <!-- position: fixed -> viewport -->
     <!-- position: sticky -> reliatve / parent container (overflow: scroll)  -->
     <!-- position: static -> default -->
