@@ -1,0 +1,14 @@
+{
+    // 讓檔案開啟不要偵測縮排，強制整理成設定縮排
+    "editor.detectIndentation": false,
+    // 使用 prettier 排版
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    // 存檔自動排版
+    "editor.formatOnSave": true,
+    // 讓 .js 檔中可以使用 emmet 編寫符合 React 的 HTML 標籤 (className, htmlFor...)
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+}

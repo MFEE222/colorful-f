@@ -13,6 +13,17 @@
                 "${fileDirname}/${fileBasenameNoExtension}.css"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "sass: build global",
+            "detail": "sass build src/styles/global.scss",
+            "type": "shell",
+            "command": "sass",
+            "args": [
+                "${workspaceFolder}/src/styles/global.scss",
+                "${workspaceFolder}/src/styles/global.css"
+            ],
+            "problemMatcher": []
         }
     ]
 }
