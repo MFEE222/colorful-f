@@ -1,21 +1,23 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-$-sidebar-margin-top-for-breadcrumb-boxshadow: 16px;
-$-sidebar-background-color: var.$gray;
-$-sidebar-link-color: var.$dark-blue;
+$-margin-top-for-breadcrumb-boxshadow: 16px;
+$-background-color: var.$gray;
+$-link-color: var.$dark-blue;
 
 .member-sidebar-left {
     // test
-    background-color: $-sidebar-background-color;
+    background-color: $-background-color;
     // all
     @include mix.media(display, $md: block !important);
     // >= 768px sticky
     @include mix.media(position, $md: sticky);
-    @include mix.media(top, $md: 104px);
-    margin-top: $-sidebar-margin-top-for-breadcrumb-boxshadow;
+    @include mix.media(top, $md: calc(64px + 40px + 16px));
+    @include mix.media(max-height, $md: calc(100vh - 64px - 40px - 16px));
+    // @include mix.media(max-height, $md: calc(100vh - 64px - 40px - 16px));
+    margin-top: $-margin-top-for-breadcrumb-boxshadow;
 
-    padding-left: 1.75rem;
+    // padding-left: 1.75rem;
 
     // nav
     .nav {
@@ -23,8 +25,8 @@ $-sidebar-link-color: var.$dark-blue;
             .nav-link {
                 // 設定 link padding-left
                 padding-right: 0;
-                @include mix.media(padding-left, $xs: 0.25rem, $md: 0.5rem);
-                color: $-sidebar-link-color;
+                @include mix.media(padding-left, $xs: 0.25rem);
+                color: $-link-color;
             }
         }
     }

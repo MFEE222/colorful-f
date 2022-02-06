@@ -12,20 +12,20 @@
     <!-- breadcrumb -->
     <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
-    <div class="overflow-scroll content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- member sidebar left -->
-                <?php include "../../components/MemberSideBarLeft/_MemberSideBarLeft.php" ?>
 
-                <!-- member main -->
-                <?php include "../../components/MemberProfileMain/_MemberProfileMain.php" ?>
+    <div class="container content">
+        <div class="row">
+            <!-- member sidebar left -->
+            <?php include "../../components/MemberSideBarLeft/_MemberSideBarLeft.php" ?>
 
-                <!-- member sidebar right -->
-                <?php include "../../components/MemebrSideBarRight/_MemberSideBarRight.php" ?>
-            </div>
+            <!-- member main -->
+            <?php include "../../components/MemberProfileMain/_MemberProfileMain.php" ?>
+
+            <!-- member sidebar right -->
+            <?php include "../../components/MemebrSideBarRight/_MemberSideBarRight.php" ?>
         </div>
     </div>
+
 
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
