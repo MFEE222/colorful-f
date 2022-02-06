@@ -1,0 +1,17 @@
+main {
+    & > .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        min-height: calc(100vh - 160px);
+        padding: 60px;
+        // min-height: calc(100vh - 150px);
+        // min-height: 300vh;
+    }
+
+    button[type="button"] {
+        border-radius: 20px;
+        color: $light;
+        background-color: $gold;
+        border-color: $gold;
+    }
+}
