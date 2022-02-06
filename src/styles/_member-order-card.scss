@@ -2,7 +2,86 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-.ocard {
+$-background-color: var.$gray;
+$-border-radius: 20px;
+$-button-bg-color: var.$gold;
+$-button-color: var.$gray;
+
+.order-card {
+    // all
+    // background-color: $-background-color;
+    @include mix.media(background-color, $xs: var.$light, $md: var.$gray);
+    border-radius: 20px;
+    @include mix.media(padding, $xs: 1rem, $md: 1.5rem);
+
+    .order-card-header {
+        padding-left: 0.25rem;
+        font-size: 0.75rem;
+        p {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .order-card-body {
+        align-items: center;
+
+        .order-card-img {
+            width: 154px;
+            img {
+                border-radius: $-border-radius;
+                object-fit: cover;
+            }
+        }
+
+        .order-card-descp {
+            margin-bottom: 0;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 1rem;
+            -webkit-line-clamp: 2;
+            // height: calc(1rem * 1.5 * 2);
+        }
+
+        .order-card-price {
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 1.25rem;
+        }
+
+        // .order-card-status {
+        //     margin-bottom: 0;
+        //     text-align: center;
+        // }
+
+        hr {
+            margin-top: 1rem;
+        }
+
+        .order-card-status {
+            button {
+                border-radius: $-border-radius;
+                background-color: $-button-bg-color;
+                // color: $-button-color;
+                @include mix.media(color, $xs: var.$light, $md: var.$gray);
+                font-size: 0.75rem;
+            }
+        }
+        // .order-card-button {
+        //     button {
+        //         border-radius: $-border-radius;
+        //         background-color: $-button-bg-color;
+        //         // color: $-button-color;
+        //         @include mix.media(color, $xs: var.$light, $md: var.$gray);
+        //         font-size: 0.75rem;
+        //     }
+        // }
+    }
+}
+
+.ocard-old {
+    display: none;
     // property for testing
     background-color: var.$gray;
 
