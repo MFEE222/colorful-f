@@ -37,10 +37,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-<div class="order">
-    <p>123</p>
-</div>

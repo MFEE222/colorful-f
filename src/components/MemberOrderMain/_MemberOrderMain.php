@@ -1,20 +1,16 @@
-<<<<<<< Updated upstream
 <main class="col-12 col-md-10 member-order-main">
-    <?php include "../../components/MemberOrderCard/_MemberOrderCard.php" ?>
-
-</main>
-=======
-<<<<<<< Updated upstream
-<span>This is default message... please ignore</span>
-=======
-<main class="col-12 col-md-10 member-order-main">
-
-
-
+    <div class="member-order-filter-bar">
+        <ul class="nav">
+            <li class="nav-item"><button class="nav-link btn">全部</button></li>
+            <li class="nav-item"><button class="nav-link btn">未付款</button></li>
+            <li class="nav-item"><button class="nav-link btn">已付款</button></li>
+            <li class="nav-item"><button class="nav-link btn">完成</button></li>
+            <li class="nav-item"><button class="nav-link btn">不成立</button></li>
+        </ul>
+        <hr>
+    </div>
 
     <?php include "../../components/MemberOrderCard/_MemberOrderCard.php" ?>
     <?php include "../../components/MemberOrderCard/_MemberOrderCard.php" ?>
     <?php include "../../components/MemberOrderCard/_MemberOrderCard.php" ?>
 </main>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
