@@ -4,10 +4,8 @@
 $-margin-top-for-breadcrumb-boxshadow: 16px;
 $-background-color: var.$light;
 $-border-radius: 20px;
-$-filter-bar-button-width: 82px;
 
-.member-order-main {
-    // all
+.member-order-detail {
     margin-top: $-margin-top-for-breadcrumb-boxshadow;
     border-radius: $-border-radius;
     @include mix.media(background-color, $xs: none, $md: $-background-color);
