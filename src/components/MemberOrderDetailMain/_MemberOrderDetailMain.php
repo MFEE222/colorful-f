@@ -1,1 +1,3 @@
-<span>This is default message... please ignore</span>
+<div class="col-12 col-md-10 member-order-detail">
+    <div>12</div>
+</div>

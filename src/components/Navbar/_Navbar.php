@@ -6,7 +6,8 @@
         </figure>
         <!-- menu -->
         <div class="menu">
-            <button class="btn" data-bs-toggle="collapse" data-bs-target=".nav.collapse" aria-expand="false" aria-controls=".nav">
+            <button class="btn" data-bs-toggle="collapse" data-bs-target=".nav.collapse" aria-expand="false"
+                aria-controls=".nav">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
