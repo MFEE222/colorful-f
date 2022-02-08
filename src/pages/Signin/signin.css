@@ -1,61 +1,72 @@
-        body {
-            font-family: 'Tenor Sans', sans-serif;
-            color: #fff;
+body {
+    font-family: 'Tenor Sans', sans-serif;
+    color: #fff;
+}
 
-        }
+@media (min-width: 768px) {
+    .signin-img{
+        background-image: url("../../images/婚禮_5.jpg");
+        
+        -webkit-filter: brightness(.5);
+    }
+    
+}
+.form-box {
+    background: rgba(0, 0, 0, 50%);
+    margin: 20px;
+    padding: 50px;
+    width: 480px;
+    height: 600px;
+    border-radius: 80px;
+    position: absolute;
+    left: 240px;
+    top: 100px;
+}
 
-        .form-box {
-            background: rgba(0, 0, 0, 50%);
-            margin: 20px;
-            padding: 50px;
-            width: 480px;
-            height: 600px;
-            border-radius: 80px;
-            position:absolute;
-            left: 240px;
-            top: 100px;
-        }
+.signin-img {
+    background-image: url("../../images/login.jpg");
+    width: 100%;
+    -webkit-filter: brightness(.5);
+}
 
-        .signin-img {
-            height: 100%;
-            width: 100%;
-            -webkit-filter: brightness(.5);
-        }
+.box-title {
+    font-size: 36px;
+    text-align: center;
+}
 
-        .box-title {
-            font-size: 36px;
-            text-align: center;
-        }
+.form-floating {
+    border: 0;
+    margin: 30px;
+    -web-kit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    color: #6a6f77;
+}
 
-        .form-control {
-            background-color: transparent;
-            border: 0;
-            margin: 30px;
-        }
+.forgot {
+    text-align: right;
+    margin: 30px;
 
-        .forgot {
-            text-align: right;
-            margin: 30px;
+}
 
-        }
+.form-btn {
+    color: #fff;
+    background: #c4c4c47e;
+    width: 320px;
+    height: 50px;
+    border-radius: 20px;
+}
 
-        .form-btn {
-            color: #fff;
-            background: #c4c4c47e;
-            width: 320px;
-            height: 50px;
-            border-radius: 20px;
-        }
+.signup {
+    text-align: center;
+    margin: 30px;
+}
 
-        .signup {
-            text-align: center;
-            margin: 30px;
-        }
+.text-center {
+    font-size: 26px;
+}
 
-        a{
-            color: #ccc;
-        }
-
-        .text-center {
-            font-size: 26px;
-        }
+.input_control {
+    width: 360px;
+    margin: 20px auto;
+}
