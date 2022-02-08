@@ -7,28 +7,6 @@
 //     @content;
 // }
 
-.order {
-    // @include my-color(border-color, red) {
-    //     background-color: aqua;
-    //     font-size: 1px;
-    // }
-
-    @media (min-width: 768px) {
-    }
-
-    color: $c;
-    border-color: $c;
-    background-color: aqua;
-    font-size: 1px;
-
-    p {
-        color: $my-color;
-
-        span {
-        }
-    }
-}
-
 $-margin-top-for-breadcrumb-boxshadow: 16px;
 $-background-color: var.$light;
 $-border-radius: 20px;

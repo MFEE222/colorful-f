@@ -9,11 +9,10 @@
             "type": "shell",
             "command": "sass",
             "windows": {
-                "options": {
-                    "shell": {
-                        "executable": "powershell.exe"
-                    }
-                }
+                "args": [
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.scss",
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.css"
+                ],
             },
             "args": [
                 "${fileDirname}/${fileBasenameNoExtension}.scss",
@@ -27,11 +26,10 @@
             "type": "shell",
             "command": "sass",
             "windows": {
-                "options": {
-                    "shell": {
-                        "executable": "powershell.exe"
-                    }
-                }
+                "args": [
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.scss",
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.css"
+                ],
             },
             "args": [
                 "${workspaceFolder}/src/styles/global.scss",
