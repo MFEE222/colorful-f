@@ -11,6 +11,7 @@ $-breadcrumb-item-opacity: 0.8;
     @include mix.media(position, $md: sticky);
     @include mix.media(top, $md: 64px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: $zindex-sticky;
 
     .container {
         position: relative;
