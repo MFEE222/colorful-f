@@ -5,8 +5,14 @@ $-border-radius: 20px;
 $-filter-bar-button-width: 82px;
 
 .member-order-filter-bar {
+    hr {
+        margin-top: 0;
+    }
+
     .nav {
         align-items: center;
+        flex-wrap: nowrap;
+        overflow: scroll;
 
         .nav-item {
             // all
@@ -14,6 +20,7 @@ $-filter-bar-button-width: 82px;
                 margin-right: 1rem;
             }
             margin-top: 1rem;
+            margin-bottom: 1rem;
             // button
             &:not(:first-child) {
                 button {
@@ -34,6 +41,9 @@ $-filter-bar-button-width: 82px;
             button {
                 width: $-filter-bar-button-width;
                 font-size: 0.75rem;
+                padding: 0.5rem;
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
             }
         }
     }
