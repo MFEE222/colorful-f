@@ -21,5 +21,12 @@
             "// TODO: $0"
         ],
         "description": "Comment of TODO:"
+    },
+    "Fix Me": {
+        "prefix": "fixme",
+        "body": [
+            "// FIXME: $0"
+        ],
+        "description": "Comment of FIXME:"
     }
 }

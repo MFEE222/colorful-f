@@ -1,0 +1,168 @@
+$light: #ffffff;
+$gray: #ebebe9;
+$dark-blue: #0e1829;
+$gray-blue: #63727d;
+$brown: #8d807a;
+$gold: #cf9d3f;
+$break-point: 992px;
+// sass 輸出大小寫不敏感
+
+body {
+    overflow: scroll;
+    font-family: "Tenor Sans", sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    background-color: $gray;
+    overflow: scroll;
+}
+
+.navbar {
+    background-color: $dark-blue;
+    @media (min-width: $break-point) {
+        position: sticky;
+        top: 0;
+    }
+    // 漢堡選單
+    #menu-bar {
+        top: 14px;
+        left: 14px;
+        a {
+            color: $brown;
+            font-size: 24px;
+        }
+    }
+    // Logo
+    #logo {
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        height: 48px;
+
+        @media (min-width: $break-point) {
+            height: 56px;
+        }
+    }
+    // 連結列表
+    #link-group {
+        a {
+            color: $gold;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+
+        width: 100%;
+        @media (min-width: $break-point) {
+            display: flex;
+            width: auto;
+        }
+    }
+    // Icons
+    #icon-group {
+        a {
+            color: $brown;
+        }
+
+        width: 100%;
+        @media (min-width: $break-point) {
+            width: auto;
+        }
+    }
+}
+
+// Bradecrumb
+#breadcrumb {
+    background-color: $gray-blue;
+    // top: 64px;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%), inset 0 -1px 0 rgb(0 0 0 / 15%);
+    @media (min-width: $break-point) {
+        position: sticky;
+        top: 72px;
+    }
+
+    li:before {
+        color: $light;
+    }
+    li:after {
+        color: $light;
+        opacity: 0.75;
+    }
+
+    li,
+    a,
+    button {
+        color: $light;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    button {
+        // font-size: 18px;
+    }
+
+    #expand-alt {
+        color: $light;
+    }
+}
+
+// Page
+// #page {
+//     overflow: scroll;
+// }
+
+// Sidebar
+#sidebar {
+    ul {
+        // position: sticky;
+        // top: 104px;
+        // top: 128px;
+        // top: 136px;
+        @media (min-width: $break-point) {
+            // top: 160px;
+            position: sticky;
+            top: 136px;
+            // top: 136px;
+        }
+    }
+
+    .nav-link {
+        color: $light;
+        @media (min-width: $break-point) {
+            color: $dark-blue;
+        }
+    }
+
+    text-align: center;
+    @media (min-width: 992px) {
+        text-align: start;
+    }
+
+    @media (max-width: 991.98px) {
+        background-color: $gray-blue;
+    }
+}
+
+// Main
+main {
+    & > .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        min-height: calc(100vh - 160px);
+        padding: 60px;
+        // min-height: calc(100vh - 150px);
+        // min-height: 300vh;
+    }
+
+    form button[type="submit"] {
+        border-radius: 20px;
+        color: $light;
+        background-color: $gold;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 20px;
+    }
+}

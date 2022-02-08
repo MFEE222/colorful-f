@@ -9,7 +9,7 @@ import Download from './pages/Download/Download';
 import Error from './pages/Error/Error';
 import Home from './pages/Home/Home';
 import Mail from './pages/Mail/Mail';
-import Member from './pages/Member/Member';
+import Member from './pages/MemberProfile/Member';
 import OrderDetail from './pages/OrderDetail/OrderDetail';
 import Payment from './pages/Payment/Payment';
 import PaymentInfo from './pages/PaymentInfo/PaymentInfo';
