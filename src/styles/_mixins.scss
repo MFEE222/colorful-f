@@ -34,3 +34,68 @@
         }
     }
 }
+
+@mixin xs {
+    @content;
+}
+
+@mixin sm {
+    @media (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+// @mixin mediaS($xs: "", $sm: "", $md: "", $lg: "", $xl: "", $xxl: "") {
+//     @if $xs != "" {
+//         @extend #{$xs};
+//     }
+//     @if $sm != "" {
+//         @media (min-width: 576px) {
+//             @extend #{$sm};
+//         }
+//     }
+//     @if $md != "" {
+//         @media (min-width: 768px) {
+//             @extend #{$md};
+//         }
+//     }
+//     @if $lg != "" {
+//         @media (min-width: 992px) {
+//             @extend #{$lg};
+//         }
+//     }
+//     @if $xl != "" {
+//         @media (min-width: 1200px) {
+//             @extend #{$xl};
+//         }
+//     }
+//     @if $xxl != "" {
+//         @media (min-width: 1440px) {
+//             @extend #{$xxl};
+//         }
+//     }
+// }
