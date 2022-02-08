@@ -1,0 +1,43 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+// @mixin my-color($prop, $c) {
+//     #{$prop}: $c;
+//     border-color: $c;
+//     @content;
+// }
+
+.order {
+    // @include my-color(border-color, red) {
+    //     background-color: aqua;
+    //     font-size: 1px;
+    // }
+
+    @media (min-width: 768px) {
+    }
+
+    color: $c;
+    border-color: $c;
+    background-color: aqua;
+    font-size: 1px;
+
+    p {
+        color: $my-color;
+
+        span {
+        }
+    }
+}
+
+$-margin-top-for-breadcrumb-boxshadow: 16px;
+$-background-color: var.$light;
+$-border-radius: 20px;
+
+.member-order-main {
+    // all
+    margin-top: $-margin-top-for-breadcrumb-boxshadow;
+    border-radius: $-border-radius;
+    @include mix.media(background-color, $xs: none, $md: $-background-color);
+    @include mix.media(padding, $xs: 0, $md: 1.5rem);
+    min-height: calc(100vh - 64px - 40px - 16px - 16px);
+}
