@@ -34,3 +34,26 @@
         }
     }
 }
+
+// 指定子標籤長寬比例
+// ex: mix.ratio(3, 2, ">img");
+// ex: mix.ratio(16, 9, "img");
+@mixin ratio($width, $height, $tag: ">img") {
+    position: relative;
+    width: 100%;
+
+    &::before {
+        display: block;
+        content: "";
+        padding-top: calc($height / $width * 100%);
+    }
+
+    #{$tag} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
