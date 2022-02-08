@@ -1,0 +1,19 @@
+.fullscreen-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fullscreen-video video {
+    position: absolute;
+}
+
+.fullscreen-video.no-ie video {
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
