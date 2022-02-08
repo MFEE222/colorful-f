@@ -8,6 +8,13 @@
             "detail": "sass build single css",
             "type": "shell",
             "command": "sass",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe"
+                    }
+                }
+            },
             "args": [
                 "${fileDirname}/${fileBasenameNoExtension}.scss",
                 "${fileDirname}/${fileBasenameNoExtension}.css"
@@ -19,6 +26,13 @@
             "detail": "sass build src/styles/global.scss",
             "type": "shell",
             "command": "sass",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe"
+                    }
+                }
+            },
             "args": [
                 "${workspaceFolder}/src/styles/global.scss",
                 "${workspaceFolder}/src/styles/global.css"
