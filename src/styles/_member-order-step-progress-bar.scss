@@ -1,0 +1,25 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+.member-step-progressbar {
+    ul {
+        @extend .list-unstyled;
+
+        counter-reset: steps;
+        li:before {
+            counter-increment: steps;
+            content: counter(steps);
+
+            display: block;
+            text-align: center;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var.$gold;
+        }
+
+        li {
+            text-align: center;
+        }
+    }
+}
