@@ -23,7 +23,7 @@
 
             <!-- member sidebar right -->
             <?php //include "../../components/MemebrSideBarRight/_MemberSideBarRight.php" ?>
-            <?php include "../../components/ProductListMain/_ProductListMain.php" ?>
+            <?php include "../../components/ProductListMain/_ProductListMain-1.php" ?>
             <?php //include "../../components/ProductListMain/tmp.php" ?>
         </div>
     </div>

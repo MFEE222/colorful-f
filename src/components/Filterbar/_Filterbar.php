@@ -2,6 +2,7 @@
     <div class="filter-box">
         <ul class="sort-series p-0">
             <li class="active py-1 px-2 py-md-2 px-md-3">全部</li>
+            <li class="py-1 px-2 py-md-2 px-md-3">會員</li>
             <li class="py-1 px-2 py-md-2 px-md-3">食物</li>
             <li class="py-1 px-2 py-md-2 px-md-3">風景</li>
             <li class="py-1 px-2 py-md-2 px-md-3">婚禮</li>
