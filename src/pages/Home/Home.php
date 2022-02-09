@@ -11,6 +11,9 @@
     <!-- video -->
     <?php include "../../components/HomeVideo/_HomeVideo.php" ?>
 
+    <!-- slider -->
+    <?php include "../../components/HomeSlider/_HomeSlider.php" ?>
+
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
 
