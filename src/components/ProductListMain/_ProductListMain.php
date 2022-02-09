@@ -1,22 +1,22 @@
 <div class="product-list">
     <div class="row box-1">
-        <div class="col-md-8  col-12 img-block ps-md-0">
+        <div class="col-12 col-md-6 col-lg-8 img-block ps-md-0">
             <img src="../../images/navbar-ex-1.jpg">
             <p>婚禮系列 / WEDDING</p>
         </div>
-        <div class="col-md-4  col-12 img-block pe-md-0">
+        <div class="col-12 col-md-6 col-lg-4 img-block pe-md-0">
             <img src="../../images/navbar-ex-2.jpg">
             <p>婚禮系列 / WEDDING</p>
         </div>
-        <div class="col-md-5 col-12  img-block ps-md-0">
+        <div class="col-12 col-md-6 col-xl-5 img-block ps-md-0">
             <img src="../../images/navbar-ex-2.jpg">
             <p>婚禮系列 / WEDDING</p>
         </div>
-        <div class="col-md-3 col-12 img-block">
+        <div class="col-12 col-xl-3 img-block">
             <img src="../../images/navbar-ex-2.jpg">
             <p> 婚禮系列 / WEDDING</p>
         </div>
-        <div class="col-md-4 col-12 img-block pe-md-0">
+        <div class="col-12 col-md-6 col-xl-4 img-block pe-md-0">
             <img src="../../images/navbar-ex-2.jpg">
             <p>婚禮系列 / WEDDING</p>
         </div>
