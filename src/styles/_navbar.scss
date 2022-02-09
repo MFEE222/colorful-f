@@ -6,6 +6,7 @@
     // background-color: var.$gray;
     @include mix.media(position, $md: sticky);
     @include mix.media(top, $md: 0);
+    z-index: 1020;
 
     .container {
         // all
