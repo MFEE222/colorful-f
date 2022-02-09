@@ -8,6 +8,12 @@
             "detail": "sass build single css",
             "type": "shell",
             "command": "sass",
+            "windows": {
+                "args": [
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.scss",
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.css"
+                ],
+            },
             "args": [
                 "${fileDirname}/${fileBasenameNoExtension}.scss",
                 "${fileDirname}/${fileBasenameNoExtension}.css"
@@ -19,6 +25,12 @@
             "detail": "sass build src/styles/global.scss",
             "type": "shell",
             "command": "sass",
+            "windows": {
+                "args": [
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.scss",
+                    "/c/xampp/htdocs/colorful-f/src/styles/global.css"
+                ],
+            },
             "args": [
                 "${workspaceFolder}/src/styles/global.scss",
                 "${workspaceFolder}/src/styles/global.css"

@@ -13,8 +13,8 @@
     <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
 
-    <div class="container content">
-        <div class="row">
+    <div class="container-fluid container-md content">
+        <div class="row m-0">
             <!-- member sidebar left -->
             <?php include "../../components/MemberSideBarLeft/_MemberSideBarLeft.php" ?>
 

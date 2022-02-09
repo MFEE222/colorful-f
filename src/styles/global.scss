@@ -1,3 +1,4 @@
+@import "bootstrap";
 // utility
 @import "variables";
 @import "mixins";
@@ -16,10 +17,9 @@
 
 // member order page
 @import "member-order-main";
-@import "member-ordercard";
-
-// member order-detail page
-@import "member-orderdetail-main";
+@import "member-order-filterbar";
+@import "member-order-card";
+@import "member-order-detail-main";
 
 // member wishlist page
 @import "member-wishlist-main";
