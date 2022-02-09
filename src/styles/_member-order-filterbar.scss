@@ -1,0 +1,40 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+$-border-radius: 20px;
+$-filter-bar-button-width: 82px;
+
+.member-order-filter-bar {
+    .nav {
+        align-items: center;
+
+        .nav-item {
+            // all
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+            margin-top: 1rem;
+            // button
+            &:not(:first-child) {
+                button {
+                    border-radius: $-border-radius;
+                    color: var.$light;
+                    background-color: var.$dark-blue;
+                }
+            }
+
+            &:first-child {
+                button {
+                    border-radius: $-border-radius;
+                    color: var.$light;
+                    background-color: var.$gold;
+                }
+            }
+
+            button {
+                width: $-filter-bar-button-width;
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
