@@ -4,9 +4,7 @@
             <div class="col-12 col-sm-auto ">
                 <div class="form-box">
                     <form class="signin-form" action="">
-
                         <h4 class="box-title">SIGNIN TO YOUR COLORFUL</h4>
-
                         <div class="form-floating">
                             <input type="email" class="form-control" id="floatingInput" placeholder="Email address">
                             <label for="floatingInput">Email address</label>

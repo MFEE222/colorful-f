@@ -14,8 +14,7 @@
 
 
     <!-- footer -->
-    <?php //include "../../components/Footer/_Footer.php" 
-    ?>
+    <?php include "../../components/Footer/_Footer.php" ?>
 </body>
 
 </html>

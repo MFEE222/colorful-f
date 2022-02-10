@@ -1,13 +1,14 @@
 @use "variables"as var;
 @use "mixins"as mix;
 
+// 內容
 .signin-main {
     // all
     color: #fff;
     background-size: cover;
     @include mix.media(background-image, $xs: url("../images/婚禮_5.jpg"), $lg: url("../images/login.jpg"));
 
-
+    // form 框框
     .form-box {
         background: rgba(255, 255, 255, 10%);
         margin: 1rem;
@@ -19,12 +20,15 @@
         border-radius: 80px;
         @include mix.media(width, $sm: 400px);
 
+        //標題
         .box-title {
             text-align: center;
-            font-size: calc(1rem + 0.2vmin);
+            font-size: calc(2rem + 0.2vmin);
+            @include mix.media(font-size, $xs: 18px ,$lg: 30px);
+
         }
 
-
+        // 帳號/密碼輸入框
         .form-floating {
             border: 0;
             margin: 30px 16px 30px 16px;
@@ -34,7 +38,7 @@
             color: #6a6f77;
         }
 
-
+        // 忘記密碼
         .forgot {
             /* position: relative; */
             text-align: right;
@@ -43,13 +47,14 @@
             text-decoration: none;
         }
 
-
+        // icon框框
         .l-icon {
             display: flex;
             margin: 20px;
             @extend .px-4;
             @extend .justify-content-between;
 
+            // icon 圓框框
             .l-icon-link {
                 @extend .col-auto;
                 // @include mix.ratio(1, 1, ">i");
@@ -68,6 +73,7 @@
             }
         }
 
+        //送出按鈕
         .form-btn {
             font-size: 26px;
 
