@@ -1,4 +1,4 @@
-<main class="signin-main">
+<main class="signup-main">
     <div class="container">
         <div class="row justify-content-center justify-content-lg-start">
             <div class="col-12 col-sm-auto ">
