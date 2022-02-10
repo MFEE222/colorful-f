@@ -1,3 +1,6 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
 /* .pageOne {
     background-color: #59405c;
 } */
@@ -28,4 +31,13 @@
 
 .test {
     width: 90%;
+}
+
+.ratios {
+    @include mix.ratio(3, 2, ">iframe");
+}
+
+.box {
+    margin: 50px;
+    border-radius: 20px;
 }
