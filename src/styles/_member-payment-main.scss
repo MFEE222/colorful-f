@@ -1,0 +1,52 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+main {
+    & > .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        min-height: calc(100vh - 160px);
+        padding: 60px;
+        // min-height: calc(100vh - 150px);
+        // min-height: 300vh;
+    }
+
+    button[type="button"] {
+        border-radius: 20px;
+        color: $light;
+        background-color: $gold;
+        border-color: $gold;
+    }
+}
+
+.member-payment-main {
+    // all
+    margin-top: $-margin-top-for-breadcrumb-boxshadow;
+    border-radius: 20px;
+    @include mix.media(background-color, $xs: none, $md: $-background-color);
+    @include mix.media(padding, $xs: 1rem, $md: 1.5rem);
+    min-height: calc(100vh - 64px - 40px - 16px - 16px);
+
+    h1 {
+        font-size: calc(1.425rem + 2.1vmin);
+    }
+
+    h2 {
+        // font-size: calc(1.275rem + 0.3vmin);
+        font-size: calc(1rem + 0.3vmin);
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    .avator {
+        width: 155px;
+    }
+
+    form {
+        label,
+        legend {
+            width: $-form-label-width;
+            margin-left: 1px;
+        }
+    }
+}
