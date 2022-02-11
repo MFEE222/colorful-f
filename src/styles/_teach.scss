@@ -1,6 +1,19 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
+.teach {
+    .iphone {
+        .iphone-screen {
+            object-fit: cover;
+            @include mix.ratio(7, 10);
+        }
+
+        &:iphone-screen:nth-child(2) {
+            @include mix.media(display, $xs: none, $sm: block);
+        }
+    }
+}
+
 /* .pageOne {
     background-color: #59405c;
 } */
@@ -24,23 +37,20 @@
 }
 */
 
-.container {
-    margin: 0px;
-    padding: 0px;
-}
+// .container {
+//     margin: 0px;
+//     padding: 0px;
+// }
 
-.test {
-    width: 90%;
-}
+// .test {
+//     width: 90%;
+// }
 
-.ratios {
-    @include mix.ratio(3, 2, ">iframe");
-}
+// .ratios {
+//     @include mix.ratio(3, 2, ">iframe");
+// }
 
-.box {
-    margin: 50px;
-    border-radius: 20px;
-}
-.vd-box {
-    display: block;
-}
+// .box {
+//     margin: 50px;
+//     border-radius: 20px;
+// }
