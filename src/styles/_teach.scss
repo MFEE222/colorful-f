@@ -1,61 +1,137 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-.page-one {
-    @include mix.media(margin-top, $xs: 2rem);
-    @include mix.media(margin-bottom, $xs: 2rem);
+.teach {
+    .page-one {
+        @include mix.media(margin-top, $xs: 2rem);
+        @include mix.media(margin-bottom, $xs: 2rem);
 
-    .page-one-right {
-        .iphone {
-            // 給手機螢幕內容定位用
+        .page-one-right {
+            .iphone {
+                // 給手機螢幕內容定位用
+                position: relative;
+
+                .iphone-screen {
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                    }
+                }
+
+                .screen-content {
+                    position: absolute;
+                    left: 0;
+                    top: calc(22%);
+
+                    img {
+                        object-fit: cover;
+                        width: calc(100% - 24px - 11%);
+                    }
+                }
+
+                &:nth-child(2) {
+                    @include mix.media(display, $xs: none, $sm: block);
+                }
+            }
+        }
+    }
+    //第二頁的css樣是寫入區
+    .page-two {
+        background: #ed6663;
+
+        .text-light {
+            // position: absolute;
+            padding: 100px;
+
+            .teach-font {
+                margin: 200px 0;
+            }
+        }
+
+        .shape-ex3 {
+            width: 150px;
+            height: 40px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            line-height: 40px;
+            color: #000;
+            background-color: transparent;
+            border: 1px solid #000;
             position: relative;
-
-            .iphone-screen {
-                img {
-                    object-fit: cover;
-                    width: 100%;
-                }
-            }
-
-            .screen-content {
-                position: absolute;
-                left: 0;
-                top: calc(22%);
-
-                img {
-                    object-fit: cover;
-                    width: calc(100% - 24px - 11%);
-                }
-            }
-
-            &:nth-child(2) {
-                @include mix.media(display, $xs: none, $sm: block);
-            }
+            transition: all 0.3s linear;
+        }
+        .shape-ex3 > p {
+            position: relative;
+            z-index: 1;
+        }
+        .shape-ex3::before {
+            content: "";
+            width: 0%;
+            height: 100%;
+            display: block;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        .shape-ex3:hover {
+            color: #fff;
+        }
+        .shape-ex3:hover::before {
+            width: 100%;
         }
     }
 }
 
-.page-two {
-}
-
 .page-three {
-}
+    background-color: #303030;
+    .box {
+        margin: 50px;
+        border-radius: 20px;
+        // display: flex;
+        h1 {
+            color: #000;
+        }
+        h4 {
+            color: #666666;
+        }
+    }
 
-/* .pageOne {
-    background-color: #59405c;
-} */
+    .ratios {
+        @include mix.ratio(3, 2, ">iframe");
+    }
 
-#LP2 {
-    background-color: #ed6663;
-}
+    .page-four {
+        background-color: #570000;
+    }
 
-#LP3 {
-    background-color: #b52b65;
-}
+    .4image {
+        width: 500px;
+        height: 500px;
+    }
 
-#LP4 {
-    background-color: #3c2c3e;
+    // .card .card-image {
+    //     overflow: hidden;
+    //     -webkit-transform-style: preserve-3d;
+    //     -moz-transform-style: preserve-3d;
+    //     -ms-transform-style: preserve-3d;
+    //     -o-transform-style: preserve-3d;
+    //     transform-style: preserve-3d;
+    // }
 }
+// /* .pageOne {
+//     background-color: #59405c;
+// } */
+
+// #LP3 {
+//     background-color: #b52b65;
+// }
+
+// #LP4 {
+//     background-color: #3c2c3e;
+// }
 
 /* #frame {
     height: 160px;
@@ -79,5 +155,4 @@
 
 // .box {
 //     margin: 50px;
-//     border-radius: 20px;
-// }
+//     border-radius: 20px;}
