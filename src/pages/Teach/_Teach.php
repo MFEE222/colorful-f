@@ -41,9 +41,10 @@
         </div>
 
         <!--第二頁-->
+        <!-- flex container -->
         <div class="row page-two">
-
-            <div class="col-6 col-sm-6 text-light">
+            <!-- flex item -->
+            <div class="col-6 text-light">
                 <h1 class="teach-font">How to Install Lightroom Presets <br />
                     for Desktop and Mobile?</h1>
 
@@ -51,29 +52,21 @@
                     <p>PDF download</p>
                 </div>
             </div>
+            <!-- flex item -->
+            <div class="col-6">
+                <img class="test" src="./../../images/iphone-p2.jpg" />
+            </div>
 
 
-            <!-- <h1 class="text-light">
-                    How to Install Lightroom Presets <br />
-                    for Desktop and Mobile?
-                </h1>
-                <div class="shape-ex3">
-                    <p>PDF download</p>
-                </div> -->
 
-            <!--第三頁-->
-            <div class="row page-three">
-                <h1 style="margin-bottom: 0">Video teach</h1>
+        </div>
 
-                <!-- <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 ">
-                            <div class="card">
-                                <div class="card-image">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe width="460" height="300" src="https://www.youtube.com/embed/SC1XE85BC9o"
-                                            frameborder="0" allowfullscreen></iframe>
-                                    </div> -->
+        <!--第三頁-->
+        <div class="row page-three">
+
+            <h1 class="video-teach">Video teach</h1>
+
+            <div class="row">
                 <!--第一個視頻BOX-->
                 <div class="col-6  vd-box ">
                     <div class="box bg-light px-3 py-3">
@@ -90,7 +83,6 @@
                                 fuga eos, maxime velit quibusdam veritatis recusandae harum voluptatum.</h4>
                         </div>
                     </div>
-
                 </div>
                 <!--第二個視頻BOX-->
                 <div class="col-6  vd-box ">
@@ -108,20 +100,15 @@
                                 fuga eos, maxime velit quibusdam veritatis recusandae harum voluptatum.</h4>
                         </div>
                     </div>
-
-                </div>
-
-
-                <!--第四頁-->
-                <div class="page-four">
-                    <h1>測試用</h1>
-                    <img class="4image" src="./../../images/R.jpg" />
-
                 </div>
             </div>
+
+
+            <!--第四頁-->
+            <div class="page-four px-0">
+                <img class="image-4" src="./../../images/R.jpg" />
+            </div>
         </div>
-
-
 
         <!-- <div class="row vh-100">
             <section id="LP4">

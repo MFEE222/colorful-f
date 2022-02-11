@@ -45,6 +45,7 @@
 
             .teach-font {
                 margin: 200px 0;
+                font-size: 4rem;
             }
         }
 
@@ -87,6 +88,9 @@
 
 .page-three {
     background-color: #303030;
+    .video-teach {
+        color: #fff;
+    }
     .box {
         margin: 50px;
         border-radius: 20px;
@@ -94,6 +98,7 @@
         h1 {
             color: #000;
         }
+
         h4 {
             color: #666666;
         }
@@ -102,57 +107,12 @@
     .ratios {
         @include mix.ratio(3, 2, ">iframe");
     }
-
-    .page-four {
-        background-color: #570000;
-    }
-
-    .4image {
-        width: 500px;
-        height: 500px;
-    }
-
-    // .card .card-image {
-    //     overflow: hidden;
-    //     -webkit-transform-style: preserve-3d;
-    //     -moz-transform-style: preserve-3d;
-    //     -ms-transform-style: preserve-3d;
-    //     -o-transform-style: preserve-3d;
-    //     transform-style: preserve-3d;
-    // }
 }
-// /* .pageOne {
-//     background-color: #59405c;
-// } */
 
-// #LP3 {
-//     background-color: #b52b65;
-// }
+.page-four {
+    background-color: #570000;
 
-// #LP4 {
-//     background-color: #3c2c3e;
-// }
-
-/* #frame {
-    height: 160px;
-    width: 160px; 
-    position: relative;
+    .image-4 {
+        width: 100%;
+    }
 }
-*/
-
-// .container {
-//     margin: 0px;
-//     padding: 0px;
-// }
-
-// .test {
-//     width: 90%;
-// }
-
-// .ratios {
-//     @include mix.ratio(3, 2, ">iframe");
-// }
-
-// .box {
-//     margin: 50px;
-//     border-radius: 20px;}
