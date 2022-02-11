@@ -1,0 +1,58 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+
+.t-main {
+    background: #fff;
+
+    .t-head {
+        text-align: center;
+        padding: 50px;
+
+        .t-title {
+            font-size: 40px;
+        }
+
+        .t-subtitle {
+            font-size: 20px;
+        }
+    }
+    
+
+    .t-aboutus{
+        .t-pic-l {
+            width: 50%;
+            height: 280px;
+            float: left;
+        }
+        .t-pic-r {
+            width: 50%;
+            height: 280px;
+            float: right;
+        }
+        
+        .t-text {
+            width: 50%;
+            height: 280px;
+            background: #f7f7f7;
+            display: flex;
+
+            .t-name{
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .t-project{
+                font-size: 18px;
+                text-align: center;
+
+            }
+
+        }
+    }
+
+    
+
+}
+
+

@@ -1,0 +1,102 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+// 內容
+.signin-main {
+    // all
+    color: #fff;
+    background-size: cover;
+    @include mix.media(
+        background-image,
+        $xs: url("../images/婚禮_5.jpg"),
+        $lg: url("../images/login.jpg")
+    );
+
+    // form 框框
+    .form-box {
+        background: rgba(255, 255, 255, 10%);
+        margin: 1rem;
+        @include mix.media(margin-left, $xs: 0, $sm: 1rem);
+        @include mix.media(margin-right, $xs: 0, $sm: 1rem);
+        padding: 2rem;
+        padding-top: 3rem;
+        height: 600px;
+        border-radius: 80px;
+        @include mix.media(width, $sm: 400px);
+
+        //標題
+        .box-title {
+            text-align: center;
+            font-size: calc(2rem + 0.2vmin);
+            @include mix.media(font-size, $xs: 18px, $lg: 30px);
+        }
+
+        // 帳號/密碼輸入框
+        .form-floating {
+            border: 0;
+            margin: 30px 16px 30px 16px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            color: #6a6f77;
+        }
+
+        // 忘記密碼
+        .forgot {
+            /* position: relative; */
+            text-align: right;
+            margin: 0 16px 30px auto;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        // icon框框
+        .l-icon {
+            display: flex;
+            margin: 20px;
+            @extend .px-4;
+            @extend .justify-content-between;
+
+            // icon 圓框框
+            .l-icon-link {
+                @extend .col-auto;
+                // @include mix.ratio(1, 1, ">i");
+                color: #fff;
+                border: solid 1px rgba(255, 255, 255, 50%);
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                padding-top: 10px;
+
+                i {
+                    font-size: 50px;
+                    // @extend .mx-auto;
+                }
+            }
+        }
+
+        //送出按鈕
+        .form-btn {
+            font-size: 26px;
+
+            button {
+                color: #fff;
+                background: #c4c4c47e;
+                width: 100%;
+                height: 50px;
+                border: 0;
+                border-radius: 20px;
+            }
+        }
+
+        .signup {
+            text-align: center;
+            margin: 30px 12px 30px 12px;
+
+            .l-link {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
