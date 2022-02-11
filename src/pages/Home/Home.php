@@ -14,6 +14,9 @@
     <!-- slider -->
     <?php include "../../components/HomeSlider/_HomeSlider.php" ?>
 
+    <!-- piccard -->
+    <?php include "../../components/HomePiccard/_HomePiccard.php" ?>
+
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
 
