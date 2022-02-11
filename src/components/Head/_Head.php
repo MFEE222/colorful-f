@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,7 @@
     <!-- fontawesome -->
     <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/all.css">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
