@@ -1,17 +1,44 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-.teach {
-    .iphone {
-        .iphone-screen {
-            object-fit: cover;
-            @include mix.ratio(7, 10);
-        }
+.page-one {
+    @include mix.media(margin-top, $xs: 2rem);
+    @include mix.media(margin-bottom, $xs: 2rem);
 
-        &:iphone-screen:nth-child(2) {
-            @include mix.media(display, $xs: none, $sm: block);
+    .page-one-right {
+        .iphone {
+            // 給手機螢幕內容定位用
+            position: relative;
+
+            .iphone-screen {
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+
+            .screen-content {
+                position: absolute;
+                left: 0;
+                top: calc(22%);
+
+                img {
+                    object-fit: cover;
+                    width: calc(100% - 24px - 11%);
+                }
+            }
+
+            &:nth-child(2) {
+                @include mix.media(display, $xs: none, $sm: block);
+            }
         }
     }
+}
+
+.page-two {
+}
+
+.page-three {
 }
 
 /* .pageOne {
