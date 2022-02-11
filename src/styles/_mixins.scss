@@ -8,29 +8,57 @@
     @if $xs != "" {
         #{$prop}: $xs;
     }
+
     @if $sm != "" {
         @media (min-width: 576px) {
             #{$prop}: $sm;
         }
     }
+
     @if $md != "" {
         @media (min-width: 768px) {
             #{$prop}: $md;
         }
     }
+
     @if $lg != "" {
         @media (min-width: 992px) {
             #{$prop}: $lg;
         }
     }
+
     @if $xl != "" {
         @media (min-width: 1200px) {
             #{$prop}: $xl;
         }
     }
+
     @if $xxl != "" {
         @media (min-width: 1400px) {
             #{$prop}: $xxl;
         }
+    }
+}
+
+// 指定子標籤長寬比例
+// ex: mix.ratio(3, 2, ">img");
+// ex: mix.ratio(16, 9, "img");
+@mixin ratio($width, $height, $tag: ">img") {
+    position: relative;
+    width: 100%;
+
+    &::before {
+        display: block;
+        content: "";
+        padding-top: calc($height / $width * 100%);
+    }
+
+    #{$tag} {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
