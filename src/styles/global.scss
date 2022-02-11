@@ -7,6 +7,7 @@
 // shared
 @import "navbar";
 @import "breadcrumb";
+@import "footer";
 
 // member
 @import "member-sidebar-left";
@@ -32,3 +33,15 @@
 
 // member comment page
 @import "member-comment-main";
+
+// signin page
+@import "signin";
+
+// signup page
+@import "signup";
+
+// signin forgot password page
+@import "signin-forgot";
+
+// team page
+@import "team";
