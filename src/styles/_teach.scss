@@ -48,7 +48,7 @@
                 font-size: 4rem;
             }
         }
-
+        // 按鈕特效
         .shape-ex3 {
             width: 200px;
             height: 50px;
@@ -83,6 +83,10 @@
         .shape-ex3:hover::before {
             width: 100%;
         }
+
+        // lightroom 老人大圖
+        .lightroom-awesome {
+        }
     }
 }
 
@@ -114,5 +118,6 @@
 
     .image-4 {
         width: 100%;
+        object-fit: cover;
     }
 }
