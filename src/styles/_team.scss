@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "variables"as var;
+@use "mixins"as mix;
 
 // @include mix.media(margin-left, $xs: 0, $sm: 1rem);
 
@@ -16,51 +16,58 @@
         // 大標文字
         .t-title {
             font-size: 40px;
+            @include mix.media(font-size, $xs: 26px, $lg: 40px);
         }
 
         // 副標
         .t-subtitle {
             font-size: 20px;
+            @include mix.media(font-size, $xs: 14px, $lg: 20px);
+
         }
     }
 
     // 團隊介紹
     .t-aboutus {
-        overflow: hidden;
-
-        img {
-            object-fit: cover;
-        }
-
         .t-text {
             background: #f7f7f7;
             padding-left: 80px;
-            padding-top: 30px;
+            padding-top: 20px;
             text-align: left;
         }
 
         .text-n {
-            font-size: 36px;
+            // font-size: 36px;
+            @include mix.media(font-size, $xs: 20px, $lg: 36px);
+
         }
+
         .text-p {
-            font-size: 20px;
+            // font-size: 20px;
+            @include mix.media(font-size, $xs: 14px, $lg: 20px);
             color: rgb(124, 124, 124);
         }
     }
 
     // 技能表
     .t-skill {
-        padding: 50px;
-        height: 600px;
+        padding: 30px;
+        @include mix.media(padding, $xs: 10px, $lg: 30px);
+
+        // height: 600px;
 
         // 技能title
         .t-left {
             text-align: center;
             font-size: 20px;
+            @include mix.media(font-size, $xs: 14px, $lg: 20px);
             padding-top: 100px;
+            @include mix.media(padding-top, $xs: 50px, $lg: 100px);
+
 
             .t-k-title {
                 font-size: 36px;
+                @include mix.media(font-size, $xs: 20px, $lg: 36px);
                 padding: 20px;
             }
         }
@@ -68,6 +75,7 @@
         // 圓餅圖
         .t-right {
             padding: 30px;
+
             .t-circle {
                 height: 500px;
                 width: 100%;
@@ -78,13 +86,15 @@
 
     // 聯繫
     .t-contact {
-        padding: 50px;
-        @include mix.media(margin, $xs: auto, $lg: 50px);
+        // padding: 50px;
+        // @include mix.media(margin, $xs: auto, $lg: 50px);
 
         .t-c-title {
             font-size: 36px;
+            @include mix.media(font-size, $xs: 20px,$lg:36px);
             padding: 20px;
         }
+
         .t-c-left {
             padding: 30px;
 
