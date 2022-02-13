@@ -13,4 +13,14 @@ $-filter-bar-button-width: 82px;
     @include mix.media(background-color, $xs: none, $md: $-background-color);
     @include mix.media(padding, $xs: 0, $md: 1.5rem);
     min-height: calc(100vh - 64px - 40px - 16px - 16px);
+
+    .order-detail-card {
+        border-radius: $-border-radius;
+
+        @include mix.media(
+            background-color,
+            $xs: none,
+            $md: $-background-color
+        );
+    }
 }
