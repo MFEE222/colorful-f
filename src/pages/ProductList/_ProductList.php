@@ -23,15 +23,22 @@
 
             <!-- member sidebar right -->
             <?php //include "../../components/MemebrSideBarRight/_MemberSideBarRight.php" ?>
-            <?php include "../../components/ProductListMain/_ProductListMain-1.php" ?>
             <?php //include "../../components/ProductListMain/tmp.php" ?>
         </div>
     </div>
-
+    <?php include "../../components/ProductListMain/_ProductListMain-1.php" ?>
 
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
 
+    <!-- vanilla-tilt.js 特效 -->
+    <script type="text/javascript" src="../../../node_modules/vanilla-tilt/dist/vanilla-tilt.js"></script>
+    <!-- <script type="text/javascript">
+    VanillaTilt.init(document.querySelector(".card-border"), {
+        max: 25,
+        speed: 400
+    });
+    </script> -->
 </body>
 
 </html>

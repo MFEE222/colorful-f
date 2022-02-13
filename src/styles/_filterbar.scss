@@ -24,26 +24,42 @@
         }
     }
     .sort-icon {
-        li {
+        input {
+            width: 80%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        // 去除預設樣式
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
             display: none;
         }
+        li {
+            padding: 0;
+            margin: auto 8px;
+            > i {
+                color: #0e1829;
+            }
+        }
+        // li {
+        //     display: none;
+        // }
     }
 
     .line {
         clear: both;
-        width: 70%;
+        width: 100%;
         /* margin-top: -17px; */
         border-bottom: 1px solid transparent;
     }
     // .sort-series .active {
     //     background-color: #0e1829;
     // }
-    .filter-box {
-        margin: 0 auto;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+    // .filter-box {
+    //     display: flex;
+    // }
     @include mix.sm {
         font-size: 14px;
         .line {
@@ -56,17 +72,13 @@
                 display: inline;
             }
         }
-        .filter-box {
-            margin: 0;
-            justify-content: space-between;
-        }
     }
     @include mix.lg {
         .line {
-            width: 70%;
+            width: 100%;
         }
         .filter-box {
-            width: 70%;
+            width: 100%;
             margin: 0;
             justify-content: space-between;
         }
