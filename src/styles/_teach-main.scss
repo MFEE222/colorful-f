@@ -39,19 +39,12 @@
     .page-two {
         background: #696969;
 
-        .text-light {
-            // position: absolute;
-            padding: 100px;
-
-            .teach-font {
-                margin: 200px 0;
-                font-size: 4rem;
-            }
-        }
-
+        // 按鈕特效
         .shape-ex3 {
-            width: 200px;
-            height: 50px;
+            //width: 200px;
+            //height: 50px;
+            max-width: 200px;
+            max-height: 50px;
             display: block;
             text-align: center;
             cursor: pointer;
@@ -83,6 +76,7 @@
         .shape-ex3:hover::before {
             width: 100%;
         }
+
     }
 }
 
@@ -92,7 +86,6 @@
         color: #fff;
     }
     .box {
-        margin: 50px;
         border-radius: 20px;
         // display: flex;
         h1 {
@@ -114,5 +107,6 @@
 
     .image-4 {
         width: 100%;
+        object-fit: cover;
     }
 }
