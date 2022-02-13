@@ -5,7 +5,7 @@
                 <h2 class="t-title">OUR TEAM</h2>
                 <p class="t-subtitle">COLORFUL</p>
             </div>
-            <!-- 圖文 + 文字方塊 -->
+            <!-- 1. 圖文 + 文字方塊 -->
             <div class="row t-aboutus">
                 <!-- 圖片 -->
                 <div class="col-12 col-lg-6 p-0">
@@ -25,6 +25,7 @@
                     </p>
                 </div>
             </div>
+            <!-- 2. 圖文 + 文字方塊 -->
             <div class="row t-aboutus">
                 <!-- 圖片 -->
                 <div class="col-12 col-lg-6 p-0 pic-right">
@@ -44,6 +45,7 @@
                     </p>
                 </div>
             </div>
+            <!-- 3. 圖文 + 文字方塊 -->
             <div class="row t-aboutus">
                 <!-- 圖片 -->
                 <div class="col-12 col-lg-6 p-0">
@@ -63,6 +65,7 @@
                     </p>
                 </div>
             </div>
+            <!-- 4. 圖文 + 文字方塊 -->
             <div class="row t-aboutus">
                 <!-- 圖片 -->
                 <div class="col-12 col-lg-6 p-0">
@@ -82,6 +85,7 @@
                     </p>
                 </div>
             </div>
+            <!-- 5. 圖文 + 文字方塊 -->
             <div class="row t-aboutus">
                 <!-- 文字 -->
                 <div class="col-12 col-lg-6 t-text">
