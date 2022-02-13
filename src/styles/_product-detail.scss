@@ -1,0 +1,106 @@
+@use "mixins" as mix;
+@use "variables" as var;
+
+.detail-box {
+    margin: 3rem auto;
+    .img-big {
+        .ratios {
+            @media (max-width: 767.98px) {
+                @include mix.ratio(3, 4);
+            }
+            @media (min-width: 768px) {
+                @include mix.ratio(3, 2);
+            }
+            // @include mix.ratio(3, 2);ß
+        }
+    }
+    .img-list {
+        .img-small {
+            .ratios {
+                @include mix.ratio(1, 1);
+            }
+        }
+    }
+    .text-box {
+        .product-name {
+            @media (max-width: 767.98px) {
+                font-size: 1.2rem;
+                margin: 0.5rem auto 0;
+            }
+            @media (min-width: 768px) {
+                font-size: 1rem;
+                margin: 0;
+            }
+            @media (min-width: 992px) {
+                font-size: 26px;
+                margin: 0;
+            }
+        }
+        .reviews-text {
+            margin: 0;
+            @media (max-width: 768px) {
+                font-size: 0.75rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1rem;
+            }
+        }
+        .price {
+            @media (max-width: 767.98px) {
+                font-size: 1rem;
+            }
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 26px;
+            }
+        }
+        ul {
+            margin: 0;
+            list-style: none;
+            // display: flex;
+            padding-left: 0;
+            // align-items:flex-end;
+            > li {
+                padding: 2px;
+                color: $yellow;
+            }
+        }
+        .detail-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+            @media (max-width: 768px) {
+                font-size: 0.75rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1rem;
+                width: 90%;
+            }
+        }
+        .wish-list i {
+            @media (min-width: 992px) {
+                font-size: 2rem;
+            }
+        }
+        .add-cart {
+            background-color: $gold;
+            border-radius: 20px;
+            color: $light;
+            // 消除預設
+            border: 0;
+            @media (max-width: 767.98px) {
+                font-size: 12px;
+                width: 80px;
+                height: 30px;
+            }
+            @media (min-width: 768px) {
+                font-size: 14px;
+                width: 100px;
+                height: 40px;
+            }
+        }
+    }
+}
