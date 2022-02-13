@@ -12,10 +12,7 @@
   <!-- breadcrumb -->
   <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
-  <!-- member main -->
-  <?php include "../../components/TeachMain/_TeachMain.php" ?>
-
-  <!-- main -->
+  <!-- teach main -->
   <?php include "../../components/TeachMain/_TeachMain.php" ?>
 
   <!-- footer -->
