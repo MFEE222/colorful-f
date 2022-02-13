@@ -1,12 +1,16 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "variables" as var;
+@use "mixins" as mix;
 
 // 內容
 .signin-main {
     // all
     color: #fff;
     background-size: cover;
-    @include mix.media(background-image, $xs: url("../images/婚禮_5.jpg"), $lg: url("../images/login.jpg"));
+    @include mix.media(
+        background-image,
+        $xs: url("../images/婚禮_5.jpg"),
+        $lg: url("../images/login.jpg")
+    );
 
     // form 框框
     .form-box {
@@ -24,8 +28,7 @@
         .box-title {
             text-align: center;
             font-size: calc(2rem + 0.2vmin);
-            @include mix.media(font-size, $xs: 18px ,$lg: 30px);
-
+            @include mix.media(font-size, $xs: 18px, $lg: 30px);
         }
 
         // 帳號/密碼輸入框
@@ -69,7 +72,6 @@
                     font-size: 50px;
                     // @extend .mx-auto;
                 }
-
             }
         }
 
@@ -87,21 +89,14 @@
             }
         }
 
-
         .signup {
             text-align: center;
             margin: 30px 12px 30px 12px;
-
 
             .l-link {
                 color: #fff;
                 text-decoration: none;
             }
         }
-
-
-
-
-
     }
 }

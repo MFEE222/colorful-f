@@ -8,10 +8,8 @@
     <!-- navbar -->
     <?php include "../../components/Navbar/_Navbar.php" ?>
 
-
     <!-- main -->
     <?php include "../../components/SigninMain/_SigninMain.php" ?>
-
 
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
