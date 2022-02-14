@@ -1,6 +1,6 @@
 import './styles/global.scss';
 import '../node_modules/bootstrap/dist/js/bootstrap';
-import '../node_modules/vanilla-tilt/dist/vanilla-tilt';
+// import '../node_modules/vanilla-tilt/dist/vanilla-tilt';
 // Pages 頁面（會加到路由裡面）
 // import Cart from './pages/Cart/Cart';
 // import Checkout from './pages/Checkout/Checkout';

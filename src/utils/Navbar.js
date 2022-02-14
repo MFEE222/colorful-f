@@ -17,8 +17,8 @@ function Navbar(props) {
                         className="btn"
                         data-bs-toggle="collapse"
                         data-bs-target=".nav"
-                        aria-expand="false"
-                        aria-controls=".nav"
+                        // aria-expand="false"
+                        // aria-controls=".nav"
                     >
                         <i className="fas fa-bars"></i>
                     </button>
