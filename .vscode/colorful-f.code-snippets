@@ -51,5 +51,13 @@
             "export default $1;"
         ],
         "description": "import React"
+    },
+    "Hello, World": {
+        "prefix": "hlw",
+        "body": [
+            "$0Hello,.....$1....\n",
+            "\tWorld.....$2....",
+        ],
+        "description": "Try"
     }
 }

@@ -31,35 +31,21 @@ import '../node_modules/bootstrap/dist/js/bootstrap';
 // import { Button } from 'react-bootstrap';
 
 // Q: 為什麼直接在 <head></head> 引入 fontawesome 會失敗？
-import Navbar from './utils/Navbar';
-import Breadcrumb from './utils/Breadcrumb';
-import Footer from './utils/Footer';
 
-import MemberOrderSideBarLeft from './components/Member/SideBarLeft';
-import MemberMain from './components/Member/Main';
-import MemberProfile from './components/Member/Profile';
+import Member from './pages/Member';
+import Authentication from './pages/Authentication';
+import Product from './pages/Product';
 
-// .member, .product, .teach ... 設在 page 最上層？
+import Team from './pages/Team';
 
 function App() {
     return (
         <>
-            <Navbar></Navbar>
-            <Breadcrumb></Breadcrumb>
+            {/* <Member /> */}
 
-            <MemberMain>
-                <MemberOrderSideBarLeft></MemberOrderSideBarLeft>
-                {/* <MemberProfile></MemberProfile> */}
-            </MemberMain>
-            {/* <MemberOrderCard></MemberOrderCard> */}
-            {/* <MemberOrderFilterBar></MemberOrderFilterBar> */}
-            {/* <MemberOrderMain></MemberOrderMain> */}
-            {/* <MemberOrderStepProgressBar></MemberOrderStepProgressBar> */}
-            {/* <MemberOrderDetailMain></MemberOrderDetailMain> */}
-            {/* <Signin></Signin> */}
-            {/* <Signup></Signup> */}
-            {/* <SigninForgot></SigninForgot> */}
-            <Footer></Footer>
+            {/* <Authentication /> */}
+
+            <Product />
         </>
     );
 }
