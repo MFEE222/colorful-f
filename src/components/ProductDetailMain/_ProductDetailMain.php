@@ -72,8 +72,8 @@
     </div>
 </div>
 
-<!-- md 以上評論 標題-->
-<div class="recommend mt-5">
+<!-- 熱銷排行 md 以上評論 標題-->
+<div class="mt-5 recomment">
     <div class="recommend-title">
         <div class="text-box">
             <div class="phone-title">
@@ -154,8 +154,8 @@
     </div>
 </div>
 <!-- xs,sm 評論細節 -->
-<div class="recommend pt-md-3">
-    <div class="recommend-title">
+<div class="pt-md-3 review">
+    <div class="review-title">
         <div class="text-box">
             <div class="phone-title p-0">
                 <h3>評論</h3>
