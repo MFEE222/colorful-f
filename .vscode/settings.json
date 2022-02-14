@@ -1,5 +1,4 @@
 {
-    "editor.fontSize": 12,
     // 讓檔案開啟不要偵測縮排，強制整理成設定縮排
     "editor.detectIndentation": false,
     // 使用 prettier 排版
