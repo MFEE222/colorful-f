@@ -11,8 +11,8 @@ function Product(props) {
         <>
             <Navbar />
 
-            <ProductList />
-            {/* <ProductDetail /> */}
+            {/* <ProductList /> */}
+            <ProductDetail />
 
             <Footer />
         </>

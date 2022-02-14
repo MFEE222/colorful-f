@@ -4,7 +4,7 @@ function Main(props) {
     return (
         // <div class="container content py-3"></div>;
         <main className="container-fluid container-md product-main">
-            <div className="row">{props.children}</div>
+            <div className="">{props.children}</div>
         </main>
     );
 }
