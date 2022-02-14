@@ -45,7 +45,9 @@ function App() {
 
             {/* <Authentication /> */}
 
-            <Product />
+            {/* <Product /> */}
+
+            <Team />
         </>
     );
 }
