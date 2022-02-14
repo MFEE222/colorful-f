@@ -1,0 +1,16 @@
+@use "mixins" as mix;
+
+.card-img-top {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+}
+
+.ratios123 {
+    @include mix.ratio(1, 1, ">.img");
+
+    // .box {
+    //     // background-color: red;
+    //     @include mix.media(background-color, $xs: red, $md: blue, $lg: );
+    // }
+}
