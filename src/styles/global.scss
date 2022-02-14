@@ -8,6 +8,7 @@
 @import "navbar";
 @import "breadcrumb";
 @import "filterbar";
+@import "footer";
 
 // member
 @import "member-sidebar-left";
@@ -21,6 +22,7 @@
 @import "member-order-filterbar";
 @import "member-order-card";
 @import "member-order-detail-main";
+@import "member-order-step-progress-bar";
 
 // member wishlist page
 @import "member-wishlist-main";
@@ -39,3 +41,15 @@
 
 // product detail page
 @import "product-detail";
+
+// signin page
+@import "signin";
+
+// signup page
+@import "signup";
+
+// signin forgot password page
+@import "signin-forgot";
+
+// team page
+@import "team";
