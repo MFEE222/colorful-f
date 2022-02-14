@@ -35,14 +35,22 @@ import Navbar from './utils/Navbar';
 import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
 
+import MemberOrderSideBarLeft from './components/Member/SideBarLeft';
+import MemberMain from './components/Member/Main';
+import MemberProfile from './components/Member/Profile';
+
+// .member, .product, .teach ... 設在 page 最上層？
+
 function App() {
     return (
         <>
             <Navbar></Navbar>
             <Breadcrumb></Breadcrumb>
-            <Footer></Footer>
-            {/* <MemberOrderSideBarLeft></MemberOrderSideBarLeft> */}
-            {/* <MemberProfileMain></MemberProfileMain> */}
+
+            <MemberMain>
+                <MemberOrderSideBarLeft></MemberOrderSideBarLeft>
+                {/* <MemberProfile></MemberProfile> */}
+            </MemberMain>
             {/* <MemberOrderCard></MemberOrderCard> */}
             {/* <MemberOrderFilterBar></MemberOrderFilterBar> */}
             {/* <MemberOrderMain></MemberOrderMain> */}
@@ -51,6 +59,7 @@ function App() {
             {/* <Signin></Signin> */}
             {/* <Signup></Signup> */}
             {/* <SigninForgot></SigninForgot> */}
+            <Footer></Footer>
         </>
     );
 }
