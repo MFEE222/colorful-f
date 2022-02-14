@@ -1,0 +1,38 @@
+/* @media (min-width: 992px) {
+    .navbar #logo {
+        height: 56px;
+    }
+} */
+body {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+a{
+    color:#1F3359;
+    text-decoration: none;
+}
+a:hover{
+    color:#CF9D3F
+}
+.breadcrumb .active{
+    color:#1F3359;
+    position: relative;
+}
+.dec-bar{
+    height: 3px;
+    width: 30px;
+    background-color:#CF9D3F;
+    position: relative;
+    left: 15px;
+}
+@media (min-width: 992px) {
+    body{
+        font-size: 16px;
+    }
+    .dec-bar{
+        height: 4px;
+        width: 40px;
+
+    }
+}

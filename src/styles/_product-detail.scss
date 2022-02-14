@@ -1,0 +1,302 @@
+@use "mixins" as mix;
+@use "variables" as var;
+ul {
+    margin: 0;
+    list-style: none;
+    // display: flex;
+    padding-left: 0;
+    // align-items:flex-end;
+    > li {
+        padding: 2px;
+        color: $yellow;
+    }
+}
+.img-small {
+    .ratios {
+        @include mix.ratio(1, 1);
+        img {
+            border-radius: 8px;
+        }
+    }
+}
+.add-cart {
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: $gold;
+    &:hover {
+        background-color: $dark-blue;
+        transition: 0.3s;
+    }
+    // &::after {
+    //     content: "已加入購物車";
+    // }
+    border-radius: 20px;
+    color: $light;
+    // 消除預設
+    border: 0;
+    @media (max-width: 767.98px) {
+        font-size: 12px;
+        width: 100px;
+        height: 30px;
+    }
+    @media (min-width: 768px) {
+        font-size: 14px;
+        width: 120px;
+        height: 40px;
+    }
+}
+.detail-box {
+    // margin: 3rem auto;
+    .img-big {
+        .ratios {
+            @media (max-width: 767.98px) {
+                @include mix.ratio(3, 4);
+            }
+            @media (min-width: 768px) {
+                @include mix.ratio(3, 2);
+            }
+            // @include mix.ratio(3, 2);
+            img {
+                border-radius: 8px;
+            }
+        }
+    }
+    .img-list {
+        margin: 0;
+
+        // .img-small {
+        //     .ratios {
+        //         @include mix.ratio(1, 1);
+        //         img {
+        //             border-radius: 8px;
+        //         }
+        //     }
+        // }
+
+        > div:first-child {
+            margin-left: -0.25rem;
+        }
+
+        > div:last-child {
+            margin-right: -0.25rem;
+        }
+    }
+
+    .review-box {
+        @media (max-width: 767.98px) {
+            display: none;
+        }
+    }
+}
+
+// ============================================================================
+.product-name {
+    // @media (max-width: 767.98px) {
+    //     font-size: 1.2rem;
+    //     margin: 0.5rem auto 0;
+    // }
+    // @media (min-width: 768px) {
+    //     font-size: 1rem;
+    //     margin: 0;
+    // }
+    // @media (min-width: 992px) {
+    //     font-size: 26px;
+    //     margin: 0;
+    // }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    font-size: calc(1.375rem + 1.5vw);
+}
+.reviews-text {
+    margin: 0;
+    @media (max-width: 768px) {
+        font-size: 0.75rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 1rem;
+    }
+}
+.price {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    @media (max-width: 767.98px) {
+        font-size: 1rem;
+    }
+    @media (min-width: 768px) {
+        font-size: 1rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 26px;
+    }
+}
+// ul {
+//     margin: 0;
+//     list-style: none;
+//     // display: flex;
+//     padding-left: 0;
+//     // align-items:flex-end;
+//     > li {
+//         padding: 2px;
+//         color: $yellow;
+//     }
+// }
+.detail-text {
+    line-height: 1.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow: hidden;
+    @media (max-width: 768px) {
+        font-size: 0.75rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 1rem;
+        line-height: 2rem;
+        width: 99%;
+    }
+    @media (min-width: 1440px) {
+        font-size: 1rem;
+        line-height: 2rem;
+        width: 99%;
+    }
+}
+
+// .wish-list,
+// .wish-list-2
+%wish-list {
+    i {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        color: #63727e;
+        &:hover {
+            color: #ef2f2f;
+            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            transform: translate3d(0, 0, 0);
+        }
+        @keyframes shake {
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+    }
+    // @media (max-width: 767.98px) {
+    //     display: none;
+    // }
+    @media (min-width: 768px) {
+        font-size: 1rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 2rem;
+    }
+}
+
+.wish-list {
+    @extend %wish-list;
+}
+
+.wish-list-2 {
+    @extend %wish-list;
+    @media (max-width: 767.98px) {
+        display: none;
+    }
+}
+
+// 標題共用樣式
+%title-box {
+    .phone-title {
+        padding: 0 10px;
+        @media (max-width: 767px) {
+            text-align: center;
+        }
+    }
+    h3 {
+        font-size: 1.5rem;
+        color: $gold;
+        @include mix.md {
+            font-size: 1.7rem;
+        }
+        @include mix.lg {
+            font-size: 2rem;
+        }
+    }
+    p {
+        font-size: 0.8rem;
+        @include mix.lg {
+            font-size: 1rem;
+        }
+    }
+}
+
+.recommend-title {
+    margin-top: 3rem;
+    .text-box {
+        @extend %title-box;
+        //
+        @include mix.media(
+            border-left,
+            $xs: 6px solid transparent,
+            $md: 6px solid $gold,
+            $lg: 10px solid $gold
+        );
+    }
+}
+
+.review {
+    .text-box {
+        @extend %title-box;
+    }
+}
+
+.review-box {
+    .score {
+        @media (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+        font-size: 2.5rem;
+    }
+    .review-count {
+        @media (min-width: 768px) {
+            font-size: 1.2rem;
+        }
+        font-size: 2rem;
+    }
+}
+// .add-cart {
+//     filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+//     background-color: $gold;
+//     &:hover {
+//         background-color: $dark-blue;
+//         transition: 0.3s;
+//     }
+//     // &::after {
+//     //     content: "已加入購物車";
+//     // }
+//     border-radius: 20px;
+//     color: $light;
+//     // 消除預設
+//     border: 0;
+//     @media (max-width: 767.98px) {
+//         font-size: 12px;
+//         width: 100px;
+//         height: 30px;
+//     }
+//     @media (min-width: 768px) {
+//         font-size: 14px;
+//         width: 120px;
+//         height: 40px;
+//     }
+// }

@@ -7,6 +7,7 @@
 // shared
 @import "navbar";
 @import "breadcrumb";
+@import "filterbar";
 @import "footer";
 
 // member
@@ -34,6 +35,12 @@
 
 // member comment page
 @import "member-comment-main";
+// product list page
+// @import "product-list-main";
+@import "product-list-main-1";
+
+// product detail page
+@import "product-detail";
 
 // signin page
 @import "signin";
