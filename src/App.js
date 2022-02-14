@@ -35,7 +35,6 @@ import '../node_modules/bootstrap/dist/js/bootstrap';
 import Member from './pages/Member';
 import Authentication from './pages/Authentication';
 import Product from './pages/Product';
-
 import Team from './pages/Team';
 
 function App() {
@@ -45,9 +44,9 @@ function App() {
 
             {/* <Authentication /> */}
 
-            {/* <Product /> */}
+            <Product />
 
-            <Team />
+            {/* <Team /> */}
         </>
     );
 }
