@@ -13,7 +13,7 @@
     <?php include "../../components/Breadcrumb/_Breadcrumb.php" ?>
 
 
-    <div class="container content">
+    <div class="container content py-3">
         <!-- <div class="row"> -->
         <?php include "../../components/ProductDetailMain/_ProductDetailMain.php" ?>
         <!-- </div> -->

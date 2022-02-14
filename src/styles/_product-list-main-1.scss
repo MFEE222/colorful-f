@@ -306,7 +306,8 @@ body {
         }
     }
 }
-.recommend-title {
+.recommend-title{
+    margin-top: 3rem;
     .text-box {
         border-left: 6px solid transparent;
         @include mix.md {
@@ -322,10 +323,10 @@ body {
             }
         }
         h3 {
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: $gold;
             @include mix.md {
-                font-size: 1.3rem;
+                font-size: 1.7rem;
             }
             @include mix.lg {
                 font-size: 2rem;
@@ -337,6 +338,7 @@ body {
                 font-size: 1rem;
             }
         }
+       
     }
 }
 // .img-clip {
