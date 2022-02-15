@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Main from '../../components/Member/Main';
-import OrderContent from '../../components/Member/ProfileContent';
+import ProfileContent from '../../components/Member/ProfileContent';
 import SideBarLeft from '../../components/Member/SideBarLeft';
 
 function Profile(props) {
@@ -9,7 +9,7 @@ function Profile(props) {
         <>
             <Main>
                 <SideBarLeft />
-                <OrderContent />
+                <ProfileContent />
             </Main>
         </>
     );

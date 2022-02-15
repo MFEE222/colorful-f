@@ -20,8 +20,8 @@ function Breadcrumb(props) {
                     type="button"
                     href=".sidebar-left"
                     data-bs-toggle="collapse"
-                    aria-controls=".sidebar-left"
-                    aria-expand="false"
+                    // aria-controls=".sidebar-left"
+                    // aria-expand="false"
                     className="expand-alt"
                 >
                     <i className="fas fa-chevron-down"></i>
