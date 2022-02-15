@@ -8,6 +8,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap';
 
 // 通用元件
 import Navbar from './utils/Navbar';
+import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
 
 // 路由
@@ -26,6 +27,8 @@ function App() {
             <>
                 {/* 導覽列 */}
                 <Navbar />
+                {/* 麵包屑 */}
+                <Breadcrumb />
                 {/* <Link to="/">Home</Link>
                     <Link to="/teach">Teach</Link>
                     <Link to="/team">Team</Link>
