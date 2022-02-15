@@ -16,6 +16,7 @@ import Review from './Review';
 import WishList from './WishList';
 import Mail from './Mail';
 import Payment from './Payment';
+import Collect from './Collect';
 
 // 會員主頁（巢狀路由 or 單純函式解決）
 function Member(props) {
@@ -48,6 +49,10 @@ function Member(props) {
                 <Route path={match.path + routes.payment}>
                     <Payment />
                 </Route>
+                <Route path={match.path + routes.collect}>
+                    <Collect />
+                </Route>
+
                 <Route path={match.path}>
                     <div className="box">
                         <h1>Member</h1>
@@ -107,6 +112,14 @@ function Member(props) {
                                     to={match.path + routes.payment}
                                 >
                                     Payment
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="btn btn-primary text-light"
+                                    to={match.path + routes.collect}
+                                >
+                                    Collect
                                 </Link>
                             </li>
                         </ul>
