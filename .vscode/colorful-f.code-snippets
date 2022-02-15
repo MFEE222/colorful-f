@@ -59,5 +59,19 @@
             "\tWorld.....$2....",
         ],
         "description": "Try"
+    },
+    "Class Setter": {
+        "prefix": "setter",
+        "body": [
+            "set $1 (val) { this._$1 = val; }"
+        ],
+        "description": "class setter template"
+    },
+    "Class Getter": {
+        "prefix": "getter",
+        "body": [
+            "get $1 () { return this._$1; }"
+        ],
+        "description": "class getter template"
     }
 }

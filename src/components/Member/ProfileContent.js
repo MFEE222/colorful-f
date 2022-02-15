@@ -114,7 +114,7 @@ function ProfileContent(props) {
                             type="text"
                             name="phone"
                             id="phone"
-                            maxlength="10"
+                            maxLength="10"
                             className="form-control"
                         />{' '}
                     </div>

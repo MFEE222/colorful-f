@@ -7,21 +7,23 @@ import {
     useParams,
 } from 'react-router-dom';
 
-import TeamContent from '../../components/Team/TeamContent';
 import { routes } from '../../utils/routes';
 
-function Team(props) {
+function Error(props) {
     const match = useRouteMatch();
 
     return (
         <>
             <Switch>
                 <Route path={match.path}>
-                    <TeamContent />
+                    <div className="box">
+                        <h1>Error</h1>
+                        <p>This is 404 page. FIXME: 404/404.js </p>
+                    </div>
                 </Route>
             </Switch>
         </>
     );
 }
 
-export default Team;
+export default Error;
