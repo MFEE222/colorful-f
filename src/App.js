@@ -31,11 +31,12 @@ import Footer from './components/Footer/Footer';
 import Error from './pages/404';
 
 
+
 function App() {
     return (
         <>
-
-            <Error />
+            <NavBar />
+            {/* <Error /> */}
             {/* <NavBar></NavBar>
             <Router>
                 <> */}
