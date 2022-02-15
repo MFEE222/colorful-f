@@ -31,8 +31,8 @@
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>
 
-    <!-- vanilla-tilt.js 特效 -->
-    <script type="text/javascript" src="../../../node_modules/vanilla-tilt/dist/vanilla-tilt.js"></script>
+    <!-- vanilla-tilt.js 特效
+    <script type="text/javascript" src="../../../node_modules/vanilla-tilt/dist/vanilla-tilt.js"></script> -->
     <!-- <script type="text/javascript">
     VanillaTilt.init(document.querySelector(".card-border"), {
         max: 25,
