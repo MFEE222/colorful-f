@@ -7,6 +7,9 @@ import {
     useParams,
 } from 'react-router-dom';
 
+import Main from '../../components/Member/Main';
+import SideBarLeft from '../../components/Member/SideBarLeft';
+
 import { routes } from '../../utils/routes';
 import Profile from './Profile';
 import Order from './Order';
@@ -24,6 +27,8 @@ function Member(props) {
 
     return (
         <>
+            {/* <Main> */}
+            {/* <SideBarLeft /> */}
             <Switch>
                 <Route path={match.path + routes.profile}>
                     <Profile />
@@ -126,6 +131,7 @@ function Member(props) {
                     </div>
                 </Route>
             </Switch>
+            {/* </Main> */}
         </>
     );
 }
