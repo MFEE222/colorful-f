@@ -5,24 +5,24 @@ import ImgFigure from '../../images/portrait01.jpg';
 
 function ProductDetailContent(props) {
     return (
-        <>
+        <div className="product-detail">
             {/* // <!-- Product desciption --> */}
-            <div className="detail-box row">
+            <div className="row pd-1 pd-shared">
                 {/* <!-- 大張商品示意圖 --> */}
-                <div className="img-box col-12 col-md-6 order-1">
+                <div className="col-12 col-md-6 order-1">
                     <div className="img-big">
-                        <div className="ratios ">
+                        <div className="ratios">
                             <img src={ImgProduct} alt="" />
                         </div>
                     </div>
                 </div>
                 {/* <!-- 商品詳細描述 --> */}
-                <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start text-box">
+                <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
                     <div className="col-12 my-xxl-4 align-self-start ">
                         <h1 className="my-3 my-md-0 mb-lg-2  product-name">
                             Weeding 01
                         </h1>
-                        <ul className="d-flex align-items-center pb-2 pb-md-1">
+                        <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
                             <li className="ps-0">
                                 <i className="fas fa-star"></i>
                             </li>
@@ -94,7 +94,7 @@ function ProductDetailContent(props) {
             </div>
 
             {/* <!-- 熱銷排行 md 以上評論 標題--> */}
-            <div className="my-5 recommend">
+            <div className="my-5 recommend pd-2 pd-shared">
                 <div className="recommend-title">
                     <div className="text-box">
                         <div className="phone-title">
@@ -105,7 +105,7 @@ function ProductDetailContent(props) {
                     </div>
                 </div>
                 <div className="recommend-card">
-                    <div className="card-group row my-4 mt-md-5 my-2">
+                    <div className="row my-4 mt-md-5 my-2 card-group ">
                         <div className="col-6 col-md-3">
                             <div className="card-border " data-tilt>
                                 {/* <!-- data-tilt 特效 看是否保留 --> */}
@@ -183,19 +183,25 @@ function ProductDetailContent(props) {
                 </div>
             </div>
             {/* <!-- xs,sm 評論細節 --> */}
-            <div className="pt-md-3 review">
+            <div className="pt-md-3 pd-3 pd-shared">
                 <div className="review-title">
                     <div className="text-box">
                         <div className="phone-title p-0">
-                            <h3 className=" text-center d-md-none">評論</h3>
-                            <p className="m-0 e-title text-center top-border">
+                            <h3 className="text-center d-md-none">評論</h3>
+                            <p className="m-0 e-title text-center">
                                 CUSTOMER REVIEWS
                             </p>
-                            <img className="d-md-none" src={ImgIcon} alt="" />
+                            <div>
+                                <img
+                                    className="d-md-none"
+                                    src={ImgIcon}
+                                    alt=""
+                                />
+                            </div>
 
                             <div className="d-md-none">
                                 <h3>Weeding 01</h3>
-                                <ul className="d-flex justify-content-center align-items-center ">
+                                <ul className="d-flex justify-content-center align-items-center ul-unstyle">
                                     <li className="ps-0">
                                         <i className="fas fa-star"></i>
                                     </li>
@@ -221,7 +227,7 @@ function ProductDetailContent(props) {
                 </div>
             </div>
             {/* <!-- md 以上評論細節 --> */}
-            <div className="d-none d-md-block">
+            <div className="d-none d-md-block pd-4 pd-shared">
                 <div className="review-box row justify-content-between mt-3 ">
                     {/* <!-- <div className="img-small col-2">
         <div className="ratios ">
@@ -231,7 +237,7 @@ function ProductDetailContent(props) {
                     <div className="col-auto">
                         <h3 className="mb-3 d-md-none">Weeding 01</h3>
                         <h3 className="m-0 text-center score ">4/5</h3>
-                        <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1">
+                        <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1 ul-unstyle">
                             <li className="ps-0">
                                 <i className="fas fa-star"></i>
                             </li>
@@ -258,7 +264,7 @@ function ProductDetailContent(props) {
             </div>
 
             {/* 所有上傳的照片slider => 套件 react-slick*/}
-            <div className="py-4 my-4 border-top-bottom">
+            <div className="py-4 my-4 pd-5 pd-shared">
                 <p>已有 17 位顧客上傳照片</p>
                 <div className="row review-img-slider mx-0">
                     <div className="col-3 col-md-2 col-lg ms-0">
@@ -310,63 +316,188 @@ function ProductDetailContent(props) {
             </div>
 
             {/* 評論卡 */}
-            <div className="review-card">
-                <div className="d-flex">
-                    <div className="col-auto  figure">
-                        <img src={ImgFigure} alt="" />
+            <div className="pd-6 pd-shared">
+                <div className="review-card">
+                    <div className="d-flex ">
+                        <div className="col-md-auto figure">
+                            <img
+                                src={ImgFigure}
+                                alt=""
+                                className="object-fit "
+                            />
+                        </div>
+                        <div className="review-card-detail col">
+                            <div className="d-flex justify-content-between justify-content-start align-items-start">
+                                <p className="review-name me-3 p-0 mb-0">
+                                    Name ABC
+                                </p>
+                                <p className="review-day align-self-center mb-0">
+                                    3天前
+                                </p>
+                            </div>
+                            <div>
+                                <ul className="d-flex align-items-center ul-unstyle mb-3">
+                                    <li className="ps-0">
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p className="review-card-text">
+                                    因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。是低對比度柔和的色調，這款濾鏡可以讓我營造出美麗而寧靜的藝術照。運用全新的colorful網站效能，幾秒之內就能強調重點拍攝相片以及創作出有趣的作品，我們推出了許多色調包
+                                    以及復古的效果，可在拍攝照片時使用，我們也很高興能
+                                    與大家分享，輕鬆點一下就可以為照片增添新風格
+                                </p>
+                            </div>
+                            <div className="row m-0 review-list-img ">
+                                <div className="box">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
+                                </div>
+
+                                <div className="box">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
+                                </div>
+
+                                <div className="box ">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="review-card-detail col-auto ">
-                        <div className="row">
-                            <p className="review-name">Name ABC</p>
-                            <p>3天前</p>
+                    <div className="thumbs-list">
+                        <ul className="">
+                            <li>這則評論有幫助嗎？</li>
+                            <li>
+                                <i class="fas fa-thumbs-up"></i>3
+                            </li>
+                            <li>
+                                <i class="fas fa-thumbs-down"></i>0
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="review-card">
+                    <div className="d-flex ">
+                        <div className="col-md-auto figure">
+                            <img
+                                src={ImgFigure}
+                                alt=""
+                                className="object-fit "
+                            />
                         </div>
-                        <div>
-                            <ul className="d-flex align-items-center ">
-                                <li className="ps-0">
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p className="detail-text">
-                                因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。是低對比度柔和的色調，這款濾鏡可以讓我營造出美麗而寧靜的藝術照。運用全新的colorful網站效能，幾秒之內就能強調重點拍攝相片以及創作出有趣的作品，我們推出了許多色調包
-                                以及復古的效果，可在拍攝照片時使用，我們也很高興能
-                                與大家分享，輕鬆點一下就可以為照片增添新風格
-                            </p>
-                        </div>
-                        <div className="row">
-                            <div className="col-auto">
-                                <div className="ratios">
-                                    <img src={ImgProduct} alt="" />
+                        <div className="review-card-detail col">
+                            <div className="d-flex justify-content-between justify-content-start align-items-start">
+                                <p className="review-name me-3 p-0 mb-0">
+                                    Name ABC
+                                </p>
+                                <p className="review-day align-self-center mb-0">
+                                    3天前
+                                </p>
+                            </div>
+                            <div>
+                                <ul className="d-flex align-items-center ul-unstyle mb-3">
+                                    <li className="ps-0">
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p className="review-card-text">
+                                    因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。是低對比度柔和的色調，這款濾鏡可以讓我營造出美麗而寧靜的藝術照。運用全新的colorful網站效能，幾秒之內就能強調重點拍攝相片以及創作出有趣的作品，我們推出了許多色調包
+                                    以及復古的效果，可在拍攝照片時使用，我們也很高興能
+                                    與大家分享，輕鬆點一下就可以為照片增添新風格
+                                </p>
+                            </div>
+                            <div className="row m-0 review-list-img ">
+                                <div className="box">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
+                                </div>
+
+                                <div className="box">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
+                                </div>
+
+                                <div className="box ">
+                                    <img
+                                        src={ImgProduct}
+                                        alt=""
+                                        className="object-fit"
+                                    />
                                 </div>
                             </div>
-                            <div className="col-auto">
-                                <div className="ratios">
-                                    <img src={ImgProduct} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-auto">
-                                <div className="ratios">
-                                    <img src={ImgProduct} alt="" />
-                                </div>
-                            </div>
                         </div>
+                    </div>
+                    <div className="thumbs-list">
+                        <ul className="">
+                            <li>這則評論有幫助嗎？</li>
+                            <li>
+                                <i class="fas fa-thumbs-up"></i>3
+                            </li>
+                            <li>
+                                <i class="fas fa-thumbs-down"></i>0
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </>
+
+            {/* <!-- Pagination --> */}
+            <div className="container">
+                <div className="pagination">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
 }
 
