@@ -23,6 +23,7 @@ export const routes = {
     _review: '/review',
     _mail: '/mail',
     _payment: '/payment',
+    _collect: '/collect',
 
     get home() {
         return this._home;
@@ -87,6 +88,9 @@ export const routes = {
     get payment() {
         return this._payment;
     },
+    get collect() {
+        return this._collect;
+    }
 };
 
 // console.log('routes.home :>> ', routes.home);
