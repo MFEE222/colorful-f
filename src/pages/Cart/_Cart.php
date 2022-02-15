@@ -17,11 +17,15 @@
             <!-- flex container -->
             <div class="row">
 
-                <!-- member sidebar left / xs: col-12 / md: col-2 -->
-                <?php include "../../components/CartWall/_CartWall.php" ?>
+                <div class="col-md-8">
+                    <!-- member sidebar left / xs: col-12 / md: col-2 -->
+                    <?php include "../../components/CartWall/_CartWall.php" ?>
+                </div>
 
-                <!-- member main / xs: col-12 / md: col-10 or col-8 -->
-
+                <div class="col-md-1">
+                    <!-- member main / xs: col-12 / md: col-10 or col-8 -->
+                    <?php include "../../components/CartSummaryCard/_CartSummaryCard.php" ?>
+                </div>
 
 
             </div>
