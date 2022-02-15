@@ -1,13 +1,10 @@
 import React from 'react';
 
-
-
-
-function DownloadContent (props) {
+function DownloadContent(props) {
     return (
-        <div className="member-download">
+        <div className="col-12 col-md-10 member-download">
             <div className="box"></div>
-        </div>        
+        </div>
     );
 }
 
