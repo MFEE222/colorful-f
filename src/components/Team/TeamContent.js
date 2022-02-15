@@ -170,7 +170,7 @@ function TeamContent(props) {
                                         id="email"
                                         placeholder="email"
                                     />
-                                    <label htmlfor="email"></label>
+                                    <label htmlFor="email"></label>
                                 </div>
                                 <div className="t-floating">
                                     <input
@@ -179,7 +179,7 @@ function TeamContent(props) {
                                         id="text"
                                         placeholder="text"
                                     />
-                                    <label htmlfor="text"></label>
+                                    <label htmlFor="text"></label>
                                 </div>
                                 <button className="t-c-btn" type=" submit">
                                     SUBMIT

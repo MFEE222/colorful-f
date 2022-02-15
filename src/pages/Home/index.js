@@ -7,21 +7,22 @@ import {
     useParams,
 } from 'react-router-dom';
 
-import TeamContent from '../../components/Team/TeamContent';
 import { routes } from '../../utils/routes';
 
-function Team(props) {
+function Home(props) {
     const match = useRouteMatch();
-
     return (
         <>
             <Switch>
                 <Route path={match.path}>
-                    <TeamContent />
+                    <div className="box">
+                        <h1>Colorful</h1>
+                        <p>Welcome to colorful...</p>
+                    </div>
                 </Route>
             </Switch>
         </>
     );
 }
 
-export default Team;
+export default Home;
