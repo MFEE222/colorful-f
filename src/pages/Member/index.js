@@ -18,6 +18,7 @@ import Download from './Download';
 import Review from './Review';
 import WishList from './WishList';
 import Mail from './Mail';
+import MailDetail from './MailDetail';
 import Payment from './Payment';
 import Collect from './Collect';
 
@@ -50,6 +51,9 @@ function Member(props) {
                     </Route>
                     <Route path={match.path + routes.mail}>
                         <Mail />
+                    </Route>
+                    <Route path={match.path + routes.mailDetail}>
+                        <MailDetail />
                     </Route>
                     <Route path={match.path + routes.payment}>
                         <Payment />
@@ -109,6 +113,14 @@ function Member(props) {
                                         to={match.path + routes.mail}
                                     >
                                         Mail
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="btn btn-primary text-light"
+                                        to={match.path + routes.mailDetail}
+                                    >
+                                        Mail Detail
                                     </Link>
                                 </li>
                                 <li>
