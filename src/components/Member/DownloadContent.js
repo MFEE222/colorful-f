@@ -94,6 +94,7 @@ function DownloadContent(props) {
                         <div className="col-4 border mb-5"></div>
                     </div>
 
+                    {/* DOWNLOAD按鈕 */}
                     <div className="row">
                         <div className="col-12 text-center">
                             <button
@@ -329,6 +330,8 @@ function DownloadContent(props) {
             <div className="row justify-content-center">
                 <div className="col-7 border mb-5"></div>
             </div>
+
+            <div className="diamod"></div>
         </main>
     );
 }
