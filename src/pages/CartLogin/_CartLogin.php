@@ -6,8 +6,10 @@
 <head>
     <style>
     .container {
-        width: 100%;
+        display: flex | inline-flex;
+
         margin: 0 auto;
+
     }
     </style>
 </head>
@@ -22,9 +24,7 @@
 
     <!-- content  -->
     <div class="container">
-        <div>
-            <?php include "../../components/CartLoginCard/_CartLoginCard.php" ?>
-        </div>
+        <div class="box align-self-center"><?php include "../../components/CartLoginCard/_CartLoginCard.php" ?></div>
     </div>
     <!-- footer -->
     <?php include "../../components/Footer/_Footer.php" ?>

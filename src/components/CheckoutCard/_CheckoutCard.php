@@ -1,7 +1,7 @@
 <div class="row">
     <div class="">
         <div class="card text-dark bg-transparent mb-3 " style="max-width: 80%;">
-            <div class="card-header text-dark mb-3">Shipping Addres</div>
+            <div class="card-header text-dark mb-3 h3">Shipping Addres</div>
             <div class="card-body mb-3 ">
                 <form>
                     <div class="row">
