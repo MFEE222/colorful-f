@@ -1,7 +1,15 @@
 import React from 'react';
 
-import Img1 from '../../images/婚禮_5.jpg';
-import Img2 from '../../images/wed001.jpg';
+import Img1 from '../../images/book1.jpg';
+import Img2 from '../../images/film001.jpg';
+import Img3 from '../../images/film002.jpg';
+import Img4 from '../../images/film003.jpg';
+import Img5 from '../../images/film004.jpg';
+import Img6 from '../../images/film005.jpg';
+import Img7 from '../../images/film006.jpg';
+import Img8 from '../../images/film007.jpg';
+import Img9 from '../../images/film008.jpg';
+import Img10 from '../../images/film009.jpg';
 
 function DownloadContent(props) {
     return (
@@ -49,7 +57,7 @@ function DownloadContent(props) {
                     <div className="card border-0" style={{ width: '18rem' }}>
                         <img src={Img1} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h5 className="text-center fw-bold">WEDDING</h5>
+                            <h5 className="text-center fw-bold">FILM</h5>
                             <p className="card-text text-center text-black-50">
                                 Recycle Boucle Knit Cardigan Pink
                             </p>
@@ -101,7 +109,7 @@ function DownloadContent(props) {
 
             {/* <!-- card --> */}
             {/* 用row-cols-數字去控制一行有多少個 */}
-            <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-4 my-1 mx-3 p-3 card-house">
+            <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-3 my-1 mx-3 p-3 card-house">
                 <div className="col">
                     <div className="card-border " data-tilt>
                         {/* <!-- data-tilt 特效 看是否保留 --> */}
@@ -113,7 +121,7 @@ function DownloadContent(props) {
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片／FILM-1
                                 </p>
 
                                 <input
@@ -131,13 +139,13 @@ function DownloadContent(props) {
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img2} alt="" />
+                                <img className="img-fluid" src={Img3} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片／FILM-2
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -154,13 +162,13 @@ function DownloadContent(props) {
                     <div className="card-border">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img2} alt="" />
+                                <img className="img-fluid" src={Img4} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-3
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -177,13 +185,13 @@ function DownloadContent(props) {
                     <div className="card-border">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img2} alt="" />
+                                <img className="img-fluid" src={Img5} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-4
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -200,13 +208,13 @@ function DownloadContent(props) {
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img1} alt="" />
+                                <img className="img-fluid" src={Img6} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-5
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -223,13 +231,13 @@ function DownloadContent(props) {
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img1} alt="" />
+                                <img className="img-fluid" src={Img7} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-6
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -246,13 +254,13 @@ function DownloadContent(props) {
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img1} alt="" />
+                                <img className="img-fluid" src={Img8} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-7
                                 </p>
                                 <input
                                     className="form-check-input"
@@ -269,13 +277,38 @@ function DownloadContent(props) {
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
-                                <img className="img-fluid" src={Img1} alt="" />
+                                <img className="img-fluid" src={Img9} alt="" />
                             </div>
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <div className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold">
-                                    婚禮／Wedding-1
+                                    底片/FILM-8
+                                </p>
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="flexCheckDefault"
+                                />
+                            </div>
+                            <div className="text-start">NT 20</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 第10張卡 */}
+                <div className="col">
+                    <div className="card-border ">
+                        <div className="card-img ">
+                            <div className="ratios">
+                                <img className="img-fluid" src={Img10} alt="" />
+                            </div>
+                        </div>
+                        <div className="card-body text-start p-0 my-2 my-md-4">
+                            <div className="d-flex justify-content-between align-items-center">
+                                <p className="card-title fw-bold">
+                                    底片/FILM-9
                                 </p>
                                 <input
                                     className="form-check-input"

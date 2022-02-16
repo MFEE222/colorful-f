@@ -15,7 +15,7 @@
     .card-house {
         .card-img {
             .ratios {
-                @include mix.ratio(3, 5);
+                @include mix.ratio(4, 6);
 
                 // @include xs {
                 //     @include mix.ratio(1, 1);
