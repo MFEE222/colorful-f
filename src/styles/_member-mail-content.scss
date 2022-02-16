@@ -22,7 +22,7 @@
     }
 
     .mail-card {
-
+        position: relative;
         @include mix.media(border, $xs: none, $md: solid 1px #ccc);
         @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
         @include mix.media(border-radius, $xs: 0, $md: 20px);
@@ -49,11 +49,18 @@
         }
 
         .btn {
-            color: #cf9d3f;
-            border: solid 1px #cf9d3f;
+            @include mix.media(position, $xs: absolute);
+            @include mix.media(left, $xs: 0px, $md: 80%, $lg: 85% ,$xl: 88%);
+            @include mix.media(top, $xs: 0px, $md:70%);
+
+            @include mix.media(color, $xs: transparent, $md: #cf9d3f);
+            @include mix.media(border, $xs: transparent, $md: solid 1px #cf9d3f);
             border-radius: 20px;
             font-size: 12px;
-            width: 80px;
+            @include mix.media(width, $xs: 100%, $md: 80px);
+            @include mix.media(height, $xs: 100%, $md: auto);
+
+
         }
 
         .btn:hover {
