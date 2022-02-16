@@ -8,118 +8,71 @@
     @include mix.media(top, $md: 0);
     z-index: 1020;
 
-//     // 隱藏 list
-//     .sm-link a {
-//         text-decoration: none;
-//         // visibility: visible;
+    .container {
+        // all
+        position: relative;
+        // menu
+        .menu {
+            // position: absolute;
+            // all
+            @include mix.media(position, $xs: absolute);
+            @include mix.media(display, $xs: block, $md: none);
+            top: 5px;
+            right: 0;
+            // button
+            button {
+                font-size: 1rem;
+                color: var.$brown;
+                opacity: 0.8;
 
-//     }
+                &:focus {
+                    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 25%);
+                }
+            }
+        }
 
-//     // 漢堡
-//     #menu-bar {
-//         top: 14px;
-//         left: 14px;
-//     }
+        // company brand
+        .company-brand {
+            img {
+                height: 40px;
+                margin-top: 0.25rem;
+                margin-bottom: 0.25rem;
+            }
+            @include mix.media(
+                margin-left,
+                $xs: auto !important,
+                $md: 0 !important
+            );
+            @include mix.media(margin-right, $xs: auto !important);
+        }
+        // links
+        .links {
+            @include mix.media(margin-right, $xs: 0, $md: calc(1rem + 2vw));
 
-//     // 漢堡 icon
-//     #menu-bar>a {
-//         display: inline-block;
-//         height: 100%;
-//         color: #8d807a;
-//         font-size: 24px;
-//     }
-
-
-//     #logo {
-//         height: 48px;
-//         @include mix.media(height, $sm: 48px, $lg: 56px);
-
-//     }
-
-//     #logo img {
-//         height: 100%;
-//         object-fit: cover;
-//     }
-
-//     #link-group {
-//         @include mix.media(display, $lg: flex);
-//         @include mix.media(width, $lg: auto);
-
-//         // 導覽列頁 分類
-//         li {
-//             padding: 15px 8px;
-//         }
-
-//         // 導覽列頁 連結
-//         a {
-//             color: #cf9d3f;
-//         }
-
-//         a:hover {
-//             opacity: 0.75;
-//         }
-
-//     }
-
-//     // bar icon 手機
-//     #d-none-icon a {
-//         color: #8d807a;
-//     }
-
-//     // bar icon 電腦
-//     #icon-group {
-//         width: 100%;
-//         @include mix.media(width, $xs:auto ,$lg:100%);
-//         a {
-//             color: #8d807a;
-//         }
-//     }
-
-//     /* click nav link show box */
-//     @media (min-width: 992px) {
-
-//         /* 暫時隱藏，等待設計稿完成 */
-//         #tmp-hide {
-//             /* display: none !important; */
-//             visibility: visible;
-//         }
-
-//         .show-img {
-//             /* overflow: hidden; */
-//             width: 600px;
-//             height: 400px;
-//             float: left;
-//         }
-
-//         .show-img img {
-//             width: 100%;
-//             object-fit: cover;
-//         }
-
-//         .showbox-link {
-//             margin-top: 72px;
-//             margin-left: 60px;
-//             float: left;
-//         }
-
-//         .showbox-link>li {
-//             list-style: none;
-//             margin: 20px;
-//         }
-
-//         .showbox-link>li>a {
-//             text-decoration: none;
-//             color: #cf9d3f;
-//             font-size: 16px;
-//         }
-
-//         .showbox-link a:hover {
-//             text-decoration: none;
-//             color: #63727e;
-//             font-size: 18px;
-//             transition: 0.3s;
-//         }
-//     }
-
-//     /*# sourceMappingURL=Navbar.css.map */
-// }
+            .nav-item {
+                &:not(:first-child) {
+                    @include mix.media(
+                        margin-left,
+                        $xs: 0,
+                        $md: calc(0.5rem + 1vw)
+                    );
+                }
+                .nav-link {
+                    padding: 0.5rem;
+                    font-size: 1rem;
+                    color: var.$gold;
+                }
+            }
+        }
+        // icons
+        .icons {
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 1rem;
+                i {
+                    color: var.$brown;
+                }
+            }
+        }
+    }
+}
