@@ -22,6 +22,7 @@ export const routes = {
     _wishList: '/wishlist',
     _review: '/review',
     _mail: '/mail',
+    _mailDetail: '/mailDetail',
     _payment: '/payment',
     _collect: '/collect',
 
@@ -84,6 +85,9 @@ export const routes = {
     },
     get mail() {
         return this._mail;
+    },
+    get mailDetail() {
+        return this._mailDetail;
     },
     get payment() {
         return this._payment;
