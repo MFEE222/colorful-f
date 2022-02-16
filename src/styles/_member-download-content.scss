@@ -1,10 +1,30 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-.member-download {
+.member-profile-main {
     .box {
         width: 300px;
         height: 300px;
         background-color: deepskyblue;
+    }
+    // .onecard {
+    //     height: 300px;
+    //     width: 200px;
+    // }
+
+    .card-house {
+        .card-img {
+            .ratios {
+                @include mix.ratio(3, 5);
+
+                // @include xs {
+                //     @include mix.ratio(1, 1);
+                // }
+
+                // @include md {
+                //     @include mix.ratio(3, 5);
+                // }
+            }
+        }
     }
 }
