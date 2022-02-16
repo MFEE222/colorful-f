@@ -6,9 +6,30 @@ body {
     font-weight: bold;
     font-size: 10px;
 }
-.navbar #sm-link a {
-    text-decoration: none;
+
+.navbar .sm-link {
+    display: inline-block;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 300;
+    position: absolute;
+    left: 0;
+    width: 300px;
+
 }
+
+.navbar .sm-link li {
+    list-style-type: none;
+}
+.navbar .sm-link a {
+    text-decoration: none;
+
+}
+
+#link-product:hover {
+    display:block;
+}
+
 .navbar {
     background-color: #ffffff;
 }
@@ -18,33 +39,40 @@ body {
     left: 14px;
 }
 
-.navbar #menu-bar > a {
+.navbar #menu-bar>a {
     display: inline-block;
     height: 100%;
     color: #8d807a;
     font-size: 24px;
 }
+
 .navbar #logo {
     height: 48px;
 }
+
 .navbar #logo img {
     height: 100%;
     object-fit: cover;
 }
+
 @media (min-width: 992px) {
     .navbar #logo {
         height: 56px;
     }
 }
-.navbar #link-group > li {
+
+.navbar #link-group>li {
     padding: 15px 8px;
 }
+
 .navbar #link-group a {
     color: #cf9d3f;
 }
+
 .navbar #link-group a:hover {
     opacity: 0.75;
 }
+
 @media (min-width: 992px) {
     .navbar #link-group {
         display: flex;
@@ -63,6 +91,7 @@ body {
 .navbar #icon-group a {
     color: #8d807a;
 }
+
 @media (min-width: 992px) {
     .navbar #icon-group {
         width: auto;
@@ -71,34 +100,42 @@ body {
 
 /* click nav link show box */
 @media (min-width: 992px) {
+
     /* 暫時隱藏，等待設計稿完成 */
     #tmp-hide {
-        display: none !important;
+        /* display: none !important; */
+        visibility: visible;
     }
+
     .show-img {
-        overflow: hidden;
+        /* overflow: hidden; */
         width: 600px;
         height: 400px;
         float: left;
     }
+
     .show-img img {
         width: 100%;
         object-fit: cover;
     }
+
     .showbox-link {
         margin-top: 72px;
         margin-left: 60px;
         float: left;
     }
-    .showbox-link > li {
+
+    .showbox-link>li {
         list-style: none;
         margin: 20px;
     }
-    .showbox-link > li > a {
+
+    .showbox-link>li>a {
         text-decoration: none;
         color: #cf9d3f;
         font-size: 16px;
     }
+
     .showbox-link a:hover {
         text-decoration: none;
         color: #63727e;

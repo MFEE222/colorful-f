@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
 // utility
 @import "variables";
 @import "mixins";
@@ -7,6 +9,7 @@
 // shared
 @import "navbar";
 @import "breadcrumb";
+@import "filterbar";
 @import "footer";
 
 // member
@@ -21,21 +24,34 @@
 @import "member-order-filterbar";
 @import "member-order-card";
 @import "member-order-detail-main";
+@import "member-order-step-progress-bar";
 
 // member wishlist page
 @import "member-wishlist-main";
+@import "member-collect-content";
 
 // member payment page
 @import "member-payment-main";
 
 // member download page
-@import "member-download-main";
+@import "member-download-content";
 
 // member comment page
 @import "member-comment-main";
 
 //home video
 @import "home-video";
+// member mail page
+@import "member-mail-content";
+@import "member-mail-detail-content";
+
+// product list page
+// @import "product-list-main";
+@import "product-list-main-1";
+
+// product detail page
+@import "product-detail";
+
 // signin page
 @import "signin";
 
@@ -50,3 +66,5 @@
 
 // cartcard
 @import "cartcard";
+// 404 page
+@import "error-content";
