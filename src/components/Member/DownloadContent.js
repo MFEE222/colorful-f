@@ -1,19 +1,21 @@
 import React from 'react';
 
 import Img1 from '../../images/婚禮_5.jpg';
-import Img2 from '../../images/portrait01.jpg';
+import Img2 from '../../images/wed001.jpg';
 
 function DownloadContent(props) {
     return (
         <main className="col-12 col-md-10 member-profile-main">
             {/* <!-- title --> */}
             <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center">
-                <div className="col-7">
+                {/* <div className="col-7"> */}
+                {/* me是右邊的意思 用margin去擠開 */}
+                <div class="col-lg-auto me-auto">
                     <h1>下載區</h1>
                 </div>
 
                 {/* <!-- search --> */}
-                <div className="col-4">
+                <div className="col-lg-4">
                     <div className="row">
                         <div className="mb-2">
                             <input
@@ -42,7 +44,7 @@ function DownloadContent(props) {
             </div>
 
             {/* <!-- top content left --> */}
-            <div className="row justify-content-center">
+            <div className="row justify-content-around">
                 <div className="col-auto col-lg-5 p-0 ">
                     <div className="card border-0" style={{ width: '18rem' }}>
                         <img src={Img1} className="card-img-top" alt="..." />
@@ -98,8 +100,9 @@ function DownloadContent(props) {
             </div>
 
             {/* <!-- card --> */}
-            <div className="card-group row my-1 mx-5 p-3">
-                <div className="col-6 col-md-3">
+            {/* 用row-cols-數字去控制一行有多少個 */}
+            <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-4 my-1 mx-3 p-3 card-house">
+                <div className="col">
                     <div className="card-border " data-tilt>
                         {/* <!-- data-tilt 特效 看是否保留 --> */}
                         <div className="card-img ">
@@ -124,7 +127,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
@@ -147,7 +150,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border">
                         <div className="card-img ">
                             <div className="ratios">
@@ -170,7 +173,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border">
                         <div className="card-img ">
                             <div className="ratios">
@@ -193,7 +196,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
@@ -216,7 +219,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
@@ -239,7 +242,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
@@ -262,7 +265,7 @@ function DownloadContent(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-6 col-md-3">
+                <div className="col">
                     <div className="card-border ">
                         <div className="card-img ">
                             <div className="ratios">
