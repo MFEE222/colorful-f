@@ -28,5 +28,50 @@
             "// FIXME: $0"
         ],
         "description": "Comment of FIXME:"
+    },
+    // React
+    "React Fragment": {
+        "prefix": "frg",
+        "body": [
+            "<>",
+            "\t$0",
+            "</>",
+        ],
+        "description": "React.Fragment"
+    },
+    "Import React": {
+        "prefix": "imr",
+        "body": [
+            "import React from 'react';",
+            "",
+            "function $1 (props) {",
+            "\treturn (\n\t\t$2\n\t);",
+            "}",
+            "",
+            "export default $1;"
+        ],
+        "description": "import React"
+    },
+    "Hello, World": {
+        "prefix": "hlw",
+        "body": [
+            "$0Hello,.....$1....\n",
+            "\tWorld.....$2....",
+        ],
+        "description": "Try"
+    },
+    "Class Setter": {
+        "prefix": "setter",
+        "body": [
+            "set $1 (val) { this._$1 = val; }"
+        ],
+        "description": "class setter template"
+    },
+    "Class Getter": {
+        "prefix": "getter",
+        "body": [
+            "get $1 () { return this._$1; }"
+        ],
+        "description": "class getter template"
     }
 }
