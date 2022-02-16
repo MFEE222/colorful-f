@@ -96,12 +96,8 @@ function App() {
                 <Route path={routes.teach}>
                     <Teach />
                 </Route>
-                {/* 測試用 Error 頁面 */}
-                <Route path="/error">
-                    <Error />
-                </Route>
                 {/* 主頁 */}
-                <Route path={routes.home}>
+                <Route exact path={routes.home}>
                     <Home />
                 </Route>
                 {/* 404 */}
