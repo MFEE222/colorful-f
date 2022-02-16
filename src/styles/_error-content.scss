@@ -1,0 +1,48 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+.er-main {
+    color: #fff;
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+
+    @include mix.media(background-image,
+        $xs: url("../images/404-1.jpg"),
+        $lg: url("../images/404.jpg"));
+
+    .er-text {
+        .er-title {
+            font-size: 300px;
+            @include mix.media(font-size, $xs: 100px, $lg: 300px);
+            padding-top: 100px;
+            @include mix.media(padding-top, $xs: 200px, $lg: 100px);
+            padding-left: 40px;
+            @include mix.media(padding-left, $xs: 30px, $sm: 50px);
+            letter-spacing: 80px;
+            @include mix.media(letter-spacing, $xs: 60px, $lg: 80px);
+        }
+        .er-subtitle {
+            font-size: 26px;
+            @include mix.media(font-size, $xs: 18px, $lg: 26px);
+        }
+        .er-subtitle-en {
+            font-size: 40px;
+            @include mix.media(font-size, $xs: 20px, $lg: 40px);
+        }
+    }
+    
+    .er-btn {
+        padding: 20px;
+        .er-button {
+            border: solid 2px #fff;
+            border-radius: 20px;
+            font-size: 26px;
+            @include mix.media(font-size, $xs: 18px, $lg: 26px);
+            background-color: transparent;
+            color: #fff;
+            text-decoration:none;
+            padding: 8px;
+        }
+    }
+}
