@@ -28,6 +28,7 @@
 
 // member wishlist page
 @import "member-wishlist-main";
+@import "member-collect-content";
 
 // member payment page
 @import "member-payment-main";
@@ -38,7 +39,9 @@
 // member comment page
 @import "member-comment-main";
 
-@import "member-collect-content";
+// member mail page
+@import "member-mail-content";
+
 // product list page
 // @import "product-list-main";
 @import "product-list-main-1";
