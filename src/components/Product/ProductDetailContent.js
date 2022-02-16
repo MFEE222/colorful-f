@@ -392,10 +392,10 @@ function ProductDetailContent(props) {
                         <ul className="">
                             <li>這則評論有幫助嗎？</li>
                             <li>
-                                <i class="fas fa-thumbs-up"></i>3
+                                <i className="fas fa-thumbs-up"></i>3
                             </li>
                             <li>
-                                <i class="fas fa-thumbs-down"></i>0
+                                <i className="fas fa-thumbs-down"></i>0
                             </li>
                         </ul>
                     </div>
@@ -475,10 +475,10 @@ function ProductDetailContent(props) {
                         <ul className="">
                             <li>這則評論有幫助嗎？</li>
                             <li>
-                                <i class="fas fa-thumbs-up"></i>3
+                                <i className="fas fa-thumbs-up"></i>3
                             </li>
                             <li>
-                                <i class="fas fa-thumbs-down"></i>0
+                                <i className="fas fa-thumbs-down"></i>0
                             </li>
                         </ul>
                     </div>
