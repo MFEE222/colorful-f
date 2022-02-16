@@ -33,8 +33,6 @@ import Teach from './pages/Teach';
 import Home from './pages/Home';
 import Error from './pages/Error';
 
-import Error from './pages/404';
-
 function App() {
     return (
         <>
@@ -97,6 +95,10 @@ function App() {
                 {/* 教學頁 */}
                 <Route path={routes.teach}>
                     <Teach />
+                </Route>
+                {/* 測試用 Error 頁面 */}
+                <Route path="/error">
+                    <Error />
                 </Route>
                 {/* 主頁 */}
                 <Route path={routes.home}>

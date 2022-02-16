@@ -15,7 +15,7 @@ function ErrorContent(props) {
                 </div>
                 <div className="row er-btn">
                     <div className="col-12">
-                        <a className="er-button" href="#/">
+                        <a className="er-button" href="">
                             返回首頁
                         </a>
                     </div>
