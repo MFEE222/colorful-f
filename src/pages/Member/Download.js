@@ -1,12 +1,9 @@
 import React from 'react';
 
+import DownloadContent from '../../components/Member/DownloadContent';
+
 function Download(props) {
-    return (
-        <div className="box">
-            <h1>Download</h1>
-            <p>Welcome to download page...</p>
-        </div>
-    );
+    return <DownloadContent />;
 }
 
 export default Download;
