@@ -32,6 +32,7 @@ import Team from './pages/Team';
 import Teach from './pages/Teach';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import Test from './utils/tmp';
 
 function App() {
     return (
@@ -71,6 +72,11 @@ function App() {
                         Auth
                     </Link>
                 </button>
+                <button className="btn btn-danger m-2">
+                    <Link className="text-light" to={routes.test}>
+                        Test
+                    </Link>
+                </button>
             </div>
 
             {/* A <Switch> looks through its children <Route>s and
@@ -99,6 +105,10 @@ function App() {
                 {/* 主頁 */}
                 <Route exact path={routes.home}>
                     <Home />
+                </Route>
+                {/* 測試頁 */}
+                <Route exact path={routes.test}>
+                    <Test />
                 </Route>
                 {/* 404 */}
                 <Route path={routes.error}>
