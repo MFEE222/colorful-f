@@ -12,6 +12,7 @@ import Navbar from './utils/Navbar';
 import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
 import { routes } from './utils/routes';
+import { API_URL, IMG_URL } from './utils/config';
 
 // 路由
 // https://v5.reactrouter.com/web/guides/quick-start
@@ -35,6 +36,8 @@ import Error from './pages/Error';
 import Test from './utils/tmp';
 
 function App() {
+    console.log('API_URL :>> ', API_URL);
+    console.log('IMG_URL :>> ', IMG_URL);
     return (
         <>
             {/* 導覽列 */}

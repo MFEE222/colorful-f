@@ -1,4 +1,4 @@
 export const API_URL =
-    (process.env.EXPRESS_API_URL || 'http://localhost:3006') + '/api';
+    (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
-export const IMG_URL = process.env.EXPRESS_API_URL || 'http://localhost:3006';
+export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
