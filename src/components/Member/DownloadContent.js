@@ -18,6 +18,7 @@ function DownloadContent(props) {
             <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center">
                 {/* <div className="col-7"> */}
                 {/* me是右邊的意思 用margin去擠開 */}
+
                 <div class="col-lg-auto me-auto">
                     <h1>下載區</h1>
                 </div>
@@ -26,6 +27,7 @@ function DownloadContent(props) {
                 <div className="col-lg-4">
                     <div className="row">
                         <div className="mb-2">
+                            <i className="fa-solid fa-magnifying-glass"></i>
                             <input
                                 type="text"
                                 className="form-control col-12"
@@ -327,11 +329,30 @@ function DownloadContent(props) {
             {/* <!-- Pagination --> */}
 
             {/* <!-- line --> */}
+            <h2 className="background">
+                <span>Line-behind title</span>n
+            </h2>
             <div className="row justify-content-center">
                 <div className="col-7 border mb-5"></div>
+                <div className="diamod "></div>
+                <svg
+                    className="spinner"
+                    width="65px"
+                    height="65px"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        className="path"
+                        fill="none"
+                        stroke-width="6"
+                        stroke-linecap="round"
+                        cx="33"
+                        cy="33"
+                        r="30"
+                    ></circle>
+                </svg>
             </div>
-
-            <div className="diamod"></div>
         </main>
     );
 }
