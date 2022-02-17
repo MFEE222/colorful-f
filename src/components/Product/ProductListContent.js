@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import FilterBarContent from '../Filterbar/FilterBarContent';
 import axios from 'axios';
-import { API_URL } from '../../utils/others/config';
+import { API_URL, IMG_URL } from '../../utils/config';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import { css } from '@emotion/react';
+
 //圖片
 import deleteImg from '../../icons/Sortbar/Delete.png';
 import searchImg from '../../icons/Sortbar/Search.png';
@@ -18,28 +21,56 @@ function ProductListContent(props) {
     const [showProducts, setShowProducts] = useState([]);
     const [searchWord, setSearchWord] = useState('');
 
-    //TODO:載入顯示
-    //TODO:欄位搜尋
+    //loading
+    const override = css`
+        display: block;
+        margin: 25vh auto;
+    `;
+    let [loading, setLoading] = useState(false);
+    let [color, setColor] = useState('#cf9d3f');
+
+    //TODO:載入顯示 ok
+    //TODO:欄位搜尋+code query
     //TODO:filterbar 顯示
+    //TODO:tag 顯示
     //TODO:排序
     //TODO:已購買顯示標記
     //TODO:分頁
     //TODO:商品卡點進去要商品詳情
-    //TODO:收藏愛心要加減
+    //TODO:收藏愛心要加減（非會員加入localstorage)
 
     //和server要資料
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
+        console.log(response.data);
         //server要回傳json
-        setProducts(response);
-        setShowProducts(response);
+        setProducts(response.data);
+        setShowProducts(response.data);
     };
-    //didmount初使時
+    // useEffect(() => {
+    //     if (loading) {
+    //         setTimeout(() => {
+    //             setLoading(false);
+    //         }, 1000);
+    //     }
+    // }, [loading]);
+    //didmount初始時
     useEffect(() => {
+        //loading
+        setLoading(true);
         // 初始呈現
         fetchProduct();
-    }, []);
-    return (
+        if (products !== []) {
+            setLoading(false);
+        }
+    }, [loading]);
+
+    // useEffect(() => {
+    //     //搜尋字串
+    // }, []);
+
+    //
+    const productList = (
         <>
             <div className="product-list">
                 {/* xs,sm 搜尋框 */}
@@ -49,6 +80,8 @@ function ProductListContent(props) {
                             type="search"
                             className="input-style"
                             placeholder="在此輸入關鍵字"
+                            value={searchWord}
+                            onChange={(e) => setSearchWord(e.target.value)}
                         />
                         <div className="search-icon d-flex my-2">
                             <div className="me-2">
@@ -397,6 +430,25 @@ function ProductListContent(props) {
             </div>
         </>
     );
+    const spinner = (
+        <div className="sweet-loading">
+            {/* <button onClick={() => setLoading(!loading)}>
+                    Toggle Loader
+                </button> */}
+            {/* <input
+                    value={color}
+                    onChange={(input) => setColor(input.target.value)}
+                    placeholder="Color of the loader"
+                /> */}
+            <ClimbingBoxLoader
+                color={color}
+                loading={loading}
+                css={override}
+                size={17}
+            />
+        </div>
+    );
+    return <>{loading ? spinner : productList}</>;
 }
 
 export default ProductListContent;

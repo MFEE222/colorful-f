@@ -4,6 +4,9 @@ body {
     background-color: $light;
     height: 100vh;
 }
+.sweet-loading {
+    height: 100vh;
+}
 .product-list {
     @media (min-width: 768px) {
         .md-order-1 {
