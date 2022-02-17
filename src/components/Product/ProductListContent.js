@@ -20,40 +20,42 @@ function ProductListContent(props) {
     //過濾呈現用
     const [showProducts, setShowProducts] = useState([]);
     const [searchWord, setSearchWord] = useState('');
+    //表單元素狀態
+    const [tags, setTags] = useState([]);
 
+    //TODO:載入顯示 ok
     //loading
+    let [loading, setLoading] = useState(false);
+    let [color, setColor] = useState('#cf9d3f');
     const override = css`
         display: block;
         margin: 25vh auto;
     `;
-    let [loading, setLoading] = useState(false);
-    let [color, setColor] = useState('#cf9d3f');
 
-    //TODO:載入顯示 ok
     //TODO:欄位搜尋+code query
-    //TODO:filterbar 顯示
-    //TODO:tag 顯示
+    //TODO:(拆成元件)filterbar 顯示
+    //TODO:(拆成元件)tag 顯示 => 點擊切換icon
     //TODO:排序
     //TODO:已購買顯示標記
     //TODO:分頁
     //TODO:商品卡點進去要商品詳情
-    //TODO:收藏愛心要加減（非會員加入localstorage)
+    //TODO:收藏愛心要加減（非會員加入localstorage)//=>收藏狀態設在這層
 
     //和server要資料
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
         console.log(response.data);
+        console.log(response.data.data);
         //server要回傳json
-        setProducts(response.data);
-        setShowProducts(response.data);
+        setProducts(response.data.data);
+        setShowProducts(response.data.data);
+        let tagsList = response.data.tags;
+        let tagProduct = response.data.tagProduct;
+        console.log(tagsList);
+        console.log(tagProduct);
+        setTags(tagsList);
     };
-    // useEffect(() => {
-    //     if (loading) {
-    //         setTimeout(() => {
-    //             setLoading(false);
-    //         }, 1000);
-    //     }
-    // }, [loading]);
+
     //didmount初始時
     useEffect(() => {
         //loading
@@ -73,73 +75,6 @@ function ProductListContent(props) {
     const productList = (
         <>
             <div className="product-list">
-                {/* xs,sm 搜尋框 */}
-                <div className="container d-md-flex d-lg-none justify-content-between my-md-3">
-                    <div className="phone-search d-flex justify-content-between ">
-                        <input
-                            type="search"
-                            className="input-style"
-                            placeholder="在此輸入關鍵字"
-                            value={searchWord}
-                            onChange={(e) => setSearchWord(e.target.value)}
-                        />
-                        <div className="search-icon d-flex my-2">
-                            <div className="me-2">
-                                <img
-                                    className="icon-img"
-                                    src={deleteImg}
-                                    alt=""
-                                />
-                            </div>
-                            <div className="me-2">
-                                <img
-                                    className="icon-img"
-                                    src={searchImg}
-                                    alt=""
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* <!-- xs,sm filterbar --> */}
-                    <div className="phone-filter d-flex justify-content-between my-2">
-                        <p className="my-auto mx-2">search result counts</p>
-                        <div className="d-flex justify-content-end align-items-center">
-                            <div className="dropdown-style my-auto me-2">
-                                <select
-                                    name="filter-select"
-                                    id="filter-select"
-                                    className="filter-select"
-                                >
-                                    <option value="defalut">篩選</option>
-                                    <option value="all">全部</option>
-                                    <option value="member">會員</option>
-                                    <option value="food">食物</option>
-                                    <option value="scenery">風景</option>
-                                    <option value="wedding">婚禮</option>
-                                    <option value="portrait">人像</option>
-                                    <option value="negative">底片</option>
-                                </select>
-                            </div>
-                            <div className="icon-g d-flex">
-                                <div className="me-2">
-                                    <img
-                                        className="icon-img"
-                                        src={listViewImg}
-                                        alt=""
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                        className="icon-img"
-                                        src={sortImg}
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {/* <!-- banner --> */}
                 <div className="banner">
                     <div className="banner-img">
@@ -163,11 +98,97 @@ function ProductListContent(props) {
                     </div>
                 </div>
             </div>
+            {/* xs,sm 搜尋框 */}
+            <div className="container d-md-flex">
+                <div className="container d-md-flex d-lg-none my-md-3 search-box p-0">
+                    <div className="phone-search d-flex justify-content-between ">
+                        <input
+                            type="search"
+                            className="input-style"
+                            placeholder="在此輸入關鍵字"
+                            value={searchWord}
+                            onChange={(e) => setSearchWord(e.target.value)}
+                        />
+                        <div className="search-icon d-flex my-2">
+                            <div className="me-2">
+                                <img
+                                    className="icon-img"
+                                    src={deleteImg}
+                                    alt=""
+                                    onClick={() => {
+                                        setSearchWord('');
+                                    }}
+                                />
+                            </div>
+                            <div className="me-2">
+                                <img
+                                    className="icon-img"
+                                    src={searchImg}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <!-- xs,sm filterbar --> */}
+                <div className="container d-flex justify-content-between justify-content-md-end my-2 d-lg-none phone-filter p-0">
+                    <p className="my-auto me-2">search result counts</p>
+                    <div className="d-flex justify-content-end align-items-center">
+                        <div className="dropdown-style my-auto me-2">
+                            <select
+                                name="filter-select"
+                                id="filter-select"
+                                className="filter-select"
+                            >
+                                <option value="defalut">篩選</option>
+                                <option value="all">全部</option>
+                                <option value="member">會員</option>
+                                <option value="food">食物</option>
+                                <option value="scenery">風景</option>
+                                <option value="wedding">婚禮</option>
+                                <option value="portrait">人像</option>
+                                <option value="negative">底片</option>
+                            </select>
+                        </div>
+                        <div className="icon-g d-flex">
+                            {/* <div className="me-2">
+                                <img
+                                    className="icon-img"
+                                    src={listViewImg}
+                                    alt=""
+                                />
+                            </div> */}
+                            <div>
+                                <img
+                                    className="icon-img"
+                                    src={sortImg}
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* <!-- md 以上filterbar --> */}
             <div className="container">
                 <div className="d-none d-lg-block">
                     <FilterBarContent />
                 </div>
+            </div>
+            {/* tags  */}
+            <div className=" container d-flex tags-list ">
+                {tags.map((tag) => {
+                    return (
+                        <>
+                            <div className="m-2 mx-md-2  tag-text" key={tag.id}>
+                                {handleHastag}
+                                <i class="fas fa-hashtag pe-1"></i>
+                                {tag.name}
+                            </div>
+                        </>
+                    );
+                })}
             </div>
             {/* <!-- card --> */}
             <div className="container">
@@ -180,7 +201,7 @@ function ProductListContent(props) {
                                     <img src={cardDemo} alt="" />
                                 </div>
                             </div>
-                            <div className="card-body text-start p-0 my-3">
+                            <div className="card-body text-start p-0 my-2 mb-3">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <p className="card-title">
                                         婚禮／Wedding-1
@@ -198,7 +219,7 @@ function ProductListContent(props) {
                                     <img src={cardDemo} alt="" />
                                 </div>
                             </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
+                            <div className="card-body text-start p-0 my-2 mb-3">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <p className="card-title">
                                         婚禮／Wedding-1

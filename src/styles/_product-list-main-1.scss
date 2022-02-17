@@ -16,79 +16,7 @@ body {
             order: 1;
         }
     }
-    .phone-search {
-        margin: 0.2rem;
-        @include mix.xs {
-            input {
-                border: none;
-                background-color: transparent;
-                outline: none;
-                width: 70%;
-            }
-            // 去除預設樣式
-            input::-webkit-search-decoration,
-            input::-webkit-search-cancel-button {
-                display: none;
-            }
-        }
-        @include mix.md {
-            width: 50%;
-        }
-        border-bottom: 1px solid $gray-blue;
-        // background-color: aqua;
-        .search-icon {
-            div:nth-child(1) {
-                width: 2.5rem;
-                height: 2.5rem;
-                border: 1px solid $gray-blue;
-                border-radius: 999em;
-            }
-            .icon-img {
-                display: block;
-                margin: 0.6rem auto;
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
-        }
-    }
-    .phone-filter {
-        p {
-            @include mix.xs {
-                size: 0.75rem;
-                color: $gray-blue;
-            }
-        }
-        .dropdown-style {
-            padding: 0 0.2rem;
-            border: 1px solid $gray-blue;
-            border-radius: 36px;
-            display: inline-block;
-            overflow: hidden;
-            .filter-select {
-                text-align: center;
-                width: 4rem;
-                height: 40px;
-                border: 0px;
-                outline: none;
-            }
-        }
-        .icon-g {
-            > div {
-                width: 2.5rem;
-                height: 2.5rem;
-                border: 1px solid $gray-blue;
-                border-radius: 999em;
-            }
-            .icon-img {
-                display: block;
-                margin: 0.6rem auto;
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
-        }
-    }
+
     .banner {
         position: relative;
         .ratios {
@@ -220,6 +148,92 @@ body {
         }
         color: #fff;
         text-shadow: black 0.1em 0.1em 0.2em;
+    }
+}
+.search-box {
+    .phone-search {
+        margin: 0.2rem 0;
+        @include mix.xs {
+            input {
+                border: none;
+                background-color: transparent;
+                outline: none;
+                width: 70%;
+            }
+            // 去除預設樣式
+            input::-webkit-search-decoration,
+            input::-webkit-search-cancel-button {
+                display: none;
+            }
+        }
+        @include mix.md {
+            width: 100%;
+        }
+        border-bottom: 1px solid $gray-blue;
+        // background-color: aqua;
+        .search-icon {
+            div:nth-child(1) {
+                width: 2.5rem;
+                height: 2.5rem;
+                border: 1px solid $gray-blue;
+                border-radius: 999em;
+            }
+            .icon-img {
+                display: block;
+                margin: 0.6rem auto;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+.phone-filter {
+    p {
+        @include mix.xs {
+            size: 0.75rem;
+            color: $gray-blue;
+        }
+    }
+    .dropdown-style {
+        padding: 0 0.2rem;
+        border: 1px solid $gray-blue;
+        border-radius: 36px;
+        display: inline-block;
+        overflow: hidden;
+        .filter-select {
+            background-color: transparent;
+            text-align: center;
+            width: 4rem;
+            height: 40px;
+            border: 0px;
+            outline: none;
+            color: $gray-blue;
+        }
+    }
+    .icon-g {
+        > div {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid $gray-blue;
+            border-radius: 999em;
+        }
+        .icon-img {
+            display: block;
+            margin: 0.6rem auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+.tags-list {
+    .tag-text {
+        // border: 1px solid $gold;
+        padding: 0.3rem 0.6rem;
+        border-radius: 20px;
+        color: $gold;
+        cursor: pointer;
     }
 }
 .card-group {

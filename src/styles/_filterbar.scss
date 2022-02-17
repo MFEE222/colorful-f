@@ -11,6 +11,7 @@
         /* padding-bottom: 8px; */
         float: left;
         li {
+            cursor: pointer;
             margin: 0 5px;
             width: 15%;
             display: inline;
@@ -38,6 +39,7 @@
             display: none;
         }
         li {
+            cursor: pointer;
             padding: 0;
             margin: auto 8px;
             > i {
