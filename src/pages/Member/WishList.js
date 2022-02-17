@@ -1,10 +1,11 @@
 import React from 'react';
 
+import WishListContent from '../../components/Member/WishListContent';
+
 function WishList(props) {
     return (
         <div className="col-12 col-md-10 box">
-            <h1>WishList</h1>
-            <p>Welcome to wishlist page</p>
+            <WishListContent />
         </div>
     );
 }

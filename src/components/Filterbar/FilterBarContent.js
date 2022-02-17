@@ -6,7 +6,6 @@ function FilterBarContent(props) {
             <div className="filter-box d-flex">
                 <ul className="sort-series p-0">
                     <li className="active py-1 px-2 py-md-2 px-md-3">全部</li>
-                    <li className="py-1 px-2 py-md-2 px-md-3">制度</li>
                     <li className="py-1 px-2 py-md-2 px-md-3">食物</li>
                     <li className="py-1 px-2 py-md-2 px-md-3">風景</li>
                     <li className="py-1 px-2 py-md-2 px-md-3">婚禮</li>
