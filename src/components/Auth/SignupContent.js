@@ -1,6 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import { API_URL } from "../../utils/others/config";
 
-function SignupContent(props) {
+
+const SignupContent = () => {
+    const [member, setMember] = useState({
+        email: 'abc123456@gmail.com',
+        name: '123456',
+        password: '1234',
+        confirmPassword: '1234',
+    });
+
+    function handleChange(e) {
+        setMember({ ...member, [e.target.name]: e.target.value });
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        let response = await axios.post(`${API_URL}/auth/SignupContent'`,
+            member
+        );
+        console.log(response.data);
+    }
+
     return (
         <div className="signup-main">
             <div className="container">
@@ -11,19 +33,25 @@ function SignupContent(props) {
                                 <h4 className="box-title">SIGN UP</h4>
                                 <div className="form-floating">
                                     <input
-                                        type="name"
+                                        type="text"
                                         className="form-control"
-                                        id="floatingName"
+                                        id="name"
+                                        name="name"
                                         placeholder="Name"
+                                        value={member.name}
+                                        onChange={handleChange}
                                     />
                                     <label htmlFor="floatingName">Name</label>
                                 </div>
                                 <div className="form-floating">
                                     <input
-                                        type="email"
+                                        type="text"
                                         className="form-control"
-                                        id="floatingInput"
+                                        id="email"
+                                        name="email"
                                         placeholder="Email address"
+                                        value={member.email}
+                                        onChange={handleChange}
                                     />
                                     <label htmlFor="floatingInput">
                                         Email address
@@ -33,8 +61,11 @@ function SignupContent(props) {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="password"
+                                        name="password"
                                         placeholder="Password"
+                                        value={member.password}
+                                        onChange={handleChange}
                                     />
                                     <label htmlFor="floatingPassword">
                                         Password
@@ -44,15 +75,23 @@ function SignupContent(props) {
                                     <input
                                         type="confirmpassword"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="confirmPassword"
+                                        name="confirmPassword"
                                         placeholder="Password"
+                                        value={member.confirmPassword}
+                                        onChange={handleChange}
                                     />
                                     <label htmlFor="floatingPassword">
                                         Confirm Password
                                     </label>
                                 </div>
                                 <div className="form-btn">
-                                    <button type="submit">Sign in</button>
+                                    <button
+                                        type="submit"
+                                        onClick={handleSubmit}
+                                    >
+                                        Sign in
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -61,6 +100,6 @@ function SignupContent(props) {
             </div>
         </div>
     );
-}
+};
 
 export default SignupContent;

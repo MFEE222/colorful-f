@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function SigninContent(props) {
     return (
@@ -34,17 +36,17 @@ function SigninContent(props) {
                                     </label>
                                 </div>
                                 <div className="forgot mt-3">
-                                    <a href="" className="l-link">
+                                    <Link to="/" className="l-link">
                                         forgot password ?
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="l-icon mt-5 mb-3">
-                                    <a href="" className="l-icon-link">
+                                    <Link to="/" className="l-icon-link">
                                         <i className="fab fa-facebook-f fa-fw"></i>
-                                    </a>
-                                    <a href="" className="l-icon-link">
+                                    </Link>
+                                    <Link to="/" className="l-icon-link">
                                         <i className="fab fa-google fa-fw"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="form-btn mt-5">
                                     <button type="submit">Sign in</button>
@@ -52,9 +54,9 @@ function SigninContent(props) {
                                 <div>
                                     <p className="signup">
                                         Don't have account?
-                                        <a href="" className="l-link">
+                                        <Link to="/" className="l-link">
                                             Sign up
-                                        </a>
+                                        </Link>
                                     </p>
                                 </div>
                             </form>
