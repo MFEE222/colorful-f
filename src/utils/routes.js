@@ -25,6 +25,8 @@ export const routes = {
     _mailDetail: '/mailDetail',
     _payment: '/payment',
     _collect: '/collect',
+    // cart
+    _cart: '/cart',
 
     get home() {
         return this._home;
@@ -94,7 +96,10 @@ export const routes = {
     },
     get collect() {
         return this._collect;
-    }
+    },
+    get cart() {
+        return this._cart;
+    },
 };
 
 // console.log('routes.home :>> ', routes.home);

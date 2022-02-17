@@ -32,6 +32,7 @@ import Team from './pages/Team';
 import Teach from './pages/Teach';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import Cart from './pages/Cart';
 
 function App() {
     return (
@@ -71,6 +72,11 @@ function App() {
                         Auth
                     </Link>
                 </button>
+                <button className="btn btn-danger m-2">
+                    <Link className="text-light" to={routes.cart}>
+                        Cart
+                    </Link>
+                </button>
             </div>
 
             {/* A <Switch> looks through its children <Route>s and
@@ -95,6 +101,10 @@ function App() {
                 {/* 教學頁 */}
                 <Route path={routes.teach}>
                     <Teach />
+                </Route>
+                {/* 購物車頁 */}
+                <Route path={routes.cart}>
+                    <Cart />
                 </Route>
                 {/* 主頁 */}
                 <Route exact path={routes.home}>
