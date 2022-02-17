@@ -1,77 +1,108 @@
 import React from 'react';
-import Logo from '../images/colorful-logo.png';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import Logo from '../images/colorful-logo-h100.png';
+// import Logo from '../images/colorful-logo.png';
+// import Logo from '../images/colorful-logo-800.png';
 
-// FIXME: Navbar 改用 react-bootstrap
-
-function Navbar(props) {
+function OurNavbar(props) {
     return (
-        <header className="navbar">
-            <div className="container">
-                {/* <!-- company brand --> */}
-                <figure className="m-0 me-md-auto company-brand">
-                    <img src={Logo} alt="" />
-                </figure>
-                {/* <!-- menu --> */}
-                <div className="menu">
-                    <button
-                        className="btn"
-                        data-bs-toggle="collapse"
-                        data-bs-target=".nav"
-                        // aria-expand="false"
-                        // aria-controls=".nav"
-                    >
-                        <i className="fas fa-bars"></i>
-                    </button>
-                </div>
-                {/* <!-- links --> */}
-                <ul className="col-12 col-md-auto nav text-center collapse d-md-flex links">
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Product
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Tutorial
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            About us
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Support
-                        </a>
-                    </li>
-                </ul>
-                {/* <!-- icons --> */}
-                <ul className="col-12 col-md-auto nav text-center collapse d-md-flex icons">
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
+        <Navbar bg="light" expand="lg" className="colorful-navbar">
+            <Container>
+                <Navbar.Brand href="#">
+                    {/* <div className="logo-group">
+                        {/* <div className="logo">
+                            <img src={Logo} alt="" />
+                        </div>
+                        <span className="text">Text</span>
+                    </div> */}
+                    <img src={Logo} alt="" className="logo" />
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="colorful-navbar-nav">
+                    <i className="fas fa-bars"></i>
+                </Navbar.Toggle>
+                <Navbar.Collapse id="colorful-navbar-nav">
+                    <Nav className="me-auto">
+                        <NavDropdown
+                            title="Product"
+                            id="colorful-product-dropdown"
+                        >
+                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown
+                            title="Tutorial"
+                            id="colorful-tutorial-dropdown"
+                        >
+                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown
+                            title="About us"
+                            id="colorful-aboutus-dropdown"
+                        >
+                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown
+                            title="Support"
+                            id="colorful-support-dropdown"
+                        >
+                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link href="#">
                             <i className="fas fa-envelope"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
+                        </Nav.Link>
+                        <Nav.Link href="#">
                             <i className="fas fa-heart"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
+                        </Nav.Link>
+                        <Nav.Link href="#">
                             <i className="fas fa-user"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
+                        </Nav.Link>
+                        <Nav.Link href="#">
                             <i className="fas fa-shopping-cart"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
-export default Navbar;
+export default OurNavbar;

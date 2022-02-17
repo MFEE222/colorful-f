@@ -1,78 +1,192 @@
 @use "variables" as var;
 @use "mixins" as mix;
-.navbar {
-    // all
-    background-color: var.$dark-blue;
-    // background-color: var.$gray;
-    @include mix.media(position, $md: sticky);
-    @include mix.media(top, $md: 0);
-    z-index: 1020;
 
-    .container {
-        // all
-        position: relative;
-        // menu
-        .menu {
-            // position: absolute;
-            // all
-            @include mix.media(position, $xs: absolute);
-            @include mix.media(display, $xs: block, $md: none);
-            top: 5px;
-            right: 0;
-            // button
-            button {
-                font-size: 1rem;
-                color: var.$brown;
-                opacity: 0.8;
+.colorful-navbar {
+    // 底色
+    background-color: var.$dark-blue !important;
 
-                &:focus {
-                    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 25%);
+    // 品牌名稱、Logo
+    .navbar-brand {
+        // Logo 設定
+        padding-top: 10px;
+        padding-bottom: 0;
+        .logo {
+            padding-left: -12px;
+            height: 48px;
+        }
+        // .logo-group {
+        //     display: flex;
+        //     align-items: center;
+
+        //     .logo {
+        //         @include mix.ratio(1, 1);
+        //         width: 40px;
+        //         img {
+        //             object-position: left top;
+        //         }
+
+        //         margin-right: 0.5rem;
+        //     }
+
+        //     .text {
+        //         color: var.$dark-blue;
+        //         font-size: 1.5rem;
+        //     }
+        // }
+    }
+    // 漢堡選單
+    .navbar-toggler {
+        color: gray;
+        border-color: rgba(35, 35, 35, 0.1);
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    // 導覽列
+    #colorful-navbar-nav {
+        // justify-content: flex-end;
+        .navbar-nav {
+            padding-top: 1rem;
+        }
+
+        .dropdown {
+            &:focus-visible {
+                outline: 0;
+            }
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            &:focus-visible {
+                outline: 0;
+            }
+            // 展開按鈕
+            .dropdown-toggle {
+                &:focus-visible {
+                    outline: 0;
+                }
+            }
+            // 展開選單
+            .dropdown-menu {
+                &:focus-visible {
+                    outline: 0;
+                }
+
+                background-color: rgba(0, 0, 0, 0);
+                border: 0;
+                .dropdown-item {
+                    color: gray;
+
+                    &:hover {
+                        color: var.$gray;
+                    }
+                    &:focus,
+                    &:hover,
+                    &:active {
+                        background-color: rgba(0, 0, 0, 0);
+                    }
+
+                    &:focus-visible {
+                        outline: 0;
+                    }
                 }
             }
         }
 
-        // company brand
-        .company-brand {
-            img {
-                height: 40px;
-                margin-top: 0.25rem;
-                margin-bottom: 0.25rem;
+        .nav-link {
+            // color: var.$brown;
+            // color: var.$gray;
+            color: gray;
+            &:hover {
+                color: var.$gray;
             }
-            @include mix.media(
-                margin-left,
-                $xs: auto !important,
-                $md: 0 !important
-            );
-            @include mix.media(margin-right, $xs: auto !important);
+            // color: royalblue;
         }
-        // links
-        .links {
-            @include mix.media(margin-right, $xs: 0, $md: calc(1rem + 2vw));
 
-            .nav-item {
-                &:not(:first-child) {
-                    @include mix.media(
-                        margin-left,
-                        $xs: 0,
-                        $md: calc(0.5rem + 1vw)
-                    );
-                }
-                .nav-link {
-                    padding: 0.5rem;
-                    font-size: 1rem;
-                    color: var.$gold;
-                }
-            }
-        }
-        // icons
-        .icons {
-            .nav-link {
-                padding: 0.5rem;
-                font-size: 1rem;
-                i {
-                    color: var.$brown;
-                }
+        #colorful-product-dropdown,
+        #colorful-tutorial-dropdown,
+        #colorful-aboutus-dropdown,
+        #colorful-support-dropdown {
+            &:after {
+                content: none;
             }
         }
     }
 }
+
+// .navbar {
+//     // all
+//     background-color: var.$dark-blue;
+//     // background-color: var.$gray;
+//     @include mix.media(position, $md: sticky);
+//     @include mix.media(top, $md: 0);
+//     z-index: 1020;
+
+//     .container {
+//         // all
+//         position: relative;
+//         // menu
+//         .menu {
+//             // position: absolute;
+//             // all
+//             @include mix.media(position, $xs: absolute);
+//             @include mix.media(display, $xs: block, $md: none);
+//             top: 5px;
+//             right: 0;
+//             // button
+//             button {
+//                 font-size: 1rem;
+//                 color: var.$brown;
+//                 opacity: 0.8;
+
+//                 &:focus {
+//                     box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 25%);
+//                 }
+//             }
+//         }
+
+//         // company brand
+//         .company-brand {
+//             img {
+//                 height: 40px;
+//                 margin-top: 0.25rem;
+//                 margin-bottom: 0.25rem;
+//             }
+//             @include mix.media(
+//                 margin-left,
+//                 $xs: auto !important,
+//                 $md: 0 !important
+//             );
+//             @include mix.media(margin-right, $xs: auto !important);
+//         }
+//         // links
+//         .links {
+//             @include mix.media(margin-right, $xs: 0, $md: calc(1rem + 2vw));
+
+//             .nav-item {
+//                 &:not(:first-child) {
+//                     @include mix.media(
+//                         margin-left,
+//                         $xs: 0,
+//                         $md: calc(0.5rem + 1vw)
+//                     );
+//                 }
+//                 .nav-link {
+//                     padding: 0.5rem;
+//                     font-size: 1rem;
+//                     color: var.$gold;
+//                 }
+//             }
+//         }
+//         // icons
+//         .icons {
+//             .nav-link {
+//                 padding: 0.5rem;
+//                 font-size: 1rem;
+//                 i {
+//                     color: var.$brown;
+//                 }
+//             }
+//         }
+//     }
+// }
