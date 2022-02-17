@@ -6,7 +6,7 @@ import Logo from '../images/colorful-logo-h100.png';
 
 function OurNavbar(props) {
     return (
-        <Navbar bg="light" expand="lg" className="colorful-navbar">
+        <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
                 <Navbar.Brand href="#">
                     {/* <div className="logo-group">
@@ -39,22 +39,6 @@ function OurNavbar(props) {
                             </NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown
-                            title="Tutorial"
-                            id="colorful-tutorial-dropdown"
-                        >
-                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#">
-                                Something
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#">
-                                Separated link
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                        <NavDropdown
                             title="About us"
                             id="colorful-aboutus-dropdown"
                         >
@@ -71,6 +55,23 @@ function OurNavbar(props) {
                             </NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown
+                            title="Tutorial"
+                            id="colorful-tutorial-dropdown"
+                        >
+                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                        <NavDropdown
                             title="Support"
                             id="colorful-support-dropdown"
                         >
@@ -86,17 +87,21 @@ function OurNavbar(props) {
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#">
+                        <Nav.Link href="#" className="link-item">
                             <i className="fas fa-envelope"></i>
+                            Mail
                         </Nav.Link>
-                        <Nav.Link href="#">
+                        <Nav.Link href="#" className="link-item">
                             <i className="fas fa-heart"></i>
+                            Favorite
                         </Nav.Link>
-                        <Nav.Link href="#">
+                        <Nav.Link href="#" className="link-item">
                             <i className="fas fa-user"></i>
+                            User
                         </Nav.Link>
-                        <Nav.Link href="#">
+                        <Nav.Link href="#" className="link-item">
                             <i className="fas fa-shopping-cart"></i>
+                            Cart
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -48,6 +48,7 @@
         // justify-content: flex-end;
         .navbar-nav {
             padding-top: 1rem;
+            // box-shadow: 0 -3px 6px rgba(255, 255, 255, 0.3);
         }
 
         .dropdown {
@@ -75,6 +76,8 @@
                 background-color: rgba(0, 0, 0, 0);
                 border: 0;
                 .dropdown-item {
+                    padding-left: 1.75rem;
+                    padding-right: 1.75rem;
                     color: gray;
 
                     &:hover {
@@ -94,13 +97,14 @@
         }
 
         .nav-link {
-            // color: var.$brown;
-            // color: var.$gray;
             color: gray;
             &:hover {
                 color: var.$gray;
             }
-            // color: royalblue;
+        }
+        .link-item {
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         #colorful-product-dropdown,
@@ -109,6 +113,10 @@
         #colorful-support-dropdown {
             &:after {
                 content: none;
+            }
+            &:focus {
+                outline: 0;
+                // background-color: rgba(0, 0, 0, 0);
             }
         }
     }
