@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterBarContent from '../Filterbar/FilterBarContent';
+import axios from 'axios';
+import { API_URL } from '../../utils/others/config';
+//圖片
 import deleteImg from '../../icons/Sortbar/Delete.png';
 import searchImg from '../../icons/Sortbar/Search.png';
 import listViewImg from '../../icons/Sortbar/Listview.png';
@@ -9,6 +12,33 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function ProductListContent(props) {
+    //記錄用（像伺服器要原始資料）
+    const [products, setProducts] = useState([]);
+    //過濾呈現用
+    const [showProducts, setShowProducts] = useState([]);
+    const [searchWord, setSearchWord] = useState('');
+
+    //TODO:載入顯示
+    //TODO:欄位搜尋
+    //TODO:filterbar 顯示
+    //TODO:排序
+    //TODO:已購買顯示標記
+    //TODO:分頁
+    //TODO:商品卡點進去要商品詳情
+    //TODO:收藏愛心要加減
+
+    //和server要資料
+    const fetchProduct = async () => {
+        const response = await axios.get(`${API_URL}/product`);
+        //server要回傳json
+        setProducts(response);
+        setShowProducts(response);
+    };
+    //didmount初使時
+    useEffect(() => {
+        // 初始呈現
+        fetchProduct();
+    }, []);
     return (
         <>
             <div className="product-list">
@@ -117,7 +147,7 @@ function ProductListContent(props) {
                                     <img src={cardDemo} alt="" />
                                 </div>
                             </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
+                            <div className="card-body text-start p-0 my-3">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <p className="card-title">
                                         婚禮／Wedding-1

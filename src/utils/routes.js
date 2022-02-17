@@ -22,7 +22,9 @@ export const routes = {
     _wishList: '/wishlist',
     _review: '/review',
     _mail: '/mail',
+    _mailDetail: '/mailDetail',
     _payment: '/payment',
+    _collect: '/collect',
 
     get home() {
         return this._home;
@@ -84,9 +86,15 @@ export const routes = {
     get mail() {
         return this._mail;
     },
+    get mailDetail() {
+        return this._mailDetail;
+    },
     get payment() {
         return this._payment;
     },
+    get collect() {
+        return this._collect;
+    }
 };
 
 // console.log('routes.home :>> ', routes.home);

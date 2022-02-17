@@ -1,0 +1,11 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+.member-collect {
+    .collect-box {
+        background-color: red;
+        width: 300px;
+        height: 100px;
+        //     min-height: 90vh;
+    }
+}

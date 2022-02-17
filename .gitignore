@@ -5,6 +5,7 @@ tmp.*
 *.tmp
 *.css
 *.css.map
+.env
 
 # dependencies
 /node_modules

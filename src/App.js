@@ -97,7 +97,7 @@ function App() {
                     <Teach />
                 </Route>
                 {/* 主頁 */}
-                <Route path={routes.home}>
+                <Route exact path={routes.home}>
                     <Home />
                 </Route>
                 {/* 404 */}

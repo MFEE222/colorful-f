@@ -1,0 +1,72 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+.member-mail {
+    @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
+    border-top: solid 1px #ccc;
+    @include mix.media(border-radius, $xs: 0, $md: 20px);
+    // height: 300vh;
+    background-color: #fff;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    @include mix.media(padding, $xs: 0, $md: 2rem);
+    @include mix.media(box-shadow, $xs: none, $md: 5px 5px 10px silver);
+
+    .mail-title {
+        @include mix.media(font-size, $xs: 18px, $md: 28px);
+        margin-bottom: 10px;
+        @include mix.media(margin-top, $xs: 15px, $md: 0);
+        @include mix.media(padding, $xs: 0, $md: 0);
+
+
+    }
+
+    .mail-card {
+        position: relative;
+        @include mix.media(border, $xs: none, $md: solid 1px #ccc);
+        @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
+        @include mix.media(border-radius, $xs: 0, $md: 20px);
+        @include mix.media(box-shadow, $xs: 0, $md: 5px 5px 10px silver);
+        @include mix.media(margin-left, $xs: 10px, $md: 0);
+        @include mix.media(padding, $xs: 10px, $md: 1rem);
+        margin-bottom: 20px;
+
+        h4 {
+            font-size: 20px;
+            color: #63727E;
+            padding-bottom: 10px;
+            @include mix.media(font-size, $xs: 16px, $md: 20px);
+
+        }
+
+        p {
+            font-size: 14px;
+            @include mix.media(font-size, $xs: 12px, $md: 14px);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .btn {
+            @include mix.media(position, $xs: absolute);
+            @include mix.media(left, $xs: 0px, $md: 80%, $lg: 85% ,$xl: 88%);
+            @include mix.media(top, $xs: 0px, $md:70%);
+
+            @include mix.media(color, $xs: transparent, $md: #cf9d3f);
+            @include mix.media(border, $xs: transparent, $md: solid 1px #cf9d3f);
+            border-radius: 20px;
+            font-size: 12px;
+            @include mix.media(width, $xs: 100%, $md: 80px);
+            @include mix.media(height, $xs: 100%, $md: auto);
+
+
+        }
+
+        .btn:hover {
+            background-color: #cf9d3f;
+            color: #fff;
+        }
+    }
+
+}

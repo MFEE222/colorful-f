@@ -28,15 +28,21 @@
 
 // member wishlist page
 @import "member-wishlist-main";
+@import "member-collect-content";
 
 // member payment page
 @import "member-payment-main";
 
 // member download page
-@import "member-download-main";
+@import "member-download-content";
 
 // member comment page
 @import "member-comment-main";
+
+// member mail page
+@import "member-mail-content";
+@import "member-mail-detail-content";
+
 // product list page
 // @import "product-list-main";
 @import "product-list-main-1";
@@ -55,3 +61,6 @@
 
 // team page
 @import "team";
+
+// 404 page
+@import "error-content";
