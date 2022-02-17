@@ -15,45 +15,58 @@ function DownloadContent(props) {
     return (
         <main className="col-12 col-md-10 member-profile-main">
             {/* <!-- title --> */}
-            <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center">
-                {/* <div className="col-7"> */}
-                {/* me是右邊的意思 用margin去擠開 */}
+            {/* <div className="col-7"> */}
+            {/* me是右邊的意思 用margin去擠開 */}
+            {/* <!-- line --> */}
+            <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center big-search">
+                <div className="console-container"></div>
+                <div className="row justify-content-center">
+                    <div class="col-lg-auto me-auto"></div>
 
-                <div class="col-lg-auto me-auto">
-                    <h1>下載區</h1>
-                </div>
-
-                {/* <!-- search --> */}
-                <div className="col-lg-4">
-                    <div className="row">
-                        <div className="mb-2">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                            <input
-                                type="text"
-                                className="form-control col-12"
-                                id="exampleFormControlInput1"
-                                placeholder="搜尋"
-                            />
+                    {/* <!-- search --> */}
+                    <div className="col-lg-4">
+                        <div className="d-flex">
+                            <button>123</button>
+                            <button>123</button>
+                            <button>123</button>
                         </div>
-                        <div className="">
-                            <button
-                                type="button"
-                                className="btn btn-outline-secondary col-12 "
-                            >
-                                <i className="fas fa-caret-down me-2"></i>
-                                依照購買日期排序
-                            </button>
+                        <div className="row">
+                            <div className="mb-2">
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                                <input
+                                    type="text"
+                                    className="form-control col-12"
+                                    id="exampleFormControlInput1"
+                                    placeholder="搜尋"
+                                />
+                            </div>
+                            <div className="">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-secondary col-12 "
+                                >
+                                    <i className="fas fa-caret-down me-2"></i>
+                                    依照購買日期排序
+                                </button>
+                            </div>
                         </div>
                     </div>
+
+                    {/* 寫在這一行裡面 */}
                 </div>
-            </div>
-
-            {/* <!-- line --> */}
-            <div className="row justify-content-center">
-                <div className="col-6 border my-5"></div>
-            </div>
-
-            {/* <!-- top content left --> */}
+                <div className="circle-number ">
+                    {/* 加入數字 */}
+                    <p className="toponenumber">5</p>
+                    <p className="topnumber">
+                        已擁有的
+                        <br />
+                        色調包總數
+                    </p>
+                </div>
+                {/* <!-- top content left --> */}
+            </div>{' '}
+            <div className="col-6 border my-5 "></div>
+            {/* 上面這一條是線 */}
             <div className="row justify-content-around">
                 <div className="col-auto col-lg-5 p-0 ">
                     <div className="card border-0" style={{ width: '18rem' }}>
@@ -71,23 +84,24 @@ function DownloadContent(props) {
                 <div className="col-12 col-lg-5">
                     <div className="row">
                         <div className="col-12 text-center mb-3">
+                            {/* 第一顆按鈕 */}
                             <button
                                 type="button"
                                 className="btn btn-lg btn-warning mt-2 col-8 rounded-pill text-light"
                             >
                                 DOWNLOAD
                             </button>
-                            <button
+                            {/* <button
                                 type="button"
                                 className="btn btn-lg btn-light border mt-2 col-2 rounded-pill text-black-50"
                             >
                                 <i className="fas fa-heart"></i>
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12 text-center">
-                            <p className="fs-5">YOU MAY ALSO LIKE</p>
+                            <h4 className="fs-5">YOU MAY ALSO LIKE </h4>
                         </div>
                     </div>
 
@@ -96,7 +110,7 @@ function DownloadContent(props) {
                         <div className="col-4 border mb-5"></div>
                     </div>
 
-                    {/* DOWNLOAD按鈕 */}
+                    {/* 第二顆的DOWNLOAD按鈕 */}
                     <div className="row">
                         <div className="col-12 text-center">
                             <button
@@ -109,7 +123,6 @@ function DownloadContent(props) {
                     </div>
                 </div>
             </div>
-
             {/* <!-- card --> */}
             {/* 用row-cols-數字去控制一行有多少個 */}
             <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-3 my-1 mx-3 p-3 card-house">
@@ -325,34 +338,33 @@ function DownloadContent(props) {
                     </div>
                 </div>
             </div>
-
             {/* <!-- Pagination --> */}
-
             {/* <!-- line --> */}
             <h2 className="background">
-                <span>Line-behind title</span>n
+                <div className="row justify-content-center diamod">
+                    <svg
+                        className="spinner"
+                        width="65px"
+                        height="65px"
+                        viewBox="0 0 66 66"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        {/* <div className="col-7 border mb-5"></div> */}
+                        {/* <div className="diamod "></div> */}
+
+                        <circle
+                            className="path"
+                            fill="none"
+                            stroke-width="6"
+                            stroke-linecap="round"
+                            cx="33"
+                            cy="33"
+                            r="30"
+                        ></circle>
+                    </svg>
+                </div>
+                {/* <span>Line-behind title</span> */}
             </h2>
-            <div className="row justify-content-center">
-                <div className="col-7 border mb-5"></div>
-                <div className="diamod "></div>
-                <svg
-                    className="spinner"
-                    width="65px"
-                    height="65px"
-                    viewBox="0 0 66 66"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <circle
-                        className="path"
-                        fill="none"
-                        stroke-width="6"
-                        stroke-linecap="round"
-                        cx="33"
-                        cy="33"
-                        r="30"
-                    ></circle>
-                </svg>
-            </div>
         </main>
     );
 }
