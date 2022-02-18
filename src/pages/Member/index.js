@@ -16,6 +16,7 @@ import Order from './Order';
 import OrderDetail from './OrderDetail';
 import Download from './Download';
 import Review from './Review';
+import ReviewDetail from './ReviewDetail';
 import WishList from './WishList';
 import Mail from './Mail';
 import MailDetail from './MailDetail';
@@ -45,6 +46,9 @@ function Member(props) {
                     </Route>
                     <Route path={match.path + routes.review}>
                         <Review />
+                    </Route>
+                    <Route path={match.path + routes.reviewDetail}>
+                        <ReviewDetail />
                     </Route>
                     <Route path={match.path + routes.wishList}>
                         <WishList />
@@ -105,6 +109,14 @@ function Member(props) {
                                         to={match.path + routes.review}
                                     >
                                         Review
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="btn btn-primary text-light"
+                                        to={match.path + routes.reviewDetail}
+                                    >
+                                        Review Detail
                                     </Link>
                                 </li>
                                 <li>
