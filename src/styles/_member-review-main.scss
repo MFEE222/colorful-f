@@ -1,6 +1,5 @@
-@use "variables"as var;
-@use "mixins"as mix;
-
+@use "variables" as var;
+@use "mixins" as mix;
 
 .member-comment {
     @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
@@ -48,14 +47,21 @@
     .review-card-img {
         @include mix.media(width, $xs: 120px, $md: 150px);
 
-        img {
-            border-radius: $-border-radius;
-            object-fit: cover;
-            @include mix.media(width, $xs: 100px, $md: 130px);
-            @include mix.media(height, $xs: 100px, $md: 107px);
+        .ratios {
+            @include xs {
+                @include mix.ratio(1, 1);
+            }
+            @include md {
+                @include mix.ratio(4, 3);
+            }
+            img {
+                border-radius: $-border-radius;
+                object-fit: cover;
+                // @include mix.media(width, $xs: 100px, $md: 130px);
+                // @include mix.media(height, $xs: 100px, $md: 107px);
+            }
         }
     }
-
 
     .review-card {
         position: relative;
@@ -71,7 +77,6 @@
         h4 {
             @include mix.media(padding-bottom, $xs: 0px, $lg: 10px);
             @include mix.media(font-size, $xs: 16px, $lg: 26px);
-
         }
 
         .review-card-text {
@@ -84,7 +89,6 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
-
         }
 
         .btn {
@@ -97,8 +101,6 @@
             font-size: 14px;
             @include mix.media(width, $xs: 60px, $md: 80px);
             height: auto;
-
-
         }
 
         .btn:hover {
@@ -106,5 +108,4 @@
             color: #fff;
         }
     }
-
 }

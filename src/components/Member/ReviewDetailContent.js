@@ -37,17 +37,19 @@ function ReviewDetailContent(props) {
                                 </ul>
                             </div>
                             <div className="col-3 col-md-2 review-card-img">
-                                <img src={ProductImg} alt="" />
+                                <div className="ratio ratio-1x1">
+                                    <img src={ProductImg} alt="" />
+                                </div>
                             </div>
                             <div className="col-3 col-md-2 review-card-img">
-                                <img src={ProductImg} alt="" />
+                                <div className="ratio ratio-1x1">
+                                    <img src={ProductImg} alt="" />
+                                </div>
                             </div>
                             <div className="col-2">
                                 <p className="img-plus align-items-center">+</p>
                             </div>
-                            <label htmlFor="">
-                                
-                            </label>
+                            <label htmlFor=""></label>
                             <input
                                 className="r-text"
                                 type="text"
@@ -55,6 +57,7 @@ function ReviewDetailContent(props) {
                                 name=""
                                 value=""
                                 placeholder="告訴別人您有多喜歡此商品"
+                                onChange={function () {}}
                             />
                             <Link
                                 className="btn ms-auto d-block submit"

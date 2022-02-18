@@ -98,7 +98,7 @@ export const routes = {
     },
     get collect() {
         return this._collect;
-    }
+    },
 };
 
 // console.log('routes.home :>> ', routes.home);

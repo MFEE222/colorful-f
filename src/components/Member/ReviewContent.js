@@ -29,49 +29,61 @@ function ReviewContent(props) {
                 </div>
                 {/* card */}
                 <div className="row review-card">
-                    <div class="col-auto review-card-img">
-                        <img src={ImgProduct} alt="" />
+                    <div className="col-auto review-card-img">
+                        <div className="ratios">
+                            <img src={ImgProduct} alt="" />
+                        </div>
                     </div>
-                    <div class="col row align-items-center align-content-center">
-                        <h4 class="col-8 col-md-8 me-auto">FOOD-A1</h4>
-                        <p class="col-4 col-md-4 review-card-text ">2件商品</p>
-                        <p class="col-5 col-md-6 me-auto">
+                    <div className="col row align-items-center align-content-center">
+                        <h4 className="col-8 col-md-8 me-auto">FOOD-A1</h4>
+                        <p className="col-4 col-md-4 review-card-text ">
+                            2件商品
+                        </p>
+                        <p className="col-5 col-md-6 me-auto">
                             色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力
                         </p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.mailDetail}
+                            to={routes.member + routes.reviewDetail}
                         >
                             <span>編輯</span>
                         </Link>
                     </div>
                 </div>
                 <div className="row review-card">
-                    <div class="col-auto review-card-img">
-                        <img src={ImgProduct} alt="" />
+                    <div className="col-auto review-card-img">
+                        <div class="ratios">
+                            <img src={ImgProduct} alt="" />
+                        </div>
                     </div>
-                    <div class="col row align-items-center align-content-center">
-                        <h4 class="col-8 col-md-8 me-auto">FOOD-A1</h4>
-                        <p class="col-4 col-md-4 review-card-text ">2件商品</p>
-                        <p class="col-5 col-md-6 me-auto">
+                    <div className="col row align-items-center align-content-center">
+                        <h4 className="col-8 col-md-8 me-auto">FOOD-A1</h4>
+                        <p className="col-4 col-md-4 review-card-text ">
+                            2件商品
+                        </p>
+                        <p className="col-5 col-md-6 me-auto">
                             色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力
                         </p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.mailDetail}
+                            to={routes.member + routes.reviewDetail}
                         >
                             <span>編輯</span>
                         </Link>
                     </div>
                 </div>
                 <div className="row review-card">
-                    <div class="col-auto review-card-img">
-                        <img src={ImgProduct} alt="" />
+                    <div className="col-auto review-card-img">
+                        <div className="ratios">
+                            <img src={ImgProduct} alt="" />
+                        </div>
                     </div>
-                    <div class="col row align-items-center align-content-center">
-                        <h4 class="col-8 col-md-8 me-auto">FOOD-A1</h4>
-                        <p class="col-4 col-md-4 review-card-text ">2件商品</p>
-                        <p class="col-5 col-md-6 me-auto">
+                    <div className="col row align-items-center align-content-center">
+                        <h4 className="col-8 col-md-8 me-auto">FOOD-A1</h4>
+                        <p className="col-4 col-md-4 review-card-text ">
+                            2件商品
+                        </p>
+                        <p className="col-5 col-md-6 me-auto">
                             色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力色彩豐富、溫暖且對比自然為人像時尚和大自然攝引影，帶來生命力
                         </p>
                         <Link
