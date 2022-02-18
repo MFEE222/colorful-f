@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from "../../utils/others/config";
-
+import { ERR_MSG } from '../../utils/others/errors';
 
 const SignupContent = () => {
     const [member, setMember] = useState({
         email: 'abc123456@gmail.com',
         name: '123456',
-        password: '1234',
-        confirmPassword: '1234',
+        password: '12345678',
+        confirmPassword: '12345678',
     });
 
     function handleChange(e) {
@@ -17,11 +17,16 @@ const SignupContent = () => {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        let response = await axios.post(`${API_URL}/auth/SignupContent'`,
-            member
-        );
-        console.log(response.data);
+
+        try {
+            let response = await axios.post(`${API_URL}/auth/register`, member);
+            console.log(response.data);
+        } catch (e) {
+        // console.error("error", e.response.data);
+            console.error("測試註冊", ERR_MSG[e.response.data.code]);
+        }
     }
+
 
     return (
         <div className="signup-main">
