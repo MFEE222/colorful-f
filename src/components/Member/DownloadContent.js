@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Img1 from '../../images/book1.jpg';
-import Img2 from '../../images/film001.jpg';
-import Img3 from '../../images/film002.jpg';
+import Img2 from '../../images/book1.jpg';
+import Img3 from '../../images/book1.jpg';
 import Img4 from '../../images/film003.jpg';
 import Img5 from '../../images/film004.jpg';
 import Img6 from '../../images/film005.jpg';
@@ -88,12 +88,11 @@ function DownloadContent(props) {
                     色調包總數
                 </p>
             </div>
-            {/* <!-- top content left --> */}
-            <div className="col-6 border my-5 "></div>
-            {/* 上面這一條是線 */}
+
+            {/* 上面這一條是線  這裡的程式碼是第一張圖*/}
             <div className="row justify-content-around">
                 <div className="col-auto col-lg-5 p-0 ">
-                    <div className="card border-0" style={{ width: '18rem' }}>
+                    <div className="card border-0" style={{ width: '30rem' }}>
                         <img src={Img1} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="text-center fw-bold">FILM</h5>
@@ -147,6 +146,37 @@ function DownloadContent(props) {
                     </div>
                 </div>
             </div>
+            {/* 150-152是隔開的線 */}
+            {/* <div className="row">
+                <div className="col-6 border my-5 "></div>
+            </div> */}
+            {/* <!-- line --> */}
+            <h2 className="background">
+                <div className="row justify-content-center diamod">
+                    <svg
+                        className="spinner"
+                        width="65px"
+                        height="65px"
+                        viewBox="0 0 66 66"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        {/* <div className="col-7 border mb-5"></div> */}
+                        {/* <div className="diamod "></div> */}
+
+                        <circle
+                            className="path"
+                            fill="none"
+                            stroke-width="6"
+                            stroke-linecap="round"
+                            cx="33"
+                            cy="33"
+                            r="30"
+                        ></circle>
+                    </svg>
+                </div>
+                {/* <span>Line-behind title</span> */}
+            </h2>
+
             {/* <!-- card --> */}
             {/* 用row-cols-數字去控制一行有多少個 */}
             <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-3 my-1 mx-3 p-3 card-house">
