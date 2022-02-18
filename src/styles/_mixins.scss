@@ -5,35 +5,35 @@
 // xl: >=1200px
 // xxl: >=1400px
 @mixin media($prop, $xs: "", $sm: "", $md: "", $lg: "", $xl: "", $xxl: "") {
-    @if $xs !="" {
+    @if $xs != "" {
         #{$prop}: $xs;
     }
 
-    @if $sm !="" {
+    @if $sm != "" {
         @media (min-width: 576px) {
             #{$prop}: $sm;
         }
     }
 
-    @if $md !="" {
+    @if $md != "" {
         @media (min-width: 768px) {
             #{$prop}: $md;
         }
     }
 
-    @if $lg !="" {
+    @if $lg != "" {
         @media (min-width: 992px) {
             #{$prop}: $lg;
         }
     }
 
-    @if $xl !="" {
+    @if $xl != "" {
         @media (min-width: 1200px) {
             #{$prop}: $xl;
         }
     }
 
-    @if $xxl !="" {
+    @if $xxl != "" {
         @media (min-width: 1400px) {
             #{$prop}: $xxl;
         }
@@ -93,5 +93,18 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+}
+
+// Font Awesome for :before
+@mixin fas($content: "\f004", $me: 0.5rem) {
+    &::before {
+        content: $content;
+        // content: "\f49e";
+        // content: "\f466";
+        // content: "\f472";
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        margin-right: $me;
     }
 }

@@ -26,6 +26,8 @@ export const routes = {
     _mailDetail: '/mailDetail',
     _payment: '/payment',
     _collect: '/collect',
+    // test
+    _test: '/test',
 
     get home() {
         return this._home;
@@ -98,6 +100,9 @@ export const routes = {
     },
     get collect() {
         return this._collect;
+    },
+    get test() {
+        return this._test;
     },
 };
 
