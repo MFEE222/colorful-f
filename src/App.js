@@ -43,7 +43,7 @@ function App() {
             {/* 導覽列 */}
             <Navbar />
             {/* 麵包屑 */}
-            <Breadcrumb />
+            {/* <Breadcrumb /> */}
             <div>
                 <button className="btn btn-danger m-2">
                     <Link className="text-light" to={routes.home}>
