@@ -19,52 +19,76 @@ function DownloadContent(props) {
             {/* me是右邊的意思 用margin去擠開 */}
             {/* <!-- line --> */}
             <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center big-search">
-                <div className="console-container"></div>
-                <div className="row justify-content-center">
-                    <div class="col-lg-auto me-auto"></div>
+                <div className="console-container">
+                    <div className="row justify-content-center">
+                        <div class="col-lg-auto me-auto"></div>
 
-                    {/* <!-- search --> */}
-                    <div className="col-lg-4">
-                        <div className="d-flex">
-                            <button>123</button>
-                            <button>123</button>
-                            <button>123</button>
-                        </div>
-                        <div className="row">
-                            <div className="mb-2">
-                                <i className="fa-solid fa-magnifying-glass"></i>
-                                <input
-                                    type="text"
-                                    className="form-control col-12"
-                                    id="exampleFormControlInput1"
-                                    placeholder="搜尋"
-                                />
-                            </div>
-                            <div className="">
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary col-12 "
-                                >
-                                    <i className="fas fa-caret-down me-2"></i>
-                                    依照購買日期排序
-                                </button>
-                            </div>
-                        </div>
+                        {/* <!-- search --> */}
                     </div>
+                    <div className="col-lg-4"></div>
+                </div>
+                <section>
+                    <div className="inner">
+                        <ul className="activity">
+                            <li>
+                                <a href="#">FO</a>
+                            </li>
+                            <li>
+                                <a href="#">WE</a>
+                            </li>
+                            <li>
+                                <a href="#">PO</a>
+                            </li>
+                            <li>
+                                <a href="#">FI</a>
+                            </li>
+                            <li>
+                                <a href="#">SC</a>
+                            </li>
+                        </ul>{' '}
+                    </div>
+                </section>
 
-                    {/* 寫在這一行裡面 */}
+                {/* <div className="d-flex">
+                    <button className="activity">FO</button>
+                    <button className="activity">WE</button>
+                    <button className="activity">PO</button>
+                    <button className="activity">FI</button>
+                    <button className="activity">SC</button>
+                </div> */}
+                <div className="row">
+                    <div className="mb-2">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="text"
+                            className="form-control col-12"
+                            id="exampleFormControlInput1"
+                            placeholder="搜尋"
+                        />
+                    </div>
+                    <div className="">
+                        <button
+                            type="button"
+                            className="btn btn-outline-secondary col-12 "
+                        >
+                            <i className="fas fa-caret-down me-2"></i>
+                            依照購買日期排序
+                        </button>
+                    </div>
                 </div>
-                <div className="circle-number ">
-                    {/* 加入數字 */}
-                    <p className="toponenumber">5</p>
-                    <p className="topnumber">
-                        已擁有的
-                        <br />
-                        色調包總數
-                    </p>
-                </div>
-                {/* <!-- top content left --> */}
-            </div>{' '}
+            </div>
+            {/* 寫在這一行裡面 */}
+
+            <div className="circle-number ">
+                {/* 加入數字 */}
+                <p className="toponenumber">5</p>
+                <p className="topnumber">
+                    已擁有的
+                    <br />
+                    色調包總數
+                </p>
+            </div>
+            {/* <!-- top content left --> */}
             <div className="col-6 border my-5 "></div>
             {/* 上面這一條是線 */}
             <div className="row justify-content-around">
