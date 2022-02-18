@@ -22,8 +22,8 @@ function FilterBarContent(props) {
                         className="md-input-style"
                         placeholder="在此輸入關鍵字"
                     />
-                    <li>
-                        <i className="fas fa-sort-amount-up fa-lg"></i>
+                    <li className=" ">
+                        <i className="fas fa-sort-amount-up fa-lg "></i>
                     </li>
                     <li>
                         <i className="fas fa-sort-amount-down-alt fa-lg"></i>

@@ -2,8 +2,31 @@ import React from 'react';
 import ImgProduct from '../../images/navbar-ex-1.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
 import ImgFigure from '../../images/portrait01.jpg';
+import { useParams, useLocation } from 'react-router-dom';
+import { IMG_URL } from '../../utils/config';
 
 function ProductDetailContent(props) {
+    //TODO:拿到 review 資料
+    const fetchReview = async () => {
+        // const response = await axios.get(`${API_URL}/product`);
+        // console.log(response.data);
+        // console.log(response.data.data);
+        // //server要回傳json
+        // setProducts(response.data.data);
+        // setShowProducts(response.data.data);
+        // let tagsList = response.data.tags;
+        // let tagProduct = response.data.tagProduct;
+        // console.log(tagsList);
+        // console.log(tagProduct);
+        // setTags(tagsList);
+    };
+    //TODO:彈跳moudal顯示照片
+    const location = useLocation();
+    console.log(location);
+    console.log('state :>> ', location.state);
+    const { id, descp, favorites, img, name, owners, price, series, stars } =
+        location.state;
+
     return (
         <div className="product-detail">
             {/* // <!-- Product desciption --> */}
@@ -12,7 +35,7 @@ function ProductDetailContent(props) {
                 <div className="col-12 col-md-6 order-1">
                     <div className="img-big">
                         <div className="ratios">
-                            <img src={ImgProduct} alt="" />
+                            <img src={`${IMG_URL}/${img}/f00.jpg`} alt="" />
                         </div>
                     </div>
                 </div>
@@ -20,7 +43,7 @@ function ProductDetailContent(props) {
                 <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
                     <div className="col-12 my-xxl-4 align-self-start ">
                         <h1 className="my-3 my-md-0 mb-lg-2  product-name">
-                            Weeding 01
+                            {name}
                         </h1>
                         <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
                             <li className="ps-0">

@@ -4,6 +4,9 @@ import axios from 'axios';
 import { API_URL, IMG_URL } from '../../utils/config';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import { css } from '@emotion/react';
+import ProductListCard from './ProductListCard';
+import RecommendCard from './RecommendCard';
+import Pagination from '../Pagination/Pagination';
 
 //圖片
 import deleteImg from '../../icons/Sortbar/Delete.png';
@@ -29,9 +32,11 @@ function ProductListContent(props) {
     let [color, setColor] = useState('#cf9d3f');
     const override = css`
         display: block;
-        margin: 25vh auto;
+        margin: auto;
+        width: 100vh;
+        height: 100vh;
     `;
-
+    //search filter tag 排序
     //TODO:欄位搜尋+code query
     //TODO:(拆成元件)filterbar 顯示
     //TODO:(拆成元件)tag 顯示 => 點擊切換icon
@@ -41,18 +46,23 @@ function ProductListContent(props) {
     //TODO:商品卡點進去要商品詳情
     //TODO:收藏愛心要加減（非會員加入localstorage)//=>收藏狀態設在這層
 
+    // axios, react 生命週期
+
+    // axios -> 異步, 和後端伺服器請求資料
+    // react 生命週期：掛載（只會執行一次），指定狀態更新（在特定狀態改變的時候就會更新），
+
     //和server要資料
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
-        console.log(response.data);
+        // console.log(response.data);
         console.log(response.data.data);
         //server要回傳json
         setProducts(response.data.data);
         setShowProducts(response.data.data);
         let tagsList = response.data.tags;
         let tagProduct = response.data.tagProduct;
-        console.log(tagsList);
-        console.log(tagProduct);
+        // console.log(tagsList);
+        // console.log(tagProduct);
         setTags(tagsList);
     };
 
@@ -177,12 +187,15 @@ function ProductListContent(props) {
                 </div>
             </div>
             {/* tags  */}
-            <div className=" container d-flex tags-list ">
+            <div className=" container row flex-nowrap tags-list ps-0">
                 {tags.map((tag) => {
                     return (
                         <>
-                            <div className="m-2 mx-md-2  tag-text" key={tag.id}>
-                                {handleHastag}
+                            <div
+                                className="col-auto m-2 mx-md-2  tag-text"
+                                key={tag.id}
+                            >
+                                {/* {handleHastag} */}
                                 <i class="fas fa-hashtag pe-1"></i>
                                 {tag.name}
                             </div>
@@ -191,264 +204,11 @@ function ProductListContent(props) {
                 })}
             </div>
             {/* <!-- card --> */}
-            <div className="container">
-                <div className="card-group row my-4 mt-md-5 my-2">
-                    <div className="col-6 col-md-3">
-                        <div className="card-border " data-tilt>
-                            {/* <!-- data-tilt 特效 看是否保留 --> */}
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 mb-3">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border ">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 mb-3">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3">
-                        <div className="card-border">
-                            <div className="card-img ">
-                                <div className="ratios">
-                                    <img src={cardDemo} alt="" />
-                                </div>
-                            </div>
-                            <div className="card-body text-start p-0 my-2 my-md-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="card-title">
-                                        婚禮／Wedding-1
-                                    </p>
-                                    <i className="fas fa-heart"></i>
-                                </div>
-                                <div className="text-start">NT 20</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ProductListCard products={showProducts} />
             {/* <!-- Pagination --> */}
-            <div className="container">
-                <div className="pagination">
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div>
-            </div>
+            <Pagination />
             {/* <!-- recommend --> <!-- dec = decorate --> */}
-            <div className="container">
-                <div className="recommend mt-5">
-                    <div className="recommend-title">
-                        <div className="text-box">
-                            <div className="phone-title">
-                                <h3>熱銷排行</h3>
-                                <img
-                                    className="d-md-none"
-                                    src={decBar}
-                                    alt=""
-                                />
-                                <p className="d-none d-md-block">
-                                    暢銷色調值得您擁有 強化風格與色調
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommend-card">
-                        <div className="card-group row my-4 mt-md-5 my-2">
-                            <div className="col-6 col-md-3">
-                                <div className="card-border " data-tilt>
-                                    {/* <!-- data-tilt 特效 看是否保留 --> */}
-                                    <div className="card-img ">
-                                        <div className="ratios">
-                                            <img src={cardDemo} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <p className="card-title">
-                                                婚禮／Wedding-1
-                                            </p>
-                                            <i className="fas fa-heart"></i>
-                                        </div>
-                                        <div className="text-start">NT 20</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="card-border ">
-                                    <div className="card-img ">
-                                        <div className="ratios">
-                                            <img src={cardDemo} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <p className="card-title">
-                                                婚禮／Wedding-1
-                                            </p>
-                                            <i className="fas fa-heart"></i>
-                                        </div>
-                                        <div className="text-start">NT 20</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="card-border">
-                                    <div className="card-img ">
-                                        <div className="ratios">
-                                            <img src={cardDemo} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <p className="card-title">
-                                                婚禮／Wedding-1
-                                            </p>
-                                            <i className="fas fa-heart"></i>
-                                        </div>
-                                        <div className="text-start">NT 20</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 col-md-3">
-                                <div className="card-border">
-                                    <div className="card-img ">
-                                        <div className="ratios">
-                                            <img src={cardDemo} alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <div className="d-flex justify-content-between align-items-center">
-                                            <p className="card-title">
-                                                婚禮／Wedding-1
-                                            </p>
-                                            <i className="fas fa-heart"></i>
-                                        </div>
-                                        <div className="text-start">NT 20</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {/* <RecommendCard /> */}
         </>
     );
     const spinner = (
@@ -465,7 +225,7 @@ function ProductListContent(props) {
                 color={color}
                 loading={loading}
                 css={override}
-                size={17}
+                size={13}
             />
         </div>
     );

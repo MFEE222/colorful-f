@@ -33,6 +33,7 @@ import Team from './pages/Team';
 import Teach from './pages/Teach';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import Test from './test/tmp';
 
 function App() {
     console.log('API_URL :>> ', API_URL);
@@ -102,6 +103,7 @@ function App() {
                 {/* 主頁 */}
                 <Route exact path={routes.home}>
                     <Home />
+                    {/* <Test /> */}
                 </Route>
                 {/* 404 */}
                 <Route path={routes.error}>
