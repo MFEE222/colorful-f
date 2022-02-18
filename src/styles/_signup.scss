@@ -1,12 +1,16 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "variables" as var;
+@use "mixins" as mix;
 
 // 內容
 .signup-main {
     // all
     color: #fff;
     background-size: cover;
-    @include mix.media(background-image, $xs: url("../images/婚禮_5.jpg"), $lg: url("../images/login.jpg"));
+    @include mix.media(
+        background-image,
+        $xs: url("../images/婚禮_5.jpg"),
+        $lg: url("../images/login.jpg")
+    );
 
     // form 框框
     .form-box {
@@ -24,23 +28,42 @@
         .box-title {
             text-align: center;
             font-size: calc(2rem + 0.2vmin);
-            @include mix.media(font-size, $xs: 18px ,$lg: 30px);
-
+            @include mix.media(font-size, $xs: 18px, $lg: 30px);
         }
 
         // 帳號/密碼輸入框
         .form-floating {
-            border: 0;
-            margin: 30px 16px 30px 16px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background: transparent;
-            color: #6a6f77;
+            // border: 0;
+            margin: 1rem;
+            // -webkit-appearance: none;
+            // -moz-appearance: none;
+            // background: transparent;
+            // color: #6a6f77;
+            input {
+                color: #fff;
+                // width: 99%;
+                outline-style: none;
+                border: 0px;
+                border-radius: 0;
+                border-bottom: 1px solid #fff;
+                background-color: transparent;
+                -webkit-appearance: none;
+            }
+            input:focus {
+                border-bottom: 1px solid #fff;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+            //  取消input 預設樣式
+            input::-webkit-search-decoration,
+            input::-webkit-search-cancel-button {
+                display: none;
+            }
         }
-
 
         //送出按鈕
         .form-btn {
+            margin-top: 5rem;
             font-size: 26px;
 
             button {

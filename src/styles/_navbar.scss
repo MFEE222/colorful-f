@@ -1,78 +1,233 @@
 @use "variables" as var;
 @use "mixins" as mix;
-.navbar {
-    // all
-    background-color: var.$dark-blue;
-    // background-color: var.$gray;
-    @include mix.media(position, $md: sticky);
-    @include mix.media(top, $md: 0);
-    z-index: 1020;
 
-    .container {
-        // all
-        position: relative;
-        // menu
-        .menu {
-            // position: absolute;
-            // all
-            @include mix.media(position, $xs: absolute);
-            @include mix.media(display, $xs: block, $md: none);
-            top: 5px;
-            right: 0;
-            // button
-            button {
-                font-size: 1rem;
-                color: var.$brown;
-                opacity: 0.8;
+.colorful-navbar {
+    // 底色
+    // 預設
 
+    // background-color: var.$dark-blue !important;
+
+    background-color: var.$light !important;
+
+    // background-color: black !important;
+
+    // background-color: var.$gray !important;
+
+    // 品牌名稱、Logo
+    .navbar-brand {
+        // 品牌名稱
+        color: black;
+        font-size: calc(1.4rem + 0.2vmin);
+        font-family: "Didot", sans-serif;
+        font-weight: 400;
+        padding: 0.4rem 1rem 0.1rem 1rem; // 深色字會上浮，上 padding 設大
+        &:focus-visible {
+            outline: 0;
+        }
+    }
+    // 選單按鈕
+    .navbar-toggler {
+        // 透明度
+        opacity: 0.3;
+        // 取消 border
+        border-color: rgba(0, 0, 0, 0);
+        // 取消 focus
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    // 導覽列
+    #colorful-navbar-nav {
+        .navbar-nav {
+            // box-shadow: 0 -3px 6px rgba(255, 255, 255, 0.3);
+            @include mix.media(margin-right, $lg: 0 !important);
+            @include mix.media(margin-left, $lg: auto !important);
+            @include mix.media(padding-left, $xs: 0.25rem, $lg: 0);
+            @include mix.media(padding-top, $xs: 1rem, $lg: 0);
+
+            // 下拉選單
+            .dropdown {
+                // 縮排
+                padding: 0 1rem;
+
+                // 取消 focus, icon
+                &:focus-visible,
                 &:focus {
-                    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 25%);
+                    outline: 0;
+                }
+                // 主項目（觸發展開）
+                .dropdown-toggle {
+                    // 取消 focus
+                    &:focus,
+                    &:focus-visible {
+                        outline: 0;
+                    }
+
+                    &:after {
+                        content: none;
+                    }
+                }
+                // 次項目（展開選單）
+                .dropdown-menu {
+                    // background-color: rgba(0, 0, 0, 0);
+                    background-color: white;
+                    border: 0;
+                    .dropdown-item {
+                        // padding: 0.25rem 2.25rem;
+                        padding-left: 1.5rem;
+
+                        color: gray;
+
+                        // 取消 hover, focus, active
+                        &:focus,
+                        &:hover,
+                        &:active {
+                            background-color: rgba(0, 0, 0, 0);
+                        }
+                        &:focus-visible {
+                            outline: 0;
+                        }
+                    }
+                    // 取消 focus
+                    &:focus-visible {
+                        outline: 0;
+                    }
                 }
             }
-        }
 
-        // company brand
-        .company-brand {
-            img {
-                height: 40px;
-                margin-top: 0.25rem;
-                margin-bottom: 0.25rem;
-            }
-            @include mix.media(
-                margin-left,
-                $xs: auto !important,
-                $md: 0 !important
-            );
-            @include mix.media(margin-right, $xs: auto !important);
-        }
-        // links
-        .links {
-            @include mix.media(margin-right, $xs: 0, $md: calc(1rem + 2vw));
-
-            .nav-item {
-                &:not(:first-child) {
+            // 連結按鈕
+            .nav-link {
+                color: gray;
+                &:hover {
+                    color: var.$gray;
+                }
+                &:focus {
+                    outline: 0;
+                }
+                &.link-item {
                     @include mix.media(
-                        margin-left,
-                        $xs: 0,
-                        $md: calc(0.5rem + 1vw)
+                        padding,
+                        $xs: 0.5rem 1rem,
+                        $lg: 0.5rem 0.75rem
                     );
                 }
-                .nav-link {
-                    padding: 0.5rem;
-                    font-size: 1rem;
-                    color: var.$gold;
+                &:nth-last-child(3) {
+                    // &:nth-child(5) {
+                    @include mix.media(margin-left, $lg: 2rem);
+                }
+                // 斷點以下，用文字顯示，以上，用 icon 顯示
+                .text {
+                    @include mix.media(display, $xs: inline, $lg: none);
+                }
+                .fas {
+                    @include mix.media(display, $xs: none, $lg: inline-block);
                 }
             }
+            // 小鈴鐺單獨在斷點後拿掉
+            #colorful-mail-link {
+                @include mix.media(display, $lg: none);
+            }
         }
-        // icons
-        .icons {
-            .nav-link {
-                padding: 0.5rem;
-                font-size: 1rem;
-                i {
-                    color: var.$brown;
-                }
+        // Link 元件
+        .link {
+            color: gray;
+            text-decoration: none;
+            &:focus-visible {
+                outline: 0;
+            }
+            &:hover {
+                color: #c4c4c4;
             }
         }
     }
 }
+
+// Logo 版
+// Logo 版一
+// padding-top: 10px;
+// padding-bottom: 0;
+// .logo {
+//     padding-left: -12px;
+//     height: 48px;
+// }
+// Logo 版二
+// .logo-group {
+//     display: flex;
+//     align-items: center;
+
+//     .logo {
+//         @include mix.ratio(1, 1);
+//         width: 40px;
+//         img {
+//             object-position: left top;
+//         }
+
+//         margin-right: 0.5rem;
+//     }
+
+//     .text {
+//         // color: var.$dark-blue;
+
+//         color: var.$light;
+//         font-size: 1.5rem;
+//     }
+// }
+
+// #colorful-product-dropdown {
+//     // 箱子打開
+//     @include mix.fas("\f49e");
+//     // 箱子關閉
+//     // @include mix.fas("\f466");
+//     // 手推車
+//     // @include mix.fas("\f472");
+// }
+// #colorful-aboutus-dropdown {
+//     // 太空人
+//     // @include mix.fas("\f4fb");
+//     // 團體
+//     @include mix.fas("\f0c0");
+//     // 微笑
+//     // @include mix.fas("\f118");
+// }
+// #colorful-tutorial-dropdown {
+//     // 定位箭頭
+//     @include mix.fas("\f124", 0.75rem);
+//     // 地圖
+//     // @include mix.fas("\f279");
+//     // 地圖加上定位點
+//     // @include mix.fas("\f5a0");
+//     // 學士帽
+//     // @include mix.fas("\f19d");
+// }
+// #colorful-support-dropdown {
+//     // 問號
+//     @include mix.fas("\f059", 0.75rem);
+//     // 手拉手
+//     // @include mix.fas("\f4c4");
+//     // 服務鈴
+//     // @include mix.fas("\f562", 0.75rem);
+//     // 頭麥
+//     // @include mix.fas("\f590", 0.75rem);
+// }
+// #colorful-mail-link {
+//     // 信封
+//     // @include mix.fas("\f0e0", 0.75rem);
+//     // 信封開啟（有信）
+//     // @include mix.fas("\f658");
+//     // 鈴鐺
+//     @include mix.fas("\f0f3", 0.75rem);
+// }
+// #colorful-favorite-link {
+//     // 愛心
+//     @include mix.fas("\f004", 0.75rem);
+// }
+// #colorful-member-link {
+//     // 人
+//     @include mix.fas("\f007", 0.75rem);
+// }
+// #colorful-cart-link {
+//     // 購物車
+//     @include mix.fas("\f07a", 0.75rem);
+//     margin-left: -0.25rem;
+// }
