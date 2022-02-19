@@ -152,8 +152,18 @@ function DownloadContent(props) {
                     {/* <!-- line --> */}
                     <div className="row justify-content-center">
                         <div className="col-4 border mb-5"></div>
-                    </div>
 
+                        <p className="cardbodyareatext">
+                            The upholstery of the bar stool consists of straight
+                            polyester fibres with small gaps between them
+                            providing comfy elasticity and better ventilation so
+                            you enjoy a pleasant temperature when sitting. The
+                            seat's bowl-shaped bottom is adapted for your sit
+                            bones and those of most of the world's population.
+                            And with an innovative technique, the seat's padding
+                            is shaped to maximise your comfort.
+                        </p>
+                    </div>
                     {/* 第二顆的DOWNLOAD按鈕 */}
                     {/* <div className="row">
                         <div className="col-6 text-center">
