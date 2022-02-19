@@ -1,6 +1,17 @@
 @use "variables"as var;
 @use "mixins"as mix;
 
+
+
+.card-img-top {
+
+    position: center;
+}
+
+.card-body {
+    position: center;
+}
+
 .member-profile-main {
     .big-search {
         position: relative;
@@ -115,9 +126,12 @@
         width: 10rem;
         height: 10rem;
         border: double #dfdfdf 5px;
+        background-color: white;
         border-radius: 99em;
-        @include mix.media(top, $xs:19.5rem, $sm:15.5rem, $md:16rem, $lg:15rem, $xl:14rem, $xxl:14.5rem);
-        @include mix.media(left, $xs:06.5rem, $sm:0.5rem, $md:11.5rem, $lg:12.5rem, $xl:14rem, $xxl:20rem);
+        top: calc((100% - 10rem) / 2);
+        left: -5rem;
+        // @include mix.media(top, $xs:19.5rem, $sm:15.5rem, $md:16rem, $lg:15rem, $xl:14rem, $xxl:14.5rem);
+        // @include mix.media(left, $xs:06.5rem, $sm:0.5rem, $md:11.5rem, $lg:12.5rem, $xl:14rem, $xxl:20rem);
 
         .toponenumber {
             font-size: 2.5rem;
@@ -170,9 +184,9 @@
     position: relative;
     left: 50%;
 
-    @include mix.media(width, $xs:15px, $sm:15.5rem, $md:16rem, $lg:15rem, $xl:14rem, $xxl:14.5rem);
-    @include mix.media(height, $xs:15px, $sm:15.5rem, $md:16rem, $lg:15rem, $xl:14rem, $xxl:14.5rem);
-    @include mix.media(left, $xs:43%, $sm:15.5rem, $md:16rem, $lg:15rem, $xl:14rem, $xxl:14.5rem);
+    @include mix.media(width, $xs:15px, $sm:1rem, $md:1rem, $lg:1rem, $xl:1rem, $xxl:3rem);
+    @include mix.media(height, $xs:15px, $sm:1rem, $md:1rem, $lg:1rem, $xl:1rem, $xxl:3rem);
+    @include mix.media(left, $xs:5.5rem, $sm:11rem, $md:11.5rem, $lg:18rem, $xl:25rem, $xxl:28rem);
 
 }
 

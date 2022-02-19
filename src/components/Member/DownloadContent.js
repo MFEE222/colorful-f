@@ -20,47 +20,68 @@ function DownloadContent(props) {
             {/* <!-- line --> */}
 
             {/* <!-- 上半部 --> */}
-            <div className="row m-5 border p-2 justify-content-evenly topSectionBorder">
-              
+            <div className="row m-5 border p-2 justify-content-evenly position-relative topSectionBorder">
+                {/* <!-- 小圓形區塊 --> */}
 
-              {/* <!-- 小圓形區塊 --> */}
+                <div className="row col-5">
+                    {/* <!-- <div id="circle"></div> --> */}
+                    <div className="d-flex flex-row justify-content-center align-items-end">
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-circle border me-4 mb-2 fw-bold "
+                            >
+                                FO
+                            </button>
+                            <span className="me-4 mb-1 text-black-50">3</span>
+                        </div>
 
-              <div className="row col-5">
-                {/* <!-- <div id="circle"></div> --> */}
-                <div className="d-flex flex-row justify-content-center align-items-end">
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-circle border me-4 mb-2 fw-bold"
+                            >
+                                D
+                            </button>
+                            <span className="me-4 mb-1 text-black-50">3</span>
+                        </div>
 
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold ">FO</button>
-                    <span className="me-4 mb-1 text-black-50">3</span>
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-circle border me-4 mb-2 fw-bold"
+                            >
+                                N
+                            </button>
+                            <span className="me-4 mb-1 text-black-50">3</span>
+                        </div>
+
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-circle border me-4 mb-2 fw-bold"
+                            >
+                                FI
+                            </button>
+                            <span className="me-4 mb-1 text-black-50">3</span>
+                        </div>
+
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <button
+                                type="button"
+                                className="btn btn-default btn-circle border me-4 mb-2 fw-bold"
+                            >
+                                P
+                            </button>
+                            <span className="me-4 mb-1 text-black-50">4</span>
+                        </div>
                     </div>
-
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">D</button>
-                    <span className="me-4 mb-1 text-black-50">3</span>
-                    </div>
-
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">N</button>
-                    <span className="me-4 mb-1 text-black-50">3</span>
-                    </div>
-
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">FI</button>
-                    <span className="me-4 mb-1 text-black-50">3</span>
-                    </div>
-
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">P</button>
-                    <span className="me-4 mb-1 text-black-50">4</span>
-                    </div>
-
-                  </div>
-              </div>
+                </div>
 
                 {/* <!-- 搜尋 / 篩選區塊 --> */}
-                  <div className="col-12 col-lg-4">
+                <div className="col-12 col-lg-4">
                     <div className="col-12 mb-2">
-                        <input    
+                        <input
                             type="text"
                             className="form-control fs-5"
                             id="exampleFormControlInput1"
@@ -76,20 +97,18 @@ function DownloadContent(props) {
                             依照購買日期排序
                         </button>
                     </div>
-                  </div>
-                
+                </div>
+                <div className="position-absolute circle-number ">
+                    {/* 加入數字 */}
+                    <p className="toponenumber">5</p>
+                    <p className="topnumber">
+                        已擁有的
+                        <br />
+                        色調包總數
+                    </p>
+                </div>
             </div>
             {/* 寫在這一行裡面 */}
-
-            <div className="circle-number ">
-                {/* 加入數字 */}
-                <p className="toponenumber">5</p>
-                <p className="topnumber">
-                    已擁有的
-                    <br />
-                    色調包總數
-                </p>
-            </div>
 
             {/* 上面這一條是線  這裡的程式碼是第一張圖*/}
             <div className="row justify-content-around mt-5">
@@ -136,7 +155,7 @@ function DownloadContent(props) {
                     </div>
 
                     {/* 第二顆的DOWNLOAD按鈕 */}
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-6 text-center">
                             <button
                                 type="button"
@@ -144,8 +163,8 @@ function DownloadContent(props) {
                             >
                                 未下載
                             </button>
-                            </div>
-                            <div className="col-6 text-center">
+                        </div>
+                        <div className="col-6 text-center">
                             <button
                                 type="button"
                                 className="btn btn-lg btn-light mt-5 col-8 rounded-pill text-black-50 downloadButton"
@@ -153,7 +172,7 @@ function DownloadContent(props) {
                                 已下載
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* 150-152是隔開的線 */}
