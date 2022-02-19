@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 // import Logo from '../images/colorful-logo-h100.png';
 // import Logo from '../images/colorful-logo.png';
@@ -35,8 +35,7 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
-                            {/* <NavDropdown.Divider /> */}
-                            <NavDropdown.Item href="#">
+                            <NavDropdown.Item href={routes.product}>
                                 Wedding
                             </NavDropdown.Item>
                             <NavDropdown.Item href="#">Food</NavDropdown.Item>
@@ -53,7 +52,6 @@ function OurNavbar(props) {
                             title="About us"
                             id="colorful-aboutus-dropdown"
                         >
-                            {/* <NavDropdown.Divider /> */}
                             <NavDropdown.Item href="#">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#">
                                 Another action
@@ -69,7 +67,6 @@ function OurNavbar(props) {
                             title="Tutorial"
                             id="colorful-tutorial-dropdown"
                         >
-                            {/* <NavDropdown.Divider /> */}
                             <NavDropdown.Item href="#">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#">
                                 Another action
@@ -97,18 +94,13 @@ function OurNavbar(props) {
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link
-                            href="#"
-                            className="link-item"
-                            id="colorful-mail-link"
-                        >
+                        <Nav.Link className="link-item" id="colorful-mail-link">
                             <Link to={routes.member} className="link">
                                 <span className="text">Notification</span>
                                 <i className="fas fa-bell"></i>
                             </Link>
                         </Nav.Link>
                         <Nav.Link
-                            href="#"
                             className="link-item"
                             id="colorful-favorite-link"
                         >
@@ -118,7 +110,6 @@ function OurNavbar(props) {
                             </Link>
                         </Nav.Link>
                         <Nav.Link
-                            href="#"
                             className="link-item"
                             id="colorful-member-link"
                         >
@@ -127,12 +118,8 @@ function OurNavbar(props) {
                                 <i className="fas fa-user"></i>
                             </Link>
                         </Nav.Link>
-                        <Nav.Link
-                            href="#"
-                            className="link-item"
-                            id="colorful-cart-link"
-                        >
-                            <Link to={routes.cart} className="link">
+                        <Nav.Link className="link-item" id="colorful-cart-link">
+                            <Link to={routes.member} className="link">
                                 <span className="text">Cart</span>
                                 <i className="fas fa-shopping-cart"></i>
                             </Link>
