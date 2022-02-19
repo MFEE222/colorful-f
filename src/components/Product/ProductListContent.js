@@ -4,9 +4,11 @@ import axios from 'axios';
 import { API_URL, IMG_URL } from '../../utils/config';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import { css } from '@emotion/react';
-import ProductListCard from './ProductListCard';
+// import ProductListCard from './ProductListCard';
 import RecommendCard from './RecommendCard';
 import Pagination from '../Pagination/Pagination';
+import Card from './Card';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 //圖片
 import deleteImg from '../../icons/Sortbar/Delete.png';
@@ -20,11 +22,13 @@ import decBar from '../../icons/dec-bar.png';
 function ProductListContent(props) {
     //記錄用（像伺服器要原始資料）
     const [products, setProducts] = useState([]);
+    // const [ranks, setRanking] = useState([]);
     //過濾呈現用
     const [showProducts, setShowProducts] = useState([]);
     const [searchWord, setSearchWord] = useState('');
     //表單元素狀態
     const [tags, setTags] = useState([]);
+    const match = useRouteMatch();
 
     //TODO:載入顯示 ok
     //loading
@@ -54,34 +58,35 @@ function ProductListContent(props) {
     //和server要資料
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
+
         // console.log(response.data);
         console.log(response.data.data);
         //server要回傳json
         setProducts(response.data.data);
         setShowProducts(response.data.data);
-        let tagsList = response.data.tags;
-        let tagProduct = response.data.tagProduct;
+        const tagsList = response.data.tags;
+        const tagProduct = response.data.tagProduct;
+        // const ranking = response.data.rank;
         // console.log(tagsList);
         // console.log(tagProduct);
         setTags(tagsList);
+        // setRanking(ranking);
     };
 
-    //didmount初始時
+    //監聽loading
     useEffect(() => {
         //loading
-        setLoading(true);
-        // 初始呈現
-        fetchProduct();
         if (products !== []) {
             setLoading(false);
         }
     }, [loading]);
+    //didmount初始時
+    useEffect(() => {
+        //搜尋字串
+        setLoading(true);
+        fetchProduct();
+    }, []);
 
-    // useEffect(() => {
-    //     //搜尋字串
-    // }, []);
-
-    //
     const productList = (
         <>
             <div className="product-list">
@@ -204,11 +209,65 @@ function ProductListContent(props) {
                 })}
             </div>
             {/* <!-- card --> */}
-            <ProductListCard products={showProducts} />
+            <div className="container">
+                <div className="card-group row my-4 mt-md-5 my-2">
+                    {products.map((product) => {
+                        return (
+                            <div className="col-6 col-md-3">
+                                <Card
+                                    key={product.id}
+                                    detail={
+                                        (product.img,
+                                        product.name,
+                                        product.price)
+                                    }
+                                    to={`${match.path}/detail/${product.id}`}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            {/* <ProductListCard products={showProducts} /> */}
             {/* <!-- Pagination --> */}
             <Pagination />
             {/* <!-- recommend --> <!-- dec = decorate --> */}
-            {/* <RecommendCard /> */}
+            {/* <div className="container">
+                <div className="recommend mt-5">
+                    <div className="recommend-title">
+                        <div className="text-box">
+                            <div className="phone-title">
+                                <h3>熱銷排行</h3>
+                                <img
+                                    className="d-md-none"
+                                    src={decBar}
+                                    alt=""
+                                />
+                                <p className="d-none d-md-block">
+                                    暢銷色調值得您擁有 強化風格與色調
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="recommend-card">
+                        //TODO:切成元件
+                        <div className="card-group row my-4 mt-md-5 my-2">
+                            {ranks.map((rank) => {
+                                return (
+                                    <div className="col-6 col-md-3">
+                                        <Card
+                                            key={rank.id}
+                                            detail={rank}
+                                            ranks={ranks}
+                                        ></Card>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div> */}
+            <RecommendCard />
         </>
     );
     const spinner = (

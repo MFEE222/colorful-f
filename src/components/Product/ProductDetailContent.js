@@ -4,29 +4,23 @@ import ImgIcon from '../../icons/dec-bar.png';
 import ImgFigure from '../../images/portrait01.jpg';
 import { useParams, useLocation } from 'react-router-dom';
 import { IMG_URL } from '../../utils/config';
+import { imgName } from '../../utils/imageName';
+import Pagination from '../Pagination/Pagination';
+import Card from './Card';
+import RecommendCard from './RecommendCard';
 
 function ProductDetailContent(props) {
+    const detail = props.detail;
     //TODO:拿到 review 資料
-    const fetchReview = async () => {
-        // const response = await axios.get(`${API_URL}/product`);
-        // console.log(response.data);
-        // console.log(response.data.data);
-        // //server要回傳json
-        // setProducts(response.data.data);
-        // setShowProducts(response.data.data);
-        // let tagsList = response.data.tags;
-        // let tagProduct = response.data.tagProduct;
-        // console.log(tagsList);
-        // console.log(tagProduct);
-        // setTags(tagsList);
-    };
+    // const fetchReview = async () => {};
     //TODO:彈跳moudal顯示照片
-    const location = useLocation();
-    console.log(location);
-    console.log('state :>> ', location.state);
-    const { id, descp, favorites, img, name, owners, price, series, stars } =
-        location.state;
 
+    // const location = useLocation();
+    // console.log(location);
+    // console.log('state :>> ', location.state);
+    // const { id, descp, favorites, img, name, owners, price, series, stars } =
+    //     location.state;
+    // const { ranks } = location.state;
     return (
         <div className="product-detail">
             {/* // <!-- Product desciption --> */}
@@ -35,7 +29,10 @@ function ProductDetailContent(props) {
                 <div className="col-12 col-md-6 order-1">
                     <div className="img-big">
                         <div className="ratios">
-                            <img src={`${IMG_URL}/${img}/f00.jpg`} alt="" />
+                            <img
+                                src={`${IMG_URL}/${detail.img}/${imgName.a0}`}
+                                alt=""
+                            />
                         </div>
                     </div>
                 </div>
@@ -43,7 +40,7 @@ function ProductDetailContent(props) {
                 <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
                     <div className="col-12 my-xxl-4 align-self-start ">
                         <h1 className="my-3 my-md-0 mb-lg-2  product-name">
-                            {name}
+                            {detail.name}
                         </h1>
                         <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
                             <li className="ps-0">
@@ -66,16 +63,16 @@ function ProductDetailContent(props) {
                                 <i className="fas fa-heart"></i>
                             </div>
                         </ul>
-                        <p className="mt-lg-2  detail-text">
-                            因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。低對比度柔和的色調可以讓您營造出美麗而寧靜的美感。這款底片可以強調所有色調，最能帶出過飽和色澤的底片種類，尤其暖色系顏色更是能栩栩如生因此比起拍攝人物，更適用於風景攝影。
-                        </p>
+                        <p className="mt-lg-2  detail-text">{detail.descp}</p>
                     </div>
                     <div className="col-12 row p-0 m-0 align-items-center justify-content-between">
                         <div className="col-auto  mb-xl-2">
                             <div className="wish-list-2 mb-xl-1">
                                 <i className="fas fa-heart"></i>
                             </div>
-                            <p className="price my-1 mb-xxl-4">NT. 20</p>
+                            <p className="price my-1 mb-xxl-4">
+                                NT. {detail.price}
+                            </p>
                         </div>
                         <div className="col-auto col-xl-12">
                             <button className="add-cart">加入購物車</button>
@@ -84,32 +81,24 @@ function ProductDetailContent(props) {
                     </div>
                 </div>
                 {/* <!-- 小張圖片可更換商品示意圖 --> */}
-                <div className="col-12 col-md-6 order-2 order-md-3 row mt-3 img-list">
+                <div className="col-12 col-md-4 order-2 order-md-3 row mt-3 img-list">
                     <div className="col p-1">
                         <div className="img-small">
                             <div className="ratios ">
-                                <img src={ImgProduct} alt="" />
+                                <img
+                                    src={`${IMG_URL}/${detail.img}/${imgName.a1}`}
+                                    alt=""
+                                />
                             </div>
                         </div>
                     </div>
                     <div className="col p-1">
                         <div className="img-small">
                             <div className="ratios ">
-                                <img src={ImgProduct} alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col p-1">
-                        <div className="img-small">
-                            <div className="ratios ">
-                                <img src={ImgProduct} alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col p-1">
-                        <div className="img-small">
-                            <div className="ratios ">
-                                <img src={ImgProduct} alt="" />
+                                <img
+                                    src={`${IMG_URL}/${detail.img}/${imgName.a2}`}
+                                    alt=""
+                                />
                             </div>
                         </div>
                     </div>
@@ -118,92 +107,7 @@ function ProductDetailContent(props) {
 
             {/* <!-- 熱銷排行 md 以上評論 標題--> */}
             <div className="my-5 recommend pd-2 pd-shared">
-                <div className="recommend-title">
-                    <div className="text-box">
-                        <div className="phone-title">
-                            <h3 className="m-0">熱銷排行</h3>
-                            <img className="d-md-none" src={ImgIcon} alt="" />
-                            <p>暢銷色調值得您擁有 強化風格與色調</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="recommend-card">
-                    <div className="row my-4 mt-md-5 my-2 card-group ">
-                        <div className="col-6 col-md-3">
-                            <div className="card-border " data-tilt>
-                                {/* <!-- data-tilt 特效 看是否保留 --> */}
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={ImgProduct} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">NT 20</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border ">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={ImgProduct} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">NT 20</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={ImgProduct} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">NT 20</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={ImgProduct} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">NT 20</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <RecommendCard />
             </div>
             {/* <!-- xs,sm 評論細節 --> */}
             <div className="pt-md-3 pd-3 pd-shared">
@@ -509,17 +413,7 @@ function ProductDetailContent(props) {
             </div>
 
             {/* <!-- Pagination --> */}
-            <div className="container">
-                <div className="pagination">
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div>
-            </div>
+            <Pagination />
         </div>
     );
 }

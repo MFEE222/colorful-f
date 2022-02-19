@@ -6,20 +6,18 @@ import { Route, Link, Switch } from 'react-router-dom';
 import { imgName } from '../../utils/imageName';
 function Card(props) {
     const { id, name, descp, img, price, favorites, owners, stars } =
-        props.product;
-    // const sayHi = {
-    //     A: 'a',
-    //     B: 'b',
-    // };
-    // console.log(props.product);
+        props.detail;
+    console.log(props);
     // console.log('img :>> ', `${IMG_URL}/${img}/${imgName.a0}`);
     return (
         <>
+            //TODO:父層傳進來 //TODO:
+            {/* 因為細節頁的推薦卡點進去也是細節頁 */}
             <Link
                 // to={routes.product + routes.productDetail}
                 to={{
-                    pathname: routes.product + routes.productDetail + `/${id}`,
-                    state: props.product,
+                    pathname: props.to,
+                    state: props.detail,
                 }}
                 className="link"
             >
@@ -34,9 +32,9 @@ function Card(props) {
                             {/* <img src={`${IMG_URL}/${img}/f00.jpg`} alt="" /> */}
                         </div>
                     </div>
-                    <div className="card-body text-start p-0 my-2 my-md-4">
+                    <div className="card-body text-start p-0 mt-2 mb-3">
                         <div className="d-flex justify-content-between align-items-center">
-                            <p className="card-title">{name}</p>
+                            <p className="card-title mb-0">{name}</p>
                             <i className="fas fa-heart"></i>
                         </div>
                         <div className="text-start">NT {price}</div>
