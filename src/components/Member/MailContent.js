@@ -29,7 +29,7 @@ function MailContent(props) {
                         <p>2022/01/18</p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.mailDetail}
+                            to={routes.mailDetail}
                         >
                             <span>查看信件</span>
                         </Link>
@@ -46,7 +46,7 @@ function MailContent(props) {
                         <p>2022/01/18</p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.mailDetail}
+                            to={routes.mailDetail}
                         >
                             <span>查看信件</span>
                         </Link>
@@ -63,7 +63,7 @@ function MailContent(props) {
                         <p>2022/01/18</p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.mailDetail}
+                            to={routes.mailDetail}
                         >
                             <span>查看信件</span>
                         </Link>

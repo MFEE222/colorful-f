@@ -61,7 +61,7 @@ function ReviewDetailContent(props) {
                             />
                             <Link
                                 className="btn ms-auto d-block submit"
-                                to={routes.member + routes.review}
+                                to={routes.review}
                             >
                                 <span>完成</span>
                             </Link>

@@ -16,7 +16,7 @@ function Team(props) {
     return (
         <>
             <Switch>
-                <Route path={match.path}>
+                <Route path={routes.team}>
                     <TeamContent />
                 </Route>
             </Switch>

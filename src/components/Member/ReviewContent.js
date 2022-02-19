@@ -44,7 +44,7 @@ function ReviewContent(props) {
                         </p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.reviewDetail}
+                            to={routes.reviewDetail}
                         >
                             <span>編輯</span>
                         </Link>
@@ -66,7 +66,7 @@ function ReviewContent(props) {
                         </p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.reviewDetail}
+                            to={routes.reviewDetail}
                         >
                             <span>編輯</span>
                         </Link>
@@ -88,7 +88,7 @@ function ReviewContent(props) {
                         </p>
                         <Link
                             className="btn ms-auto d-block"
-                            to={routes.member + routes.reviewDetail}
+                            to={routes.reviewDetail}
                         >
                             <span>編輯</span>
                         </Link>
