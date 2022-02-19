@@ -5,19 +5,18 @@ import { routes } from '../../utils/routes';
 import { Route, Link, Switch } from 'react-router-dom';
 import { imgName } from '../../utils/imageName';
 function Card(props) {
-    const { id, name, descp, img, price, favorites, owners, stars } =
-        props.detail;
-    console.log(props);
+    const { name, descp, img, price, favorites, owners, stars } = props.detail;
+    // console.log('here======');
+    // console.log(props.to);
     // console.log('img :>> ', `${IMG_URL}/${img}/${imgName.a0}`);
     return (
         <>
-            //TODO:父層傳進來 //TODO:
+            {/* //TODO:父層傳進來 //TODO: */}
             {/* 因為細節頁的推薦卡點進去也是細節頁 */}
             <Link
                 // to={routes.product + routes.productDetail}
                 to={{
                     pathname: props.to,
-                    state: props.detail,
                 }}
                 className="link"
             >

@@ -20,14 +20,15 @@ function RecommendCard(props) {
     const fetchRank = async () => {
         const response = await axios.get(`${API_URL}/product/rank`);
         const rankData = response.data;
-        console.log(rankData.rank);
+        setRows(rankData.rank);
+
+        // console.log(rankData.rank);
         // console.log(Array.isArray(rankData.rank));
         // console.log(typeof rankData.rank);
-        setRows(rankData.rank);
+        // setRows(rankData.rank);
     };
 
     useEffect(() => {
-        console.log('1234');
         fetchRank();
     }, []);
 
@@ -56,10 +57,8 @@ function RecommendCard(props) {
                                 <div className="col-6 col-md-3">
                                     <Card
                                         key={rank.id}
-                                        detail={
-                                            (rank.img, rank.name, rank.price)
-                                        }
-                                        to={`${match.path}/detail/${rank.id}`}
+                                        detail={rank}
+                                        to={`/product/detail/${rank.id}`}
                                     />
                                 </div>
                             );

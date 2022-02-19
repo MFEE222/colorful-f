@@ -58,8 +58,8 @@ function ProductListContent(props) {
     //和server要資料
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
-
         // console.log(response.data);
+        console.log('12345');
         console.log(response.data.data);
         //server要回傳json
         setProducts(response.data.data);
@@ -201,7 +201,7 @@ function ProductListContent(props) {
                                 key={tag.id}
                             >
                                 {/* {handleHastag} */}
-                                <i class="fas fa-hashtag pe-1"></i>
+                                <i className="fas fa-hashtag pe-1"></i>
                                 {tag.name}
                             </div>
                         </>
@@ -216,11 +216,7 @@ function ProductListContent(props) {
                             <div className="col-6 col-md-3">
                                 <Card
                                     key={product.id}
-                                    detail={
-                                        (product.img,
-                                        product.name,
-                                        product.price)
-                                    }
+                                    detail={product}
                                     to={`${match.path}/detail/${product.id}`}
                                 />
                             </div>

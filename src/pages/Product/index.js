@@ -5,6 +5,7 @@ import {
     Link,
     useRouteMatch,
     useParams,
+    useNavigate,
 } from 'react-router-dom';
 
 import { routes } from '../../utils/routes';
@@ -24,12 +25,12 @@ function Product(props) {
                 {/* <Route path={match.path + routes.productDetail}>
                     <ProductDetail />
                 </Route> */}
-                <Route path={match.path}>
-                    <ProductList />
-                </Route>
-                <Route path={`${match.path}/detail/:pid`}>
+
+                <Route path={`${match.path}/detail/:id?`}>
                     <ProductDetail />
                 </Route>
+                <Route path={match.path}>{/* <ProductList /> */}</Route>
+
                 {/* <Route path={match.path}>
                     <div className="box">
                         <h1>Product</h1>
