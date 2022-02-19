@@ -8,3 +8,4 @@ export const ERR_MSG = {
 export const EMR_MSG = {
     33002: '這個 email 已經註冊過了',
 };
+

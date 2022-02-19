@@ -1,39 +1,80 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+import { Link, Redirect } from 'react-router-dom';
+import { API_URL } from '../../utils/others/config';
+import { ERR_MSG } from '../../utils/others/errors';
 
+const SigninContent = () => {
+    // const [loginMember, setLoginMember] = useState({
+    //     email: "",
+    //     password: "",
+    // });
+    const [loginMember, setLoginMember] = useState({
+        email: 'asd@test.com',
+        password: '123456789',
+    });
+    const [isLogin, setIsLogin] = useState(false);
 
-function SigninContent(props) {
+    function handleChange(e) {
+        setLoginMember({ ...loginMember, [e.target.name]: e.target.value });
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        try {
+            let response = await axios.post(
+                `${API_URL}/auth/login`,
+                loginMember,
+                { withCredentials: true }
+            );
+            console.log(response.data);
+
+            setLoginMember(response.data.data);
+            setIsLogin(true);
+        } catch (e) {  
+            console.log(123);
+            // console.error("error", e.response.data);
+            console.error('登入', ERR_MSG[e.response.data.code]);
+        }
+    }
+    if (isLogin) {
+            // 轉頁效果
+        return <Redirect to="/" />;
+    }
     return (
         <div className="signin-main">
             <div className="container">
                 <div className="row justify-content-center justify-content-lg-start">
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
-                            <form className="signin-form" action="">
+                            <form className="signin-form">
                                 <h4 className="box-title mt-2">
                                     SIGNIN TO YOUR COLORFUL
                                 </h4>
                                 <div className="form-floating mt-4">
                                     <input
-                                        type="email"
+                                        type="text"
                                         className="form-control"
-                                        id="floatingInput"
+                                        id="email"
+                                        name="email"
                                         placeholder="Email address"
+                                        value={loginMember.email}
+                                        onChange={handleChange}
                                     />
-                                    <label htmlFor="floatingInput">
-                                        Email address
-                                    </label>
+                                    <label htmlFor="name">Email address</label>
                                 </div>
                                 <div className="form-floating">
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="password"
+                                        name="password"
                                         placeholder="Password"
+                                        value={loginMember.password}
+                                        onChange={handleChange}
                                     />
-                                    <label htmlFor="floatingPassword">
-                                        Password
-                                    </label>
+                                    <label htmlFor="password">Password</label>
                                 </div>
                                 <div className="forgot mt-3">
                                     <Link to="/" className="l-link">
@@ -49,12 +90,17 @@ function SigninContent(props) {
                                     </Link>
                                 </div>
                                 <div className="form-btn mt-5">
-                                    <button type="submit">Sign in</button>
+                                    <button
+                                        type="submit"
+                                        onClick={handleSubmit}
+                                    >
+                                        Sign in
+                                    </button>
                                 </div>
                                 <div>
                                     <p className="signup">
                                         Don't have account?
-                                        <Link to="/" className="l-link">
+                                        <Link to="/signup" className="l-link">
                                             Sign up
                                         </Link>
                                     </p>
@@ -66,6 +112,6 @@ function SigninContent(props) {
             </div>
         </div>
     );
-}
+};
 
 export default SigninContent;

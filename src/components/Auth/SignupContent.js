@@ -5,10 +5,10 @@ import { ERR_MSG } from '../../utils/others/errors';
 
 const SignupContent = () => {
     const [member, setMember] = useState({
-        email: 'abc123456@gmail.com',
-        name: '123456',
-        password: '12345678',
-        confirmPassword: '12345678',
+        email: '',
+        name: '',
+        password: '',
+        confirmPassword: '',
     });
 
     function handleChange(e) {
@@ -23,7 +23,7 @@ const SignupContent = () => {
             console.log(response.data);
         } catch (e) {
         // console.error("error", e.response.data);
-            console.error("測試註冊", ERR_MSG[e.response.data.code]);
+            console.error("註冊", ERR_MSG[e.response.data.code]);
         }
     }
 
@@ -72,13 +72,13 @@ const SignupContent = () => {
                                         value={member.password}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="floatingPassword">
+                                    <label htmlFor="password">
                                         Password
                                     </label>
                                 </div>
                                 <div className="form-floating">
                                     <input
-                                        type="confirmpassword"
+                                        type="password"
                                         className="form-control"
                                         id="confirmPassword"
                                         name="confirmPassword"
@@ -86,7 +86,7 @@ const SignupContent = () => {
                                         value={member.confirmPassword}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="floatingPassword">
+                                    <label htmlFor="password">
                                         Confirm Password
                                     </label>
                                 </div>
