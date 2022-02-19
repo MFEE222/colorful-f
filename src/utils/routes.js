@@ -21,9 +21,15 @@ export const routes = {
     _download: '/download',
     _wishList: '/wishlist',
     _review: '/review',
+    _reviewDetail: '/reviewDetail',
     _mail: '/mail',
+    _mailDetail: '/mailDetail',
     _payment: '/payment',
+    _collect: '/collect',
+    // test
+    _test: '/test',
 
+    // 第一層路由
     get home() {
         return this._home;
     },
@@ -45,47 +51,60 @@ export const routes = {
     get error() {
         return this._error;
     },
+    // 第二層路由
     // auth
     get signin() {
-        return this._signin;
+        return this._auth + this._signin;
     },
     get signup() {
-        return this._signup;
+        return this._auth + this._signup;
     },
     get forgot() {
-        return this._forgot;
+        return this._auth + this._forgot;
     },
     // product
     get productDetail() {
-        return this._productDetail;
+        return this._product + this._productDetail;
     },
     get productList() {
-        return this._productList;
+        return this._product + this._productList;
     },
     // member
     get profile() {
-        return this._profile;
+        return this._member + this._profile;
     },
     get orderList() {
-        return this._orderList;
+        return this._member + this._orderList;
     },
     get orderDetail() {
-        return this._orderDetail;
+        return this._member + this._orderDetail;
     },
     get download() {
-        return this._download;
+        return this._member + this._download;
     },
     get wishList() {
-        return this._wishList;
+        return this._member + this._wishList;
     },
     get review() {
-        return this._review;
+        return this._member + this._review;
+    },
+    get reviewDetail() {
+        return this._member + this._reviewDetail;
     },
     get mail() {
-        return this._mail;
+        return this._member + this._mail;
+    },
+    get mailDetail() {
+        return this._member + this._mailDetail;
     },
     get payment() {
-        return this._payment;
+        return this._member + this._payment;
+    },
+    get collect() {
+        return this._member + this._collect;
+    },
+    get test() {
+        return this._test;
     },
 };
 

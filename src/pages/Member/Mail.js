@@ -1,12 +1,9 @@
 import React from 'react';
 
+import MailContent from '../../components/Member/MailContent';
+
 function Mail(props) {
-    return (
-        <div className="box">
-            <h1>Mail</h1>
-            <p>Welcome to mail page...</p>
-        </div>
-    );
+    return <MailContent />;
 }
 
 export default Mail;

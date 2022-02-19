@@ -1,0 +1,111 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+.member-comment {
+    @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
+    border-top: solid 1px #ccc;
+    @include mix.media(border-radius, $xs: 0, $md: 20px);
+    // height: 300vh;
+    background-color: #fff;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    @include mix.media(padding, $xs: 0, $md: 2rem);
+    @include mix.media(box-shadow, $xs: none, $md: 5px 5px 10px silver);
+
+    .filter {
+        font-size: 12px;
+        color: #ffffff;
+        margin-top: 20px auto;
+
+        .sort-series {
+            padding-left: 11px;
+            /* padding-bottom: 8px; */
+            float: left;
+
+            li {
+                margin: 0 5px;
+                width: 20%;
+                height: auto;
+                display: inline;
+                background-color: #cf9d3f;
+                border-radius: 20px;
+            }
+
+            .active {
+                background-color: #0e1829;
+            }
+
+            .line {
+                clear: both;
+                width: 100%;
+                /* margin-top: -17px; */
+                border-bottom: 1px solid transparent;
+            }
+        }
+    }
+
+    .review-card-img {
+        @include mix.media(width, $xs: 120px, $md: 150px);
+
+        .ratios {
+            @include xs {
+                @include mix.ratio(1, 1);
+            }
+            @include md {
+                @include mix.ratio(4, 3);
+            }
+            img {
+                border-radius: $-border-radius;
+                object-fit: cover;
+                // @include mix.media(width, $xs: 100px, $md: 130px);
+                // @include mix.media(height, $xs: 100px, $md: 107px);
+            }
+        }
+    }
+
+    .review-card {
+        position: relative;
+        @include mix.media(border, $xs: none, $md: solid 1px #ccc);
+        @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
+        @include mix.media(border-radius, $xs: 0, $md: 20px);
+        @include mix.media(box-shadow, $xs: 0, $md: 5px 5px 10px silver);
+        @include mix.media(padding, $xs: 0px, $md: 10px);
+        @include mix.media(padding-bottom, $xs: 20px, $md: 10px);
+
+        margin-bottom: 20px;
+
+        h4 {
+            @include mix.media(padding-bottom, $xs: 0px, $lg: 10px);
+            @include mix.media(font-size, $xs: 16px, $lg: 26px);
+        }
+
+        .review-card-text {
+            @include mix.media(text-align, $xs: center, $lg: right);
+        }
+
+        p {
+            @include mix.media(font-size, $xs: 12px, $lg: 14px);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        .btn {
+            position: absolute;
+            @include mix.media(left, $xs: 80%, $lg: 87%, $xl: 89%);
+            @include mix.media(top, $xs: 60%, $md: 50%);
+            color: #cf9d3f;
+            border: solid 1px #cf9d3f;
+            border-radius: 20px;
+            font-size: 14px;
+            @include mix.media(width, $xs: 60px, $md: 80px);
+            height: auto;
+        }
+
+        .btn:hover {
+            background-color: #cf9d3f;
+            color: #fff;
+        }
+    }
+}
