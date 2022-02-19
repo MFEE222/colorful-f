@@ -6,6 +6,7 @@ export const routes = {
     _member: '/member',
     _team: '/team',
     _teach: '/teach',
+    _cart: '/cart',
     _error: '*',
     // auth
     _signin: '/signin',
@@ -47,6 +48,9 @@ export const routes = {
     },
     get teach() {
         return this._teach;
+    },
+    get cart() {
+        return this._cart;
     },
     get error() {
         return this._error;
