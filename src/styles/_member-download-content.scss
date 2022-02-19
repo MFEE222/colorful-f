@@ -229,6 +229,77 @@ h2.double:after {
     // animation: rotator $duration linear infinite;
 }
 
+.topSectionBorder {
+  border-radius: 30px;
+  position: relative;
+}
+
+#circle {
+  width: 220px;
+  height: 220px;
+  border-color: #8d807a;
+  border-bottom: 12px solid #8d807a;
+  border-top: 12px solid #8d807a;
+  border-left: 12px solid #8d807a;
+  border-right: 12px solid #8d807a;
+  border-radius: 50%;
+  background: white;
+  box-shadow: inset 0px 0px 0px 10px white;
+  position: absolute;
+  top: 1%;
+  z-index: 99;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    //font-size: 12px;
+    //line-height: 1.42857;
+    line-height: 1;
+}
+
+.btn-circle:hover {
+  background-color: #cf9d3f;
+  box-shadow: 0px 15px 20px #c4c4c4;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.downloadButton {
+
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.downloadButton:hover {
+  background-color: #cf9d3f;
+  box-shadow: 0px 15px 20px #c4c4c4;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
 @keyframes rotator {
     0% {
         transform: rotate(0deg);
@@ -260,3 +331,4 @@ h2.double:after {
         stroke: #4285f4;
     }
 }
+

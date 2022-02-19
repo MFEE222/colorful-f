@@ -13,55 +13,56 @@ import Img10 from '../../images/film009.jpg';
 
 function DownloadContent(props) {
     return (
-        <main className="col-12 col-md-10 member-profile-main">
+        <main className="col-12 col-md-10 px-5 member-profile-main border">
             {/* <!-- title --> */}
             {/* <div className="col-7"> */}
             {/* me是右邊的意思 用margin去擠開 */}
             {/* <!-- line --> */}
-            <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center big-search">
-                <div className="console-container">
-                    <div className="row justify-content-center">
-                        <div class="col-lg-auto me-auto"></div>
 
-                        {/* <!-- search --> */}
-                    </div>
-                    <div className="col-lg-4"></div>
-                </div>
-                <section>
-                    <div className="inner">
-                        <ul className="activity">
-                            <li>
-                                <a href="#">FO</a>
-                            </li>
-                            <li>
-                                <a href="#">WE</a>
-                            </li>
-                            <li>
-                                <a href="#">PO</a>
-                            </li>
-                            <li>
-                                <a href="#">FI</a>
-                            </li>
-                            <li>
-                                <a href="#">SC</a>
-                            </li>
-                        </ul>{' '}
-                    </div>
-                </section>
+            {/* <!-- 上半部 --> */}
+            <div className="row m-5 border p-2 justify-content-evenly topSectionBorder">
+              
 
-                {/* <div className="d-flex">
-                    <button className="activity">FO</button>
-                    <button className="activity">WE</button>
-                    <button className="activity">PO</button>
-                    <button className="activity">FI</button>
-                    <button className="activity">SC</button>
-                </div> */}
-                <div className="row">
-                    <div className="mb-2">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                        <input
+              {/* <!-- 小圓形區塊 --> */}
+
+              <div className="row col-5">
+                {/* <!-- <div id="circle"></div> --> */}
+                <div className="d-flex flex-row justify-content-center align-items-end">
+
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold ">FO</button>
+                    <span className="me-4 mb-1 text-black-50">3</span>
+                    </div>
+
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">D</button>
+                    <span className="me-4 mb-1 text-black-50">3</span>
+                    </div>
+
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">N</button>
+                    <span className="me-4 mb-1 text-black-50">3</span>
+                    </div>
+
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">FI</button>
+                    <span className="me-4 mb-1 text-black-50">3</span>
+                    </div>
+
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                    <button type="button" className="btn btn-default btn-circle border me-4 mb-2 fw-bold">P</button>
+                    <span className="me-4 mb-1 text-black-50">4</span>
+                    </div>
+
+                  </div>
+              </div>
+
+                {/* <!-- 搜尋 / 篩選區塊 --> */}
+                  <div className="col-12 col-lg-4">
+                    <div className="col-12 mb-2">
+                        <input    
                             type="text"
-                            className="form-control col-12"
+                            className="form-control fs-5"
                             id="exampleFormControlInput1"
                             placeholder="搜尋"
                         />
@@ -69,13 +70,14 @@ function DownloadContent(props) {
                     <div className="">
                         <button
                             type="button"
-                            className="btn btn-outline-secondary col-12 "
+                            className="btn btn-outline-secondary col-12 fs-5"
                         >
                             <i className="fas fa-caret-down me-2"></i>
                             依照購買日期排序
                         </button>
                     </div>
-                </div>
+                  </div>
+                
             </div>
             {/* 寫在這一行裡面 */}
 
@@ -90,8 +92,8 @@ function DownloadContent(props) {
             </div>
 
             {/* 上面這一條是線  這裡的程式碼是第一張圖*/}
-            <div className="row justify-content-around">
-                <div className="col-auto col-lg-5 p-0 ">
+            <div className="row justify-content-around mt-5">
+                <div className="col-auto col-xl-5 p-0 ">
                     <div className="card border-0" style={{ width: '30rem' }}>
                         <img src={Img1} className="card-img-top" alt="..." />
                         <div className="card-body">
@@ -104,13 +106,13 @@ function DownloadContent(props) {
                 </div>
 
                 {/* <!-- top content right --> */}
-                <div className="col-12 col-lg-5">
+                <div className="col-12 col-xl-5">
                     <div className="row">
-                        <div className="col-12 text-center mb-3">
+                        <div className="col-12 text-center mb-4">
                             {/* 第一顆按鈕 */}
                             <button
                                 type="button"
-                                className="btn btn-lg btn-warning mt-2 col-8 rounded-pill text-light"
+                                className="btn btn-lg btn-light mt-2 col-8 rounded-pill text-dark fw-bold downloadButton"
                             >
                                 DOWNLOAD
                             </button>
@@ -123,8 +125,8 @@ function DownloadContent(props) {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-12 text-center">
-                            <h4 className="fs-5">YOU MAY ALSO LIKE </h4>
+                        <div className="col-12 text-center mb-3">
+                            <h4 className="fs-5">YOU MAY ALSO LIKE</h4>
                         </div>
                     </div>
 
@@ -135,12 +137,20 @@ function DownloadContent(props) {
 
                     {/* 第二顆的DOWNLOAD按鈕 */}
                     <div className="row">
-                        <div className="col-12 text-center">
+                        <div className="col-6 text-center">
                             <button
                                 type="button"
-                                className="btn btn-lg btn-warning mt-5 col-8 rounded-pill text-light"
+                                className="btn btn-lg btn-light mt-5 col-8 rounded-pill text-black-50 downloadButton"
                             >
-                                DOWNLOAD
+                                未下載
+                            </button>
+                            </div>
+                            <div className="col-6 text-center">
+                            <button
+                                type="button"
+                                className="btn btn-lg btn-light mt-5 col-8 rounded-pill text-black-50 downloadButton"
+                            >
+                                已下載
                             </button>
                         </div>
                     </div>
