@@ -21,10 +21,10 @@ function Product(props) {
                 {/* <Route path={match.path + routes.productList}>
                     <ProductList />
                 </Route> */}
-                <Route path={match.path + routes.productDetail}>
+                <Route path={routes.productDetail}>
                     <ProductDetail />
                 </Route>
-                <Route path={match.path}>
+                <Route path={routes.product}>
                     <ProductList />
                 </Route>
                 {/* <Route path={match.path}>

@@ -12,7 +12,8 @@ function OurNavbar(props) {
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
-                <Navbar.Brand href="#">
+                <Navbar.Brand>
+                    <Link to={routes.home}>COLORFUL</Link>
                     {/* <div className="logo-group">
                         <div className="logo">
                             <img src={Logo} alt="" />
@@ -20,7 +21,7 @@ function OurNavbar(props) {
                         <span className="text">Colorful</span>
                     </div> */}
                     {/* <img src={Logo} alt="" className="logo" /> */}
-                    COLORFUL
+                    {/* COLORFUL */}
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="colorful-navbar-nav">
                     {/* <i className="fas fa-bars"></i> */}
