@@ -39,12 +39,14 @@ function RecommendCard(props) {
                     <div className="recommend-title">
                         <div className="text-box">
                             <div className="phone-title">
-                                <h3>熱銷排行</h3>
-                                <img
-                                    className="d-md-none"
-                                    src={decBar}
-                                    alt=""
-                                />
+                                <h3 className="">熱銷排行</h3>
+                                <div className="mb-2">
+                                    <img
+                                        className="d-md-none"
+                                        src={decBar}
+                                        alt=""
+                                    />
+                                </div>
                                 <p className="d-none d-md-block">
                                     暢銷色調值得您擁有 強化風格與色調
                                 </p>
@@ -59,6 +61,7 @@ function RecommendCard(props) {
                                         key={rank.id}
                                         detail={rank}
                                         to={`/product/detail/${rank.id}`}
+                                        className="link"
                                     />
                                 </div>
                             );

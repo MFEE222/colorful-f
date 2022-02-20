@@ -12,29 +12,30 @@ import Main from '../../components/Product/Main';
 import ProductDetailContent from '../../components/Product/ProductDetailContent';
 
 function ProductDetail(props) {
-    // 勾子
-    const params = useParams();
-    // 狀態
-    const [detailData, setDetailData] = useState([]);
+    // const detailData = props.detailData;
 
-    //TODO:解析網址拿到id（全部有關資料）評論之類的 再傳進(props)card
+    // 勾子
+    // const params = useParams();
+    // 狀態
+    // const [detailData, setDetailData] = useState({});
+    // (async () => {
+    //     const id = params.id;
+    //     // console.log('api :>>', `${API_URL}/product/detail/${id}`);
+    //     const response = await axios.get(`${API_URL}/product/detail/${id}`);
+    //     // setDetailData(response.data.detail[0]);
+    //     // console.log('response :>> ', response);
+    // })();
+
+    // //TODO:解析網址拿到id（全部有關資料）評論之類的 再傳進(props)card
 
     // DidMount
-    useEffect(() => {
-        (async () => {
-            const id = params.id;
-            // console.log('api :>>', `${API_URL}/product/detail/${id}`);
-            const response = await axios.get(`${API_URL}/product/detail/${id}`);
-
-            // console.log('response :>> ', response);
-            setDetailData(response.data.detail);
-        })();
-    }, []);
+    // useEffect(() => {}, []);
 
     // 渲染
     return (
         <Main>
-            <ProductDetailContent detailData={detailData} />
+            {/* <ProductDetailContent detailData={detailData} /> */}
+            <ProductDetailContent />
         </Main>
     );
 }

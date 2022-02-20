@@ -5,7 +5,8 @@ import { routes } from '../../utils/routes';
 import { Route, Link, Switch } from 'react-router-dom';
 import { imgName } from '../../utils/imageName';
 function Card(props) {
-    const { name, descp, img, price, favorites, owners, stars } = props.detail;
+    const { name, descp, img, price, favorites, owners, stars, detail } =
+        props.detail;
     // console.log('here======');
     // console.log(props.to);
     // console.log('img :>> ', `${IMG_URL}/${img}/${imgName.a0}`);
@@ -17,6 +18,7 @@ function Card(props) {
                 // to={routes.product + routes.productDetail}
                 to={{
                     pathname: props.to,
+                    state: { detail },
                 }}
                 className="link"
             >
@@ -32,7 +34,7 @@ function Card(props) {
                         </div>
                     </div>
                     <div className="card-body text-start p-0 mt-2 mb-3">
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex justify-content-between align-items-baseline">
                             <p className="card-title mb-0">{name}</p>
                             <i className="fas fa-heart"></i>
                         </div>

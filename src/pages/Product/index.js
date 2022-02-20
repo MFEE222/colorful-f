@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Switch,
     Route,
@@ -15,6 +15,7 @@ import ProductDetail from './ProductDetail';
 function Product(props) {
     const match = useRouteMatch();
     // console.log('match :>> ', match);
+    // const [productDetail, setProductDetail] = useState({});
 
     return (
         <>
@@ -29,7 +30,9 @@ function Product(props) {
                 <Route path={`${match.path}/detail/:id?`}>
                     <ProductDetail />
                 </Route>
-                <Route path={match.path}>{/* <ProductList /> */}</Route>
+                <Route path={match.path}>
+                    <ProductList />
+                </Route>
 
                 {/* <Route path={match.path}>
                     <div className="box">
