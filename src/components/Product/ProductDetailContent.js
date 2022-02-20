@@ -16,17 +16,26 @@ import RecommendCard from './RecommendCard';
 import ShowStar from '../StarList/ShowStar';
 
 // 圖片
-import ImgProduct from '../../images/navbar-ex-1.jpg';
+import DemoImgProduct from '../../images/navbar-ex-1.jpg';
+import DemoImgFigure from '../../images/portrait01.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
-import ImgFigure from '../../images/portrait01.jpg';
 
 function ProductDetailContent(props) {
     // 狀態、勾子
-    const detailData = props.detailData;
+    // const detialData = props.detialData;
     const location = useLocation();
 
-    // console.log('detailData :>> ', detailData);
+    // console.log('detialData :>> ', detialData);
     // console.log('location :>> ', location);
+
+    // 變數
+    const product = location.state;
+    const imgUrlAfter = [
+        `{IMG_URL}/${product.img}${imgName.a0}`,
+        `{IMG_URL}/${product.img}${imgName.a1}`,
+        `{IMG_URL}/${product.img}${imgName.a2}`,
+    ];
+    const imgUrlBefore = [`{IMG_URL}/${product.img}${imgName.b0}`];
 
     // 渲染
     return (
@@ -37,10 +46,7 @@ function ProductDetailContent(props) {
                     <div className="col-12 col-md-6 order-1">
                         <div className="img-big">
                             <div className="ratios">
-                                <img
-                                    src={`${IMG_URL}/${detailData.img}/${imgName.a0}`}
-                                    alt=""
-                                />
+                                <img src={imgUrlAfter[0]} alt="" />
                             </div>
                         </div>
                     </div>
@@ -48,19 +54,19 @@ function ProductDetailContent(props) {
                     <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
                         <div className="col-12 my-xxl-4 align-self-start ">
                             <h1 className="mt-2 mb-md-2 mb-lg-1  product-name">
-                                {detailData.name}
+                                {product.name}
                             </h1>
                             <ul className="d-flex align-items-center pb-1 pb-md-1 ul-unstyle">
-                                <ShowStar>{detailData.stars}</ShowStar>
+                                <ShowStar>{product.stars}</ShowStar>
                                 <p className="reviews-text ms-2">
-                                    {detailData.review_counts}/ Reviews
+                                    {product.review_counts}/ Reviews
                                 </p>
                                 <div className="wish-list ms-auto d-md-none">
                                     <i className="fas fa-heart"></i>
                                 </div>
                             </ul>
                             <p className="mt-lg-0  detail-text mb-2">
-                                {detailData.descp}
+                                {product.descp}
                             </p>
                         </div>
                         <div className="col-12 row p-0 m-0 align-items-center justify-content-between">
@@ -69,7 +75,7 @@ function ProductDetailContent(props) {
                                     <i className="far fa-heart"></i>
                                 </div>
                                 <p className="price my-1 mb-xxl-4">
-                                    NT. {detailData.price}
+                                    NT. {product.price}
                                 </p>
                             </div>
                             <div className="col-auto col-xl-12">
@@ -83,20 +89,14 @@ function ProductDetailContent(props) {
                         <div className="col p-1">
                             <div className="img-small">
                                 <div className="ratios ">
-                                    <img
-                                        src={`${IMG_URL}/${detailData.img}/${imgName.a1}`}
-                                        alt=""
-                                    />
+                                    <img src={imgUrlAfter[1]} alt="" />
                                 </div>
                             </div>
                         </div>
                         <div className="col p-1">
                             <div className="img-small">
                                 <div className="ratios ">
-                                    <img
-                                        src={`${IMG_URL}/${detailData.img}/${imgName.a2}`}
-                                        alt=""
-                                    />
+                                    <img src={imgUrlAfter[2]} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ function ProductDetailContent(props) {
                                 </div>
 
                                 <div className="d-md-none">
-                                    <h3> {detailData.name}</h3>
+                                    <h3> {product.name}</h3>
                                     <ul className="d-flex justify-content-center align-items-center ul-unstyle">
                                         <li className="ps-0">
                                             <i className="far fa-star active"></i>
@@ -132,12 +132,12 @@ function ProductDetailContent(props) {
                                         <li>
                                             <p className="m-0">
                                                 {' '}
-                                                {detailData.stars}/5
+                                                {product.stars}/5
                                             </p>
                                         </li>
                                         <li>
                                             <p className="ms-2 reviews-text text-dark">
-                                                {detailData.review_counts}則評論
+                                                {product.review_counts}則評論
                                             </p>
                                         </li>
                                     </ul>
@@ -157,18 +157,16 @@ function ProductDetailContent(props) {
                 <div className="d-none d-md-block pd-4 pd-shared">
                     <div className="review-box row justify-content-between mt-3 ">
                         <div className="col-auto">
-                            <h3 className="mb-3 d-md-none">
-                                {detailData.name}
-                            </h3>
+                            <h3 className="mb-3 d-md-none">{product.name}</h3>
                             <h3 className="m-0 text-center score ">
-                                {detailData.stars}/5
+                                {product.stars}/5
                             </h3>
                             <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1 ul-unstyle">
-                                <ShowStar>{detailData.stars}</ShowStar>
+                                <ShowStar>{product.stars}</ShowStar>
                             </ul>
                             <p className="text-center review-count">
                                 {' '}
-                                {detailData.review_counts} 則評論
+                                {product.review_counts} 則評論
                             </p>
                         </div>
                         <div className="col-auto align-self-center">
@@ -183,47 +181,47 @@ function ProductDetailContent(props) {
                     <div className="row review-img-slider mx-0">
                         <div className="col-3 col-md-2 col-lg ms-0">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="col-3 col-md-2 col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="col-3 col-md-2 col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="col-3 col-md-2 col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="d-none d-md-block col-md-2 col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="d-none d-md-block col-md-2 col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="d-none d-lg-block col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="d-none d-lg-block col-lg">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                         <div className="d-none d-lg-block col-lg pe-0">
                             <div className="ratios">
-                                <img src={ImgProduct} alt="" />
+                                <img src={DemoImgProduct} alt="" />
                             </div>
                         </div>
                     </div>
@@ -234,7 +232,7 @@ function ProductDetailContent(props) {
                         <div className="d-flex ">
                             <div className="col-md-auto figure">
                                 <img
-                                    src={ImgFigure}
+                                    src={DemoImgFigure}
                                     alt=""
                                     className="object-fit "
                                 />
@@ -277,7 +275,7 @@ function ProductDetailContent(props) {
                                 <div className="row m-0 review-list-img ">
                                     <div className="box">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />
@@ -285,7 +283,7 @@ function ProductDetailContent(props) {
 
                                     <div className="box">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />
@@ -293,7 +291,7 @@ function ProductDetailContent(props) {
 
                                     <div className="box ">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />
@@ -317,7 +315,7 @@ function ProductDetailContent(props) {
                         <div className="d-flex ">
                             <div className="col-md-auto figure">
                                 <img
-                                    src={ImgFigure}
+                                    src={DemoImgFigure}
                                     alt=""
                                     className="object-fit "
                                 />
@@ -360,7 +358,7 @@ function ProductDetailContent(props) {
                                 <div className="row m-0 review-list-img ">
                                     <div className="box">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />
@@ -368,7 +366,7 @@ function ProductDetailContent(props) {
 
                                     <div className="box">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />
@@ -376,7 +374,7 @@ function ProductDetailContent(props) {
 
                                     <div className="box ">
                                         <img
-                                            src={ImgProduct}
+                                            src={DemoImgProduct}
                                             alt=""
                                             className="object-fit"
                                         />

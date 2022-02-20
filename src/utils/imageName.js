@@ -4,3 +4,5 @@ export const imgName = {
     a1: '/f01.jpg', //after 加
     a2: '/f11.jpg', //after 減
 };
+
+// TODO: 把斜線刪掉
