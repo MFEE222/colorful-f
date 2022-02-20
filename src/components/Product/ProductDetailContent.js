@@ -29,7 +29,7 @@ function ProductDetailContent(props) {
     // console.log('location :>> ', location);
 
     // 變數
-    const product = location.state;
+    const { product } = location.state;
     const imgUrlAfter = [
         `{IMG_URL}/${product.img}${imgName.a0}`,
         `{IMG_URL}/${product.img}${imgName.a1}`,
