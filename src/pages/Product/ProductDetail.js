@@ -38,7 +38,8 @@ function ProductDetail(props) {
     return (
         <Main>
             {/* 重新安排商品頁架構時候再來改傳遞屬性 */}
-            <ProductDetailContent detailData={detailData} />
+            {/* <ProductDetailContent detailData={detailData} /> */}
+            <ProductDetailContent />
         </Main>
     );
 }
