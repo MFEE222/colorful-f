@@ -1,14 +1,20 @@
+// 內建庫
 import React, { useEffect, useState } from 'react';
-import FilterBarContent from '../Filterbar/FilterBarContent';
+import { Link, useRouteMatch } from 'react-router-dom';
+
+// 第三方庫
 import axios from 'axios';
-import { API_URL, IMG_URL } from '../../utils/config';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import { css } from '@emotion/react';
-// import ProductListCard from './ProductListCard';
+
+// 共用
+import { API_URL, IMG_URL } from '../../utils/config';
+
+// 自己
+import FilterBarContent from '../Filterbar/FilterBarContent';
 import RecommendCard from './RecommendCard';
 import Pagination from '../Pagination/Pagination';
 import Card from './Card';
-import { Link, useRouteMatch } from 'react-router-dom';
 
 //圖片
 import deleteImg from '../../icons/Sortbar/Delete.png';
@@ -20,42 +26,24 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function ProductListContent(props) {
-    //記錄用（像伺服器要原始資料）
-    const [products, setProducts] = useState([]);
-    // const [ranks, setRanking] = useState([]);
-    //過濾呈現用
-    const [showProducts, setShowProducts] = useState([]);
+    // 狀態
+    const [products, setProducts] = useState([]); //記錄用（像伺服器要原始資料）
+    const [showProducts, setShowProducts] = useState([]); //過濾呈現用
     const [searchWord, setSearchWord] = useState('');
-    //表單元素狀態
-    const [tags, setTags] = useState([]);
+    const [tags, setTags] = useState([]); //表單元素狀態
     const match = useRouteMatch();
-
-    //TODO:載入顯示 ok
-    //loading
-    let [loading, setLoading] = useState(false);
+    let [loading, setLoading] = useState(false); //載入顯示 ok
     let [color, setColor] = useState('#cf9d3f');
+
+    // Loading 設定值
     const override = css`
         display: block;
         margin: auto;
         width: 100vh;
         height: 100vh;
     `;
-    //search filter tag 排序
-    //TODO:欄位搜尋+code query
-    //TODO:(拆成元件)filterbar 顯示
-    //TODO:(拆成元件)tag 顯示 => 點擊切換icon
-    //TODO:排序
-    //TODO:已購買顯示標記
-    //TODO:分頁
-    //TODO:商品卡點進去要商品詳情
-    //TODO:收藏愛心要加減（非會員加入localstorage)//=>收藏狀態設在這層
 
-    // axios, react 生命週期
-
-    // axios -> 異步, 和後端伺服器請求資料
-    // react 生命週期：掛載（只會執行一次），指定狀態更新（在特定狀態改變的時候就會更新），
-
-    //和server要資料
+    // 函數
     const fetchProduct = async () => {
         const response = await axios.get(`${API_URL}/product`);
         // console.log(response.data);
@@ -73,20 +61,21 @@ function ProductListContent(props) {
         // setRanking(ranking);
     };
 
-    //監聽loading
+    // 生命週期
+    useEffect(() => {
+        //搜尋字串
+        setLoading(true);
+        fetchProduct();
+    }, []); // 掛載
+
     useEffect(() => {
         //loading
         if (products !== []) {
             setLoading(false);
         }
-    }, [loading]);
-    //didmount初始時
-    useEffect(() => {
-        //搜尋字串
-        setLoading(true);
-        fetchProduct();
-    }, []);
+    }, [loading]); // 更新 loading
 
+    // JSX
     const productList = (
         <>
             <div className="product-list">
@@ -288,3 +277,13 @@ function ProductListContent(props) {
 }
 
 export default ProductListContent;
+
+//search filter tag 排序
+//TODO:欄位搜尋+code query
+//TODO:(拆成元件)filterbar 顯示
+//TODO:(拆成元件)tag 顯示 => 點擊切換icon
+//TODO:排序
+//TODO:已購買顯示標記
+//TODO:分頁
+//TODO:商品卡點進去要商品詳情
+//TODO:收藏愛心要加減（非會員加入localstorage)//=>收藏狀態設在這層

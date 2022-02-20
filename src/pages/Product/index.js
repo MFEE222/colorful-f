@@ -14,50 +14,19 @@ import ProductDetail from './ProductDetail';
 
 function Product(props) {
     const match = useRouteMatch();
-    // console.log('match :>> ', match);
-    // const [productDetail, setProductDetail] = useState({});
 
     return (
         <>
             <Switch>
-                {/* <Route path={match.path + routes.productList}>
-                    <ProductList />
-                </Route> */}
-                {/* <Route path={match.path + routes.productDetail}>
-                    <ProductDetail />
-                </Route> */}
-
+                {/* 商品細節 */}
+                {/* <Route path={`${routes.productDetail}/:id?`}></Route> */}
                 <Route path={`${match.path}/detail/:id?`}>
                     <ProductDetail />
                 </Route>
+                {/* 商品列表 */}
                 <Route path={match.path}>
                     <ProductList />
                 </Route>
-
-                {/* <Route path={match.path}>
-                    <div className="box">
-                        <h1>Product</h1>
-                        <p>Welcome to product page</p>
-                        <ul>
-                            <li>
-                                <Link
-                                    className="btn btn-primary text-light"
-                                    to={match.path + routes.productList}
-                                >
-                                    Product List
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="btn btn-primary text-light"
-                                    to={match.path + routes.productDetail}
-                                >
-                                    Product Detail
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </Route> */}
             </Switch>
         </>
     );

@@ -1,37 +1,39 @@
+// 內建庫
 import React, { useEffect, useState } from 'react';
-import ImgProduct from '../../images/navbar-ex-1.jpg';
-import ImgIcon from '../../icons/dec-bar.png';
-import ImgFigure from '../../images/portrait01.jpg';
 import { useParams, useLocation } from 'react-router-dom';
+
+// 第三方庫
+import axios from 'axios';
+
+// 共用
 import { IMG_URL, API_URL } from '../../utils/config';
+
+// 自己
 import { imgName } from '../../utils/imageName';
 import Pagination from '../Pagination/Pagination';
 import Card from './Card';
 import RecommendCard from './RecommendCard';
-import ShowSrar from '../StarList/ShowStar';
-import axios from 'axios';
+import ShowStar from '../StarList/ShowStar';
+
+// 圖片
+import ImgProduct from '../../images/navbar-ex-1.jpg';
+import ImgIcon from '../../icons/dec-bar.png';
+import ImgFigure from '../../images/portrait01.jpg';
 
 function ProductDetailContent(props) {
+    // 狀態、勾子
     const detailData = props.detailData;
     const location = useLocation();
-    console.log(location);
-    // const review = props.
 
-    //TODO:拿到 review 資料
-    // const fetchReview
-    //TODO:彈跳moudal顯示照片
-    // console.log('props :>> ', props);
+    // console.log('detailData :>> ', detailData);
+    // console.log('location :>> ', location);
 
-    console.log(detailData);
-    console.log(detailData.stars);
-    // console.log(detailData.id);
-    // console.log(detailData.name);
-
+    // 渲染
     return (
         <>
             <div className="product-detail">
                 <div className="row pd-1 pd-shared">
-                    {/* <!-- 大張商品示意圖 --> */}
+                    {/* 大張商品示意圖 */}
                     <div className="col-12 col-md-6 order-1">
                         <div className="img-big">
                             <div className="ratios">
@@ -42,14 +44,14 @@ function ProductDetailContent(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- 商品詳細描述 --> */}
+                    {/* 商品詳細描述 */}
                     <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
                         <div className="col-12 my-xxl-4 align-self-start ">
                             <h1 className="mt-2 mb-md-2 mb-lg-1  product-name">
                                 {detailData.name}
                             </h1>
                             <ul className="d-flex align-items-center pb-1 pb-md-1 ul-unstyle">
-                                <ShowSrar>{detailData.stars}</ShowSrar>
+                                <ShowStar>{detailData.stars}</ShowStar>
                                 <p className="reviews-text ms-2">
                                     {detailData.review_counts}/ Reviews
                                 </p>
@@ -76,7 +78,7 @@ function ProductDetailContent(props) {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- 小張圖片可更換商品示意圖 --> */}
+                    {/* 小張圖片可更換商品示意圖 */}
                     <div className="col-8 col-md-4 order-2 order-md-3 row mt-3 img-list">
                         <div className="col p-1">
                             <div className="img-small">
@@ -100,11 +102,11 @@ function ProductDetailContent(props) {
                         </div>
                     </div>
                 </div>
-                {/* <!-- 熱銷排行 md 以上評論 標題--> */}
+                {/* 熱銷排行 md 以上評論 標題*/}
                 <div className="my-5 recommend pd-2 pd-shared">
                     <RecommendCard />
                 </div>
-                {/* <!-- xs,sm 評論細節 --> */}
+                {/* xs,sm 評論細節 */}
                 <div className="pt-md-3 pd-3 pd-shared">
                     <div className="review-title">
                         <div className="text-box">
@@ -144,14 +146,14 @@ function ProductDetailContent(props) {
                                         <button className="add-review">
                                             撰寫評論
                                         </button>
-                                        {/* <!-- 判斷是否登入->導向登入會員 --> */}
+                                        {/* 判斷是否登入->導向登入會員 */}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <!-- md 以上評論細節 --> */}
+                {/* md 以上評論細節 */}
                 <div className="d-none d-md-block pd-4 pd-shared">
                     <div className="review-box row justify-content-between mt-3 ">
                         <div className="col-auto">
@@ -162,7 +164,7 @@ function ProductDetailContent(props) {
                                 {detailData.stars}/5
                             </h3>
                             <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1 ul-unstyle">
-                                <ShowSrar>{detailData.stars}</ShowSrar>
+                                <ShowStar>{detailData.stars}</ShowStar>
                             </ul>
                             <p className="text-center review-count">
                                 {' '}
@@ -171,7 +173,7 @@ function ProductDetailContent(props) {
                         </div>
                         <div className="col-auto align-self-center">
                             <button className="add-review">撰寫評論</button>
-                            {/* <!-- 判斷是否登入->導向登入會員 --> */}
+                            {/* 判斷是否登入->導向登入會員 */}
                         </div>
                     </div>
                 </div>
@@ -396,187 +398,11 @@ function ProductDetailContent(props) {
                     </div>
                 </div>
 
-                {/* <!-- Pagination --> */}
+                {/* Pagination */}
                 <Pagination />
             </div>
         </>
     );
-
-    //
-
-    //         {/* 評論卡 */}
-    //         <div className="pd-6 pd-shared">
-    //             <div className="review-card">
-    //                 <div className="d-flex ">
-    //                     <div className="col-md-auto figure">
-    //                         <img
-    //                             src={ImgFigure}
-    //                             alt=""
-    //                             className="object-fit "
-    //                         />
-    //                     </div>
-    //                     <div className="review-card-detail col">
-    //                         <div className="d-flex justify-content-between justify-content-start align-items-start">
-    //                             <p className="review-name me-3 p-0 mb-0">
-    //                                 Name ABC
-    //                             </p>
-    //                             <p className="review-day align-self-center mb-0">
-    //                                 3天前
-    //                             </p>
-    //                         </div>
-    //                         <div>
-    //                             <ul className="d-flex align-items-center ul-unstyle mb-3">
-    //                                 <li className="ps-0">
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                             </ul>
-    //                         </div>
-    //                         <div>
-    //                             <p className="review-card-text">
-    //                                 因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。是低對比度柔和的色調，這款濾鏡可以讓我營造出美麗而寧靜的藝術照。運用全新的colorful網站效能，幾秒之內就能強調重點拍攝相片以及創作出有趣的作品，我們推出了許多色調包
-    //                                 以及復古的效果，可在拍攝照片時使用，我們也很高興能
-    //                                 與大家分享，輕鬆點一下就可以為照片增添新風格
-    //                             </p>
-    //                         </div>
-    //                         <div className="row m-0 review-list-img ">
-    //                             <div className="box">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-
-    //                             <div className="box">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-
-    //                             <div className="box ">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //                 <div className="thumbs-list">
-    //                     <ul className="">
-    //                         <li>這則評論有幫助嗎？</li>
-    //                         <li>
-    //                             <i className="fas fa-thumbs-up"></i>3
-    //                         </li>
-    //                         <li>
-    //                             <i className="fas fa-thumbs-down"></i>0
-    //                         </li>
-    //                     </ul>
-    //                 </div>
-    //             </div>
-    //             <div className="review-card">
-    //                 <div className="d-flex ">
-    //                     <div className="col-md-auto figure">
-    //                         <img
-    //                             src={ImgFigure}
-    //                             alt=""
-    //                             className="object-fit "
-    //                         />
-    //                     </div>
-    //                     <div className="review-card-detail col">
-    //                         <div className="d-flex justify-content-between justify-content-start align-items-start">
-    //                             <p className="review-name me-3 p-0 mb-0">
-    //                                 Name ABC
-    //                             </p>
-    //                             <p className="review-day align-self-center mb-0">
-    //                                 3天前
-    //                             </p>
-    //                         </div>
-    //                         <div>
-    //                             <ul className="d-flex align-items-center ul-unstyle mb-3">
-    //                                 <li className="ps-0">
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                                 <li>
-    //                                     <i className="fas fa-star"></i>
-    //                                 </li>
-    //                             </ul>
-    //                         </div>
-    //                         <div>
-    //                             <p className="review-card-text">
-    //                                 因其細緻自然的色調而成為人像、時尚和婚禮攝影師的最愛。是低對比度柔和的色調，這款濾鏡可以讓我營造出美麗而寧靜的藝術照。運用全新的colorful網站效能，幾秒之內就能強調重點拍攝相片以及創作出有趣的作品，我們推出了許多色調包
-    //                                 以及復古的效果，可在拍攝照片時使用，我們也很高興能
-    //                                 與大家分享，輕鬆點一下就可以為照片增添新風格
-    //                             </p>
-    //                         </div>
-    //                         <div className="row m-0 review-list-img ">
-    //                             <div className="box">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-
-    //                             <div className="box">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-
-    //                             <div className="box ">
-    //                                 <img
-    //                                     src={ImgProduct}
-    //                                     alt=""
-    //                                     className="object-fit"
-    //                                 />
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //                 <div className="thumbs-list">
-    //                     <ul className="">
-    //                         <li>這則評論有幫助嗎？</li>
-    //                         <li>
-    //                             <i className="fas fa-thumbs-up"></i>3
-    //                         </li>
-    //                         <li>
-    //                             <i className="fas fa-thumbs-down"></i>0
-    //                         </li>
-    //                     </ul>
-    //                 </div>
-    //             </div>
-    //         </div>
-
-    //         {/* <!-- Pagination --> */}
-    //         <Pagination />
-    //     </div>
 }
 
 export default ProductDetailContent;
