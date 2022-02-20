@@ -24,7 +24,6 @@ function Card(props) {
         <>
             {/* 因為細節頁的推薦卡點進去也是細節頁 */}
             <Link
-                // to={routes.product + routes.productDetail}
                 to={{
                     pathname: goTo,
                     state: { product },

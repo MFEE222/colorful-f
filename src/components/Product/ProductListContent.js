@@ -73,16 +73,16 @@ function ProductListContent(props) {
     const productList = (
         <>
             <div className="product-list">
-                {/* <!-- banner --> */}
+                {/* banner */}
                 <div className="banner">
                     <div className="banner-img">
                         <div className="ratios">
                             <img src={bannerDemo} alt="" />
                         </div>
                     </div>
-                    {/* <!-- banner遮罩 --> */}
-                    {/* <!-- <div className="img-clip d-none d-md-block"> --> */}
-                    {/* <!-- animate__animated animate__fadeInUp --> */}
+                    {/* banner遮罩 */}
+                    {/* <div className="img-clip d-none d-md-block"> */}
+                    {/* animate__animated animate__fadeInUp */}
 
                     <div className="describe">
                         <h3 className="d-none d-md-block c-title ">風景</h3>
@@ -128,7 +128,7 @@ function ProductListContent(props) {
                         </div>
                     </div>
                 </div>
-                {/* <!-- xs,sm filterbar --> */}
+                {/* xs,sm filterbar */}
                 <div className="container d-flex justify-content-between justify-content-md-end my-2 d-lg-none phone-filter p-0">
                     <p className="my-auto me-2">search result counts</p>
                     <div className="d-flex justify-content-end align-items-center">
@@ -168,7 +168,7 @@ function ProductListContent(props) {
                 </div>
             </div>
 
-            {/* <!-- md 以上filterbar --> */}
+            {/* md 以上filterbar */}
             <div className="container">
                 <div className="d-none d-lg-block">
                     <FilterBarContent />
@@ -191,7 +191,7 @@ function ProductListContent(props) {
                     );
                 })}
             </div>
-            {/* <!-- card --> */}
+            {/* card */}
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.map((product) => {
@@ -210,44 +210,8 @@ function ProductListContent(props) {
                 </div>
             </div>
             {/* <ProductListCard products={showProducts} /> */}
-            {/* <!-- Pagination --> */}
+            {/* Pagination */}
             <Pagination />
-            {/* <!-- recommend --> <!-- dec = decorate --> */}
-            {/* <div className="container">
-                <div className="recommend mt-5">
-                    <div className="recommend-title">
-                        <div className="text-box">
-                            <div className="phone-title">
-                                <h3>熱銷排行</h3>
-                                <img
-                                    className="d-md-none"
-                                    src={decBar}
-                                    alt=""
-                                />
-                                <p className="d-none d-md-block">
-                                    暢銷色調值得您擁有 強化風格與色調
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommend-card">
-                        //TODO:切成元件
-                        <div className="card-group row my-4 mt-md-5 my-2">
-                            {ranks.map((rank) => {
-                                return (
-                                    <div className="col-6 col-md-3">
-                                        <Card
-                                            key={rank.id}
-                                            detail={rank}
-                                            ranks={ranks}
-                                        ></Card>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </div>
-            </div> */}
             <RecommendCard />
         </>
     );

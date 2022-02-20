@@ -1,3 +1,4 @@
+// 內建
 import React, { useEffect, useState } from 'react';
 import {
     Switch,
@@ -6,32 +7,40 @@ import {
     useRouteMatch,
     useParams,
 } from 'react-router-dom';
-import cardDemo from '../../images/navbar-ex-1.jpg';
-import Card from './Card';
-import decBar from '../../icons/dec-bar.png';
+
+// 第三方
 import axios from 'axios';
+
+// 共用
 import { API_URL } from '../../utils/config';
 
-function RecommendCard(props) {
-    const match = useRouteMatch();
-    let [rows, setRows] = useState([]);
-    //TODO:api取得銷售前幾名
-    //TODO:api要推薦
-    const fetchRank = async () => {
-        const response = await axios.get(`${API_URL}/product/rank`);
-        const rankData = response.data;
-        setRows(rankData.rank);
+// 自己
+import Card from './Card';
 
-        // console.log(rankData.rank);
-        // console.log(Array.isArray(rankData.rank));
-        // console.log(typeof rankData.rank);
-        // setRows(rankData.rank);
+// 圖片
+import cardDemo from '../../images/navbar-ex-1.jpg';
+import decBar from '../../icons/dec-bar.png';
+
+function RecommendCard(props) {
+    // 狀態、勾子
+    const [products, setProducts] = useState([]); // 和商品列表的 products 狀態不一樣
+    const match = useRouteMatch();
+
+    // 函數
+    const fetchRank = async () => {
+        const api = `${API_URL}/product/rank`;
+        const response = await axios.get(api);
+
+        // console.log('response :>> ', response);
+        setProducts(response.data.rank);
     };
 
+    // 生命週期
     useEffect(() => {
         fetchRank();
-    }, []);
+    }, []); // 掛載
 
+    // 渲染
     return (
         <>
             <div className="container">
@@ -54,13 +63,15 @@ function RecommendCard(props) {
                         </div>
                     </div>
                     <div className="recommend-card row">
-                        {rows.map((rank) => {
+                        {products.map((product) => {
+                            const api = `/product/detail/${product.id}`;
+                            /* const api = {routes.productDetail/${product.id}};  */
                             return (
                                 <div className="col-6 col-md-3">
                                     <Card
-                                        key={rank.id}
-                                        detail={rank}
-                                        to={`/product/detail/${rank.id}`}
+                                        key={product.id}
+                                        product={product}
+                                        goTo={api}
                                         className="link"
                                     />
                                 </div>
