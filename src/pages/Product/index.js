@@ -33,3 +33,6 @@ function Product(props) {
 }
 
 export default Product;
+
+// TODO: 我們先測試 Link 的 state 是可以被 useLocation 抓到
+// TODO: 重新安排一下商品頁的狀態

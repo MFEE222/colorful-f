@@ -31,9 +31,9 @@ function ProductListContent(props) {
     const [showProducts, setShowProducts] = useState([]); //過濾呈現用
     const [searchWord, setSearchWord] = useState('');
     const [tags, setTags] = useState([]); //表單元素狀態
-    const match = useRouteMatch();
     let [loading, setLoading] = useState(false); //載入顯示 ok
     let [color, setColor] = useState('#cf9d3f');
+    const match = useRouteMatch();
 
     // Loading 設定值
     const override = css`
@@ -45,31 +45,25 @@ function ProductListContent(props) {
 
     // 函數
     const fetchProduct = async () => {
-        const response = await axios.get(`${API_URL}/product`);
-        // console.log(response.data);
-        console.log('12345');
-        console.log(response.data.data);
-        //server要回傳json
+        const api = `${API_URL}/product`;
+        const response = await axios.get(api);
+
+        // console.log('api :>> ', api);
+        // console.log('response :>> ', response);
+
         setProducts(response.data.data);
         setShowProducts(response.data.data);
-        const tagsList = response.data.tags;
-        const tagProduct = response.data.tagProduct;
-        // const ranking = response.data.rank;
-        // console.log(tagsList);
-        // console.log(tagProduct);
-        setTags(tagsList);
-        // setRanking(ranking);
+        setTags(response.data.tags);
+        // setLoading(false);
     };
 
     // 生命週期
     useEffect(() => {
-        //搜尋字串
         setLoading(true);
-        fetchProduct();
+        fetchProduct(); // 下載商品資料
     }, []); // 掛載
 
     useEffect(() => {
-        //loading
         if (products !== []) {
             setLoading(false);
         }
@@ -205,7 +199,7 @@ function ProductListContent(props) {
                             <div className="col-6 col-md-3">
                                 <Card
                                     key={product.id}
-                                    detail={product}
+                                    product={product}
                                     to={`${match.path}/detail/${product.id}`}
                                 />
                             </div>
