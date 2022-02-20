@@ -14,7 +14,7 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 
 function Card(props) {
     // 屬性
-    const { product } = props;
+    const { product, goTo } = props;
 
     // 變數
     const imgUrl = `${IMG_URL}/${product.img}${imgName.a0}`;
@@ -26,8 +26,8 @@ function Card(props) {
             <Link
                 // to={routes.product + routes.productDetail}
                 to={{
-                    pathname: props.to,
-                    state: { detail },
+                    pathname: goTo,
+                    state: { product },
                 }}
                 className="link"
             >

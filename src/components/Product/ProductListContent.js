@@ -195,12 +195,14 @@ function ProductListContent(props) {
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.map((product) => {
+                        const goTo = `${match.path}/detail/${product.id}`;
+
                         return (
                             <div className="col-6 col-md-3">
                                 <Card
                                     key={product.id}
                                     product={product}
-                                    to={`${match.path}/detail/${product.id}`}
+                                    goTo={goTo}
                                 />
                             </div>
                         );
