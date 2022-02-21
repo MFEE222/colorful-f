@@ -14,6 +14,7 @@ import Pagination from '../Pagination/Pagination';
 import Card from './Card';
 import RecommendCard from './RecommendCard';
 import ShowStar from '../StarList/ShowStar';
+import ReviewDetail from './ReviewDetail';
 
 // 圖片
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
@@ -31,11 +32,11 @@ function ProductDetailContent(props) {
     // 變數
     const { product } = location.state;
     const imgUrlAfter = [
-        `{IMG_URL}/${product.img}${imgName.a0}`,
-        `{IMG_URL}/${product.img}${imgName.a1}`,
-        `{IMG_URL}/${product.img}${imgName.a2}`,
+        `${IMG_URL}/${product.img}${imgName.a0}`,
+        `${IMG_URL}/${product.img}${imgName.a1}`,
+        `${IMG_URL}/${product.img}${imgName.a2}`,
     ];
-    const imgUrlBefore = [`{IMG_URL}/${product.img}${imgName.b0}`];
+    const imgUrlBefore = [`${IMG_URL}/${product.img}${imgName.b0}`];
 
     // 渲染
     return (
@@ -176,7 +177,7 @@ function ProductDetailContent(props) {
                     </div>
                 </div>
                 {/* 所有上傳的照片slider => 套件 react-slick*/}
-                <div className="py-4 my-4 pd-5 pd-shared">
+                {/* <div className="py-4 my-4 pd-5 pd-shared">
                     <p>已有 17 位顧客上傳照片</p>
                     <div className="row review-img-slider mx-0">
                         <div className="col-3 col-md-2 col-lg ms-0">
@@ -225,9 +226,9 @@ function ProductDetailContent(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* 評論卡 */}
-                <div className="pd-6 pd-shared">
+                {/* <div className="pd-6 pd-shared">
                     <div className="review-card">
                         <div className="d-flex ">
                             <div className="col-md-auto figure">
@@ -394,8 +395,9 @@ function ProductDetailContent(props) {
                             </ul>
                         </div>
                     </div>
-                </div>
-
+                </div> */}
+                {/* 評論區 */}
+                <ReviewDetail>{product.id}</ReviewDetail>
                 {/* Pagination */}
                 <Pagination />
             </div>
