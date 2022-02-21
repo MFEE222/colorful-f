@@ -1,77 +1,164 @@
 import React from 'react';
-import Logo from '../images/colorful-logo.png';
 
-// FIXME: Navbar 改用 react-bootstrap
+// 庫
+import { Link, NavLink } from 'react-router-dom';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-function Navbar(props) {
+// 圖
+// import Logo from '../images/colorful-logo-h100.png';
+// import Logo from '../images/colorful-logo.png';
+// import Logo from '../images/colorful-logo-800.png';
+import Menu from '../images/dot-menu.svg';
+import { routes } from './routes';
+
+function OurNavbar(props) {
     return (
-        <header className="navbar">
-            <div className="container">
-                {/* <!-- company brand --> */}
-                <figure className="m-0 me-md-auto company-brand">
-                    <img src={Logo} alt="" />
-                </figure>
-                {/* <!-- menu --> */}
-                <div className="menu">
-                    <button
-                        className="btn"
-                        data-bs-toggle="collapse"
-                        data-bs-target=".nav"
-                        // aria-expand="false"
-                        // aria-controls=".nav"
-                    >
-                        <i className="fas fa-bars"></i>
-                    </button>
-                </div>
-                {/* <!-- links --> */}
-                <ul className="col-12 col-md-auto nav text-center collapse d-md-flex links">
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Product
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Tutorial
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            About us
-                        </a>
-                    </li>
-                    <li className="col-12 col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            Support
-                        </a>
-                    </li>
-                </ul>
-                {/* <!-- icons --> */}
-                <ul className="col-12 col-md-auto nav text-center collapse d-md-flex icons">
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="fas fa-envelope"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="fas fa-heart"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="fas fa-user"></i>
-                        </a>
-                    </li>
-                    <li className="col col-md-auto nav-item">
-                        <a href="#" className="nav-link">
-                            <i className="fas fa-shopping-cart"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
+        <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
+            <Container>
+                <LinkContainer to={routes.home}>
+                    <Navbar.Brand>COLORFUL</Navbar.Brand>
+                </LinkContainer>
+                <Navbar.Toggle aria-controls="colorful-navbar-nav">
+                    {/* <i className="fas fa-bars"></i> */}
+                    {/* <i className="fas fa-ellipsis"></i> */}
+                    {/* <i className="menu-icon"></i> */}
+                    <img src={Menu} width="15" height="15" alt="" />
+                </Navbar.Toggle>
+                <Navbar.Collapse id="colorful-navbar-nav">
+                    <Nav className="me-auto">
+                        <NavDropdown
+                            title="Product"
+                            id="colorful-product-dropdown"
+                        >
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>Wedding</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>Food</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>Sencery</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>Portrait</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>Flim</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item>All</NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
+                        <NavDropdown
+                            title="About us"
+                            id="colorful-aboutus-dropdown"
+                        >
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Action</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Another action
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Something</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Separated link
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
+                        <NavDropdown
+                            title="Tutorial"
+                            id="colorful-tutorial-dropdown"
+                        >
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Action</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Another action
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Something</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Separated link
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
+
+                        <NavDropdown
+                            title="Support"
+                            id="colorful-support-dropdown"
+                        >
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Action</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Another action
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>Something</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.member}>
+                                <NavDropdown.Item>
+                                    Separated link
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                        </NavDropdown>
+
+                        <LinkContainer to={routes.member}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-mail-link"
+                            >
+                                <span className="text">Notification</span>
+                                <i className="fas fa-bell"></i>
+                            </Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to={routes.member}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-favorite-link"
+                            >
+                                <span className="text">Favorite</span>
+                                <i className="fas fa-heart"></i>
+                            </Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to={routes.member}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-member-link"
+                            >
+                                <span className="text">User</span>
+                                <i className="fas fa-user"></i>
+                            </Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to={routes.member}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-cart-link"
+                            >
+                                <span className="text">Cart</span>
+                                <i className="fas fa-shopping-cart"></i>
+                            </Nav.Link>
+                        </LinkContainer>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
-export default Navbar;
+export default OurNavbar;

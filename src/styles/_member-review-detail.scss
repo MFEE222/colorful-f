@@ -1,0 +1,89 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+
+.member-review-detail {
+    @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
+    border-top: solid 1px #ccc;
+    @include mix.media(border-radius, $xs: 0, $md: 20px);
+    // height: 300vh;
+    background-color: #fff;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    @include mix.media(padding, $xs: 0, $md: 2rem);
+    @include mix.media(box-shadow, $xs: none, $md: 5px 5px 10px silver);
+
+    h4 {
+        @include mix.media(padding-bottom, $xs: 0px, $lg: 10px);
+        @include mix.media(font-size, $xs: 18px, $lg: 26px);
+        @include mix.media(padding-top, $xs: 10px, $lg: 0);
+    }
+
+    .review-card-img {
+        @include mix.media(width, $xs: 30%, $sm: 20%);
+
+        img {
+            border-radius: $-border-radius;
+            object-fit: cover;
+            @include mix.media(width, $xs: 100%, $md: 100%);
+            @include mix.media(height, $xs: 100%, $md: 100%);
+        }
+    }
+
+
+    .review-card {
+        position: relative;
+        @include mix.media(border, $xs: none, $md: solid 1px #ccc);
+        @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
+        @include mix.media(border-radius, $xs: 0, $md: 20px);
+        @include mix.media(box-shadow, $xs: 0, $md: 5px 5px 10px silver);
+        @include mix.media(padding, $xs: 0px, $md: 10px);
+        @include mix.media(padding-bottom, $xs: 40px, $md: 10px);
+        margin-bottom: 20px;
+
+        h1 {
+            @include mix.media(font-size, $xs: 24px, $lg: 40px);
+        }
+
+        .review-form {
+            // padding: 50px;
+            @include mix.media(padding, $xs: 10px, $md: 50px);
+
+            .r-text {
+                margin-top: 10px;
+                width: 100%;
+                @include mix.media(height, $xs: 70px, $lg: 100px);
+                border-radius: 20px;
+                border: solid 1px rgb(190, 190, 190);
+                // padding-left: 10%;
+            }
+
+            .img-plus {
+                font-size: 30px;
+                color: #cf9d3f;
+                text-align: center;
+                padding-top: 30%;
+            }
+
+            .btn {
+                position: absolute;
+                @include mix.media(left, $xs: 83%, $sm: 89%, $md: 75%, $lg: 80%, $xl: 85%);
+                @include mix.media(top, $xs: 88%, $md: 85%);
+                color: #cf9d3f;
+                border: solid 1px #cf9d3f;
+                border-radius: 20px;
+                font-size: 14px;
+                @include mix.media(width, $xs: 60px, $md: 80px);
+                height: auto;
+
+            }
+
+            .btn:hover {
+                background-color: #cf9d3f;
+                color: #fff;
+            }
+        }
+
+    }
+
+}
