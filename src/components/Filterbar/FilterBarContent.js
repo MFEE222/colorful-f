@@ -2,7 +2,7 @@ import React from 'react';
 
 function FilterBarContent(props) {
     return (
-        <div className="filter mt-sm-5 my-sm-3 my-md-5">
+        <div className="filter mt-sm-5 mb-3 mt-5">
             <div className="filter-box d-flex">
                 <ul className="sort-series p-0">
                     <li className="active py-1 px-2 py-md-2 px-md-3">全部</li>
@@ -22,8 +22,8 @@ function FilterBarContent(props) {
                         className="md-input-style"
                         placeholder="在此輸入關鍵字"
                     />
-                    <li>
-                        <i className="fas fa-sort-amount-up fa-lg"></i>
+                    <li className=" ">
+                        <i className="fas fa-sort-amount-up fa-lg "></i>
                     </li>
                     <li>
                         <i className="fas fa-sort-amount-down-alt fa-lg"></i>

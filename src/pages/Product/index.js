@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Switch,
     Route,
     Link,
     useRouteMatch,
     useParams,
+    useNavigate,
 } from 'react-router-dom';
 
 import { routes } from '../../utils/routes';
@@ -13,47 +14,27 @@ import ProductDetail from './ProductDetail';
 
 function Product(props) {
     const match = useRouteMatch();
-    // console.log('match :>> ', match);
 
     return (
         <>
             <Switch>
-                {/* <Route path={match.path + routes.productList}>
-                    <ProductList />
-                </Route> */}
-                <Route path={routes.productDetail}>
+                {/* 商品細節 */}
+                {/* <Route path={`${routes.productDetail}/:id?`}></Route> */}
+                <Route path={`${match.path}/detail/:id?`}>
                     <ProductDetail />
                 </Route>
-                <Route path={routes.product}>
+                {/* 商品列表 */}
+                <Route path={match.path}>
                     <ProductList />
                 </Route>
-                {/* <Route path={match.path}>
-                    <div className="box">
-                        <h1>Product</h1>
-                        <p>Welcome to product page</p>
-                        <ul>
-                            <li>
-                                <Link
-                                    className="btn btn-primary text-light"
-                                    to={match.path + routes.productList}
-                                >
-                                    Product List
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="btn btn-primary text-light"
-                                    to={match.path + routes.productDetail}
-                                >
-                                    Product Detail
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </Route> */}
             </Switch>
         </>
     );
 }
 
 export default Product;
+
+// 我們先測試 Link 的 state 是可以被 useLocation 抓到
+// TODO: 重新安排一下商品頁的狀態
+
+// 商品列表狀態：
