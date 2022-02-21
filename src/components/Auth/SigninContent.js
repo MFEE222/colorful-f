@@ -10,8 +10,8 @@ const SigninContent = () => {
     //     password: "",
     // });
     const [loginMember, setLoginMember] = useState({
-        email: 'asd@test.com',
-        password: '123456789',
+        email: '',
+        password: '',
     });
     const [isLogin, setIsLogin] = useState(false);
 
@@ -113,5 +113,6 @@ const SigninContent = () => {
         </div>
     );
 };
+
 
 export default SigninContent;
