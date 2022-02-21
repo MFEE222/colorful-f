@@ -19,8 +19,7 @@ function Product(props) {
         <>
             <Switch>
                 {/* 商品細節 */}
-                {/* <Route path={`${routes.productDetail}/:id?`}></Route> */}
-                <Route path={`${match.path}/detail/:id?`}>
+                <Route path={`${routes.productDetail}/:id?`}>
                     <ProductDetail />
                 </Route>
                 {/* 商品列表 */}
