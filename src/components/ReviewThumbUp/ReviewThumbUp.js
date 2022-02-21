@@ -12,31 +12,31 @@ function ReviewThumbUp(props) {
     const [liked, setLiked] = useState(null);
 
     // 生命週期
-    useEffect(async function () {
-        if (!auth) return;
-        // 取得會員一開始對該評論的點讚狀態
-        const api = `${API_URL}/...`;
-        const res = await axios.get(api);
-        setLiked(res.data);
-    }, []); // 掛載
+    // useEffect(async function () {
+    //     if (!auth) return;
+    //     // 取得會員一開始對該評論的點讚狀態
+    //     const api = `${API_URL}/...`;
+    //     const res = await axios.get(api);
+    //     setLiked(res.data);
+    // }, []); // 掛載
 
-    useEffect(
-        async function () {
-            if (!auth) return;
-            // 將最新的資料設定回去資料庫
-            const res = await axios.post(api, { liked });
-        },
-        [liked]
-    ); // 更新
+    // useEffect(
+    //     async function () {
+    //         if (!auth) return;
+    //         // 將最新的資料設定回去資料庫
+    //         const res = await axios.post(api, { liked });
+    //     },
+    //     [liked]
+    // ); // 更新
 
-    const handler = () => {
-        if (!auth) {
-            console.log('彈跳出視窗，提示必須先登入');
-            return;
-        }
+    // const handler = () => {
+    //     if (!auth) {
+    //         console.log('彈跳出視窗，提示必須先登入');
+    //         return;
+    //     }
 
-        setLiked(!liked);
-    };
+    //     setLiked(!liked);
+    // };
 
     // const isLike = () => {
     //     // console.log('123');
@@ -55,15 +55,16 @@ function ReviewThumbUp(props) {
     //     }
     // };
     return (
-        <li onClick={handler}>
-            {/* 按過顯示fas */}
-            {liked ? (
-                <i className="fas fa-thumbs-up"></i>
-            ) : (
-                <i className="far fa-thumbs-up"></i>
-            )}
-            {likes}
-        </li>
+        <></>
+        // <li onClick={handler}>
+        //     {/* 按過顯示fas */}
+        //     {liked ? (
+        //         <i className="fas fa-thumbs-up"></i>
+        //     ) : (
+        //         <i className="far fa-thumbs-up"></i>
+        //     )}
+        //     {likes}
+        // </li>
     );
 }
 export default ReviewThumbUp;

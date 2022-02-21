@@ -8,8 +8,8 @@ function OrderContent(props) {
         <div className="col-12 col-md-10 member-order-main">
             <FilterBar />
 
-            {[1, 2, 3].map(function (e) {
-                return <OrderCard />;
+            {[1, 2, 3].map(function (e, i) {
+                return <OrderCard key={i} />;
             })}
         </div>
     );

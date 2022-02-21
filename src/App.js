@@ -36,8 +36,6 @@ import Error from './pages/Error';
 import Test from './test/tmp';
 
 function App() {
-    console.log('API_URL :>> ', API_URL);
-    console.log('IMG_URL :>> ', IMG_URL);
     return (
         <>
             {/* 導覽列 */}
