@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import axios from 'axios';
+import { API } from '../config';
+
 // Context
 const ProductContext = React.createContext(
     'please wrap element in <ProductProvider></ProductProvider>'
@@ -14,32 +17,49 @@ export function ProductProvider(props) {
     //     { id: 2, name: 'chris' },
     // ];
 
-    // shared
+    // variable (shared)
+    const { option } =
+        props.option !== undefined ? props : { option: { limit: 5 } };
     const { other } = props.other !== undefined ? props : { other: {} };
     const shared = {
         other,
-        products,
-        setProducts,
+        state: products,
+        setState: function (p) {
+            const ps = [...products];
+            ps.push(p);
+            ps.sort(function (e1, e2) {
+                return e1.id > e2.id;
+            });
+            setProducts(ps);
+        },
         say: 'Hey, Good Night',
     };
 
     // life cycle
-    useEffect(function () {
-        // axios
-        // set state
+    useEffect(async function () {
+        // axios.get 向後端要資料
+        // const res = await axios.get(API.PRODUCTS, {
+        //     params: {
+        //         limit: option.limit,
+        //     },
+        // });
+        // set state 設定狀態
+        // setProducts();
         setProducts([{ id: 1, name: 'chris' }]);
+
+        console.log('Here is DidMount');
 
         return function () {
             console.log('Here is WillUnMount');
         };
     }, []); // DidMount
 
-    useEffect(
-        function () {
-            console.log('Here is DidUpdate');
-        },
-        [products]
-    );
+    // useEffect(
+    //     function () {
+    //         console.log('Here is DidUpdate');
+    //     },
+    //     [products]
+    // ); // DidUpdate
 
     // render
     return (
