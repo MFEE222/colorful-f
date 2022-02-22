@@ -52,7 +52,7 @@ function ReviewContent(props) {
                 </div>
                 <div className="row review-card">
                     <div className="col-auto review-card-img">
-                        <div class="ratios">
+                        <div className="ratios">
                             <img src={ImgProduct} alt="" />
                         </div>
                     </div>
