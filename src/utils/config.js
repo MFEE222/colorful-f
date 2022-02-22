@@ -39,3 +39,23 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 // export function STATIC_IMG_PRODUCTS(folder, which) {
 //     return REACT_APP_API_URL.concat('/', folder, '/', which);
 // }
+
+// GET Product Detail
+// req :
+// {
+//     id,     :>> 商品 id
+// }
+// res :
+// {   id,         :>> 商品 id
+//     name,       :>> 商品名稱
+//     descp,      :>> 商品描述
+//     img,        :>> 商品圖片
+//     price,      :>> 商品價格
+//     currency,   :>> 商品貨幣單位
+//     favorites,  :>> 蒐藏數
+//     owners,     :>> 購買數
+//     stars,      :>> 星星數
+//     created_at, :>> 上架時間
+//     product_series_id   :>> 商品系列
+// }
+export const API_GET_PRODUCT_DETAIL = API_URL + '/product-detail';
