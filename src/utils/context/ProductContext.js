@@ -32,6 +32,17 @@ export function ProductProvider(props) {
             });
             setProducts(ps);
         },
+        get: async function (params) {
+            const res = await axios.get(API.PRODUCTS, {
+                params,
+            });
+            const ps = [...products];
+            ps.push(p);
+            ps.sort(function (e1, e2) {
+                return e1.id > e2.id;
+            });
+            setProducts(ps);
+        },
         say: 'Hey, Good Night',
     };
 
