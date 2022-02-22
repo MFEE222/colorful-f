@@ -6,26 +6,26 @@ import StepProgressBar from './StepProgressBar';
 
 function OrderDetailContent(props) {
     return (
-        <div class="col-12 col-md-10 member-order-detail-main">
+        <div className="col-12 col-md-10 member-order-detail-main">
             {/* <!-- filter bar --> */}
             <FilterBar />
 
-            <div class="order-detail-wall">
+            <div className="order-detail-wall">
                 {/* <!-- step progress bar --> */}
                 <StepProgressBar />
                 {/* <!-- 訂購商品卡片 --> */}
-                <div class="order-detail-card">
-                    <div class="row order-detail-card-body">
-                        <div class="col-auto order-detail-card-img">
-                            <div class="ratios">
+                <div className="order-detail-card">
+                    <div className="row order-detail-card-body">
+                        <div className="col-auto order-detail-card-img">
+                            <div className="ratios">
                                 <img src={ImgProduct} alt="" />
                             </div>
                         </div>
-                        <div class="col row align-items-center align-content-center">
-                            <h5 class="col-12 me-auto order-detail-card-title">
+                        <div className="col row align-items-center align-content-center">
+                            <h5 className="col-12 me-auto order-detail-card-title">
                                 Product
                             </h5>
-                            <p class="col-9 col-md-6 me-auto order-detail-card-descp">
+                            <p className="col-9 col-md-6 me-auto order-detail-card-descp">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Vitae omnis, distinctio
                                 deleniti culpa voluptate odio perferendis
@@ -33,22 +33,22 @@ function OrderDetailContent(props) {
                                 asperiores? Quaerat repellendus suscipit
                                 voluptate eum itaque. Veniam.
                             </p>
-                            <p class="col order-detail-card-price">$10</p>
+                            <p className="col order-detail-card-price">$10</p>
                         </div>
                     </div>
                 </div>
-                <div class="order-detail-card">
-                    <div class="row order-detail-card-body">
-                        <div class="col-auto order-detail-card-img">
-                            <div class="ratios">
+                <div className="order-detail-card">
+                    <div className="row order-detail-card-body">
+                        <div className="col-auto order-detail-card-img">
+                            <div className="ratios">
                                 <img src={ImgProduct} alt="" />
                             </div>
                         </div>
-                        <div class="col row align-items-center align-content-center">
-                            <h5 class="col-12 me-auto order-detail-card-title">
+                        <div className="col row align-items-center align-content-center">
+                            <h5 className="col-12 me-auto order-detail-card-title">
                                 Product
                             </h5>
-                            <p class="col-9 col-md-6 me-auto order-detail-card-descp">
+                            <p className="col-9 col-md-6 me-auto order-detail-card-descp">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Vitae omnis, distinctio
                                 deleniti culpa voluptate odio perferendis
@@ -56,56 +56,56 @@ function OrderDetailContent(props) {
                                 asperiores? Quaerat repellendus suscipit
                                 voluptate eum itaque. Veniam.
                             </p>
-                            <p class="col order-detail-card-price">$10</p>
+                            <p className="col order-detail-card-price">$10</p>
                         </div>
                     </div>
                 </div>
 
                 {/* <!-- 訂單細節資訊 --> */}
-                <div class="container-fluid order-detail-info">
-                    <div class="row flex-row-reverse">
+                <div className="container-fluid order-detail-info">
+                    <div className="row flex-row-reverse">
                         {/* <!-- 金額小計 --> */}
-                        <div class="col-12 col-lg-6 pe-0 row jsutify-content-between info-price">
-                            <div class="col ps-0 info-item">
-                                <div class="">商品小計</div>
-                                <div class="">折扣</div>
-                                <div class="">訂單金額</div>
-                                <div class="">付款方式</div>
+                        <div className="col-12 col-lg-6 pe-0 row jsutify-content-between info-price">
+                            <div className="col ps-0 info-item">
+                                <div className="">商品小計</div>
+                                <div className="">折扣</div>
+                                <div className="">訂單金額</div>
+                                <div className="">付款方式</div>
                             </div>
-                            <div class="col-auto info-unit">
-                                <div class="">NT$</div>
-                                <div class="">NT$</div>
-                                <div class="">NT$</div>
-                                <div class=""></div>
+                            <div className="col-auto info-unit">
+                                <div className="">NT$</div>
+                                <div className="">NT$</div>
+                                <div className="">NT$</div>
+                                <div className=""></div>
                             </div>
-                            <div class="col-auto pe-0 info-data">
-                                <div class="product-subtotal">40</div>
-                                <div class="discount-price">5</div>
-                                <div class="order-total">35</div>
-                                <div class="payment-method">Apple Pay</div>
+                            <div className="col-auto pe-0 info-data">
+                                <div className="product-subtotal">40</div>
+                                <div className="discount-price">5</div>
+                                <div className="order-total">35</div>
+                                <div className="payment-method">Apple Pay</div>
                             </div>
                         </div>
                         {/* <!-- 訂單資訊 --> */}
-                        <div class="col-12 col-lg-6 ps-0 row justify-content-center info-status">
-                            <div class="col ps-0 info-item">
-                                <div class="">訂單編號</div>
-                                <div class="">成立訂單</div>
-                                <div class="">付款成功</div>
-                                <div class="">已完成</div>
+                        <div className="col-12 col-lg-6 ps-0 row justify-content-center info-status">
+                            <div className="col ps-0 info-item">
+                                <div className="">訂單編號</div>
+                                <div className="">成立訂單</div>
+                                <div className="">付款成功</div>
+                                <div className="">已完成</div>
                             </div>
-                            <div class="col-auto pe-0 info-data">
-                                <div class="number">211112VRUVYNS7K</div>
-                                <div class="date">2022-01-18 13:16</div>
-                                <div class="date">2022-01-19 19:22</div>
-                                <div class="date">2022-01-19 19:45</div>
+                            <div className="col-auto pe-0 info-data">
+                                <div className="number">211112VRUVYNS7K</div>
+                                <div className="date">2022-01-18 13:16</div>
+                                <div className="date">2022-01-19 19:22</div>
+                                <div className="date">2022-01-19 19:45</div>
                             </div>
                         </div>
                     </div>
                     {/* <!-- 聯絡客服、評論 --> */}
-                    <div class="row p-0 order-detail-button">
-                        <div class="col-auto p-0">
-                            <button class="btn">聯絡客服</button>
-                            <button class="btn">評論</button>
+                    <div className="row p-0 order-detail-button">
+                        <div className="col-auto p-0">
+                            <button className="btn">聯絡客服</button>
+                            <button className="btn">評論</button>
                         </div>
                     </div>
                 </div>

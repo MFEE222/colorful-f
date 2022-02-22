@@ -29,7 +29,6 @@ export function ProductsProvider(props) {
         reset, // 重新獲取商品資料
     };
 
-    // 生命週期
     useEffect(async function () {
         reset();
         // 測試用
@@ -68,7 +67,7 @@ export function ProductsProvider(props) {
     }
 
     // 此方法會直接向後端獲取商品資料，並覆蓋掉 Products 狀態
-    async function reset(option = this.option) {
+    async function reset(option = shared.option) {
         // console.log('option :>> ', option);
         try {
             const res = await axios.get(API_GET_PRODUCTS, {

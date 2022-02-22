@@ -42,7 +42,7 @@ import {
 function App() {
     return (
         <>
-            <ProductsProvider option={{}} other={{}}>
+            <ProductsProvider>
                 {/* 導覽列 */}
                 <Navbar />
                 {/* 麵包屑 */}
