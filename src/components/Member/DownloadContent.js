@@ -10,7 +10,7 @@ function DownloadContent(props) {
             <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center">
                 {/* <div className="col-7"> */}
                 {/* me是右邊的意思 用margin去擠開 */}
-                <div class="col-lg-auto me-auto">
+                <div className="col-lg-auto me-auto">
                     <h1>下載區</h1>
                 </div>
 
