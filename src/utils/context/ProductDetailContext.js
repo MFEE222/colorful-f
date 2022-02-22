@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_GET_PRODUCT_DETAIL } from '../config';
 
+// 取得 Products 狀態
+// 是否會因為 products 狀態更新而同步更新造成無限迴圈 or 影響效能
+import { useProductsContext } from './ProductsContext';
+
 // Context
 const ProductDetailContext = React.createContext(
     'please wrap element in <ProductDetailProvider></ProductDetailProvider>'
@@ -11,6 +15,7 @@ const ProductDetailContext = React.createContext(
 // Provider
 export function ProductDetailProvider(props) {
     // state, hook
+    const products = useProductsContext();
     const [productDetail, setProductDetail] = useState({});
 
     // variable
@@ -24,7 +29,14 @@ export function ProductDetailProvider(props) {
 
     // 生命週期
     useEffect(function () {
-        reset();
+        // search data from `products` 狀態
+        const p = products.find(function (e) {
+            return e.id === option.id;
+        });
+
+        if (p) setProductDetail(p);
+        // axios
+        else reset();
     }, []);
 
     // 函數
