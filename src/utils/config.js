@@ -15,7 +15,8 @@ export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
 //     owners: 0-N,        :>> 購買數 大於等於 N
 //     stars: 0-5,         :>> 1: 星星數 大於等於 1
 //     offset: +N,         :>> 位移幾筆資料（分頁用）
-//     order: 0-1,         :>> 價格的排序 0: ASC 升冪排序 | 1: DESC 降冪排序
+//     orderby: 'price'    :>> 依據什麼排序
+//     order: 0-1,         :>> 排序方式 0: ASC 升冪排序 | 1: DESC 降冪排序
 //     limit: +N,          :>> 限制返回資料筆數
 // }
 // res :
