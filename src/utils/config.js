@@ -1,9 +1,74 @@
+import { AccordionButton } from 'react-bootstrap';
 import { findDOMNode } from 'react-dom';
+import Auth from '../pages/Auth';
 
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
 export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
+
+// Post Login 登入
+// req
+// {
+//     email, :>> 電子郵件帳號
+//     password, :>> 密碼
+// }
+// res
+// {
+//     status, :>> 5001: 登入成功
+//     error, :>> 4001: 登入失敗 | 4003: 帳號或密碼錯誤 | 4004: 達嘗試次數上限 (status 和 error 會擇一回傳)
+//     user: {
+//         name,
+//         email,
+//         phone,
+//         gender,
+//         birthday,
+//     }    :>> undefined: 登入失敗 | 使用者資料：登入成功
+// }
+export const API_POST_AUTH_LOGIN = API_URL + '/auth/signin';
+
+// Post Signin 註冊
+// req
+// {
+//     name,   :>> 註冊姓名
+//     email, :>> 註冊信箱帳號
+//     password, :>> 註冊密碼
+// }
+// res
+// {
+//     status, :>> 2082: 註冊成功，寄發電子郵件通知（就不驗證）
+//     error, :>> 2006: 帳號不符合規定 | 2008: 密碼不符合規定 | 2077: 信箱格式錯誤
+// }
+export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
+
+// export const API_GET_AUTH_COMFIRM_EMAIL = ; url 用雜湊生成
+
+// Post Forgot 忘記密碼
+// req
+// {
+//     email,          :>> 電子郵件 (帳號、電郵擇一即可)
+//     passwordHint,   :>> 密碼提示
+// }
+// res
+// {
+//     status, :>> 3003: 重設密碼信已經寄到您的電子郵箱
+//     error, :>> 3001: 無效提示或帳號 | 3002:密碼提示嘗試已達上限 |
+// }
+export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
+// 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
+
+// Post Reset Password 修改密碼
+// 個人資料頁用
+// req
+// {
+//      password, :>>
+//      confirmPassword, :>>
+// }
+// res
+// {
+//
+// }
+export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 
 // GET Products
 // req :
@@ -58,4 +123,10 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     created_at, :>> 上架時間
 //     product_series_id   :>> 商品系列
 // }
-export const API_GET_PRODUCT_DETAIL = API_URL + '/product-detail';
+export const API_GET_PRODUCT = API_URL + '/product';
+
+// req:
+// {
+//     user_id,    :>> 使用者 id
+// }
+export const API_GET_CART = API_URL + '/cart';
