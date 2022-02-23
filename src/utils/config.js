@@ -58,4 +58,10 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     created_at, :>> 上架時間
 //     product_series_id   :>> 商品系列
 // }
-export const API_GET_PRODUCT_DETAIL = API_URL + '/product-detail';
+export const API_GET_PRODUCT = API_URL + '/product';
+
+// req:
+// {
+//     user_id,    :>> 使用者 id
+// }
+export const API_GET_CART = API_URL + '/cart';
