@@ -1,9 +1,57 @@
+import { AccordionButton } from 'react-bootstrap';
 import { findDOMNode } from 'react-dom';
+import Auth from '../pages/Auth';
 
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
 export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
+
+// Post Login 登入
+// req
+// {
+//     account, :>> 帳號 or email ?
+//     password, :>> 密碼
+// }
+// res
+// {
+//     authStatus, :>> 4001: 登入失敗 | 4003: 帳號或密碼錯誤 | 4004: 達嘗試次數上限 | 5001: 登入成功
+//     user: {
+//         name,
+//         acount,
+//         email,
+//         phone,
+//         gender,
+//     }    :>> undefined: 登入失敗 | 使用者資料：登入成功
+// }
+export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
+
+// Post Signin 註冊
+// req
+// {
+//     name,   :>> 註冊姓名
+//     account, :>> 註冊帳號
+//     email, :>> 註冊信箱
+//     password, :>> 註冊密碼
+// }
+// res
+// {
+//     authStatus, :>> 2006: 帳號不符合規定 | 2008: 密碼不符合規定 | 2077: 信箱格式錯誤 | 2082: 註冊成功，待驗證電子郵件
+// }
+export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
+
+// Post Forgot 忘記密碼
+// req
+// {
+//     account,        :>> 帳號
+//     email,          :>> 電子郵件 (帳號、電郵擇一即可)
+//     passwordHint,   :>> 密碼提示
+// }
+// res
+// {
+//     authStatus, :>> 3001: 無效提示或帳號 | 3002:密碼提示嘗試已達上限 | 3003: 重設密碼信已經寄到您的電子郵箱
+// }
+export const API_POST_AUTH_FORGOT = API_URL + '/auth/forgot';
 
 // GET Products
 // req :
