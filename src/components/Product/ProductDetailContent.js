@@ -10,11 +10,11 @@ import { IMG_URL, API_URL } from '../../utils/config';
 
 // 自己
 import { imgName } from '../../utils/imageName';
-import Pagination from '../Pagination/Pagination';
-import Card from './Card';
-import RecommendCard from './RecommendCard';
+// import Pagination from '../Pagination/Pagination';
+// import Card from './Card';
+// import RecommendCard from './RecommendCard';
 import ShowStar from '../StarList/ShowStar';
-import ReviewDetail from './ReviewDetail';
+// import ReviewDetail from './ReviewDetail';
 
 // 圖片
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
@@ -25,6 +25,7 @@ function ProductDetailContent(props) {
     // 狀態、勾子
     // const detialData = props.detialData;
     const location = useLocation();
+    // const recommend = props.recommend; //推薦區
 
     // console.log('detialData :>> ', detialData);
     // console.log('location :>> ', location);
@@ -41,7 +42,7 @@ function ProductDetailContent(props) {
     // 渲染
     return (
         <>
-            <div className="product-detail">
+            <div className=" container product-detail">
                 <div className="row pd-1 pd-shared">
                     {/* 大張商品示意圖 */}
                     <div className="col-12 col-md-6 order-1">
@@ -103,12 +104,12 @@ function ProductDetailContent(props) {
                         </div>
                     </div>
                 </div>
-                {/* 熱銷排行 md 以上評論 標題*/}
+                {/* 熱銷排行 md 以上評論 標題
                 <div className="my-5 recommend pd-2 pd-shared">
-                    <RecommendCard />
-                </div>
+                    <RecommendCard recommend={recommend} />
+                </div> */}
                 {/* xs,sm 評論細節 */}
-                <div className="pt-md-3 pd-3 pd-shared">
+                {/* <div className="pt-md-3 pd-3 pd-shared">
                     <div className="review-title">
                         <div className="text-box">
                             <div className="phone-title p-0">
@@ -122,9 +123,9 @@ function ProductDetailContent(props) {
                                         src={ImgIcon}
                                         alt=""
                                     />
-                                </div>
+                                </div> */}
 
-                                <div className="d-md-none">
+                {/* <div className="d-md-none">
                                     <h3> {product.name}</h3>
                                     <ul className="d-flex justify-content-center align-items-center ul-unstyle">
                                         <li className="ps-0">
@@ -141,21 +142,21 @@ function ProductDetailContent(props) {
                                                 {product.review_counts}則評論
                                             </p>
                                         </li>
-                                    </ul>
+                                    </ul> */}
 
-                                    <div className="col-auto align-self-center mt-3">
+                {/* <div className="col-auto align-self-center mt-3">
                                         <button className="add-review">
                                             撰寫評論
-                                        </button>
-                                        {/* 判斷是否登入->導向登入會員 */}
-                                    </div>
+                                        </button> */}
+                {/* 判斷是否登入->導向登入會員 */}
+                {/* </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* md 以上評論細節 */}
-                <div className="d-none d-md-block pd-4 pd-shared">
+                {/* <div className="d-none d-md-block pd-4 pd-shared">
                     <div className="review-box row justify-content-between mt-3 ">
                         <div className="col-auto">
                             <h3 className="mb-3 d-md-none">{product.name}</h3>
@@ -171,11 +172,11 @@ function ProductDetailContent(props) {
                             </p>
                         </div>
                         <div className="col-auto align-self-center">
-                            <button className="add-review">撰寫評論</button>
-                            {/* 判斷是否登入->導向登入會員 */}
-                        </div>
+                            <button className="add-review">撰寫評論</button> */}
+                {/* 判斷是否登入->導向登入會員 */}
+                {/* </div>
                     </div>
-                </div>
+                </div> */}
                 {/* 所有上傳的照片slider => 套件 react-slick*/}
                 {/* <div className="py-4 my-4 pd-5 pd-shared">
                     <p>已有 17 位顧客上傳照片</p>
@@ -397,9 +398,9 @@ function ProductDetailContent(props) {
                     </div>
                 </div> */}
                 {/* 評論區 */}
-                <ReviewDetail>{product.id}</ReviewDetail>
+                {/* <ReviewDetail>{product.id}</ReviewDetail> */}
                 {/* Pagination */}
-                <Pagination />
+                {/* <Pagination /> */}
             </div>
         </>
     );

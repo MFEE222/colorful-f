@@ -44,13 +44,13 @@ function PSearchFilter(props) {
                         <input
                             type="search"
                             className="md-input-style price-input w-25 me-2"
-                            placeholder="$"
+                            placeholder="最低"
                         />
                         ～
                         <input
                             type="search"
                             className="md-input-style price-input w-25 mx-2"
-                            placeholder="$"
+                            placeholder="最高"
                         />
                     </div>
 

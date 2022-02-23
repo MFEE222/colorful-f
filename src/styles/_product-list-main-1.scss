@@ -290,62 +290,9 @@ body {
             color: black;
         }
     }
-    .card-img {
-        // width: 25%;
-        // 圖片比例 RWD
-        .ratios {
-            @include mix.ratio(3.5, 4);
-        }
-        overflow: hidden;
-        img {
-            filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
-            border-radius: 8px;
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-    }
-    .card-body {
-        .card-title {
-            font-size: 12px;
-        }
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-        div i {
-            margin-top: -0.5rem;
-            color: #63727e;
-            &:hover {
-                color: #ef2f2f;
-                animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-                transform: translate3d(0, 0, 0);
-            }
-            @keyframes shake {
-                10%,
-                90% {
-                    transform: translate3d(-1px, 0, 0);
-                }
+    @extend %card-img;
 
-                20%,
-                80% {
-                    transform: translate3d(2px, 0, 0);
-                }
-
-                30%,
-                50%,
-                70% {
-                    transform: translate3d(-4px, 0, 0);
-                }
-
-                40%,
-                60% {
-                    transform: translate3d(4px, 0, 0);
-                }
-            }
-        }
-    }
+    @extend %card-body;
 }
 .pagination {
     @include mix.md {
@@ -407,8 +354,32 @@ body {
             }
         }
     }
+
     .recommend-card {
+        .solve-padding {
+            border: 15px solid transparent;
+        }
+        @extend %card-img;
         @extend %card-body;
+    }
+}
+%card-img {
+    // width: 25%;
+    // 圖片比例 RWD
+    .ratios {
+        @include mix.ratio(3.5, 4);
+    }
+    overflow: hidden;
+    img {
+        filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+        border-radius: 8px;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 %card-body {
@@ -418,8 +389,10 @@ body {
             font-size: 1rem;
         }
     }
+
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-    div i {
+    div .heart {
+        margin-right: 10px;
         margin-top: -0.5rem;
         color: #63727e;
         &:hover {
@@ -451,19 +424,3 @@ body {
         }
     }
 }
-// .img-clip {
-//     // z-index: 1;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     // @media (max-width: 767.98px) {
-//     //     height: 375px;
-//     // }
-//     // @media (min-width: 768px) {
-//     //     height: 600px;
-//     // }
-//     clip-path: polygon(85% 0, 100% 0, 100% 100%, 60% 100%);
-//     background: rgba(0, 0, 0, 0.64);
-// }

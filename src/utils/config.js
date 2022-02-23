@@ -39,4 +39,9 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     return REACT_APP_API_URL.concat('/', folder, '/', which);
 // }
 
+//productlist tags 和 series
 export const API_GET_PRODUCT_TAGS_SERIES = API_URL + '/products/list';
+//productlist 推薦區
+export const API_GET_PRODUCT_RECOMMEND = API_URL + '/products/recommend';
+//productDetail 特定商品review
+export const API_GET_PRODUCT_REVIEW = API_URL + '/products/review';

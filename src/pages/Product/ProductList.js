@@ -12,6 +12,7 @@ import {
     IMG_URL,
     API_GET_PRODUCTS,
     API_GET_PRODUCT_TAGS_SERIES,
+    API_GET_PRODUCT_RECOMMEND,
 } from '../../utils/config';
 
 //自己
@@ -32,8 +33,10 @@ import {
 function ProductList(props) {
     const products = useProductsContext();
     const match = useRouteMatch();
+    const recommend = props.recommend; //推薦區
     //狀態
-    const [show, setShow] = useState([]);
+    const [show, setShow] = useState([]); //過濾呈現用
+    // const [recommend, setRecommend] = useState([]); //推薦區呈現
     const [tags, setTags] = useState([]); //表單元素（過濾用的）狀態
     const [init, setInit] = useState({}); //初始的tags,series
     const [loading, setLoading] = useState(false); //載入顯示 ok
@@ -51,7 +54,9 @@ function ProductList(props) {
     //函數
     const fetchList = async () => {
         const response = await axios.get(API_GET_PRODUCT_TAGS_SERIES);
+        // const rank = await axios.get(API_GET_PRODUCT_RECOMMEND);
         setInit(response.data);
+        // setRecommend(rank.data);
         // console.log('response.data :>> ', response.data);
         setLoading(false);
     };
@@ -63,6 +68,7 @@ function ProductList(props) {
             setLoading(true);
             // console.log('products.state :>> ', products.state);
             setShow(products.state);
+            // setRecommend(products.addState({ owner, orde: 1, limit: 8 }));
         },
         [products.state]
     );
@@ -72,7 +78,8 @@ function ProductList(props) {
     // 生命週期
     useEffect(() => {
         fetchList(); // 下載商品資料
-        console.log('show :>> ', show);
+        // console.log('show :>> ', show);
+        // console.log('recommend :>> ', recommend);
     }, []); // 初次掛載
 
     useEffect(() => {
@@ -93,12 +100,13 @@ function ProductList(props) {
         </div>
     );
 
-    useEffect(
-        function () {
-            console.log('init :>> ', init);
-        },
-        [init]
-    );
+    // useEffect(
+    //     function () {
+    //         console.log('init :>> ', init);
+    //         console.log('recommend :>> ', recommend);
+    //     },
+    //     [init, recommend]
+    // );
     return (
         <>
             <Banner />
@@ -109,7 +117,7 @@ function ProductList(props) {
             <Tags init={init} />
             {loading ? spinner : <ProductListContent show={show} />}
             <Pagination />
-            <RecommendCard />
+            <RecommendCard recommend={recommend} />
         </>
     );
 }

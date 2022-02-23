@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input, Icon } from 'semantic-ui-react';
 function FilterBarContent(props) {
     const { series } = props.init;
     return (
@@ -6,7 +7,7 @@ function FilterBarContent(props) {
             <div className="d-none d-lg-block">
                 <div className="filter mt-sm-5 mb-3 mt-5">
                     <div className="filter-box">
-                        <ul className="sort-series ps-0 flex-nowrap">
+                        <ul className="sort-series ps-0 flex-nowrap mb-0">
                             <li className="active py-1 px-2 py-md-2 px-md-3">
                                 全部
                             </li>
@@ -26,34 +27,32 @@ function FilterBarContent(props) {
                                 })}
                         </ul>
 
-                        <ul className="sort-icon d-flex justify-content-between ps-0 align-items-center">
-                            <li>
+                        <ul className="sort-icon d-flex justify-content-end ps-0 align-items-center">
+                            {/* <li>
                                 <i className="fas fa-search fa-lg"></i>
-                            </li>
-                            <input
+                            </li> */}
+                            <Input icon="search" placeholder="Search..." />
+                            {/* <input
                                 type="search"
                                 className="md-input-style "
                                 placeholder="在此輸入關鍵字"
+                            /> */}
+                            <Icon name="dollar sign" />
+                            {/* <p className="mb-0 ">價格</p> */}
+                            <Input
+                                placeholder="最低$..."
+                                className="input-sm"
                             />
-                            <p className="mb-0">價格</p>
-                            <input
-                                type="search"
-                                className="md-input-style price-input"
-                                placeholder="$"
+                            ~
+                            <Input
+                                placeholder="最高$..."
+                                size="mini"
+                                className="input-sm"
                             />
-                            <span className="mb-0">~</span>
-                            <input
-                                type="search"
-                                className="md-input-style price-input"
-                                placeholder="$"
-                            />
-                            <li className=" ">
-                                <i className="fas fa-sort-amount-up fa-lg "></i>
-                            </li>
                             {/* 點擊切換 */}
-                            {/* <li>
+                            <li>
                                 <i className="fas fa-sort-amount-down-alt fa-lg"></i>
-                            </li> */}
+                            </li>
                         </ul>
                     </div>
                     <div className="line"></div>

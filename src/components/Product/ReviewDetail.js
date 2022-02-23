@@ -6,6 +6,7 @@ import { API_URL, IMG_URL } from '../../utils/config';
 import ShowStar from '../StarList/ShowStar';
 
 //圖片
+import ImgIcon from '../../icons/dec-bar.png';
 import DemoImgFigure from '../../images/portrait01.jpg';
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import axios from 'axios';
@@ -40,6 +41,52 @@ function ReviewDetail(props) {
         <>
             {/* 所有上傳的照片slider => 套件 react-slick*/}
             {/* 輪播照片換資料庫 */}
+            <div className="pt-md-3 pd-3 pd-shared">
+                <div className="review-title">
+                    <div className="text-box">
+                        <div className="phone-title p-0">
+                            <h3 className="text-center d-md-none">評論</h3>
+                            <p className="m-0 e-title text-center">
+                                CUSTOMER REVIEWS
+                            </p>
+                            <div>
+                                <img
+                                    className="d-md-none"
+                                    src={ImgIcon}
+                                    alt=""
+                                />
+                            </div>
+
+                            <div className="d-md-none">
+                                <h3> {product.name}</h3>
+                                <ul className="d-flex justify-content-center align-items-center ul-unstyle">
+                                    <li className="ps-0">
+                                        <i className="far fa-star active"></i>
+                                    </li>
+                                    <li>
+                                        <p className="m-0">
+                                            {' '}
+                                            {product.stars}/5
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p className="ms-2 reviews-text text-dark">
+                                            {product.review_counts}則評論
+                                        </p>
+                                    </li>
+                                </ul>
+
+                                <div className="col-auto align-self-center mt-3">
+                                    <button className="add-review">
+                                        撰寫評論
+                                    </button>
+                                    {/* 判斷是否登入->導向登入會員 */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="py-4 my-4 pd-5 pd-shared">
                 <p>已有{counts}位顧客上傳照片</p>
                 <div className="row review-img-slider mx-0">
