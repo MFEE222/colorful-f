@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    useParams,
+    useNavigate,
+    matchPath,
+} from 'react-router-dom';
+//自己
+import Card from './Card';
 
 function ProductListContent(props) {
+    const match = useRouteMatch();
+    const { show } = props; //物件解構
+    console.log('show :>> ', show);
     return (
         <>
             {/* card */}
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
-                    {products.map((product) => {
-                        const goTo = `${match.path}/detail/${product.id}`;
+                    {show.map((v) => {
+                        const goTo = `${match.path}/detail/${v.id}`;
                         return (
                             <div className="col-6 col-md-3">
-                                <Card
-                                    key={product.id}
-                                    product={product}
-                                    goTo={goTo}
-                                />
+                                <Card key={v.id} product={v} goTo={goTo} />
                             </div>
                         );
                     })}

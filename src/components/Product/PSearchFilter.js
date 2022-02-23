@@ -3,7 +3,7 @@ import searchImg from '../../icons/Sortbar/Search.png';
 import sortImg from '../../icons/Sortbar/Sort.png';
 import deleteImg from '../../icons/Sortbar/Delete.png';
 function PSearchFilter(props) {
-    const series = props.series;
+    const { series } = props.init;
     return (
         <>
             <div className="container d-md-flex">
@@ -38,8 +38,22 @@ function PSearchFilter(props) {
                     </div>
                 </div>
                 {/* xs,sm filterbar */}
-                <div className="container d-flex justify-content-between justify-content-md-end my-2 d-lg-none phone-filter p-0">
-                    <p className="my-auto me-2">search result counts</p>
+                <div className="container d-flex justify-content-around  align-items-center my-2 d-lg-none phone-filter p-0 ms-md-2">
+                    <div className="d-lg-none ms-1 ">
+                        <label className="me-2">價格</label>
+                        <input
+                            type="search"
+                            className="md-input-style price-input w-25 me-2"
+                            placeholder="$"
+                        />
+                        ～
+                        <input
+                            type="search"
+                            className="md-input-style price-input w-25 mx-2"
+                            placeholder="$"
+                        />
+                    </div>
+
                     <div className="d-flex justify-content-end align-items-center">
                         <div className="dropdown-style my-auto me-2">
                             <select
@@ -49,18 +63,20 @@ function PSearchFilter(props) {
                             >
                                 <option value="defalut">篩選</option>
                                 <option value="all">全部</option>
-                                {series.map((v) => {
-                                    return (
-                                        <>
-                                            <option
-                                                key={v.id}
-                                                value="series.name"
-                                            >
-                                                {v.descp}
-                                            </option>
-                                        </>
-                                    );
-                                })}
+                                <option value="new">最新</option>
+                                {series &&
+                                    series.map((v) => {
+                                        return (
+                                            <>
+                                                <option
+                                                    key={v.id}
+                                                    value="series.name"
+                                                >
+                                                    {v.descp}
+                                                </option>
+                                            </>
+                                        );
+                                    })}
                             </select>
                         </div>
                         <div className="icon-g d-flex">

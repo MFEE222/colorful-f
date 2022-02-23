@@ -225,6 +225,15 @@ body {
             color: $gray-blue;
         }
     }
+    .price-input {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+            display: none;
+        }
+    }
     .icon-g {
         > div {
             width: 2.5rem;
