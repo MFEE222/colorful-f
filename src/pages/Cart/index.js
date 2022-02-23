@@ -5,8 +5,7 @@ import CartContent from '../../components/Cart/CartContent';
 function Cart(props) {
     return (
         <>
-            <h1>123</h1>
-            <CartContent />;
+            <CartContent />
         </>
     );
 }

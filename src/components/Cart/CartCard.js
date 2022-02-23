@@ -1,35 +1,35 @@
 import React from 'react';
+import Img1 from '../../images/CartCard/cartcard.png';
 
 function CartCard(props) {
     return (
-        <div className="cart-card">
+        // card
+        <div className="cart-card float-right">
             <div className="box">
-                <div className="align-self-center">
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            value=""
-                            id="flexCheckDefault"
-                        />
-                        <div
-                            className="card border-dark bg-transparent mb-3"
-                            style="max-width: 540px;"
-                        >
-                            <div className="row g-0">
+                <div className="">
+                    <div className="form-check ">
+                        <div className="">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="flexCheckDefault"
+                                value=""
+                            />
+                        </div>
+                        <div className="card border-dark bg-transparent mb-3 cartcard-width">
+                            <div className="row">
                                 <div className="col-md-2">
                                     <div className="ratio ratio-1x1">
-                                        <img
-                                            src="../../images/CartCard/cartcard.png"
-                                            alt="..."
-                                        ></img>
+                                        <img src={Img1} alt="..." />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="card-body">
-                                        <h6 className="card-title">
-                                            Food DNG Presets
-                                        </h6>
+                                        <div>
+                                            <h6 className="card-title">
+                                                Food DNG Presets
+                                            </h6>
+                                        </div>
                                         <p className="card-text">
                                             <small className="text-muted">
                                                 food03
