@@ -2,11 +2,8 @@ import React from 'react';
 import Teamdo from '../../images/多多.jpeg';
 import Teamji from '../../images/致緯.jpeg';
 import Teamla from '../../images/頌蓮.jpeg';
-// import Teamfi from '../../images/博榆.jpeg';
-// import Teamti from '../../images/詩葶.jpeg';
-import Teamfi from '../../images/多多.jpeg';
-import Teamti from '../../images/多多.jpeg';
-
+import Teamfi from '../../images/博榆.jpeg';
+import Teamti from '../../images/詩葶.jpeg';
 import SkillPic from '../../images/圓餅圖.png';
 
 function TeamContent(props) {
@@ -27,20 +24,26 @@ function TeamContent(props) {
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">陶靖宇 組長</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
+                        <div className="col-12 col-lg-6 t-text-p">
+                            <div className="left">
+                                <h2 className="d-block text-n">陶靖宇 組長</h2>
+                                <p className="d-block">
+                                    切版、RWD、動態效果
+                                    <br />
+                                    商品列表 商品內容 Navbar
+                                    <br />
+                                </p>
+                            </div>
+                            <div className="right">
+                                <p className="d-block">
+                                    Functional map、Site map建置
+                                    <br /> MYSQL資料庫建立
+                                    <br />
+                                    網站UI/UX設計與規劃
+                                    <br />
+                                    資料蒐集、文案撰寫 企劃書撰寫
+                                </p>
+                            </div>
                         </div>
                     </div>
                     {/* <!-- 2. 圖文 + 文字方塊 --> */}
@@ -53,7 +56,7 @@ function TeamContent(props) {
                         </div>
                         {/* <!-- 文字 --> */}
                         <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">陳博榆</h2>
+                            <h2 className="d-block text-n">陳博榆 技術長</h2>
                             <p className="d-block text-p">
                                 切版、RWD、動態效果
                                 <br />
@@ -78,7 +81,7 @@ function TeamContent(props) {
                         </div>
                         {/* <!-- 文字 --> */}
                         <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">梁詩葶</h2>
+                            <h2 className="d-block text-n">梁詩葶 美術長</h2>
                             <p className="d-block text-p">
                                 切版、RWD、動態效果
                                 <br />
