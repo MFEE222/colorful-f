@@ -53,7 +53,6 @@ function PSearchFilter(props) {
                             placeholder="$"
                         />
                     </div>
-
                     <div className="d-flex justify-content-end align-items-center">
                         <div className="dropdown-style my-auto me-2">
                             <select
@@ -64,17 +63,16 @@ function PSearchFilter(props) {
                                 <option value="defalut">篩選</option>
                                 <option value="all">全部</option>
                                 <option value="new">最新</option>
+
                                 {series &&
                                     series.map((v) => {
                                         return (
-                                            <>
-                                                <option
-                                                    key={v.id}
-                                                    value="series.name"
-                                                >
-                                                    {v.descp}
-                                                </option>
-                                            </>
+                                            <option
+                                                key={v.id}
+                                                value="series.name"
+                                            >
+                                                {v.descp}
+                                            </option>
                                         );
                                     })}
                             </select>

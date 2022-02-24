@@ -28,11 +28,10 @@ function RecommendCard(props) {
 
     // 函數
     const fetchRank = async () => {
-        const api = `${API_URL}/product/rank`;
-        const response = await axios.get(api);
-
+        // const api = `${API_URL}/product/rank`;
+        // const response = await axios.get(api);
         // console.log('response :>> ', response);
-        setProducts(response.data.rank);
+        // setProducts(response.data.rank);
     };
 
     // 生命週期
@@ -63,20 +62,21 @@ function RecommendCard(props) {
                         </div>
                     </div>
                     <div className="recommend-card row">
-                        {products.map((product) => {
-                            const api = `/product/detail/${product.id}`;
-                            /* const api = {routes.productDetail/${product.id}};  */
-                            return (
-                                <div className="col-6 col-md-3">
-                                    <Card
-                                        key={product.id}
-                                        product={product}
-                                        goTo={api}
-                                        className="link"
-                                    />
-                                </div>
-                            );
-                        })}
+                        {products &&
+                            products.map((product) => {
+                                const api = `/product/detail/${product.id}`;
+                                /* const api = {routes.productDetail/${product.id}};  */
+                                return (
+                                    <div className="col-6 col-md-3">
+                                        <Card
+                                            key={product.id}
+                                            product={product}
+                                            goTo={api}
+                                            className="link"
+                                        />
+                                    </div>
+                                );
+                            })}
                     </div>
                 </div>
             </div>

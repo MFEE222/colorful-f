@@ -11,15 +11,13 @@ function Tags(props) {
                 {tags &&
                     tags.map((tag) => {
                         return (
-                            <>
-                                <div
-                                    className="col-auto m-2 mx-md-2  tag-text"
-                                    key={tag.id}
-                                >
-                                    <i className="fas fa-hashtag pe-1"></i>
-                                    {tag.name}
-                                </div>
-                            </>
+                            <div
+                                className="col-auto m-2 mx-md-2  tag-text"
+                                key={tag.id}
+                            >
+                                <i className="fas fa-hashtag pe-1"></i>
+                                {tag.name}
+                            </div>
                         );
                     })}
             </div>
