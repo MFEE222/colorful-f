@@ -15,7 +15,7 @@ export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
 // }
 // res
 // {
-//     status, :>> 5001: 登入成功 | 4003: 帳號或密碼錯誤 | 4004: 達嘗試次數上限
+//     statusCode, :>> 4002: 登入成功 | 4001: 帳號或密碼錯誤 | 4003: 達嘗試次數上限
 //     user: {
 //         name,
 //         email,
@@ -35,7 +35,7 @@ export const API_POST_AUTH_LOGIN = API_URL + '/auth/signin';
 // }
 // res
 // {
-//     status, :>> 2082: 註冊成功，寄發電子郵件通知（就不驗證）| 2006: Email 格式錯誤 | 2008: 密碼不符合規定
+//     statusCode, :>> 4004: 註冊成功，寄發電子郵件通知（就不驗證）| 4005: Email 格式錯誤 | 4007: 密碼不符合規定
 // }
 export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 
@@ -49,7 +49,7 @@ export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 // }
 // res
 // {
-//     status, :>> 3003: 重設密碼信已經寄到您的電子郵箱 | 3001: 無效提示或帳號 | 3002:密碼提示嘗試已達上限 |
+//     statusCode, :>> 4006: 重設密碼信已經寄到您的電子郵箱 | 4009: 無效提示或帳號 | 4011:密碼提示嘗試已達上限 |
 // }
 export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
 // 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
@@ -69,7 +69,9 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 
 // GET Products
 // req :
-// {   keyword: 'word',    :>> '海邊'
+// {
+//     ids: [N1, N2, ...]   :>> 特定一組商品資料
+//     keyword: 'word',    :>> '海邊'
 //     date: [from, to],   :>> ['2011-01-01', '2022-01-01']
 //     series: 1-6,        :>> 1: other | 2: food | 3: wedding | 4: film | 5: scenery | 6: portrait
 //     price: [0-N, 0-N],  :>> [0, 20]: 小於等於 20 | [20, 0]: 大於等於 20 | [20, 30] 介於包含 20 ~ 30
@@ -82,19 +84,26 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 //     limit: +N,          :>> 限制返回資料筆數
 // }
 // res :
-// {   id,         :>> 商品 id
-//     name,       :>> 商品名稱
-//     descp,      :>> 商品描述
-//     img,        :>> 商品圖片
-//     price,      :>> 商品價格
-//     currency,   :>> 商品貨幣單位
-//     favorites,  :>> 蒐藏數
-//     owners,     :>> 購買數
-//     stars,      :>> 星星數
-//     created_at, :>> 上架時間
-//     product_series_id   :>> 商品系列
+// {
+//     statusCode, :>> 2002: 成功 | 2003: 資料庫無該筆資料
+//     products: [
+//         {
+//             id,         :>> 商品 id
+//             name,       :>> 商品名稱
+//             descp,      :>> 商品描述
+//             img,        :>> 商品圖片
+//             price,      :>> 商品價格
+//             currency,   :>> 商品貨幣單位
+//             favorites,  :>> 蒐藏數
+//             owners,     :>> 購買數
+//             stars,      :>> 星星數
+//             created_at, :>> 上架時間
+//             product_series_id   :>> 商品系列
+//         },...
+//     ]
 // }
 export const API_GET_PRODUCTS = API_URL + '/products';
+// export const API_GET_PRODUCTS = 'http://172.22.35.76:3003/api/products';
 
 // GET | products images
 // which = before | after1 | after2 | after3 ...

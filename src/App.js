@@ -11,6 +11,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap';
 import Navbar from './utils/Navbar';
 import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
+import ScrollToTop from './utils/ScrollToTop';
 import { routes } from './utils/routes';
 import { API_URL, IMG_URL } from './utils/config';
 
@@ -36,7 +37,6 @@ import Error from './pages/Error';
 
 import {
     ProductsProvider,
-    ProductsConsumer,
     useProductsContext,
 } from './utils/context/ProductsContext';
 
@@ -45,6 +45,7 @@ import { useContext, useEffect } from 'react';
 function App() {
     return (
         <>
+            <ScrollToTop />
             <ProductsProvider>
                 <CartProvider>
                     {/* 導覽列 */}
