@@ -17,18 +17,6 @@ import RecommendCard from '../../components/Product/RecommendCard';
 function ProductDetail(props) {
     const recommend = props.recommend;
     const [review, setReview] = useState([]);
-    // console.log('props.match.params', props.match.params);
-    // const { pid } = useParams();
-    // console.log('pid :>> ', pid);
-    // const fetchReview = async () => {
-    //     const response = await axios.get(`${API_GET_PRODUCT_REVIEW}/${pid}`);
-    //     console.log('response :>> ', response.data.reviewDetail);
-    //     setReview(response.data.reviewDetail);
-    // };
-    // useEffect(() => {
-    //     fetchReview();
-    //     console.log('review :>> ', review);
-    // }, []);
     // 渲染
     return (
         <>

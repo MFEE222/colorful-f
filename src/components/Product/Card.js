@@ -33,7 +33,7 @@ function Card(props) {
                         state: { product },
                     }}
                     onClick={function () {
-                        product.reset(product);
+                        // product.reset(product);
                     }}
                 >
                     <div className="card-img ">

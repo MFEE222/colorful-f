@@ -40,7 +40,7 @@ function Product(props) {
         <>
             <Switch>
                 {/* 商品細節 */}
-                <Route path={`${routes.productDetail}/id?`}>
+                <Route path={`${routes.productDetail}/:id`}>
                     <ProductDetail recommend={recommend} />
                 </Route>
                 {/* 商品列表 */}
