@@ -13,7 +13,7 @@ import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
 
 // 自己
-import ReviewThumbUp from './ReviewThumbUp';
+// import ReviewThumbUp from './ReviewThumbUp';
 import ShowStar from './ShowStar';
 
 function ReviewDetail(props) {
@@ -209,7 +209,8 @@ function ReviewDetail(props) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="thumbs-list">
+                                    {/* //TODO:按讚小功能 */}
+                                    {/* <div className="thumbs-list">
                                         <ul className="">
                                             <li>這則評論有幫助嗎？</li>
 
@@ -217,13 +218,13 @@ function ReviewDetail(props) {
                                                 {data.r_likes}
                                             </ReviewThumbUp>
                                             {/* <li onClick={isLike()}> */}
-                                            {/* 按過顯示fas */}
-                                            {/* <i className="fas fa-thumbs-up"></i>
+                                    {/* 按過顯示fas */}
+                                    {/* <i className="fas fa-thumbs-up"></i>
                                             <i className="far fa-thumbs-up "></i>
                                             {data.likes}
                                         </li> */}
-                                        </ul>
-                                    </div>
+                                    {/* </ul>  */}
+                                    {/* </div> */}
                                 </div>
                             </>
                         );

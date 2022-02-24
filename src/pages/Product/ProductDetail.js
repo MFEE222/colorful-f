@@ -13,20 +13,41 @@ import ProductDetailContent from '../../components/Product/ProductDetailContent'
 import ReviewDetail from '../../components/Product/ReviewDetail';
 import Pagination from '../../components/Pagination/Pagination';
 import RecommendCard from '../../components/Product/RecommendCard';
+//context
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 function ProductDetail(props) {
-    const recommend = props.recommend;
-    const [review, setReview] = useState([]);
+    //context
+    const products = useProductsContext();
+    //勾子
+    const [detail, setDetail] = useState([]); //商品介紹區
+    const [review, setReview] = useState([]); //商品評論區
+    // setDetail(products.current()) //context 取得現在這筆id
+
+    //函數
+    const fetchReview = async () => {
+        const response = await axios.get(
+            `${API_GET_PRODUCT_REVIEW}/${detail.id}`
+        );
+        setReview(response.data);
+    }; //review詳細資訊
+
+    useEffect(() => {
+        fetchReview();
+    }, []);
+
     // 渲染
     return (
         <>
             <Main>
                 {/* 熱銷排行 md 以上評論 標題*/}
-                <ProductDetailContent />
-                <div className="my-5 recommend pd-2 pd-shared">
+                {/* 改成context 傳進的資料 */}
+                <ProductDetailContent detail={detail} />
+                {/* <div className="my-5 recommend pd-2 pd-shared">
                     <RecommendCard recommend={recommend} />
-                </div>
-                {/* <ReviewDetail></ReviewDetail> */}
+                    {/* 提取到index.js */}
+                {/* </div> */}
+                <ReviewDetail review={review} />
             </Main>
         </>
     );

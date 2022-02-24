@@ -8,12 +8,17 @@ import {
     useNavigate,
     matchPath,
 } from 'react-router-dom';
+//共用
+import { useProductsContext } from '../../utils/context/ProductsContext';
+
 //自己
 import Card from './Card';
 
 function ProductListContent(props) {
     const match = useRouteMatch();
+    const products = useProductsContext();
     const { show } = props; //物件解構
+    console.log('show :>> ', show);
     return (
         <>
             {/* card */}
@@ -21,10 +26,13 @@ function ProductListContent(props) {
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {show.map((v) => {
                         const goTo = `${match.path}/detail/${v.id}`;
-
                         return (
                             <div key={v.id} className="col-6 col-md-3">
-                                <Card product={v} goTo={goTo} />
+                                <Card
+                                    product={v}
+                                    goTo={goTo}
+                                    // onClick={products.find((id = v.id))}
+                                />
                             </div>
                         );
                     })}
