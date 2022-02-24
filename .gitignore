@@ -7,6 +7,7 @@ tmp/
 *.css
 *.css.map
 .env
+/src/images
 
 # dependencies
 /node_modules

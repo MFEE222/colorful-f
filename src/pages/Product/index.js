@@ -18,13 +18,16 @@ function Product(props) {
     return (
         <>
             <Switch>
-                <Route path={match.path + routes.productList}>
+                {/* <Route path={match.path + routes.productList}>
                     <ProductList />
-                </Route>
-                <Route path={match.path + routes.productDetail}>
+                </Route> */}
+                <Route path={routes.productDetail}>
                     <ProductDetail />
                 </Route>
-                <Route path={match.path}>
+                <Route path={routes.product}>
+                    <ProductList />
+                </Route>
+                {/* <Route path={match.path}>
                     <div className="box">
                         <h1>Product</h1>
                         <p>Welcome to product page</p>
@@ -47,7 +50,7 @@ function Product(props) {
                             </li>
                         </ul>
                     </div>
-                </Route>
+                </Route> */}
             </Switch>
         </>
     );

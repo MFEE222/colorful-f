@@ -18,7 +18,7 @@ function Error(props) {
     return (
         <>
             <Switch>
-                <Route path={match.path}>
+                <Route path={routes.error}>
                     <ErrorContent />
                 </Route>
             </Switch>

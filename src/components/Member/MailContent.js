@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-    Link,
-    useRouteMatch,
-    useParams,
-} from 'react-router-dom';
+import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 
-
 // import MailDetail from './mailDetail';
-
 
 function MailContent(props) {
     const match = useRouteMatch();
@@ -33,7 +27,10 @@ function MailContent(props) {
                             註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
                         </p>
                         <p>2022/01/18</p>
-                        <Link className="btn ms-auto d-block"  to={routes.member + routes.mailDetail}>
+                        <Link
+                            className="btn ms-auto d-block"
+                            to={routes.mailDetail}
+                        >
                             <span>查看信件</span>
                         </Link>
                     </div>
@@ -47,7 +44,10 @@ function MailContent(props) {
                             註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
                         </p>
                         <p>2022/01/18</p>
-                        <Link className="btn ms-auto d-block"  to={routes.member + routes.mailDetail}>
+                        <Link
+                            className="btn ms-auto d-block"
+                            to={routes.mailDetail}
+                        >
                             <span>查看信件</span>
                         </Link>
                     </div>
@@ -61,7 +61,10 @@ function MailContent(props) {
                             註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
                         </p>
                         <p>2022/01/18</p>
-                        <Link className="btn ms-auto d-block"  to={routes.member + routes.mailDetail}>
+                        <Link
+                            className="btn ms-auto d-block"
+                            to={routes.mailDetail}
+                        >
                             <span>查看信件</span>
                         </Link>
                     </div>

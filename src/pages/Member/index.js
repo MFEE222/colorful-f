@@ -16,6 +16,7 @@ import Order from './Order';
 import OrderDetail from './OrderDetail';
 import Download from './Download';
 import Review from './Review';
+import ReviewDetail from './ReviewDetail';
 import WishList from './WishList';
 import Mail from './Mail';
 import MailDetail from './MailDetail';
@@ -31,38 +32,41 @@ function Member(props) {
             <Main>
                 <SideBarLeft />
                 <Switch>
-                    <Route path={match.path + routes.profile}>
+                    <Route path={routes.profile}>
                         <Profile />
                     </Route>
-                    <Route path={match.path + routes.orderList}>
+                    <Route path={routes.orderList}>
                         <Order />
                     </Route>
-                    <Route path={match.path + routes.orderDetail}>
+                    <Route path={routes.orderDetail}>
                         <OrderDetail />
                     </Route>
-                    <Route path={match.path + routes.download}>
+                    <Route path={routes.download}>
                         <Download />
                     </Route>
-                    <Route path={match.path + routes.review}>
+                    <Route path={routes.review}>
                         <Review />
                     </Route>
-                    <Route path={match.path + routes.wishList}>
+                    <Route path={routes.reviewDetail}>
+                        <ReviewDetail />
+                    </Route>
+                    <Route path={routes.wishList}>
                         <WishList />
                     </Route>
-                    <Route path={match.path + routes.mail}>
+                    <Route path={routes.mail}>
                         <Mail />
                     </Route>
-                    <Route path={match.path + routes.mailDetail}>
+                    <Route path={routes.mailDetail}>
                         <MailDetail />
                     </Route>
-                    <Route path={match.path + routes.payment}>
+                    <Route path={routes.payment}>
                         <Payment />
                     </Route>
-                    <Route path={match.path + routes.collect}>
+                    <Route path={routes.collect}>
                         <Collect />
                     </Route>
 
-                    <Route path={match.path}>
+                    <Route path={routes.member}>
                         <div className="col-12 col-md-10 member">
                             <h1>Member</h1>
                             <p>Welcome to member page</p>
@@ -70,7 +74,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.profile}
+                                        to={routes.profile}
                                     >
                                         Profile
                                     </Link>
@@ -78,7 +82,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.orderList}
+                                        to={routes.orderList}
                                     >
                                         Order List
                                     </Link>
@@ -86,7 +90,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.orderDetail}
+                                        to={routes.orderDetail}
                                     >
                                         Order Detail
                                     </Link>
@@ -94,7 +98,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.download}
+                                        to={routes.download}
                                     >
                                         Download
                                     </Link>
@@ -102,7 +106,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.review}
+                                        to={routes.review}
                                     >
                                         Review
                                     </Link>
@@ -110,7 +114,15 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.mail}
+                                        to={routes.reviewDetail}
+                                    >
+                                        Review Detail
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="btn btn-primary text-light"
+                                        to={routes.mail}
                                     >
                                         Mail
                                     </Link>
@@ -118,7 +130,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.mailDetail}
+                                        to={routes.mailDetail}
                                     >
                                         Mail Detail
                                     </Link>
@@ -126,7 +138,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.payment}
+                                        to={routes.payment}
                                     >
                                         Payment
                                     </Link>
@@ -134,7 +146,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={match.path + routes.collect}
+                                        to={routes.collect}
                                     >
                                         Collect
                                     </Link>

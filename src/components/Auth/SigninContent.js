@@ -8,10 +8,10 @@ function SigninContent(props) {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">
+                                <h4 className="box-title mt-2">
                                     SIGNIN TO YOUR COLORFUL
                                 </h4>
-                                <div className="form-floating">
+                                <div className="form-floating mt-4">
                                     <input
                                         type="email"
                                         className="form-control"
@@ -33,12 +33,12 @@ function SigninContent(props) {
                                         Password
                                     </label>
                                 </div>
-                                <div className="forgot">
+                                <div className="forgot mt-3">
                                     <a href="" className="l-link">
                                         forgot password ?
                                     </a>
                                 </div>
-                                <div className="l-icon">
+                                <div className="l-icon mt-5 mb-3">
                                     <a href="" className="l-icon-link">
                                         <i className="fab fa-facebook-f fa-fw"></i>
                                     </a>
@@ -46,7 +46,7 @@ function SigninContent(props) {
                                         <i className="fab fa-google fa-fw"></i>
                                     </a>
                                 </div>
-                                <div className="form-btn">
+                                <div className="form-btn mt-5">
                                     <button type="submit">Sign in</button>
                                 </div>
                                 <div>
