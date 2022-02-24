@@ -7,12 +7,12 @@ function Footer(props) {
                 <div className="row">
                     <div className="col-md-6 col-xs-auto f-left">
                         <h4 className="f-logo">COLORFUL</h4>
-                        <p className="f-text">
+                        <p className="f-text mb-4">
                             老馬識途，新手小白也能輕鬆濾圖
                             <br />
                             色調濾鏡自由配，隨心所欲當個高端調色player
                         </p>
-                        <form className="row g-3">
+                        <form className="row mt-3">
                             <div className="form-floating">
                                 <input
                                     type="email"
@@ -20,7 +20,7 @@ function Footer(props) {
                                     id="floatingInput"
                                     placeholder="Your email address"
                                 />
-                                <button type="submit" className="f-btn">
+                                <button type="submit" className="f-btn ms-4">
                                     Subscribe
                                 </button>
                             </div>

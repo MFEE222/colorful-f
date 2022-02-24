@@ -102,6 +102,7 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     return REACT_APP_API_URL.concat('/', folder, '/', which);
 // }
 
+export const API_GET_PRODUCT_TAGS_SERIES = API_URL + '/products/list';
 // GET Product Detail
 // req :
 // {

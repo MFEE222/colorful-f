@@ -15,10 +15,10 @@ function SigninContent(props) {
                                     <input
                                         type="email"
                                         className="form-control"
-                                        id="floatingInput"
+                                        id="floatingInput-signin"
                                         placeholder="Email address"
                                     />
-                                    <label htmlFor="floatingInput">
+                                    <label htmlFor="floatingInput-signin">
                                         Email address
                                     </label>
                                 </div>
@@ -26,10 +26,10 @@ function SigninContent(props) {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="floatingPassword-signin"
                                         placeholder="Password"
                                     />
-                                    <label htmlFor="floatingPassword">
+                                    <label htmlFor="floatingPassword-signin">
                                         Password
                                     </label>
                                 </div>
