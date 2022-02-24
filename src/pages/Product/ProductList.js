@@ -18,7 +18,7 @@ import {
 //自己
 import Banner from '../../components/Product/Banner';
 import PSearchFilter from '../../components/Product/PSearchFilter';
-import FilterBarContent from '../../components/Filterbar/FilterBarContent';
+import FilterBarContent from '../../components/Product/FilterBarContent';
 import Tags from '../../components/Product/Tags';
 import ProductListContent from '../../components/Product/ProductListContent';
 import RecommendCard from '../../components/Product/RecommendCard';
@@ -79,7 +79,6 @@ function ProductList(props) {
     useEffect(() => {
         fetchList(); // 下載商品資料
         // console.log('show :>> ', show);
-        // console.log('recommend :>> ', recommend);
     }, []); // 初次掛載
 
     useEffect(() => {

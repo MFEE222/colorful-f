@@ -22,10 +22,10 @@ function SignupContent(props) {
                                     <input
                                         type="email"
                                         className="form-control"
-                                        id="floatingInput"
+                                        id="floatingInput-signup"
                                         placeholder="Email address"
                                     />
-                                    <label htmlFor="floatingInput">
+                                    <label htmlFor="floatingInput-signup">
                                         Email address
                                     </label>
                                 </div>
@@ -33,10 +33,10 @@ function SignupContent(props) {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="floatingPassword-signup"
                                         placeholder="Password"
                                     />
-                                    <label htmlFor="floatingPassword">
+                                    <label htmlFor="floatingPassword-signup">
                                         Password
                                     </label>
                                 </div>
@@ -44,10 +44,10 @@ function SignupContent(props) {
                                     <input
                                         type="confirmpassword"
                                         className="form-control"
-                                        id="floatingPassword"
+                                        id="floatingConfirmPassword-signup"
                                         placeholder="Password"
                                     />
-                                    <label htmlFor="floatingPassword">
+                                    <label htmlFor="floatingConfirmPassword-signup">
                                         Confirm Password
                                     </label>
                                 </div>

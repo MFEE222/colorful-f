@@ -83,9 +83,11 @@ function RecommendCard(props) {
                                 recommend.map((v) => {
                                     const goTo = `${match.path}/detail/${v.id}`;
                                     return (
-                                        <div className="col-6 col-md-3 solve-padding">
+                                        <div
+                                            key={v.id}
+                                            className="col-6 col-md-3 solve-padding"
+                                        >
                                             <Card
-                                                key={v.id}
                                                 product={v}
                                                 goTo={goTo}
                                                 className="mx-4"

@@ -15,14 +15,12 @@ function FilterBarContent(props) {
                             {series &&
                                 series.map((v) => {
                                     return (
-                                        <>
-                                            <li
-                                                className="py-1 px-2 py-md-2 px-md-3"
-                                                key={v.id}
-                                            >
-                                                {v.descp}
-                                            </li>
-                                        </>
+                                        <li
+                                            className="py-1 px-2 py-md-2 px-md-3"
+                                            key={v.id}
+                                        >
+                                            {v.descp}
+                                        </li>
                                     );
                                 })}
                         </ul>

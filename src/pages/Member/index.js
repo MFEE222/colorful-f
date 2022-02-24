@@ -50,7 +50,7 @@ function Member(props) {
                     <Route path={routes.reviewDetail}>
                         <ReviewDetail />
                     </Route>
-                    <Route path={routes.wishList}>
+                    <Route path={routes.favorite}>
                         <WishList />
                     </Route>
                     <Route path={routes.mail}>

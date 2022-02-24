@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ShowSrar(props) {
+function ShowStar(props) {
     let stars = props.children || '';
     let score = stars.toString();
     let scoreArray = score.split('.');
@@ -14,27 +14,27 @@ function ShowSrar(props) {
     // 渲染满星
     for (let i = 0; i < fullstar; i++) {
         starjsx.push(
-            <li className="">
-                <i key={i + 'full'} className="far fa-star active"></i>
+            <li key={i + 'full'} className="">
+                <i className="far fa-star active"></i>
             </li>
         );
     }
     // 渲染半星
     if (halfstar) {
-        for (let j = 0; j < halfstar; j++) {
+        for (let i = 0; i < halfstar; i++) {
             starjsx.push(
-                <li>
-                    <i key={j + 'half'} class="far fa-star-half active"></i>
+                <li key={i + 'half'}>
+                    <i class="far fa-star-half active"></i>
                 </li>
             );
         }
     }
     // 渲染灰星
     if (nullstar) {
-        for (let k = 0; k < nullstar; k++) {
+        for (let i = 0; i < nullstar; i++) {
             starjsx.push(
-                <li className="">
-                    <i key={k + 'full'} className="far fa-star"></i>
+                <li key={i + 'null'} className="">
+                    <i className="far fa-star"></i>
                 </li>
             );
         }
@@ -42,4 +42,4 @@ function ShowSrar(props) {
     // console.log(starjsx);
     return starjsx;
 }
-export default ShowSrar;
+export default ShowStar;
