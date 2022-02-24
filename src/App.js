@@ -37,7 +37,6 @@ import Error from './pages/Error';
 
 import {
     ProductsProvider,
-    ProductsConsumer,
     useProductsContext,
 } from './utils/context/ProductsContext';
 
