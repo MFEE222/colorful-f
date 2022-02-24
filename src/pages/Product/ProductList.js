@@ -72,7 +72,7 @@ function ProductList(props) {
     // 生命週期
     useEffect(() => {
         fetchList(); // 下載商品資料
-        console.log('show :>> ', show);
+        // console.log('show :>> ', show);
     }, []); // 初次掛載
 
     useEffect(() => {
@@ -95,7 +95,7 @@ function ProductList(props) {
 
     useEffect(
         function () {
-            console.log('init :>> ', init);
+            // console.log('init :>> ', init);
         },
         [init]
     );
