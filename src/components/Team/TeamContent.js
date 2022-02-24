@@ -1,7 +1,13 @@
 import React from 'react';
-import TeamPic from '../../images/team.jpg';
+import Teamdo from '../../images/多多.jpeg';
+import Teamji from '../../images/致緯.jpeg';
+import Teamla from '../../images/頌蓮.jpeg';
+// import Teamfi from '../../images/博榆.jpeg';
+// import Teamti from '../../images/詩葶.jpeg';
+import Teamfi from '../../images/多多.jpeg';
+import Teamti from '../../images/多多.jpeg';
+
 import SkillPic from '../../images/圓餅圖.png';
-import Map from '../../images/map.png';
 
 function TeamContent(props) {
     return (
@@ -17,12 +23,12 @@ function TeamContent(props) {
                         {/* <!-- 圖片 --> */}
                         <div className="col-12 col-lg-6 p-0">
                             <div className="ratio ratio-16x9">
-                                <img src={TeamPic} alt="" />
+                                <img src={Teamdo} alt="" />
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
                         <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">陶靖宇</h2>
+                            <h2 className="d-block text-n">陶靖宇 組長</h2>
                             <p className="d-block text-p">
                                 切版、RWD、動態效果
                                 <br />
@@ -42,7 +48,7 @@ function TeamContent(props) {
                         {/* <!-- 圖片 --> */}
                         <div className="col-12 col-lg-6 p-0 pic-right">
                             <div className="ratio ratio-16x9">
-                                <img src={TeamPic} alt="" />
+                                <img src={Teamfi} alt="" />
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
@@ -67,32 +73,7 @@ function TeamContent(props) {
                         {/* <!-- 圖片 --> */}
                         <div className="col-12 col-lg-6 p-0">
                             <div className="ratio ratio-16x9">
-                                <img src={TeamPic} alt="" />
-                            </div>
-                        </div>
-                        {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">江致緯</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
-                        </div>
-                    </div>
-                    {/* <!-- 4. 圖文 + 文字方塊 --> */}
-                    <div className="row flex-row-reverse t-aboutus">
-                        {/* <!-- 圖片 --> */}
-                        <div className="col-12 col-lg-6 p-0">
-                            <div className="ratio ratio-16x9">
-                                <img src={TeamPic} alt="" />
+                                <img src={Teamti} alt="" />
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
@@ -112,17 +93,42 @@ function TeamContent(props) {
                             </p>
                         </div>
                     </div>
-                    {/* <!-- 5. 圖文 + 文字方塊 --> */}
-                    <div className="row t-aboutus">
+                    {/* <!-- 4. 圖文 + 文字方塊 --> */}
+                    <div className="row flex-row-reverse t-aboutus">
                         {/* <!-- 圖片 --> */}
                         <div className="col-12 col-lg-6 p-0">
                             <div className="ratio ratio-16x9">
-                                <img src={TeamPic} alt="" />
+                                <img src={Teamla} alt="" />
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
                         <div className="col-12 col-lg-6 t-text">
                             <h2 className="d-block text-n">蔣頌蓮</h2>
+                            <p className="d-block text-p">
+                                切版、RWD、動態效果
+                                <br />
+                                商品列表 商品內容
+                                <br />
+                                Functional map、Site map建置
+                                <br /> MYSQL資料庫建立
+                                <br />
+                                網站UI/UX設計與規劃
+                                <br />
+                                資料蒐集、文案撰寫 企劃書撰寫
+                            </p>
+                        </div>
+                    </div>
+                    {/* <!-- 5. 圖文 + 文字方塊 --> */}
+                    <div className="row t-aboutus">
+                        {/* <!-- 圖片 --> */}
+                        <div className="col-12 col-lg-6 p-0">
+                            <div className="ratio ratio-16x9">
+                                <img src={Teamji} alt="" />
+                            </div>
+                        </div>
+                        {/* <!-- 文字 --> */}
+                        <div className="col-12 col-lg-6 t-text">
+                            <h2 className="d-block text-n">江致緯</h2>
                             <p className="d-block text-p">
                                 切版、RWD、動態效果
                                 <br />
@@ -159,7 +165,12 @@ function TeamContent(props) {
                     <div className="row t-contact">
                         <h2 className="t-c-title">Contact us</h2>
                         <div className="col-12 col-lg-6 t-c-left">
-                            <img className="t-map" src={Map} alt="" />
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7441.974339534148!2d121.54158120775575!3d25.032108628815774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd379a5ec97%3A0xedc006d25a9e35df!2z6LOH5bGV5ZyL6Zqb6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1645680791896!5m2!1szh-TW!2stw"
+                                className="t-map"
+                                allowfullscreen=""
+                                loading="lazy"
+                            ></iframe>
                         </div>
                         <div className="col-12 col-lg-6 t-c-right">
                             <form action="">
@@ -173,13 +184,14 @@ function TeamContent(props) {
                                     <label htmlFor="email"></label>
                                 </div>
                                 <div className="t-floating">
-                                    <input
-                                        type="text"
+                                    <textarea
                                         className="form-control"
-                                        id="text"
-                                        placeholder="text"
-                                    />
-                                    <label htmlFor="text"></label>
+                                        name="message"
+                                        cols="70"
+                                        rows="5"
+                                    >
+                                        message
+                                    </textarea>
                                 </div>
                                 <button className="t-c-btn" type=" submit">
                                     SUBMIT

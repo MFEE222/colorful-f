@@ -30,12 +30,12 @@ export function AuthProvider(props) {
     const shared = auth;
 
     // 函數
-    useEffect(
-        function () {
-            // 轉址？
-        },
-        [isLogin]
-    );
+    // useEffect(
+    //     function () {
+    //         // 轉址？
+    //     },
+    //     [isLogin]
+    // );
 
     // 渲染
     return (
