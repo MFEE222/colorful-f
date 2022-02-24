@@ -27,7 +27,7 @@ function RecommendCard(props) {
     const match = useRouteMatch();
 
     const recommend = props.recommend.recommend;
-    console.log('recommend :>> ', recommend);
+    // console.log('recommend :>> ', recommend);
     var settings = {
         centerPadding: 30,
         dots: false,

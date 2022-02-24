@@ -32,6 +32,9 @@ function Card(props) {
                         pathname: goTo,
                         state: { product },
                     }}
+                    onClick={function () {
+                        product.reset(product);
+                    }}
                 >
                     <div className="card-img ">
                         <div className="ratios">
@@ -44,7 +47,7 @@ function Card(props) {
                         <p className="card-title mb-0">{product.name}</p>
                         <div>
                             <i className="fas fa-heart heart"></i>
-                            <i class="fas fa-cart-plus"></i>
+                            <i className="fas fa-cart-plus"></i>
                         </div>
                     </div>
                     <div className="text-start d-flex  justify-content-between">

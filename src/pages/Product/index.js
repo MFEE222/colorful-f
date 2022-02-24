@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { LinkContainer } from 'react-router-bootstrap';
 import {
     Switch,
     Route,
@@ -14,6 +14,14 @@ import { routes } from '../../utils/routes';
 import ProductList from './ProductList';
 import ProductDetail from './ProductDetail';
 import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
+import { PlaceholderLine } from 'semantic-ui-react';
+import { useProductsContext } from '../../utils/context/ProductsContext';
+
+//context
+// import { useProductsContext } from '../../utils/context/ProductsContext';
+
+// url : localhost:3000/product/detail/7
+// url : localhost:3000/product/
 
 function Product(props) {
     const match = useRouteMatch();
@@ -26,7 +34,7 @@ function Product(props) {
 
     useEffect(() => {
         fetchList(); // 下載商品推薦資料
-        console.log('recommend :>> ', recommend);
+        // console.log('recommend :>> ', recommend);
     }, []); // 初次掛載
     return (
         <>
@@ -40,6 +48,12 @@ function Product(props) {
                     <ProductList recommend={recommend} />
                 </Route>
             </Switch>
+            {/* 推薦區 */}
+            <div className="recommend">A</div>
+            {/* 評論區 */}
+            {match.path === routes.productDetail && (
+                <div className="review">B</div>
+            )}
         </>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Switch,
     Route,
@@ -14,7 +14,6 @@ import Card from './Card';
 function ProductListContent(props) {
     const match = useRouteMatch();
     const { show } = props; //物件解構
-
     return (
         <>
             {/* card */}

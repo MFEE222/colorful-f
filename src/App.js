@@ -41,7 +41,7 @@ import {
 } from './utils/context/ProductsContext';
 
 import { CartProvider, useCartContext } from './utils/context/CartContext';
-
+import { useContext, useEffect } from 'react';
 function App() {
     return (
         <>

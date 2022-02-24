@@ -34,7 +34,7 @@ export function AuthProvider(props) {
         function () {
             // 轉址？
         },
-        [isLogin]
+        [auth]
     );
 
     // 渲染

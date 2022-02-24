@@ -4,6 +4,15 @@ import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import FilterBar from './FilterBar';
 
+// 先檢查 url 是否跟 productDetail.id 一致
+
+// url : /product/detail/3
+// 點擊卡片進來 (卡片本身就有商品資料) setProductDetail
+
+// 直接 url (第一個先去 produtcs, 第二個再去發 axios)
+
+// axios request id = 3
+
 function ReviewContent(props) {
     const match = useRouteMatch();
 
