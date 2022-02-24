@@ -15,8 +15,7 @@ export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
 // }
 // res
 // {
-//     status, :>> 5001: 登入成功
-//     error, :>> 4001: 登入失敗 | 4003: 帳號或密碼錯誤 | 4004: 達嘗試次數上限 (status 和 error 會擇一回傳)
+//     status, :>> 5001: 登入成功 | 4003: 帳號或密碼錯誤 | 4004: 達嘗試次數上限
 //     user: {
 //         name,
 //         email,
@@ -36,8 +35,7 @@ export const API_POST_AUTH_LOGIN = API_URL + '/auth/signin';
 // }
 // res
 // {
-//     status, :>> 2082: 註冊成功，寄發電子郵件通知（就不驗證）
-//     error, :>> 2006: 帳號不符合規定 | 2008: 密碼不符合規定 | 2077: 信箱格式錯誤
+//     status, :>> 2082: 註冊成功，寄發電子郵件通知（就不驗證）| 2006: Email 格式錯誤 | 2008: 密碼不符合規定
 // }
 export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 
@@ -51,8 +49,7 @@ export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 // }
 // res
 // {
-//     status, :>> 3003: 重設密碼信已經寄到您的電子郵箱
-//     error, :>> 3001: 無效提示或帳號 | 3002:密碼提示嘗試已達上限 |
+//     status, :>> 3003: 重設密碼信已經寄到您的電子郵箱 | 3001: 無效提示或帳號 | 3002:密碼提示嘗試已達上限 |
 // }
 export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
 // 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
@@ -105,6 +102,7 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     return REACT_APP_API_URL.concat('/', folder, '/', which);
 // }
 
+export const API_GET_PRODUCT_TAGS_SERIES = API_URL + '/products/list';
 // GET Product Detail
 // req :
 // {

@@ -62,7 +62,7 @@ const SigninContent = () => {
                                         value={loginMember.email}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="name">Email address</label>
+                                    <label htmlFor="email">Email address</label>
                                 </div>
                                 <div className="form-floating">
                                     <input

@@ -58,7 +58,7 @@ const SignupContent = () => {
                                         value={member.email}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="floatingInput">
+                                    <label htmlFor="email">
                                         Email address
                                     </label>
                                 </div>
@@ -86,7 +86,7 @@ const SignupContent = () => {
                                         value={member.confirmPassword}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="password">
+                                    <label htmlFor="confirmPassword">
                                         Confirm Password
                                     </label>
                                 </div>
