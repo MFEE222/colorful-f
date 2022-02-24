@@ -1,15 +1,19 @@
-//內建
+// 內建
 import React, { useEffect, useState } from 'react';
 
-//共用
-import { API_URL, IMG_URL } from '../../utils/config';
-import ShowStar from '../StarList/ShowStar';
+// 第三方
+import axios from 'axios';
 
-//圖片
+// 共用
+import { API_URL, IMG_URL } from '../../utils/config';
+
+// 圖片
 import DemoImgFigure from '../../images/portrait01.jpg';
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
-import axios from 'axios';
-import ReviewThumbUp from '../ReviewThumbUp/ReviewThumbUp';
+
+// 自己
+import ReviewThumbUp from './ReviewThumbUp';
+import ShowStar from './ShowStar';
 
 function ReviewDetail(props) {
     // console.log('props :>> ', props);

@@ -13,7 +13,7 @@ import { imgName } from '../../utils/imageName';
 import Pagination from '../Pagination/Pagination';
 import Card from './Card';
 import RecommendCard from './RecommendCard';
-import ShowStar from '../StarList/ShowStar';
+import ShowStar from './ShowStar';
 import ReviewDetail from './ReviewDetail';
 
 // 圖片
