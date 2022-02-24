@@ -7,6 +7,7 @@ import axios from 'axios';
 
 // 共用
 import { IMG_URL, API_URL } from '../../utils/config';
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 // 自己
 import { imgName } from '../../utils/imageName';
@@ -20,15 +21,10 @@ import { routes } from '../../utils/routes';
 
 function ProductDetailContent(props) {
     // 狀態、勾子
-    // const detial = props.detial;
-    const location = useLocation(); //刪掉這段
-    if (!location.state) return <Redirect to={routes.productList} />;
-
-    // console.log('detialData :>> ', detialData);
-    // console.log('location :>> ', location);
-
+    const products = useProductsContext();
+    const product = products.current;
+    console.log('product :>> ', product);
     // 變數
-    const { product } = location.state;
     const imgUrlAfter = [
         `${IMG_URL}/${product.img}${imgName.a0}`,
         `${IMG_URL}/${product.img}${imgName.a1}`,
@@ -82,12 +78,12 @@ function ProductDetailContent(props) {
                                     <button className="add-cart">
                                         加入購物車
                                     </button>
-                                    {/* react bootstrap Modals 加入成功 */}
+                                    {/*//TODO:react bootstrap Modals 加入成功 */}
                                 </div>
                             </div>
                         </div>
                         {/* 小張圖片可更換商品示意圖 */}
-                        <div className="col-8 col-md-4 order-2 order-md-3 row mt-3 img-list">
+                        <div className="col-6 col-md-3 order-2 order-md-3 row mt-3 img-list">
                             <div className="col p-1">
                                 <div className="img-small">
                                     <div className="ratios ">

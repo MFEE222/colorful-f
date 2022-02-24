@@ -32,11 +32,9 @@ import RecommendCard from '../../components/Product/RecommendCard';
 function Product(props) {
     //router-dom
     const match = useRouteMatch();
-    //context
-    const products = useProductsContext();
+
     //勾子
-    const [origin, setOrigin] = useState([]); //原資料
-    const [recommend, setRecommend] = useState([]); // 推薦區
+    const [recommend, setRecommend] = useState([]); // 推薦
     // const [loading, setLoading] = useState(false); //載入顯示 ok
 
     //函數
@@ -50,18 +48,6 @@ function Product(props) {
         // console.log('recommend :>> ', recommend);
     }, []); // 初次掛載
 
-    //監控product context 要到資料沒
-    //因為異步所以要等 product context有資料後設定回去Setshow
-    useEffect(
-        function () {
-            // setLoading(true);
-            setOrigin(products.state);
-            // console.log('products.state :>> ', products.state);
-            console.log('origin :>> ', origin);
-            // setRecommend(products.addState({ owner, orde: 1, limit: 8 }));
-        },
-        [products.state]
-    );
     // const [color, setColor] = useState('#cf9d3f');
     // Loading 設定值
     // const override = css`

@@ -18,7 +18,7 @@ function ProductListContent(props) {
     const match = useRouteMatch();
     const products = useProductsContext();
     const { show } = props; //物件解構
-    console.log('show :>> ', show);
+    // console.log('show :>> ', show);
     return (
         <>
             {/* card */}
@@ -31,7 +31,7 @@ function ProductListContent(props) {
                                 <Card
                                     product={v}
                                     goTo={goTo}
-                                    // onClick={products.find((id = v.id))}
+                                    find={products.find}
                                 />
                             </div>
                         );

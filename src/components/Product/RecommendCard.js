@@ -14,7 +14,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 // 共用
 import { API_URL } from '../../utils/config';
-
+import { useProductsContext } from '../../utils/context/ProductsContext';
 // 自己
 import Card from './Card';
 
@@ -25,7 +25,7 @@ import decBar from '../../icons/dec-bar.png';
 function RecommendCard(props) {
     // 狀態、勾子
     const match = useRouteMatch();
-
+    const products = useProductsContext();
     const recommend = props.recommend.recommend;
     // console.log('recommend :>> ', recommend);
     var settings = {
@@ -35,22 +35,23 @@ function RecommendCard(props) {
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 2500,
         pauseOnHover: true,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 992,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 2,
                     slidesToScroll: 2,
                     initialSlide: 2,
                 },
             },
             {
-                breakpoint: 480,
+                breakpoint: 576,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
+                    initialSlide: 2,
                 },
             },
         ],
@@ -91,6 +92,7 @@ function RecommendCard(props) {
                                                 product={v}
                                                 goTo={goTo}
                                                 className="mx-4"
+                                                find={products.find}
                                             />
                                         </div>
                                     );
