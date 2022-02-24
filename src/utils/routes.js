@@ -17,14 +17,14 @@ export const routes = {
     _productList: '/list',
     // member
     _profile: '/profile',
-    _orderList: '/orderlist',
-    _orderDetail: '/orderdetail',
+    _orderList: '/order-list',
+    _orderDetail: '/order-detail',
     _download: '/download',
-    _wishList: '/wishlist',
+    _favorite: '/favorite',
     _review: '/review',
-    _reviewDetail: '/reviewDetail',
+    _reviewDetail: '/review-detail',
     _mail: '/mail',
-    _mailDetail: '/mailDetail',
+    _mailDetail: '/mail-detail',
     _payment: '/payment',
     _collect: '/collect',
     // test
@@ -86,8 +86,8 @@ export const routes = {
     get download() {
         return this._member + this._download;
     },
-    get wishList() {
-        return this._member + this._wishList;
+    get favorite() {
+        return this._member + this._favorite;
     },
     get review() {
         return this._member + this._review;
@@ -111,22 +111,3 @@ export const routes = {
         return this._test;
     },
 };
-
-// console.log('routes.home :>> ', routes.home);
-// console.log('routes.auth :>> ', routes.auth);
-// console.log('routes.product :>> ', routes.product);
-// console.log('routes.member :>> ', routes.member);
-// console.log('routes.team :>> ', routes.team);
-// console.log('routes.teach :>> ', routes.teach);
-// console.log('routes.error :>> ', routes.error);
-// console.log('routes.signin :>> ', routes.signin);
-// console.log('routes.signup :>> ', routes.signup);
-// console.log('routes.forgot :>> ', routes.forgot);
-// console.log('routes.productDetail :>> ', routes.productDetail);
-// console.log('routes.productList :>> ', routes.productList);
-// console.log('routes.profile :>> ', routes.profile);
-// console.log('routes.orderList :>> ', routes.orderList);
-// console.log('routes.orderDetail :>> ', routes.orderDetail);
-// console.log('routes.wishList :>> ', routes.wishList);
-// console.log('routes.review :>> ', routes.review);
-// console.log('routes.mail :>> ', routes.mail);
