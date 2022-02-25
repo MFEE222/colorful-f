@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 
-import SigninContent from '../../components/Auth/SigninContent';
-
 import { useAuthContext } from '../../utils/context/AuthContext';
 
 import { API_POST_AUTH_LOGIN } from '../../utils/config';

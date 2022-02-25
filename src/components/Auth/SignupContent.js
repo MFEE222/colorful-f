@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from "../../utils/others/config";
+import { API_URL } from '../../utils/others/config';
 import { ERR_MSG } from '../../utils/others/errors';
 
 const SignupContent = () => {
@@ -22,11 +22,10 @@ const SignupContent = () => {
             let response = await axios.post(`${API_URL}/auth/register`, member);
             console.log(response.data);
         } catch (e) {
-        // console.error("error", e.response.data);
-            console.error("註冊", ERR_MSG[e.response.data.code]);
+            // console.error("error", e.response.data);
+            console.error('註冊', ERR_MSG[e.response.data.code]);
         }
     }
-
 
     return (
         <div className="signup-main">
@@ -58,9 +57,7 @@ const SignupContent = () => {
                                         value={member.email}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="email">
-                                        Email address
-                                    </label>
+                                    <label htmlFor="email">Email address</label>
                                 </div>
                                 <div className="form-floating">
                                     <input
@@ -72,9 +69,7 @@ const SignupContent = () => {
                                         value={member.password}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="password">
-                                        Password
-                                    </label>
+                                    <label htmlFor="password">Password</label>
                                 </div>
                                 <div className="form-floating">
                                     <input
