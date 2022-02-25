@@ -26,22 +26,12 @@ function TeamContent(props) {
                         {/* <!-- 文字 --> */}
                         <div className="col-12 col-lg-6 t-text-p">
                             <div className="left">
-                                <h2 className="d-block text-n">陶靖宇 組長</h2>
+                                <h2 className="d-block text-n">陶靖宇</h2>
+                                <h5 className="text-n2">組長</h5>
                                 <p className="d-block">
-                                    切版、RWD、動態效果
-                                    <br />
-                                    商品列表 商品內容 Navbar
-                                    <br />
-                                </p>
-                            </div>
-                            <div className="right">
-                                <p className="d-block">
-                                    Functional map、Site map建置
-                                    <br /> MYSQL資料庫建立
-                                    <br />
-                                    網站UI/UX設計與規劃
-                                    <br />
-                                    資料蒐集、文案撰寫 企劃書撰寫
+                                    <b>前端</b> 商品列表 商品內容 Navbar<br/>
+                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
                             </div>
                         </div>
@@ -55,20 +45,16 @@ function TeamContent(props) {
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">陳博榆 技術長</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
+                        <div className="col-12 col-lg-6 t-text-p">
+                            <div className="left">
+                                <h2 className="d-block text-n">陳博榆</h2>
+                                <h5 className="text-n2">技術長</h5>
+                                <p className="d-block">
+                                    <b>前端</b> 會員相關頁面 訂單管理 Navbar<br/>
+                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報
+                                </p>
+                            </div>
                         </div>
                     </div>
                     {/* <!-- 3. 圖文 + 文字方塊 --> */}
@@ -80,20 +66,16 @@ function TeamContent(props) {
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">梁詩葶 美術長</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
+                        <div className="col-12 col-lg-6 t-text-p">
+                            <div className="left">
+                                <h2 className="d-block text-n">梁詩葶</h2>
+                                <h5 className="text-n2">美術長</h5>
+                                <p className="d-block">
+                                    <b>前端</b> 會員相關頁面 教學頁<br/>
+                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報
+                                </p>
+                            </div>
                         </div>
                     </div>
                     {/* <!-- 4. 圖文 + 文字方塊 --> */}
@@ -105,20 +87,16 @@ function TeamContent(props) {
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">蔣頌蓮</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
+                        <div className="col-12 col-lg-6 t-text-p">
+                            <div className="left">
+                                <h2 className="d-block text-n">蔣頌蓮</h2>
+                                <h5 className="text-n2">組員</h5>
+                                <p className="d-block">
+                                    <b>前端</b> 登入 註冊 忘記密碼 會員相關頁面 關於我們 Footer<br/>
+                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報
+                                </p>
+                            </div>
                         </div>
                     </div>
                     {/* <!-- 5. 圖文 + 文字方塊 --> */}
@@ -130,20 +108,16 @@ function TeamContent(props) {
                             </div>
                         </div>
                         {/* <!-- 文字 --> */}
-                        <div className="col-12 col-lg-6 t-text">
-                            <h2 className="d-block text-n">江致緯</h2>
-                            <p className="d-block text-p">
-                                切版、RWD、動態效果
-                                <br />
-                                商品列表 商品內容
-                                <br />
-                                Functional map、Site map建置
-                                <br /> MYSQL資料庫建立
-                                <br />
-                                網站UI/UX設計與規劃
-                                <br />
-                                資料蒐集、文案撰寫 企劃書撰寫
-                            </p>
+                        <div className="col-12 col-lg-6 t-text-p">
+                            <div className="left">
+                                <h2 className="d-block text-n">江致緯</h2>
+                                <h5 className="text-n2">組長</h5>
+                                <p className="d-block">
+                                    <b>前端</b> 主頁 購物車 會員相關頁面<br/>
+                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className="row t-skill">
