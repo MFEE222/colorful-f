@@ -32,14 +32,14 @@ const SigninContent = () => {
 
             setLoginMember(response.data.data);
             setIsLogin(true);
-        } catch (e) {  
+        } catch (e) {
             console.log(123);
             // console.error("error", e.response.data);
             console.error('登入', ERR_MSG[e.response.data.code]);
         }
     }
     if (isLogin) {
-            // 轉頁效果
+        // 轉頁效果
         return <Redirect to="/" />;
     }
     return (
@@ -113,6 +113,5 @@ const SigninContent = () => {
         </div>
     );
 };
-
 
 export default SigninContent;

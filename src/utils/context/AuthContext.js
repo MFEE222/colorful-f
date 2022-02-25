@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { Redirect, useRouteMatch } from 'react-router-dom';
 
 import axios from 'axios';
 import {
@@ -6,6 +7,9 @@ import {
     API_POST_AUTH_SIGNUP,
     API_POST_AUTH_FORGOT,
 } from '../config';
+
+// 通用元件
+// import routes from '../routes';
 
 // Context
 const AuthContext = React.createContext(
@@ -71,17 +75,18 @@ export function AuthProvider(props) {
 
     // 生命週期
     useEffect(function () {
-        setLogin(true);
-        setUser({
-            id: 9,
-            name: 'rosa',
-            email: 'someone@test.mail',
-            phone: '0911-123-123',
-            gender: 0,
-            birthday: '2011-07-30',
-        });
+        // setLogin(true);
+        // setUser({
+        //     id: 9,
+        //     name: 'rosa',
+        //     email: 'someone@test.mail',
+        //     phone: '0911-123-123',
+        //     gender: 0,
+        //     birthday: '2011-07-30',
+        // });
     }, []);
 
+    // DidMount, DidUpdate
     useEffect(
         function () {
             console.log('login :>> ', login);
@@ -92,7 +97,7 @@ export function AuthProvider(props) {
 
     // 渲染
     return (
-        <AuthContext.Provider values={shared}>
+        <AuthContext.Provider value={shared}>
             {props.children}
         </AuthContext.Provider>
     );
