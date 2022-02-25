@@ -14,9 +14,7 @@ import { routes } from '../../utils/routes';
 
 function Signin(props) {
     const auth = useAuthContext();
-    console.log('auth :>> ', auth);
-    // const [account, setAccount] = useState('');
-    // const [password, setPassword] = useState('');
+    // console.log('auth :>> ', auth);
     const [login, setLogin] = useState({
         account: '',
         password: '',
@@ -58,6 +56,9 @@ function Signin(props) {
     // }
 
     // 如果是登入狀態就跳轉回首頁
+    // <button className="btn btn-danger" onClick={auth.clear}>
+    //     登出
+    // </button>
     return auth.current ? (
         <Redirect to={routes.home} />
     ) : (

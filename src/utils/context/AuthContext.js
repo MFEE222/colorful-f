@@ -19,15 +19,16 @@ const AuthContext = React.createContext(
 // Provider
 export function AuthProvider(props) {
     // 狀態
+    // user {
+    //     id: null,
+    //     name: null,
+    //     email: null,
+    //     phone: null,
+    //     gender: null,
+    //     birthday: null,
+    // }
     const [login, setLogin] = useState(false);
-    const [user, setUser] = useState({
-        id: null,
-        name: null,
-        email: null,
-        phone: null,
-        gender: null,
-        birthday: null,
-    });
+    const [user, setUser] = useState({});
 
     // 共享狀態
     const { option } =
@@ -39,6 +40,7 @@ export function AuthProvider(props) {
         other,
         option, // 設定 axios 參數
         reset, // axios post 登入
+        clear, // 清除所有驗證資料（登出）
         current: login, // 當前是否登入
         user, // 取用使用者資料
     };
@@ -71,6 +73,12 @@ export function AuthProvider(props) {
         // } catch (err) {
         //     console.log(err);
         // }
+    }
+
+    // 登出
+    function clear() {
+        setLogin(false);
+        setUser({});
     }
 
     // 生命週期
