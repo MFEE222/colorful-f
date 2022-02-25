@@ -46,11 +46,11 @@ function Card(props) {
                 <div className="card-body  row d-flex text-start justify-content-between p-0 mt-2 mb-4 align-items-baseline">
                     <div className="d-flex justify-content-between align-items-baseline mb-1">
                         <p className="card-title mb-0">{product.name}</p>
-                        <i className="fas fa-heart"></i>
+                        <i className="fas fa-heart heart"></i>
                     </div>
                     <div className="text-start d-flex  justify-content-between">
                         NT. {product.price}
-                        <i class="fas fa-shopping-cart"></i>
+                        <i className="fas fa-shopping-cart"></i>
                     </div>
                 </div>
             </div>

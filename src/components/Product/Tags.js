@@ -1,6 +1,8 @@
 import React from 'react';
 function Tags(props) {
     const { tags } = props.init;
+    const { choseTags, setChoseTags } = props;
+
     // console.log(tags);
     // console.log('Array.isArray(tags) :>> ', Array.isArray(tags));
 
@@ -14,6 +16,7 @@ function Tags(props) {
                             <div
                                 className="col-auto m-2 mx-md-2  tag-text"
                                 key={tag.id}
+                                onClick={setChoseTags(tag.id)}
                             >
                                 <i className="fas fa-hashtag pe-1"></i>
                                 {tag.name}

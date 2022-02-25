@@ -2,6 +2,21 @@ import React from 'react';
 import { Input, Icon } from 'semantic-ui-react';
 function FilterBarContent(props) {
     const { series } = props.init;
+    const {
+        lowPrice,
+        setLowPrice,
+        highPrice,
+        setHighPrice,
+        choseSeries,
+        setChoseSeries,
+        search,
+        setSearch,
+    } = props;
+    console.log('search d:>> ', search);
+    console.log('choseSeries d:>> ', choseSeries);
+    console.log('lowPrice d:>> ', lowPrice);
+    console.log('highPrice d:>> ', highPrice);
+
     return (
         <div className="container">
             <div className="d-none d-lg-block">
@@ -18,6 +33,9 @@ function FilterBarContent(props) {
                                         <li
                                             className="py-1 px-2 py-md-2 px-md-3"
                                             key={v.id}
+                                            onClick={(e) =>
+                                                setChoseSeries(v.name)
+                                            }
                                         >
                                             {v.descp}
                                         </li>
@@ -29,7 +47,12 @@ function FilterBarContent(props) {
                             {/* <li>
                                 <i className="fas fa-search fa-lg"></i>
                             </li> */}
-                            <Input icon="search" placeholder="Search..." />
+                            <Input
+                                icon="search"
+                                placeholder="Search..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
                             {/* <input
                                 type="search"
                                 className="md-input-style "
@@ -40,12 +63,16 @@ function FilterBarContent(props) {
                             <Input
                                 placeholder="最低$..."
                                 className="input-sm"
+                                value={lowPrice}
+                                onChange={(e) => setLowPrice(e.target.value)}
                             />
                             ~
                             <Input
                                 placeholder="最高$..."
                                 size="mini"
                                 className="input-sm"
+                                value={highPrice}
+                                onChange={(e) => setHighPrice(e.target.value)}
                             />
                             {/* 點擊切換 */}
                             <li>

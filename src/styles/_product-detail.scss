@@ -253,6 +253,8 @@
     }
     // 3.
     .pd-3 {
+        margin-top: 5rem;
+
         .text-box {
             @extend %title-box;
             .phone-title {
@@ -260,7 +262,7 @@
                     color: $gray-blue;
                     @include mix.md {
                         border-top: 1px solid $gray;
-                        padding-top: 1rem;
+                        padding-top: 1.4rem;
                         font-size: 1.5rem;
                     }
                 }
@@ -365,6 +367,9 @@
             > div {
                 padding-left: 1px;
             }
+            .solve-padding {
+                border: 15px solid transparent;
+            }
         }
     }
     // 6.
@@ -446,19 +451,31 @@
                         line-height: 2rem;
                     }
                 }
-                .box {
-                    margin-right: 0.4rem;
-                    padding: 0;
-                    @media (max-width: 767.98px) {
-                        width: 6.35rem;
-                        height: 6.35rem;
+                .review-list-img {
+                    overflow: scroll;
+                    .box {
+                        margin-right: 0.4rem;
+                        padding: 0;
+                        @media (max-width: 767.89px) {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                        @media (max-width: 767.98px) {
+                            width: 5.35rem;
+                            height: 5.35rem;
+                        }
+                        @media (min-width: 768px) {
+                            font-size: 1rem;
+                            line-height: 2rem;
+                            width: 3.75rem;
+                            height: 3.75rem;
+                        }
+                        > div {
+                        }
                     }
-                    @media (min-width: 768px) {
-                        font-size: 1rem;
-                        line-height: 2rem;
-                        width: 3.75rem;
-                        height: 3.75rem;
-                    }
+                    // .modal-bg .modal-content {
+                    //     background-color: black;
+                    // }
                 }
             }
             .thumbs-list {

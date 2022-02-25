@@ -4,6 +4,21 @@ import sortImg from '../../icons/Sortbar/Sort.png';
 import deleteImg from '../../icons/Sortbar/Delete.png';
 function PSearchFilter(props) {
     const { series } = props.init;
+    const {
+        lowPrice,
+        setLowPrice,
+        highPrice,
+        setHighPrice,
+        choseSeries,
+        setChoseSeries,
+        search,
+        setSearch,
+    } = props;
+    console.log('search :>> ', search);
+    console.log('choseSeries :>> ', choseSeries);
+    console.log('lowPrice :>> ', lowPrice);
+    console.log('highPrice :>> ', highPrice);
+
     return (
         <>
             <div className="container d-md-flex">
@@ -13,8 +28,8 @@ function PSearchFilter(props) {
                             type="search"
                             className="input-style"
                             placeholder="在此輸入關鍵字"
-                            // value={searchWord}
-                            // onChange={(e) => setSearchWord(e.target.value)}
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
                         />
                         <div className="search-icon d-flex my-2">
                             <div className="me-2">
@@ -22,9 +37,12 @@ function PSearchFilter(props) {
                                     className="icon-img"
                                     src={deleteImg}
                                     alt=""
-                                    // onClick={() => {
-                                    //     // setSearchWord('');
-                                    // }}
+                                    onClick={() => {
+                                        setSearch('');
+                                        setLowPrice('');
+                                        setHighPrice('');
+                                        setChoseSeries('');
+                                    }}
                                 />
                             </div>
                             <div className="me-2">
@@ -32,6 +50,9 @@ function PSearchFilter(props) {
                                     className="icon-img"
                                     src={searchImg}
                                     alt=""
+                                    onClick={() => {
+                                        // 發送api
+                                    }}
                                 />
                             </div>
                         </div>
@@ -45,20 +66,26 @@ function PSearchFilter(props) {
                             type="search"
                             className="md-input-style price-input w-25 me-2"
                             placeholder="最低"
+                            value={lowPrice}
+                            onChange={(e) => setLowPrice(e.target.value)}
                         />
                         ～
                         <input
                             type="search"
                             className="md-input-style price-input w-25 mx-2"
                             placeholder="最高"
+                            value={highPrice}
+                            onChange={(e) => setHighPrice(e.target.value)}
                         />
                     </div>
                     <div className="d-flex justify-content-end align-items-center">
                         <div className="dropdown-style my-auto me-2">
                             <select
-                                name="filter-select"
-                                id="filter-select"
+                                // name="filter-select"
+                                // id="filter-select"
                                 className="filter-select"
+                                value={choseSeries}
+                                onChange={(e) => setChoseSeries(e.target.value)}
                             >
                                 <option value="defalut">篩選</option>
                                 <option value="all">全部</option>
@@ -67,10 +94,7 @@ function PSearchFilter(props) {
                                 {series &&
                                     series.map((v) => {
                                         return (
-                                            <option
-                                                key={v.id}
-                                                value="series.name"
-                                            >
+                                            <option key={v.id} value={v.name}>
                                                 {v.descp}
                                             </option>
                                         );

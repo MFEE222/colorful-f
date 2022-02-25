@@ -29,10 +29,11 @@ function ProductDetail(props) {
             );
             console.log('product.current.id :>> ', product.current.id);
             setReview(response.data.reviewDetail);
+            //TODO:接收一個會員的＆此評論的全部圖片）
             console.log('response :>> ', response);
             console.log('review :>> ', review);
         })();
-    }, []);
+    }, [product.current]);
 
     // 渲染
     return (

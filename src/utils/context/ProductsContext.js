@@ -69,7 +69,7 @@ export function ProductsProvider(props) {
         if (
             poolLocal.some(function (e) {
                 if (e.id === p.id) {
-                    console.log('Find in local:>> ', e); //
+                    console.log('Find in local:>> ', e);
                     setProduct(e);
                     return true;
                 }

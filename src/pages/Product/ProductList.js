@@ -27,8 +27,12 @@ function ProductList(props) {
 
     //記錄過濾的 狀態
     // const[filter,setFilter] = useState([]) //篩選條件放一起
-    const [tags, setTags] = useState([]); //表單元素（過濾用的）狀態 『事件處理器』
+    const [choseTags, setChoseTags] = useState([]); //表單元素（過濾用的）狀態 『事件處理器』
     //price seach series 狀態
+    const [lowPrice, setLowPrice] = useState([]);
+    const [highPrice, setHighPrice] = useState([]);
+    const [search, setSearch] = useState([]);
+    const [choseSeries, setChoseSeries] = useState([]);
 
     // 生命週期
     useEffect(() => {
@@ -39,8 +43,19 @@ function ProductList(props) {
     }, []); // 初次掛載
 
     //TODO:
-    useEffect(function () {}, []); //TODO:放要監控的狀態 =>reset
+    useEffect(function () {
+        products.reset({
+            option: {
+                keyword: `${search}`,
+                series: `${choseSeries}`,
+                price: `[${lowPrice},${highPrice}]`,
+                tags: `${choseTags}`,
+            },
+        });
+    }, []); //TODO:放要監控的狀態 =>reset
     //[]=> 監控狀態
+
+    // 四個表單元素的處理方法
 
     //渲染
     return (
@@ -48,10 +63,34 @@ function ProductList(props) {
             {/* （事件處理器）函式方法傳進去 */}
             <Banner />
             {/* 手機版 search & filter */}
-            <PSearchFilter init={init} />
+            <PSearchFilter
+                init={init}
+                lowPrice={lowPrice}
+                setLowPrice={setLowPrice}
+                highPrice={highPrice}
+                setHighPrice={setHighPrice}
+                choseSeries={choseSeries}
+                setChoseSeries={setChoseSeries}
+                search={search}
+                setSearch={setSearch}
+            />
             {/* md 以上 search & filter */}
-            <FilterBarContent init={init} />
-            <Tags init={init} />
+            <FilterBarContent
+                init={init}
+                search={search}
+                setSearch={setSearch}
+                choseSeries={choseSeries}
+                setChoseSeries={setChoseSeries}
+                lowPrice={lowPrice}
+                setLowPrice={setLowPrice}
+                highPrice={highPrice}
+                setHighPrice={setHighPrice}
+            />
+            <Tags
+                init={init}
+                choseTags={choseTags}
+                setChoseTags={setChoseTags}
+            />
 
             {/* 商品卡 */}
 
