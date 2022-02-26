@@ -3,192 +3,194 @@
 
 .product-detail {
     // 1.
-    .pd-1 
+    .pd-1 {
         // margin: 3rem auto;
         .rba-afterPosition {
-        color: $light;
-        opacity: 0.6;
-        background-color: none;
-    }
-    .rba-beforePosition {
-        display: none;
-    }
-    .slider {
-        height: 600px;
-        width: 450px;
-    }
-    .ratios {
-        @media (max-width: 767.98px) {
-            @include mix.ratio(4, 3);
-        }
-        @media (min-width: 768px) {
-            @include mix.ratio(3, 2);
-        }
-        // @include mix.ratio(3, 2);
-        img {
-            // border-radius: 8px;
-            object-fit: contain;
-        }
-    }
-    // }
-    .img-list {
-        margin: 0;
-        > div:first-child {
-            margin-left: -0.25rem;
-        }
-
-        > div:last-child {
-            margin-right: -0.25rem;
-        }
-        .img-small {
-            .ratios {
-                @include mix.ratio(1, 1);
-            }
-        }
-    }
-
-    .reviews-text {
-        margin: 0;
-        @media (max-width: 768px) {
-            font-size: 0.7rem;
-        }
-        @media (min-width: 992px) {
-            font-size: 0.8rem;
-        }
-    }
-    .review-box {
-        @media (max-width: 767.98px) {
-            display: none;
-        }
-    }
-
-    .product-name {
-        // @media (max-width: 767.98px) {
-        //     font-size: 1.2rem;
-        //     margin: 0.5rem auto 0;
-        // }
-        // @media (min-width: 768px) {
-        //     font-size: 1rem;
-        //     margin: 0;
-        // }
-        // @media (min-width: 992px) {
-        //     font-size: 26px;
-        //     margin: 0;
-        // }
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-        font-size: calc(0.5rem + 1.5vw);
-    }
-    %wish-list {
-        i {
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-            color: #63727e;
-            &:hover {
-                color: #ef2f2f;
-                animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-                transform: translate3d(0, 0, 0);
-            }
-            @keyframes shake {
-                10%,
-                90% {
-                    transform: translate3d(-1px, 0, 0);
-                }
-
-                20%,
-                80% {
-                    transform: translate3d(2px, 0, 0);
-                }
-
-                30%,
-                50%,
-                70% {
-                    transform: translate3d(-4px, 0, 0);
-                }
-
-                40%,
-                60% {
-                    transform: translate3d(4px, 0, 0);
-                }
-            }
-        }
-        // @media (max-width: 767.98px) {
-        //     display: none;
-        // }
-        @media (min-width: 768px) {
-            font-size: 0.8rem;
-        }
-        @media (min-width: 992px) {
-            font-size: 1rem;
-        }
-    }
-    .wish-list {
-        @extend %wish-list;
-    }
-    .wish-list-2 {
-        @extend %wish-list;
-        @media (max-width: 767.98px) {
-            font-size: 1rem;
-            display: none;
-        }
-    }
-    .detail-text {
-        line-height: 1.75rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        white-space: normal;
-        overflow: hidden;
-        @media (max-width: 768px) {
-            font-size: 0.75rem;
-        }
-        @media (min-width: 992px) {
-            font-size: 1rem;
-            line-height: 2rem;
-            width: 99%;
-        }
-        @media (min-width: 1440px) {
-            font-size: 1rem;
-            line-height: 2rem;
-            width: 99%;
-        }
-    }
-    .add-cart {
-        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-        background-color: transparent;
-        color: black;
-        &:hover {
-            background-color: black;
             color: $light;
-            transition: 0.3s;
-            border: 0;
+            opacity: 0.6;
+            background-color: none;
         }
-        // &::after {
-        //     content: "已加入購物車";
+        .rba-beforePosition {
+            display: none;
+        }
+        .slider {
+            height: 600px;
+            width: 450px;
+        }
+        .ratios {
+            @media (max-width: 767.98px) {
+                @include mix.ratio(4, 3);
+            }
+            @media (min-width: 768px) {
+                @include mix.ratio(3, 2);
+            }
+            // @include mix.ratio(3, 2);
+            img {
+                // border-radius: 8px;
+                object-fit: contain;
+            }
+        }
         // }
-        border-radius: 20px;
-        // color: $light;
-        // 消除預設
+        .img-list {
+            margin: 0;
+            > div:first-child {
+                margin-left: -0.25rem;
+            }
 
-        @media (max-width: 767.98px) {
-            font-size: 12px;
-            width: 100px;
-            height: 30px;
+            > div:last-child {
+                margin-right: -0.25rem;
+            }
+            .img-small {
+                .ratios {
+                    @include mix.ratio(1, 1);
+                }
+            }
         }
-        @media (min-width: 768px) {
-            font-size: 14px;
-            width: 120px;
-            height: 40px;
+
+        .reviews-text {
+            margin: 0;
+            @media (max-width: 768px) {
+                font-size: 0.7rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 0.8rem;
+            }
         }
-    }
-    .price {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-        @media (max-width: 767.98px) {
-            font-size: 1rem;
+        .review-box {
+            @media (max-width: 767.98px) {
+                display: none;
+            }
         }
-        @media (min-width: 768px) {
-            font-size: 1rem;
+
+        .product-name {
+            // @media (max-width: 767.98px) {
+            //     font-size: 1.2rem;
+            //     margin: 0.5rem auto 0;
+            // }
+            // @media (min-width: 768px) {
+            //     font-size: 1rem;
+            //     margin: 0;
+            // }
+            // @media (min-width: 992px) {
+            //     font-size: 26px;
+            //     margin: 0;
+            // }
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+            font-size: calc(0.5rem + 1.5vw);
         }
-        @media (min-width: 992px) {
-            font-size: 1.3rem;
+        %wish-list {
+            i {
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+                color: #63727e;
+                &:hover {
+                    color: #ef2f2f;
+                    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97)
+                        both;
+                    transform: translate3d(0, 0, 0);
+                }
+                @keyframes shake {
+                    10%,
+                    90% {
+                        transform: translate3d(-1px, 0, 0);
+                    }
+
+                    20%,
+                    80% {
+                        transform: translate3d(2px, 0, 0);
+                    }
+
+                    30%,
+                    50%,
+                    70% {
+                        transform: translate3d(-4px, 0, 0);
+                    }
+
+                    40%,
+                    60% {
+                        transform: translate3d(4px, 0, 0);
+                    }
+                }
+            }
+            // @media (max-width: 767.98px) {
+            //     display: none;
+            // }
+            @media (min-width: 768px) {
+                font-size: 0.8rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1rem;
+            }
+        }
+        .wish-list {
+            @extend %wish-list;
+        }
+        .wish-list-2 {
+            @extend %wish-list;
+            @media (max-width: 767.98px) {
+                font-size: 1rem;
+                display: none;
+            }
+        }
+        .detail-text {
+            line-height: 1.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+            overflow: hidden;
+            @media (max-width: 768px) {
+                font-size: 0.75rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1rem;
+                line-height: 2rem;
+                width: 99%;
+            }
+            @media (min-width: 1440px) {
+                font-size: 1rem;
+                line-height: 2rem;
+                width: 99%;
+            }
+        }
+        .add-cart {
+            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+            background-color: transparent;
+            color: black;
+            &:hover {
+                background-color: black;
+                color: $light;
+                transition: 0.3s;
+                border: 0;
+            }
+            // &::after {
+            //     content: "已加入購物車";
+            // }
+            border-radius: 20px;
+            // color: $light;
+            // 消除預設
+
+            @media (max-width: 767.98px) {
+                font-size: 12px;
+                width: 100px;
+                height: 30px;
+            }
+            @media (min-width: 768px) {
+                font-size: 14px;
+                width: 120px;
+                height: 40px;
+            }
+        }
+        .price {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+            @media (max-width: 767.98px) {
+                font-size: 1rem;
+            }
+            @media (min-width: 768px) {
+                font-size: 1rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1.3rem;
+            }
         }
     }
     // .img-small {
@@ -199,164 +201,188 @@
     //         }
     //     }
     // }
-}
-// 2.
-.pd-2 {
-    .recommend {
-        @include mix.md {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+
+    // 2.
+    .pd-2 {
+        .recommend {
+            @include mix.md {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            .recommend-title {
+                margin-top: 3rem;
+                .text-box {
+                    @extend %title-box;
+                    .phone-title {
+                        color: $gray-blue;
+                    }
+                    //
+                    @include mix.media(
+                        border-left,
+                        $xs: 6px solid transparent,
+                        $md: 6px solid black,
+                        $lg: 10px solid black
+                    );
+                }
+            }
+            .recommend-card {
+                .link {
+                    color: black;
+                    text-decoration: none;
+                    &:link {
+                        color: black;
+                    }
+                }
+                .card-border {
+                    .card-img {
+                        .ratios {
+                            @include mix.ratio(3.5, 4);
+                        }
+                        overflow: hidden;
+                        img {
+                            filter: drop-shadow(
+                                2px 4px 4px rgba(0, 0, 0, 0.25)
+                            );
+                            border-radius: 8px;
+                            max-height: 100%;
+                            max-width: 100%;
+                            object-fit: cover;
+                            transition: 0.5s;
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    .adding-card {
+                        border: 1px solid black;
+                        padding: 3px 6px;
+                    }
+                }
+            }
         }
-        .recommend-title {
-            margin-top: 3rem;
+        // 3.
+        .pd-3 {
+            margin-top: 5rem;
+
             .text-box {
                 @extend %title-box;
                 .phone-title {
-                    color: $gray-blue;
-                }
-                //
-                @include mix.media(
-                    border-left,
-                    $xs: 6px solid transparent,
-                    $md: 6px solid black,
-                    $lg: 10px solid black
-                );
-            }
-        }
-        .recommend-card {
-            .link {
-                color: black;
-                text-decoration: none;
-                &:link {
-                    color: black;
-                }
-            }
-            .card-border {
-                .card-img {
-                    .ratios {
-                        @include mix.ratio(3.5, 4);
-                    }
-                    overflow: hidden;
-                    img {
-                        filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
-                        border-radius: 8px;
-                        max-height: 100%;
-                        max-width: 100%;
-                        object-fit: cover;
-                        transition: 0.5s;
-                        &:hover {
-                            transform: scale(1.1);
+                    .e-title {
+                        color: $gray-blue;
+                        @include mix.md {
+                            border-top: 1px solid $gray;
+                            padding-top: 1.4rem;
+                            font-size: 1.5rem;
                         }
                     }
                 }
-                .adding-card {
-                    border: 1px solid black;
-                    padding: 3px 6px;
+            }
+        }
+        .reviews-text {
+            margin: 0;
+            @media (max-width: 768px) {
+                font-size: 0.75rem;
+            }
+            @media (min-width: 992px) {
+                font-size: 1rem;
+            }
+        }
+        .add-review {
+            // 消除預設
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: transparent;
+            &:hover {
+                background-color: black;
+                color: $light;
+                filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+                transition: 0.3s;
+            }
+            @media (max-width: 767.98px) {
+                font-size: 12px;
+                width: 300px;
+                height: 40px;
+            }
+            @media (min-width: 768px) {
+                font-size: 14px;
+                width: 150px;
+                height: 50px;
+            }
+        }
+    }
+    // 4.
+    .pd-4 {
+        .review-box {
+            li i {
+                margin-left: 0.5rem;
+                @include mix.md {
+                    font-size: 1.5rem;
+                }
+                @include mix.lg {
+                    font-size: 2rem;
+                }
+            }
+            .score {
+                // @media (min-width: 768px) {
+                //     font-size: 1.5rem;
+                // }
+                font-size: 3rem;
+            }
+            .review-count {
+                @include mix.md {
+                    font-size: 1.3rem;
+                }
+                @include mix.lg {
+                    font-size: 1.5rem;
                 }
             }
         }
-    }
-    // 3.
-    .pd-3 {
-        margin-top: 5rem;
-
-        .text-box {
-            @extend %title-box;
-            .phone-title {
-                .e-title {
-                    color: $gray-blue;
-                    @include mix.md {
-                        border-top: 1px solid $gray;
-                        padding-top: 1.4rem;
-                        font-size: 1.5rem;
-                    }
+        .add-review {
+            background-color: transparent;
+            color: black;
+            // 消除預設
+            border-radius: 20px;
+            background-color: transparent;
+            &:hover {
+                background-color: black;
+                color: $light;
+                transition: 0.3s;
+                border: 0;
+                // filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+            }
+            @media (max-width: 767.98px) {
+                font-size: 12px;
+                width: 300px;
+                height: 40px;
+            }
+            @media (min-width: 768px) {
+                font-size: 14px;
+                width: 150px;
+                height: 50px;
+            }
+            border-top: 1px solid $gray;
+            border-bottom: 1px solid $gray;
+            .review-img-slider {
+                .ratios {
+                    @include mix.ratio(1, 1);
                 }
+                > div {
+                    padding-left: 1px;
+                }
+                // .solve-padding {
+                //     border: 15px solid transparent;
+                // }
             }
         }
     }
-    .reviews-text {
-        margin: 0;
-        @media (max-width: 768px) {
-            font-size: 0.75rem;
-        }
-        @media (min-width: 992px) {
-            font-size: 1rem;
-        }
-    }
-    .add-review {
-        // 消除預設
-        border: 2px solid black;
-        border-radius: 20px;
-        background-color: transparent;
-        &:hover {
-            background-color: black;
-            color: $light;
-            filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-            transition: 0.3s;
-        }
-        @media (max-width: 767.98px) {
-            font-size: 12px;
-            width: 300px;
-            height: 40px;
-        }
-        @media (min-width: 768px) {
-            font-size: 14px;
-            width: 150px;
-            height: 50px;
-        }
-    }
-}
-// 4.
-.pd-4 {
-    .review-box {
-        li i {
-            margin-left: 0.5rem;
-            @include mix.md {
-                font-size: 1.5rem;
-            }
-            @include mix.lg {
-                font-size: 2rem;
-            }
-        }
-        .score {
-            // @media (min-width: 768px) {
-            //     font-size: 1.5rem;
-            // }
-            font-size: 3rem;
-        }
-        .review-count {
-            @include mix.md {
-                font-size: 1.3rem;
-            }
-            @include mix.lg {
-                font-size: 1.5rem;
-            }
-        }
-    }
-    .add-review {
-        background-color: transparent;
-        color: black;
-        // 消除預設
-        border-radius: 20px;
-        background-color: transparent;
-        &:hover {
-            background-color: black;
-            color: $light;
-            transition: 0.3s;
-            border: 0;
-            // filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-        }
-        @media (max-width: 767.98px) {
-            font-size: 12px;
-            width: 300px;
-            height: 40px;
-        }
-        @media (min-width: 768px) {
-            font-size: 14px;
-            width: 150px;
-            height: 50px;
-        }
+    // 5.
+    .pd-5 {
         border-top: 1px solid $gray;
+        padding-top: 1.5rem;
+        p {
+            color: black;
+            font-size: 14px;
+        }
         border-bottom: 1px solid $gray;
         .review-img-slider {
             .ratios {
@@ -366,137 +392,137 @@
                 padding-left: 1px;
             }
             .solve-padding {
-                border: 15px solid transparent;
+                border: 10px solid transparent;
             }
         }
     }
-}
-// 6.
-.pd-6 {
-    .review-card {
-        margin: 5rem 0;
-        @media (max-width: 768px) {
-            padding: 1rem;
-            position: relative;
-        }
-        @media (min-width: 768px) {
-            padding: 2.5rem;
-        }
-
-        border: 1px solid rgba(80, 93, 104, 0.18);
-        box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
-        box-sizing: border-box;
-        border-radius: 8px;
-        .figure {
-            padding: 0;
-            @media (max-width: 767.98px) {
-                width: 4rem;
-                /* height: 3rem; */
-                margin-right: 1rem;
-                position: absolute;
-                top: calc(0% - 2rem);
-                left: calc(50% - 2rem);
-                height: auto;
+    // 6.
+    .pd-6 {
+        .review-card {
+            margin: 5rem 0;
+            @media (max-width: 768px) {
+                padding: 1rem;
+                position: relative;
             }
             @media (min-width: 768px) {
-                width: 5.5rem;
-                height: 5.5rem;
-                margin-right: 2rem;
+                padding: 2.5rem;
             }
-            border-radius: 999em;
-            overflow: hidden;
-        }
-        .review-card-detail {
-            > div {
-                .ratios {
-                    @include mix.ratio(1, 1);
-                }
-            }
-            .review-name {
-                @media (max-width: 768px) {
-                    font-size: 1rem;
-                }
-                @media (min-width: 992px) {
-                    font-size: 2rem;
-                }
-            }
-            .review-day {
-                @media (max-width: 768px) {
-                    font-size: 0.8rem;
-                }
-                @media (min-width: 992px) {
-                    font-size: 1rem;
-                }
-            }
-            .review-card-text {
-                line-height: 1.3rem;
-                display: -webkit-box;
-                -webkit-line-clamp: 20;
-                -webkit-box-orient: vertical;
-                white-space: normal;
-                word-break: break-all;
-                // overflow: hidden;
-                @media (max-width: 768px) {
-                    font-size: 0.75rem;
-                    width: 100%;
-                }
-                @media (min-width: 992px) {
-                    font-size: 1rem;
-                    line-height: 2rem;
-                    width: 90%;
-                }
-                .review-list-img {
-                    overflow: scroll;
-                    .box {
-                        margin-right: 0.4rem;
-                        padding: 0;
-                        @media (max-width: 767.89px) {
-                            width: 3rem;
-                            height: 3rem;
-                        }
-                        @media (max-width: 767.98px) {
-                            width: 5.35rem;
-                            height: 5.35rem;
-                        }
-                        @media (min-width: 768px) {
-                            font-size: 1rem;
-                            line-height: 2rem;
-                            width: 3.75rem;
-                            height: 3.75rem;
-                        }
-                    }
-                    // .modal-bg .modal-content {
-                    //     background-color: black;
-                    // }
-                }
-            }
-            .box {
-                margin-right: 0.4rem;
+
+            border: 1px solid rgba(80, 93, 104, 0.18);
+            box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+            box-sizing: border-box;
+            border-radius: 8px;
+            .figure {
                 padding: 0;
                 @media (max-width: 767.98px) {
-                    width: 6.35rem;
-                    height: 6.35rem;
+                    width: 4rem;
+                    /* height: 3rem; */
+                    margin-right: 1rem;
+                    position: absolute;
+                    top: calc(0% - 2rem);
+                    left: calc(50% - 2rem);
+                    height: auto;
                 }
                 @media (min-width: 768px) {
-                    font-size: 1rem;
-                    line-height: 2rem;
-                    width: 3.75rem;
-                    height: 3.75rem;
+                    width: 5.5rem;
+                    height: 5.5rem;
+                    margin-right: 2rem;
+                }
+                border-radius: 999em;
+                overflow: hidden;
+            }
+            .review-card-detail {
+                > div {
+                    .ratios {
+                        @include mix.ratio(1, 1);
+                    }
+                }
+                .review-name {
+                    @media (max-width: 768px) {
+                        font-size: 1rem;
+                    }
+                    @media (min-width: 992px) {
+                        font-size: 2rem;
+                    }
+                }
+                .review-day {
+                    @media (max-width: 768px) {
+                        font-size: 0.8rem;
+                    }
+                    @media (min-width: 992px) {
+                        font-size: 1rem;
+                    }
+                }
+                .review-card-text {
+                    line-height: 1.3rem;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 20;
+                    -webkit-box-orient: vertical;
+                    white-space: normal;
+                    word-break: break-all;
+                    // overflow: hidden;
+                    @media (max-width: 768px) {
+                        font-size: 0.75rem;
+                        width: 100%;
+                    }
+                    @media (min-width: 992px) {
+                        font-size: 1rem;
+                        line-height: 2rem;
+                        width: 90%;
+                    }
+                    .review-list-img {
+                        overflow: scroll;
+                        .box {
+                            margin-right: 0.4rem;
+                            padding: 0;
+                            @media (max-width: 767.89px) {
+                                width: 3rem;
+                                height: 3rem;
+                            }
+                            @media (max-width: 767.98px) {
+                                width: 5.35rem;
+                                height: 5.35rem;
+                            }
+                            @media (min-width: 768px) {
+                                font-size: 1rem;
+                                line-height: 2rem;
+                                width: 3.75rem;
+                                height: 3.75rem;
+                            }
+                        }
+                        // .modal-bg .modal-content {
+                        //     background-color: black;
+                        // }
+                    }
+                }
+                .box {
+                    margin-right: 0.4rem;
+                    padding: 0;
+                    @media (max-width: 767.98px) {
+                        width: 6.35rem;
+                        height: 6.35rem;
+                    }
+                    @media (min-width: 768px) {
+                        font-size: 1rem;
+                        line-height: 2rem;
+                        width: 3.75rem;
+                        height: 3.75rem;
+                    }
                 }
             }
-        }
-        .thumbs-list {
-            margin: 2rem 0 1rem 0;
-            ul {
-                display: flex;
-                justify-content: end;
-                list-style: none;
-                li {
-                    margin-right: 0.8rem;
-                    color: $gray-blue;
-                    font-size: 14px;
-                    i {
-                        margin-right: 0.6rem;
+            .thumbs-list {
+                margin: 2rem 0 1rem 0;
+                ul {
+                    display: flex;
+                    justify-content: end;
+                    list-style: none;
+                    li {
+                        margin-right: 0.8rem;
+                        color: $gray-blue;
+                        font-size: 14px;
+                        i {
+                            margin-right: 0.6rem;
+                        }
                     }
                 }
             }

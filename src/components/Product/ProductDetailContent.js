@@ -4,7 +4,7 @@ import { useParams, useLocation, Redirect } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
-
+import ReactBeforeAfter from 'react-before-after';
 // 共用
 import { IMG_URL, API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
