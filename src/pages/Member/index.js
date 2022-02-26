@@ -74,7 +74,10 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={routes.profile}
+                
+                
+                
+                                        to={routes.profile} 
                                     >
                                         Profile
                                     </Link>
