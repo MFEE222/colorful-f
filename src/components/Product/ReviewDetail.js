@@ -60,7 +60,8 @@ function ReviewDetail(props) {
         return (
             <Modal
                 {...props}
-                size="lg"
+                // size="sm"
+                dialogClassName="modal-70w"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
