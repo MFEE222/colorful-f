@@ -21,16 +21,23 @@ import { routes } from '../../utils/routes';
 
 function ProductDetailContent(props) {
     // 狀態、勾子
+    const [current, setCurrent] = useState(''); //圖片更換
     const products = useProductsContext();
-    const product = products.current;
-    console.log('product :>> ', product);
-    // 變數
+    const product = products.current; //目前特定商品
     const imgUrlAfter = [
         `${IMG_URL}/${product.img}${imgName.a0}`,
         `${IMG_URL}/${product.img}${imgName.a1}`,
         `${IMG_URL}/${product.img}${imgName.a2}`,
     ];
-    const imgUrlBefore = [`${IMG_URL}/${product.img}${imgName.b0}`];
+    const imgUrlBefore = `${IMG_URL}/${product.img}${imgName.b0}`;
+
+    //didMount
+    useEffect(
+        function () {
+            setCurrent(`${IMG_URL}/${product.img}${imgName.a0}`);
+        },
+        [products.current]
+    );
 
     // 渲染
     return (
@@ -40,11 +47,17 @@ function ProductDetailContent(props) {
                     <div className="row pd-1 pd-shared">
                         {/* 大張商品示意圖 */}
                         <div className="col-12 col-md-6 order-1">
-                            <div className="img-big">
-                                <div className="ratios">
-                                    <img src={imgUrlAfter[0]} alt="" />
-                                </div>
-                            </div>
+                            <ReactBeforeAfter
+                                className="ratio ratio-4x3"
+                                beforeSrc={imgUrlBefore}
+                                // afterSrc={imgUrlAfter[0]}
+                                afterSrc={current}
+                            />
+                            {/* <ReactBeforeSliderComponent */}
+                            {/* className="ratio ratio-4x3" firstImage={FIRST_IMAGE}
+                            secondImage={SECOND_IMAGE} */}
+                            {/* />  */}
+                            {/* <img src={imgUrlAfter[0]} alt="" /> */}
                         </div>
                         {/* 商品詳細描述 */}
                         <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
@@ -84,20 +97,28 @@ function ProductDetailContent(props) {
                         </div>
                         {/* 小張圖片可更換商品示意圖 */}
                         <div className="col-6 col-md-3 order-2 order-md-3 row mt-3 img-list">
-                            <div className="col p-1">
-                                <div className="img-small">
-                                    <div className="ratios ">
-                                        <img src={imgUrlAfter[1]} alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col p-1">
-                                <div className="img-small">
-                                    <div className="ratios ">
-                                        <img src={imgUrlAfter[2]} alt="" />
-                                    </div>
-                                </div>
-                            </div>
+                            {imgUrlAfter.map((v) => {
+                                return (
+                                    <>
+                                        <div className="col p-1">
+                                            <div className="img-small">
+                                                <div
+                                                    className="ratios "
+                                                    onClick={function () {
+                                                        setCurrent(v);
+                                                        console.log(
+                                                            'current :>> ',
+                                                            current
+                                                        );
+                                                    }}
+                                                >
+                                                    <img src={v} alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>

@@ -61,7 +61,7 @@ function ProductList(props) {
     return (
         <>
             {/* （事件處理器）函式方法傳進去 */}
-            <Banner />
+            <Banner init={init} />
             {/* 手機版 search & filter */}
             <PSearchFilter
                 init={init}
