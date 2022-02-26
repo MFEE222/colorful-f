@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect, useRouteMatch, useParams } from 'react-router-dom';
-
+import { Input, Icon } from 'semantic-ui-react';
 import { useAuthContext } from '../../utils/context/AuthContext';
-
 import { API_POST_AUTH_LOGIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
@@ -69,7 +68,7 @@ function Signin(props) {
                                 <h4 className="box-title mt-2">
                                     SIGNIN TO YOUR COLORFUL
                                 </h4>
-                                <div className="form-floating mt-4">
+                                <div className="form-floating mt-4 ui icon input">
                                     <input
                                         type="text"
                                         className="form-control"
@@ -78,7 +77,12 @@ function Signin(props) {
                                         placeholder="Email address"
                                         value={login.account}
                                         onChange={handleChange}
+                                        required
                                     />
+                                    <i
+                                        aria-hidden="true"
+                                        className="search icon"
+                                    ></i>
                                     <label htmlFor="email">Email address</label>
                                 </div>
                                 <div className="form-floating">
@@ -90,6 +94,7 @@ function Signin(props) {
                                         placeholder="Password"
                                         value={login.password}
                                         onChange={handleChange}
+                                        required
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
@@ -98,7 +103,19 @@ function Signin(props) {
                                         forgot password ?
                                     </Link>
                                 </div>
-                                <div className="l-icon mt-5 mb-3">
+                                <div id="check-box-slide">
+                                    <input
+                                        type="checkbox"
+                                        name="check"
+                                        id="checkbox"
+                                    />
+                                    <label htmlFor="checkbox"></label>
+                                    <p className="remember-me">記住我</p>
+
+                                </div>
+                                
+                                
+                                <div className="l-icon mt-4 mb-3">
                                     <Link
                                         to={routes.home}
                                         className="l-icon-link"
@@ -112,7 +129,7 @@ function Signin(props) {
                                         <i className="fab fa-google fa-fw"></i>
                                     </Link>
                                 </div>
-                                <div className="form-btn mt-5">
+                                <div className="form-btn mt-4">
                                     <button
                                         type="submit"
                                         onClick={handleSubmit}

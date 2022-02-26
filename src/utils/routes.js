@@ -12,6 +12,7 @@ export const routes = {
     _signin: '/signin',
     _signup: '/signup',
     _forgot: '/forgot',
+    _resetPassword: '/reset-passeord',
     // product
     _productDetail: '/detail',
     _productList: '/list',
@@ -65,6 +66,9 @@ export const routes = {
     },
     get forgot() {
         return this._auth + this._forgot;
+    },
+    get resetPassword() {
+        return this._auth + this._resetPassword;
     },
     // product
     get productDetail() {

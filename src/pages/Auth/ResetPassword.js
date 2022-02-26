@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
 import { API_POST_AUTH_SIGNUP } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
 
-const Signup = (props) => {
+const ResetPassword = (props) => {
     // member {
-    //     email: '',
-    //     name: '',
     //     password: '',
     //     confirmPassword: '',
+    //     passwordHint: '',
     // }
-    // 狀態
+
     const [member, setMember] = useState({});
 
     // 函式
@@ -35,77 +33,42 @@ const Signup = (props) => {
         }
     }
 
-    // 渲染
     return (
-        <div className="signup-main">
+        <div className="reset-password">
             <div className="container">
                 <div className="row justify-content-center justify-content-lg-start">
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">SIGN UP</h4>
-                                <div className="form-floating">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Name"
-                                        value={member.name}
-                                        onChange={handleChange}
-                                    />
-                                    <label htmlFor="floatingName">Name</label>
-                                </div>
-                                <div className="form-floating">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="email"
-                                        name="email"
-                                        placeholder="Email address"
-                                        value={member.email}
-                                        onChange={handleChange}
-                                    />
-                                    <label htmlFor="email">Email address</label>
-                                </div>
+                                <h4 className="box-title">Reset Password</h4>
+                                <p className="f-subtitle">New Password</p>
                                 <div className="form-floating">
                                     <input
                                         type="password"
                                         className="form-control"
                                         id="password"
                                         name="password"
-                                        placeholder="Password"
-                                        value={member.password}
+                                        placeholder="password"
+                                        value={member.passeord}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="password">Password</label>
+                                    <label htmlFor="email-address">
+                                        New Password
+                                    </label>
                                 </div>
+                                <p className="f-subtitle">Confirm Password</p>
                                 <div className="form-floating">
                                     <input
                                         type="password"
                                         className="form-control"
                                         id="confirmPassword"
                                         name="confirmPassword"
-                                        placeholder="Password"
+                                        placeholder="confirmPassword"
                                         value={member.confirmPassword}
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="confirmPassword">
+                                    <label htmlFor="password-hint">
                                         Confirm Password
-                                    </label>
-                                </div>
-                                <div className="form-floating">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="passwordHint"
-                                        name="passwordHint"
-                                        placeholder="hint"
-                                        value={member.passwordHint}
-                                        onChange={handleChange}
-                                    />
-                                    <label htmlFor="passwordHint">
-                                        Password Hint
                                     </label>
                                 </div>
                                 <div className="form-btn">
@@ -113,7 +76,7 @@ const Signup = (props) => {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        Sign in
+                                        Submit
                                     </button>
                                 </div>
                             </form>
@@ -125,4 +88,4 @@ const Signup = (props) => {
     );
 };
 
-export default Signup;
+export default ResetPassword;

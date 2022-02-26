@@ -7,7 +7,7 @@ import {
     API_POST_AUTH_SIGNUP,
     API_POST_AUTH_FORGOT,
 } from '../config';
-
+import { STATUS_MSG } from '../others/status';
 // 通用元件
 // import routes from '../routes';
 
@@ -48,31 +48,32 @@ export function AuthProvider(props) {
     // 函數
     // 登入、登出、註冊、忘記密碼
     async function reset(option = shared.option) {
-        setLogin(true);
-        setUser({
-            id: 9,
-            name: 'chris',
-            email: 'success@test.mail',
-            phone: '9999-999-999',
-            gender: 0,
-            birthday: '2022-02-02',
-        });
+        // setLogin(true);
+        // setUser({
+        //     id: 9,
+        //     name: 'chris',
+        //     email: 'success@test.mail',
+        //     phone: '9999-999-999',
+        //     gender: 0,
+        //     birthday: '2022-02-02',
+        // });
+
         // axios post 登入請求
-        // try {
-        //     const res = await axios.post(API_POST_AUTH_LOGIN, option, {
-        //         withCredentials: true,
-        //     });
-        //     console.log('res :>> ', res);
-        //     if (res.data.statusCode & 1) {
-        //         throw new Error(STATUS_MSG[res.data.statusCode]);
-        //     }
-        //     if (res.data.user) {
-        //         setLogin(true);
-        //         setUser(res.data.user);
-        //     }
-        // } catch (err) {
-        //     console.log(err);
-        // }
+        try {
+            const res = await axios.post(API_POST_AUTH_LOGIN, option, {
+                withCredentials: true,
+            });
+            console.log('res :>> ', res);
+            if (res.data.statusCode & 1) {
+                throw new Error(STATUS_MSG[res.data.statusCode]);
+            }
+            if (res.data.user) {
+                setLogin(true);
+                setUser(res.data.user);
+            }
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     // 登出

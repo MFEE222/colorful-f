@@ -25,7 +25,7 @@ export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
 //         birthday,
 //     }    :>> undefined: 登入失敗 | 使用者資料：登入成功
 // }
-export const API_POST_AUTH_LOGIN = API_URL + '/auth/signin';
+export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
 
 // Post Signin 註冊
 // req
@@ -54,6 +54,7 @@ export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 // }
 export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
 
+export const API_POST_AUTH_LOGOUT = API_URL + '/auth/logout';
 // 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
 
 // Post Reset Password 修改密碼

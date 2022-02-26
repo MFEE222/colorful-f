@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-import { API_POST_AUTH_FORGOT } from '../../utils/config';
+import axios from 'axios';
+import { API_POST_AUTH_FORGOT_PASSWORD } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
 
 // 忘記密碼頁 -> 輸入 email 和 密碼提示 -> 後端驗證 -> 驗證成功，提供重設密碼頁 -> 輸入新密碼和確認密碼，提交後端 -> 驗證成功，修改資料庫密碼
@@ -20,7 +20,7 @@ function Forgot(props) {
 
     async function handleSubmit(e) {
         try {
-            const res = axios.post(API_POST_AUTH_FORGOT, forgot);
+            const res = await axios.post(API_POST_AUTH_FORGOT_PASSWORD, forgot);
 
             // 3    -> 十進位
             // 0,  1,     2,     3,     4,     5,     6,      7, 8, 9, 10
@@ -102,7 +102,7 @@ function Forgot(props) {
                                     </label>
                                 </div>
                                 <div className="form-btn">
-                                    <button type="submit">Go</button>
+                                    <button type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
