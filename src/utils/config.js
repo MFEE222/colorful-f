@@ -104,6 +104,8 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 //     ]
 // }
 export const API_GET_PRODUCTS = API_URL + '/products';
+export const API_VAR_ASC = 0;
+export const API_VAR_DESC = 1;
 // export const API_GET_PRODUCTS = 'http://172.22.35.76:3003/api/products';
 
 // GET | products images

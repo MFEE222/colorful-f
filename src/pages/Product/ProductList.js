@@ -3,8 +3,6 @@ import { Link, useRouteMatch } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
-// import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-// import { css } from '@emotion/react';
 
 // 共用
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
@@ -22,54 +20,80 @@ import ProductListContent from '../../components/Product/ProductListContent';
 import Pagination from '../../components/Pagination/Pagination';
 import Card from '../../components/Product/Card';
 
+// 元件
 function ProductList(props) {
-    const { show } = props;
-    const match = useRouteMatch();
+    // Context
     const products = useProductsContext();
+    // 勾子
+    const match = useRouteMatch();
     //狀態
-    const [init, setInit] = useState({}); //初始的tags,series
-    //記錄過濾的 狀態
-    // const[filter,setFilter] = useState([]) //篩選條件放一起
-    const [choseTags, setChoseTags] = useState(''); //表單元素（過濾用的）狀態 『事件處理器』
-    //price seach series 狀態
-    const [price, setPrice] = useState([0, 0]);
-    const [search, setSearch] = useState('');
+    const [init, setInit] = useState({});
     const [choseSeries, setChoseSeries] = useState(0);
+    const [search, setSearch] = useState('');
+    const [price, setPrice] = useState([0, 0]);
+    const [choseTags, setChoseTags] = useState([]);
 
     // 生命週期
     useEffect(() => {
+        // 取得系列、篩選標籤
         (async () => {
             const response = await axios.get(API_GET_PRODUCT_TAGS_SERIES);
             setInit(response.data);
         })();
-    }, []); // 初次掛載
+    }, []);
 
     useEffect(
         function () {
             const option = {};
-            // // if (choseSeries == 0) option.series = '';
-            if (choseSeries == 1) {
-                option.orderby = 'created_at';
-                option.order = 1;
+            // 篩選系列
+            switch (choseSeries) {
+                case 0: // 全部
+                    break;
+                case 1: // 最新
+                    option.orderby = 'created_at';
+                    option.order = API_VAR_DESC;
+                    break;
+                case 2: // 食物
+                    option.series = 2;
+                    break;
+                case 3: // 婚禮
+                    option.series = 3;
+                    break;
+                case 4: // 復古
+                    option.series = 4;
+                    break;
+                case 5: // 風景
+                    option.series = 5;
+                    break;
+                case 6: // 人像
+                    option.series = 6;
+                    break;
+                default:
             }
+            // 篩選關鍵字
+            if (search !== '') {
+                option.keyword = search;
+            }
+            // 篩選價格
+            if (price[0] !== 0 && price[1] !== 0) {
+                option.price = price;
+                option.orderby = 'price';
+                // option.order = ASC;
+            }
+            // 篩選標籤
+            if (choseTags.length != 0) {
+                option.tags = choseTags;
+            }
+            // 篩選分頁
+            option.limit = 8;
+            option.offset = 1;
+            // 發送請求
             setTimeout(() => {
-                products.reset({
-                    series: choseSeries,
-                    keyword: search,
-                    price: price,
-                    tags: choseTags,
-                    limit: 8,
-                });
+                products.reset(option);
             }, 300);
         },
-        [(choseSeries, choseTags, search, price, products.all)]
-    ); //TODO:放要監控的狀態 =>reset
-    // products.reset(); //預設8筆
-    // products.reset({}); // 抓到全部商品
-    // product.reset({ limit: 30 });
-    //[]=> 監控狀態
-
-    // 四個表單元素的處理方法
+        [choseSeries, search, price, choseTags, products.all]
+    );
 
     //渲染
     return (
@@ -107,7 +131,6 @@ function ProductList(props) {
             />
 
             {/* 商品卡 */}
-
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.all.length > 0 ? (
@@ -128,9 +151,17 @@ function ProductList(props) {
                     )}
                 </div>
             </div>
+            {/* 頁籤 */}
             <Pagination />
         </>
     );
 }
 
 export default ProductList;
+
+// products.reset(); //預設8筆
+// products.reset({}); // 抓到全部商品
+// product.reset({ limit: 30 });
+//[]=> 監控狀態
+
+// 四個表單元素的處理方法
