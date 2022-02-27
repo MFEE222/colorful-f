@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import bannerDemo from '../../images/banner-demo-2.png';
+import { IMG_URL } from '../../utils/config';
 function Banner(props) {
+    //傳進來的系列choseSeris => series filter choseSeries  照片 =>series.img => 設定current
+    const { choseSeries } = props;
+    const [current, setCurrent] = useState('');
+    const { series } = props.init;
     return (
         <>
             <div className="product-list">

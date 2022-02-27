@@ -86,6 +86,7 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 // res :
 // {
 //     statusCode, :>> 2002: 成功 | 2003: 資料庫無該筆資料
+//     total, :>> 全部符合條件的總共有幾筆
 //     products: [
 //         {
 //             id,         :>> 商品 id

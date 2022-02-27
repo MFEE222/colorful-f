@@ -73,7 +73,7 @@ function Product(props) {
                 </Route>
                 {/* 商品列表 */}
                 <Route path={match.path}>
-                    <ProductList origin={origin} />
+                    <ProductList />
                 </Route>
             </Switch>
             {/* 推薦區 */}

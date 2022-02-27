@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 function Tags(props) {
     const { tags } = props.init;
     const { choseTags, setChoseTags } = props;
 
-    // console.log(tags);
     // console.log('Array.isArray(tags) :>> ', Array.isArray(tags));
-
+    useEffect(() => {
+        console.log(choseTags);
+    }, [choseTags]);
     return (
         <>
             <div className=" container row flex-nowrap tags-list ps-0">
@@ -16,7 +17,7 @@ function Tags(props) {
                             <div
                                 className="col-auto m-2 mx-md-2  tag-text"
                                 key={tag.id}
-                                onClick={setChoseTags(tag.id)}
+                                onClick={(e) => setChoseTags(tag.id)}
                             >
                                 <i className="fas fa-hashtag pe-1"></i>
                                 {tag.name}

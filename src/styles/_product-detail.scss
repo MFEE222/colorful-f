@@ -5,39 +5,49 @@
     // 1.
     .pd-1 {
         // margin: 3rem auto;
-        .img-big {
-            .ratios {
-                @media (max-width: 767.98px) {
-                    @include mix.ratio(3, 4);
-                }
-                @media (min-width: 768px) {
-                    @include mix.ratio(3, 2);
-                }
-                // @include mix.ratio(3, 2);
-                img {
-                    border-radius: 8px;
-                }
+
+        .ratios {
+            @media (max-width: 767.98px) {
+                @include mix.ratio(3, 4);
             }
+            @media (min-width: 768px) {
+                @include mix.ratio(3, 2);
+            }
+        }
+
+        .rba-afterPosition {
+            border: 1px solid $light;
+            border-radius: 20px;
+            color: $light;
+            opacity: 0.6;
+            background-color: transparent;
+            padding: 5px 8px;
+            text-align: center;
+        }
+        .rba-beforePosition {
+            display: none;
         }
         .img-list {
             margin: 0;
             > div:first-child {
                 margin-left: -0.25rem;
             }
-
             > div:last-child {
                 margin-right: -0.25rem;
             }
             .img-small {
                 .ratios {
                     @include mix.ratio(1, 1);
-                    img {
-                        border-radius: 8px;
-                    }
                 }
             }
         }
-
+        .descp {
+            border: 1px solid rgba(80, 93, 104, 0.18);
+            box-sizing: border-box;
+            padding: 15px;
+            box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+            border-radius: 8px;
+        }
         .reviews-text {
             margin: 0;
             @media (max-width: 768px) {
@@ -67,7 +77,7 @@
             //     margin: 0;
             // }
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-            font-size: calc(0.5rem + 1.5vw);
+            font-size: calc(0.5rem + 1.2vw);
         }
         %wish-list {
             i {
@@ -125,10 +135,11 @@
         .detail-text {
             line-height: 1.75rem;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             white-space: normal;
             overflow: hidden;
+
             @media (max-width: 768px) {
                 font-size: 0.75rem;
             }
@@ -136,6 +147,7 @@
                 font-size: 1rem;
                 line-height: 2rem;
                 width: 99%;
+                margin-bottom: 2rem;
             }
             @media (min-width: 1440px) {
                 font-size: 1rem;
@@ -233,7 +245,6 @@
                             filter: drop-shadow(
                                 2px 4px 4px rgba(0, 0, 0, 0.25)
                             );
-                            border-radius: 8px;
                             max-height: 100%;
                             max-width: 100%;
                             object-fit: cover;
