@@ -92,7 +92,7 @@ function ProductList(props) {
                 products.reset(option);
             }, 300);
         },
-        [choseSeries, search, price, choseTags, products.all]
+        [choseSeries, search, price, choseTags]
     );
 
     //渲染
