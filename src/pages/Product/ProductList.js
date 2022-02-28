@@ -15,9 +15,9 @@ import {
 // 自己
 import Banner from '../../components/Product/Banner';
 import FilterBar from '../../components/Product/FilterBar';
+import Pagination from '../../components/Product/Pagination';
 
 import ProductListContent from '../../components/Product/ProductListContent';
-import Pagination from '../../components/Pagination/Pagination';
 import Card from '../../components/Product/Card';
 
 function ProductList(props) {
@@ -57,7 +57,7 @@ function ProductList(props) {
         <>
             <Banner />
             <FilterBar option={option} setOption={setOption} />
-            {/* <Pagination option={option} /> */}
+            <Pagination option={option} setOption={setOption} />
 
             {/* 商品卡 */}
             {/* <div className="container">
