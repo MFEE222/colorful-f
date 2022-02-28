@@ -1,17 +1,18 @@
+// 內建
 import React, { useState, useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
 
-// 共用
+// 通用
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import {
     ProductsConsumer,
     useProductsContext,
 } from '../../utils/context/ProductsContext';
 
-//自己
+// 自己
 import Banner from '../../components/Product/Banner';
 import PSearchFilter from '../../components/Product/PSearchFilter';
 import FilterBarContent from '../../components/Product/FilterBarContent';
@@ -20,7 +21,6 @@ import ProductListContent from '../../components/Product/ProductListContent';
 import Pagination from '../../components/Pagination/Pagination';
 import Card from '../../components/Product/Card';
 
-// 元件
 function ProductList(props) {
     // Context
     const products = useProductsContext();
@@ -32,6 +32,8 @@ function ProductList(props) {
     const [search, setSearch] = useState('');
     const [price, setPrice] = useState([0, 0]);
     const [choseTags, setChoseTags] = useState([]);
+
+    console.log('match.path :>> ', match.path);
 
     // 生命週期
     useEffect(() => {
@@ -51,7 +53,7 @@ function ProductList(props) {
                     break;
                 case 1: // 最新
                     option.orderby = 'created_at';
-                    option.order = API_VAR_DESC;
+                    option.order = 1; // DESC
                     break;
                 case 2: // 食物
                     option.series = 2;
@@ -95,13 +97,49 @@ function ProductList(props) {
         [choseSeries, search, price, choseTags]
     );
 
+    // 測試
+    useEffect(
+        function () {
+            console.log('products.all :>> ', products.all);
+        },
+        [products.all]
+    );
+
+    useEffect(
+        function () {
+            console.log('choseSeries :>> ', choseSeries);
+        },
+        [choseSeries]
+    );
+
+    useEffect(
+        function () {
+            console.log('search :>> ', search);
+        },
+        [search]
+    );
+
+    useEffect(
+        function () {
+            console.log('price :>> ', price);
+        },
+        [price]
+    );
+
+    useEffect(
+        function () {
+            console.log('choseTags :>> ', choseTags);
+        },
+        [choseTags]
+    );
+
     //渲染
     return (
         <>
             {/* （事件處理器）函式方法傳進去 */}
             <Banner init={init} choseSeries={choseSeries} />
             {/* 手機版 search & filter */}
-            <PSearchFilter
+            {/* <PSearchFilter
                 init={init}
                 price={price}
                 setPrice={setPrice}
@@ -111,9 +149,9 @@ function ProductList(props) {
                 setSearch={setSearch}
                 choseTags={choseTags}
                 setChoseTags={setChoseTags}
-            />
+            /> */}
             {/* md 以上 search & filter */}
-            <FilterBarContent
+            {/* <FilterBarContent
                 init={init}
                 price={price}
                 setPrice={setPrice}
@@ -123,15 +161,15 @@ function ProductList(props) {
                 setChoseSeries={setChoseSeries}
                 choseTags={choseTags}
                 setChoseTags={setChoseTags}
-            />
-            <Tags
+            /> */}
+            {/* <Tags
                 init={init}
                 choseTags={choseTags}
                 setChoseTags={setChoseTags}
-            />
+            /> */}
 
             {/* 商品卡 */}
-            <div className="container">
+            {/* <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.all.length > 0 ? (
                         products.all.map((v) => {
@@ -150,9 +188,9 @@ function ProductList(props) {
                         <h5 className="text-center">對不起，查無商品</h5>
                     )}
                 </div>
-            </div>
+            </div> */}
             {/* 頁籤 */}
-            <Pagination />
+            {/* <Pagination /> */}
         </>
     );
 }

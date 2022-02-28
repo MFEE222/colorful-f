@@ -1,3 +1,4 @@
+// 內建
 import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import {
@@ -6,34 +7,30 @@ import {
     Link,
     useRouteMatch,
     useParams,
-    useNavigate,
 } from 'react-router-dom';
 
-//第3方庫
+// 第三方庫
 import axios from 'axios';
 import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 import { PlaceholderLine } from 'semantic-ui-react';
 
-//共用
+// 通用庫
 import { routes } from '../../utils/routes';
 
-//context
+// context
 import { useProductsContext } from '../../utils/context/ProductsContext';
 
-//自己
+// 自己
 import ReviewDetail from '../../components/Product/ReviewDetail';
 import ProductDetail from './ProductDetail';
 import ProductList from './ProductList';
 import RecommendCard from '../../components/Product/RecommendCard';
 
-// url : localhost:3000/product/detail/7
-// url : localhost:3000/product/
-
 function Product(props) {
-    //router-dom
+    // 勾子
     const match = useRouteMatch();
 
-    //勾子
+    // 狀態
     const [recommend, setRecommend] = useState([]); // 推薦
     // const [loading, setLoading] = useState(false); //載入顯示 ok
 
@@ -67,26 +64,45 @@ function Product(props) {
     return (
         <>
             <Switch>
-                {/* 商品細節 */}
-                <Route path={`${routes.productDetail}/:id`}>
+                {/* 細節 */}
+                <Route path={routes.productDetail()}>
                     <ProductDetail />
                 </Route>
-                {/* 商品列表 */}
-                <Route path={match.path}>
+                {/* 食物 */}
+                <Route path={routes.productFood}>
+                    <ProductList />
+                </Route>
+                {/* 婚禮 */}
+                <Route path={routes.productWedding}>
+                    <ProductList />
+                </Route>
+                {/* 復古 */}
+                <Route path={routes.productFilm}>
+                    <ProductList />
+                </Route>
+                {/* 風景 */}
+                <Route path={routes.productScenery}>
+                    <ProductList />
+                </Route>
+                {/* 人像 */}
+                <Route path={routes.productPortrait}>
+                    <ProductList />
+                </Route>
+                {/* 最新 */}
+                <Route path={routes.productNewest}>
+                    <ProductList />
+                </Route>
+                {/* 全部 */}
+                <Route path={routes.product}>
                     <ProductList />
                 </Route>
             </Switch>
             {/* 推薦區 */}
-            <RecommendCard recommend={recommend} />
+            {/* <RecommendCard recommend={recommend} /> */}
             {/* 評論區 */}
-            {match.path === routes.productDetail && <ReviewDetail />}
+            {/* {match.path === routes.productDetail && <ReviewDetail />} */}
         </>
     );
 }
 
 export default Product;
-
-// 我們先測試 Link 的 state 是可以被 useLocation 抓到
-// TODO: 重新安排一下商品頁的狀態
-
-// 商品列表狀態：

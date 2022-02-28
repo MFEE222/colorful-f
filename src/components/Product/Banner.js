@@ -1,3 +1,4 @@
+//
 import React, { useState, useEffect } from 'react';
 import bannerDemo from '../../images/banner-demo-2.png';
 import { IMG_URL } from '../../utils/config';
