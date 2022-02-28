@@ -13,25 +13,49 @@ export function RWDProvider(props) {
     // 共享狀態、資料、方法
     const shared = {
         breakpoint,
+        xs: function () {
+            return breakpoint >= 0;
+        },
+        sm: function () {
+            return breakpoint >= 576;
+        },
+        md: function () {
+            return breakpoint >= 768;
+        },
+        lg: function () {
+            return breakpoint >= 992;
+        },
+        xl: function () {
+            return breakpoint >= 1200;
+        },
+        xxl: function () {
+            return breakpoint >= 1440;
+        },
     };
 
     // 函數
     function handleResize() {
         const w = window.screen.width;
-        let b = '';
+        let b = 0;
 
         if (w >= 1440) {
-            b = 'xxl';
+            // b = 'xxl';
+            b = 1440;
         } else if (w >= 1200) {
-            b = 'xl';
+            // b = 'xl';
+            b = 1200;
         } else if (w >= 992) {
-            b = 'lg';
+            // b = 'lg';
+            b = 992;
         } else if (w >= 768) {
-            b = 'md';
+            // b = 'md';
+            b = 768;
         } else if (w >= 576) {
-            b = 'sm';
+            // b = 'sm';
+            b = 576;
         } else {
-            b = 'xs';
+            // b = 'xs';
+            b = 375;
         }
         console.log('w :>> ', w);
         setBreakPoint(b);
@@ -52,6 +76,12 @@ export function RWDProvider(props) {
     useEffect(
         function () {
             console.log('breakpoint :>> ', breakpoint);
+            console.log('shared.xs() :>> ', shared.xs());
+            console.log('shared.sm() :>> ', shared.sm());
+            console.log('shared.md() :>> ', shared.md());
+            console.log('shared.lg() :>> ', shared.lg());
+            console.log('shared.xl() :>> ', shared.xl());
+            console.log('shared.xxl() :>> ', shared.xxl());
         },
         [breakpoint]
     );
