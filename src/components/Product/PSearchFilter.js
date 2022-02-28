@@ -1,28 +1,35 @@
+// 內建
 import React, { useEffect } from 'react';
+// 圖片
 import searchImg from '../../icons/Sortbar/Search.png';
 import sortImg from '../../icons/Sortbar/Sort.png';
 import deleteImg from '../../icons/Sortbar/Delete.png';
-function PSearchFilter(props) {
-    const { series } = props.init;
-    const {
-        choseSeries,
-        setChoseSeries,
-        search,
-        setSearch,
-        price,
-        setPrice,
-        choseTags,
-        setChoseTags,
-    } = props;
 
+function PSearchFilter(props) {
+    // 屬性
+    const {
+        series,
+        choseSeries,
+        search,
+        price,
+        choseTags,
+        setChoseSeries,
+        setSearch,
+        setPrice,
+        setChoseTags,
+    } = props.state;
+
+    // 生命週期
     useEffect(
         function () {
-            console.log('search d:>> ', search);
-            console.log('choseSeries d:>> ', choseSeries);
-            console.log('props.price :>> ', props.price);
+            // console.log('search d:>> ', search);
+            // console.log('choseSeries d:>> ', choseSeries);
+            // console.log('props.price :>> ', props.price);
         },
         [props.price, props.search, props.choseSeries]
     );
+
+    // 渲染
     return (
         <>
             <div className="container d-md-flex">

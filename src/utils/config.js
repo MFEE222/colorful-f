@@ -5,7 +5,31 @@ import Auth from '../pages/Auth';
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
-export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
+// 圖片
+export const IMG_URL =
+    (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/images';
+// 系列圖
+export const IMG_PRODUCTS_ALL = IMG_URL + '/all';
+export const IMG_PRODUCTS_NEWEST = IMG_URL + '/newest';
+export const IMG_PRODUCTS_FOOD = IMG_URL + '/food';
+export const IMG_PRODUCTS_WEDDING = IMG_URL + '/wedding';
+export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
+export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
+export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
+// Banner
+export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner-1.gif';
+export const IMG_PRODUCTS_NEWEST_BANNER =
+    IMG_PRODUCTS_NEWEST + '/newest-banner-1.gif';
+export const IMG_PRODUCTS_FOOD_BANNER =
+    IMG_PRODUCTS_FOOD + '/food-banner-1.gif';
+export const IMG_PRODUCTS_WEDDING_BANNER =
+    IMG_PRODUCTS_WEDDING + '/wedding-banner-1.gif';
+export const IMG_PRODUCTS_FILM_BANNER =
+    IMG_PRODUCTS_FILM + '/film-banner-1.gif';
+export const IMG_PRODUCTS_SCENERY_BANNER =
+    IMG_PRODUCTS_SCENERY + '/scenery-banner-1.gif';
+export const IMG_PRODUCTS_PORTRAIT_BANNER =
+    IMG_PRODUCTS_PORTRAIT + '/portrait-banner-1.gif';
 
 // Post Login 登入
 // req

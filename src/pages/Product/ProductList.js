@@ -33,7 +33,19 @@ function ProductList(props) {
     const [price, setPrice] = useState([0, 0]);
     const [choseTags, setChoseTags] = useState([]);
 
-    console.log('match.path :>> ', match.path);
+    // 變數
+    const state = {
+        series: init.series,
+        tags: init.tags,
+        price,
+        choseSeries,
+        search,
+        choseTags,
+        setPrice,
+        setChoseSeries,
+        setSearch,
+        setChoseTags,
+    };
 
     // 生命週期
     useEffect(() => {
@@ -139,17 +151,7 @@ function ProductList(props) {
             {/* （事件處理器）函式方法傳進去 */}
             <Banner init={init} choseSeries={choseSeries} />
             {/* 手機版 search & filter */}
-            {/* <PSearchFilter
-                init={init}
-                price={price}
-                setPrice={setPrice}
-                choseSeries={choseSeries}
-                setChoseSeries={setChoseSeries}
-                search={search}
-                setSearch={setSearch}
-                choseTags={choseTags}
-                setChoseTags={setChoseTags}
-            /> */}
+            <PSearchFilter state={state} />
             {/* md 以上 search & filter */}
             {/* <FilterBarContent
                 init={init}
