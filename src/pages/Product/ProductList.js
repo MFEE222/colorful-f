@@ -58,25 +58,6 @@ function ProductList(props) {
             <Banner />
             <FilterBar option={option} setOption={setOption} />
             {/* <Pagination option={option} /> */}
-            {/* 手機版 search & filter */}
-            {/* <PSearchFilter state={state} setOption={setOption} /> */}
-            {/* md 以上 search & filter */}
-            {/* <FilterBarContent
-                init={init}
-                price={price}
-                setPrice={setPrice}
-                search={search}
-                setSearch={setSearch}
-                choseSeries={choseSeries}
-                setChoseSeries={setChoseSeries}
-                choseTags={choseTags}
-                setChoseTags={setChoseTags}
-            /> */}
-            {/* <Tags
-                init={init}
-                choseTags={choseTags}
-                setChoseTags={setChoseTags}
-            /> */}
 
             {/* 商品卡 */}
             {/* <div className="container">
