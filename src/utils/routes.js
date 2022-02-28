@@ -14,7 +14,12 @@ export const routes = {
     _forgot: '/forgot',
     // product
     _productDetail: '/detail',
-    _productList: '/list',
+    _food: '/food',
+    _wedding: '/wedding',
+    _film: '/film',
+    _scenery: '/scenery',
+    _portrait: '/portrait',
+    _newest: '/newest',
     // member
     _profile: '/profile',
     _orderList: '/order-list',
@@ -67,11 +72,27 @@ export const routes = {
         return this._auth + this._forgot;
     },
     // product
-    get productDetail() {
-        return this._product + this._productDetail;
+    productDetail: function (id = '') {
+        if (id === '') return this._product + this._productDetail + '/:id';
+        else return this._product + this._productDetail + '/' + id;
     },
-    get productList() {
-        return this._product + this._productList;
+    get productFood() {
+        return this._product + this._food;
+    },
+    get productWedding() {
+        return this._product + this._wedding;
+    },
+    get productFilm() {
+        return this._product + this._film;
+    },
+    get productScenery() {
+        return this._product + this._scenery;
+    },
+    get productPortrait() {
+        return this._product + this._portrait;
+    },
+    get productNewest() {
+        return this._product + this._newest;
     },
     // member
     get profile() {

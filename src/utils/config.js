@@ -5,7 +5,31 @@ import Auth from '../pages/Auth';
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
-export const IMG_URL = process.env.REACT_APP_API_URL || 'http://localhost:3006';
+// 圖片
+export const IMG_URL =
+    (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/images';
+// 系列圖
+export const IMG_PRODUCTS_ALL = IMG_URL + '/all';
+export const IMG_PRODUCTS_NEWEST = IMG_URL + '/newest';
+export const IMG_PRODUCTS_FOOD = IMG_URL + '/food';
+export const IMG_PRODUCTS_WEDDING = IMG_URL + '/wedding';
+export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
+export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
+export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
+// Banner
+export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner-1.gif';
+export const IMG_PRODUCTS_NEWEST_BANNER =
+    IMG_PRODUCTS_NEWEST + '/newest-banner-1.gif';
+export const IMG_PRODUCTS_FOOD_BANNER =
+    IMG_PRODUCTS_FOOD + '/food-banner-1.gif';
+export const IMG_PRODUCTS_WEDDING_BANNER =
+    IMG_PRODUCTS_WEDDING + '/wedding-banner-1.gif';
+export const IMG_PRODUCTS_FILM_BANNER =
+    IMG_PRODUCTS_FILM + '/film-banner-1.gif';
+export const IMG_PRODUCTS_SCENERY_BANNER =
+    IMG_PRODUCTS_SCENERY + '/scenery-banner-1.gif';
+export const IMG_PRODUCTS_PORTRAIT_BANNER =
+    IMG_PRODUCTS_PORTRAIT + '/portrait-banner-1.gif';
 
 // Post Login 登入
 // req
@@ -86,6 +110,7 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 // res :
 // {
 //     statusCode, :>> 2002: 成功 | 2003: 資料庫無該筆資料
+//     total, :>> 全部符合條件的總共有幾筆
 //     products: [
 //         {
 //             id,         :>> 商品 id
@@ -103,6 +128,8 @@ export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 //     ]
 // }
 export const API_GET_PRODUCTS = API_URL + '/products';
+export const API_VAR_ASC = 0;
+export const API_VAR_DESC = 1;
 // export const API_GET_PRODUCTS = 'http://172.22.35.76:3003/api/products';
 
 // GET | products images
@@ -111,7 +138,31 @@ export const API_GET_PRODUCTS = API_URL + '/products';
 //     return REACT_APP_API_URL.concat('/', folder, '/', which);
 // }
 
+//productlist tags 和 series
 export const API_GET_PRODUCT_TAGS_SERIES = API_URL + '/products/list';
+//productlist 推薦區
+export const API_GET_PRODUCT_RECOMMEND = API_URL + '/products/recommend';
+//productDetail 特定商品review
+export const API_GET_PRODUCT_REVIEW = API_URL + '/products/review';
+// GET Product Detail
+// req :
+// {
+//     id,     :>> 商品 id
+// }
+// res :
+// {   id,         :>> 商品 id
+//     name,       :>> 商品名稱
+//     descp,      :>> 商品描述
+//     img,        :>> 商品圖片
+//     price,      :>> 商品價格
+//     currency,   :>> 商品貨幣單位
+//     favorites,  :>> 蒐藏數
+//     owners,     :>> 購買數
+//     stars,      :>> 星星數
+//     created_at, :>> 上架時間
+//     product_series_id   :>> 商品系列
+// }
+export const API_GET_PRODUCT = API_URL + '/product';
 
 // req:
 // {
