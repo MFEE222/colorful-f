@@ -26,132 +26,33 @@ function ProductList(props) {
     const products = useProductsContext();
     // 勾子
     const match = useRouteMatch();
-    //狀態
-    const [init, setInit] = useState({});
-    const [choseSeries, setChoseSeries] = useState(0);
-    const [search, setSearch] = useState('');
-    const [price, setPrice] = useState([0, 0]);
-    const [choseTags, setChoseTags] = useState([]);
-
-    // 變數
-    const state = {
-        series: init.series,
-        tags: init.tags,
-        price,
-        choseSeries,
-        search,
-        choseTags,
-        setPrice,
-        setChoseSeries,
-        setSearch,
-        setChoseTags,
-    };
+    // 狀態
+    const [option, setOption] = useState({});
 
     // 生命週期
-    useEffect(() => {
-        // 取得系列、篩選標籤
-        (async () => {
-            const response = await axios.get(API_GET_PRODUCT_TAGS_SERIES);
-            setInit(response.data);
-        })();
-    }, []);
-
     useEffect(
         function () {
-            const option = {};
-            // 篩選系列
-            switch (choseSeries) {
-                case 0: // 全部
-                    break;
-                case 1: // 最新
-                    option.orderby = 'created_at';
-                    option.order = 1; // DESC
-                    break;
-                case 2: // 食物
-                    option.series = 2;
-                    break;
-                case 3: // 婚禮
-                    option.series = 3;
-                    break;
-                case 4: // 復古
-                    option.series = 4;
-                    break;
-                case 5: // 風景
-                    option.series = 5;
-                    break;
-                case 6: // 人像
-                    option.series = 6;
-                    break;
-                default:
-            }
-            // 篩選關鍵字
-            if (search !== '') {
-                option.keyword = search;
-            }
-            // 篩選價格
-            if (price[0] !== 0 && price[1] !== 0) {
-                option.price = price;
-                option.orderby = 'price';
-                // option.order = ASC;
-            }
-            // 篩選標籤
-            if (choseTags.length != 0) {
-                option.tags = choseTags;
-            }
-            // 篩選分頁
-            option.limit = 8;
-            option.offset = 1;
-            // 發送請求
-            setTimeout(() => {
-                products.reset(option);
-            }, 300);
+            // products.reset(option);
         },
-        [choseSeries, search, price, choseTags]
+        [option]
     );
 
     // 測試
     useEffect(
         function () {
-            console.log('products.all :>> ', products.all);
+            console.log('option :>> ', option);
         },
-        [products.all]
-    );
-
-    useEffect(
-        function () {
-            console.log('choseSeries :>> ', choseSeries);
-        },
-        [choseSeries]
-    );
-
-    useEffect(
-        function () {
-            console.log('search :>> ', search);
-        },
-        [search]
-    );
-
-    useEffect(
-        function () {
-            console.log('price :>> ', price);
-        },
-        [price]
-    );
-
-    useEffect(
-        function () {
-            console.log('choseTags :>> ', choseTags);
-        },
-        [choseTags]
+        [option]
     );
 
     //渲染
     return (
         <>
-            {/* （事件處理器）函式方法傳進去 */}
-            <Banner init={init} choseSeries={choseSeries} />
+            <Banner />
+            {/* <FilterBar option={option} setOption={setOption} /> */}
+            {/* <Pagination option={option} /> */}
             {/* 手機版 search & filter */}
-            <PSearchFilter state={state} />
+            {/* <PSearchFilter state={state} setOption={setOption} /> */}
             {/* md 以上 search & filter */}
             {/* <FilterBarContent
                 init={init}
