@@ -57,7 +57,7 @@ export function RWDProvider(props) {
             // b = 'xs';
             b = 375;
         }
-        console.log('w :>> ', w);
+        // console.log('w :>> ', w);
         setBreakPoint(b);
     }
 
@@ -73,18 +73,18 @@ export function RWDProvider(props) {
     }, []);
 
     // 測試
-    useEffect(
-        function () {
-            console.log('breakpoint :>> ', breakpoint);
-            console.log('shared.xs() :>> ', shared.xs());
-            console.log('shared.sm() :>> ', shared.sm());
-            console.log('shared.md() :>> ', shared.md());
-            console.log('shared.lg() :>> ', shared.lg());
-            console.log('shared.xl() :>> ', shared.xl());
-            console.log('shared.xxl() :>> ', shared.xxl());
-        },
-        [breakpoint]
-    );
+    // useEffect(
+    //     function () {
+    //         console.log('breakpoint :>> ', breakpoint);
+    //         console.log('shared.xs() :>> ', shared.xs());
+    //         console.log('shared.sm() :>> ', shared.sm());
+    //         console.log('shared.md() :>> ', shared.md());
+    //         console.log('shared.lg() :>> ', shared.lg());
+    //         console.log('shared.xl() :>> ', shared.xl());
+    //         console.log('shared.xxl() :>> ', shared.xxl());
+    //     },
+    //     [breakpoint]
+    // );
 
     return (
         <RWDContext.Provider value={shared}>

@@ -14,9 +14,8 @@ import {
 
 // 自己
 import Banner from '../../components/Product/Banner';
-import PSearchFilter from '../../components/Product/PSearchFilter';
-import FilterBarContent from '../../components/Product/FilterBarContent';
-import Tags from '../../components/Product/Tags';
+import FilterBar from '../../components/Product/FilterBar';
+
 import ProductListContent from '../../components/Product/ProductListContent';
 import Pagination from '../../components/Pagination/Pagination';
 import Card from '../../components/Product/Card';
@@ -27,7 +26,15 @@ function ProductList(props) {
     // 勾子
     const match = useRouteMatch();
     // 狀態
-    const [option, setOption] = useState({});
+    const [option, setOption] = useState({
+        series: 0,
+        keyword: '',
+        price: [0, 0],
+        tags: [],
+        orderby: 'created_at',
+        limit: 8,
+        offset: 0,
+    });
 
     // 生命週期
     useEffect(
@@ -49,7 +56,7 @@ function ProductList(props) {
     return (
         <>
             <Banner />
-            {/* <FilterBar option={option} setOption={setOption} /> */}
+            <FilterBar option={option} setOption={setOption} />
             {/* <Pagination option={option} /> */}
             {/* 手機版 search & filter */}
             {/* <PSearchFilter state={state} setOption={setOption} /> */}
