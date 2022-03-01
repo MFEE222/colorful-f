@@ -5,17 +5,21 @@ import ProductImg from '../../images/product-img.jpeg';
 
 function ReviewDetailContent(props) {
     const match = useRouteMatch();
+    //抓不到props
+    const { detail } = props;
+    console.log('props :>> ', props);
 
     return (
         <div className="col-12 member-review-detail">
-            <div className="container">
+            <div className="">
                 {/* card */}
                 {/* <h4>評論商品</h4> */}
                 <div className=" review-card">
                     <form className="review-form" action="">
                         {/* <div className="row"> */}
                         <div className="col-12 col-md-5">
-                            <h3 className=" my-md-0 mb-lg-2">Food 01</h3>
+                            <h3 className=" my-md-0 mb-lg-2">123</h3>
+                            {/* 帶替換商品名字 */}
                             <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
                                 <li className="ps-0">
                                     <i className="fas fa-star"></i>
@@ -41,7 +45,7 @@ function ReviewDetailContent(props) {
                             id=""
                             name=""
                             // value=""
-                            // placeholder="告訴別人您有多喜歡此商品"
+                            placeholder="告訴別人您有多喜歡此商品"
                             onChange={function () {}}
                         />
                         {/* </div> */}

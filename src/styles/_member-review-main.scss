@@ -32,6 +32,7 @@
                 display: inline;
                 // background-color: #cf9d3f;
                 border-radius: 20px;
+                font-size: 14px;
             }
 
             .active {
@@ -61,7 +62,7 @@
 
     .review-card {
         position: relative;
-        @include mix.media(border, $xs: none, $md: solid 1px #ccc);
+        // @include mix.media(border, $xs: none, $md: solid 1px #ccc);
         @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
         @include mix.media(border-radius, $xs: 0, $md: 8px);
         @include mix.media(

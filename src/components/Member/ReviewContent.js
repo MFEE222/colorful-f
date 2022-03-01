@@ -13,30 +13,35 @@ function ReviewContent(props) {
     const match = useRouteMatch();
     const [statusId, setStatusId] = useState(1);
     const [display, setDisplay] = useState([]);
+    const [counts, setCounts] = useState();
     const [offset, setOffset] = useState(1);
     const fetchReview = async () => {
         const response = await axios.get(API_GET_MEMBER_REVIEW, {
             params: {
-                uid: 1,
-                statusId: 1, //e=1（發布,草稿）,2（草稿）,3（發布）
+                uid,
+                statusId, //e=1（發布,草稿）,2（草稿）,3（發布）
                 limit: 4,
-                offset: 1,
+                offset,
             },
         });
         console.log('response.data :>> ', response.data.data);
         setDisplay(response.data.data);
+        console.log('response.rows :>> ', response.data.rows);
+        setCounts(response.data.rows);
+        // let counts = response.data.rows;
     };
 
     //掛載
     useEffect(() => {
         fetchReview(); // 下載評論資料
+        console.log('counts :>> ', counts);
     }, []);
 
     //更新
-    // useEffect(() => {
-    //     // fetchReview(statusId)
-    //     console.log('status :>> ', statusId);
-    // }, [statusId]);
+    useEffect(() => {
+        fetchReview();
+        console.log('status :>> ', statusId);
+    }, [statusId, uid, offset]);
 
     //TODO: 拿到訂單
     //TODO: 根據評論狀態去拿對應資料
@@ -52,6 +57,7 @@ function ReviewContent(props) {
                                 className="active py-2 px-3"
                                 onClick={function () {
                                     setStatusId(1);
+                                    setOffset(1);
                                     // console.log('1 :>> ', statusId);
                                 }}
                             >
@@ -61,6 +67,7 @@ function ReviewContent(props) {
                                 className="py-2 px-3 "
                                 onClick={function () {
                                     setStatusId(2);
+                                    setOffset(1);
                                     // console.log('2 :>> ', statusId);
                                 }}
                             >
@@ -70,6 +77,7 @@ function ReviewContent(props) {
                                 className="py-2 px-3"
                                 onClick={function () {
                                     setStatusId(3);
+                                    setOffset(1);
                                     // console.log('3 :>> ', statusId);
                                 }}
                             >
@@ -115,6 +123,7 @@ function ReviewContent(props) {
                                 <Link
                                     className="btn me-2 align-self-end"
                                     to={routes.reviewDetail}
+                                    detail={oneReview}
                                 >
                                     <span>編輯</span>
                                 </Link>
@@ -125,7 +134,12 @@ function ReviewContent(props) {
                 {/* </div> */}
                 {/* </div> */}
             </div>
-            <Pagination />
+            <Pagination
+                total={counts}
+                limit={4}
+                offset={offset}
+                setOffset={setOffset}
+            />
         </>
     );
 }
