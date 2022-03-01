@@ -26,11 +26,11 @@ export function ProductsProvider(props) {
     const { other } = props.other !== undefined ? props : { other: {} };
     const shared = {
         other,
-        option, // 設定 axios 參數 單筆{ids:1}
+        option, // 設定 axios 參數
         find, // 請求單筆商品資料
-        reset, // axios 請求商品資料 多筆{}（返回陣列）
+        reset, // axios 請求商品資料（陣列）
         current: product, // 取用當前商品（單一，商品細節頁用）
-        all: products, // 取用所有商品資料（返回陣列）
+        all: products, // 取用所有商品資料（陣列）
     };
 
     // 生命週期
@@ -60,9 +60,9 @@ export function ProductsProvider(props) {
     // 函數
     // 此方法會以添加的方式，將新資料放入 Products 狀態
     async function find(p) {
-        // console.log('Function find | p :>> ', p); //傳入的
+        // console.log('Function find | p :>> ', p);
         // 檢查當前商品資料是否就是要尋找的 (注意 undefined === undefined :>> true)
-        // console.log('product :>> ', product);//上一筆
+        // console.log('product :>> ', product);
         if (product.id && product.id === p.id) return;
         // 尋找本地商品陣列中是否已存在
         const poolLocal = [...products];

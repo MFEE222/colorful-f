@@ -41,8 +41,9 @@ import {
 } from './utils/context/ProductsContext';
 
 import { RWDProvider } from './utils/context/RWDContext';
-import { CartProvider, useCartContext } from './utils/context/CartContext';
-import { useContext, useEffect } from 'react';
+
+import { CartProvider } from './utils/context/CartContext';
+
 function App() {
     return (
         <>

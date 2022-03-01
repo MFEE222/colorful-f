@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { routes } from '../../utils/routes';
 
 function SideBarLeft(props) {
     return (
@@ -6,46 +8,53 @@ function SideBarLeft(props) {
             {/* <!-- flex container --> */}
             <ul className="nav">
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.profile} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         個人資料
-                    </a>
+                    </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.orderList} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         訂單管理
-                    </a>
+                    </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.collect} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         我的最愛
-                    </a>
+                    </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.mail} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
+                        我的信箱
+                    </Link>
+                </li>
+                <li className="col-6 col-md-12 nav-item">
+                    <Link to={routes.payment} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         付款資訊
-                    </a>
+                    </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.download} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         下載區
-                    </a>
+                    </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to={routes.review} className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         評論區
-                    </a>
+                    </Link>
                 </li>
+
                 <li className="col-6 col-md-12 nav-item">
-                    <a href="" className="nav-link">
-                        <i className="fas fa-caret-right"></i>
+                    <Link to="" className="nav-link">
+                        {/* <i className="fas fa-caret-right"></i> */}
                         登出
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </aside>
