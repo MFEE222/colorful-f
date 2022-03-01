@@ -7,65 +7,71 @@ function ReviewDetailContent(props) {
     const match = useRouteMatch();
 
     return (
-        <div className="col-12 col-md-10 member-review-detail">
+        <div className="col-12 member-review-detail">
             <div className="container">
                 {/* card */}
-                <h4>評論商品</h4>
-                <div className="row review-card">
+                {/* <h4>評論商品</h4> */}
+                <div className=" review-card">
                     <form className="review-form" action="">
-                        <div className="row">
-                            <div className="col-12 col-md-5">
-                                <h1 className="my-3 my-md-0 mb-lg-2">
-                                    Food 01
-                                </h1>
-                                <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
-                                    <li className="ps-0">
-                                        <i className="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-star"></i>
-                                    </li>
-                                    <li>
-                                        <i className="fas fa-star"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="col-3 col-md-2 review-card-img">
-                                <div className="ratio ratio-1x1">
-                                    <img src={ProductImg} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-3 col-md-2 review-card-img">
-                                <div className="ratio ratio-1x1">
-                                    <img src={ProductImg} alt="" />
-                                </div>
-                            </div>
-                            <div className="col-2">
-                                <p className="img-plus align-items-center">+</p>
-                            </div>
-                            <label htmlFor=""></label>
-                            <input
-                                className="r-text"
-                                type="text"
-                                id=""
-                                name=""
-                                value=""
-                                placeholder="告訴別人您有多喜歡此商品"
-                                onChange={function () {}}
-                            />
-                            <Link
-                                className="btn ms-auto d-block submit"
-                                to={routes.review}
-                            >
-                                <span>完成</span>
-                            </Link>
+                        {/* <div className="row"> */}
+                        <div className="col-12 col-md-5">
+                            <h3 className=" my-md-0 mb-lg-2">Food 01</h3>
+                            <ul className="d-flex align-items-center pb-2 pb-md-1 ul-unstyle">
+                                <li className="ps-0">
+                                    <i className="fas fa-star"></i>
+                                </li>
+                                <li>
+                                    <i className="fas fa-star"></i>
+                                </li>
+                                <li>
+                                    <i className="fas fa-star"></i>
+                                </li>
+                                <li>
+                                    <i className="fas fa-star"></i>
+                                </li>
+                                <li>
+                                    <i className="fas fa-star"></i>
+                                </li>
+                            </ul>
                         </div>
+                        <label htmlFor=""></label>
+                        <textarea
+                            className="r-text"
+                            type="text"
+                            id=""
+                            name=""
+                            // value=""
+                            // placeholder="告訴別人您有多喜歡此商品"
+                            onChange={function () {}}
+                        />
+                        {/* </div> */}
+                        <div className="d-flex add-box">
+                            <label
+                                htmlFor="file-upload"
+                                className="custom-file-upload "
+                            >
+                                上傳圖片
+                            </label>
+                            <input id="file-upload" type="file" />
+                            {/* <input
+                                type="file"
+                                className="add-img add-box"
+                                accept="image/jpeg,image/jpg,image/png"
+                                multiple
+                            /> */}
+                            {/* <div className="ratio ratio-1x1 review-card-img">
+                                <img src={ProductImg} alt="" />
+                            </div> */}
+                            {/* <p className="img-plus">+</p> */}
+                        </div>
+
+                        {/* <div className="col-2"></div> */}
+                        <Link
+                            className="btn submit float-end"
+                            to={routes.review}
+                        >
+                            <span>完成</span>
+                        </Link>
                     </form>
                 </div>
             </div>

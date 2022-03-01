@@ -169,3 +169,7 @@ export const API_GET_PRODUCT = API_URL + '/product';
 //     user_id,    :>> 使用者 id
 // }
 export const API_GET_CART = API_URL + '/cart';
+
+//member
+//member review
+export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';

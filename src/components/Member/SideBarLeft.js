@@ -4,7 +4,8 @@ import { routes } from '../../utils/routes';
 
 function SideBarLeft(props) {
     return (
-        <aside className="col-12 col-md-2 collapse sidebar-left member-sidebar-left">
+        // <aside className="col-12 col-md-2 collapse sidebar-left member-sidebar-left">
+        <aside className="col-12 col-md-2 order-2 order-md-1 sidebar-left member-sidebar-left">
             {/* <!-- flex container --> */}
             <ul className="nav">
                 <li className="col-6 col-md-12 nav-item">
