@@ -52,6 +52,12 @@ function ProductList(props) {
         },
         [option]
     );
+    // useEffect(
+    //     function () {
+    //         console.log('products.all :>> ', products.all);
+    //     },
+    //     [products.all]
+    // );
 
     //渲染
     return (

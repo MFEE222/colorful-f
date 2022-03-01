@@ -115,28 +115,32 @@ export function ProductsProvider(props) {
             const res = await axios.get(API_GET_PRODUCTS, {
                 params: option,
             });
-            // console.log('res :>> ', res);
+            console.log('res :>> ', res);
             if (res.data.statusCode & 1) {
                 throw new Error(STATUS_MSG[res.data.statusCode]);
             }
-            if (res.data.products) {
-                setProducts(res.data.products);
-                setProduct(res.data.products[0]);
-                setTotal(res.data.total);
-            }
+            // if (res.data.products) {
+            //     setProducts(res.data.products);
+            //     setProduct(res.data.products[0]);
+            //     setTotal(res.data.total);
+            // }
+
+            setProducts(res.data.products);
+            setProduct(res.data.products[0]);
+            setTotal(res.data.total);
         } catch (err) {
             console.log(err);
         }
     }
 
     // 測試用
-    useEffect(
-        function () {
-            // console.log('shared.all :>> ', shared.all);
-            // console.log('DidUpdate : current :>> ', shared.current);
-        },
-        [product, products]
-    );
+    // useEffect(
+    //     function () {
+    //         console.log('shared.all :>> ', shared.all);
+    //         console.log('DidUpdate : current :>> ', shared.current);
+    //     },
+    //     [product, products]
+    // );
 
     // 渲染
     return (

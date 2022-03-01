@@ -4,7 +4,7 @@ function Pagination(props) {
     const { option, setOption, limit, total } = props;
 
     // console.log('limit :>> ', limit);
-    console.log('total :>> ', total);
+    // console.log('total :>> ', total);
     if (!total || !limit) return <></>;
 
     const pages = new Array(Math.floor(total / limit) + 1);
@@ -32,7 +32,7 @@ function Pagination(props) {
                                     <li
                                         key={i + 1}
                                         onClick={function () {
-                                            handleOffset(i);
+                                            handleOffset(i * limit);
                                         }}
                                     >
                                         {i + 1}
