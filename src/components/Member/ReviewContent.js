@@ -4,6 +4,7 @@ import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW } from '../../utils/config';
+import Pagination from './Pagination';
 
 function ReviewContent(props) {
     //TODO: 登入狀態
@@ -12,11 +13,14 @@ function ReviewContent(props) {
     const match = useRouteMatch();
     const [statusId, setStatusId] = useState(1);
     const [display, setDisplay] = useState([]);
-    const fetchReview = async (e) => {
+    const [offset, setOffset] = useState(1);
+    const fetchReview = async () => {
         const response = await axios.get(API_GET_MEMBER_REVIEW, {
             params: {
                 uid: 1,
                 statusId: 1, //e=1（發布,草稿）,2（草稿）,3（發布）
+                limit: 4,
+                offset: 1,
             },
         });
         console.log('response.data :>> ', response.data.data);
@@ -37,81 +41,92 @@ function ReviewContent(props) {
     //TODO: 拿到訂單
     //TODO: 根據評論狀態去拿對應資料
     return (
-        <div className=" member-comment">
-            {/* <div className="container"> */}
-            {/* filterbar */}
-            <div className="filter my-3">
-                <div className="filter-box d-flex">
-                    <ul className="sort-series p-0">
-                        <li
-                            className="active py-2 px-3"
-                            onClick={function () {
-                                setStatusId(1);
-                                // console.log('1 :>> ', statusId);
-                            }}
-                        >
-                            全部
-                        </li>
-                        <li
-                            className="py-2 px-3 "
-                            onClick={function () {
-                                setStatusId(2);
-                                // console.log('2 :>> ', statusId);
-                            }}
-                        >
-                            未評論
-                        </li>
-                        <li
-                            className="py-2 px-3"
-                            onClick={function () {
-                                setStatusId(3);
-                                // console.log('3 :>> ', statusId);
-                            }}
-                        >
-                            已評論
-                        </li>
-                    </ul>
+        <>
+            <div className=" member-comment">
+                {/* <div className="container"> */}
+                {/* filterbar */}
+                <div className="filter my-3">
+                    <div className="filter-box d-flex">
+                        <ul className="sort-series p-0">
+                            <li
+                                className="active py-2 px-3"
+                                onClick={function () {
+                                    setStatusId(1);
+                                    // console.log('1 :>> ', statusId);
+                                }}
+                            >
+                                全部
+                            </li>
+                            <li
+                                className="py-2 px-3 "
+                                onClick={function () {
+                                    setStatusId(2);
+                                    // console.log('2 :>> ', statusId);
+                                }}
+                            >
+                                未評論
+                            </li>
+                            <li
+                                className="py-2 px-3"
+                                onClick={function () {
+                                    setStatusId(3);
+                                    // console.log('3 :>> ', statusId);
+                                }}
+                            >
+                                已評論
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="line d-none d-md-block"></div>
                 </div>
-                <div className="line d-none d-md-block"></div>
-            </div>
-            {/* card */}
-            {/* <div className="row"> */}
-            {display.map((v) => {
-                return (
-                    <>
-                        <div className="d-flex review-card">
-                            <div className="col-auto  col-md-10 review-card-img me-4">
-                                <div className="ratios">
-                                    <img src={v.products_img} alt="" />
+                {/* card */}
+                {/* <div className="row"> */}
+                {display.map((oneReview) => {
+                    return (
+                        <>
+                            <div
+                                className="d-flex review-card"
+                                key={oneReview.id}
+                            >
+                                <div className="col-auto  col-md-10 review-card-img me-4">
+                                    <div className="ratios">
+                                        <img
+                                            src={oneReview.products_img}
+                                            alt=""
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="col row ps-0 align-items-center align-content-center">
-                                <h4 className="col-8 col-md-8  align-self-center me-auto m-0">
-                                    {v.name}
-                                </h4>
-                                {/* <p className="col-4 col-md-4 review-card-text ">
+                                <div className="col row ps-0 align-items-center align-content-center">
+                                    <h4 className="col-8 col-md-8  align-self-center me-auto m-0">
+                                        {oneReview.name}
+                                    </h4>
+                                    {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}
-                                <p className="col col-md-8 me-auto d-none d-md-block">
-                                    {v.content == null ? '尚未評論' : v.content}
-                                </p>
-                                <p className="d-md-none ">
-                                    {!v.content && '尚未評論'}
-                                </p>
+                                    <p className="col col-md-10 me-auto d-none d-md-block">
+                                        {oneReview.content == null
+                                            ? '尚未評論'
+                                            : oneReview.content}
+                                    </p>
+                                    <p className="d-md-none ">
+                                        {!oneReview.content && '尚未評論'}
+                                    </p>
+                                </div>
+                                <Link
+                                    className="btn me-2 align-self-end"
+                                    to={routes.reviewDetail}
+                                >
+                                    <span>編輯</span>
+                                </Link>
                             </div>
-                            <Link
-                                className="btn me-2 align-self-end"
-                                to={routes.reviewDetail}
-                            >
-                                <span>編輯</span>
-                            </Link>
-                        </div>
-                    </>
-                );
-            })}
-            {/* </div> */}
-            {/* </div> */}
-        </div>
+                        </>
+                    );
+                })}
+                {/* </div> */}
+                {/* </div> */}
+            </div>
+            <Pagination />
+        </>
     );
 }
 
