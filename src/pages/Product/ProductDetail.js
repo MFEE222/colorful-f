@@ -11,7 +11,7 @@ import { API_URL, API_GET_PRODUCT_REVIEW } from '../../utils/config';
 import Main from '../../components/Product/Main';
 import ProductDetailContent from '../../components/Product/ProductDetailContent';
 import ReviewDetail from '../../components/Product/ReviewDetail';
-import Pagination from '../../components/Pagination/Pagination';
+import Pagination from '../../components/Other/Pagination';
 import RecommendCard from '../../components/Product/RecommendCard';
 //context
 import { useProductsContext } from '../../utils/context/ProductsContext';

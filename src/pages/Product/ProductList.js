@@ -39,31 +39,33 @@ function ProductList(props) {
     });
 
     // 生命週期
-    // const o = { ...option };
-    // switch (match.path) {
-    //     case routes.productNewest:
-    //         o.series = 1;
-    //         break;
-    //     case routes.productFood:
-    //         o.series = 2;
-    //         break;
-    //     case routes.productWedding:
-    //         o.series = 3;
-    //         break;
-    //     case routes.productFilm:
-    //         o.series = 4;
-    //         break;
-    //     case routes.productScenery:
-    //         o.series = 5;
-    //         break;
-    //     case routes.productPortrait:
-    //         o.series = 6;
-    //         break;
-    //     case routes.product:
-    //     default:
-    //         o.series = 0;
-    // }
-    // setOption(o);
+    // useEffect(function () {
+    //     const o = { ...option };
+    //     switch (match.path) {
+    //         case routes.productNewest:
+    //             o.series = 1;
+    //             break;
+    //         case routes.productFood:
+    //             o.series = 2;
+    //             break;
+    //         case routes.productWedding:
+    //             o.series = 3;
+    //             break;
+    //         case routes.productFilm:
+    //             o.series = 4;
+    //             break;
+    //         case routes.productScenery:
+    //             o.series = 5;
+    //             break;
+    //         case routes.productPortrait:
+    //             o.series = 6;
+    //             break;
+    //         case routes.product:
+    //         default:
+    //             o.series = 0;
+    //     }
+    //     setOption(o);
+    // }, []);
 
     useEffect(
         function () {

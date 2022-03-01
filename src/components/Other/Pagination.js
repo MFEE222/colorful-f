@@ -7,7 +7,7 @@ function Pagination(props) {
     // console.log('total :>> ', total);
     if (!total || !limit) return <></>;
 
-    const pages = new Array(Math.floor(total / limit) + 1);
+    const pages = new Array(Math.ceil(total / limit));
     pages.fill(0);
     // console.log('pages :>> ', pages);
 
