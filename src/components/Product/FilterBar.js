@@ -8,7 +8,7 @@ import deleteImg from '../../icons/Sortbar/Delete.png';
 
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import { useRWDContext } from '../../utils/context/RWDContext';
-import { ListGroupItem } from 'react-bootstrap';
+
 
 function FilterBar(props) {
     // Context
@@ -135,4 +135,5 @@ function FilterBar(props) {
         </div>
     );
 }
+
 export default FilterBar;
