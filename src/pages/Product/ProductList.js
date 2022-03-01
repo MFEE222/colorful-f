@@ -32,6 +32,7 @@ function ProductList(props) {
         price: ['', ''],
         tags: [],
         orderby: 'created_at',
+        order: -1,
         limit: 8,
         offset: 0,
     });

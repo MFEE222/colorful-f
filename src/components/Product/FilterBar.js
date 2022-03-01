@@ -40,24 +40,30 @@ function FilterBar(props) {
         o.orderby = 'price';
         setOption(o);
     }
+    // 價格排序
+    function handleSortPrice() {
+        const o = { ...option };
+        o.orderby = 'price';
+        if (o.order == 1) o.order = 0;
+        else o.order = 1;
+        setOption(o);
+    }
     // 標籤
     function handleFilterTags(id) {
-        return function () {
-            const o = { ...option };
-            let t;
-            // console.log('typeof t :>> ', typeof t);
-            // console.log('typeof o.tags :>> ', typeof o.tags);
-            if (o.tags.includes(id)) {
-                t = o.tags.filter(function (e) {
-                    return e != id;
-                });
-            } else {
-                t = [...o.tags];
-                t.push(id);
-            }
-            o.tags = t;
-            setOption(o);
-        };
+        const o = { ...option };
+        let t;
+        // console.log('typeof t :>> ', typeof t);
+        // console.log('typeof o.tags :>> ', typeof o.tags);
+        if (o.tags.includes(id)) {
+            t = o.tags.filter(function (e) {
+                return e != id;
+            });
+        } else {
+            t = [...o.tags];
+            t.push(id);
+        }
+        o.tags = t;
+        setOption(o);
     }
 
     // 生命週期
@@ -65,7 +71,7 @@ function FilterBar(props) {
         (async function () {
             try {
                 const res = await axios.get(API_GET_PRODUCT_TAGS_SERIES);
-                // console.log('res :>> ', res);
+                console.log('res :>> ', res);
                 setDisplay(res.data);
             } catch (err) {
                 console.log('err :>> ', err);
@@ -96,7 +102,7 @@ function FilterBar(props) {
                         />
                     </div>
                     <div className="col-4 col-md-3 price-filter">
-                        <div className="row justify-content-center align-items-center">
+                        <div className="row flex-nowrap justify-content-center align-items-center">
                             <input
                                 type="search"
                                 className="col px-0 text-center"
@@ -114,6 +120,30 @@ function FilterBar(props) {
                                 value={option.price[1]}
                                 onChange={handleFilterPrice}
                             />
+                            {(function () {
+                                if (option.order < 0) {
+                                    return (
+                                        <i
+                                            className="fas fa-sort text-secondary col-auto"
+                                            onClick={handleSortPrice}
+                                        ></i>
+                                    );
+                                } else if (option.order == 1) {
+                                    return (
+                                        <i
+                                            className="fas fa-sort-down text-secondary col-auto"
+                                            onClick={handleSortPrice}
+                                        ></i>
+                                    );
+                                } else if (option.order == 0) {
+                                    return (
+                                        <i
+                                            className="fas fa-sort-up text-secondary col-auto"
+                                            onClick={handleSortPrice}
+                                        ></i>
+                                    );
+                                }
+                            })()}
                         </div>
                     </div>
                 </div>
@@ -124,6 +154,9 @@ function FilterBar(props) {
                                 <div
                                     key={e.id}
                                     className="col-auto text-secondary"
+                                    onClick={function () {
+                                        handleFilterTags(e.id);
+                                    }}
                                 >
                                     <i className="fas fa-hashtag pe-1"></i>
                                     {e.name}
