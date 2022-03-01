@@ -9,7 +9,6 @@ import deleteImg from '../../icons/Sortbar/Delete.png';
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import { useRWDContext } from '../../utils/context/RWDContext';
 
-
 function FilterBar(props) {
     // Context
     const rwd = useRWDContext();
@@ -71,10 +70,10 @@ function FilterBar(props) {
         (async function () {
             try {
                 const res = await axios.get(API_GET_PRODUCT_TAGS_SERIES);
-                console.log('res :>> ', res);
+                // console.log('res :>> ', res);
                 setDisplay(res.data);
             } catch (err) {
-                console.log('err :>> ', err);
+                // console.log('err :>> ', err);
             }
         })();
     }, []);
