@@ -31,23 +31,29 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Wedding</NavDropdown.Item>
+                            <LinkContainer to={routes.food}>
+                                {/* <NavDropdown.Item>Food</NavDropdown.Item> */}
+                                <NavDropdown.Item>食物</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Food</NavDropdown.Item>
+                            <LinkContainer to={routes.wedding}>
+                                {/* <NavDropdown.Item>Wedding</NavDropdown.Item> */}
+                                <NavDropdown.Item>婚禮</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Sencery</NavDropdown.Item>
+                            <LinkContainer to={routes.film}>
+                                {/* <NavDropdown.Item>Film</NavDropdown.Item> */}
+                                <NavDropdown.Item>復古</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Portrait</NavDropdown.Item>
+                            <LinkContainer to={routes.scenery}>
+                                {/* <NavDropdown.Item>Scenery</NavDropdown.Item> */}
+                                <NavDropdown.Item>風景</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Flim</NavDropdown.Item>
+                            <LinkContainer to={routes.portrait}>
+                                {/* <NavDropdown.Item>Portrait</NavDropdown.Item> */}
+                                <NavDropdown.Item>人像</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>All</NavDropdown.Item>
+                            <LinkContainer to={routes.all}>
+                                {/* <NavDropdown.Item>All</NavDropdown.Item> */}
+                                <NavDropdown.Item>全系列</NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
                         <NavDropdown
