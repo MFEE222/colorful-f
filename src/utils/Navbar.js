@@ -31,28 +31,22 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
-                            <LinkContainer to={routes.food}>
-                                {/* <NavDropdown.Item>Food</NavDropdown.Item> */}
+                            <LinkContainer to={routes.productFood}>
                                 <NavDropdown.Item>食物</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.wedding}>
-                                {/* <NavDropdown.Item>Wedding</NavDropdown.Item> */}
+                            <LinkContainer to={routes.productWedding}>
                                 <NavDropdown.Item>婚禮</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.film}>
-                                {/* <NavDropdown.Item>Film</NavDropdown.Item> */}
+                            <LinkContainer to={routes.productFilm}>
                                 <NavDropdown.Item>復古</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.scenery}>
-                                {/* <NavDropdown.Item>Scenery</NavDropdown.Item> */}
+                            <LinkContainer to={routes.productScenery}>
                                 <NavDropdown.Item>風景</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.portrait}>
-                                {/* <NavDropdown.Item>Portrait</NavDropdown.Item> */}
+                            <LinkContainer to={routes.productPortrait}>
                                 <NavDropdown.Item>人像</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.all}>
-                                {/* <NavDropdown.Item>All</NavDropdown.Item> */}
+                            <LinkContainer to={routes.product}>
                                 <NavDropdown.Item>全系列</NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>

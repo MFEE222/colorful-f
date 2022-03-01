@@ -94,7 +94,6 @@ function Product(props) {
                 </Route>
                 {/* 全部 */}
                 <Route path={routes.product}>
-                    <h1>all</h1>
                     <ProductList />
                 </Route>
             </Switch>
