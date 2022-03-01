@@ -17,7 +17,7 @@ import Banner from '../../components/Product/Banner';
 import FilterBar from '../../components/Product/FilterBar';
 
 import ProductListContent from '../../components/Product/ProductListContent';
-import Pagination from '../../components/Pagination/Pagination';
+import Pagination from '../../components/Other/Pagination';
 import Card from '../../components/Product/Card';
 
 function ProductList(props) {
@@ -29,7 +29,7 @@ function ProductList(props) {
     const [option, setOption] = useState({
         series: 0,
         keyword: '',
-        price: ['', ''],
+        price: [0, 0],
         tags: [],
         orderby: 'created_at',
         order: -1,
@@ -40,7 +40,7 @@ function ProductList(props) {
     // 生命週期
     useEffect(
         function () {
-            // products.reset(option);
+            products.reset(option);
         },
         [option]
     );
@@ -56,9 +56,8 @@ function ProductList(props) {
     //渲染
     return (
         <>
-            <Banner />
+            {/* <Banner /> */}
             <FilterBar option={option} setOption={setOption} />
-            {/* <Pagination option={option} /> */}
             {/* 手機版 search & filter */}
             {/* <PSearchFilter state={state} setOption={setOption} /> */}
             {/* md 以上 search & filter */}
@@ -101,7 +100,12 @@ function ProductList(props) {
                 </div>
             </div> */}
             {/* 頁籤 */}
-            {/* <Pagination /> */}
+            <Pagination
+                option={option}
+                setOption={setOption}
+                limit={8}
+                total={products.total}
+            />
         </>
     );
 }

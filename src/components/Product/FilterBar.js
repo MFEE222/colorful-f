@@ -22,21 +22,26 @@ function FilterBar(props) {
     function handleKeyword(e) {
         const o = { ...option };
         o.keyword = e.target.value;
+        o.offset = 0;
         setOption(o);
     }
     function handleKeywordReset(e) {
         const o = { ...option };
         o.keyword = '';
+        o.offset = 0;
         setOption(o);
     }
     // 價格
     function handleFilterPrice(e) {
         const o = { ...option };
         const p = [...o.price];
-        if (e.target.name == 'min-price') p[0] = e.target.value;
-        else if (e.target.name == 'max-price') p[1] = e.target.value;
+        const number = Number(e.target.value);
+        console.log('number :>> ', number);
+        if (e.target.name == 'min-price') p[0] = number;
+        else if (e.target.name == 'max-price') p[1] = number;
         o.price = p;
         o.orderby = 'price';
+        o.offset = 0;
         setOption(o);
     }
     // 價格排序
@@ -45,6 +50,7 @@ function FilterBar(props) {
         o.orderby = 'price';
         if (o.order == 1) o.order = 0;
         else o.order = 1;
+        o.offset = 0;
         setOption(o);
     }
     // 標籤
@@ -62,6 +68,7 @@ function FilterBar(props) {
             t.push(id);
         }
         o.tags = t;
+        o.offset = 0;
         setOption(o);
     }
 
@@ -107,7 +114,7 @@ function FilterBar(props) {
                                 className="col px-0 text-center"
                                 placeholder="min"
                                 name="min-price"
-                                value={option.price[0]}
+                                value={!option.price[0] ? '' : option.price[0]}
                                 onChange={handleFilterPrice}
                             />
                             <p className="col-auto m-0 pb-1">-</p>
@@ -116,7 +123,7 @@ function FilterBar(props) {
                                 className="col px-0 text-center"
                                 placeholder="max"
                                 name="max-price"
-                                value={option.price[1]}
+                                value={!option.price[1] ? '' : option.price[1]}
                                 onChange={handleFilterPrice}
                             />
                             {(function () {

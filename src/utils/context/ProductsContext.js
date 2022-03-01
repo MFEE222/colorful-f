@@ -14,6 +14,7 @@ const ProductsContext = React.createContext(
 export function ProductsProvider(props) {
     // state, hook
     const [products, setProducts] = useState([]);
+    const [total, setTotal] = useState(0);
     const [product, setProduct] = useState({});
     // const products = [
     //     { id: 1, name: 'rosa' },
@@ -31,6 +32,7 @@ export function ProductsProvider(props) {
         reset, // axios 請求商品資料（陣列）
         current: product, // 取用當前商品（單一，商品細節頁用）
         all: products, // 取用所有商品資料（陣列）
+        total,
     };
 
     // 生命週期
@@ -120,6 +122,7 @@ export function ProductsProvider(props) {
             if (res.data.products) {
                 setProducts(res.data.products);
                 setProduct(res.data.products[0]);
+                setTotal(res.data.total);
             }
         } catch (err) {
             console.log(err);
@@ -127,13 +130,13 @@ export function ProductsProvider(props) {
     }
 
     // 測試用
-    // useEffect(
-    //     function () {
-    //         console.log('DidUpdate : all :>> ', shared.all);
-    //         console.log('DidUpdate : current :>> ', shared.current);
-    //     },
-    //     [product, products]
-    // );
+    useEffect(
+        function () {
+            // console.log('shared.all :>> ', shared.all);
+            // console.log('DidUpdate : current :>> ', shared.current);
+        },
+        [product, products]
+    );
 
     // 渲染
     return (
