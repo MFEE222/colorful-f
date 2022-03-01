@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
-//第3方
+// 第三方
 import { Label, Segment } from 'semantic-ui-react';
 // 共用
 import { IMG_URL } from '../../utils/config';

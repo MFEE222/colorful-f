@@ -47,12 +47,12 @@ import { CartProvider } from './utils/context/CartContext';
 function App() {
     return (
         <>
-            <ScrollToTop />
             <RWDProvider>
                 <ProductsProvider>
                     <CartProvider>
                         {/* 導覽列 */}
                         <Navbar />
+                        <ScrollToTop />
                         {/* 麵包屑 */}
                         {/* <Breadcrumb /> */}
                         <div>

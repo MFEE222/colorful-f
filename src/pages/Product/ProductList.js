@@ -6,6 +6,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 
 // 通用
+import { routes } from '../../utils/routes';
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import {
     ProductsConsumer,
@@ -38,6 +39,32 @@ function ProductList(props) {
     });
 
     // 生命週期
+    // const o = { ...option };
+    // switch (match.path) {
+    //     case routes.productNewest:
+    //         o.series = 1;
+    //         break;
+    //     case routes.productFood:
+    //         o.series = 2;
+    //         break;
+    //     case routes.productWedding:
+    //         o.series = 3;
+    //         break;
+    //     case routes.productFilm:
+    //         o.series = 4;
+    //         break;
+    //     case routes.productScenery:
+    //         o.series = 5;
+    //         break;
+    //     case routes.productPortrait:
+    //         o.series = 6;
+    //         break;
+    //     case routes.product:
+    //     default:
+    //         o.series = 0;
+    // }
+    // setOption(o);
+
     useEffect(
         function () {
             products.reset(option);
@@ -64,28 +91,8 @@ function ProductList(props) {
         <>
             {/* <Banner /> */}
             <FilterBar option={option} setOption={setOption} />
-            {/* 手機版 search & filter */}
-            {/* <PSearchFilter state={state} setOption={setOption} /> */}
-            {/* md 以上 search & filter */}
-            {/* <FilterBarContent
-                init={init}
-                price={price}
-                setPrice={setPrice}
-                search={search}
-                setSearch={setSearch}
-                choseSeries={choseSeries}
-                setChoseSeries={setChoseSeries}
-                choseTags={choseTags}
-                setChoseTags={setChoseTags}
-            /> */}
-            {/* <Tags
-                init={init}
-                choseTags={choseTags}
-                setChoseTags={setChoseTags}
-            /> */}
 
-            {/* 商品卡 */}
-            {/* <div className="container">
+            <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.all.length > 0 ? (
                         products.all.map((v) => {
@@ -104,8 +111,8 @@ function ProductList(props) {
                         <h5 className="text-center">對不起，查無商品</h5>
                     )}
                 </div>
-            </div> */}
-            {/* 頁籤 */}
+            </div>
+
             <Pagination
                 option={option}
                 setOption={setOption}
