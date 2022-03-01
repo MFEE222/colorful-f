@@ -29,7 +29,7 @@ function ProductList(props) {
     const [option, setOption] = useState({
         series: 0,
         keyword: '',
-        price: [0, 0],
+        price: ['', ''],
         tags: [],
         orderby: 'created_at',
         limit: 8,
