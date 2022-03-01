@@ -8,7 +8,6 @@ import axios from 'axios';
 import { API_URL, API_GET_PRODUCT_REVIEW } from '../../utils/config';
 
 // 自用元件
-import Main from '../../components/Product/Main';
 import ProductDetailContent from '../../components/Product/ProductDetailContent';
 import ReviewDetail from '../../components/Product/ReviewDetail';
 import Pagination from '../../components/Pagination/Pagination';
