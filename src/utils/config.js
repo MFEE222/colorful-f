@@ -16,6 +16,14 @@ export const IMG_PRODUCTS_WEDDING = IMG_URL + '/wedding';
 export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
 export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
 export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
+// Home
+export const IMG_HOME_PORTRAIT_BANNER = IMG_URL + '/輪播01.jpg';
+export const IMG_HOME_SCENERY_BANNER = IMG_URL + '/輪播02.jpg';
+export const IMG_HOME_FILM_BANNER = IMG_URL + '/輪播03.jpg';
+export const IMG_HOME_WEDDING_BANNER = IMG_URL + '/輪播04.jpg';
+export const IMG_HOME_FOOD_BANNER = IMG_URL + '/輪播05.jpg';
+
+
 // Banner
 export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner-1.gif';
 export const IMG_PRODUCTS_NEWEST_BANNER =

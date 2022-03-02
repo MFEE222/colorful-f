@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Switch,
     Route,
@@ -6,18 +6,16 @@ import {
     useRouteMatch,
     useParams,
 } from 'react-router-dom';
+import Slider from 'react-slick';
+import classNames from 'classnames';
+import ReactDOM from 'react-dom';
+import { routes } from '../../utils/routes';
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
+// import Slideshow from './slider';
 
-import { routes } from '../../utils/routes';
-
-function Home(props) {
-    const match = useRouteMatch();
-
-    // const link = document.getElementById('down')
-    // link.addEventListener('click',function(){
-    //     document.getElementById("page2").scrollIntoView()
-    // },false);
+function Home() {
+    
     return (
         <div className="home">
             <div className="h-page1" id="page1">
@@ -31,9 +29,8 @@ function Home(props) {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 ></iframe>
-                <button className="down" id="down" οnclick="javascript:onTopClick();">
-                    <div class="scroll-down"></div>
-                </button>
+
+                <div className="scroll-down"></div>
             </div>
             <div className="h-page2" id="page2">
                 {/* <div className="orbit"></div> */}
@@ -57,8 +54,20 @@ function Home(props) {
                     </Link>
                 </div>
             </div>
-            <div className="page3">
-                
+            <div className="h-page3">
+                <div className="slider">
+                    <div id="arrow-left" className="arrow"></div>
+                    <div className="slide slide1"></div>
+
+                    {/* <div className="slide slide2"></div>
+                    <div className="slide slide3"></div>
+                    <div className="slide slide4"></div>
+                    <div className="slide slide5"></div> */}
+                    <div id="arrow-right" className="arrow"></div>
+                </div>
+            </div>
+            <div className="h-page4">
+           
             </div>
         </div>
     );

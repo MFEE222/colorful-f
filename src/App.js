@@ -42,6 +42,8 @@ import {
 
 import { RWDProvider } from './utils/context/RWDContext';
 import { CartProvider } from './utils/context/CartContext';
+import CitiesSlider from './pages/Home/slider';
+
 
 function App() {
     return (
