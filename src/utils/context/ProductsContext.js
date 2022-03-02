@@ -16,18 +16,31 @@ export function ProductsProvider(props) {
     const [products, setProducts] = useState([]);
     const [total, setTotal] = useState(0);
     const [product, setProduct] = useState({});
-    // const products = [
-    //     { id: 1, name: 'rosa' },
-    //     { id: 2, name: 'chris' },
-    // ];
+    const [option, setOption] = useState({
+        series: 0,
+        keyword: '',
+        price: [0, 0],
+        tags: [],
+        orderby: 'price',
+        order: -1,
+        limit: 8,
+        offset: 0,
+    });
 
     // variable (shared)
-    const { option } =
-        props.option !== undefined ? props : { option: { limit: 8 } };
+    // const { option } =
+    //     props.option !== undefined ? props : { option: { limit: 8 } };
     const { other } = props.other !== undefined ? props : { other: {} };
     const shared = {
         other,
         option, // 設定 axios 參數
+        optionSeries,
+        optionKeyword,
+        optionKeywordReset,
+        optionPriceRange,
+        optionPriceSort,
+        optionTags,
+        optionLimitOffset,
         find, // 請求單筆商品資料
         reset, // axios 請求商品資料（陣列）
         current: product, // 取用當前商品（單一，商品細節頁用）
@@ -36,28 +49,27 @@ export function ProductsProvider(props) {
     };
 
     // 生命週期
-    useEffect(async function () {
-        reset();
-        // 測試用
-        // const res = await axios.get(API_GET_PRODUCTS, {
-        //     params: {
-        //         keyword: '羅曼',
-        //         date: ['2011-07-22', '2022-01-01'],
-        //         // series: 6,
-        //         price: [0, 0],
-        //         favorites: 33,
-        //         owners: 222,
-        //         stars: 4.5,
-        //         offset: 3,
-        //         order: 0,
-        //         limit: 3,
-        //     },
-        // });
+    useEffect(function () {
+        // DidMount
+        (async function () {
+            reset();
+        })();
 
+        // willUnMount
         return function () {
             console.log('Here is WillUnMount');
         };
     }, []);
+
+    useEffect(
+        function () {
+            // DidUpdate
+            reset();
+            // 測試
+            // console.log('option :>> ', option);
+        },
+        [option]
+    );
 
     // 函數
     // 此方法會以添加的方式，將新資料放入 Products 狀態
@@ -132,7 +144,60 @@ export function ProductsProvider(props) {
             console.log(err);
         }
     }
-
+    // Option 設定
+    function optionSeries(e, series_id) {
+        const opt = { ...option };
+        opt.series = series_id;
+        opt.offset = 0;
+        setOption(opt);
+    }
+    function optionKeyword(e, str) {
+        const opt = { ...option };
+        opt.keyword = str;
+        opt.offset = 0; // 重置頁籤
+        setOption(opt);
+    }
+    function optionKeywordReset(e) {
+        const opt = { ...option };
+        opt.keyword = '';
+        opt.offset = 0;
+        setOption(opt);
+    }
+    function optionPriceRange(e, arr) {
+        const opt = { ...option }; // 注意，第二層展開運算子無法深拷貝
+        opt.price = [...arr];
+        opt.orderby = 'price';
+        opt.offset = 0;
+        setOption(opt);
+    }
+    function optionPriceSort(e, sort = 0) {
+        const opt = { ...option };
+        opt.orderby = 'price';
+        opt.order = Number(sort);
+        opt.offset = 0;
+        setOption(opt);
+    }
+    function optionTags(e, tag_id) {
+        const opt = { ...option };
+        let tags;
+        if (opt.tags.includes(tag_id)) {
+            tags = opt.tags.filter(function (e) {
+                return e != tag_id;
+            });
+        } else {
+            tags = [...opt.tags];
+            tags.push(tag_id);
+        }
+        opt.tags = tags;
+        opt.offset = 0;
+        setOption(opt);
+    }
+    function optionLimitOffset(e, limit, offset) {
+        const opt = { ...option };
+        opt.limit = limit;
+        opt.offset = offset;
+        setOption(opt);
+    }
     // 測試用
     // useEffect(
     //     function () {

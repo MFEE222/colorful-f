@@ -8,68 +8,103 @@ import deleteImg from '../../icons/Sortbar/Delete.png';
 
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import { useRWDContext } from '../../utils/context/RWDContext';
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 function FilterBar(props) {
     // Context
     const rwd = useRWDContext();
+    const products = useProductsContext();
     // 屬性 (option 會包物件！請注意)
-    const { option, setOption } = props;
+    // const { option, setOption } = props;
     // 狀態
     const [display, setDisplay] = useState({});
 
     // 函數
     // 關鍵字搜尋
-    function handleKeyword(e) {
-        const o = { ...option };
-        o.keyword = e.target.value;
-        o.offset = 0;
-        setOption(o);
-    }
-    function handleKeywordReset(e) {
-        const o = { ...option };
-        o.keyword = '';
-        o.offset = 0;
-        setOption(o);
-    }
-    // 價格
-    function handleFilterPrice(e) {
-        const o = { ...option };
-        const p = [...o.price];
-        const number = Number(e.target.value);
-        console.log('number :>> ', number);
-        if (e.target.name == 'min-price') p[0] = number;
-        else if (e.target.name == 'max-price') p[1] = number;
-        o.price = p;
-        o.orderby = 'price';
-        o.offset = 0;
-        setOption(o);
-    }
-    // 價格排序
-    function handleSortPrice() {
-        const o = { ...option };
-        o.orderby = 'price';
-        if (o.order == 1) o.order = 0;
-        else o.order = 1;
-        o.offset = 0;
-        setOption(o);
-    }
-    // 標籤
-    function handleFilterTags(id) {
-        const o = { ...option };
-        let t;
-        // console.log('typeof t :>> ', typeof t);
-        // console.log('typeof o.tags :>> ', typeof o.tags);
-        if (o.tags.includes(id)) {
-            t = o.tags.filter(function (e) {
-                return e != id;
-            });
-        } else {
-            t = [...o.tags];
-            t.push(id);
+    // function handleKeyword(e) {
+    //     const o = { ...option };
+    //     o.keyword = e.target.value;
+    //     o.offset = 0;
+    //     setOption(o);
+    // }
+    // function handleKeywordReset(e) {
+    //     const o = { ...option };
+    //     o.keyword = '';
+    //     o.offset = 0;
+    //     setOption(o);
+    // }
+    // // 價格
+    // function handleFilterPrice(e) {
+    //     const o = { ...option };
+    //     const p = [...o.price];
+    //     const number = Number(e.target.value);
+    //     console.log('number :>> ', number);
+    //     if (e.target.name == 'min-price') p[0] = number;
+    //     else if (e.target.name == 'max-price') p[1] = number;
+    //     o.price = p;
+    //     o.orderby = 'price';
+    //     o.offset = 0;
+    //     setOption(o);
+    // }
+    // // 價格排序
+    // function handleSortPrice() {
+    //     const o = { ...option };
+    //     o.orderby = 'price';
+    //     if (o.order == 1) o.order = 0;
+    //     else o.order = 1;
+    //     o.offset = 0;
+    //     setOption(o);
+    // }
+    // // 標籤
+    // function handleFilterTags(id) {
+    //     const o = { ...option };
+    //     let t;
+    //     // console.log('typeof t :>> ', typeof t);
+    //     // console.log('typeof o.tags :>> ', typeof o.tags);
+    //     if (o.tags.includes(id)) {
+    //         t = o.tags.filter(function (e) {
+    //             return e != id;
+    //         });
+    //     } else {
+    //         t = [...o.tags];
+    //         t.push(id);
+    //     }
+    //     o.tags = t;
+    //     o.offset = 0;
+    //     setOption(o);
+    // }
+    // 排序 JSX
+    function orderJSX() {
+        let html = '';
+        switch (products.option.order) {
+            case 0:
+                // 上箭頭
+                html = (
+                    <i
+                        className="fas fa-sort-up text-secondary col-auto"
+                        onClick={(e) => products.optionPriceSort(e, 1)}
+                    ></i>
+                );
+                break;
+            case 1:
+                // 下箭頭
+                html = (
+                    <i
+                        className="fas fa-sort-down text-secondary col-auto"
+                        onClick={(e) => products.optionPriceSort(e, 0)}
+                    ></i>
+                );
+                break;
+            default:
+                // 上下箭頭
+                html = (
+                    <i
+                        className="fas fa-sort text-secondary col-auto"
+                        onClick={(e) => products.optionPriceSort(e, 0)}
+                    ></i>
+                );
         }
-        o.tags = t;
-        o.offset = 0;
-        setOption(o);
+        return html;
     }
 
     // 生命週期
@@ -91,20 +126,24 @@ function FilterBar(props) {
             <div className="container my-md-3 search-box p-0">
                 <div className="row flex-nowrap justify-content-between phone-search">
                     <div className="col-8 col-md-9 px-0 algin-self-center phone-search">
-                        {option.keyword === '' ? (
+                        {products.option.keyword === '' ? (
                             <i className="fas fa-search ps-3 pe-1 text-secondary"></i>
                         ) : (
                             <i
                                 className="far fa-times-circle ps-3 pe-1 text-secondary"
-                                onClick={handleKeywordReset}
+                                onClick={function (e) {
+                                    products.optionKeywordReset(e);
+                                }}
                             ></i>
                         )}
                         <input
                             type="search"
                             className="input-style text-secondary"
                             placeholder="Search"
-                            value={option.keyword}
-                            onChange={handleKeyword}
+                            value={products.option.keyword}
+                            onChange={function (e) {
+                                products.optionKeyword(e, e.target.value);
+                            }}
                         />
                     </div>
                     <div className="col-4 col-md-3 price-filter">
@@ -114,8 +153,16 @@ function FilterBar(props) {
                                 className="col px-0 text-center"
                                 placeholder="min"
                                 name="min-price"
-                                value={!option.price[0] ? '' : option.price[0]}
-                                onChange={handleFilterPrice}
+                                value={
+                                    !products.option.price[0]
+                                        ? ''
+                                        : products.option.price[0]
+                                }
+                                onChange={function (e) {
+                                    const arr = [...products.option.price];
+                                    arr[0] = Number(e.target.value);
+                                    products.optionPriceRange(e, arr);
+                                }}
                             />
                             <p className="col-auto m-0 pb-1">-</p>
                             <input
@@ -123,33 +170,18 @@ function FilterBar(props) {
                                 className="col px-0 text-center"
                                 placeholder="max"
                                 name="max-price"
-                                value={!option.price[1] ? '' : option.price[1]}
-                                onChange={handleFilterPrice}
-                            />
-                            {(function () {
-                                if (option.order < 0) {
-                                    return (
-                                        <i
-                                            className="fas fa-sort text-secondary col-auto"
-                                            onClick={handleSortPrice}
-                                        ></i>
-                                    );
-                                } else if (option.order == 1) {
-                                    return (
-                                        <i
-                                            className="fas fa-sort-down text-secondary col-auto"
-                                            onClick={handleSortPrice}
-                                        ></i>
-                                    );
-                                } else if (option.order == 0) {
-                                    return (
-                                        <i
-                                            className="fas fa-sort-up text-secondary col-auto"
-                                            onClick={handleSortPrice}
-                                        ></i>
-                                    );
+                                value={
+                                    !products.option.price[1]
+                                        ? ''
+                                        : products.option.price[1]
                                 }
-                            })()}
+                                onChange={function (e) {
+                                    const arr = [...products.option.price];
+                                    arr[1] = Number(e.target.value);
+                                    products.optionPriceRange(e, arr);
+                                }}
+                            />
+                            {orderJSX()}
                         </div>
                     </div>
                 </div>
@@ -160,8 +192,8 @@ function FilterBar(props) {
                                 <div
                                     key={e.id}
                                     className="col-auto text-secondary"
-                                    onClick={function () {
-                                        handleFilterTags(e.id);
+                                    onClick={function (e) {
+                                        products.optionTags(e, e.id);
                                     }}
                                 >
                                     <i className="fas fa-hashtag pe-1"></i>

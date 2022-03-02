@@ -10,7 +10,7 @@ import { IMG_URL, API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
 
 // 自己
-import { imgName } from '../../utils/imageName';
+// import { imgName } from '../../utils/imageName';
 import ShowStar from './ShowStar';
 
 // 圖片
@@ -35,6 +35,7 @@ function ProductDetailContent(props) {
     useEffect(() => {
         setCurrent(`${IMG_URL}/${product.img}${imgName.a0}`);
     }, [products.current]);
+    const imgName = '';
     // 渲染
     return (
         product && (

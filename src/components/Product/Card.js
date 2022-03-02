@@ -10,7 +10,7 @@ import { IMG_URL } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
 // 自己
-import { imgName } from '../../utils/imageName';
+// import { imgName } from '../../utils/imageName';
 //context
 // import ProductListContext from './ProductListContent';
 // 圖片
@@ -19,7 +19,7 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 function Card(props) {
     // 屬性
     const { product, goTo, find } = props;
-
+    const imgName = '';
     // 變數
     const imgUrl = `${IMG_URL}/${product.img}${imgName.a0}`;
 

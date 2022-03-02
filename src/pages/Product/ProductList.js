@@ -24,75 +24,14 @@ import Card from '../../components/Product/Card';
 function ProductList(props) {
     // Context
     const products = useProductsContext();
-    // 勾子
+
     const match = useRouteMatch();
-    // 狀態
-    const [option, setOption] = useState({
-        series: 0,
-        keyword: '',
-        price: [0, 0],
-        tags: [],
-        orderby: 'created_at',
-        order: -1,
-        limit: 8,
-        offset: 0,
-    });
-
-    // 生命週期
-    // useEffect(function () {
-    //     const o = { ...option };
-    //     switch (match.path) {
-    //         case routes.productNewest:
-    //             o.series = 1;
-    //             break;
-    //         case routes.productFood:
-    //             o.series = 2;
-    //             break;
-    //         case routes.productWedding:
-    //             o.series = 3;
-    //             break;
-    //         case routes.productFilm:
-    //             o.series = 4;
-    //             break;
-    //         case routes.productScenery:
-    //             o.series = 5;
-    //             break;
-    //         case routes.productPortrait:
-    //             o.series = 6;
-    //             break;
-    //         case routes.product:
-    //         default:
-    //             o.series = 0;
-    //     }
-    //     setOption(o);
-    // }, []);
-
-    useEffect(
-        function () {
-            products.reset(option);
-        },
-        [option]
-    );
-
-    // 測試
-    useEffect(
-        function () {
-            console.log('option :>> ', option);
-        },
-        [option]
-    );
-    // useEffect(
-    //     function () {
-    //         console.log('products.all :>> ', products.all);
-    //     },
-    //     [products.all]
-    // );
 
     //渲染
     return (
         <>
             {/* <Banner /> */}
-            <FilterBar option={option} setOption={setOption} />
+            <FilterBar />
 
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
@@ -116,8 +55,9 @@ function ProductList(props) {
             </div>
 
             <Pagination
-                option={option}
-                setOption={setOption}
+                onEvent={function (e, limit, offset) {
+                    products.optionLimitOffset(e, limit, offset);
+                }}
                 limit={8}
                 total={products.total}
             />

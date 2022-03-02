@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Pagination(props) {
-    const { option, setOption, limit, total } = props;
-
+    const { onEvent, limit, total } = props;
     // console.log('limit :>> ', limit);
     // console.log('total :>> ', total);
     if (!total || !limit) return <></>;
@@ -10,13 +9,6 @@ function Pagination(props) {
     const pages = new Array(Math.ceil(total / limit));
     pages.fill(0);
     // console.log('pages :>> ', pages);
-
-    function handleOffset(offset) {
-        const o = { ...option };
-        o.limit = limit;
-        o.offset = offset;
-        setOption(o);
-    }
 
     return (
         <>
@@ -31,8 +23,8 @@ function Pagination(props) {
                                 return (
                                     <li
                                         key={i + 1}
-                                        onClick={function () {
-                                            handleOffset(i * limit);
+                                        onClick={function (e) {
+                                            onEvent(e, limit, i * limit);
                                         }}
                                     >
                                         {i + 1}
