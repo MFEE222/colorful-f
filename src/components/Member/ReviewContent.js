@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import ImgProduct from '../../images/product-img.jpeg';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
@@ -90,6 +91,7 @@ function ReviewContent(props) {
                 {/* card */}
                 {/* <div className="row"> */}
                 {display.map((oneReview) => {
+                    const goTo = `${routes.reviewDetail}/${oneReview.id}`;
                     return (
                         <>
                             <div
@@ -105,13 +107,14 @@ function ReviewContent(props) {
                                     </div>
                                 </div>
                                 <div className="col row ps-0 align-items-center align-content-center">
-                                    <h4 className="col-8 col-md-8  align-self-center me-auto m-0">
+                                    <h4 className="col-10 col-md-8  align-self-center m-0">
                                         {oneReview.name}
                                     </h4>
+                                    <h5 className="title">{oneReview.title}</h5>
                                     {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}
-                                    <p className="col col-md-10 me-auto d-none d-md-block">
+                                    <p className="col col-md-12 me-auto d-none d-md-block">
                                         {oneReview.content == null
                                             ? '尚未評論'
                                             : oneReview.content}
@@ -120,13 +123,15 @@ function ReviewContent(props) {
                                         {!oneReview.content && '尚未評論'}
                                     </p>
                                 </div>
-                                <Link
+                                <LinkContainer
                                     className="btn me-2 align-self-end"
-                                    to={routes.reviewDetail}
-                                    detail={oneReview}
+                                    to={{
+                                        pathname: goTo,
+                                        state: { oneReview },
+                                    }}
                                 >
                                     <span>編輯</span>
-                                </Link>
+                                </LinkContainer>
                             </div>
                         </>
                     );

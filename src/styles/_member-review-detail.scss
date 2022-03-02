@@ -47,7 +47,16 @@
         .review-form {
             // padding: 50px;
             @include mix.media(padding, $xs: 10px, $md: 50px);
-
+            .r-text-title {
+                resize: none;
+                border-radius: 8px;
+                border: solid 1px rgb(190, 190, 190);
+                outline-style: none;
+                background-color: transparent;
+                -webkit-appearance: none;
+                @include mix.media(width, $xs: 100%, $lg: 50%);
+                @include mix.media(height, $xs: 3rem, $lg: 3rem);
+            }
             .r-text {
                 resize: none;
                 margin: 1.5rem 0;

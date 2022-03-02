@@ -368,6 +368,14 @@ body {
             background-color: $gray;
             background: rgba(196, 196, 196, 0.72);
             border-radius: 50%;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .active {
+            color: black;
+            background-color: transparent;
+            border: 1px solid black;
         }
     }
 }
