@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import axios from 'axios';
 import { API_GET_PRODUCTS } from '../config';
 import '../others/status';
 import { STATUS_MSG } from '../others/status';
+import { routes } from '../routes';
 
 // Context
 const ProductsContext = React.createContext(
@@ -11,8 +13,11 @@ const ProductsContext = React.createContext(
 );
 
 // Provider
+// 元件作用域只有狀態改變時才會進入
 export function ProductsProvider(props) {
-    // state, hook
+    // hook
+    const location = useLocation();
+    // state
     const [products, setProducts] = useState([]);
     const [total, setTotal] = useState(0);
     const [product, setProduct] = useState({});
@@ -52,7 +57,37 @@ export function ProductsProvider(props) {
     useEffect(function () {
         // DidMount
         (async function () {
+            // 初始化系列
+            // console.log('location.pathname :>> ', location.pathname);
+            // console.log('routes.productFood :>> ', routes.productFood);
+            switch (location.pathname) {
+                case routes.productNewest:
+                    optionSeries(null, 1);
+                    break;
+                case routes.productFood:
+                    optionSeries(null, 2);
+                    break;
+                case routes.productWedding:
+                    optionSeries(null, 3);
+                    break;
+                case routes.productFilm:
+                    optionSeries(null, 4);
+                    break;
+                case routes.productScenery:
+                    optionSeries(null, 5);
+                    break;
+                case routes.productPortrait:
+                    optionSeries(null, 6);
+                    break;
+                case routes.product:
+                    optionSeries(null, 0);
+                    break;
+                default:
+                    break;
+            }
+            // axios 取得資料
             reset();
+            // 此函式由於改變 option 狀態所以會渲染兩次 (目前存在渲染次數多餘的問題，待優化)
         })();
 
         // willUnMount

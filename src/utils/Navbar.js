@@ -12,7 +12,21 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
+import { useProductsContext } from '../utils/context/ProductsContext';
+
 function OurNavbar(props) {
+    // Context
+    const products = useProductsContext();
+
+    // 函數
+    // 生成 Click 事件處理器
+    function controlProductsSeries(series_id) {
+        return function (e) {
+            products.optionSeries(e, series_id);
+        };
+    }
+
+    // 渲染
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
@@ -32,22 +46,46 @@ function OurNavbar(props) {
                             id="colorful-product-dropdown"
                         >
                             <LinkContainer to={routes.productFood}>
-                                <NavDropdown.Item>食物</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 2)}
+                                >
+                                    食物
+                                </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productWedding}>
-                                <NavDropdown.Item>婚禮</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 3)}
+                                >
+                                    婚禮
+                                </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productFilm}>
-                                <NavDropdown.Item>復古</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 4)}
+                                >
+                                    復古
+                                </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productScenery}>
-                                <NavDropdown.Item>風景</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 5)}
+                                >
+                                    風景
+                                </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productPortrait}>
-                                <NavDropdown.Item>人像</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 6)}
+                                >
+                                    人像
+                                </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>全系列</NavDropdown.Item>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 0)}
+                                >
+                                    全系列
+                                </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
                         <NavDropdown
