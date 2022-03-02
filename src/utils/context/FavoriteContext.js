@@ -9,6 +9,9 @@ import { useAuthContext } from './AuthContext';
 //provider
 export function wishlistProvider(props) {
     const auth = useAuthContext();
+    //state, hook
     const [favorites, setFavorites] = useState([]);
+
+    if (auth)
 }
 //身分驗證
