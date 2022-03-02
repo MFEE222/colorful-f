@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch, useParams, useLocation } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import ProductImg from '../../images/product-img.jpeg';
+import ClickStar from './ClickStar';
+import ShowStar from '../Product/ShowStar';
 
 function ReviewDetailContent(props) {
     const match = useRouteMatch();
     const location = useLocation();
     const { oneReview } = location.state;
+
+    //狀態
+    const [starCurrent, setStarCurrent] = useState(0); //星星評分
+    const [reviewtTitle, setTitle] = useState(oneReview.title);
+    const [reviewContent, setCotent] = useState(oneReview.content);
     console.log('oneReview :>> ', oneReview);
 
+    //彙整全部的更新一起發api
+
     //TODO:顯示星星,更改星星評分（第一次評分）
+    useEffect(() => {
+        console.log('reviewtTitle :>> ', reviewtTitle);
+        console.log('reviewContent :>> ', reviewContent);
+    }, [reviewtTitle, reviewContent]);
 
     return (
         <div className="col-12 member-review-detail">
@@ -25,45 +38,42 @@ function ReviewDetailContent(props) {
                             </h3>
                             {/* 帶替換商品名字 */}
                             <ul className="d-flex align-items-center pb-2 pb-md-3 ul-unstyle">
-                                <li className="ps-0">
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
-                                <li>
-                                    <i className="fas fa-star"></i>
-                                </li>
+                                {oneReview.stars ? (
+                                    <ShowStar>{oneReview.stars}</ShowStar>
+                                ) : (
+                                    <ClickStar
+                                        starCurrent={starCurrent}
+                                        setStarCurrent={setStarCurrent}
+                                    />
+                                )}
                             </ul>
                         </div>
-                        <label htmlFor=""></label>
+                        {/* <label htmlFor=""></label> */}
                         <textarea
                             className="r-text-title"
                             type="text"
                             id=""
-                            name=""
+                            name="review-title"
                             // {!oneReview.title? placeholder="評論標題":oneReview.title}
                             placeholder={!oneReview.title && '評論標題'}
-                            value={oneReview.title}
-                            onChange={function () {}}
+                            value={reviewtTitle}
+                            onChange={function (e) {
+                                setTitle(e.target.value);
+                            }}
                         />
                         <textarea
                             className="r-text"
                             type="text"
                             id=""
-                            name=""
+                            name="review-content"
                             // value=""
                             placeholder={
                                 !oneReview.content && '告訴別人您有多喜歡此商品'
                             }
-                            value={oneReview.content}
-                            onChange={function () {}}
+                            value={reviewContent}
+                            onChange={function (e) {
+                                setCotent(e.target.value);
+                            }}
                         />
                         {/* </div> */}
                         <div className="d-flex add-box">

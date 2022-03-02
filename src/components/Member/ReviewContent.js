@@ -110,11 +110,13 @@ function ReviewContent(props) {
                                     <h4 className="col-10 col-md-8  align-self-center m-0">
                                         {oneReview.name}
                                     </h4>
-                                    <h5 className="title">{oneReview.title}</h5>
+                                    <h5 className="title mt-3 mt-md-0">
+                                        {oneReview.title}
+                                    </h5>
                                     {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}
-                                    <p className="col col-md-12 me-auto d-none d-md-block">
+                                    <p className="col-md-12 me-auto d-none d-md-block content">
                                         {oneReview.content == null
                                             ? '尚未評論'
                                             : oneReview.content}

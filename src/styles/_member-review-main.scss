@@ -3,17 +3,6 @@
 
 .member-comment {
     @include mix.media(padding, $xs: 0.8rem, $md: 1.5rem);
-    // padding: 1.5rem 0;
-    // @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
-    // border-top: solid 1px #ccc;
-    // @include mix.media(border-radius, $xs: 0, $md: 20px);
-    // height: 300vh;
-    // background-color: #fff;
-    // margin-top: 16px;
-    // margin-bottom: 20px;
-    // @include mix.media(padding, $xs: 0, $md: 2rem);
-    // @include mix.media(box-shadow, $xs: none, $md: 5px 5px 10px silver);
-
     .filter {
         font-size: 12px;
         color: #ffffff;
@@ -88,12 +77,15 @@
             @include mix.media(text-align, $xs: center, $lg: right);
         }
 
-        p {
-            @include mix.media(font-size, $xs: 12px, $lg: 14px);
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 5;
+        .content {
+            // color: red;
+            height: calc(24px * 2);
             overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2; //行數
+            -webkit-box-orient: vertical;
+            white-space: normal;
         }
 
         .btn {

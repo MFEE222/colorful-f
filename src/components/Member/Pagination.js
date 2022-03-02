@@ -14,7 +14,7 @@ function Pagination(props) {
 
     return (
         <>
-            <div className="container">
+            <div className="container mt-4 ">
                 <div className="pagination">
                     <ul>
                         {pages &&
