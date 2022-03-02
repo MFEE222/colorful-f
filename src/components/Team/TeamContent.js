@@ -1,17 +1,49 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Teamdo from '../../images/多多.jpeg';
 import Teamji from '../../images/致緯.jpeg';
 import Teamla from '../../images/頌蓮.jpeg';
 import Teamfi from '../../images/博榆.jpeg';
 import Teamti from '../../images/詩葶.jpeg';
 import SkillPic from '../../images/圓餅圖.png';
+import Github from '../../images/git.png';
 
 function TeamContent(props) {
+    function typeEffect(element, speed) {
+        const text = element.innerHTML;
+        element.innerHTML = '';
+
+        const i = 0;
+        const timer = setInterval(function () {
+            if (i < text.length) {
+                element.append(text.charAt(i));
+                i++;
+            } else {
+                clearInterval(timer);
+            }
+        }, speed);
+    }
+
+    //// application
+    // const speed = 75;
+    // const h2 = document.querySelector('h2');
+    // const p = document.querySelector('p');
+    // const delay = h2.innerHTML.length * speed + speed;
+
+    // // type affect to header
+    // typeEffect(h2, speed);
+
+    // // type affect to body
+    // setTimeout(function () {
+    //     p.style.display = 'inline-block';
+    //     typeEffect(p, speed);
+    // }, delay);
+
     return (
         <main className="t-main">
             <div className="container">
-                <div className="page-one">
-                    <div className="t-head">
+                <div className="page-one" id="table">
+                    <div className="t-head" id="centeralign">
                         <h2 className="t-title">OUR TEAM</h2>
                         <p className="t-subtitle">COLORFUL</p>
                     </div>
@@ -29,10 +61,19 @@ function TeamContent(props) {
                                 <h2 className="d-block text-n">陶靖宇</h2>
                                 <h5 className="text-n2">組長</h5>
                                 <p className="d-block">
-                                    <b>前端</b> 商品列表 商品內容 Navbar<br/>
-                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    <b>前端</b> 商品列表 商品內容 Navbar
+                                    <br />
+                                    <b>後端</b> MySQL資料庫建立 API串接
+                                    <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
+                                <Link to="">
+                                    <img
+                                        className="github"
+                                        src={Github}
+                                        alt=""
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -50,10 +91,19 @@ function TeamContent(props) {
                                 <h2 className="d-block text-n">陳博榆</h2>
                                 <h5 className="text-n2">技術長</h5>
                                 <p className="d-block">
-                                    <b>前端</b> 會員相關頁面 訂單管理 Navbar<br/>
-                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    <b>前端</b> 會員相關頁面 訂單管理 Navbar
+                                    <br />
+                                    <b>後端</b> MySQL資料庫建立 API串接
+                                    <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
+                                <Link to="">
+                                    <img
+                                        className="github"
+                                        src={Github}
+                                        alt=""
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -71,10 +121,19 @@ function TeamContent(props) {
                                 <h2 className="d-block text-n">梁詩葶</h2>
                                 <h5 className="text-n2">美術長</h5>
                                 <p className="d-block">
-                                    <b>前端</b> 會員相關頁面 教學頁<br/>
-                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    <b>前端</b> 會員相關頁面 教學頁
+                                    <br />
+                                    <b>後端</b> MySQL資料庫建立 API串接
+                                    <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
+                                <Link to="">
+                                    <img
+                                        className="github"
+                                        src={Github}
+                                        alt=""
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -92,10 +151,20 @@ function TeamContent(props) {
                                 <h2 className="d-block text-n">蔣頌蓮</h2>
                                 <h5 className="text-n2">組員</h5>
                                 <p className="d-block">
-                                    <b>前端</b> 登入 註冊 忘記密碼 會員相關頁面 關於我們 Footer<br/>
-                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    <b>前端</b> 登入 註冊 忘記密碼 會員相關頁面
+                                    關於我們 Footer
+                                    <br />
+                                    <b>後端</b> MySQL資料庫建立 API串接
+                                    <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
+                                <Link to="">
+                                    <img
+                                        className="github"
+                                        src={Github}
+                                        alt=""
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -113,31 +182,32 @@ function TeamContent(props) {
                                 <h2 className="d-block text-n">江致緯</h2>
                                 <h5 className="text-n2">組長</h5>
                                 <p className="d-block">
-                                    <b>前端</b> 主頁 購物車 會員相關頁面<br/>
-                                    <b>後端</b> MySQL資料庫建立 API串接<br/>
+                                    <b>前端</b> 主頁 購物車 會員相關頁面
+                                    <br />
+                                    <b>後端</b> MySQL資料庫建立 API串接
+                                    <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
+                                <Link to="">
+                                    <img
+                                        className="github"
+                                        src={Github}
+                                        alt=""
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <div className="row t-skill">
+                    {/* <div className="row t-skill">
+                        <TeamSkill />
                         <div className="col-12 col-lg-3 t-left">
                             <h2 className="t-k-title">Skill Tree</h2>
-                            <p>
-                                React
-                                <br />
-                                Javascript
-                                <br />
-                                PHP
-                                <br />
-                                Node.js
-                                <br />
-                            </p>
                         </div>
+
                         <div className="col-12 col-lg-9 t-right">
                             <img className="t-circle" src={SkillPic} alt="" />
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="row t-contact">
                         <h2 className="t-c-title">Contact us</h2>
@@ -166,9 +236,8 @@ function TeamContent(props) {
                                         name="message"
                                         cols="70"
                                         rows="5"
-                                    >
-                                        message
-                                    </textarea>
+                                        placeholder="message"
+                                    ></textarea>
                                 </div>
                                 <button className="t-c-btn" type=" submit">
                                     SUBMIT
