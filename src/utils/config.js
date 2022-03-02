@@ -169,3 +169,16 @@ export const API_GET_PRODUCT = API_URL + '/product';
 //     user_id,    :>> 使用者 id
 // }
 export const API_GET_CART = API_URL + '/cart';
+
+// req:
+// {
+//     userid,
+// }
+// res:
+// {
+//     id,
+//     created_at,
+//     product_id,
+//     user_id,
+// }
+export const API_GET_WISHLIST = API_URL + '/wishlist';

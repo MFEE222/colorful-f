@@ -32,6 +32,7 @@ export const routes = {
     _mailDetail: '/mail-detail',
     _payment: '/payment',
     _collect: '/collect',
+    _wishlist: '/wishlist',
     // test
     _test: '/test',
 
@@ -127,6 +128,9 @@ export const routes = {
     },
     get collect() {
         return this._member + this._collect;
+    },
+    get wishlist() {
+        return this._member + this._wishlist;
     },
     get test() {
         return this._test;
