@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 import { routes } from '../../utils/routes';
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
-// import Slideshow from './slider';
+import Slideshow from './slider';
 
 function Home() {
     
@@ -67,7 +67,7 @@ function Home() {
                 </div>
             </div>
             <div className="h-page4">
-           
+                    <Slideshow />
             </div>
         </div>
     );
