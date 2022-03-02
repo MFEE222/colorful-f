@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useRouteMatch, useParams, useLocation } from 'react-router-dom';
 import { routes } from '../../utils/routes';
-import { Modal, Button } from 'react-bootstrap';
-import Slider from 'react-slick';
+// import { Modal, Button } from 'react-bootstrap';
+// import Slider from 'react-slick';
 import ClickStar from './ClickStar';
 import ShowStar from '../Product/ShowStar';
-import MemberSlider from './MemberSlider';
+// import MemberSlider from './MemberSlider';
 import axios from 'axios';
+import { API_GET_MEMBER_REVIEW_UPDATE } from '../../utils/config';
 
 function ReviewDetailContent(props) {
     const match = useRouteMatch();
@@ -21,36 +22,59 @@ function ReviewDetailContent(props) {
     // console.log('oneReview :>> ', oneReview);
     // const [imgSrc, setImgSrc] = useState('');
     const [imgs, setImgs] = useState([]);
+    const [files, setFiles] = useState([]);
+
     const collect = useRef([]); //接收照片
+    const filesCollect = useRef([]); //接收照片
+
     //圖片
-    const [fileSrc, setFileSrc] = useState(null);
+    // const [fileSrc, setFileSrc] = useState(null);
+
     const handleUploadFile = (e) => {
         const reader = new FileReader();
         for (let i = 0; i < e.target.files.length; i++) {
-            console.log('here');
+            // console.log('here');
             const total = e.target.files.length;
             const reader = new FileReader();
-            console.log('reader :>> ', e.target.files[i].name);
+            // console.log('reader :>> ', e.target.files[i].name);
             reader.readAsDataURL(e.target.files[i]);
+            console.log('e.target.files[i] :>> ', e.target.files[i]);
             reader.addEventListener('load', function () {
                 collect.current.push({
                     resource: reader.result,
                     name: e.target.files[i].name,
                 });
+                filesCollect.current.push(e.target.files[i].name);
                 const newImgs = [...collect.current]; //接收照片在設定給state
+                const newFiles = [...filesCollect.current];
                 setImgs(newImgs);
+                setFiles(newFiles);
             });
         }
-       
     };
-    const handleSubmit=async()=>{
-const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
-    params: {
-    id:oneReview.id,
-    imgs
-   
-}
-})
+
+    // const formData = new FormData();
+
+    // formData.append('image', imgs);
+    // axios.post('upload_file', formData, {
+    //     headers: {
+    //         'Content-Type': 'multipart/form-data',
+    //     },
+    // });
+    async function handleSubmit(e) {
+        e.preventDefault();
+        console.log('here hahaha');
+
+        let formData = new FormData();
+        formData.append('stars', starCurrent);
+        formData.append('title', reviewtTitle);
+        formData.append('content', reviewContent);
+        formData.append('files', files);
+        const response = await axios.post(
+            API_GET_MEMBER_REVIEW_UPDATE,
+            formData
+        );
+        console.log('here hahaha');
     }
 
     //彙整全部的更新一起發api
@@ -59,7 +83,8 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
     useEffect(() => {
         // console.log('reviewtTitle :>> ', reviewtTitle);
         // console.log('reviewContent :>> ', reviewContent);
-    }, [reviewtTitle, reviewContent, imgs]);
+        console.log('files :>> ', files);
+    }, [reviewtTitle, reviewContent, imgs, files]);
 
     return (
         <div className="col-12 member-review-detail">
@@ -91,7 +116,7 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
                             type="text"
                             id=""
                             name="review-title"
-                            placeholder={!oneReview.title && '評論標題'}
+                            placeholder={!oneReview.title ? '評論標題' : ''}
                             value={reviewtTitle}
                             onChange={function (e) {
                                 setTitle(e.target.value);
@@ -103,7 +128,9 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
                             id=""
                             name="review-content"
                             placeholder={
-                                !oneReview.content && '告訴別人您有多喜歡此商品'
+                                !oneReview.content
+                                    ? '告訴別人您有多喜歡此商品'
+                                    : ''
                             }
                             value={reviewContent}
                             onChange={function (e) {
@@ -112,14 +139,14 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
                         />
                         <div className="row flex-nowrap add-box m-0 overflow-scroll">
                             <label
-                                htmlFor="file-upload"
+                                htmlFor="photo"
                                 className="custom-file-upload me-4"
                             >
                                 上傳圖片
                             </label>
                             <input
-                                className=""
-                                id="file-upload"
+                                name="photo"
+                                id="photo"
                                 type="file"
                                 onChange={handleUploadFile}
                                 multiple
@@ -138,6 +165,12 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
                                                     (img) => img.name != name
                                                 );
                                                 setImgs(newImgs);
+                                                const newFilesFinal =
+                                                    files.filter(
+                                                        (file) =>
+                                                            file.name != name
+                                                    );
+                                                setFiles(newFilesFinal);
                                             }}
                                         >
                                             <i className="fas fa-times "></i>
@@ -153,7 +186,7 @@ const response = await axios.post(API_GET_MEMBER_REVIEW_UPDATE, {
                         <Link
                             className="btn submit float-end mt-3"
                             to={routes.review}
-                            onClick={}
+                            onClick={handleSubmit}
                         >
                             <span>完成</span>
                         </Link>
