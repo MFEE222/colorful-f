@@ -1,5 +1,27 @@
-import React from 'react';
+// 內建庫
+import React, { useEffect, useState } from 'react';
+import { useParams, useLocation, Redirect } from 'react-router-dom';
+
+// import { useProductsContext } from './utils/context/ProductsContext';
+// import { useProductDetailContext } from './utils/context/ProductDetailContext';
+
+// 第三方庫
+import axios from 'axios';
+
+// 共用
+import {
+    API_URL,
+    IMG_URL,
+    API_GET_WISHLIST,
+    // API_POST_AUTH_FORGOT_PASSWORD,
+    API_GET_PRODUCTS,
+    API_GET_PRODUCT_TAGS_SERIES,
+} from '../../utils/config';
+
+//Components
 import FilterBarContent from '../Filterbar/FilterBarContent';
+
+//IMG
 import deleteImg from '../../icons/Sortbar/Delete.png';
 import searchImg from '../../icons/Sortbar/Search.png';
 import listViewImg from '../../icons/Sortbar/Listview.png';
@@ -9,9 +31,66 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function WishListContent(props) {
+    // const products = useProductsContext();
+    const [wish, setWish] = useState([]);
+    // const [newProducts, setNewProducts] = useState([]);
+
+    // DidMount
+    useEffect(() => {
+        let getwishlist = async () => {
+            try {
+                let response = await axios.get(API_GET_WISHLIST, {
+                    params: {
+                        userid: 3,
+                    },
+                });
+                console.log('res :>> ', response);
+                setWish(response.data);
+            } catch (err) {
+                console.log('err :>> ', err);
+            }
+        };
+        getwishlist();
+    }, []);
+
+    // useEffect(function () {
+    //     (async function () {
+    //         try {
+    //             console.log('here~~~~~~~~~~~');
+    //             let response = await axios.get(API_GET_WISHLIST, {
+    //                 params: {
+    //                     userid: 3,
+    //                 },
+    //             });
+    //             console.log('res :>> ', response);
+    //             setWish(response.data);
+    //         } catch (err) {
+    //             console.log('err :>> ', err);
+    //         }
+    //     })();
+    // }, []);
+
+    useEffect(
+        function () {
+            console.log('wish :>> ', wish);
+        },
+        [wish]
+    );
+
     //
     return (
         <>
+            {wish.map(function (e) {
+                return (
+                    <div key={e.id}>
+                        <h1>ID {e.id}</h1>
+                        <h2>Date {e.created_at}</h2>
+                        <h2>PID {e.product_id}</h2>
+                        <h2>UID {e.user_id}</h2>
+                    </div>
+                );
+            })}
+
             <div className="list-border">
                 <div className="product-list">
                     {/* xs,sm 搜尋框 */}
@@ -91,167 +170,6 @@ function WishListContent(props) {
                         <div className="col-6 col-md-3">
                             <div className="card-border " data-tilt>
                                 {/* <!-- data-tilt 特效 看是否保留 --> */}
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border ">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
-                                <div className="card-img ">
-                                    <div className="ratios">
-                                        <img src={cardDemo} alt="" />
-                                    </div>
-                                </div>
-                                <div className="card-body text-start p-0 my-2 my-md-4">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <p className="card-title">
-                                            婚禮／Wedding-1
-                                        </p>
-                                        <i className="fas fa-heart"></i>
-                                    </div>
-                                    <div className="text-start">
-                                        NT 20
-                                        <button className="btn btn-warning ">
-                                            <span>加入購物車</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-6 col-md-3">
-                            <div className="card-border">
                                 <div className="card-img ">
                                     <div className="ratios">
                                         <img src={cardDemo} alt="" />

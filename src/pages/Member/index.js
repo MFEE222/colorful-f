@@ -50,7 +50,7 @@ function Member(props) {
                     <Route path={routes.reviewDetail}>
                         <ReviewDetail />
                     </Route>
-                    <Route path={routes.favorite}>
+                    <Route path={routes.wishlist}>
                         <WishList />
                     </Route>
                     <Route path={routes.mail}>
@@ -149,6 +149,14 @@ function Member(props) {
                                         to={routes.collect}
                                     >
                                         Collect
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="btn btn-primary text-light"
+                                        to={routes.wishlist}
+                                    >
+                                        Wishlist
                                     </Link>
                                 </li>
                             </ul>
