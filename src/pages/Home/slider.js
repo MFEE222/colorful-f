@@ -1,34 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import { IMG_HOME_PORTRAIT_BANNER,  IMG_HOME_SCENERY_BANNER, IMG_HOME_FILM_BANNER, IMG_HOME_WEDDING_BANNER, IMG_HOME_FOOD_BANNER} from '../../utils/config';
+import {
+    IMG_HOME_PORTRAIT_BANNER,
+    IMG_HOME_SCENERY_BANNER,
+    IMG_HOME_FILM_BANNER,
+    IMG_HOME_WEDDING_BANNER,
+    IMG_HOME_FOOD_BANNER,
+} from '../../utils/config';
 
 const slides = [
     {
         city: 'Paris',
         country: 'France',
-        img: IMG_HOME_FOOD_BANNER,
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/paris.jpg',
     },
     {
         city: 'Singapore',
-        img: IMG_HOME_WEDDING_BANNER,
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/singapore.jpg',
     },
     {
         city: 'Prague',
         country: 'Czech Republic',
-        img: IMG_HOME_FILM_BANNER,
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/prague.jpg',
     },
     {
         city: 'Amsterdam',
         country: 'Netherlands',
-        img: IMG_HOME_SCENERY_BANNER,
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/amsterdam.jpg',
     },
     {
         city: 'Moscow',
         country: 'Russia',
-        img: IMG_HOME_PORTRAIT_BANNER,
+        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/moscow.jpg',
     },
 ];
+// const slides = [
+//     {
+//         city: 'Paris',
+//         country: 'France',
+//         img: IMG_HOME_FOOD_BANNER,
+//     },
+//     {
+//         city: 'Singapore',
+//         img: IMG_HOME_WEDDING_BANNER,
+//     },
+//     {
+//         city: 'Prague',
+//         country: 'Czech Republic',
+//         img: IMG_HOME_FILM_BANNER,
+//     },
+//     {
+//         city: 'Amsterdam',
+//         country: 'Netherlands',
+//         img: IMG_HOME_SCENERY_BANNER,
+//     },
+//     {
+//         city: 'Moscow',
+//         country: 'Russia',
+//         img: IMG_HOME_PORTRAIT_BANNER,
+//     },
+// ];
 class CitiesSlider extends React.Component {
     constructor(props) {
         super(props);
@@ -61,7 +93,8 @@ class CitiesSlider extends React.Component {
 
     changeSlides(change) {
         window.clearTimeout(this.changeTO);
-        const { length } = this.props.slides;
+        // const { length } = this.props.slides;
+        const { length } = slides;
         const prevSlide = this.state.activeSlide;
         let activeSlide = prevSlide + change;
         if (activeSlide < 0) activeSlide = length - 1;
@@ -79,7 +112,8 @@ class CitiesSlider extends React.Component {
             >
                 <p className="slider__top-heading">Travelers</p>
                 <div className="slider__slides">
-                    {this.props.slides.map((slide, index) => (
+                    {/* {this.props.slides.map((slide, index) => ( */}
+                    {slides.map((slide, index) => (
                         <div
                             className={classNames('slider__slide', {
                                 's--active': activeSlide === index,
@@ -132,11 +166,5 @@ class CitiesSlider extends React.Component {
         );
     }
 }
-
-
-// ReactDOM.render(
-//     <CitiesSlider slides={slides} />,
-//     document.querySelector('#app')
-// );
 
 export default CitiesSlider;
