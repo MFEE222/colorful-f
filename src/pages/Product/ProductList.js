@@ -27,7 +27,7 @@ function ProductList(props) {
     //渲染
     return (
         <>
-            {/* <Banner /> */}
+            <Banner />
             <FilterBar />
 
             <div className="container">

@@ -17,19 +17,17 @@ export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
 export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
 export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
 // Banner
-export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner-1.gif';
+export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner.jpg';
 export const IMG_PRODUCTS_NEWEST_BANNER =
-    IMG_PRODUCTS_NEWEST + '/newest-banner-1.gif';
-export const IMG_PRODUCTS_FOOD_BANNER =
-    IMG_PRODUCTS_FOOD + '/food-banner-1.gif';
+    IMG_PRODUCTS_NEWEST + '/newest-banner.jpg';
+export const IMG_PRODUCTS_FOOD_BANNER = IMG_PRODUCTS_FOOD + '/food-banner.mp4';
 export const IMG_PRODUCTS_WEDDING_BANNER =
-    IMG_PRODUCTS_WEDDING + '/wedding-banner-1.gif';
-export const IMG_PRODUCTS_FILM_BANNER =
-    IMG_PRODUCTS_FILM + '/film-banner-1.gif';
+    IMG_PRODUCTS_WEDDING + '/wedding-banner.mp4';
+export const IMG_PRODUCTS_FILM_BANNER = IMG_PRODUCTS_FILM + '/film-banner.mp4';
 export const IMG_PRODUCTS_SCENERY_BANNER =
-    IMG_PRODUCTS_SCENERY + '/scenery-banner-1.gif';
+    IMG_PRODUCTS_SCENERY + '/scenery-banner.mp4';
 export const IMG_PRODUCTS_PORTRAIT_BANNER =
-    IMG_PRODUCTS_PORTRAIT + '/portrait-banner-1.gif';
+    IMG_PRODUCTS_PORTRAIT + '/portrait-banner.mp4';
 
 // Post Login 登入
 // req

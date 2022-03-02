@@ -162,7 +162,7 @@ export function ProductsProvider(props) {
             const res = await axios.get(API_GET_PRODUCTS, {
                 params: option,
             });
-            console.log('res :>> ', res);
+            // console.log('res :>> ', res);
             if (res.data.statusCode & 1) {
                 throw new Error(STATUS_MSG[res.data.statusCode]);
             }
