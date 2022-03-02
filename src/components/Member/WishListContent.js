@@ -2,9 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation, Redirect } from 'react-router-dom';
 
-// import { useProductsContext } from './utils/context/ProductsContext';
-// import { useProductDetailContext } from './utils/context/ProductDetailContext';
-
 // 第三方庫
 import axios from 'axios';
 
@@ -31,9 +28,7 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function WishListContent(props) {
-    // const products = useProductsContext();
     const [wish, setWish] = useState([]);
-    // const [newProducts, setNewProducts] = useState([]);
 
     // DidMount
     useEffect(() => {
@@ -180,6 +175,7 @@ function WishListContent(props) {
                                         <p className="card-title">
                                             婚禮／Wedding-1
                                         </p>
+                                        {/* 收藏按鈕 */}
                                         <i className="fas fa-heart"></i>
                                     </div>
                                     <div className="text-start">
