@@ -43,90 +43,14 @@ import {
 import { RWDProvider } from './utils/context/RWDContext';
 import { CartProvider } from './utils/context/CartContext';
 
+// export default RatingExampleRating
+import HalfRating from './components/Other/Rating';
+
 function App() {
     return (
         <>
-            <ScrollToTop />
-            <RWDProvider>
-                <ProductsProvider>
-                    <CartProvider>
-                        {/* 導覽列 */}
-                        <Navbar />
-                        {/* 麵包屑 */}
-                        {/* <Breadcrumb /> */}
-                        <div>
-                            <button className="btn btn-danger m-2">
-                                <Link className="text-light" to={routes.home}>
-                                    Home
-                                </Link>
-                            </button>
-                            <button className="btn btn-danger m-2">
-                                <Link className="text-light" to={routes.teach}>
-                                    Teach
-                                </Link>
-                            </button>
-                            <button className="btn btn-danger m-2">
-                                <Link className="text-light" to={routes.team}>
-                                    Team
-                                </Link>
-                            </button>
-                            <button className="btn btn-danger m-2">
-                                <Link className="text-light" to={routes.member}>
-                                    Member
-                                </Link>
-                            </button>
-                            <button className="btn btn-danger m-2">
-                                <Link
-                                    className="text-light"
-                                    to={routes.product}
-                                >
-                                    Product
-                                </Link>
-                            </button>
-                            <button className="btn btn-danger m-2">
-                                <Link className="text-light" to={routes.auth}>
-                                    Auth
-                                </Link>
-                            </button>
-                        </div>
-
-                        {/* A <Switch> looks through its children <Route>s and
-                    renders the first one that matches the current URL. */}
-                        <Switch>
-                            {/* 驗證頁：登入、註冊、忘記密碼 */}
-                            <Route path={routes.auth}>
-                                <Auth />
-                            </Route>
-                            {/* 商品頁：商品列表、商品細節 */}
-                            <Route path={routes.product}>
-                                <Product />
-                            </Route>
-                            {/* 會員頁：個人資料、訂單列表、訂單細節、蒐藏、評論、信件、付款 */}
-                            <Route path={routes.member}>
-                                <Member />
-                            </Route>
-                            {/* 團隊介紹頁 */}
-                            <Route path={routes.team}>
-                                <Team />
-                            </Route>
-                            {/* 教學頁 */}
-                            <Route path={routes.teach}>
-                                <Teach />
-                            </Route>
-                            {/* 主頁 */}
-                            <Route exact path={routes.home}>
-                                <Home />
-                            </Route>
-                            {/* 404 */}
-                            <Route path={routes.error}>
-                                <Error />
-                            </Route>
-                        </Switch>
-
-                        <Footer />
-                    </CartProvider>
-                </ProductsProvider>
-            </RWDProvider>
+            <h1>Hey</h1>
+            <HalfRating />
         </>
     );
 }
