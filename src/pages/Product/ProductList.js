@@ -18,7 +18,7 @@ import Banner from '../../components/Product/Banner';
 import FilterBar from '../../components/Product/FilterBar';
 
 import ProductListContent from '../../components/Product/ProductListContent';
-import Pagination from '../../components/Other/Pagination';
+import Pagination from '../../utils/Pagination';
 import Card from '../../components/Product/Card';
 
 function ProductList(props) {
