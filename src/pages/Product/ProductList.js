@@ -8,10 +8,7 @@ import axios from 'axios';
 // 通用
 import { routes } from '../../utils/routes';
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
-import {
-    ProductsConsumer,
-    useProductsContext,
-} from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 // 自己
 import Banner from '../../components/Product/Banner';

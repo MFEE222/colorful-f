@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
-import { Input, Icon } from 'semantic-ui-react';
-import searchImg from '../../icons/Sortbar/Search.png';
-import sortImg from '../../icons/Sortbar/Sort.png';
-import deleteImg from '../../icons/Sortbar/Delete.png';
 
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import { useRWDContext } from '../../utils/context/RWDContext';
@@ -14,65 +10,10 @@ function FilterBar(props) {
     // Context
     const rwd = useRWDContext();
     const products = useProductsContext();
-    // 屬性 (option 會包物件！請注意)
-    // const { option, setOption } = props;
+
     // 狀態
     const [display, setDisplay] = useState({});
 
-    // 函數
-    // 關鍵字搜尋
-    // function handleKeyword(e) {
-    //     const o = { ...option };
-    //     o.keyword = e.target.value;
-    //     o.offset = 0;
-    //     setOption(o);
-    // }
-    // function handleKeywordReset(e) {
-    //     const o = { ...option };
-    //     o.keyword = '';
-    //     o.offset = 0;
-    //     setOption(o);
-    // }
-    // // 價格
-    // function handleFilterPrice(e) {
-    //     const o = { ...option };
-    //     const p = [...o.price];
-    //     const number = Number(e.target.value);
-    //     console.log('number :>> ', number);
-    //     if (e.target.name == 'min-price') p[0] = number;
-    //     else if (e.target.name == 'max-price') p[1] = number;
-    //     o.price = p;
-    //     o.orderby = 'price';
-    //     o.offset = 0;
-    //     setOption(o);
-    // }
-    // // 價格排序
-    // function handleSortPrice() {
-    //     const o = { ...option };
-    //     o.orderby = 'price';
-    //     if (o.order == 1) o.order = 0;
-    //     else o.order = 1;
-    //     o.offset = 0;
-    //     setOption(o);
-    // }
-    // // 標籤
-    // function handleFilterTags(id) {
-    //     const o = { ...option };
-    //     let t;
-    //     // console.log('typeof t :>> ', typeof t);
-    //     // console.log('typeof o.tags :>> ', typeof o.tags);
-    //     if (o.tags.includes(id)) {
-    //         t = o.tags.filter(function (e) {
-    //             return e != id;
-    //         });
-    //     } else {
-    //         t = [...o.tags];
-    //         t.push(id);
-    //     }
-    //     o.tags = t;
-    //     o.offset = 0;
-    //     setOption(o);
-    // }
     // 排序 JSX
     function orderJSX() {
         let html = '';
