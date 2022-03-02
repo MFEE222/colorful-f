@@ -1,12 +1,13 @@
 @use "variables"as var;
 @use "mixins"as mix;
 
+
 .home {
-    background-color: #e9ecef;
+    background-color: #ffffff;
 
     .h-page1 {
         .h-video {
-            height: 1000px;
+            height: 100vh;
             width: 100%;
 
         }
@@ -67,56 +68,88 @@
     }
 
     .h-page2 {
-        height: 1000px;
+        height: 100vh;
+        // background-image: url("../images/colorful.svg");
+        // background-repeat: no-repeat;
+        // animation: rotate 6s ease;
+
+        // @keyframes rotate {
+        //     from {
+        //         -webkit-transform: rotate(360deg);
+        //     }
+
+        //     to {
+        //         -webkit-transform: rotate(0);
+        //     }
+        // }
+
+
+        .circle {
+            // padding-left: 150px;
+            position: absolute;
+            // left: 5%;
+            @include mix.media(left, $xs:1%, $md:2%);
+            @include mix.media(top, $xs:100% ,$md: 110%);
+            // top: 100%;
+            height: 100%;
+            width: 50%;
+            // z-index: -1;
+            animation: textRotate 15s infinite linear;
+        }
+
+        @keyframes textRotate {
+            from {
+                -webkit-transform: rotate(0);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
 
         .p2-text {
-            position: relative;
-            left: 15%;
-            top: 25%;
+            position: absolute;
+            @include mix.media(left, $xs:13%, $lg:15%);
+
+            // left: 23%;
+            top: 140%;
+            z-index: 1;
 
             .title {
-                font-size: 80px;
-                padding-bottom: 30px;
+                @include mix.media(font-size, $xs:30px, $lg:60px);
+                // font-size: 60px;
+                // padding-bottom: 30px;
+                @include mix.media(padding-bottom, $xs:10px, $lg:30px);
+
             }
 
             .sub-title {
-                font-size: 60px;
-                padding-left: 100px;
-                padding-top: 20px;
+                @include mix.media(font-size, $xs:24px, $lg:48px);
+                @include mix.media(padding-bottom, $xs:10px, $lg:20px);
+
+                // font-size: 48px;
+                // padding-left: 70px;
+                // padding-top: 20px;
             }
         }
 
         .p2-product {
-            position: relative;
-            left: 45%;
-            top: 5%;
+            position: absolute;
+            @include mix.media(left, $xs:40%, $md:35%, $xl: 40%);
+
+            // left: 45%;
+            top: 155%;
 
             .pic {
-                width: 400px;
-                height: 400px;
+                @include mix.media(width, $xs:150px, $md:200px, $lg: 250px, $xl: 350px);
+                @include mix.media(height, $xs:150px, $md:200px,$lg: 250px,  $xl: 400px);
                 object-fit: cover;
-
-
             }
         }
-
-        .p2-more {
-            text-align: right;
-            padding-right: 13%;
-            padding-top: 10%;
-        }
-
-        .more {
-            border-bottom: solid 1px #000000;
-            color: #000000;
-            font-size: 26px;
-            letter-spacing: 10px;
-        }
-
     }
 
     .h-page3 {
-        height: 900px;
+        height: 100vh;
 
         .slider {
             .slide {
@@ -179,8 +212,50 @@
         }
 
     }
+
     .h-page4 {
-        background-color: #ffffff;
-        height: 1000px;
+        background-image: url("../images/test_banner.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        // background-position: right;
+        @include mix.media(background-position, $xs:center, $lg:right);
+        background-attachment: fixed;
+        // object-fit: ;
+        height: 100vh;
+        color: #ffffff;
+        padding-bottom: 20px;
+        @include mix.media(text-align, $xs:center, $md:left);
+
+
+        @keyframes fadein {
+            0% {
+                opacity: 0;
+            }
+
+            // 50% {
+            //     opacity: 1;
+            // }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .title {
+            @include mix.media(font-size, $xs:30px, $lg:60px);
+
+            padding: 100px 20px;
+            // font-size: 60px;
+            letter-spacing: 5px;
+            animation: fadein 6s ease;
+        }
+
+        .text {
+            @include mix.media(font-size, $xs:12px, $lg:20px);
+            padding-left: 20px;
+            // font-size: 20px;
+            animation: fadein 8s ease;
+            padding-bottom: 120px;
+        }
     }
 }

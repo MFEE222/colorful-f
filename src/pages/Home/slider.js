@@ -11,28 +11,29 @@ import {
 
 const slides = [
     {
-        city: 'Paris',
-        country: 'France',
-        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/paris.jpg',
+        city: 'Scenery',
+        country: '24+ Adventure Lightroom Presets',
+        img: 'https://tour.taitung.gov.tw/image/26555/1024x768',
     },
     {
-        city: 'Singapore',
-        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/singapore.jpg',
+        city: 'Food',
+        country: 'Make their shots tasty and powerful',
+        img: 'https://as.chdev.tw/web/article/c/f/4/c13e2895-f32f-40da-be70-38ef46142e431571737530.jpg',
     },
     {
-        city: 'Prague',
-        country: 'Czech Republic',
-        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/prague.jpg',
+        city: 'Wedding',
+        country: 'Light and airy photography style',
+        img: 'https://wedding.esdlife.com/timthumb.php?src=https://wedding.esdlife.com/uploads/2020/10/%E8%A5%BF%E5%BC%8F%E5%A9%9A%E7%A6%AE.jpg',
     },
     {
-        city: 'Amsterdam',
-        country: 'Netherlands',
-        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/amsterdam.jpg',
+        city: 'File',
+        country: 'Classic Film Presets',
+        img: 'https://www.wdreamcastle.com/wp-content/uploads/2020/06/JJJ_1676-scaled.jpg',
     },
     {
-        city: 'Moscow',
-        country: 'Russia',
-        img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/moscow.jpg',
+        city: 'Portrait',
+        country: 'The Perfect Skin Tone Presets',
+        img: 'https://www.cafephoto.pro/wp4/wp-content/uploads/2018/11/2018-11-14-17.51.32-1-1067x700.jpg',
     },
 ];
 // const slides = [
@@ -102,6 +103,8 @@ class CitiesSlider extends React.Component {
         this.setState({ activeSlide, prevSlide });
     }
 
+
+    
     render() {
         const { activeSlide, prevSlide, sliderReady } = this.state;
         return (
@@ -110,7 +113,7 @@ class CitiesSlider extends React.Component {
                     's--ready': sliderReady,
                 })}
             >
-                <p className="slider__top-heading">Travelers</p>
+                {/* <p className="slider__top-heading">Travelers</p> */}
                 <div className="slider__slides">
                     {/* {this.props.slides.map((slide, index) => ( */}
                     {slides.map((slide, index) => (
