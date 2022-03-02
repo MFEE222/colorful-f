@@ -94,24 +94,25 @@
                     border: 1px solid silver;
                     display: inline-block;
                     text-align: center;
-                    @include mix.media(width, $xs: 6rem, $lg: 8rem);
-                    @include mix.media(line-height, $xs: 6rem, $lg: 8rem);
-                    @include mix.media(height, $xs: 6rem, $lg: 8rem);
+                    @include mix.media(width, $xs: 6rem, $lg: 7.2rem);
+                    @include mix.media(line-height, $xs: 6rem, $lg: 7.2rem);
+                    @include mix.media(height, $xs: 6rem, $lg: 7.2rem);
                     cursor: pointer;
                 }
-                // appearance: none;
-                // -moz-appearance: none;
-
-                // input:focus {
-                //     outline: none;
-                // } /*input標籤聚焦不出現預設邊框:*/
-
-                // border: 0; // 去除未選中狀態邊框
-                // outline: none; // 去除選中狀態邊框
-                // background-color: rgba(0, 0, 0, 0); // 透明背景
-                // @include mix.media(width, $xs: 5rem, $md: 6rem);
-                // @include mix.media(height, $xs: 5rem, $md: 6rem);
-                // border: 1px solid silver;
+                .upload-box {
+                    position: relative;
+                    max-width: 115px;
+                    @include mix.media(width, $xs: 6rem, $lg: 7.2rem);
+                    .delete-btn {
+                        position: absolute;
+                        top: 2%;
+                        left: 8%;
+                        z-index: 2;
+                        i {
+                            font-size: 14px;
+                        }
+                    }
+                }
             }
             .img-plus {
                 font-size: 30px;

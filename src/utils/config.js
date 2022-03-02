@@ -171,5 +171,7 @@ export const API_GET_PRODUCT = API_URL + '/product';
 export const API_GET_CART = API_URL + '/cart';
 
 //member
-//member review
+//member review (get)
 export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';
+//member review (post) 更新
+export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
