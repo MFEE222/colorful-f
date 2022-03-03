@@ -50,6 +50,8 @@ function App() {
             <RWDProvider>
                 <ProductsProvider>
                     <CartProvider>
+                              <div className="web-content">
+
                         {/* 導覽列 */}
                         <Navbar />
                         <ScrollToTop />
@@ -123,6 +125,8 @@ function App() {
                                     Auth
                                 </Link>
                             </button>
+                        </div>
+
                         </div>
 
                         <Footer />
