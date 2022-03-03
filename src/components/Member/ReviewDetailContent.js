@@ -16,6 +16,9 @@ function ReviewDetailContent(props) {
 
     //狀態
     const [modalShow, setModalShow] = useState(false);
+
+    // 生命週期
+
     const [starCurrent, setStarCurrent] = useState(0); //星星評分
     const [reviewtTitle, setTitle] = useState(oneReview.title);
     const [reviewContent, setCotent] = useState(oneReview.content);
@@ -23,6 +26,7 @@ function ReviewDetailContent(props) {
     // const [imgSrc, setImgSrc] = useState('');
     const [imgs, setImgs] = useState([]);
     const [files, setFiles] = useState([]);
+    const [FD, setFD] = useState({});
 
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
@@ -31,6 +35,10 @@ function ReviewDetailContent(props) {
     // const [fileSrc, setFileSrc] = useState(null);
 
     const handleUploadFile = (e) => {
+        const formData = new FormData();
+        formData.append('files', e.target.files);
+        setFD(formData);
+        // ============================
         const reader = new FileReader();
         for (let i = 0; i < e.target.files.length; i++) {
             // console.log('here');
@@ -38,13 +46,13 @@ function ReviewDetailContent(props) {
             const reader = new FileReader();
             // console.log('reader :>> ', e.target.files[i].name);
             reader.readAsDataURL(e.target.files[i]);
-            console.log('e.target.files[i] :>> ', e.target.files[i]);
+            // console.log('e.target.files[i] :>> ', e.target.files[i]);
             reader.addEventListener('load', function () {
                 collect.current.push({
                     resource: reader.result,
                     name: e.target.files[i].name,
                 });
-                filesCollect.current.push(e.target.files[i].name);
+                filesCollect.current.push(e.target.files[i]);
                 const newImgs = [...collect.current]; //接收照片在設定給state
                 const newFiles = [...filesCollect.current];
                 setImgs(newImgs);
@@ -63,18 +71,26 @@ function ReviewDetailContent(props) {
     // });
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log('here hahaha');
-
-        let formData = new FormData();
-        formData.append('stars', starCurrent);
-        formData.append('title', reviewtTitle);
-        formData.append('content', reviewContent);
-        formData.append('files', files);
+        // console.log('files :>> ', files);
+        // let formData = new FormData();
+        // formData.append('stars', starCurrent);
+        // formData.append('title', reviewtTitle);
+        // formData.append('content', reviewContent);
+        // formData.append('photo', tmp);
+        // formData.append('uid', oneReview.user_id);
+        // formData.append('rid', oneReview.id);
+        // console.log('formData.values() :>> ', formData.values());
         const response = await axios.post(
             API_GET_MEMBER_REVIEW_UPDATE,
-            formData
+            // formData
+            FD
         );
-        console.log('here hahaha');
+        for (var key of FD.keys()) {
+            console.log('key :>> ', key);
+        }
+        for (var value of FD.values()) {
+            console.log('value :>> ', value);
+        }
     }
 
     //彙整全部的更新一起發api
@@ -83,16 +99,35 @@ function ReviewDetailContent(props) {
     useEffect(() => {
         // console.log('reviewtTitle :>> ', reviewtTitle);
         // console.log('reviewContent :>> ', reviewContent);
-        console.log('files :>> ', files);
+        // console.log('files :>> ', files[0].name);
+        // console.log('imgs :>> ', imgs);
     }, [reviewtTitle, reviewContent, imgs, files]);
 
+    // 函數
+    function handleRemoveImg(name) {
+        const newImgs = imgs.filter((img) => {
+            return img.name != name;
+        });
+        const newFiles = files.filter((file) => {
+            return file.name != name;
+        });
+        setImgs(newImgs);
+        setFiles(newFiles);
+    }
+
+    // useEffect(
+    //     function () {
+    //         // console.log('!!!!!!!files :>> ', files);
+    //     },
+    //     [files]
+    // );
     return (
         <div className="col-12 member-review-detail">
             <div className="">
                 {/* card */}
                 {/* <h4>評論商品</h4> */}
                 <div className=" review-card">
-                    <form className="review-form" action="">
+                    <form className="review-form" action="post">
                         {/* <div className="row"> */}
                         <div className="col-12 col-md-8">
                             <h3 className="my-md-0 mb-lg-2">
@@ -151,32 +186,27 @@ function ReviewDetailContent(props) {
                                 onChange={handleUploadFile}
                                 multiple
                             />
-                            {imgs.map(function (e, j) {
+                            {/* imgs 是圖(ArrayBuffer) */}
+                            {imgs.map(function (img, i) {
+                                // console.log('img.name :>> ', img.name);
                                 return (
                                     <div
+                                        key={i}
                                         className="upload-box p-0 me-2 "
                                         onClick={() => setModalShow(true)}
                                     >
                                         <div
                                             className="delete-btn"
-                                            onClick={function () {
-                                                const name = e.name;
-                                                const newImgs = imgs.filter(
-                                                    (img) => img.name != name
-                                                );
-                                                setImgs(newImgs);
-                                                const newFilesFinal =
-                                                    files.filter(
-                                                        (file) =>
-                                                            file.name != name
-                                                    );
-                                                setFiles(newFilesFinal);
+                                            onClick={() => {
+                                                const current = img.name;
+                                                handleRemoveImg(current);
                                             }}
                                         >
                                             <i className="fas fa-times "></i>
                                         </div>
                                         <div className=" ratio ratio-1x1">
-                                            <img key={j} src={e.resource} />{' '}
+                                            {/* 即時顯示圖片 */}
+                                            <img key={i} src={img.resource} />
                                         </div>
                                     </div>
                                 );
