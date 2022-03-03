@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+import CartCard from '../../components/Cart/CartCard';
+
 function Cart(props) {
-    return <div>Cart ....</div>;
+    return <CartCard />
+
 }
 
 export default Cart;
