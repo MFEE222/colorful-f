@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, CartLink } from 'react-router-dom';
 import CartPic from '../../images/navbar-ex.jpg';
+import { routes } from '../../utils/routes';
+import CartContent from './CartContent';
 
 function CartCard(props) {
     return (
@@ -8,43 +10,54 @@ function CartCard(props) {
 
         <div className="shopping-cart">
             <div className="container">
-                <div className="cart-header">
-                    <div className="title">
-                        <h5 className="total">共有2件商品</h5>
+                <div className="row cart-header">
+                    <div className="col-6">
+                        <h5 className="title">購物車</h5>
+                    </div>
+                    <div className="col-6">
+                        <p className="total-porduct">3件商品</p>
                     </div>
                 </div>
-                <div className="cart-body">
-                    <div className="row cart-item">
-                        <div className="col-4">
-                            <img className="cart-img" src={CartPic} alt="" />
-                        </div>
-                        <div className="col-8">
-                            <h3 className="item-name">瑪莉蓬蓬裙</h3>
-                            <p className="item-price">$76</p>
-                        </div>
+
+                <div className="row cart-card">
+                    <div className="col-4">
+                        <img className="card-img" src={CartPic} alt="" />
                     </div>
-                    <div className="row cart-item">
-                        <div className="col-4">
-                            <img className="cart-img" src={CartPic} alt="" />
-                        </div>
-                        <div className="col-8">
-                            <h3 className="item-name">瑪莉蓬蓬裙</h3>
-                            <p className="item-price">$76</p>
-                        </div>
-                    </div>
-                    <div className="row cart-item">
-                        <div className="col-4">
-                            <img className="cart-img" src={CartPic} alt="" />
-                        </div>
-                        <div className="col-8">
-                            <h3 className="item-name">瑪莉蓬蓬裙</h3>
-                            <p className="item-price">$76</p>
-                        </div>
+                    <div className="col-6">
+                        <h3 className="card-name">瑪莉蓬蓬裙</h3>
+                        <p className="card-price">$76</p>
                     </div>
                 </div>
-                <div className="cart-btn">
-                    <button>查看購物車</button>
+                <div className="row cart-card">
+                    <div className="col-4">
+                        <img className="card-img" src={CartPic} alt="" />
+                    </div>
+                    <div className="col-6">
+                        <h3 className="card-name">瑪莉蓬蓬裙</h3>
+                        <p className="card-price">$76</p>
+                    </div>
                 </div>
+                <div className="row cart-card">
+                    <div className="col-4">
+                        <img className="card-img" src={CartPic} alt="" />
+                    </div>
+                    <div className="col-6">
+                        <h3 className="card-name">瑪莉蓬蓬裙</h3>
+                        <p className="card-price">$76</p>
+                    </div>
+                </div>
+                <div className="row total-price">
+                    <div className="col-6 text">
+                        Total
+                    </div>
+                    <div className="col-6 price">
+                        $228
+                    </div>
+                </div>
+
+                <Link to={CartContent} type="submit" className="cart-btn">
+                    查看購物車
+                </Link>
             </div>
         </div>
     );

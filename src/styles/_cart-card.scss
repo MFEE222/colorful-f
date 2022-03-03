@@ -11,46 +11,88 @@
     // border: solid 1px #000;
     padding: 20px;
     color: #000;
-    height: 100vh;
-    z-index: -1;
+    height: 93%;
+    // z-index: -1;
 
     .cart-header {
-        padding-bottom: 20px;
-        border-bottom: 1px solid #ffffff;
-    }
+        padding-top: 20px;
+        padding-bottom: 10px;
+        // border-bottom: 1px solid #ffffff;
 
-    .cart-body {
-        padding-top: 30px;
+        .title {
+            text-align: left;
+            font-size: 26px;
+        }
 
-        .cart-item {
-            padding-bottom: 40px;
-
-            .cart-img {
-                width: 100px;
-                height: 100px;
-
-            }
-
-            .item-name {
-                font-size: 24px;
-                padding-top: 10px;
-            }
-
-            .item-price {
-                font-size: 20px;
-            }
-
+        .total-porduct {
+            text-align: right;
         }
     }
 
-    .cart-btn {
-        width: 300px;
-        height: 100px;
-        background: #000;
-        color: #fff;
+    .cart-card {
+        background: #ffffff;
+        margin-top: 20px;
+        padding: 25px 10px;
+        border-radius: 15px;
+        // padding-bottom: ;
 
+        .card-img {
+            width: 100px;
+            height: 100px;
+
+        }
+
+        .card-name {
+            font-size: 24px;
+            padding-top: 10px;
+        }
+
+        .card-price {
+            font-size: 20px;
+            color: rgb(209, 82, 82);
+        }
     }
 
+    .total-price {
+        padding: 40px;
+
+        .text {
+            font-size: 20px;
+            text-align: left;
+        }
+
+        .price {
+            font-size: 26px;
+            text-align: right;
+            color: rgb(209, 82, 82);
+        }
+    }
+
+    // .cart-btn {
+    // width: 300px;
+    // height: 100px;
+    // background: #000;
+    // color: #fff;
+
+    // }
+
+    .cart-btn {
+        background: rgb(83, 83, 83);
+        border-radius: 20px;
+        color: #fff;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        font-size: 20px;
+        margin: 25px 0 15px 0;
+    }
+
+    .cart-btn:hover {
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 5px 5px 5px rgb(41, 41, 41);
+    }
 
 
 
@@ -115,16 +157,7 @@
 //         }
 //     }
 
-//     .button {
-//         background: #000;
-//         color: #fff;
-//         text-align: center;
-//         padding: 12px;
-//         text-decoration: none;
-//         display: block;
-//         font-size: 16px;
-//         margin: 25px 0 15px 0;
-//     }
+
 
 //     .button:hover {
 //         background: #fff;
