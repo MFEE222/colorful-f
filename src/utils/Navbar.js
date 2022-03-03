@@ -45,6 +45,13 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
+                            <LinkContainer to={routes.productNewest}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 1)}
+                                >
+                                    最新
+                                </NavDropdown.Item>
+                            </LinkContainer>
                             <LinkContainer to={routes.productFood}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 2)}
@@ -183,7 +190,7 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to={routes.member}>
+                        <LinkContainer to={routes.cart}>
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-cart-link"
