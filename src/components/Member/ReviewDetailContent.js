@@ -19,14 +19,14 @@ function ReviewDetailContent(props) {
 
     // 生命週期
 
-    const [starCurrent, setStarCurrent] = useState(0); //星星評分
+    const [starCurrent, setStarCurrent] = useState(oneReview.stars); //星星評分
     const [reviewtTitle, setTitle] = useState(oneReview.title);
     const [reviewContent, setCotent] = useState(oneReview.content);
     // console.log('oneReview :>> ', oneReview);
     // const [imgSrc, setImgSrc] = useState('');
     const [imgs, setImgs] = useState([]);
     const [files, setFiles] = useState([]);
-    const [FD, setFD] = useState({});
+    // const [FD, setFD] = useState({});
 
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
@@ -37,7 +37,7 @@ function ReviewDetailContent(props) {
     const handleUploadFile = (e) => {
         const formData = new FormData();
         formData.append('files', e.target.files);
-        setFD(formData);
+        // setFD(formData);
         // ============================
         const reader = new FileReader();
         for (let i = 0; i < e.target.files.length; i++) {
@@ -71,24 +71,24 @@ function ReviewDetailContent(props) {
     // });
     async function handleSubmit(e) {
         e.preventDefault();
-        // console.log('files :>> ', files);
-        // let formData = new FormData();
-        // formData.append('stars', starCurrent);
-        // formData.append('title', reviewtTitle);
-        // formData.append('content', reviewContent);
-        // formData.append('photo', tmp);
-        // formData.append('uid', oneReview.user_id);
-        // formData.append('rid', oneReview.id);
-        // console.log('formData.values() :>> ', formData.values());
+        console.log('files :>> ', files);
+        let formData = new FormData();
+        formData.append('stars', starCurrent);
+        formData.append('title', reviewtTitle);
+        formData.append('content', reviewContent);
+        formData.append('photo', files);
+        formData.append('uid', oneReview.user_id);
+        formData.append('rid', oneReview.id);
+        console.log('formData.values() :>> ', formData.values());
         const response = await axios.post(
             API_GET_MEMBER_REVIEW_UPDATE,
-            // formData
-            FD
+            formData
+            // FD
         );
-        for (var key of FD.keys()) {
+        for (var key of formData.keys()) {
             console.log('key :>> ', key);
         }
-        for (var value of FD.values()) {
+        for (var value of formData.values()) {
             console.log('value :>> ', value);
         }
     }
