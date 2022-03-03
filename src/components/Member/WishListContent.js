@@ -18,6 +18,9 @@ import {
 //Components
 import FilterBarContent from '../Filterbar/FilterBarContent';
 
+//utils
+// import FavoriteContext from '../../utils/context/FavoriteContext';
+
 //IMG
 import deleteImg from '../../icons/Sortbar/Delete.png';
 import searchImg from '../../icons/Sortbar/Search.png';
@@ -36,7 +39,7 @@ function WishListContent(props) {
             try {
                 let response = await axios.get(API_GET_WISHLIST, {
                     params: {
-                        userid: 3,
+                        userid: 240,
                     },
                 });
                 console.log('res :>> ', response);
