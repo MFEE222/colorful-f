@@ -1,101 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Img1 from '../../images/婚禮_5.jpg';
 import Img2 from '../../images/wed001.jpg';
+import Auth from '../../pages/Auth';
+import axios from 'axios';
+import { API_GET_MEMBER_DOWNLOAD } from '../../utils/config';
 
 function DownloadContent(props) {
+    //TODO:1.連接資料庫拿下載資料; 2.用按鈕判斷要哪種 3.用狀態紀錄勾選哪些
+    // auth.current=
+    let uid = 1;
+    const [status, setStatus] = useState(0);
+    const [offset, setOffset] = useState(1);
+    const [display, setDisplay] = useState([]);
+    const fetchDownload = async () => {
+        const response = await axios.get(`${API_GET_MEMBER_DOWNLOAD}`, {
+            params: {
+                uid,
+                status, //all->0->status 1 & 2 //未下載status = 1 // 已下載 status = 2
+                offset,
+            },
+        });
+    };
+    useEffect(() => {
+        fetchDownload();
+    }, []);
     return (
         <main className="col-12 col-md-10 member-profile-main">
-            {/* <!-- title --> */}
-            <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center">
-                {/* <div className="col-7"> */}
-                {/* me是右邊的意思 用margin去擠開 */}
-                <div className="col-lg-auto me-auto">
-                    <h1>下載區</h1>
-                </div>
-
-                {/* <!-- search --> */}
-                <div className="col-lg-4">
-                    <div className="row">
-                        <div className="mb-2">
-                            <input
-                                type="text"
-                                className="form-control col-12"
-                                id="exampleFormControlInput1"
-                                placeholder="搜尋"
-                            />
-                        </div>
-                        <div className="">
-                            <button
-                                type="button"
-                                className="btn btn-outline-secondary col-12 "
-                            >
-                                <i className="fas fa-caret-down me-2"></i>
-                                依照購買日期排序
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {/* <!-- line --> */}
             <div className="row justify-content-center">
-                <div className="col-6 border my-5"></div>
+                <div className="filter mt-sm-5 my-sm-3 my-md-5">
+                    <div className="filter-box d-flex">
+                        <ul className="sort-series p-0">
+                            <li
+                                className="active py-1 px-2 py-md-2 px-md-3"
+                                onClick={function () {
+                                    setStatus(0);
+                                }}
+                            >
+                                全部
+                            </li>
+                            <li
+                                className="py-1 px-2 py-md-2 px-md-3"
+                                onClick={function () {
+                                    setStatus(1);
+                                }}
+                            >
+                                未下載
+                            </li>
+                            <li
+                                className="py-1 px-2 py-md-2 px-md-3"
+                                onClick={function () {
+                                    setStatus(2);
+                                }}
+                            >
+                                已下載
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="line"></div>
+                </div>
             </div>
 
             {/* <!-- top content left --> */}
-            <div className="row justify-content-around">
-                <div className="col-auto col-lg-5 p-0 ">
-                    <div className="card border-0" style={{ width: '18rem' }}>
-                        <img src={Img1} className="card-img-top" alt="..." />
-                        <div className="card-body">
-                            <h5 className="text-center fw-bold">WEDDING</h5>
-                            <p className="card-text text-center text-black-50">
-                                Recycle Boucle Knit Cardigan Pink
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* <!-- top content right --> */}
-                <div className="col-12 col-lg-5">
-                    <div className="row">
-                        <div className="col-12 text-center mb-3">
-                            <button
-                                type="button"
-                                className="btn btn-lg btn-warning mt-2 col-8 rounded-pill text-light"
-                            >
-                                DOWNLOAD
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-lg btn-light border mt-2 col-2 rounded-pill text-black-50"
-                            >
-                                <i className="fas fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <p className="fs-5">YOU MAY ALSO LIKE</p>
-                        </div>
-                    </div>
-
-                    {/* <!-- line --> */}
-                    <div className="row justify-content-center">
-                        <div className="col-4 border mb-5"></div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <button
-                                type="button"
-                                className="btn btn-lg btn-warning mt-5 col-8 rounded-pill text-light"
-                            >
-                                DOWNLOAD
-                            </button>
-                        </div>
-                    </div>
+            <div className="row justify-content-end">
+                <div className="col-4 text-center mb-3">
+                    <button
+                        type="button"
+                        className="btn btn-lg btn-warning mt-2 col-8 rounded-pill text-light"
+                    >
+                        DOWNLOAD
+                    </button>
                 </div>
             </div>
 
@@ -291,13 +266,58 @@ function DownloadContent(props) {
             </div>
 
             {/* <!-- Pagination --> */}
-
             {/* <!-- line --> */}
-            <div className="row justify-content-center">
+            {/* <div className="row justify-content-center">
                 <div className="col-7 border mb-5"></div>
-            </div>
+            </div> */}
         </main>
     );
 }
 
 export default DownloadContent;
+
+{
+    /* <!-- title --> */
+}
+{
+    /* <div className="row m-3 border border-secondary rounded-3 p-3 align-items-center"> */
+}
+{
+    /* <div className="col-7"> */
+}
+{
+    /* me是右邊的意思 用margin去擠開 */
+}
+{
+    /* <div className="col-lg-auto me-auto">
+                    <h1>下載區</h1>
+                </div> */
+}
+
+{
+    /* <!-- search --> */
+}
+{
+    /* <div className="col-lg-4">
+                    <div className="row">
+                        <div className="mb-2">
+                            <input
+                                type="text"
+                                className="form-control col-12"
+                                id="exampleFormControlInput1"
+                                placeholder="搜尋"
+                            />
+                        </div>
+                        <div className="">
+                            <button
+                                type="button"
+                                className="btn btn-outline-secondary col-12 "
+                            >
+                                <i className="fas fa-caret-down me-2"></i>
+                                依照購買日期排序
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> */
+}
