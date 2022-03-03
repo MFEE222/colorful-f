@@ -33,14 +33,15 @@ function ProductList(props) {
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {products.all.length > 0 ? (
-                        products.all.map((v) => {
-                            const goTo = `${match.path}/detail/${v.id}`;
+                        products.all.map(function (e) {
                             return (
-                                <div key={v.id} className="col-6 col-md-3">
+                                <div key={e.id} className="col-6 col-md-3">
                                     <Card
-                                        product={v}
-                                        goTo={goTo}
-                                        find={products.find}
+                                        product={e}
+                                        to={routes.productDetail(e.id)}
+                                        onEvent={function () {
+                                            products.find(e);
+                                        }}
                                     />
                                 </div>
                             );

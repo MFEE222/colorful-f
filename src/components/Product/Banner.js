@@ -24,6 +24,7 @@ function Banner(props) {
     let imgBanner = '';
 
     // 選擇要顯示的 Banner (是否可以做一個 OnEvent 在 ProductsContext 中，讓個元件註冊 option didupdate 後要執行的 callback)
+    // FIXME: 影片播放中途路由切換，無法正確變更成新的影片
     switch (match.path) {
         case routes.productNewest:
             imgBanner = (

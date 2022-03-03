@@ -1,45 +1,27 @@
 // 內建
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
+import { ProductsConsumer } from '../../utils/context/ProductsContext';
 
-// 第三方
-import { Label, Segment } from 'semantic-ui-react';
-// 共用
-import { IMG_URL } from '../../utils/config';
+// 通用
 import { routes } from '../../utils/routes';
-
-// 自己
-// import { imgName } from '../../utils/imageName';
-//context
-// import ProductListContext from './ProductListContent';
-// 圖片
-import cardDemo from '../../images/navbar-ex-1.jpg';
 
 function Card(props) {
     // 屬性
-    const { product, goTo, find } = props;
-    const imgName = '';
-    // 變數
-    const imgUrl = `${IMG_URL}/${product.img}${imgName.a0}`;
+    const { product, to, onEvent } = props;
+
+    // 商品封面圖
+    const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
+    console.log('cover :>> ', cover);
 
     // 渲染
     return (
         <>
             <div className="card-border ">
-                <LinkContainer
-                    to={{
-                        pathname: goTo,
-                    }}
-                    onClick={function () {
-                        console.log('goTo :>> ', goTo);
-                        console.log('product :>> ', product);
-                        find(product);
-                    }}
-                >
+                <LinkContainer to={{ pathname: to }} onClick={onEvent}>
                     <div className="card-img ">
                         <div className="ratios">
-                            <img src={imgUrl} alt="" />
+                            <img src={cover} alt="" />
                         </div>
                     </div>
                 </LinkContainer>
