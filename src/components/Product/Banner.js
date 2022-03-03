@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 // 通用
-import {
-    IMG_PRODUCTS_ALL_BANNER,
-    IMG_PRODUCTS_NEWEST_BANNER,
-    IMG_PRODUCTS_FOOD_BANNER,
-    IMG_PRODUCTS_WEDDING_BANNER,
-    IMG_PRODUCTS_FILM_BANNER,
-    IMG_PRODUCTS_SCENERY_BANNER,
-    IMG_PRODUCTS_PORTRAIT_BANNER,
-} from '../../utils/config';
+// import {
+//     IMG_PRODUCTS_ALL_BANNER,
+//     IMG_PRODUCTS_NEWEST_BANNER,
+//     IMG_PRODUCTS_FOOD_BANNER,
+//     IMG_PRODUCTS_WEDDING_BANNER,
+//     IMG_PRODUCTS_FILM_BANNER,
+//     IMG_PRODUCTS_SCENERY_BANNER,
+//     IMG_PRODUCTS_PORTRAIT_BANNER,
+// } from '../../utils/config';
+
+import IMG_PRODUCTS_ALL_BANNER from '../../images/banner/all-banner.jpg';
+import IMG_PRODUCTS_NEWEST_BANNER from '../../images/banner/newest-banner.jpg';
+import IMG_PRODUCTS_FOOD_BANNER from '../../images/banner/food-banner.mp4';
+import IMG_PRODUCTS_WEDDING_BANNER from '../../images/banner/wedding-banner.mp4';
+import IMG_PRODUCTS_FILM_BANNER from '../../images/banner/film-banner.mp4';
+import IMG_PRODUCTS_SCENERY_BANNER from '../../images/banner/scenery-banner.mp4';
+import IMG_PRODUCTS_PORTRAIT_BANNER from '../../images/banner/portrait-banner.mp4';
 import { routes } from '../../utils/routes';
 
 // Context
