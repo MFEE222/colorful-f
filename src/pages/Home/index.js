@@ -16,6 +16,7 @@ import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
 
 import page4 from '../../images/b0.jpg';
+import page2 from "../../images/home-p2.jpg";
 
 import Slideshow from './slider';
 
@@ -39,26 +40,7 @@ function Home() {
             </div>
             {/* before/after */}
             <div className="h-page2" id="page2">
-                <img className="circle" src={circle} alt="" />
-                {/* <img className="circle" src={circle1} alt="" /> */}
-
-                <div className="p2-text">
-                    <h2 className="title">擔心照片不好看嗎？</h2>
-                    <h5 className="sub-title">
-                        新手小白也能
-                        <br />
-                        輕鬆修圖！！
-                    </h5>
-                </div>
-                <div className="p2-product">
-                    <img className="pic" src={portrait} alt="" />
-                    <img className="pic" src={portrait1} alt="" />
-                </div>
-                {/* <div className="p2-more">
-                    <Link to={routes.product} className="more">
-                        VIEW MORE
-                    </Link>
-                </div> */}
+                <img className="pic" src={page2} alt="" />
             </div>
             {/* slide 系列圖 */}
             <div className="h-page3">
