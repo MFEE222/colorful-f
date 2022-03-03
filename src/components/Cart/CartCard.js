@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, CartLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CartPic from '../../images/navbar-ex.jpg';
 import { routes } from '../../utils/routes';
 import CartContent from './CartContent';

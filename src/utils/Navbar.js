@@ -13,6 +13,7 @@ import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
 import { useProductsContext } from '../utils/context/ProductsContext';
+// import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
     // Context
@@ -202,7 +203,11 @@ function OurNavbar(props) {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            {/* <CartCard /> */}
         </Navbar>
+
+    
+
     );
 }
 

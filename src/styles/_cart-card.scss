@@ -4,6 +4,7 @@
 
 
 .shopping-cart {
+    // opacity: 0;
     position: absolute;
     right: 0;
     width: 400px;
@@ -12,7 +13,7 @@
     padding: 20px;
     color: #000;
     height: 93%;
-    // z-index: -1;
+    z-index: -1;
 
     .cart-header {
         padding-top: 20px;
@@ -94,11 +95,10 @@
         box-shadow: 5px 5px 5px rgb(41, 41, 41);
     }
 
-
-
-
-
 }
+// .shopping-cart:hover {
+//     opacity: 1;
+// }
 
 
 //     position: absolute;
