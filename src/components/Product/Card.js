@@ -1,54 +1,41 @@
 // 內建
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
+import { ProductsConsumer } from '../../utils/context/ProductsContext';
 
-// 共用
-import { IMG_URL } from '../../utils/config';
+// 通用
 import { routes } from '../../utils/routes';
-
-// 自己
-import { imgName } from '../../utils/imageName';
-
-// 圖片
-import cardDemo from '../../images/navbar-ex-1.jpg';
 
 function Card(props) {
     // 屬性
-    const { product, goTo } = props;
+    const { product, to, onEvent } = props;
 
-    // 變數
-    const imgUrl = `${IMG_URL}/${product.img}${imgName.a0}`;
+    // 商品封面圖
+    const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
+    console.log('cover :>> ', cover);
 
     // 渲染
     return (
         <>
-            <div className="card-border " data-tilt>
-                {/* data-tilt 特效 看是否保留 */}
-                <LinkContainer
-                    to={{
-                        pathname: goTo,
-                        state: { product },
-                    }}
-                >
+            <div className="card-border ">
+                <LinkContainer to={{ pathname: to }} onClick={onEvent}>
                     <div className="card-img ">
                         <div className="ratios">
-                            <img src={imgUrl} alt="" />
+                            <img src={cover} alt="" />
                         </div>
                     </div>
                 </LinkContainer>
-                <div className="card-body text-start p-0 mt-2 mb-3">
-                    <div className="d-flex justify-content-between align-items-baseline">
+                <div className="card-body  row d-flex text-start justify-content-between p-0 mt-2 mb-4 align-items-baseline">
+                    <div className="d-flex justify-content-between align-items-baseline mb-1">
                         <p className="card-title mb-0">{product.name}</p>
-                        <i className="fas fa-heart"></i>
+                        <i className="fas fa-heart heart"></i>
                     </div>
                     <div className="text-start d-flex  justify-content-between">
                         NT. {product.price}
-                        <button className="add-cart">加入購物車</button>
+                        <i className="fas fa-shopping-cart"></i>
                     </div>
                 </div>
             </div>
-            {/* </Link> */}
         </>
     );
 }

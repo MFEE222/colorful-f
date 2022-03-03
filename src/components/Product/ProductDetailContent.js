@@ -4,17 +4,14 @@ import { useParams, useLocation, Redirect } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
-
+import ReactBeforeAfter from 'react-before-after';
 // 共用
 import { IMG_URL, API_URL } from '../../utils/config';
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 // 自己
-import { imgName } from '../../utils/imageName';
-import Pagination from '../Pagination/Pagination';
-import Card from './Card';
-import RecommendCard from './RecommendCard';
+// import { imgName } from '../../utils/imageName';
 import ShowStar from './ShowStar';
-import ReviewDetail from './ReviewDetail';
 
 // 圖片
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
@@ -24,22 +21,21 @@ import { routes } from '../../utils/routes';
 
 function ProductDetailContent(props) {
     // 狀態、勾子
-    // const detialData = props.detialData;
-    const location = useLocation();
-    if (!location.state) return <Redirect to={routes.productList} />;
-
-    // console.log('detialData :>> ', detialData);
-    // console.log('location :>> ', location);
-
+    const products = useProductsContext();
+    const product = products.current;
+    const [current, setCurrent] = useState('');
+    // console.log('product :>> ', product);
     // 變數
-    const { product } = location.state;
     const imgUrlAfter = [
         `${IMG_URL}/${product.img}${imgName.a0}`,
         `${IMG_URL}/${product.img}${imgName.a1}`,
         `${IMG_URL}/${product.img}${imgName.a2}`,
     ];
-    const imgUrlBefore = [`${IMG_URL}/${product.img}${imgName.b0}`];
-
+    const imgUrlBefore = `${IMG_URL}/${product.img}${imgName.b0}`;
+    useEffect(() => {
+        setCurrent(`${IMG_URL}/${product.img}${imgName.a0}`);
+    }, [products.current]);
+    const imgName = '';
     // 渲染
     return (
         product && (
@@ -48,11 +44,16 @@ function ProductDetailContent(props) {
                     <div className="row pd-1 pd-shared">
                         {/* 大張商品示意圖 */}
                         <div className="col-12 col-md-6 order-1">
-                            <div className="img-big">
-                                <div className="ratios">
+                            {/* <div className="img-big"> */}
+                            <ReactBeforeAfter
+                                className="w-25"
+                                beforeSrc={imgUrlBefore}
+                                afterSrc={current}
+                            />
+                            {/* <div className="ratios">
                                     <img src={imgUrlAfter[0]} alt="" />
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                         </div>
                         {/* 商品詳細描述 */}
                         <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">
@@ -73,7 +74,7 @@ function ProductDetailContent(props) {
                                     {product.descp}
                                 </p>
                             </div>
-                            <div className="col-12 row p-0 m-0 align-items-center justify-content-between">
+                            <div className="col-12 row p-0 m-0 align-items-center justify-content-between mt-md-3">
                                 <div className="col-auto  mb-xl-2">
                                     <div className="wish-list-2 mb-xl-1">
                                         <i className="far fa-heart"></i>
@@ -86,109 +87,44 @@ function ProductDetailContent(props) {
                                     <button className="add-cart">
                                         加入購物車
                                     </button>
-                                    {/* react bootstrap Modals 加入成功 */}
+                                    {/*//TODO:react bootstrap Modals 加入成功 */}
                                 </div>
                             </div>
                         </div>
                         {/* 小張圖片可更換商品示意圖 */}
-                        <div className="col-8 col-md-4 order-2 order-md-3 row mt-3 img-list">
-                            <div className="col p-1">
-                                <div className="img-small">
-                                    <div className="ratios ">
-                                        <img src={imgUrlAfter[1]} alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col p-1">
+                        <div className="col-6 col-md-3 order-2 order-md-3 row mt-3 img-list">
+                            {imgUrlAfter.map((v) => {
+                                return (
+                                    <>
+                                        <div className="col p-1">
+                                            <div className="img-small">
+                                                <div
+                                                    className="ratios "
+                                                    onClick={function () {
+                                                        setCurrent(v);
+                                                        console.log(
+                                                            'current :>> ',
+                                                            current
+                                                        );
+                                                    }}
+                                                >
+                                                    <img src={v} alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </>
+                                );
+                            })}
+
+                            {/* <div className="col p-1">
                                 <div className="img-small">
                                     <div className="ratios ">
                                         <img src={imgUrlAfter[2]} alt="" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
-                    {/* 熱銷排行 md 以上評論 標題*/}
-                    <div className="my-5 recommend pd-2 pd-shared">
-                        <RecommendCard />
-                    </div>
-                    {/* xs,sm 評論細節 */}
-                    <div className="pt-md-3 pd-3 pd-shared">
-                        <div className="review-title">
-                            <div className="text-box">
-                                <div className="phone-title p-0">
-                                    <h3 className="text-center d-md-none">
-                                        評論
-                                    </h3>
-                                    <p className="m-0 e-title text-center">
-                                        CUSTOMER REVIEWS
-                                    </p>
-                                    <div>
-                                        <img
-                                            className="d-md-none"
-                                            src={ImgIcon}
-                                            alt=""
-                                        />
-                                    </div>
-
-                                    <div className="d-md-none">
-                                        <h3> {product.name}</h3>
-                                        <ul className="d-flex justify-content-center align-items-center ul-unstyle">
-                                            <li className="ps-0">
-                                                <i className="far fa-star active"></i>
-                                            </li>
-                                            <li>
-                                                <p className="m-0">
-                                                    {' '}
-                                                    {product.stars}/5
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p className="ms-2 reviews-text text-dark">
-                                                    {product.review_counts}
-                                                    則評論
-                                                </p>
-                                            </li>
-                                        </ul>
-
-                                        <div className="col-auto align-self-center mt-3">
-                                            <button className="add-review">
-                                                撰寫評論
-                                            </button>
-                                            {/* 判斷是否登入->導向登入會員 */}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* md 以上評論細節 */}
-                    <div className="d-none d-md-block pd-4 pd-shared">
-                        <div className="review-box row justify-content-between mt-3 ">
-                            <div className="col-auto">
-                                <h3 className="mb-3 d-md-none">
-                                    {product.name}
-                                </h3>
-                                <h3 className="m-0 text-center score ">
-                                    {product.stars}/5
-                                </h3>
-                                <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1 ul-unstyle">
-                                    <ShowStar>{product.stars}</ShowStar>
-                                </ul>
-                                <p className="text-center review-count">
-                                    {product.review_counts} 則評論
-                                </p>
-                            </div>
-                            <div className="col-auto align-self-center">
-                                <button className="add-review">撰寫評論</button>
-                                {/* 判斷是否登入->導向登入會員 */}
-                            </div>
-                        </div>
-                    </div>
-                    {/* 評論區 */}
-                    <ReviewDetail>{product.id}</ReviewDetail>
-                    {/* Pagination */}
-                    <Pagination />
                 </div>
             </>
         )

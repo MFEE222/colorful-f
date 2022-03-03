@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 @import "bootstrap";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 // font:
@@ -56,17 +59,16 @@
 @import "member-review-main";
 @import "member-review-detail";
 
-
 // member mail page
 @import "member-mail-content";
 @import "member-mail-detail-content";
 
 // product list page
-// @import "product-list-main";
-@import "product-list-main-1";
+@import "product-list-main";
 
 // product detail page
 @import "product-detail";
+@import "review-slider";
 
 // signin page
 @import "signin";

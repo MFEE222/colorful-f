@@ -11,9 +11,10 @@ import {
 // 第三方
 import axios from 'axios';
 
+import Slider from 'react-slick';
 // 共用
 import { API_URL } from '../../utils/config';
-
+import { useProductsContext } from '../../utils/context/ProductsContext';
 // 自己
 import Card from './Card';
 
@@ -23,22 +24,38 @@ import decBar from '../../icons/dec-bar.png';
 
 function RecommendCard(props) {
     // 狀態、勾子
-    const [products, setProducts] = useState([]); // 和商品列表的 products 狀態不一樣
     const match = useRouteMatch();
-
-    // 函數
-    const fetchRank = async () => {
-        // const api = `${API_URL}/product/rank`;
-        // const response = await axios.get(api);
-        // console.log('response :>> ', response);
-        // setProducts(response.data.rank);
+    const products = useProductsContext();
+    const recommend = props.recommend.recommend;
+    // console.log('recommend :>> ', recommend);
+    var settings = {
+        centerPadding: 30,
+        dots: false,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+        pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2,
+                },
+            },
+        ],
     };
-
-    // 生命週期
-    useEffect(() => {
-        fetchRank();
-    }, []); // 掛載
-
     // 渲染
     return (
         <>
@@ -61,22 +78,26 @@ function RecommendCard(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="recommend-card row">
-                        {products &&
-                            products.map((product) => {
-                                const api = `/product/detail/${product.id}`;
-                                /* const api = {routes.productDetail/${product.id}};  */
-                                return (
-                                    <div className="col-6 col-md-3">
-                                        <Card
-                                            key={product.id}
-                                            product={product}
-                                            goTo={api}
-                                            className="link"
-                                        />
-                                    </div>
-                                );
-                            })}
+                    <div className="recommend-card row flex-nowrap overflow-scroll ">
+                        <Slider {...settings}>
+                            {recommend &&
+                                recommend.map((v) => {
+                                    const goTo = `${match.path}/detail/${v.id}`;
+                                    return (
+                                        <div
+                                            key={v.id}
+                                            className="col-6 col-md-3 solve-padding"
+                                        >
+                                            <Card
+                                                product={v}
+                                                goTo={goTo}
+                                                className="mx-4"
+                                                find={products.find}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                        </Slider>
                     </div>
                 </div>
             </div>
