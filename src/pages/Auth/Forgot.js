@@ -70,9 +70,9 @@ function Forgot(props) {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">Forgot Password ?</h4>
+                                <h4 className="box-title">忘記密碼 ?</h4>
                                 <p className="f-subtitle">
-                                    Enter your email address
+                                    輸入註冊 E-mail
                                 </p>
                                 <div className="form-floating">
                                     <input
@@ -87,7 +87,7 @@ function Forgot(props) {
                                     </label>
                                 </div>
                                 <p className="f-subtitle">
-                                    Enter your password hint keyword
+                                    輸入密碼提示
                                 </p>
                                 <div className="form-floating">
                                     <input
@@ -102,7 +102,7 @@ function Forgot(props) {
                                     </label>
                                 </div>
                                 <div className="form-btn">
-                                    <button type="submit">Submit</button>
+                                    <button type="submit">送出</button>
                                 </div>
                             </form>
                         </div>

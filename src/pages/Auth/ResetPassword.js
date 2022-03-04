@@ -40,8 +40,8 @@ const ResetPassword = (props) => {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">Reset Password</h4>
-                                <p className="f-subtitle">New Password</p>
+                                <h4 className="box-title">重設密碼</h4>
+                                <p className="f-subtitle">新密碼</p>
                                 <div className="form-floating">
                                     <input
                                         type="password"
@@ -56,7 +56,7 @@ const ResetPassword = (props) => {
                                         New Password
                                     </label>
                                 </div>
-                                <p className="f-subtitle">Confirm Password</p>
+                                <p className="f-subtitle">確認密碼</p>
                                 <div className="form-floating">
                                     <input
                                         type="password"
@@ -76,7 +76,7 @@ const ResetPassword = (props) => {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        Submit
+                                        送出
                                     </button>
                                 </div>
                             </form>

@@ -100,7 +100,7 @@ function Signin(props) {
                                 </div>
                                 <div className="forgot mt-3">
                                     <Link to={routes.forgot} className="l-link">
-                                        forgot password ?
+                                        忘記密碼 ?
                                     </Link>
                                 </div>
                                 <div id="check-box-slide">
@@ -115,7 +115,7 @@ function Signin(props) {
                                 </div>
                                 
                                 
-                                <div className="l-icon mt-4 mb-3">
+                                {/* <div className="l-icon mt-4 mb-3">
                                     <Link
                                         to={routes.home}
                                         className="l-icon-link"
@@ -128,23 +128,23 @@ function Signin(props) {
                                     >
                                         <i className="fab fa-google fa-fw"></i>
                                     </Link>
-                                </div>
-                                <div className="form-btn mt-4">
+                                </div> */}
+                                <div className="form-btn mt-5">
                                     <button
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        Sign in
+                                        登入
                                     </button>
                                 </div>
                                 <div>
                                     <p className="signup">
-                                        Don't have account?
+                                        沒有帳號?
                                         <Link
                                             to={routes.signup}
                                             className="l-link"
                                         >
-                                            Sign up
+                                            註冊
                                         </Link>
                                     </p>
                                 </div>

@@ -43,7 +43,7 @@ const Signup = (props) => {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">SIGN UP</h4>
+                                <h4 className="box-title">註冊</h4>
                                 <div className="form-floating">
                                     <input
                                         type="text"
@@ -113,7 +113,7 @@ const Signup = (props) => {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        Sign in
+                                        註冊
                                     </button>
                                 </div>
                             </form>

@@ -81,14 +81,14 @@ const SigninContent = () => {
                                         forgot password ?
                                     </Link>
                                 </div>
-                                <div className="l-icon mt-5 mb-3">
+                                {/* <div className="l-icon mt-5 mb-3">
                                     <Link to="/" className="l-icon-link">
                                         <i className="fab fa-facebook-f fa-fw"></i>
                                     </Link>
                                     <Link to="/" className="l-icon-link">
                                         <i className="fab fa-google fa-fw"></i>
                                     </Link>
-                                </div>
+                                </div> */}
                                 <div className="form-btn mt-5">
                                     <button
                                         type="submit"
