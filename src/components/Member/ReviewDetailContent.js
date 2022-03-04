@@ -26,8 +26,6 @@ function ReviewDetailContent(props) {
     // const [imgSrc, setImgSrc] = useState('');
     const [imgs, setImgs] = useState([]);
     const [files, setFiles] = useState([]);
-    const [FD, setFD] = useState({});
-
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
 
@@ -35,9 +33,7 @@ function ReviewDetailContent(props) {
     // const [fileSrc, setFileSrc] = useState(null);
 
     const handleUploadFile = (e) => {
-        const formData = new FormData();
-        formData.append('files', e.target.files);
-        setFD(formData);
+        console.log('here');
         // ============================
         const reader = new FileReader();
         for (let i = 0; i < e.target.files.length; i++) {
@@ -60,47 +56,30 @@ function ReviewDetailContent(props) {
             });
         }
     };
-
-    // const formData = new FormData();
-
-    // formData.append('image', imgs);
-    // axios.post('upload_file', formData, {
-    //     headers: {
-    //         'Content-Type': 'multipart/form-data',
-    //     },
-    // });
     async function handleSubmit(e) {
         e.preventDefault();
-        // console.log('files :>> ', files);
-        // let formData = new FormData();
-        // formData.append('stars', starCurrent);
-        // formData.append('title', reviewtTitle);
-        // formData.append('content', reviewContent);
-        // formData.append('photo', tmp);
-        // formData.append('uid', oneReview.user_id);
-        // formData.append('rid', oneReview.id);
-        // console.log('formData.values() :>> ', formData.values());
+        const formData = new FormData();
+        for (let i = 0; i < files.length; i++) {
+            formData.append('photos', files[i]);
+        }
+        const data = {
+            rid: oneReview.id,
+            stars: starCurrent,
+            title: reviewtTitle,
+            content: reviewContent,
+        };
+        formData.append('data', data);
+        console.log('formData :>> ', formData);
         const response = await axios.post(
-            API_GET_MEMBER_REVIEW_UPDATE,
-            // formData
-            FD
+            API_GET_MEMBER_REVIEW_UPDATE + `?rid=${oneReview.id}`,
+            formData
         );
-        for (var key of FD.keys()) {
-            console.log('key :>> ', key);
-        }
-        for (var value of FD.values()) {
-            console.log('value :>> ', value);
-        }
     }
-
-    //彙整全部的更新一起發api
 
     //TODO:顯示星星,更改星星評分（第一次評分）
     useEffect(() => {
-        // console.log('reviewtTitle :>> ', reviewtTitle);
-        // console.log('reviewContent :>> ', reviewContent);
-        // console.log('files :>> ', files[0].name);
-        // console.log('imgs :>> ', imgs);
+        console.log('files :>> ', files);
+        // console.log('Array.isArray(files) :>> ', Array.isArray(files));
     }, [reviewtTitle, reviewContent, imgs, files]);
 
     // 函數
@@ -115,12 +94,6 @@ function ReviewDetailContent(props) {
         setFiles(newFiles);
     }
 
-    // useEffect(
-    //     function () {
-    //         // console.log('!!!!!!!files :>> ', files);
-    //     },
-    //     [files]
-    // );
     return (
         <div className="col-12 member-review-detail">
             <div className="">
@@ -174,14 +147,14 @@ function ReviewDetailContent(props) {
                         />
                         <div className="row flex-nowrap add-box m-0 overflow-scroll">
                             <label
-                                htmlFor="photo"
+                                htmlFor="photos"
                                 className="custom-file-upload me-4"
                             >
                                 上傳圖片
                             </label>
                             <input
-                                name="photo"
-                                id="photo"
+                                name="photos"
+                                id="photos"
                                 type="file"
                                 onChange={handleUploadFile}
                                 multiple
