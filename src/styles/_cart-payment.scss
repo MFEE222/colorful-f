@@ -93,22 +93,6 @@
             white-space: normal;
         }
 
-        .btn {
-            // position: absolute;
-            // @include mix.media(left, $xs: 80%, $lg: 87%, $xl: 89%);
-            // @include mix.media(top, $xs: 60%, $md: 50%);
-            color: black;
-            border: solid 1px black;
-            border-radius: 20px;
-            font-size: 14px;
-            @include mix.media(width, $xs: 60px, $md: 80px);
-            height: auto;
-        }
-
-        .btn:hover {
-            background-color: black;
-            color: #fff;
-        }
     }
 
     .cart-payment {
@@ -139,7 +123,6 @@
     }
 
     .cart-total {
-
         padding-top: 50px;
         text-align: right;
 
@@ -151,10 +134,8 @@
             border-top: solid 2px #000;
             padding-top: 20px;
 
-            // box-shadow: 3px 3px 5px rgb(150, 150, 150);
             h4 {
                 @include mix.media(font-size, $xs: 18px, $lg: 20px);
-
             }
 
             .payment-price {
@@ -167,10 +148,7 @@
         margin-top: 100px;
         @include mix.media(text-align, $xs: center, $lg: right);
 
-        // padding-right: 20px;
-
         .checkout {
-            // width: 200px;
             @include mix.media(width, $xs: 150px, $md: 200px);
 
             height: 50px;
@@ -184,6 +162,8 @@
             background: rgb(255, 255, 255);
             color: rgb(0, 0, 0);
             box-shadow: 5px 5px 5px #000;
+            cursor: pointer;
+
         }
 
         .shopping {
@@ -198,6 +178,8 @@
             background: rgb(0, 0, 0);
             color: rgb(255, 255, 255);
             box-shadow: 5px 5px 5px rgb(180, 180, 180);
+            cursor: pointer;
+
         }
 
 

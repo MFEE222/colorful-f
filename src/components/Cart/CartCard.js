@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartPic from '../../images/navbar-ex.jpg';
 import { routes } from '../../utils/routes';
-import CartContent from './CartContent';
+//頁面
+import CartContent from '../Cart/CartContent';
 
 function CartCard(props) {
     return (
@@ -47,16 +48,11 @@ function CartCard(props) {
                     </div>
                 </div>
                 <div className="row total-price">
-                    <div className="col-6 text">
-                        Total
-                    </div>
-                    <div className="col-6 price">
-                        $228
-                    </div>
+                    <div className="col-6 text">Total</div>
+                    <div className="col-6 price">$228</div>
                 </div>
-
-                <Link to={CartContent} type="submit" className="cart-btn">
-                    查看購物車
+                <Link to="/CartContent" type="submit" className="btn">
+                    <button className="cart-btn">查看購物車</button>
                 </Link>
             </div>
         </div>

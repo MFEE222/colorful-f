@@ -9,7 +9,7 @@ import CartPaymentCard from '../../components/Cart/CartPaymentCard';
 
 
 function Cart(props) {
-    return <CartPayment />
+    return <CartCard />
 
 }
 
