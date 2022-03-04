@@ -4,7 +4,12 @@ import { useParams, useLocation, Redirect } from 'react-router-dom';
 //第三方庫
 import axios from 'axios';
 // 共用
-import { API_URL, IMG_URL, API_GET_WISHLIST } from '../../utils/config';
+import {
+    API_URL,
+    IMG_URL,
+    API_GET_WISHLIST,
+    IMG_URL2,
+} from '../../utils/config';
 //Components
 // import FilterBarContent from '../../components/Filterbar/FilterBarContent';
 //IMG
@@ -16,6 +21,8 @@ import bannerDemo from '../../images/banner-demo-2.png';
 import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
+//元件
+import Pagination from '../../utils/Pagination';
 function Favorites(props) {
     return (
         <div className="col-12 col-md-10 box">
@@ -122,6 +129,31 @@ function Favorites(props) {
                         </div>
                     </div>
                 </div>
+
+                <div className="col-6 col-md-4 mt-2 px-3 mb-2">
+                    <div className="card-border ">
+                        <div className="card-img position-relative">
+                            <div className="ratios">
+                                <img className="img-fluid" src="" alt="" />
+                            </div>
+                        </div>
+                        <div className="card-body text-start p-0 my-2 my-md-4">
+                            <label className="d-flex justify-content-between align-items-center">
+                                <input
+                                    className="form-check-input m-0"
+                                    type="checkbox"
+
+                                    // onChange={function (e) {
+                                    //     handleCheck(e, i);
+                                    // }}
+                                />
+                                <p className="card-title fw-bold"></p>
+                            </label>
+                            {/* </div> */}
+                        </div>
+                    </div>
+                </div>
+
                 {/* <!-- Pagination --> */}
                 <div className="container">
                     <div className="pagination">

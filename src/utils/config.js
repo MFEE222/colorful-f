@@ -8,6 +8,9 @@ export const API_URL =
 // 圖片
 export const IMG_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/images';
+//圖片 去掉images （因為資料庫有寫）
+export const IMG_URL2 =
+    process.env.REACT_APP_API_URL || 'http://localhost:3006';
 // 系列圖
 export const IMG_PRODUCTS_ALL = IMG_URL + '/all';
 export const IMG_PRODUCTS_NEWEST = IMG_URL + '/newest';
