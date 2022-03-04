@@ -46,10 +46,10 @@ function CartPayment(props) {
             <div className="container">
                 {/* header 標題 */}
                 <div className="row header">
-                    <div className="col-4">
+                    <div className="col-12 col-md-4">
                         <h2>訂單確認</h2>
                     </div>
-                    <div className="col-8 process">
+                    <div className="col-12 col-md-8 process">
                         <span className="bold">查看購物車</span>
                         <span className="bold"> &rarr; </span>
                         <span className="bold">訂單確認 </span>
@@ -97,14 +97,15 @@ function CartPayment(props) {
                         </div>
                     </div>
                     <div className="col row ps-0 align-items-center align-content-center">
-                        <h5 className="col-md- 6 title mt-3 mt-md-0">商品名</h5>
+                        <h5 className="col-8 col-md-8 title mt-3 mt-md-0">商品名</h5>
+                        <h3 className="col-2 me-auto  d-md-block">$99</h3>
                         {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}
-                        <p className="col-md-6 me-auto d-none d-md-block content">
+                        <p className="col-md-6 me-auto  d-md-block content">
                             商品描述
                         </p>
-                        <h3 className="col-2 me-auto d-none d-md-block">$99</h3>
+                        
 
                         <p className="d-md-none "></p>
                     </div>
@@ -117,7 +118,7 @@ function CartPayment(props) {
                     <div className="title">
                         <h2>付款方式</h2>
                     </div>
-                    <div className="col-3 payment-left">
+                    <div className="col-12 col-lg-3 payment-left">
                         <div className="payment-card">
                             <i className="icon fab fa-cc-mastercard"></i>
                             <span>**** 1234</span>
@@ -131,20 +132,20 @@ function CartPayment(props) {
                             <span>**** 1234</span>
                         </div>
                     </div>
-                    <div className="col-9 payment-right">
+                    <div className="col-12 col-lg-9 payment-right">
                         <CartPaymentCard />
                     </div>
                 </div>
                 {/* 總共 */}
                 <div className="row cart-total justify-content-end">
-                    <div className="col-4 price">
+                    <div className="col-6 col-lg-4 price">
                         <h4>商品總共件數：</h4>
                         <h4>金額：</h4>
                         <h4>折扣：</h4>
                         <hr />
                         <h4>總金額：</h4>
                     </div>
-                    <div className="col-3 price">
+                    <div className="col-6 col-lg-3 price">
                         <h4>2件</h4>
                         <h4>NT198</h4>
                         <h4>NT0</h4>
@@ -154,7 +155,7 @@ function CartPayment(props) {
                 </div>
                 <div className="button">
                     <button
-                        className="checkout modal-button"
+                        className="checkout"
                         type="button"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"

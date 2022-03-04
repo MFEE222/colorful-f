@@ -5,54 +5,38 @@
 
     .header {
         padding: 20px 0;
-        // font-size: 30px;
-        @include mix.media(font-size, $xs: 24px, $lg: 30px);
-
-
 
         h2 {
             font-weight: bold;
+            @include mix.media(font-size, $xs: 20px, $lg: 30px);
         }
-
-        .bold {
-            font-weight: bold;
-            padding-top: 10px;
-            letter-spacing: 10px;
-
-        }
-
-        .light {
-            color: #ccc;
-            letter-spacing: 10px;
-            // opacity : 0;
-            @include mix.media(opacity, $xs: 0, $lg: 1);
-
-        }
-
-
 
         .process {
-            // text-align: center;
-            font-size: 24px;
-            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+            @include mix.media(letter-spacing, $xs: 0, $md: 10px);
+            @include mix.media(opacity, $xs: 0, $md: 1);
+            @include mix.media(font-size, $xs: 16px, $lg: 20px);
 
+            .bold {
+                font-weight: bold;
+                padding-top: 10px;
+                letter-spacing: 10px;
+            }
+
+            .light {
+                color: #ccc;
+            }
         }
     }
 
     .cart-list {
         padding: 20px;
         border-top: solid 2px #000;
-        // box-shadow: 3px 0 5px rgb(150, 150, 150);
         @include mix.media(box-shadow, $xs: none, $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
         @include mix.media(border-radius, $xs: 0, $md: 8px);
         @include mix.media(margin, $md: 1.5rem 0);
 
-        // box-shadow: 5px  rgb(139, 139, 139);
-
         h2 {
-            // font-size: 24px;
-            @include mix.media(font-size, $xs: 20px, $lg: 24px);
-
+            @include mix.media(font-size, $xs: 18px, $lg: 24px);
         }
 
         .price {
@@ -75,7 +59,6 @@
 
     .review-card {
         position: relative;
-        // @include mix.media(border, $xs: none, $md: solid 1px #ccc);
         @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
         @include mix.media(border-radius, $xs: 0, $md: 8px);
         @include mix.media(box-shadow,
@@ -85,15 +68,13 @@
         @include mix.media(padding-bottom, $xs: 10px);
         @include mix.media(margin, $md: 1.5rem 0);
 
-        // margin: 1.5rem 0;
-
         h4 {
             @include mix.media(padding-bottom, $xs: 0px, $lg: 10px);
             @include mix.media(font-size, $xs: 14px, $lg: 20px);
         }
 
         .title {
-            font-size: 2rem;
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
             color: $gray-blue;
         }
 
@@ -184,8 +165,7 @@
 
     .button {
         margin-top: 100px;
-        text-align: right;
-        @include mix.media(text-align, $xs: center, $md: right);
+        @include mix.media(text-align, $xs: center, $lg: right);
 
         // padding-right: 20px;
 
@@ -198,7 +178,6 @@
             color: #fff;
             border-radius: 20px;
             margin-right: 20px;
-            // padding-right: 20px;
         }
 
         .checkout:hover {
@@ -208,7 +187,6 @@
         }
 
         .shopping {
-            // width: 200px;
             @include mix.media(width, $xs: 150px, $md: 200px);
             height: 50px;
             background: rgb(255, 255, 255);
@@ -225,5 +203,5 @@
 
     }
 
-    
+
 }

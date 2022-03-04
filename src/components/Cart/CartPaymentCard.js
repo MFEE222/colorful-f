@@ -40,7 +40,7 @@ function CardPaymentCard(props) {
                         onFocus={handleInputFocus}
                     />
                 </div>
-                <div>
+                <div className="month-input">
                     <input
                         className="pay-form-p"
                         type="expiry"
