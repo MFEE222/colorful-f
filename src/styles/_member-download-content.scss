@@ -27,6 +27,17 @@
     // }
 
     .card-house {
+        .form-check-input {
+            &:checked {
+                background-color: black;
+                border-color: silver;
+            }
+            &:focus {
+                border-color: silver;
+                outline: none;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
         .card-title {
             @include mix.media(font-size, $xs: 12px, $md: 16px);
             margin: 0;

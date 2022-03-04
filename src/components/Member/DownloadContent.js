@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState, useRef } from 'react';
 import Img1 from '../../images/婚禮_5.jpg';
 import Img2 from '../../images/wed001.jpg';
 import Auth from '../../pages/Auth';
 import axios from 'axios';
 //共用
-import { API_GET_MEMBER_DOWNLOAD, IMG_URL2 } from '../../utils/config';
+import {
+    API_GET_MEMBER_DOWNLOAD,
+    IMG_URL2,
+    API_POST_MEMBER_DOWNLOAD_DNG,
+} from '../../utils/config';
 import Pagination from './Pagination';
 
 function DownloadContent(props) {
     //TODO:1.連接資料庫拿下載資料; 2.用按鈕判斷要哪種 3.用狀態紀錄勾選哪些
     // auth.current
     let uid = 1;
-
     const [checked, setChecked] = useState(false); //核取方塊
     const [statusId, setStatusId] = useState(0); // filter 狀態
-    const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
+    // const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
     const [counts, setCounts] = useState(); //資料總計
     const [offset, setOffset] = useState(1); //分頁
     const [display, setDisplay] = useState([]); //呈現
@@ -39,17 +41,19 @@ function DownloadContent(props) {
         setDisplay(newDisplay);
     };
 
-    const checkId = async () => {}; //post 勾選中的pid download成功訊息
-
     //checkbox
     //all
     const handleCheckAll = () => {
+        const c = !checked;
         const newDisplay = [...display];
+
         newDisplay.map((v, i) => {
-            v.check = !v.check;
+            v.check = c;
+            setDisplay(newDisplay);
         });
-        setDisplay(newDisplay);
+        setChecked(c);
     };
+
     //alone
     const handleCheck = (event, index) => {
         const newDisplay = [...display];
@@ -57,17 +61,27 @@ function DownloadContent(props) {
         setDisplay(newDisplay);
     };
 
+    const handleDownload = async () => {
+        const d = display.filter((v, i) => {
+            return v.check === true;
+        });
+        const dngId = d.map((v) => {
+            return v.product_id;
+        });
+        console.log('here :>> ', 'here');
+        const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
+            uid,
+            dngId,
+        });
+    };
+
     useEffect(() => {
-        console.log('display :>> ', display);
         fetchDownload();
-        console.log('status :>> ', statusId);
-        console.log('download :>> ', download);
-    }, [statusId, uid, offset, download]);
+    }, [statusId, uid, offset]);
+
     return (
         <>
             <div className="member-comment download">
-                {/* <!-- line --> */}
-                {/* <div className=" justify-conterownt-center"> */}
                 <div className="filter mt-sm-3 my-sm-3 my-md-3">
                     <div className="filter-box d-flex">
                         <ul className="sort-series p-0">
@@ -110,8 +124,8 @@ function DownloadContent(props) {
                         勾選全部
                     </div>
                     <div
-                        className="text-center py-2 px-3 download-btn 
-                "
+                        className="text-center py-2 px-3 download-btn"
+                        onClick={handleDownload}
                     >
                         下載
                     </div>
@@ -146,12 +160,15 @@ function DownloadContent(props) {
                                         )}
                                     </div>
                                     <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <div className="d-flex justify-content-between align-items-start">
+                                        <label
+                                            htmlFor={v.id}
+                                            className="d-flex justify-content-between align-items-center"
+                                        >
                                             <input
                                                 className="form-check-input m-0"
                                                 type="checkbox"
                                                 value={v.id}
-                                                id="flexCheckDefault"
+                                                id={v.id}
                                                 checked={v.check}
                                                 onChange={function (e) {
                                                     handleCheck(e, i);
@@ -160,7 +177,8 @@ function DownloadContent(props) {
                                             <p className="card-title fw-bold">
                                                 {v.name}
                                             </p>
-                                        </div>
+                                        </label>
+                                        {/* </div> */}
                                     </div>
                                 </div>
                             </div>
