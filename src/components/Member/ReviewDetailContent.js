@@ -7,7 +7,10 @@ import ClickStar from './ClickStar';
 import ShowStar from '../Product/ShowStar';
 // import MemberSlider from './MemberSlider';
 import axios from 'axios';
-import { API_GET_MEMBER_REVIEW_UPDATE } from '../../utils/config';
+import {
+    API_GET_MEMBER_REVIEW_UPDATE,
+    API_GET_MEMBER_REVIEW_UPDATE_DETAIL,
+} from '../../utils/config';
 
 function ReviewDetailContent(props) {
     const match = useRouteMatch();
@@ -20,14 +23,13 @@ function ReviewDetailContent(props) {
     // 生命週期
 
     const [starCurrent, setStarCurrent] = useState(0); //星星評分
-    const [reviewtTitle, setTitle] = useState(oneReview.title);
-    const [reviewContent, setCotent] = useState(oneReview.content);
-    // console.log('oneReview :>> ', oneReview);
-    // const [imgSrc, setImgSrc] = useState('');
-    const [imgs, setImgs] = useState([]);
-    const [files, setFiles] = useState([]);
+    const [reviewtTitle, setTitle] = useState(oneReview.title); //標題
+    const [reviewContent, setCotent] = useState(oneReview.content); //內文
+    const [imgs, setImgs] = useState([]); //照片顯示
+    const [files, setFiles] = useState([]); //照片傳給後端
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
+    const [message, setMessage] = useState(false); //編輯成功顯示
 
     //圖片
     // const [fileSrc, setFileSrc] = useState(null);
@@ -57,28 +59,37 @@ function ReviewDetailContent(props) {
         }
     };
     async function handleSubmit(e) {
-        e.preventDefault();
-        const formData = new FormData();
+        e.preventDefault(); //阻止預設
+        // files
+        let formData = new FormData();
         for (let i = 0; i < files.length; i++) {
             formData.append('photos', files[i]);
         }
-        const data = {
-            rid: oneReview.id,
-            stars: starCurrent,
-            title: reviewtTitle,
-            content: reviewContent,
-        };
-        formData.append('data', data);
-        console.log('formData :>> ', formData);
         const response = await axios.post(
             API_GET_MEMBER_REVIEW_UPDATE + `?rid=${oneReview.id}`,
             formData
         );
+        let stars = 0;
+        if (!starCurrent) stars = oneReview.stars;
+        else stars = starCurrent;
+        const responseDetail = await axios.post(
+            API_GET_MEMBER_REVIEW_UPDATE_DETAIL,
+            {
+                rid: oneReview.id,
+                stars,
+                title: reviewtTitle,
+                content: reviewContent,
+            }
+        );
+        console.log('response.data :>> ', responseDetail.data);
+        // if (responseDetail.data.message == 200) {
+        //     setMessage(true);
+        // }
     }
 
     //TODO:顯示星星,更改星星評分（第一次評分）
     useEffect(() => {
-        console.log('files :>> ', files);
+        // console.log('files :>> ', files);
         // console.log('Array.isArray(files) :>> ', Array.isArray(files));
     }, [reviewtTitle, reviewContent, imgs, files]);
 
@@ -166,7 +177,7 @@ function ReviewDetailContent(props) {
                                     <div
                                         key={i}
                                         className="upload-box p-0 me-2 "
-                                        onClick={() => setModalShow(true)}
+                                        // onClick={() => setModalShow(true)}
                                     >
                                         <div
                                             className="delete-btn"
