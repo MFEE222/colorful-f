@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 import { API_GET_PRODUCT } from '../config';
+import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_KEY } from '../config';
+import { STATUS_MSG } from '../others/status';
 import { useAuthContext } from './AuthContext';
 
 // Context
@@ -14,7 +16,10 @@ export function CartProvider(props) {
     // context
     const auth = useAuthContext();
     // state, hook
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]); // 紀錄購物車內資料
+    const [add, setAdd] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
+    const [remove, setRemove] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
+    const [checkAll, setCheckAll] = useState(false); // 紀錄是否勾選全選框框
 
     // 變數 (shared)
     const { option } =
@@ -28,7 +33,11 @@ export function CartProvider(props) {
     };
 
     // 生命週期
+    // 初始化購物車資料
     useEffect(function () {
+        // 檢查登入狀態（有登入）
+        if (auth.current) {
+        }
         // 初始化 LocalStorage
         const l = new LocalCart('colorful-cart');
 
@@ -41,8 +50,8 @@ export function CartProvider(props) {
         // 寫入狀態
     }, []);
 
-    // 函數
-    function add(product) {}
+    // 保存購物車資料
+    useEffect(function () {}, [cart]);
 
     // 渲染
     return (
@@ -50,6 +59,69 @@ export function CartProvider(props) {
             {props.children}
         </CartContext.Provider>
     );
+
+    // API
+    // 將商品資料寫入蒐藏清單（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local storage）
+    function add(product) {}
+
+    // 將商品資料從蒐藏清單排除（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local stroage）
+    function remove() {}
+
+    // 元件內部使用函數
+    function handleCheckAll() {}
+
+    function handleCheck() {}
+
+    // 從 Database or WebStorage 更新資料進來（覆蓋）
+    async function syncFrom(url) {
+        let newCart = [];
+        if (auth.current) {
+            // from Database
+            try {
+                const res = await axios.get(API_GET_CART, {
+                    params: {
+                        user_id: auth.user.id,
+                    },
+                });
+                // console.log('res :>> ', res);
+                if (!res.data) {
+                    new Error(STATUS_MSG[res.status]);
+                }
+                newCart = res.data;
+            } catch (err) {
+                console.log('err :>> ', err);
+            }
+        } else {
+            // from LocalStorage
+            const res = JSON.parse(localStorage.getItem(API_LOCAL_STORAGE_KEY));
+            if (Array.isArray(res)) {
+                newCart = res;
+            }
+        }
+
+        // 設定狀態
+        setCart(newCart);
+    }
+    // 將資料更新到 Database or Webstorage (發送差異)
+    async function syncTo(url) {
+        if (auth.current) {
+            // to Database
+            const res = await axios.post(API_POST_CART, {
+                user_id: auth.user.id,
+                add,
+                remove,
+            });
+            // console.log('res :>> ', res);
+            console.log('res.status :>> ', res.status);
+            // clear
+        } else {
+            // to LocalStorage (直接覆蓋)
+            localStorage.setItem(API_LOCAL_STORAGE_KEY, JSON.stringify(cart));
+        }
+        // clear
+        setAdd([]);
+        setRemove([]);
+    }
 }
 
 // Consumer
