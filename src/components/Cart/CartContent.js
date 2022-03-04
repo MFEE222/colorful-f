@@ -61,10 +61,10 @@ function CartContent(props) {
             <div className="container">
                 {/* header 標題 */}
                 <div className="row header">
-                    <div className="col-3">
+                    <div className="col-4">
                         <h2>購物車</h2>
                     </div>
-                    <div className="col-9 process">
+                    <div className="col-8 process">
                         <span className="bold">查看購物車</span>
                         <span className="light"> &rarr; </span>
                         <span className="light">訂單確認 </span>
