@@ -139,14 +139,6 @@ function Favorites(props) {
                         </div>
                         <div className="card-body text-start p-0 my-2 my-md-4">
                             <label className="d-flex justify-content-between align-items-center">
-                                <input
-                                    className="form-check-input m-0"
-                                    type="checkbox"
-
-                                    // onChange={function (e) {
-                                    //     handleCheck(e, i);
-                                    // }}
-                                />
                                 <p className="card-title fw-bold"></p>
                             </label>
                             {/* </div> */}
