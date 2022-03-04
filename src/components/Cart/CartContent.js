@@ -5,6 +5,7 @@ import product from '../../images/film003.jpg';
 import { routes } from '../../utils/routes';
 import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 import RecommendCard from '../Product/RecommendCard';
+import LoginPic from '../../images/film005.jpg';
 
 function CartContent(props) {
     // 狀態
@@ -12,6 +13,7 @@ function CartContent(props) {
     // const [loading, setLoading] = useState(false); //載入顯示 ok
 
     //函數
+
     // const body = document.querySelector('body');
     // const modal = document.querySelector('.modal');
     // const modalButton = document.querySelector('.modal-button');
@@ -80,14 +82,14 @@ function CartContent(props) {
                             id=""
                         />
                     </div>
-                    <div className="col-3">
+                    <div className="col-8">
                         <h2>商品列表</h2>
                     </div>
-                    <div className="col-5"></div>
-                    <div className="col-2">
+                    {/* <div className="col-5"></div> */}
+                    <div className="col-3">
                         <h2>價格</h2>
                     </div>
-                    <div className="col-1"></div>
+                    {/* <div className="col-1"></div> */}
                 </div>
                 {/* 商品列表 */}
                 <div className="row cart-body">
@@ -99,14 +101,13 @@ function CartContent(props) {
                             id=""
                         />
                     </div>
-                    <div className="col-2">
+                    <div className="col-3  col-md-2">
                         <img src={product} alt="" />
                     </div>
-                    <div className="col-6">
+                    <div className="col-5 col-md-6">
                         <h2>米其林五星級</h2>
                         <p>
-                            Duis aliquam convallis nunc. Proin at turpis Link pede
-                            posuere nonummy. Integer non velit.
+                            Duis aliquam convallis nunc.
                         </p>
                     </div>
                     <div className="col-2">
@@ -127,14 +128,13 @@ function CartContent(props) {
                             id=""
                         />
                     </div>
-                    <div className="col-2">
+                    <div className="col-3  col-md-2">
                         <img src={product} alt="" />
                     </div>
-                    <div className="col-6">
+                    <div className="col-5 col-md-6">
                         <h2>米其林五星級</h2>
                         <p>
-                            Duis aliquam convallis nunc. Proin at turpis Link pede
-                            posuere nonummy. Integer non velit.
+                            Duis aliquam convallis nunc.
                         </p>
                     </div>
                     <div className="col-2">
@@ -148,7 +148,7 @@ function CartContent(props) {
 
                 {/* 總共 */}
                 <div className="row cart-total justify-content-end">
-                    <div className="col-3 price">
+                    <div className="col-4 price">
                         <h4>商品總共件數：</h4>
                         <h4>金額：</h4>
                         <h4>折扣：</h4>
@@ -181,7 +181,7 @@ function CartContent(props) {
             </div>
 
             
-            <div className="scroll-down">
+            {/* <div className="scroll-down">
                 SCROLL DOWN
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                     <path d="M16 3C8.832031 3 3 8.832031 3 16s5.832031 13 13 13 13-5.832031 13-13S23.167969 3 16 3zm0 2c6.085938 0 11 4.914063 11 11 0 6.085938-4.914062 11-11 11-6.085937 0-11-4.914062-11-11C5 9.914063 9.914063 5 16 5zm-1 4v10.28125l-4-4-1.40625 1.4375L16 23.125l6.40625-6.40625L21 15.28125l-4 4V9z" />
@@ -230,7 +230,7 @@ function CartContent(props) {
                     </div>
                     <div className="modal-right">
                         <img
-                            src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dfd2ec5a01006fd8c4d7592a381d3776&auto=format&fit=crop&w=1000&q=80"
+                            src={LoginPic}
                             alt=""
                         />
                     </div>
@@ -244,7 +244,7 @@ function CartContent(props) {
                     </button>
                 </div>
                 <button className="modal-button">Click here to login</button>
-            </div>
+            </div> */}
         </div>
     );
 }

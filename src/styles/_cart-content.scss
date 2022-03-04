@@ -7,7 +7,10 @@
 
     .header {
         padding: 20px 0;
-        font-size: 30px;
+        // font-size: 30px;
+        @include mix.media(font-size, $xs: 24px, $lg: 30px);
+
+
 
         h2 {
             font-weight: bold;
@@ -23,22 +26,33 @@
         .light {
             color: #ccc;
             letter-spacing: 10px;
+            // opacity : 0;
+            @include mix.media(opacity, $xs: 0, $lg: 1);
 
         }
+
+
 
         .process {
             // text-align: center;
             font-size: 24px;
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+
         }
     }
 
     .cart-list {
         padding: 20px 0;
         border-top: solid 2px #000;
+        // box-shadow: 3px 0 5px rgb(150, 150, 150);
+        @include mix.media(box-shadow, $xs: none, $md: 3px 0px 5px rgb(150, 150, 150));
+
         // box-shadow: 5px  rgb(139, 139, 139);
 
         h2 {
-            font-size: 24px;
+            // font-size: 24px;
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+
         }
 
         .checkbox {
@@ -55,6 +69,10 @@
         justify-content: center;
         /*主軸上居中*/
         align-items: center;
+        // box-shadow: 3px 1px 5px rgb(150, 150, 150);
+        @include mix.media(box-shadow, $xs: none, $md: 3px 1px 5px rgb(150, 150, 150));
+
+
 
         .checkbox {
             // padding-top: 50px;
@@ -64,20 +82,34 @@
         }
 
         h2 {
-            font-size: 24px;
+            // font-size: 30px;
+            @include mix.media(font-size, $xs: 20px, $md: 28px);
+        }
+
+        h3 {
+            // font-size: 30px;
+            @include mix.media(font-size, $xs: 20px, $md: 24px);
         }
 
         .icon {
-            width: 50px;
-            height: 50px;
-            padding: 20px;
+            width: 20px;
+            height: 20px;
+            // padding: 20px;
+            @include mix.media(padding, $xs: 0, $md: 20px);
+
+        }
+
+        .text {
+            padding-left: 10px;
         }
 
     }
 
     img {
-        width: 200px;
-        height: 200px;
+        // width: 200px;
+        @include mix.media(height, $xs: 100px, $lg: 200px);
+
+        // height: 200px;
         object-fit: cover;
     }
 }
@@ -89,16 +121,28 @@
     .price {
         border-top: solid 2px #000;
         padding-top: 20px;
+        // box-shadow: 3px 3px 5px rgb(150, 150, 150);
+        @include mix.media(box-shadow, $xs: none, $md: 3px 3px 5px rgb(150, 150, 150));
+
+
+        h4 {
+            @include mix.media(font-size, $xs: 18px, $lg: 20px);
+
+        }
     }
 }
 
 .button {
     margin-top: 100px;
     text-align: right;
+    @include mix.media(text-align, $xs: center, $md: right);
+
     // padding-right: 20px;
 
     .checkout {
-        width: 200px;
+        // width: 200px;
+        @include mix.media(width, $xs: 150px, $md: 200px);
+
         height: 50px;
         background: #000;
         color: #fff;
@@ -114,7 +158,8 @@
     }
 
     .shopping {
-        width: 200px;
+        // width: 200px;
+        @include mix.media(width, $xs: 150px, $md: 200px);
         height: 50px;
         background: rgb(255, 255, 255);
         color: rgb(0, 0, 0);
