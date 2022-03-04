@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 // 通用
 // import {
@@ -31,6 +31,14 @@ function Banner(props) {
     // console.log('match.path :>> ', match.path);
     let imgBanner = '';
 
+    const videoRef = useRef();
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.load();
+        }
+    }, [match.path]);
+
     // 選擇要顯示的 Banner (是否可以做一個 OnEvent 在 ProductsContext 中，讓個元件註冊 option didupdate 後要執行的 callback)
     // FIXME: 影片播放中途路由切換，無法正確變更成新的影片
     switch (match.path) {
@@ -44,7 +52,14 @@ function Banner(props) {
         case routes.productFood:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop preload="true">
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    preload="true"
+                    ref={videoRef}
+                >
                     <source
                         src={IMG_PRODUCTS_FOOD_BANNER}
                         alt="food-banner"
@@ -56,7 +71,14 @@ function Banner(props) {
         case routes.productWedding:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop preload="true">
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    preload="true"
+                    ref={videoRef}
+                >
                     <source
                         src={IMG_PRODUCTS_WEDDING_BANNER}
                         alt="food-banner"
@@ -68,7 +90,14 @@ function Banner(props) {
         case routes.productFilm:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop preload="true">
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    preload="true"
+                    ref={videoRef}
+                >
                     <source
                         src={IMG_PRODUCTS_FILM_BANNER}
                         alt="food-banner"
@@ -80,7 +109,7 @@ function Banner(props) {
         case routes.productScenery:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop>
+                <video className="w-100" autoPlay muted loop ref={videoRef}>
                     <source
                         src={IMG_PRODUCTS_SCENERY_BANNER}
                         alt="food-banner"
@@ -92,7 +121,14 @@ function Banner(props) {
         case routes.productPortrait:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop preload="true">
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    preload="true"
+                    ref={videoRef}
+                >
                     <source
                         src={IMG_PRODUCTS_PORTRAIT_BANNER}
                         alt="food-banner"
