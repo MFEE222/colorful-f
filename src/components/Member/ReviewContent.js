@@ -4,7 +4,7 @@ import ImgProduct from '../../images/product-img.jpeg';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import axios from 'axios';
-import { API_GET_MEMBER_REVIEW } from '../../utils/config';
+import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
 
 function ReviewContent(props) {
@@ -25,11 +25,8 @@ function ReviewContent(props) {
                 offset,
             },
         });
-        console.log('response.data :>> ', response.data.data);
         setDisplay(response.data.data);
-        console.log('response.rows :>> ', response.data.rows);
         setCounts(response.data.rows);
-        // let counts = response.data.rows;
     };
 
     //掛載
@@ -92,6 +89,7 @@ function ReviewContent(props) {
                 {/* <div className="row"> */}
                 {display.map((oneReview) => {
                     const goTo = `${routes.reviewDetail}/${oneReview.id}`;
+                    const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
                     return (
                         <>
                             <div
@@ -100,10 +98,7 @@ function ReviewContent(props) {
                             >
                                 <div className="col-auto  col-md-10 review-card-img me-4">
                                     <div className="ratios">
-                                        <img
-                                            src={oneReview.products_img}
-                                            alt=""
-                                        />
+                                        <img src={img} alt="" />
                                     </div>
                                 </div>
                                 <div className="col row ps-0 align-items-center align-content-center">

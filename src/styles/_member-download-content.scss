@@ -1,7 +1,21 @@
 @use "variables" as var;
 @use "mixins" as mix;
 
-.member-profile-main {
+.member-comment {
+    .download-btn {
+        color: black;
+        border: solid 1px black;
+        border-radius: 20px;
+        font-size: 14px;
+        @include mix.media(width, $xs: 85px, $md: 80px);
+        @include mix.media(font-size, $xs: 12px, $md: 16px);
+
+        height: auto;
+        &:hover {
+            background-color: black;
+            color: #fff;
+        }
+    }
     .box {
         width: 300px;
         height: 300px;
@@ -13,9 +27,13 @@
     // }
 
     .card-house {
+        .card-title {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
+            margin: 0;
+        }
         .card-img {
             .ratios {
-                @include mix.ratio(3, 5);
+                @include mix.ratio(3, 4);
 
                 // @include xs {
                 //     @include mix.ratio(1, 1);
@@ -25,6 +43,12 @@
                 //     @include mix.ratio(3, 5);
                 // }
             }
+            .download-badge {
+                left: 90%;
+            }
+        }
+        .already-text {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
         }
     }
 }

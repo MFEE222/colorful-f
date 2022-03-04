@@ -19,7 +19,7 @@ function ReviewDetailContent(props) {
 
     // 生命週期
 
-    const [starCurrent, setStarCurrent] = useState(oneReview.stars); //星星評分
+    const [starCurrent, setStarCurrent] = useState(oneReview.star); //星星評分
     const [reviewtTitle, setTitle] = useState(oneReview.title);
     const [reviewContent, setCotent] = useState(oneReview.content);
     // console.log('oneReview :>> ', oneReview);
@@ -93,9 +93,9 @@ function ReviewDetailContent(props) {
         }
     }
 
-    //彙整全部的更新一起發api
+    //TODO:彙整全部的更新一起發api
+    //TODO:成功顯示訊息 並跳轉回去前移一頁
 
-    //TODO:顯示星星,更改星星評分（第一次評分）
     useEffect(() => {
         // console.log('reviewtTitle :>> ', reviewtTitle);
         // console.log('reviewContent :>> ', reviewContent);
