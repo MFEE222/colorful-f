@@ -20,7 +20,7 @@ function SideBarLeft(props) {
                     </Link>
                 </li>
                 <li className="col-6 col-md-12 nav-item">
-                    <Link to={routes.collect} className="nav-link">
+                    <Link to={routes.favorites} className="nav-link">
                         {/* <i className="fas fa-caret-right"></i> */}
                         我的最愛
                     </Link>
