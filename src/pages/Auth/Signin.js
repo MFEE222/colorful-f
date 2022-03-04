@@ -70,7 +70,7 @@ function Signin(props) {
                                 </h4>
                                 <div className="form-floating mt-4 ui icon input">
                                     <input
-                                        type="text"
+                                        type="email"
                                         className="form-control"
                                         id="email"
                                         name="account"
@@ -94,27 +94,27 @@ function Signin(props) {
                                         placeholder="Password"
                                         value={login.password}
                                         onChange={handleChange}
-                                        required
+                                        pattern="[a-zA-Z0-9]{7,}"
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
                                 <div className="forgot mt-3">
                                     <Link to={routes.forgot} className="l-link">
-                                        忘記密碼 ?
+                                        forgot password ?
                                     </Link>
                                 </div>
-                                <div id="check-box-slide">
-                                    <input
-                                        type="checkbox"
-                                        name="check"
-                                        id="checkbox"
-                                    />
-                                    <label htmlFor="checkbox"></label>
-                                    <p className="remember-me">記住我</p>
-
+                                <div className="checkbox">
+                                    <div id="check-box-slide">
+                                        <input
+                                            type="checkbox"
+                                            name="check"
+                                            id="checkbox"
+                                        />
+                                        <label htmlFor="checkbox"></label>
+                                        <p className="remember-me">記住我</p>
+                                    </div>
                                 </div>
-                                
-                                
+
                                 {/* <div className="l-icon mt-4 mb-3">
                                     <Link
                                         to={routes.home}
@@ -134,17 +134,17 @@ function Signin(props) {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        登入
+                                        Sign in
                                     </button>
                                 </div>
                                 <div>
                                     <p className="signup">
-                                        沒有帳號?
+                                        Don't you no account ?<sspan> </sspan>
                                         <Link
                                             to={routes.signup}
                                             className="l-link"
                                         >
-                                            註冊
+                                            Sign up
                                         </Link>
                                     </p>
                                 </div>

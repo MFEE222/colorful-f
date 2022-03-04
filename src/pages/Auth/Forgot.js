@@ -70,39 +70,42 @@ function Forgot(props) {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">忘記密碼 ?</h4>
-                                <p className="f-subtitle">
-                                    輸入註冊 E-mail
-                                </p>
+                                <h4 className="box-title">Fotgot Password ?</h4>
                                 <div className="form-floating">
                                     <input
                                         type="email"
                                         className="form-control"
-                                        id="email-address"
+                                        id="email"
+                                        name="email"
                                         placeholder="Email address"
+                                        value={forgot.email}
                                         onChange={handleChange}
+                                        required
                                     />
-                                    <label htmlFor="email-address">
-                                        Email address
-                                    </label>
+                                    <label htmlFor="email">Email address</label>
                                 </div>
-                                <p className="f-subtitle">
-                                    輸入密碼提示
-                                </p>
                                 <div className="form-floating">
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id="password-hint"
-                                        placeholder="Password Hint"
+                                        id="passwordHint"
+                                        name="passwordHint"
+                                        placeholder="hint"
+                                        value={forgot.passwordHint}
                                         onChange={handleChange}
+                                        required
                                     />
                                     <label htmlFor="password-hint">
                                         Password Hint
                                     </label>
                                 </div>
                                 <div className="form-btn">
-                                    <button type="submit">送出</button>
+                                    <button
+                                        type="submit"
+                                        onClick={handleSubmit}
+                                    >
+                                        Submit
+                                    </button>
                                 </div>
                             </form>
                         </div>

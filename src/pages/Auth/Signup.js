@@ -10,6 +10,7 @@ const Signup = (props) => {
     //     name: '',
     //     password: '',
     //     confirmPassword: '',
+    //     passwordHint: '',
     // }
     // 狀態
     const [member, setMember] = useState({});
@@ -43,7 +44,7 @@ const Signup = (props) => {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">註冊</h4>
+                                <h4 className="box-title">Sign up</h4>
                                 <div className="form-floating">
                                     <input
                                         type="text"
@@ -53,18 +54,20 @@ const Signup = (props) => {
                                         placeholder="Name"
                                         value={member.name}
                                         onChange={handleChange}
+                                        required
                                     />
                                     <label htmlFor="floatingName">Name</label>
                                 </div>
                                 <div className="form-floating">
                                     <input
-                                        type="text"
+                                        type="email"
                                         className="form-control"
                                         id="email"
                                         name="email"
                                         placeholder="Email address"
                                         value={member.email}
                                         onChange={handleChange}
+                                        required
                                     />
                                     <label htmlFor="email">Email address</label>
                                 </div>
@@ -77,6 +80,7 @@ const Signup = (props) => {
                                         placeholder="Password"
                                         value={member.password}
                                         onChange={handleChange}
+                                        pattern="[a-zA-Z0-9]{7,}"
                                     />
                                     <label htmlFor="password">Password</label>
                                 </div>
@@ -89,6 +93,7 @@ const Signup = (props) => {
                                         placeholder="Password"
                                         value={member.confirmPassword}
                                         onChange={handleChange}
+                                        pattern="[a-zA-Z0-9]{7,}"
                                     />
                                     <label htmlFor="confirmPassword">
                                         Confirm Password
@@ -103,6 +108,7 @@ const Signup = (props) => {
                                         placeholder="hint"
                                         value={member.passwordHint}
                                         onChange={handleChange}
+                                        required
                                     />
                                     <label htmlFor="passwordHint">
                                         Password Hint
@@ -113,7 +119,7 @@ const Signup = (props) => {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        註冊
+                                        Sign up
                                     </button>
                                 </div>
                             </form>

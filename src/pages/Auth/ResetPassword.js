@@ -40,8 +40,7 @@ const ResetPassword = (props) => {
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
                             <form className="signin-form" action="">
-                                <h4 className="box-title">重設密碼</h4>
-                                <p className="f-subtitle">新密碼</p>
+                                <h4 className="box-title">Reset Password</h4>
                                 <div className="form-floating">
                                     <input
                                         type="password"
@@ -51,12 +50,12 @@ const ResetPassword = (props) => {
                                         placeholder="password"
                                         value={member.passeord}
                                         onChange={handleChange}
+                                        pattern="[a-zA-Z0-9]{7,}"
                                     />
                                     <label htmlFor="email-address">
                                         New Password
                                     </label>
                                 </div>
-                                <p className="f-subtitle">確認密碼</p>
                                 <div className="form-floating">
                                     <input
                                         type="password"
@@ -66,9 +65,25 @@ const ResetPassword = (props) => {
                                         placeholder="confirmPassword"
                                         value={member.confirmPassword}
                                         onChange={handleChange}
+                                        pattern="[a-zA-Z0-9]{7,}"
                                     />
                                     <label htmlFor="password-hint">
                                         Confirm Password
+                                    </label>
+                                </div>
+                                <div className="form-floating">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="passwordHint"
+                                        name="passwordHint"
+                                        placeholder="hint"
+                                        value={member.passwordHint}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <label htmlFor="passwordHint">
+                                        Password Hint
                                     </label>
                                 </div>
                                 <div className="form-btn">
@@ -76,7 +91,7 @@ const ResetPassword = (props) => {
                                         type="submit"
                                         onClick={handleSubmit}
                                     >
-                                        送出
+                                        Submit
                                     </button>
                                 </div>
                             </form>
