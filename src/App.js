@@ -45,8 +45,6 @@ import { RWDProvider } from './utils/context/RWDContext';
 
 import { CartProvider } from './utils/context/CartContext';
 
-import CardPayment from './components/Cart/CartPaymentCard';
-import FCardPayment from './components/Cart/FCartPaymentCard';
 
 function App() {
     return (

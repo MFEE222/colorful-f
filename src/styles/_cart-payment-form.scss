@@ -2,37 +2,73 @@
 @use "variables"as var;
 
 #PaymentForm {
-    text-align: center;
+    text-align: left;
     padding: 20px 0px;
+    position: relative;
+    left: -25%;
+
 
     .rccs__card--front {
+        text-align: left;
+        width: 160%;
+        height: 150%;
         background: rgb(0, 0, 0);
         // color: #fff;
     }
 
-    input {
-        // width: 15%;
-        @include mix.media(width, $xs: 70%, $sm: 48%, $md:38%, $lg:22%, $xxl: 35%);
-        padding: 25px 0;
-        color: rgb(85, 85, 85);
-        // width: 99%;
-        outline-style: none;
-        border: 0px;
-        border-radius: 0;
-        border-bottom: 1px solid rgb(153, 153, 153);
-        background-color: transparent;
-        -webkit-appearance: none;
+    .rccs__card--back {
 
-
+        text-align: left;
+        width: 130%;
+        height: 120%;
+        background: rgb(0, 0, 0);
     }
 
-    .pay-form-d {
-        // width: 7%;
-        @include mix.media(width, $xs: 33%, $sm: 23%, $md:18%, $lg:10%, $xxl: 16%);
+    .from {
+        position: relative;
+        left: 90%;
+        top: -200px;
 
-        // padding-left: 10px;
-        margin: 0 10px;
+        input {
+            // @include mix.media(width, $xs: 70%, $sm: 48%, $md:38%, $lg:22%, $xxl: 35%);
+            padding: 25px 0;
+            padding-top: 30px;
+            color: rgb(85, 85, 85);
+            outline-style: none;
+            border: 0px;
+            border-radius: 0;
+            border-bottom: 1px solid rgb(153, 153, 153);
+            background-color: transparent;
+            -webkit-appearance: none;
+            font-size: 16px;
+
+        }
+
+        .pay-form {
+            width: 30%;
+        }
+
+        .pay-form-d {
+            width: 30%;
+            margin-top: 20px;
+            // width: 45%;
+            // @include mix.media(width, $xs: 33%, $sm: 23%, $md:18%, $lg:10%, $xxl: 16%);
+
+            // padding-left: 10px;
+            // margin: 0 5px;
+        }
+
+        .pay-form-p {
+            // margin-top: 20px;
+            width: 14.5%;
+            // @include mix.media(width, $xs: 33%, $sm: 23%, $md:18%, $lg:10%, $xxl: 16%);
+
+            // padding-left: 10px;
+            margin: 0 5px;
+        }
     }
+
+
 
     input:focus {
         border-bottom: 1px solid rgb(0, 0, 0);

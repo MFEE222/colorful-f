@@ -3,35 +3,198 @@
 
 .cart-payment {
 
-    .title {
-        text-align: center;
-        font-size: 28px;
-    }
+    .header {
+        padding: 20px 0;
+        // font-size: 30px;
+        @include mix.media(font-size, $xs: 24px, $lg: 30px);
 
-    .cart-haeder {
-        border: solid 1px #ccc;
-        padding: 20px;
+
 
         h2 {
-            padding-left: 20px;
+            font-weight: bold;
+        }
+
+        .bold {
+            font-weight: bold;
+            padding-top: 10px;
+            letter-spacing: 10px;
+
+        }
+
+        .light {
+            color: #ccc;
+            letter-spacing: 10px;
+            // opacity : 0;
+            @include mix.media(opacity, $xs: 0, $lg: 1);
+
+        }
+
+
+
+        .process {
+            // text-align: center;
+            font-size: 24px;
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+
+        }
+    }
+
+    .cart-list {
+        padding: 20px 0;
+        border-top: solid 2px #000;
+        // box-shadow: 3px 0 5px rgb(150, 150, 150);
+        @include mix.media(box-shadow, $xs: none, $md: 3px 0px 5px rgb(150, 150, 150));
+
+        // box-shadow: 5px  rgb(139, 139, 139);
+
+        h2 {
+            // font-size: 24px;
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+
+        }
+
+        .checkbox {
+            // padding-top: 50px;
+            width: 20px;
+            height: 20px;
+
+        }
+    }
+
+    .cart-body {
+        padding: 20px 0;
+        border-top: solid 2px rgb(199, 199, 199);
+        justify-content: center;
+        /*主軸上居中*/
+        align-items: center;
+        // box-shadow: 3px 1px 5px rgb(150, 150, 150);
+        @include mix.media(box-shadow, $xs: none, $md: 3px 1px 5px rgb(150, 150, 150));
+
+
+
+        .checkbox {
+            // padding-top: 50px;
+            width: 20px;
+            height: 20px;
+
+        }
+
+        h2 {
+            // font-size: 30px;
+            @include mix.media(font-size, $xs: 20px, $md: 28px);
+        }
+
+        h3 {
+            // font-size: 30px;
+            @include mix.media(font-size, $xs: 20px, $md: 24px);
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            // padding: 20px;
+            @include mix.media(padding, $xs: 0, $md: 20px);
+
+        }
+
+        .text {
+            padding-left: 10px;
+        }
+
+        img {
+            // width: 200px;
+            @include mix.media(height, $xs: 100px, $lg: 200px);
+
+            // height: 200px;
+            object-fit: cover;
+        }
+
+    }
+
+    .cart-payment {
+        margin-top: 80px;
+        // text-align: center;
+
+        .title {
+            border-bottom: solid 2px rgb(221, 219, 219);
+            font-weight: bold;
+            padding-top: 20px;
+            font-size: 20px;
+        }
+
+        .payment-card {
+            padding-top: 30px;
+
+            .icon {
+                font-size: 40px;
+            }
+
+            span {
+                font-size: 20px;
+                padding-left: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    }
+
+    .cart-total {
+        padding-top: 50px;
+        text-align: right;
+
+        .price {
+            border-top: solid 2px #000;
+            padding-top: 20px;
+            // box-shadow: 3px 3px 5px rgb(150, 150, 150);
+            @include mix.media(box-shadow, $xs: none, $md: 3px 3px 5px rgb(150, 150, 150));
+
+
+            h4 {
+                @include mix.media(font-size, $xs: 18px, $lg: 20px);
+
+            }
+        }
+    }
+
+    .button {
+        margin-top: 100px;
+        text-align: right;
+        @include mix.media(text-align, $xs: center, $md: right);
+
+        // padding-right: 20px;
+
+        .checkout {
+            // width: 200px;
+            @include mix.media(width, $xs: 150px, $md: 200px);
+
+            height: 50px;
+            background: #000;
+            color: #fff;
+            border-radius: 20px;
+            margin-right: 20px;
+            // padding-right: 20px;
+        }
+
+        .checkout:hover {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            box-shadow: 5px 5px 5px #000;
         }
 
         .shopping {
-            width: 30%;
-            margin: 20px;
-            border: 0px;
-            border-radius: 0;
-            border-bottom: 1px solid rgb(153, 153, 153);
-            background-color: transparent;
-            -webkit-appearance: none;
-            outline-style: none;
+            // width: 200px;
+            @include mix.media(width, $xs: 150px, $md: 200px);
+            height: 50px;
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
         }
-    
-        input::-webkit-search-decoration,
-        input::-webkit-search-cancel-button {
-            display: none;
-        }
-    }
 
-    
+        .shopping:hover {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            box-shadow: 5px 5px 5px rgb(180, 180, 180);
+        }
+
+
+    }
 }

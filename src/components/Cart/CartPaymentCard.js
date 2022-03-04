@@ -19,10 +19,10 @@ function CardPaymentCard(props) {
                 name={credit.name}
                 number={credit.number}
             />
-            <form>
+            <form className="from">
                 <div>
                     <input
-                        className="pay-form"
+                        className="pay-form-d"
                         type="tel"
                         name="number"
                         placeholder="Card Number"
@@ -42,7 +42,7 @@ function CardPaymentCard(props) {
                 </div>
                 <div>
                     <input
-                        className="pay-form-d"
+                        className="pay-form-p"
                         type="expiry"
                         name="expiry"
                         placeholder="Exp Month Data"
@@ -50,7 +50,7 @@ function CardPaymentCard(props) {
                         onFocus={handleInputFocus}
                     />
                     <input
-                        className="pay-form-d"
+                        className="pay-form-p"
                         type="cvc"
                         name="cvc"
                         placeholder="CVV"
