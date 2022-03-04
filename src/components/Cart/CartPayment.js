@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import CartPaymentCard from './CartPaymentCard';
 import Product from '../../images/film001.jpg';
+import { Link, useRouteMatch, useParams } from 'react-router-dom';
+import { routes } from '../../utils/routes';
+import axios from 'axios';
+import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
+import ImgProduct from '../../images/product-img.jpeg';
 
 function CartPayment(props) {
+    const [display, setDisplay] = useState([]);
+
+    
+
     return (
         <div className="cart-payment">
             <div className="container">
@@ -21,12 +31,11 @@ function CartPayment(props) {
                 </div>
                 {/* 商品清單 title */}
                 <div className="row cart-list">
-                    <div className="col-1"></div>
                     <div className="col-8">
                         <h2>商品詳情</h2>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-4 price">
                         <h2>價格</h2>
                     </div>
                 </div>
@@ -44,65 +53,38 @@ function CartPayment(props) {
                         <h3>$99</h3>
                     </div>
                     <div className="col-1">
-                        {/* <i className="fas fa-trash-alt icon"></i>
-                        <i className="far fa-heart icon"></i> */}
-                {/* </div>
-                </div>  */}
-                <div className="row  my-1 card-house">
-                    {display.map((v, i) => {
-                        const img = `${IMG_URL2}/${v.products_img}/a1.jpg`;
-                        // console.log('img :>> ', img);
-                        return (
-                            <div
-                                className="col-6 col-md-4 mt-2 px-3 mb-2"
-                                key={v.id}
-                            >
-                                <div className="card-border ">
-                                    <div className="card-img position-relative">
-                                        <div className="ratios">
-                                            <img
-                                                className="img-fluid"
-                                                src={img}
-                                                alt=""
-                                            />
-                                        </div>
-                                        {v.status == 2 ? (
-                                            <span className="position-absolute top-0  translate-middle p-2  border-light rounded-circle download-badge">
-                                                <span className="badge bg-secondary">
-                                                    已下載
-                                                </span>
-                                            </span>
-                                        ) : (
-                                            ''
-                                        )}
-                                    </div>
-                                    <div className="card-body text-start p-0 my-2 my-md-4">
-                                        <label
-                                            htmlFor={v.id}
-                                            className="d-flex justify-content-between align-items-center"
-                                        >
-                                            <input
-                                                className="form-check-input m-0"
-                                                type="checkbox"
-                                                value={v.id}
-                                                id={v.id}
-                                                checked={v.check}
-                                                onChange={function (e) {
-                                                    handleCheck(e, i);
-                                                }}
-                                            />
-                                            <p className="card-title fw-bold">
-                                                {v.name}
-                                            </p>
-                                        </label>
-                                        {/* </div> */}
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
+                        <i className="fas fa-trash-alt icon"></i>
+                        <i className="far fa-heart icon"></i>
                 </div>
-                ;{/* 選擇付款方式 */}
+                </div>  */}
+                {/* {display.map((oneReview) => {
+                    const goTo = `${routes.reviewDetail}/${oneReview.id}`;
+                    const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
+                    return (
+                        <> */}
+                <div className="d-flex review-card">
+                    <div className="col-auto  col-md-10 review-card-img me-4">
+                        <div className="ratios">
+                            <img src={ImgProduct} alt="" />
+                        </div>
+                    </div>
+                    <div className="col row ps-0 align-items-center align-content-center">
+                        <h5 className="col-md- 6 title mt-3 mt-md-0">商品名</h5>
+                        {/* <p className="col-4 col-md-4 review-card-text ">
+                            2件商品
+                        </p> */}
+                        <p className="col-md-6 me-auto d-none d-md-block content">
+                            商品描述
+                        </p>
+                        <h3 className="col-2 me-auto d-none d-md-block">$99</h3>
+
+                        <p className="d-md-none "></p>
+                    </div>
+                </div>
+                {/* </>
+                    );
+                })} */}
+                {/* 選擇付款方式 */}
                 <div className="row cart-payment">
                     <div className="title">
                         <h2>付款方式</h2>
@@ -139,12 +121,12 @@ function CartPayment(props) {
                         <h4>NT198</h4>
                         <h4>NT0</h4>
                         <hr />
-                        <h4>NT198</h4>
+                        <h4 className="payment-price">NT198</h4>
                     </div>
                 </div>
                 <div className="button">
                     <button
-                        className="checkout"
+                        className="checkout modal-button"
                         type="button"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop"
