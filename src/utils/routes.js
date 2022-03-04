@@ -25,7 +25,7 @@ export const routes = {
     _orderList: '/order-list',
     _orderDetail: '/order-detail',
     _download: '/download',
-    _favorite: '/favorite',
+    _favorites: '/favorites',
     _review: '/review',
     _reviewDetail: '/review-detail',
     _mail: '/mail',
@@ -107,8 +107,8 @@ export const routes = {
     get download() {
         return this._member + this._download;
     },
-    get favorite() {
-        return this._member + this._favorite;
+    get favorites() {
+        return this._member + this._favorites;
     },
     get review() {
         return this._member + this._review;

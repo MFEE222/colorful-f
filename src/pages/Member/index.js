@@ -17,11 +17,10 @@ import OrderDetail from './OrderDetail';
 import Download from './Download';
 import Review from './Review';
 import ReviewDetail from './ReviewDetail';
-import WishList from './WishList';
+import Favorites from './Favorites';
 import Mail from './Mail';
 import MailDetail from './MailDetail';
 import Payment from './Payment';
-import Collect from './Collect';
 
 // 會員主頁（巢狀路由 or 單純函式解決）
 function Member(props) {
@@ -50,8 +49,8 @@ function Member(props) {
                     <Route path={routes.reviewDetail}>
                         <ReviewDetail />
                     </Route>
-                    <Route path={routes.favorite}>
-                        <WishList />
+                    <Route path={routes.favorites}>
+                        <Favorites />
                     </Route>
                     <Route path={routes.mail}>
                         <Mail />
@@ -62,9 +61,6 @@ function Member(props) {
                     <Route path={routes.payment}>
                         <Payment />
                     </Route>
-                    <Route path={routes.collect}>
-                        <Collect />
-                    </Route>
 
                     <Route path={routes.member}>
                         <div className="col-12 col-md-10 member">
@@ -74,10 +70,7 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                
-                
-                
-                                        to={routes.profile} 
+                                        to={routes.profile}
                                     >
                                         Profile
                                     </Link>
@@ -149,9 +142,9 @@ function Member(props) {
                                 <li>
                                     <Link
                                         className="btn btn-primary text-light"
-                                        to={routes.collect}
+                                        to={routes.favorites}
                                     >
-                                        Collect
+                                        Favorites
                                     </Link>
                                 </li>
                             </ul>
