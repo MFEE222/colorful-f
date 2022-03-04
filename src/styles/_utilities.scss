@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
     max-width: 100%;
     background-color: var.$gray;
+
+    .web-content {
+        min-height: 100vh;
+    }
 }
 
 .ratio-3x2 {
