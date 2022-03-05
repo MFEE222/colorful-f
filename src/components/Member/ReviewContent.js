@@ -103,7 +103,7 @@ function ReviewContent(props) {
                         <div className="d-flex review-card" key={oneReview.id}>
                             <div className="col-auto  col-md-10 review-card-img me-4">
                                 <div className="ratios">
-                                    <img src={img} alt="" />
+                                    <img src={oneReview.products_img} alt="" />
                                 </div>
                             </div>
                             <div className="col row ps-0 align-items-center align-content-center">

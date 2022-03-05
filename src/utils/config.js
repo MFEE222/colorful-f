@@ -11,6 +11,8 @@ export const IMG_URL =
 //圖片 去掉images （因為資料庫有寫）
 export const IMG_URL2 =
     process.env.REACT_APP_API_URL || 'http://localhost:3006';
+export const IMG_URL_UPLOAD =
+    process.env.REACT_APP_API_URL || 'http://localhost:3006';
 // 系列圖
 export const IMG_PRODUCTS_ALL = IMG_URL + '/all';
 export const IMG_PRODUCTS_NEWEST = IMG_URL + '/newest';
@@ -25,7 +27,6 @@ export const IMG_HOME_SCENERY_BANNER = IMG_URL + '/home/輪播02.jpg';
 export const IMG_HOME_FILM_BANNER = IMG_URL + '/home/輪播03.jpg';
 export const IMG_HOME_WEDDING_BANNER = IMG_URL + '/home/輪播04.jpg';
 export const IMG_HOME_FOOD_BANNER = IMG_URL + '/home/輪播05.jpg';
-
 
 // Banner
 export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner.jpg';
@@ -183,7 +184,9 @@ export const API_GET_CART = API_URL + '/cart';
 //member
 //member review (get)
 export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';
-//member review (post) 更新
+export const API_GET_MEMBER_REVIEW_IMG = API_URL + '/member/review/img';
+
+//member review (post) 更新 （formdata=>files)
 export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
 
 //member-download (get 要資料)
@@ -195,3 +198,6 @@ export const API_POST_MEMBER_DOWNLOAD_DNG =
 //     uid:
 //     dngId:[1,2...]
 // }
+//
+export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
+    API_URL + '/member/review/update/detail';
