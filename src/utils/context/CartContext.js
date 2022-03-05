@@ -35,23 +35,16 @@ export function CartProvider(props) {
     // 生命週期
     // 初始化購物車資料
     useEffect(function () {
-        // 檢查登入狀態（有登入）
-        if (auth.current) {
-        }
-        // 初始化 LocalStorage
-        const l = new LocalCart('colorful-cart');
-
-        // 取得 Auth
-
-        // axios api cart
-
-        // 寫入 localstorage
-
-        // 寫入狀態
+        syncFrom();
     }, []);
 
     // 保存購物車資料
-    useEffect(function () {}, [cart]);
+    useEffect(
+        function () {
+            syncTo();
+        },
+        [cart]
+    );
 
     // 渲染
     return (
@@ -68,12 +61,18 @@ export function CartProvider(props) {
     function remove() {}
 
     // 元件內部使用函數
-    function handleCheckAll() {}
+    function handleCheckAll(event) {
+        const check = !checkAll;
+        const newCart = cart.forEach(function (e) {
+            e.check = event.target.checked;
+        });
+        setCart(newCart);
+    }
 
     function handleCheck() {}
 
     // 從 Database or WebStorage 更新資料進來（覆蓋）
-    async function syncFrom(url) {
+    async function syncFrom() {
         let newCart = [];
         if (auth.current) {
             // from Database
@@ -103,7 +102,7 @@ export function CartProvider(props) {
         setCart(newCart);
     }
     // 將資料更新到 Database or Webstorage (發送差異)
-    async function syncTo(url) {
+    async function syncTo() {
         if (auth.current) {
             // to Database
             const res = await axios.post(API_POST_CART, {
