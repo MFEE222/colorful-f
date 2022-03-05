@@ -6,8 +6,6 @@ import { useAuthContext } from '../../utils/context/AuthContext';
 import { Redirect } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 
-
-
 // 忘記密碼頁 -> 輸入 email 和 密碼提示 -> 後端驗證 -> 驗證成功，提供重設密碼頁 -> 輸入新密碼和確認密碼，提交後端 -> 驗證成功，修改資料庫密碼
 function Forgot(props) {
     // {
@@ -20,7 +18,7 @@ function Forgot(props) {
         email: '',
         passwordHint: '',
     });
-
+    console.log('forgot :>> ', forgot);
     // const [auth, setAuth] = useState(false);
 
     function handleChange(e) {
@@ -31,7 +29,7 @@ function Forgot(props) {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        auth.forget();
+        auth.forget(forgot);
         
     }
 
