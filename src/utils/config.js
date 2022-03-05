@@ -26,7 +26,6 @@ export const IMG_HOME_FILM_BANNER = IMG_URL + '/home/輪播03.jpg';
 export const IMG_HOME_WEDDING_BANNER = IMG_URL + '/home/輪播04.jpg';
 export const IMG_HOME_FOOD_BANNER = IMG_URL + '/home/輪播05.jpg';
 
-
 // Banner
 export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner.jpg';
 export const IMG_PRODUCTS_NEWEST_BANNER =
@@ -183,7 +182,9 @@ export const API_GET_CART = API_URL + '/cart';
 //member
 //member review (get)
 export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';
-//member review (post) 更新
+export const API_GET_MEMBER_REVIEW_IMG = API_URL + '/member/review/img';
+
+//member review (post) 更新 （formdata=>files)
 export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
 
 //member-download (get 要資料)
@@ -195,3 +196,6 @@ export const API_POST_MEMBER_DOWNLOAD_DNG =
 //     uid:
 //     dngId:[1,2...]
 // }
+//
+export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
+    API_URL + '/member/review/update/detail';
