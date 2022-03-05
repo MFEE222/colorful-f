@@ -56,6 +56,17 @@ function Signin(props) {
     // <button className="btn btn-danger" onClick={auth.clear}>
     //     登出
     // </button>
+
+    // 測試
+    // useEffect(function () {
+    //     console.log('auth.current :>> ', auth.current);
+    // }, [auth]);
+
+    // useEffect(function () {
+    //     console.log('login :>> ', login);
+    // }, [login]);
+
+
     return auth.current ? (
         <Redirect to={routes.home} />
     ) : (
@@ -139,7 +150,7 @@ function Signin(props) {
                                 </div>
                                 <div>
                                     <p className="signup">
-                                        Don't you no account ?<sspan> </sspan>
+                                        Don't you no account ?<span> </span>
                                         <Link
                                             to={routes.signup}
                                             className="l-link"

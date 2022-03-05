@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import { API_POST_AUTH_SIGNUP } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
+import { routes } from '../../utils/routes';
+
 
 const Signup = (props) => {
     // member {
@@ -42,7 +45,9 @@ const Signup = (props) => {
     }
 
     // 渲染
-    return (
+
+
+    return  (
         <div className="signup-main">
             <div className="container">
                 <div className="row justify-content-center justify-content-lg-start">

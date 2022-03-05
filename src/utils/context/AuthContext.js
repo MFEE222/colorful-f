@@ -5,7 +5,8 @@ import axios from 'axios';
 import {
     API_POST_AUTH_LOGIN,
     API_POST_AUTH_SIGNUP,
-    API_POST_AUTH_FORGOT,
+    API_POST_AUTH_FORGOT_PASSWORD,
+    API_POST_AUTH_RESET_PASSWORD,
 } from '../config';
 import { STATUS_MSG } from '../others/status';
 // 通用元件
@@ -43,6 +44,7 @@ export function AuthProvider(props) {
         clear, // 清除所有驗證資料（登出）
         current: login, // 當前是否登入
         user, // 取用使用者資料
+        forget, // axios
     };
 
     // 函數
@@ -60,13 +62,15 @@ export function AuthProvider(props) {
 
         // axios post 登入請求
         try {
-            const res = await axios.post(API_POST_AUTH_LOGIN, option, {
-                withCredentials: true,
-            });
+            console.log('hi');
+            option.withCredentials = true;
+            const res = await axios.post(API_POST_AUTH_LOGIN, option);
+            console.log('hey');
+
             console.log('res :>> ', res);
-            if (res.data.statusCode & 1) {
-                throw new Error(STATUS_MSG[res.data.statusCode]);
-            }
+            // if (res.data.statusCode & 1) {
+            //     throw new Error(STATUS_MSG[res.data.statusCode]);
+            // }
             if (res.data.user) {
                 setLogin(true);
                 setUser(res.data.user);
@@ -80,6 +84,24 @@ export function AuthProvider(props) {
     function clear() {
         setLogin(false);
         setUser({});
+    }
+
+    // 註冊
+
+    // 忘記密碼
+    async function forget(option = shared.option) {
+        try {
+            let response = await axios.post(
+                API_POST_AUTH_FORGOT_PASSWORD,
+                option
+            );
+            console.log('response.data :>> ', response.data);
+            if (!response) {
+                throw new Error(STATUS_MSG[response.data.statusCode]);
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     // 生命週期
