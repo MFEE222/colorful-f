@@ -124,15 +124,32 @@ export const API_GET_PRODUCT = API_URL + '/product';
 
 // req:
 // {
-//     user_id,    :>> 使用者 id + 和 session_id 一併送出
+//     userId,    :>> 使用者 id + 和 session_id 一併送出
+//     option: {
+//          orderby,
+//          order,
+//          limit,
+//          offset,
+//     }
+// }
+// res
+// {
+//     statusCode:
+//     cart: [],
+//     total:
 // }
 export const API_GET_CART = API_URL + '/cart';
 
 // req:
 // {
-//     user_id, :>> 使用者 + 和 session_id 一併送出
+//     userId, :>> 使用者 + 和 session_id 一併送出
 //     add: [], :>> 需要新加入購物車的資料（先尋找商品 UPDATE、沒有的話在 INSERT）
 //     remove: [], :>> 需要從購物車中排除的資料（尋找商品 UPDATE）
 // }
+// res
+// {
+//     statusCode
+//     result: boolean
+// }
 export const API_POST_CART = API_URL + '/cart';
-export const API_LOCAL_STORAGE_KEY = 'colorful-cart';
+export const API_LOCAL_STORAGE_CART = 'colorful-cart';

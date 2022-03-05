@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import { API_GET_PRODUCT } from '../config';
-import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_KEY } from '../config';
+import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_CART } from '../config';
 import { STATUS_MSG } from '../others/status';
 import { useAuthContext } from './AuthContext';
 
@@ -17,19 +17,34 @@ export function CartProvider(props) {
     const auth = useAuthContext();
     // state, hook
     const [cart, setCart] = useState([]); // 紀錄購物車內資料
-    const [add, setAdd] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
-    const [remove, setRemove] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
+    // const [add, setAdd] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
+    // const [remove, setRemove] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
+    const add = useRef([]);
+    const remove = useRef([]);
     const [checkAll, setCheckAll] = useState(false); // 紀錄是否勾選全選框框
+    const [total, setTotal] = useState(0); // 紀錄查詢結果總數量（和 cart 陣列沒有一定一樣，返回的是資料庫中符合總數）
 
     // 變數 (shared)
     const { option } =
-        props.option !== undefined ? props : { option: { id: 1 } };
+        props.option !== undefined
+            ? props
+            : {
+                  option: {
+                      orderby: 'created_at',
+                      order: 1,
+                      limit: 8,
+                      offset: 0,
+                  },
+              };
     const shared = {
-        state: cart,
-        add: 1,
-        remove: 1,
-        option: 1,
-        reset: 1,
+        current: cart,
+        total,
+        handleAdd,
+        handleRemove,
+        handleCheck,
+        handleCheckAll,
+        syncFrom,
+        option,
     };
 
     // 生命週期
@@ -53,60 +68,89 @@ export function CartProvider(props) {
         </CartContext.Provider>
     );
 
-    // API
+    // 函數
     // 將商品資料寫入蒐藏清單（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local storage）
-    function add(product) {}
+    function handleAdd(product) {
+        const newCart = [...cart];
+        const item = { ...product, check: false };
+        newCart.push(item);
+        add.push(item);
+    }
 
     // 將商品資料從蒐藏清單排除（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local stroage）
-    function remove() {}
+    function handleRemove(product) {
+        const newCart = [...cart];
+        const item = { ...product, check: false };
+        newCart.push(item);
+        remove.push(item);
+    }
 
-    // 元件內部使用函數
-    function handleCheckAll(event) {
-        const check = !checkAll;
-        const newCart = cart.forEach(function (e) {
-            e.check = event.target.checked;
+    function handleCheck(pid) {
+        const newCart = cart.map(function (e) {
+            if (e.id === pid) e.check = !e.check;
+            return e;
         });
+
         setCart(newCart);
     }
 
-    function handleCheck() {}
+    function handleCheckAll(event) {
+        const check = !checkAll;
+        const newCart = cart.map(function (e) {
+            e.check = check;
+            return e;
+        });
+        setCart(newCart);
+        setCheckAll(check);
+    }
 
     // 從 Database or WebStorage 更新資料進來（覆蓋）
-    async function syncFrom() {
+    async function syncFrom(option = shared.option) {
         let newCart = [];
+        let newTotal = 0;
         if (auth.current) {
             // from Database
             try {
                 const res = await axios.get(API_GET_CART, {
                     params: {
-                        user_id: auth.user.id,
+                        userId: auth.user.id,
+                        option,
                     },
                 });
                 // console.log('res :>> ', res);
                 if (!res.data) {
                     new Error(STATUS_MSG[res.status]);
                 }
-                newCart = res.data;
+                newCart = res.data.cart;
+                newTotal = res.data.total;
             } catch (err) {
                 console.log('err :>> ', err);
             }
         } else {
             // from LocalStorage
-            const res = JSON.parse(localStorage.getItem(API_LOCAL_STORAGE_KEY));
+            const res = JSON.parse(
+                localStorage.getItem(API_LOCAL_STORAGE_CART)
+            );
             if (Array.isArray(res)) {
                 newCart = res;
             }
         }
 
         // 設定狀態
-        setCart(newCart);
+        setCart(
+            newCart.map((e) => {
+                e.check = false;
+                return e;
+            })
+        );
+        setTotal(newTotal);
     }
     // 將資料更新到 Database or Webstorage (發送差異)
     async function syncTo() {
         if (auth.current) {
             // to Database
             const res = await axios.post(API_POST_CART, {
-                user_id: auth.user.id,
+                userId: auth.user.id,
                 add,
                 remove,
             });
@@ -115,11 +159,13 @@ export function CartProvider(props) {
             // clear
         } else {
             // to LocalStorage (直接覆蓋)
-            localStorage.setItem(API_LOCAL_STORAGE_KEY, JSON.stringify(cart));
+            localStorage.setItem(API_LOCAL_STORAGE_CART, JSON.stringify(cart));
         }
         // clear
-        setAdd([]);
-        setRemove([]);
+        // setAdd([]);
+        // setRemove([]);
+        add = [];
+        remove = [];
     }
 }
 
@@ -131,66 +177,4 @@ export function CartConsumer(props) {
 // useContext
 export function useCartContext() {
     return React.useContext(CartContext);
-}
-
-class LocalCart {
-    constructor(key) {
-        this._key = key;
-        this._value = JSON.parse(localStorage.getItem(key)); // 存商品的陣列
-        if (!this._value) this._value = [];
-        if (!Array.isArray(this._value))
-            console.log(__filename, ' :>> webstorage : value mest be a array');
-    }
-
-    // 取得資料（已從 string 轉成 JSON 物件）
-    goods() {
-        return this._value;
-    }
-
-    // 放入一筆資料
-    add(goods) {
-        this._value.push(goods);
-        return this;
-    }
-
-    // 放入多筆資料
-    apply(arr) {
-        const that = this;
-        arr.forEach(function (a) {
-            if (!that._value.some((b) => b.id === a.id)) {
-                that._value.push(a);
-            }
-        });
-        return this;
-    }
-
-    // 刪除一筆資料
-    remove(product) {
-        this._value = this._value.filter(function (e) {
-            return e.id != product.id;
-        });
-        return this;
-    }
-
-    removeById(id) {
-        this._value = this._value.filter(function (e) {
-            return e.id != id;
-        });
-        return this;
-    }
-
-    // 檢視資料
-    log() {
-        console.log(`localStorage ${this._key}:>> `, this._value);
-    }
-
-    // 儲存至 localStorage
-    save() {
-        localStorage.setItem(this._key, JSON.stringify(this._value));
-    }
-
-    // 清除所有
-    clear() {
-        localStorage.removeItem(this._key);
-    }
 }
