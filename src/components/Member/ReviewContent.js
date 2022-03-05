@@ -41,13 +41,13 @@ function ReviewContent(props) {
     //掛載
     useEffect(() => {
         fetchReview(); // 下載評論資料
-        console.log('counts :>> ', counts);
+        // console.log('counts :>> ', counts);
     }, []);
 
     //更新
     useEffect(() => {
         fetchReview();
-        console.log('status :>> ', statusId);
+        // console.log('status :>> ', statusId);
     }, [statusId, uid, offset]);
 
     //TODO: 拿到訂單
@@ -100,46 +100,41 @@ function ReviewContent(props) {
                     const goTo = `${routes.reviewDetail}/${oneReview.id}`;
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
                     return (
-                        <>
-                            <div
-                                className="d-flex review-card"
-                                key={oneReview.id}
-                            >
-                                <div className="col-auto  col-md-10 review-card-img me-4">
-                                    <div className="ratios">
-                                        <img src={img} alt="" />
-                                    </div>
+                        <div className="d-flex review-card" key={oneReview.id}>
+                            <div className="col-auto  col-md-10 review-card-img me-4">
+                                <div className="ratios">
+                                    <img src={img} alt="" />
                                 </div>
-                                <div className="col row ps-0 align-items-center align-content-center">
-                                    <h4 className="col-10 col-md-8  align-self-center m-0">
-                                        {oneReview.name}
-                                    </h4>
-                                    <h5 className="title mt-3 mt-md-0">
-                                        {oneReview.title}
-                                    </h5>
-                                    {/* <p className="col-4 col-md-4 review-card-text ">
+                            </div>
+                            <div className="col row ps-0 align-items-center align-content-center">
+                                <h4 className="col-10 col-md-8  align-self-center m-0">
+                                    {oneReview.name}
+                                </h4>
+                                <h5 className="title mt-3 mt-md-0">
+                                    {oneReview.title}
+                                </h5>
+                                {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}
-                                    <p className="col-md-12 me-auto d-none d-md-block content">
-                                        {oneReview.content == null
-                                            ? '尚未評論'
-                                            : oneReview.content}
-                                    </p>
-                                    <p className="d-md-none ">
-                                        {!oneReview.content && '尚未評論'}
-                                    </p>
-                                </div>
-                                <LinkContainer
-                                    className="btn me-2 align-self-end"
-                                    to={{
-                                        pathname: goTo,
-                                        state: { oneReview },
-                                    }}
-                                >
-                                    <span>編輯</span>
-                                </LinkContainer>
+                                <p className="col-md-12 me-auto d-none d-md-block content">
+                                    {oneReview.content == null
+                                        ? '尚未評論'
+                                        : oneReview.content}
+                                </p>
+                                <p className="d-md-none ">
+                                    {!oneReview.content && '尚未評論'}
+                                </p>
                             </div>
-                        </>
+                            <LinkContainer
+                                className="btn me-2 align-self-end"
+                                to={{
+                                    pathname: goTo,
+                                    state: { oneReview },
+                                }}
+                            >
+                                <span>編輯</span>
+                            </LinkContainer>
+                        </div>
                     );
                 })}
                 {/* </div> */}

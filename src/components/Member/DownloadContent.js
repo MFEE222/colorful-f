@@ -35,7 +35,7 @@ function DownloadContent(props) {
             e.check = false;
             return e;
         });
-        console.log('newDisplay :>> ', newDisplay);
+        // console.log('newDisplay :>> ', newDisplay);
         setCounts(response.data.rows);
         // setDisplay(response.data.data);
         setDisplay(newDisplay);
@@ -68,7 +68,7 @@ function DownloadContent(props) {
         const dngId = d.map((v) => {
             return v.product_id;
         });
-        console.log('here :>> ', 'here');
+        // console.log('here :>> ', 'here');
         const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
             uid,
             dngId,

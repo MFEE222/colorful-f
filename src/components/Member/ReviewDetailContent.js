@@ -71,7 +71,7 @@ function ReviewDetailContent(props) {
     // });
     async function handleSubmit(e) {
         e.preventDefault();
-        console.log('files :>> ', files);
+        // console.log('files :>> ', files);
         let formData = new FormData();
         formData.append('stars', starCurrent);
         formData.append('title', reviewtTitle);
@@ -79,17 +79,17 @@ function ReviewDetailContent(props) {
         formData.append('photo', files);
         formData.append('uid', oneReview.user_id);
         formData.append('rid', oneReview.id);
-        console.log('formData.values() :>> ', formData.values());
+        // console.log('formData.values() :>> ', formData.values());
         const response = await axios.post(
             API_GET_MEMBER_REVIEW_UPDATE,
             formData
             // FD
         );
         for (var key of formData.keys()) {
-            console.log('key :>> ', key);
+            // console.log('key :>> ', key);
         }
         for (var value of formData.values()) {
-            console.log('value :>> ', value);
+            // console.log('value :>> ', value);
         }
     }
 
