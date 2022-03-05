@@ -12,7 +12,7 @@ function Card(props) {
 
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
-    console.log('cover :>> ', cover);
+    // console.log('cover :>> ', cover);
 
     // 渲染
     return (

@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { routes } from '../../utils/routes';
 
-import CartCard from '../../components/Cart/CartCard';
-import CartContent from '../../components/Cart/CartContent';
-import CartPayment from '../../components/Cart/CartPayment';
-import CartPaymentCard from '../../components/Cart/CartPaymentCard';
-
-
-
+import CartContent from './CartContent';
+import CartPayment from './CartPayment';
 
 function Cart(props) {
-    return <CartCard />
-
+    return (
+        <>
+            <Switch>
+                {/* 結帳付款頁 */}
+                <Route path={routes.checkout}>
+                    <CartPayment />
+                </Route>
+                {/* 購物車主頁 */}
+                <Route path={routes.cart}>
+                    <CartContent />
+                </Route>
+            </Switch>
+        </>
+    );
 }
 
 export default Cart;

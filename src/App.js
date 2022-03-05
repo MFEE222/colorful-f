@@ -45,7 +45,6 @@ import { RWDProvider } from './utils/context/RWDContext';
 
 import { CartProvider } from './utils/context/CartContext';
 
-
 function App() {
     return (
         <>
@@ -58,9 +57,6 @@ function App() {
                             <ScrollToTop />
                             {/* 麵包屑 */}
                             {/* <Breadcrumb /> */}
-
-                            {/* A <Switch> looks through its children <Route>s and
-                    renders the first one that matches the current URL. */}
                             <Switch>
                                 {/* 驗證頁：登入、註冊、忘記密碼 */}
                                 <Route path={routes.auth}>

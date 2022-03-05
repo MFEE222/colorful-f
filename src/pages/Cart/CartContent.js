@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import axios from 'axios';
 import { routes } from '../../utils/routes';
 import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
-import RecommendCard from '../Product/RecommendCard';
+import RecommendCard from '../../components/Product/RecommendCard';
 
 //圖片
 import LoginPic from '../../images/film005.jpg';
@@ -60,6 +60,8 @@ function CartContent(props) {
             setRecommend(rank.data);
         })();
     }, []);
+
+    // 渲染
     return (
         <div className="cart-content">
             <div className="container">
@@ -110,9 +112,7 @@ function CartContent(props) {
                     </div>
                     <div className="col row ps-0 align-items-center align-content-center">
                         <h2>米其林五星級</h2>
-                        <p>
-                            Duis aliquam convallis nunc.
-                        </p>
+                        <p>Duis aliquam convallis nunc.</p>
                     </div>
                     <div className="col-2 me-auto  d-md-block">
                         <h3>$99</h3>
@@ -122,7 +122,6 @@ function CartContent(props) {
                         <i className="far fa-heart icon"></i>
                     </div>
                 </div>
-                
 
                 {/* 總共 */}
                 <div className="row cart-total justify-content-end">
@@ -142,24 +141,27 @@ function CartContent(props) {
                     </div>
                 </div>
                 <div className="button">
-                    <button
-                        className="checkout"
-                        type="button"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop"
-                    >
-                        前往結帳
-                    </button>
-                    
-                    <button className="shopping" type="button">
-                        繼續購物
-                    </button>
+                    <LinkContainer to={routes.checkout}>
+                        <button
+                            className="checkout"
+                            type="button"
+                            // data-bs-toggle="modal"
+                            // data-bs-target="#staticBackdrop"
+                        >
+                            前往結帳
+                        </button>
+                    </LinkContainer>
+
+                    <LinkContainer to={routes.product}>
+                        <button className="shopping" type="button">
+                            繼續購物
+                        </button>
+                    </LinkContainer>
                 </div>
                 {/* 推薦區 */}
                 <RecommendCard recommend={recommend} />
             </div>
 
-            
             {/* 引入login */}
             {/* <div className="scroll-down">
                 SCROLL DOWN

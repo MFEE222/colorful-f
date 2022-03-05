@@ -28,12 +28,14 @@ export const routes = {
     _favorite: '/favorite',
     _review: '/review',
     _reviewDetail: '/review-detail',
+    _payment: '/payment',
     _mail: '/mail',
     _mailDetail: '/mail-detail',
-    _payment: '/payment',
     _collect: '/collect',
     // test
     _test: '/test',
+    // cart
+    _checkout: '/checkout',
 
     // 第一層路由
     get home() {
@@ -110,6 +112,9 @@ export const routes = {
     get favorite() {
         return this._member + this._favorite;
     },
+    get payment() {
+        return this._member + this._payment;
+    },
     get review() {
         return this._member + this._review;
     },
@@ -122,13 +127,14 @@ export const routes = {
     get mailDetail() {
         return this._member + this._mailDetail;
     },
-    get payment() {
-        return this._member + this._payment;
-    },
     get collect() {
         return this._member + this._collect;
     },
     get test() {
         return this._test;
+    },
+    // cart
+    get checkout() {
+        return this._cart + this._checkout;
     },
 };

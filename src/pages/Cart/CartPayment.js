@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import CartPaymentCard from './CartPaymentCard';
+import CartPaymentCard from '../../components/Cart/CartPaymentCard';
 import Product from '../../images/film001.jpg';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { routes } from '../../utils/routes';
@@ -97,7 +97,9 @@ function CartPayment(props) {
                         </div>
                     </div>
                     <div className="col row ps-0 align-items-center align-content-center">
-                        <h5 className="col-8 col-md-8 title mt-3 mt-md-0">商品名</h5>
+                        <h5 className="col-8 col-md-8 title mt-3 mt-md-0">
+                            商品名
+                        </h5>
                         <h3 className="col-2 me-auto  d-md-block">$99</h3>
                         {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
@@ -105,7 +107,6 @@ function CartPayment(props) {
                         <p className="col-md-6 me-auto  d-md-block content">
                             商品描述
                         </p>
-                        
 
                         <p className="d-md-none "></p>
                     </div>
