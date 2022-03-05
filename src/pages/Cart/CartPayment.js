@@ -158,15 +158,18 @@ function CartPayment(props) {
                     <button
                         className="checkout"
                         type="button"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop"
-                        onClick={() => setModalShow(true)}
+                        // data-bs-toggle="modal"
+                        // data-bs-target="#staticBackdrop"
+                        // onClick={() => setModalShow(true)}
                     >
                         提交訂單
                     </button>
-                    <button className="shopping" type="button">
-                        返回購物車
-                    </button>
+
+                    <LinkContainer to={routes.cart}>
+                        <button className="shopping" type="button">
+                            返回購物車
+                        </button>
+                    </LinkContainer>
                 </div>
             </div>
         </div>
