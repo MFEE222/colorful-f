@@ -12,7 +12,7 @@ import {
 // 第三方庫
 import axios from 'axios';
 import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
-import { PlaceholderLine } from 'semantic-ui-react';
+// import { PlaceholderLine } from 'semantic-ui-react';
 
 // 通用庫
 import { routes } from '../../utils/routes';
@@ -100,7 +100,7 @@ function Product(props) {
             {/* 推薦區 */}
             <RecommendCard recommend={recommend} />
             {/* 評論區 */}
-            {/* {match.path === routes.productDetail && <ReviewDetail />} */}
+            {match.path === routes.productDetail && <ReviewDetail />}
         </>
     );
 }

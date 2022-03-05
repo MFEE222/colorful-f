@@ -1,8 +1,10 @@
 import React from 'react';
 import ProductImg from '../../images/product-img.jpeg';
+import Content from './Content';
 
 function ProfileContent(props) {
     return (
+        // <Content>
         <div className="col-12 col-md-10 member-profile-main">
             {/* <!-- title --> */}
             <div className="row mb-3">
@@ -143,6 +145,7 @@ function ProfileContent(props) {
                 </button>
             </form>
         </div>
+        // </Content>
     );
 }
 
