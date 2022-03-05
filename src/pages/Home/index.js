@@ -16,7 +16,7 @@ import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
 
 import page4 from '../../images/b0.jpg';
-import page2 from "../../images/home-p2.jpg";
+import page2 from '../../images/home-p2.jpg';
 
 import Slideshow from './slider';
 
@@ -31,9 +31,9 @@ function Home() {
                     height="1000px"
                     src="https://www.youtube.com/embed/Jut9YPJGhjE?rel=0&autoplay=1&loop=1"
                     title="YouTube video player"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                 ></iframe>
 
                 <div className="scroll-down"></div>
@@ -61,7 +61,7 @@ function Home() {
                                     ，它能讓你的照片快速變成專業攝影照。
                                     不論是任何程度的使用者都適合，介面簡單且濾鏡功能強大，能夠協助創作者快速製作出精美的圖像作品。
                                 </p>
-                                <br/>
+                                <br />
                                 <p>
                                     COLORFUL的定位就是讓新手小白在不費力的過程中一鍵套用，
                                     也能輕鬆濾出滿意的數位圖像，將您的攝影技巧提升到更高境界，
