@@ -1,27 +1,36 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link, useRouteMatch, useParams, useLocation } from 'react-router-dom';
+import {
+    Link,
+    useRouteMatch,
+    useParams,
+    useLocation,
+    useHistory,
+    Router,
+} from 'react-router-dom';
 import { routes } from '../../utils/routes';
-// import { Modal, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 // import Slider from 'react-slick';
 import ClickStar from './ClickStar';
 import ShowStar from '../Product/ShowStar';
 // import MemberSlider from './MemberSlider';
 import axios from 'axios';
 import {
+    IMG_URL_UPLOAD,
+    API_GET_MEMBER_REVIEW_IMG,
     API_GET_MEMBER_REVIEW_UPDATE,
     API_GET_MEMBER_REVIEW_UPDATE_DETAIL,
 } from '../../utils/config';
+import { set } from 'immutable';
 
 function ReviewDetailContent(props) {
     const match = useRouteMatch();
     const location = useLocation();
     const { oneReview } = location.state;
-
+    const formRef = useRef();
+    // console.log('oneReview.img :>> ', oneReview.reviews_img);
     //狀態
     const [modalShow, setModalShow] = useState(false);
-
-    // 生命週期
-
     const [starCurrent, setStarCurrent] = useState(0); //星星評分
     const [reviewtTitle, setTitle] = useState(oneReview.title); //標題
     const [reviewContent, setCotent] = useState(oneReview.content); //內文
@@ -30,10 +39,37 @@ function ReviewDetailContent(props) {
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
     const [message, setMessage] = useState(false); //編輯成功顯示
+    const [oldImg, setOldImg] = useState([]);
+    const hi = useHistory();
+    console.log('hi :>> ', hi);
 
-    //圖片
-    // const [fileSrc, setFileSrc] = useState(null);
+    let history = useHistory();
+    function handleClick() {
+        history.push('/member/review');
+    }
 
+    //函式 拿照片
+    const featchImg = async () => {
+        const response = await axios.get(
+            `${API_GET_MEMBER_REVIEW_IMG}/${oneReview.id}`
+        );
+        // console.log('response.data :>> ', response.data);
+        // console.log('response.data.data :>> ', response.data.data[0]);
+        let arr = [];
+        for (let i = 0; i < response.data.imgCount.length; i++) {
+            let result = `${IMG_URL_UPLOAD}/${response.data.data[0].img}/${response.data.imgCount[i]}`;
+            arr.push(result);
+        }
+        // console.log('oneReview.reviews_img :>> ', oneReview.reviews_img);
+        setOldImg(arr);
+    };
+
+    //掛載
+    useEffect(() => {
+        featchImg();
+    }, []);
+
+    //把圖片顯示出來（建立在狀態）
     const handleUploadFile = (e) => {
         console.log('here');
         // ============================
@@ -81,19 +117,18 @@ function ReviewDetailContent(props) {
                 content: reviewContent,
             }
         );
-        console.log('response.data :>> ', responseDetail.data);
-        // if (responseDetail.data.message == 200) {
-        //     setMessage(true);
-        // }
+        // console.log('response.data :>> ', responseDetail.data);
+        setImgs([]);
+        featchImg();
+        formRef.current.reset();
+        handleClick();
     }
 
     //TODO:顯示星星,更改星星評分（第一次評分）
-    useEffect(() => {
-        // console.log('files :>> ', files);
-        // console.log('Array.isArray(files) :>> ', Array.isArray(files));
-    }, [reviewtTitle, reviewContent, imgs, files]);
+    useEffect(() => {}, [reviewtTitle, reviewContent, imgs, oldImg]);
+    //imgs, files, oldImg
 
-    // 函數
+    // 刪圖片
     function handleRemoveImg(name) {
         const newImgs = imgs.filter((img) => {
             return img.name != name;
@@ -111,7 +146,7 @@ function ReviewDetailContent(props) {
                 {/* card */}
                 {/* <h4>評論商品</h4> */}
                 <div className=" review-card">
-                    <form className="review-form" action="post">
+                    <form className="review-form" action="post" ref={formRef}>
                         {/* <div className="row"> */}
                         <div className="col-12 col-md-8">
                             <h3 className="my-md-0 mb-lg-2">
@@ -156,6 +191,26 @@ function ReviewDetailContent(props) {
                                 setCotent(e.target.value);
                             }}
                         />
+                        {/* 顯示原有照片 */}
+                        <div className="d-flex add-box m-0 overflow-scroll">
+                            {oldImg.map(function (img, i) {
+                                // console.log('oldImg :>> ', oldImg);
+                                return (
+                                    <div
+                                        key={i}
+                                        // onClick={() => setModalShow(true)}
+                                    >
+                                        <div className="upload-box mb-4 me-3">
+                                            <div className=" ratio ratio-1x1">
+                                                <img key={i} src={img} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* input上傳 */}
                         <div className="row flex-nowrap add-box m-0 overflow-scroll">
                             <label
                                 htmlFor="photos"
@@ -197,13 +252,19 @@ function ReviewDetailContent(props) {
                             })}
                         </div>
 
-                        <Link
-                            className="btn submit float-end mt-3"
-                            to={routes.review}
-                            onClick={handleSubmit}
+                        <LinkContainer
+                            className="btn me-2 align-self-end"
+                            to={{
+                                pathname: routes.review,
+                            }}
                         >
-                            <span>完成</span>
-                        </Link>
+                            <span
+                                className="btn submit float-end mt-3"
+                                onClick={handleSubmit}
+                            >
+                                完成
+                            </span>
+                        </LinkContainer>
                     </form>
                 </div>
             </div>

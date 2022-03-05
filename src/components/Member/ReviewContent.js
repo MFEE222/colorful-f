@@ -25,7 +25,7 @@ function ReviewContent(props) {
                 offset,
             },
         });
-        // console.log('response.data :>> ', response.data.data);
+        console.log('response.data :>> ', response.data.data);
         setDisplay(response.data.data);
         // console.log('response.rows :>> ', response.data.rows);
         setCounts(response.data.rows);
