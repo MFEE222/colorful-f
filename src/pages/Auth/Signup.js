@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
 import { API_POST_AUTH_SIGNUP } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
 
@@ -13,7 +12,13 @@ const Signup = (props) => {
     //     passwordHint: '',
     // }
     // 狀態
-    const [member, setMember] = useState({});
+    const [member, setMember] = useState({
+        email: '',
+        name: '',
+        password: '',
+        confirmPassword: '',
+        passwordHint: '',
+    });
 
     // 函式
     function handleChange(e) {
@@ -25,7 +30,7 @@ const Signup = (props) => {
 
         try {
             let response = await axios.post(API_POST_AUTH_SIGNUP, member);
-            // console.log(response.data);
+            console.log(response.data);
             if (!response) {
                 throw new Error(STATUS_MSG[response.data.statusCode]);
             }
