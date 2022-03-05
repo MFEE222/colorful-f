@@ -1,6 +1,6 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-
+@import "r17-react-credit-cards/es/styles-compiled.css";
 @import "bootstrap";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 // font:
@@ -84,3 +84,12 @@
 
 // 404 page
 @import "error-content";
+
+// cart page
+@import "cart-card";
+@import "cart-content";
+@import "cart-payment-form";
+@import "cart-payment";
+
+// utils pagination
+@import "utils-pagination";

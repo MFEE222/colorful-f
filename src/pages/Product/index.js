@@ -98,7 +98,7 @@ function Product(props) {
                 </Route>
             </Switch>
             {/* 推薦區 */}
-            {/* <RecommendCard recommend={recommend} /> */}
+            <RecommendCard recommend={recommend} />
             {/* 評論區 */}
             {/* {match.path === routes.productDetail && <ReviewDetail />} */}
         </>
