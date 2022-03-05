@@ -41,7 +41,7 @@ function ReviewDetailContent(props) {
     const [message, setMessage] = useState(false); //編輯成功顯示
     const [oldImg, setOldImg] = useState([]);
     const hi = useHistory();
-    console.log('hi :>> ', hi);
+    // console.log('hi :>> ', hi);
 
     let history = useHistory();
     function handleClick() {
@@ -121,7 +121,7 @@ function ReviewDetailContent(props) {
         setImgs([]);
         featchImg();
         formRef.current.reset();
-        handleClick();
+        // handleClick();
     }
 
     //TODO:顯示星星,更改星星評分（第一次評分）
@@ -252,19 +252,12 @@ function ReviewDetailContent(props) {
                             })}
                         </div>
 
-                        <LinkContainer
-                            className="btn me-2 align-self-end"
-                            to={{
-                                pathname: routes.review,
-                            }}
+                        <span
+                            className="btn submit float-end mt-3"
+                            onClick={handleSubmit}
                         >
-                            <span
-                                className="btn submit float-end mt-3"
-                                onClick={handleSubmit}
-                            >
-                                完成
-                            </span>
-                        </LinkContainer>
+                            完成
+                        </span>
                     </form>
                 </div>
             </div>
