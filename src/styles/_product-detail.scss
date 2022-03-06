@@ -4,8 +4,6 @@
 .product-detail {
     // 1.
     .pd-1 {
-        // margin: 3rem auto;
-
         .ratios {
             @media (max-width: 767.98px) {
                 @include mix.ratio(3, 4);
@@ -14,7 +12,7 @@
                 @include mix.ratio(3, 2);
             }
         }
-
+        //套件class
         .rba-afterPosition {
             border: 1px solid $light;
             border-radius: 20px;
@@ -27,6 +25,7 @@
         .rba-beforePosition {
             display: none;
         }
+
         .img-list {
             margin: 0;
             > div:first-child {
@@ -51,10 +50,10 @@
         .reviews-text {
             margin: 0;
             @media (max-width: 768px) {
-                font-size: 0.7rem;
+                font-size: 14px;
             }
             @media (min-width: 992px) {
-                font-size: 0.8rem;
+                font-size: 1rem;
             }
         }
         .review-box {
@@ -64,20 +63,9 @@
         }
 
         .product-name {
-            // @media (max-width: 767.98px) {
-            //     font-size: 1.2rem;
-            //     margin: 0.5rem auto 0;
-            // }
-            // @media (min-width: 768px) {
-            //     font-size: 1rem;
-            //     margin: 0;
-            // }
-            // @media (min-width: 992px) {
-            //     font-size: 26px;
-            //     margin: 0;
-            // }
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-            font-size: calc(0.5rem + 1.2vw);
+            letter-spacing: 5px;
+            font-size: calc(0.5rem + 2.5vw);
         }
         %wish-list {
             i {
@@ -112,14 +100,12 @@
                     }
                 }
             }
-            // @media (max-width: 767.98px) {
-            //     display: none;
+            font-size: 1;
+            // @media (min-width: 768px) {
+            //     font-size: 1rem;
             // }
-            @media (min-width: 768px) {
-                font-size: 0.8rem;
-            }
             @media (min-width: 992px) {
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
         }
         .wish-list {
@@ -144,13 +130,13 @@
                 font-size: 0.75rem;
             }
             @media (min-width: 992px) {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 line-height: 2rem;
                 width: 99%;
                 margin-bottom: 2rem;
             }
             @media (min-width: 1440px) {
-                font-size: 1rem;
+                font-size: 1.5rem;
                 line-height: 2rem;
                 width: 99%;
             }
@@ -478,10 +464,8 @@
                         @media (min-width: 768px) {
                             font-size: 1rem;
                             line-height: 2rem;
-                            width: 3.75rem;
-                            height: 3.75rem;
-                        }
-                        > div {
+                            width: 7rem;
+                            height: 7rem;
                         }
                     }
                     // .modal-bg .modal-content {
@@ -506,9 +490,6 @@
                 }
             }
         }
-    }
-    // shared
-    .pd-shared {
     }
 }
 // 標題共用樣式
@@ -539,7 +520,7 @@
 
 //共用 消除 ul預設
 .ul-unstyle {
-    font-size: 12px;
+    font-size: 1rem;
     margin: 0;
     list-style: none;
     // display: flex;
