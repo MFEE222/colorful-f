@@ -19,8 +19,9 @@ export function CartProvider(props) {
     const [cart, setCart] = useState([]); // 紀錄購物車內資料
     // const [add, setAdd] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
     // const [remove, setRemove] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
-    const add = useRef([]);
-    const remove = useRef([]);
+    // const add = useRef([]);
+    // const remove = useRef([]);
+    const diff = useRef([]);
     const [checkAll, setCheckAll] = useState(false); // 紀錄是否勾選全選框框
     const [total, setTotal] = useState(0); // 紀錄查詢結果總數量（和 cart 陣列沒有一定一樣，返回的是資料庫中符合總數）
 
@@ -74,7 +75,14 @@ export function CartProvider(props) {
         const newCart = [...cart];
         const item = { ...product, check: false };
         newCart.push(item);
-        add.push(item);
+        // 紀錄差異
+        if (diff.includes(-item)) {
+            diff = diff.filter((e) => e != -item);
+            return;
+        }
+        diff.push(item);
+        // 設回狀態
+        setCart(newCart);
     }
 
     // 將商品資料從蒐藏清單排除（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local stroage）
@@ -82,7 +90,13 @@ export function CartProvider(props) {
         const newCart = [...cart];
         const item = { ...product, check: false };
         newCart.push(item);
-        remove.push(item);
+        // 紀錄差異
+        if (diff.includes(item)) {
+            diff = diff.filter((e) => e != item);
+        }
+        diff.push(-item);
+        // 設回狀態
+        setCart(newCart);
     }
 
     function handleCheck(pid) {
@@ -151,8 +165,7 @@ export function CartProvider(props) {
             // to Database
             const res = await axios.post(API_POST_CART, {
                 userId: auth.user.id,
-                add,
-                remove,
+                diff,
             });
             // console.log('res :>> ', res);
             console.log('res.status :>> ', res.status);
