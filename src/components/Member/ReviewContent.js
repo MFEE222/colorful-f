@@ -54,7 +54,7 @@ function ReviewContent(props) {
     //TODO: 根據評論狀態去拿對應資料
     return (
         <>
-            <div className=" member-comment">
+            <div className="member-comment">
                 {/* <div className="container"> */}
                 {/* filterbar */}
                 <div className="filter my-3">
@@ -99,11 +99,12 @@ function ReviewContent(props) {
                 {display.map((oneReview) => {
                     const goTo = `${routes.reviewDetail}/${oneReview.id}`;
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
+                    console.log('object :>> ', img);
                     return (
                         <div className="d-flex review-card" key={oneReview.id}>
                             <div className="col-auto  col-md-10 review-card-img me-4">
                                 <div className="ratios">
-                                    <img src={oneReview.products_img} alt="" />
+                                    <img src={img} alt="" />
                                 </div>
                             </div>
                             <div className="col row ps-0 align-items-center align-content-center">

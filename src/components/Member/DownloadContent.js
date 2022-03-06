@@ -68,11 +68,22 @@ function DownloadContent(props) {
         const dngId = d.map((v) => {
             return v.product_id;
         });
-        // console.log('here :>> ', 'here');
+        console.log(
+            'API_POST_MEMBER_DOWNLOAD_DNG :>> ',
+            API_POST_MEMBER_DOWNLOAD_DNG
+        );
         const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
-            uid,
+            userId: uid,
             dngId,
         });
+        // const response = await axios({
+        //     method: 'POST',
+        //     data: {
+        //         userId: uid,
+        //         dngId,
+        //     },
+        // })
+        console.log('response :>> ', response);
     };
 
     useEffect(() => {
