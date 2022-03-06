@@ -183,7 +183,7 @@ function TeamContent(props) {
                         <div className="col-12 col-lg-6 t-text-p">
                             <div className="left">
                                 <h2 className="d-block text-n">江致緯</h2>
-                                <h5 className="text-n2">組長</h5>
+                                <h5 className="text-n2">組員</h5>
                                 <a href="https://github.com/jim60702" target="_blank">
                                     <img
                                         className="github"
