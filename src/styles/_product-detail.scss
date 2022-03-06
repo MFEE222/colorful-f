@@ -4,8 +4,6 @@
 .product-detail {
     // 1.
     .pd-1 {
-        // margin: 3rem auto;
-
         .ratios {
             @media (max-width: 767.98px) {
                 @include mix.ratio(3, 4);
@@ -14,7 +12,7 @@
                 @include mix.ratio(3, 2);
             }
         }
-
+        //套件class
         .rba-afterPosition {
             border: 1px solid $light;
             border-radius: 20px;
@@ -27,6 +25,7 @@
         .rba-beforePosition {
             display: none;
         }
+
         .img-list {
             margin: 0;
             > div:first-child {
@@ -51,7 +50,7 @@
         .reviews-text {
             margin: 0;
             @media (max-width: 768px) {
-                font-size: 0.8rem;
+                font-size: 14px;
             }
             @media (min-width: 992px) {
                 font-size: 1rem;
@@ -64,18 +63,6 @@
         }
 
         .product-name {
-            // @media (max-width: 767.98px) {
-            //     font-size: 1.2rem;
-            //     margin: 0.5rem auto 0;
-            // }
-            // @media (min-width: 768px) {
-            //     font-size: 1rem;
-            //     margin: 0;
-            // }
-            // @media (min-width: 992px) {
-            //     font-size: 26px;
-            //     margin: 0;
-            // }
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
             letter-spacing: 5px;
             font-size: calc(0.5rem + 2.5vw);
@@ -113,14 +100,12 @@
                     }
                 }
             }
-            // @media (max-width: 767.98px) {
-            //     display: none;
+            font-size: 1;
+            // @media (min-width: 768px) {
+            //     font-size: 1rem;
             // }
-            @media (min-width: 768px) {
-                font-size: 0.8rem;
-            }
             @media (min-width: 992px) {
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
         }
         .wish-list {
@@ -506,9 +491,6 @@
             }
         }
     }
-    // shared
-    .pd-shared {
-    }
 }
 // 標題共用樣式
 %title-box {
@@ -538,7 +520,7 @@
 
 //共用 消除 ul預設
 .ul-unstyle {
-    font-size: 12px;
+    font-size: 1rem;
     margin: 0;
     list-style: none;
     // display: flex;

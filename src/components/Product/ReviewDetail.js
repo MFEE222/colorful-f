@@ -23,12 +23,20 @@ import ReviewSlider from './ReviewSlider';
 function ReviewDetail(props) {
     //鉤子
     const [modalShow, setModalShow] = useState(false);
+    const [showImg, setShowImg] = useState([]);
     const reviews = props.reviews;
-    console.log('reviews :>> ', reviews);
-    const counts = reviews.length; //評論數
+    // console.log('reviews :>> ', reviews);
 
-    const img = props.img;
-    // console.log('props :>> ', img);
+    const counts = reviews.length; //評論數
+    const all = reviews.map((v) => {
+        return v.photos;
+    });
+    const allImg = all.flat();
+    // console.log('all :>> ', all);
+    console.log('allImg :>> ', allImg);
+    // console.log('reviews :>> ', reviews);
+    // const allImg = [];
+
     var settings = {
         dots: true,
         infinite: false,
@@ -67,10 +75,16 @@ function ReviewDetail(props) {
             >
                 <ReviewSlider
                     // imgArray={} 照片數組
-                    img={'../../images/portrait01.jpg'}
+                    // img={allImg}
+                    img={props.imgs}
                 ></ReviewSlider>
             </Modal>
         );
+    }
+
+    function handleModalShow(show, imgs) {
+        setModalShow(show);
+        setShowImg(imgs);
     }
 
     //TODO:撰寫評論先判斷是否登入(react.semantic-ui=>Multiple Modals)
@@ -131,44 +145,19 @@ function ReviewDetail(props) {
                     <div className="row flex-nowrap review-img-slider mx-0">
                         <Slider {...settings}>
                             {/* props 圖片數組.map */}
-                            <div
-                                className=" ratio ratio-1x1 solve-padding"
-                                onClick={() => setModalShow(true)}
-                            >
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding ">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
+                            {allImg.map((v, i, arr) => {
+                                return (
+                                    <div
+                                        key={i}
+                                        className=" ratio ratio-1x1 solve-padding"
+                                        onClick={() => {
+                                            handleModalShow(true, arr);
+                                        }}
+                                    >
+                                        <img src={v} alt="" />
+                                    </div>
+                                );
+                            })}
                         </Slider>
                     </div>
                 </div>
@@ -210,22 +199,23 @@ function ReviewDetail(props) {
                                             </div>
 
                                             <div className="row m-0 review-list-img ">
-                                                <div
-                                                    className="box"
-                                                    onClick={() =>
-                                                        setModalShow(true)
-                                                    }
-                                                >
+                                                <div className="box">
                                                     <div className=" d-flex flex-nowrap ">
                                                         {/* map 照片數組｀ */}
                                                         {v.photos.map(
-                                                            (a, i) => {
+                                                            (a, i, arr) => {
                                                                 return (
                                                                     <img
                                                                         key={i}
-                                                                        src={`${IMG_URL2}/${v.img}/${a}`}
+                                                                        src={a}
                                                                         alt=""
                                                                         className="object-fit me-3"
+                                                                        onClick={() => {
+                                                                            handleModalShow(
+                                                                                true,
+                                                                                arr
+                                                                            );
+                                                                        }}
                                                                     />
                                                                 );
                                                             }
@@ -257,7 +247,10 @@ function ReviewDetail(props) {
                     })}
                     <MyVerticallyCenteredModal
                         show={modalShow}
-                        onHide={() => setModalShow(false)}
+                        onHide={() => {
+                            handleModalShow(false, showImg);
+                        }}
+                        imgs={showImg}
                     />
                 </div>
             </div>
