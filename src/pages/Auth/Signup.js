@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { API_POST_AUTH_SIGNUP } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
 import { routes } from '../../utils/routes';
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 
 const Signup = (props) => {
@@ -15,6 +16,10 @@ const Signup = (props) => {
     //     passwordHint: '',
     // }
     // 狀態
+
+    const auth = useAuthContext();
+    const [register, setRegister] = useState(false);
+
     const [member, setMember] = useState({
         email: '',
         name: '',
@@ -37,15 +42,17 @@ const Signup = (props) => {
             if (!response) {
                 throw new Error(STATUS_MSG[response.data.statusCode]);
             }
+            setRegister(true);
         } catch (err) {
             // console.error("error", e.response.data);
             // console.error('註冊', ERR_MSG[e.response.data.code]);
             console.error(err);
         }
+
     }
 
     // 渲染
-    return  (
+    return  (register ? <Redirect to={routes.signin} />:
         <div className="signup-main">
             <div className="container">
                 <div className="row justify-content-center justify-content-lg-start">

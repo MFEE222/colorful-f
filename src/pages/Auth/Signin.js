@@ -13,6 +13,14 @@ function Signin(props) {
         account: '',
         password: '',
     });
+    const [rememberMe, setRememberMe] = useState(false);
+
+    useEffect(function(){
+        const r = JSON.parse(localStorage.getItem('rememberMe'));
+
+        if (r)
+            setUser(r);
+    },[]);
 
     function handleChange(e) {
         const l = { ...user };
@@ -23,7 +31,18 @@ function Signin(props) {
     async function handleSubmit(e) {
         e.preventDefault();
         auth.login(user);
+
+        if (rememberMe) {
+            localStorage.setItem('rememberMe', JSON.stringify(user));
+        }
     }
+
+
+    function handleRememberMe(e) {
+        console.log('e.target.checked :>> ', e.target.checked);
+        setRememberMe(!rememberMe);
+    }
+
 
     // 用來測試輸入帳號密碼是否會確實存入狀態
     // useEffect(
@@ -117,9 +136,12 @@ function Signin(props) {
                                             type="checkbox"
                                             name="check"
                                             id="checkbox"
+                                            checked={rememberMe}
+                                            onChange={handleRememberMe}
                                         />
                                         <label htmlFor="checkbox"></label>
                                         <p className="remember-me">記住我</p>
+                                   
                                     </div>
                                 </div>
 
