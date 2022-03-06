@@ -5,12 +5,14 @@ import { withRouter } from 'react-router-dom';
 
 // 通用元件
 import axios from 'axios';
-import { API_URL, API_GET_PRODUCT_REVIEW, IMG_URL2 } from '../../utils/config';
+import { API_URL, API_GET_PRODUCT_REVIEW } from '../../utils/config';
 
 // 自用元件
 import Main from '../../components/Product/Main';
 import ProductDetailContent from '../../components/Product/ProductDetailContent';
 import ReviewDetail from '../../components/Product/ReviewDetail';
+import Pagination from '../../utils/Pagination';
+import RecommendCard from '../../components/Product/RecommendCard';
 //context
 import { useProductsContext } from '../../utils/context/ProductsContext';
 
@@ -25,19 +27,11 @@ function ProductDetail(props) {
             const response = await axios.get(
                 `${API_GET_PRODUCT_REVIEW}/${product.current.id}`
             );
-            const review = response.data.newReviewDetail;
-            //處理圖片網址（串起來）
-            const newReviews = review.map((v) => {
-                const newPhotos = v.photos.map((e) => {
-                    return `${IMG_URL2}/${v.img}/${e}`;
-                });
-                v.photos = newPhotos;
-                console.log('v.photos :>> ', v.photos);
-                return v;
-            });
-
-            setReview(response.data.newReviewDetail);
+            console.log('product.current.id :>> ', product.current.id);
+            setReview(response.data.reviewDetail);
             //TODO:接收一個會員的＆此評論的全部圖片）
+            console.log('response :>> ', response);
+            console.log('review :>> ', review);
         })();
     }, [product.current]);
 
@@ -46,6 +40,10 @@ function ProductDetail(props) {
         <>
             <Main>
                 <ProductDetailContent />
+                {/* <div className="my-5 recommend pd-2 pd-shared">
+                    <RecommendCard recommend={recommend} />
+                    {/* 提取到index.js */}
+                {/* </div> */}
                 <ReviewDetail reviews={review} />
             </Main>
         </>

@@ -24,7 +24,7 @@ function ShowStar(props) {
         for (let i = 0; i < halfstar; i++) {
             starjsx.push(
                 <li key={i + 'half'}>
-                    <i className="far fa-star-half active"></i>
+                    <i class="far fa-star-half active"></i>
                 </li>
             );
         }
