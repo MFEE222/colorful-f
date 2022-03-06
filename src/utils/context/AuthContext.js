@@ -28,8 +28,9 @@ export function AuthProvider(props) {
     //     gender: null,
     //     birthday: null,
     // }
-    const [login, setLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const [user, setUser] = useState({});
+    const [allowReset, setAllowReset] = useState(false);
 
     // 共享狀態
     const { option } =
@@ -40,17 +41,20 @@ export function AuthProvider(props) {
     const shared = {
         other,
         option, // 設定 axios 參數
-        reset, // axios post 登入
+        login, // axios post 登入
         clear, // 清除所有驗證資料（登出）
-        current: login, // 當前是否登入
+        current: isLogin, // 當前是否登入
         user, // 取用使用者資料
         forget, // axios
+        allowReset,
+        setAllowReset,
+        // reset,  // 發送重設密碼請求，重設成功後要記得把 allowReset 設為 false
     };
 
     // 函數
     // 登入、登出、註冊、忘記密碼
-    async function reset(option = shared.option) {
-        // setLogin(true);
+    async function login(option = shared.option) {
+        // setIsLogin(true);
         // setUser({
         //     id: 9,
         //     name: 'chris',
@@ -72,7 +76,7 @@ export function AuthProvider(props) {
             //     throw new Error(STATUS_MSG[res.data.statusCode]);
             // }
             if (res.data.user) {
-                setLogin(true);
+                setIsLogin(true);
                 setUser(res.data.user);
             }
         } catch (err) {
@@ -82,7 +86,7 @@ export function AuthProvider(props) {
 
     // 登出
     function clear() {
-        setLogin(false);
+        setIsLogin(false);
         setUser({});
     }
 
@@ -99,14 +103,22 @@ export function AuthProvider(props) {
             if (!response) {
                 throw new Error(STATUS_MSG[response.data.statusCode]);
             }
+            const allowed = response.data.allowResetPassword
+            if (allowed) {
+                setAllowReset(allowed);
+                
+            }
         } catch (err) {
             console.error(err);
         }
+
+        
     }
+
 
     // 生命週期
     useEffect(function () {
-        // setLogin(true);
+        // setIsLogin(true);
         // setUser({
         //     id: 9,
         //     name: 'rosa',
@@ -120,10 +132,10 @@ export function AuthProvider(props) {
     // DidMount, DidUpdate
     useEffect(
         function () {
-            console.log('login :>> ', login);
+            console.log('isLogin :>> ', isLogin);
             console.log('user :>> ', user);
         },
-        [login, user]
+        [isLogin, user]
     );
 
     // 渲染

@@ -45,8 +45,6 @@ const Signup = (props) => {
     }
 
     // 渲染
-
-
     return  (
         <div className="signup-main">
             <div className="container">

@@ -1,9 +1,6 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect, useRouteMatch, useParams } from 'react-router-dom';
-import { Input, Icon } from 'semantic-ui-react';
+import { Link, Redirect } from 'react-router-dom';
 import { useAuthContext } from '../../utils/context/AuthContext';
-import { API_POST_AUTH_LOGIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
 // Q: React 重新整理狀態會消失，那上一頁會嗎？
@@ -12,36 +9,36 @@ import { routes } from '../../utils/routes';
 function Signin(props) {
     const auth = useAuthContext();
     // console.log('auth :>> ', auth);
-    const [login, setLogin] = useState({
+    const [user, setUser] = useState({
         account: '',
         password: '',
     });
 
     function handleChange(e) {
-        const l = { ...login };
+        const l = { ...user };
         l[e.target.name] = e.target.value;
-        setLogin(l);
+        setUser(l);
     }
 
     async function handleSubmit(e) {
         e.preventDefault();
-        auth.reset(login);
+        auth.login(user);
     }
 
     // 用來測試輸入帳號密碼是否會確實存入狀態
     // useEffect(
     //     function () {
-    //         console.log('login.account :>> ', login.account);
-    //         console.log('login.password :>> ', login.password);
+    //         console.log('user.account :>> ', user.account);
+    //         console.log('user.password :>> ', user.password);
     //     },
-    //     [login]
+    //     [user]
     // );
 
     // 記住我功能
     // useEffect(
     //     function () {
     //         // 如果有記住我在直接設定好帳號密碼
-    //         setLogin({
+    //         setUser({
     //             account:
     //         });
     //     },
@@ -63,8 +60,8 @@ function Signin(props) {
     // }, [auth]);
 
     // useEffect(function () {
-    //     console.log('login :>> ', login);
-    // }, [login]);
+    //     console.log('user :>> ', user);
+    // }, [user]);
 
 
     return auth.current ? (
@@ -86,7 +83,7 @@ function Signin(props) {
                                         id="email"
                                         name="account"
                                         placeholder="Email address"
-                                        value={login.account}
+                                        value={user.account}
                                         onChange={handleChange}
                                         required
                                     />
@@ -103,7 +100,7 @@ function Signin(props) {
                                         id="password"
                                         name="password"
                                         placeholder="Password"
-                                        value={login.password}
+                                        value={user.password}
                                         onChange={handleChange}
                                         pattern="[a-zA-Z0-9]{7,}"
                                     />
@@ -182,7 +179,7 @@ export default Signin;
 //             <input
 //                 type="text"
 //                 name="account"
-//                 value={login.account}
+//                 value={user.account}
 //                 onChange={handleChange}
 //                 id="signin-account"
 //             />
@@ -194,7 +191,7 @@ export default Signin;
 //             <input
 //                 type="text"
 //                 name="password"
-//                 value={login.password}
+//                 value={user.password}
 //                 onChange={handleChange}
 //             />
 //         </div>
