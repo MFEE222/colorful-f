@@ -192,6 +192,10 @@ export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
 //member-download (get 要資料)
 export const API_GET_MEMBER_DOWNLOAD = API_URL + '/member/review/download';
 //member-dowmload (post 勾選pid)
+// req {
+//     uid,
+//     dngId,
+// }
 export const API_POST_MEMBER_DOWNLOAD_DNG =
     API_URL + '/member/review/download/dng';
 // {
