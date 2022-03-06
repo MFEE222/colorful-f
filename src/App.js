@@ -46,7 +46,6 @@ import { RWDProvider } from './utils/context/RWDContext';
 import { CartProvider } from './utils/context/CartContext';
 import CitiesSlider from './pages/Home/slider';
 
-
 function App() {
     return (
         <>
@@ -93,57 +92,6 @@ function App() {
                                     <Error />
                                 </Route>
                             </Switch>
-
-                            <div>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.home}
-                                    >
-                                        Home
-                                    </Link>
-                                </button>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.teach}
-                                    >
-                                        Teach
-                                    </Link>
-                                </button>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.team}
-                                    >
-                                        Team
-                                    </Link>
-                                </button>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.member}
-                                    >
-                                        Member
-                                    </Link>
-                                </button>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.product}
-                                    >
-                                        Product
-                                    </Link>
-                                </button>
-                                <button className="btn btn-danger m-2">
-                                    <Link
-                                        className="text-light"
-                                        to={routes.auth}
-                                    >
-                                        Auth
-                                    </Link>
-                                </button>
-                            </div>
                         </div>
 
                         <Footer />
