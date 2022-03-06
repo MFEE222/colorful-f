@@ -62,7 +62,7 @@ function ProductDetailContent(props) {
                                 <h1 className="mt-2 mb-md-2 mb-lg-1  product-name">
                                     {product.name}
                                 </h1>
-                                <ul className="d-flex align-items-center pb-1 pb-md-1 ul-unstyle">
+                                <ul className="d-flex align-items-center pb-1 pb-md-3 ul-unstyle">
                                     <ShowStar>{product.stars}</ShowStar>
                                     <p className="reviews-text ms-2">
                                         {product.review_counts}/ Reviews
@@ -93,7 +93,7 @@ function ProductDetailContent(props) {
                             </div>
                         </div>
                         {/* 小張圖片可更換商品示意圖 */}
-                        <div className="col-6 col-md-3 order-2 order-md-3 row mt-3 img-list">
+                        <div className="col-12 col-md-6 order-2 order-md-3 row mt-3 img-list">
                             {imgUrlAfter.map((v, i) => {
                                 return (
                                     <div className="col p-1 " key={i}>

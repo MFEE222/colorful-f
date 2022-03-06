@@ -15,7 +15,7 @@ import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
 
 // 自己
-// import ReviewThumbUp from './ReviewThumbUp';
+import ReviewThumbUp from './ReviewThumbUp';
 import ShowStar from './ShowStar';
 import ReviewSlider from './ReviewSlider';
 // import ReviewImgs from './ReviwImgs';
@@ -24,7 +24,7 @@ function ReviewDetail(props) {
     //鉤子
     const [modalShow, setModalShow] = useState(false);
     const reviews = props.reviews;
-    // console.log('reviews :>> ', reviews);
+    console.log('reviews :>> ', reviews);
     const counts = reviews.length; //評論數
 
     const img = props.img;
@@ -193,7 +193,7 @@ function ReviewDetail(props) {
                                                     {v.name}
                                                 </p>
                                                 <p className="review-day align-self-center mb-0">
-                                                    {v.created_at}
+                                                    發表於 {v.edited_at}
                                                 </p>
                                             </div>
                                             <div>
@@ -233,24 +233,24 @@ function ReviewDetail(props) {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className="thumbs-list">
+                                                <ul className="">
+                                                    <li>這則評論有幫助嗎？</li>
+
+                                                    <ReviewThumbUp>
+                                                        {v.likes}
+                                                    </ReviewThumbUp>
+                                                    <li>
+                                                        {/* 按過顯示fas */}
+                                                        <i className="fas fa-thumbs-up"></i>
+                                                        {/* <i className="far fa-thumbs-up "></i> */}
+                                                        {v.likes}
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     {/* //TODO:按讚小功能 */}
-                                    {/* <div className="thumbs-list">
-                                        <ul className="">
-                                            <li>這則評論有幫助嗎？</li>
-
-                                            <ReviewThumbUp>
-                                                {data.r_likes}
-                                            </ReviewThumbUp>
-                                            {/* <li onClick={isLike()}> */}
-                                    {/* 按過顯示fas */}
-                                    {/* <i className="fas fa-thumbs-up"></i>
-                                            <i className="far fa-thumbs-up "></i>
-                                            {data.likes}
-                                        </li> */}
-                                    {/* </ul>  */}
-                                    {/* </div> */}
                                 </div>
                             </>
                         );
