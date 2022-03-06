@@ -70,7 +70,7 @@ function DownloadContent(props) {
         });
         // console.log('here :>> ', 'here');
         const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
-            uid,
+            userID: uid,
             dngId,
         });
     };
