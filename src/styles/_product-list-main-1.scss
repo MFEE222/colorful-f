@@ -9,6 +9,13 @@ body {
     ::-webkit-scrollbar {
         display: none;
     }
+    // > a {
+    //     color: black;
+    //     text-decoration: none;
+    //     &:link {
+    //         color: black;
+    //     }
+    // }
 }
 .sweet-loading {
     height: 100vh;
@@ -83,6 +90,54 @@ body {
                 white-space: normal;
             }
         }
+    }
+    // .title-block {
+    //     position: absolute;
+    //     top: 27%;
+    //     left: 3%;
+    //     width: 100%;
+    //     height: 50%;
+    // }
+
+    .title-dec {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        @media (max-width: 767.98px) {
+            width: 100%;
+            right: -10%;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid $light;
+            padding: 0.7rem;
+        }
+        @media (min-width: 768px) {
+            font-size: 3rem;
+            left: 27%;
+            top: 46%;
+            width: 10%;
+            height: 9%;
+        }
+        @media (min-width: 992px) {
+            left: 36%;
+            top: 45%;
+            width: 13%;
+            height: 13%;
+        }
+        @media (min-width: 1200px) {
+            left: 31%;
+            top: 45%;
+            width: 12%;
+        }
+        @media (min-width: 1440px) {
+            left: 27%;
+            top: 45%;
+            width: 11%;
+        }
+        // left: 35%;
+        background: rgba(255, 255, 255, 0.13);
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        box-sizing: border-box;
+        backdrop-filter: blur(50px);
     }
     .e-title {
         position: absolute;
