@@ -6,7 +6,7 @@ import { useParams, useLocation, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReactBeforeAfter from 'react-before-after';
 // 共用
-import { IMG_URL, API_URL } from '../../utils/config';
+import { IMG_URL2, API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
 
 // 自己
@@ -24,16 +24,17 @@ function ProductDetailContent(props) {
     const products = useProductsContext();
     const product = products.current;
     const [current, setCurrent] = useState('');
-    // console.log('product :>> ', product);
+    // console.log('product :>> ', product.img);
     // 變數
     const imgUrlAfter = [
-        `${IMG_URL}/${product.img}${imgName.a0}`,
-        `${IMG_URL}/${product.img}${imgName.a1}`,
-        `${IMG_URL}/${product.img}${imgName.a2}`,
+        `${IMG_URL2}/${product.img}/a1.jpg`,
+        `${IMG_URL2}/${product.img}/a2.jpg`,
+        `${IMG_URL2}/${product.img}/a3.jpg`,
     ];
-    const imgUrlBefore = `${IMG_URL}/${product.img}${imgName.b0}`;
+    // console.log('imgUrlAfter :>> ', imgUrlAfter);
+    const imgUrlBefore = `${IMG_URL2}/${product.img}/b0.jpg`;
     useEffect(() => {
-        setCurrent(`${IMG_URL}/${product.img}${imgName.a0}`);
+        setCurrent(`${IMG_URL2}/${product.img}/a1.jpg`);
     }, [products.current]);
     const imgName = '';
     // 渲染
@@ -93,36 +94,26 @@ function ProductDetailContent(props) {
                         </div>
                         {/* 小張圖片可更換商品示意圖 */}
                         <div className="col-6 col-md-3 order-2 order-md-3 row mt-3 img-list">
-                            {imgUrlAfter.map((v) => {
+                            {imgUrlAfter.map((v, i) => {
                                 return (
-                                    <>
-                                        <div className="col p-1">
-                                            <div className="img-small">
-                                                <div
-                                                    className="ratios "
-                                                    onClick={function () {
-                                                        setCurrent(v);
-                                                        console.log(
-                                                            'current :>> ',
-                                                            current
-                                                        );
-                                                    }}
-                                                >
-                                                    <img src={v} alt="" />
-                                                </div>
+                                    <div className="col p-1 " key={i}>
+                                        <div className="img-small">
+                                            <div
+                                                className="ratios "
+                                                onClick={function () {
+                                                    setCurrent(v);
+                                                    console.log(
+                                                        'current :>> ',
+                                                        current
+                                                    );
+                                                }}
+                                            >
+                                                <img src={v} alt="" />
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 );
                             })}
-
-                            {/* <div className="col p-1">
-                                <div className="img-small">
-                                    <div className="ratios ">
-                                        <img src={imgUrlAfter[2]} alt="" />
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

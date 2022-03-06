@@ -7,7 +7,7 @@ import { Modal, Button } from 'react-bootstrap';
 import Slider from 'react-slick';
 
 // 共用
-import { API_URL, IMG_URL } from '../../utils/config';
+import { API_URL, IMG_URL, IMG_URL2 } from '../../utils/config';
 
 // 圖片
 import DemoImgFigure from '../../images/portrait01.jpg';
@@ -24,11 +24,11 @@ function ReviewDetail(props) {
     //鉤子
     const [modalShow, setModalShow] = useState(false);
     const reviews = props.reviews;
-    console.log('reviews :>> ', reviews);
+    // console.log('reviews :>> ', reviews);
     const counts = reviews.length; //評論數
 
     const img = props.img;
-    console.log('props :>> ', img);
+    // console.log('props :>> ', img);
     var settings = {
         dots: true,
         infinite: false,
@@ -177,7 +177,7 @@ function ReviewDetail(props) {
                     {reviews.map((v) => {
                         return (
                             <>
-                                <div className="review-card" key={v.r_id}>
+                                <div className="review-card" key={v.id}>
                                     <div className="d-flex ">
                                         <div className="col-md-auto figure">
                                             <img
@@ -190,22 +190,22 @@ function ReviewDetail(props) {
                                         <div className="review-card-detail col">
                                             <div className="d-flex justify-content-between justify-content-start align-items-start">
                                                 <p className="review-name me-3 p-0 mb-0">
-                                                    {v.u_name}
+                                                    {v.name}
                                                 </p>
                                                 <p className="review-day align-self-center mb-0">
-                                                    {v.r_created_at}
+                                                    {v.created_at}
                                                 </p>
                                             </div>
                                             <div>
                                                 <ul className="d-flex align-items-center ul-unstyle mb-3">
                                                     <ShowStar>
-                                                        {v.r_stars}
+                                                        {v.stars}
                                                     </ShowStar>
                                                 </ul>
                                             </div>
                                             <div>
                                                 <p className="review-card-text">
-                                                    {v.r_content}
+                                                    {v.content}
                                                 </p>
                                             </div>
 
@@ -218,31 +218,18 @@ function ReviewDetail(props) {
                                                 >
                                                     <div className=" d-flex flex-nowrap ">
                                                         {/* map 照片數組｀ */}
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
+                                                        {v.photos.map(
+                                                            (a, i) => {
+                                                                return (
+                                                                    <img
+                                                                        key={i}
+                                                                        src={`${IMG_URL2}/${v.img}/${a}`}
+                                                                        alt=""
+                                                                        className="object-fit me-3"
+                                                                    />
+                                                                );
+                                                            }
+                                                        )}
                                                     </div>
                                                 </div>
                                             </div>

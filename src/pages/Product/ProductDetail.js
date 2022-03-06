@@ -27,11 +27,8 @@ function ProductDetail(props) {
             const response = await axios.get(
                 `${API_GET_PRODUCT_REVIEW}/${product.current.id}`
             );
-            console.log('product.current.id :>> ', product.current.id);
-            setReview(response.data.reviewDetail);
+            setReview(response.data.newReviewDetail);
             //TODO:接收一個會員的＆此評論的全部圖片）
-            console.log('response :>> ', response);
-            console.log('review :>> ', review);
         })();
     }, [product.current]);
 
