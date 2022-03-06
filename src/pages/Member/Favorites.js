@@ -23,6 +23,7 @@ import decBar from '../../icons/dec-bar.png';
 
 //元件
 import Pagination from '../../utils/Pagination';
+import Img2 from '../../images/wed001.jpg';
 function Favorites(props) {
     return (
         <div className="col-12 col-md-10 box">
@@ -100,11 +101,11 @@ function Favorites(props) {
                     </div>
                 </div>
                 {/* <!-- card --> */}
-                <div className="container wishlist-group">
+                {/* <div className="container wishlist-group">
                     <div className=" card-group row my-4 mt-md-5 my-2">
                         <div className="col-6 col-md-3">
                             <div className="card-border " data-tilt>
-                                {/* <!-- data-tilt 特效 看是否保留 --> */}
+                                
                                 <div className="card-img ">
                                     <div className="ratios">
                                         <img src={cardDemo} alt="" />
@@ -115,7 +116,7 @@ function Favorites(props) {
                                         <p className="card-title">
                                             婚禮／Wedding-1
                                         </p>
-                                        {/* 收藏按鈕 */}
+                                    
                                         <i className="fas fa-heart"></i>
                                     </div>
                                     <div className="text-start">
@@ -128,9 +129,9 @@ function Favorites(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="col-6 col-md-4 mt-2 px-3 mb-2">
+                {/* <div className="col-6 col-md-4 mt-2 px-3 mb-2">
                     <div className="card-border ">
                         <div className="card-img position-relative">
                             <div className="ratios">
@@ -141,11 +142,42 @@ function Favorites(props) {
                             <label className="d-flex justify-content-between align-items-center">
                                 <p className="card-title fw-bold"></p>
                             </label>
-                            {/* </div> */}
+                            
+                        </div>
+                    </div>
+                </div> */}
+
+                <div className="card-group row row-cols-2 row-cols-md-2 row-cols-lg-4 my-1 mx-3 p-3 card-house">
+                    <div className="col">
+                        <div className="card-border " data-tilt>
+                            {/* <!-- data-tilt 特效 看是否保留 --> */}
+                            <div className="card-img ">
+                                <div className="ratios">
+                                    <img
+                                        className="img-fluid"
+                                        src={Img2}
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                            <div className="card-body text-start p-0 my-2 my-md-4">
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <p className="card-title fw-bold">
+                                        婚禮／Wedding-1
+                                    </p>
+
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="flexCheckDefault"
+                                    />
+                                </div>
+                                <div className="text-start">NT 20</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 {/* <!-- Pagination --> */}
                 <div className="container">
                     <div className="pagination">
