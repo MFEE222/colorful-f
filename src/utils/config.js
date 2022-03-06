@@ -125,12 +125,10 @@ export const API_GET_PRODUCT = API_URL + '/product';
 // req:
 // {
 //     userId,    :>> 使用者 id + 和 session_id 一併送出
-//     option: {
-//          orderby,
-//          order,
-//          limit,
-//          offset,
-//     }
+//     orderby,
+//     order,
+//     limit,
+//     offset,
 // }
 // res
 // {
@@ -143,8 +141,7 @@ export const API_GET_CART = API_URL + '/cart';
 // req:
 // {
 //     userId, :>> 使用者 + 和 session_id 一併送出
-//     add: [], :>> 需要新加入購物車的資料（先尋找商品 UPDATE、沒有的話在 INSERT）
-//     remove: [], :>> 需要從購物車中排除的資料（尋找商品 UPDATE）
+//     diff,
 // }
 // res
 // {
