@@ -35,13 +35,13 @@ function Test(props) {
     return (
         <div className="game">
             <h1 className="t-center mt-3">你的靈魂是什麼顏色?</h1>
-            <p className="text-center mt-3">
+            <p className="text-center mt-3 mb-4">
                 在 12
                 個顏色當中，依照直覺選出自己最喜愛的，就能分析出自己的性格！
             </p>
 
             <div className="d-flex flex-wrap w-100 text-center px-5 py-3 justify-content-evenly">
-                <div
+                {/* <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
                     data-bs-target="#redResult"
@@ -106,7 +106,7 @@ function Test(props) {
                         className="img-thumbnail"
                         alt=""
                     />
-                </div>
+                </div> */}
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
@@ -174,7 +174,7 @@ function Test(props) {
                     />
                 </div>
             </div>
-
+            {/* modal */}
             <div
                 className="modal fade"
                 id="redResult"
@@ -182,10 +182,10 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered ">
                     <div className="modal-content our-modal">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
+                            <h5 className="modal-title " id="exampleModalLabel">
                                 紅色
                             </h5>
                             <button
@@ -201,20 +201,19 @@ function Test(props) {
                             色彩心理學「紅色效果」：
                             紅色可以增加注意力、向前的動力，因為看到紅色時血壓會升高，同時脈搏跟著變快，因此可以說是「信心」的象徵，選擇攜帶紅色小物，可以讓進行中的事情積極且順利發展。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[0]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[0]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -234,7 +233,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered ">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -253,20 +252,19 @@ function Test(props) {
                             色彩心理學「粉色效果」：
                             在色彩心理學上，粉色是「抑制攻擊性的顏色」，看上去亮眼、漂亮的粉色，其實可以給人平靜、安心的感覺，想要讓內心維持穩定的話，可以戴上粉色的小物。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[1]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[1]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productWedding}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -286,7 +284,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -305,20 +303,19 @@ function Test(props) {
                             色彩心理學「橘色效果」：
                             橘色讓人感到溫暖、愉悅、安全感，也非常有節日氛圍；此外橘色也可以增加食慾，所以許多餐廳都會使用這個顏色。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[2]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[2]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -338,7 +335,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -357,20 +354,19 @@ function Test(props) {
                             色彩心理學「黃色效果」：
                             黃色通常用在危險警告以及交通安全的標誌，是個能夠引起大家注目的顏色，如果你想要增加個人亮點的話，在穿搭中融入一些黃色，能夠使你更有存在感；另外，黃色也代表著財運，可以讓你工作更順利，增加升遷機率。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[3]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[3]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -390,7 +386,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -409,20 +405,19 @@ function Test(props) {
                             色彩心理學「綠色效果」：
                             象徵自然的綠熱，可以提升健康運勢和放鬆身心的功效，在身上增加綠色單品，可以給人一種柔和的印象，也讓周圍的人感到平靜，對於人際關係上有所幫助。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[4]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[4]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productScenery}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -442,7 +437,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -461,20 +456,19 @@ function Test(props) {
                             色彩心理學「天空藍效果」：
                             淺藍色有著淨化的力量，就如同流動的水，可以消除壓力以及煩惱，讓心情更加平靜、穩定。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[5]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[5]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productScenery}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -494,7 +488,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -513,20 +507,19 @@ function Test(props) {
                             色彩心理學「咖啡色效果」：
                             棕色具有緩解身心緊張、放鬆心情的作用，可以舒緩過度緊繃的神經，達到穩定身心效果，融入服裝搭配中，能給人一種沉穩溫暖的印象，日常中也非常好搭配！
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[6]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[6]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productFilm}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark"
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -546,7 +539,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -565,20 +558,19 @@ function Test(props) {
                             色彩心理學「灰色效果」：
                             灰色雖然看上去有點沈重，但這種沈穩感，能夠展現出現代氛圍，不論是在室內風格、服裝穿搭中，都非常百搭時髦，如果你想要保持檢單或是擁有平靜的話，可以選擇灰色。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[7]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[7]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productFilm}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark"
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -598,7 +590,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -617,20 +609,19 @@ function Test(props) {
                             色彩心理學「黑色效果」：
                             黑色能夠營造出率性時尚的氣場，還能夠使視覺上顯瘦，因此是許多時尚愛好者必備的單品，同時也夠把嚴肅和奢華感完美融合在一起。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[8]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
-                                <LinkContainer to={routes.productFood}>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[8]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
+                                <LinkContainer to={routes.productFilm}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark"
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -650,7 +641,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -669,20 +660,19 @@ function Test(props) {
                             色彩心理學「白色效果」：
                             白色是一種具有心理作用的顏色，能夠讓沉重的行李看起來更輕盈，也象徵著純潔、清新，如果當你每天都忙碌而感到不知所措時，穿白色服裝會是個好主意！
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[9]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
-                                <LinkContainer to={routes.productWedding}>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[9]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
+                                <LinkContainer to={routes.productPortrait}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -702,7 +692,7 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
@@ -721,20 +711,19 @@ function Test(props) {
                             色彩心理學「銀色效果」：
                             銀色是一種接近灰色的平靜顏色，能夠擁有放鬆的效果，讓您的情緒平靜下來，且配戴銀色飾品也能夠展現精緻、奢華的質感。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[10]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[10]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productPortrait}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now
@@ -754,10 +743,13 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content  our-modal">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">
+                            <h5
+                                className="modal-title text-center"
+                                id="exampleModalLabel"
+                            >
                                 金色
                             </h5>
                             <button
@@ -773,20 +765,19 @@ function Test(props) {
                             色彩心理學「金色效果」：
                             金色代表著成功、繁榮，同時也可以帶來財運，想要在挑戰某個目標時，建議可以配戴金色小物。
                         </div>
-                        <div className="modal-footer justify-content-evenly">
-                            <img
-                                src={imgs[11]}
-                                className="img-thumbnail w-25"
-                                alt="..."
-                            />
-                            <div className="w-50">
-                                <p>
-                                    赤は「太陽」「生命」「情熱」を表しています。
-                                </p>
+                        <div className="modal-footer justify-content-center">
+                            <div className="row justify-content-center">
+                                <img
+                                    src={imgs[11]}
+                                    className="img-thumbnail w-50"
+                                    alt="..."
+                                />
+                            </div>
+                            <div className="row justify-content-center">
                                 <LinkContainer to={routes.productWedding}>
                                     <button
                                         type="button"
-                                        className="btn btn-warning w-50"
+                                        className="btn btn-dark "
                                         data-bs-dismiss="modal"
                                     >
                                         Shop Now

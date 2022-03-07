@@ -13,11 +13,14 @@ import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
 import { useProductsContext } from '../utils/context/ProductsContext';
+import { useAuthContext } from '../utils/context/AuthContext';
+
 // import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
     // Context
     const products = useProductsContext();
+    const auth = useAuthContext();
 
     // 函數
     // 生成 Click 事件處理器
@@ -181,7 +184,9 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to={routes.member}>
+                        <LinkContainer
+                            to={auth.current ? routes.member : routes.signin}
+                        >
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-member-link"
@@ -205,9 +210,6 @@ function OurNavbar(props) {
             </Container>
             {/* <CartCard /> */}
         </Navbar>
-
-    
-
     );
 }
 
