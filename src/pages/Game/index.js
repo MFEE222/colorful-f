@@ -1,8 +1,39 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { routes } from '../../utils/routes';
 
+const imgs = [
+    'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad01.jpg',
+    'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad04.jpg',
+    'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad02.jpg',
+    'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad03.jpg',
+    'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad05.jpg',
+    'http://localhost/colorful-f/src/images/film001.jpg',
+    'http://localhost/colorful-f/src/images/film002.jpg',
+    'http://localhost/colorful-f/src/images/film003.jpg',
+    'http://localhost/colorful-f/src/images/film005.jpg',
+    'http://localhost/colorful-f/src/images/film006.jpg',
+    'http://localhost/colorful-f/src/images/film008.jpg',
+    'http://localhost/colorful-f/src/images/film009.jpg',
+];
 function Test(props) {
+    // const imgs = [
+
+    // ];
+    // function Block ({ imgURL }) {
+    //     return (
+    //         <div
+    //             className="w-25 mx-1 my-3"
+    //             data-bs-toggle="modal"
+    //             data-bs-target="#redResult"
+    //         >
+    //                <img src={imgURL} className="img-thumbnail" alt=""/>
+    //         </div>
+    //     );
+    // };
+
     return (
-        <div>
+        <div className="game">
             <h1 className="t-center mt-3">你的靈魂是什麼顏色?</h1>
             <p className="text-center mt-3">
                 在 12
@@ -18,6 +49,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2001/image/half_a5fc2600-a219-4275-aead-958168432ec8.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -28,6 +60,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2002/image/half_5f5d3b99-8a13-4a5a-9ac1-b22d23834cd7.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -38,6 +71,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2003/image/half_69aeebca-f51d-4121-b18b-fd753dd68dce.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -48,6 +82,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2004/image/half_ed05426a-b5f4-4062-8a40-6d715c0550cc.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -58,6 +93,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2005/image/half_94e231d4-fb66-4377-8b16-1e5a803c0998.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -68,6 +104,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2006/image/half_cbbc8167-0bfa-4d02-ba2b-6933b1d9011d.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -78,6 +115,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2010/image/half_81ef5ab2-cd3b-458e-bd41-cb2e4ae25ede.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -88,6 +126,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2011/image/half_2328f0d4-f77c-4f40-9338-2b59b38e12c4.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -98,6 +137,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2012/image/half_7c26e2d7-e519-4371-9b41-28308e0cc4da.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -108,6 +148,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2015/image/half_9c267346-5b62-4809-a05d-a624075c99af.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -118,6 +159,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2013/image/half_5739a909-905a-4bec-972d-54ddf2d6ddc1.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
                 <div
@@ -128,6 +170,7 @@ function Test(props) {
                     <img
                         src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2014/image/half_b7582bf2-ad31-4a5c-a668-3bb386cd1d13.jpg"
                         className="img-thumbnail"
+                        alt=""
                     />
                 </div>
             </div>
@@ -140,7 +183,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 紅色
@@ -160,7 +203,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2001/image/half_a5fc2600-a219-4275-aead-958168432ec8.jpg"
+                                src={imgs[0]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -168,13 +211,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFood}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -190,7 +235,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 粉色
@@ -210,7 +255,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2002/image/half_5f5d3b99-8a13-4a5a-9ac1-b22d23834cd7.jpg"
+                                src={imgs[1]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -218,13 +263,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productWedding}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -240,7 +287,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 橘色
@@ -260,7 +307,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2003/image/half_69aeebca-f51d-4121-b18b-fd753dd68dce.jpg"
+                                src={imgs[2]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -268,13 +315,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFood}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -290,7 +339,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 黃色
@@ -310,7 +359,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2004/image/half_ed05426a-b5f4-4062-8a40-6d715c0550cc.jpg"
+                                src={imgs[3]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -318,13 +367,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFood}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -340,7 +391,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 綠色
@@ -360,7 +411,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2005/image/half_94e231d4-fb66-4377-8b16-1e5a803c0998.jpg"
+                                src={imgs[4]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -368,13 +419,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productScenery}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -390,7 +443,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 天藍色
@@ -410,7 +463,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2006/image/half_cbbc8167-0bfa-4d02-ba2b-6933b1d9011d.jpg"
+                                src={imgs[5]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -418,13 +471,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productScenery}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -440,7 +495,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 茶色
@@ -460,7 +515,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2010/image/half_81ef5ab2-cd3b-458e-bd41-cb2e4ae25ede.jpg"
+                                src={imgs[6]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -468,13 +523,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFilm}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -490,7 +547,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 灰色
@@ -510,7 +567,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2011/image/half_2328f0d4-f77c-4f40-9338-2b59b38e12c4.jpg"
+                                src={imgs[7]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -518,13 +575,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFilm}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -540,7 +599,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 黑色
@@ -560,7 +619,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2012/image/half_7c26e2d7-e519-4371-9b41-28308e0cc4da.jpg"
+                                src={imgs[8]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -568,13 +627,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productFood}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -590,7 +651,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 白色
@@ -610,7 +671,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2015/image/half_9c267346-5b62-4809-a05d-a624075c99af.jpg"
+                                src={imgs[9]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -618,13 +679,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productWedding}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -640,7 +703,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 銀色
@@ -660,7 +723,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2013/image/half_5739a909-905a-4bec-972d-54ddf2d6ddc1.jpg"
+                                src={imgs[10]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -668,13 +731,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productPortrait}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>
@@ -690,7 +755,7 @@ function Test(props) {
                 aria-hidden="true"
             >
                 <div className="modal-dialog">
-                    <div className="modal-content">
+                    <div className="modal-content  our-modal">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 金色
@@ -710,7 +775,7 @@ function Test(props) {
                         </div>
                         <div className="modal-footer justify-content-evenly">
                             <img
-                                src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2014/image/half_b7582bf2-ad31-4a5c-a668-3bb386cd1d13.jpg"
+                                src={imgs[11]}
                                 className="img-thumbnail w-25"
                                 alt="..."
                             />
@@ -718,13 +783,15 @@ function Test(props) {
                                 <p>
                                     赤は「太陽」「生命」「情熱」を表しています。
                                 </p>
-                                <button
-                                    type="button"
-                                    className="btn btn-warning w-50"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Shop Now
-                                </button>
+                                <LinkContainer to={routes.productWedding}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning w-50"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Shop Now
+                                    </button>
+                                </LinkContainer>
                             </div>
                         </div>
                     </div>

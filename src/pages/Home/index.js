@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import { routes } from '../../utils/routes';
+import Game from '../Game';
 
 function Home(props) {
     const match = useRouteMatch();
@@ -15,10 +16,7 @@ function Home(props) {
         <>
             <Switch>
                 <Route path={match.path}>
-                    <div className="box">
-                        <h1>Colorful</h1>
-                        <p>Welcome to colorful...</p>
-                    </div>
+                   <Game />
                 </Route>
             </Switch>
         </>
