@@ -224,6 +224,12 @@ export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
 // }
 // Res
 // {
+<<<<<<< Updated upstream
+//     userID,
+//     orderID / orderNumber,
+// }
+export const API_GET_ORDER = API_URL + '/order';
+=======
 //     sessionID,
 //     userID,
 //     orderID / orderNumber,
@@ -233,6 +239,7 @@ export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
 //     offset
 // }
 export const API_GET_ORDERS = API_URL + '/orders';
+>>>>>>> Stashed changes
 // 獲取訂單細節資料
 // Req
 // {
@@ -254,7 +261,7 @@ export const API_GET_ORDERS = API_URL + '/orders';
 //     orderID,
 //     productID
 // }
-export const API_GET_ORDER_DETAIL = API_URL + '/order-detail';
+export const API_GET_ORDER_DETAIL = API_URL + '/order/detail';
 // 請求訂單成立
 // Req
 // {
@@ -280,7 +287,6 @@ export const API_POST_ORDER = API_URL + '/order';
 //     paymentID,
 //     creditCard,
 //     csv,
-
 // }
 // Res
 // {

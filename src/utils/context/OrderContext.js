@@ -1,4 +1,4 @@
-// import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // import axios from 'axios';
 // import { API_GET_PRODUCT } from '../config';
