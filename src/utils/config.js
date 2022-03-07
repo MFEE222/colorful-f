@@ -202,5 +202,6 @@ export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
     API_URL + '/member/review/update/detail';
 
-//member-[profile] (get 要資料)
+//member-[profile] (上傳照片)
+export const API_POST_MEMBER_PROFILE_PHOTO = API_URL + '/member/profile-photo';
 export const API_POST_MEMBER_PROFILE = API_URL + '/member/profile';

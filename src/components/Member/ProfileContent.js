@@ -83,6 +83,7 @@ function ProfileContent(props) {
                                             // type="date"
                                             name="birthday"
                                             id="birthday"
+                                            type="text"
                                             className="form-control"
                                             onChange={handleChange}
                                             placeholder="YYYY/MM/DD"
@@ -163,6 +164,7 @@ function ProfileContent(props) {
                     />
                     <div className="upload-box p-0 me-2 col-6 border">
                         <div className=" ratio ratio-1x1">
+                            {profile.photo && <img src={profile.photo} />}
                             {/* 即時顯示圖片 */}
                             <img src={imgs[0] && imgs[0].resource} />
                         </div>
