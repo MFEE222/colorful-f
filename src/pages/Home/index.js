@@ -10,6 +10,8 @@ import Slider from 'react-slick';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { routes } from '../../utils/routes';
+import Game from '../Game';
+
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
@@ -46,7 +48,7 @@ function Home() {
             <div className="h-page3">
                 <Slideshow />
             </div>
-
+            <Game />
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">
