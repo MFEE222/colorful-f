@@ -178,7 +178,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="redResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -230,7 +230,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="pinkResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -282,7 +282,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="orangeResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -334,7 +334,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="yellowResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -386,7 +386,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="greenResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -438,7 +438,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="blueResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -490,7 +490,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="coffeeResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -542,7 +542,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="greyResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -594,7 +594,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="blackResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -646,7 +646,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="whiteResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -698,7 +698,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="silverResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
@@ -750,7 +750,7 @@ function Test(props) {
             <div
                 className="modal fade"
                 id="goldResult"
-                tabindex="-1"
+                tabIndex="-1"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
