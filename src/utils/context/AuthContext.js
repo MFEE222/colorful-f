@@ -66,12 +66,12 @@ export function AuthProvider(props) {
 
         // axios post 登入請求
         try {
-            console.log('hi');
+            // console.log('hi');
             option.withCredentials = true;
             const res = await axios.post(API_POST_AUTH_LOGIN, option);
-            console.log('hey');
+            // console.log('hey');
 
-            console.log('res :>> ', res);
+            // console.log('res :>> ', res);
             // if (res.data.statusCode & 1) {
             //     throw new Error(STATUS_MSG[res.data.statusCode]);
             // }
@@ -99,22 +99,18 @@ export function AuthProvider(props) {
                 API_POST_AUTH_FORGOT_PASSWORD,
                 option
             );
-            console.log('response.data :>> ', response.data);
+            // console.log('response.data :>> ', response.data);
             if (!response) {
                 throw new Error(STATUS_MSG[response.data.statusCode]);
             }
-            const allowed = response.data.allowResetPassword
+            const allowed = response.data.allowResetPassword;
             if (allowed) {
                 setAllowReset(allowed);
-                
             }
         } catch (err) {
             console.error(err);
         }
-
-        
     }
-
 
     // 生命週期
     useEffect(function () {
@@ -132,8 +128,8 @@ export function AuthProvider(props) {
     // DidMount, DidUpdate
     useEffect(
         function () {
-            console.log('isLogin :>> ', isLogin);
-            console.log('user :>> ', user);
+            // console.log('isLogin :>> ', isLogin);
+            // console.log('user :>> ', user);
         },
         [isLogin, user]
     );
