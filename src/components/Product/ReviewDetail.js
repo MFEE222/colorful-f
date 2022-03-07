@@ -32,11 +32,8 @@ function ReviewDetail(props) {
         return v.photos;
     });
     const allImg = all.flat();
-    // console.log('all :>> ', all);
-    console.log('allImg :>> ', allImg);
-    // console.log('reviews :>> ', reviews);
-    // const allImg = [];
 
+    //設定slider
     var settings = {
         dots: true,
         infinite: false,
@@ -64,6 +61,7 @@ function ReviewDetail(props) {
             },
         ],
     };
+    //彈跳視窗
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal

@@ -29,7 +29,7 @@ function RecommendCard(props) {
     const match = useRouteMatch();
     const products = useProductsContext();
     const recommend = props.recommend.recommend;
-    console.log('recommend :>> ', recommend);
+    //設定slider
     var settings = {
         centerPadding: 30,
         dots: false,

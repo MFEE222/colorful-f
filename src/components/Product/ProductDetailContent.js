@@ -51,10 +51,6 @@ function ProductDetailContent(props) {
                                 beforeSrc={imgUrlBefore}
                                 afterSrc={current}
                             />
-                            {/* <div className="ratios">
-                                    <img src={imgUrlAfter[0]} alt="" />
-                                </div> */}
-                            {/* </div> */}
                         </div>
                         {/* 商品詳細描述 */}
                         <div className="col-12 col-md-6 order-3 order-md-2 p-0 m-0 row align-content-start align-content-xxl-start">

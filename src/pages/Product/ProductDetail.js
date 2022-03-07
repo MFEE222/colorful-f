@@ -32,12 +32,9 @@ function ProductDetail(props) {
                     return `${IMG_URL2}/${v.img}/${e}`;
                 });
                 v.photos = newPhotos;
-                console.log('v.photos :>> ', v.photos);
                 return v;
             });
-
             setReview(response.data.newReviewDetail);
-            //TODO:接收一個會員的＆此評論的全部圖片）
         })();
     }, [product.current]);
 
