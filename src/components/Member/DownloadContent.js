@@ -21,6 +21,7 @@ function DownloadContent(props) {
     const [counts, setCounts] = useState(); //資料總計
     const [offset, setOffset] = useState(1); //分頁
     const [display, setDisplay] = useState([]); //呈現
+    const downloadRef = useRef();
 
     const fetchDownload = async () => {
         const response = await axios.get(API_GET_MEMBER_DOWNLOAD, {
@@ -72,18 +73,31 @@ function DownloadContent(props) {
             'API_POST_MEMBER_DOWNLOAD_DNG :>> ',
             API_POST_MEMBER_DOWNLOAD_DNG
         );
-        const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
-            userId: uid,
-            dngId,
+        // const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
+        //     userId: uid,
+        //     dngId,
+        // });
+        const response = await axios({
+            url: API_POST_MEMBER_DOWNLOAD_DNG, //your url
+            method: 'POST',
+            data: {
+                userId: uid,
+                dngId,
+            },
+            responseType: 'blob', // important
+            // responseType: 'stream',
         });
-        // const response = await axios({
-        //     method: 'POST',
-        //     data: {
-        //         userId: uid,
-        //         dngId,
-        //     },
-        // })
-        console.log('response :>> ', response);
+        // console.log('response :>> ', response);
+        // console.log('response.headers :>> ', response.headers);
+        const url = window.URL.createObjectURL(
+            new Blob([response.data], { type: 'application/zip' })
+        );
+
+        // console.log('url :>> ', url);
+
+        downloadRef.current.href = url;
+        downloadRef.current.download = response.statusText;
+        downloadRef.current.click();
     };
 
     useEffect(() => {
@@ -203,6 +217,10 @@ function DownloadContent(props) {
                     setOffset={setOffset}
                 />
             </div>
+            {/* 下載 */}
+            <a href="" className="d-none" ref={downloadRef}>
+                隱藏下載觸發按鈕
+            </a>
         </>
     );
 }

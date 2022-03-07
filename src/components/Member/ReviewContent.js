@@ -99,7 +99,7 @@ function ReviewContent(props) {
                 {display.map((oneReview) => {
                     const goTo = `${routes.reviewDetail}/${oneReview.id}`;
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
-                    console.log('object :>> ', img);
+                    // console.log('object :>> ', img);
                     return (
                         <div className="d-flex review-card" key={oneReview.id}>
                             <div className="col-auto  col-md-10 review-card-img me-4">

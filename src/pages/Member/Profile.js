@@ -45,7 +45,7 @@ function Profile(props) {
     async function handleSubmit(e) {
         //關掉預設
         e.preventDefault();
-        console.log('here :>> ', 'here');
+        // console.log('here :>> ', 'here');
         try {
             let formData = new FormData();
             formData.append('photo', profile.photo);
@@ -74,7 +74,7 @@ function Profile(props) {
 
     //
     useEffect(() => {
-        console.log('profile :>> ', profile);
+        // console.log('profile :>> ', profile);
     }, [profile]);
     //更新完成要發送api
     return (
