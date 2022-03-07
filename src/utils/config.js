@@ -1,6 +1,4 @@
-import { AccordionButton } from 'react-bootstrap';
-import { findDOMNode } from 'react-dom';
-import Auth from '../pages/Auth';
+
 
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
@@ -192,6 +190,15 @@ export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
 //member-[download] (get 要資料)
 export const API_GET_MEMBER_DOWNLOAD = API_URL + '/member/review/download';
 //member-dowmload (post 勾選pid)
+
+// req {
+//     uid,
+//     dngId,
+// }
+// res {
+//     statusCode,
+//     result: boolean
+// }
 export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 // API_URL + '/member/review/download/dng';
 // {

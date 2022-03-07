@@ -69,10 +69,10 @@ function DownloadContent(props) {
         const dngId = d.map((v) => {
             return v.product_id;
         });
-        console.log(
-            'API_POST_MEMBER_DOWNLOAD_DNG :>> ',
-            API_POST_MEMBER_DOWNLOAD_DNG
-        );
+        //console.log(
+        //    'API_POST_MEMBER_DOWNLOAD_DNG :>> ',
+        //    API_POST_MEMBER_DOWNLOAD_DNG
+        //);
         // const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
         //     userId: uid,
         //     dngId,
@@ -86,6 +86,7 @@ function DownloadContent(props) {
             },
             responseType: 'blob', // important
             // responseType: 'stream',
+
         });
         // console.log('response :>> ', response);
         // console.log('response.headers :>> ', response.headers);
