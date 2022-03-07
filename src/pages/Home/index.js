@@ -14,7 +14,7 @@ import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
-
+import video from '../../images/home/bg-banner-home.mp4';
 import Slideshow from './slider';
 import Game from '../Game';
 
@@ -23,18 +23,13 @@ function Home() {
         <div className="home">
             {/* 影片 */}
             <div className="h-page1" id="page1">
-                <iframe
-                    className="h-video"
-                    width="100%"
-                    height="1000px"
-                    src="https://www.youtube.com/embed/Jut9YPJGhjE?rel=0&autoplay=1&loop=1"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
 
-                <div className="scroll-down"></div>
+                <video className="w-100" autoPlay muted loop preload="true">
+                    <source src={video} alt="home-video" type="video/mp4"/>
+
+                </video>
+
+                {/* <div className="scroll-down"></div> */}
             </div>
             {/* before/after */}
             <div className="h-page2" id="page2">
@@ -46,11 +41,11 @@ function Home() {
                                     還在擔心拍不出好看的照片嗎
                                 </h4>
                                 <h4 className="h-p2-title">
-                                    沒關係！因為老馬識途，新手小白也能輕鬆濾圖
+                                    拯救廢片！手殘也能修出大片！
                                 </h4>
                             </div>
                             <div>
-                                <p className="h-p2-text">
+                                {/* <p className="h-p2-text">
                                     你羨慕 IG 上那些看起來很厲害的攝影作品嗎？
                                     <br />
                                     但礙於繁瑣的修圖令人退卻
@@ -59,7 +54,7 @@ function Home() {
                                     <br />
                                     別擔心！ 在 COLORFUL
                                     肯定能找到最適合你的濾鏡
-                                </p>
+                                </p> */}
                             </div>
                             <div>
                                 <p className="h-p2-text">
@@ -77,10 +72,7 @@ function Home() {
                 <Slideshow />
             </div>
 
-            {/* 心理測驗 */}
-            <div className="h-page5">
-                
-            </div>
+        
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">

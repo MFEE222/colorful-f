@@ -69,7 +69,7 @@
         padding-top: 100px;
         @include mix.media(background-image,
             $xs: url("../images/潛水.jpeg"),
-            $lg: url("../images/page2.jpg"));
+            $lg: url("../images/index2.png"));
         // opacity: 0.8;
         height: 100vh;
         // background-image: url("../images/colorful.svg");
@@ -98,13 +98,17 @@
 
             .h-p2-title {
                 // font-size: 24px;
-                @include mix.media(font-size, $xs: 18px, $md: 24px);
-
+                @include mix.media(font-size, $xs: 30px, $md: 50px);
+                color: #2c2c2c;
+                // background-color: #d5d5d5;
+                text-shadow:
+                    4px 4px 0px #d5d5d5,
+                    7px 7px 0px rgba(0, 0, 0, 0.6);
                 opacity: 1;
                 font-weight: bold;
                 @include mix.media(color,
                     $xs: #fff,
-                    $lg:#000);
+                    $lg:rgb(255, 255, 255));
             }
 
             .h-p2-text {
@@ -309,8 +313,5 @@
             animation: fadein 8s ease;
             // padding-bottom: 120px;
         }
-    }
-    .h-page5 {
-        height: 100vh;
     }
 }
