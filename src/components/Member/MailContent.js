@@ -9,60 +9,25 @@ function MailContent(props) {
     // console.log('match :>> ', match);
 
     return (
-        <div className="col-12 col-md-10 member-mail">
+        <div className="col-12 col-md-12 member-mail">
             <div className="container">
                 {/* title */}
                 <div className="row">
-                    <div className="col-auto">
-                        <h2 className="mail-title">信件總覽</h2>
+                    <div className="col-auto mail-title">
+                        <h2 className="title">信件總覽</h2>
                     </div>
                 </div>
                 {/* card */}
                 <div className="row mail-card">
-                    <div className="col-auto">
-                        <h4>訂單通知</h4>
+                    <div className="col-12 ps-0 align-items-center align-content-center">
+                        <h4>會員通知</h4>
                         <p>
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
+                            Hi！恭喜您成功註冊會員，歡迎加入輕鬆修圖的行列，可以立即享受購物的樂趣!
+                            
                         </p>
-                        <p>2022/01/18</p>
+                        <p>2022/03/09</p>
                         <Link
-                            className="btn ms-auto d-block"
-                            to={routes.mailDetail}
-                        >
-                            <span>查看信件</span>
-                        </Link>
-                    </div>
-                </div>
-                <div className="row mail-card">
-                    <div className="col-auto">
-                        <h4>訂單通知</h4>
-                        <p>
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                        </p>
-                        <p>2022/01/18</p>
-                        <Link
-                            className="btn ms-auto d-block"
-                            to={routes.mailDetail}
-                        >
-                            <span>查看信件</span>
-                        </Link>
-                    </div>
-                </div>
-                <div className="row mail-card">
-                    <div className="col-auto">
-                        <h4>訂單通知</h4>
-                        <p>
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                            註冊會員成功，電子信箱已驗證，可以開始立即享受購物樂趣!
-                        </p>
-                        <p>2022/01/18</p>
-                        <Link
-                            className="btn ms-auto d-block"
+                            className="btn me-2 align-self-end"
                             to={routes.mailDetail}
                         >
                             <span>查看信件</span>

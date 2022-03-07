@@ -2,27 +2,20 @@
 @use "mixins"as mix;
 
 .member-mail-detail {
-    @include mix.media(border, $xs: none, $lg: solid 1px #ccc);
-    border-top: solid 1px #ccc;
-    @include mix.media(border-radius, $xs: 0, $md: 20px);
-    // height: 300vh;
-    background-color: #fff;
-    margin-top: 16px;
-    margin-bottom: 20px;
-    @include mix.media(padding, $xs: 0, $md: 2rem);
-    @include mix.media(box-shadow, $xs: none, $md: 5px 5px 10px silver);
+    @include mix.media(padding, $xs: 0.8rem, $md: 1.5rem);
 
     .mail-card {
         height: 200vh;
         @include mix.media(border, $xs: none, $md: solid 1px #ccc);
         @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
         @include mix.media(border-radius, $xs: 0, $md: 20px);
-        @include mix.media(box-shadow, $xs: 0, $md: 5px 5px 10px silver);
-        @include mix.media(padding, $xs: 10px, $md: 20px);
-        margin-bottom: 20px;
+        @include mix.media(box-shadow,
+            $xs: 0,
+            $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
+        @include mix.media(padding, $md: 10px 15px);
+        @include mix.media(margin, $md: 1.5rem 0);
 
         h4 {
-            font-size: 20px;
             color: #63727E;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -31,20 +24,19 @@
         }
 
         p {
-            font-size: 14px;
             @include mix.media(font-size, $xs: 12px, $md: 14px);
         }
 
         .btn {
-            color: #cf9d3f;
-            border: solid 1px #cf9d3f;
+            color: #000000;
+            @include mix.media(border, $xs: none, $md: solid 1px black);
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 14px;
             width: 80px;
         }
 
         .btn:hover {
-            background-color: #cf9d3f;
+            background-color: #000000;
             color: #fff;
         }
     }
