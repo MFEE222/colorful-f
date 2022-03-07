@@ -1,6 +1,4 @@
-import { AccordionButton } from 'react-bootstrap';
-import { findDOMNode } from 'react-dom';
-import Auth from '../pages/Auth';
+
 
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
