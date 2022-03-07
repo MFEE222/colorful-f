@@ -1,6 +1,4 @@
-import { AccordionButton } from 'react-bootstrap';
-import { findDOMNode } from 'react-dom';
-import Auth from '../pages/Auth';
+
 
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
@@ -44,13 +42,14 @@ export const IMG_PRODUCTS_PORTRAIT_BANNER =
 // Post Login 登入
 // req
 // {
-//     email, :>> 電子郵件帳號
+//     account, :>> 電子郵件帳號
 //     password, :>> 密碼
 // }
 // res
 // {
 //     statusCode, :>> 4002: 登入成功 | 4001: 帳號或密碼錯誤 | 4003: 達嘗試次數上限
 //     user: {
+//         id,
 //         name,
 //         email,
 //         phone,
@@ -58,7 +57,7 @@ export const IMG_PRODUCTS_PORTRAIT_BANNER =
 //         birthday,
 //     }    :>> undefined: 登入失敗 | 使用者資料：登入成功
 // }
-export const API_POST_AUTH_LOGIN = API_URL + '/auth/signin';
+export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
 
 // Post Signin 註冊
 // req
@@ -86,6 +85,8 @@ export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 //     statusCode, :>> 4006: 重設密碼信已經寄到您的電子郵箱 | 4009: 無效提示或帳號 | 4011:密碼提示嘗試已達上限 |
 // }
 export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
+
+export const API_POST_AUTH_LOGOUT = API_URL + '/auth/logout';
 // 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
 
 // Post Reset Password 修改密碼
@@ -181,17 +182,18 @@ export const API_GET_PRODUCT = API_URL + '/product';
 // }
 export const API_GET_CART = API_URL + '/cart';
 
-//member
-//member review (get)
+// [ member ]
+//member-[review] (get)
 export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';
 export const API_GET_MEMBER_REVIEW_IMG = API_URL + '/member/review/img';
 
 //member review (post) 更新 （formdata=>files)
 export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
 
-//member-download (get 要資料)
+//member-[download] (get 要資料)
 export const API_GET_MEMBER_DOWNLOAD = API_URL + '/member/review/download';
 //member-dowmload (post 勾選pid)
+
 // req {
 //     uid,
 //     dngId,
@@ -209,3 +211,7 @@ export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 //
 export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
     API_URL + '/member/review/update/detail';
+
+//member-[profile] (上傳照片)
+export const API_POST_MEMBER_PROFILE_PHOTO = API_URL + '/member/profile-photo';
+export const API_POST_MEMBER_PROFILE = API_URL + '/member/profile';
