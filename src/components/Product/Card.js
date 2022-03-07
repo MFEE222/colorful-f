@@ -5,11 +5,13 @@ import { ProductsConsumer } from '../../utils/context/ProductsContext';
 
 // 通用
 import { routes } from '../../utils/routes';
+//
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 function Card(props) {
     // 屬性
     const { product, to, onEvent } = props;
-
+    const auth = useAuthContext();
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
     // console.log('cover :>> ', cover);
@@ -30,7 +32,10 @@ function Card(props) {
                         <p className="card-title mb-0">{product.name}</p>
                         <i className="fas fa-heart heart"></i>
                     </div>
-                    <div className="text-start d-flex  justify-content-between">
+                    <div
+                        className="text-start d-flex  justify-content-between"
+                        onClick={!auth.current}
+                    >
                         NT. {product.price}
                         <i className="fas fa-shopping-cart"></i>
                     </div>

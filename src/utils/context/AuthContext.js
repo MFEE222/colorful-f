@@ -31,6 +31,7 @@ export function AuthProvider(props) {
     const [isLogin, setIsLogin] = useState(false);
     const [user, setUser] = useState({});
     const [allowReset, setAllowReset] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     // 共享狀態
     const { option } =
@@ -48,6 +49,7 @@ export function AuthProvider(props) {
         forget, // axios
         allowReset,
         setAllowReset,
+        setShowLoginModal,
         // reset,  // 發送重設密碼請求，重設成功後要記得把 allowReset 設為 false
     };
 
@@ -137,7 +139,13 @@ export function AuthProvider(props) {
     // 渲染
     return (
         <AuthContext.Provider value={shared}>
-            {props.children}
+            {/* {props.children} */}
+            <LoginModal
+                showLoginModal={showLoginModal}
+                setShowLoginModal={setShowLoginModal}
+            >
+                {props.children}
+            </LoginModal>
         </AuthContext.Provider>
     );
 }
@@ -150,4 +158,35 @@ export function AuthConsumer(props) {
 // useContext
 export function useAuthContext() {
     return React.useContext(AuthContext);
+}
+
+// 內部元件
+function LoginModal(props) {
+    const { showLoginModal, setShowLoginModal } = props;
+
+    return showLoginModal ? (
+        <div>
+            {/* 你這個要用 position: absolute */}
+            <div
+                style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    width: '300px',
+                    height: '300px',
+                }}
+                className="position-absoulte top-0 left-0 right-0 bottom-0"
+            >
+                <h1>請登入</h1>
+                <h2
+                    onClick={function () {
+                        setShowLoginModal(false);
+                    }}
+                >
+                    取消
+                </h2>
+            </div>
+            {props.children}
+        </div>
+    ) : (
+        <>{props.children}</>
+    );
 }

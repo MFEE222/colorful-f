@@ -5,6 +5,7 @@
 //     margin: 0;
 //     padding: 0;
 // }
+@use "mixins" as mix;
 
 $numOfParts: 4;
 $animTime: 1s;
@@ -26,7 +27,7 @@ $letterStagger: 0.1s;
     }
 
     &__top-heading {
-        z-index: $numOfParts*3;
+        z-index: $numOfParts * 3;
         position: absolute;
         left: 0;
         top: 100px;
@@ -76,7 +77,6 @@ $letterStagger: 0.1s;
 
         &-content {
             z-index: $numOfParts + 2;
-            ;
             position: relative;
             display: flex;
             justify-content: center;
@@ -92,7 +92,7 @@ $letterStagger: 0.1s;
             transition: $animTime/2;
 
             @include slideActive {
-                transition-delay: $animTime*0.65;
+                transition-delay: $animTime * 0.65;
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -100,6 +100,8 @@ $letterStagger: 0.1s;
 
         &-subheading {
             margin-bottom: 20px;
+            text-align: center;
+            // @include mix.media(font-size, $xs: 16px, $lg: 26px);
             font-size: 24px;
             letter-spacing: 2px;
             transform: translateY(20px);
@@ -108,8 +110,8 @@ $letterStagger: 0.1s;
         }
 
         &-heading {
-            $fontSize: 60px;
-
+            $fontSize: 40px;
+            // @include mix.media($fontSize, $xs: 18px, $lg: 60px);
             display: flex;
             margin-bottom: 20px;
             font-size: $fontSize;
@@ -118,11 +120,11 @@ $letterStagger: 0.1s;
             span {
                 display: block;
                 opacity: 0;
-                transform: translateY($fontSize*-1);
+                transform: translateY($fontSize * -1);
                 transition: all $animTime/3;
 
                 @include slidePrev {
-                    transform: translateY($fontSize)
+                    transform: translateY($fontSize);
                 }
 
                 @include slideActive {
@@ -142,7 +144,7 @@ $letterStagger: 0.1s;
                     }
                 }
 
-                &:nth-child(n+#{$maxLettersStagger + 1}) {
+                &:nth-child(n + #{$maxLettersStagger + 1}) {
                     $delay: $letterStagger * $maxLettersStagger;
 
                     transition-delay: $delay;
@@ -156,7 +158,7 @@ $letterStagger: 0.1s;
 
         &-readmore {
             position: relative;
-            font-size: 14px;
+            font-size: 18px;
             text-transform: lowercase;
             backface-visibility: hidden;
             transform: translateY(-20px);
@@ -165,7 +167,7 @@ $letterStagger: 0.1s;
             @include subTextsActiveSlide;
 
             &:before {
-                content: '';
+                content: "";
                 position: absolute;
                 left: -2px;
                 top: -3px;
@@ -191,7 +193,7 @@ $letterStagger: 0.1s;
             height: 100%;
 
             &:after {
-                content: '';
+                content: "";
                 z-index: $numOfParts + 1;
                 position: absolute;
                 left: 0;
@@ -222,7 +224,7 @@ $letterStagger: 0.1s;
                 transition: transform $animTime/2 ease-in-out;
 
                 &:before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     width: 100vw;
                     height: 100%;
@@ -240,7 +242,9 @@ $letterStagger: 0.1s;
 
                         z-index: $numOfParts - $i;
                         transition-delay: $delayOut;
-                        transform: translateX(percentage($i / $numOfParts * -1.3));
+                        transform: translateX(
+                            percentage($i / $numOfParts * -1.3)
+                        );
 
                         @include slideActive {
                             transition-delay: $delayIn;
@@ -281,13 +285,13 @@ $letterStagger: 0.1s;
         margin-top: $size/-2;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.4);
-        transform: translateX($size*-1);
+        transform: translateX($size * -1);
         opacity: 0;
         transition: $sliderReadyTrans;
         cursor: pointer;
 
         &:before {
-            content: '';
+            content: "";
             position: absolute;
             left: 50%;
             top: 50%;

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../../utils/routes';
+//
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 function SideBarLeft(props) {
+    const auth = useAuthContext();
     return (
         // <aside className="col-12 col-md-2 collapse sidebar-left member-sidebar-left">
         <aside className="col-12 col-md-2 order-2 order-md-1 sidebar-left member-sidebar-left">
@@ -52,8 +55,7 @@ function SideBarLeft(props) {
                 </li>
 
                 <li className="col-6 col-md-12 nav-item">
-                    <Link to="" className="nav-link">
-                        {/* <i className="fas fa-caret-right"></i> */}
+                    <Link to="" className="nav-link" onClick={auth.clear}>
                         登出
                     </Link>
                 </li>
