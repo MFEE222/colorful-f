@@ -16,22 +16,22 @@ function ProfileContent(props) {
         const reader = new FileReader();
         // console.log('reader :>> ', e.target.files[0].name);
         reader.readAsDataURL(e.target.files[0]);
-        console.log('e.target.files[i] :>> ', e.target.files[0]);
+        // console.log('e.target.files[i] :>> ', e.target.files[0]);
         reader.addEventListener('load', function () {
             collect.current.push({
                 resource: reader.result,
             });
-            console.log('collect :>> ', collect);
+            // console.log('collect :>> ', collect);
             const newImgs = [...collect.current]; //接收照片在設定給state
             // const newFiles = [...filesCollect.current];
-            console.log('newImgs :>> ', newImgs);
+            // console.log('newImgs :>> ', newImgs);
             setImgs(newImgs);
-            console.log('imgs :>> ', imgs);
+            // console.log('imgs :>> ', imgs);
             // setFiles(newFiles);
         });
     };
     useEffect(() => {
-        console.log('imgs :>> ', imgs);
+        // console.log('imgs :>> ', imgs);
     }, [imgs]);
     return (
         <>

@@ -11,6 +11,7 @@ export const STATUS_MSG = {
     4005: PREFIX_ERROR + 'Email 格式錯誤',
     4006: PREFIX_STATUS + '重設密碼信已寄出',
     4007: PREFIX_ERROR + '密碼不符合規定',
+    4008: PREFIX_STATUS + '修改密碼成功',
     4009: PREFIX_ERROR + '無效帳號或密碼提示關鍵字',
     4011: PREFIX_ERROR + '重設密碼嘗試已達上限',
 
