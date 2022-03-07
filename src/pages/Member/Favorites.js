@@ -9,7 +9,10 @@ import {
     API_GET_MEMBER_DOWNLOAD,
     IMG_URL2,
     API_POST_MEMBER_DOWNLOAD_DNG,
+    API_GET_FAVORITES,
 } from '../../utils/config';
+import { useFavoritesContext } from '../../utils/context/FavoritesContext';
+
 //Components
 // import FilterBarContent from '../../components/Filterbar/FilterBarContent';
 //IMG
@@ -36,25 +39,9 @@ function Favorites(props) {
     const [counts, setCounts] = useState(); //資料總計
     const [offset, setOffset] = useState(1); //分頁
     const [display, setDisplay] = useState([]); //呈現
+    //測試
     console.log(123);
-    const fetchDownload = async () => {
-        const response = await axios.get(API_GET_MEMBER_DOWNLOAD, {
-            params: {
-                uid,
-                statusId, //all->0->status 1 & 2 //未下載status = 1 // 已下載 status = 2
-                offset,
-            },
-        });
-        // console.log('response.data.data :>> ', response.data);
-        const newDisplay = response.data.data.map(function (e) {
-            e.check = false;
-            return e;
-        });
-        console.log('newDisplay :>> ', newDisplay);
-        setCounts(response.data.rows);
-        // setDisplay(response.data.data);
-        setDisplay(newDisplay);
-    };
+    const favorites = useFavoritesContext.favorites;
 
     //checkbox
     //all

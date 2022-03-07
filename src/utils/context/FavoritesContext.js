@@ -1,5 +1,5 @@
 //內建庫
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // 第三方庫
 import axios from 'axios';
 // 共用
@@ -19,7 +19,7 @@ const FavoriteContext = React.createContext(
 
 export function FavoritesProvider(props) {
     const auth = useAuthContext();
-
+    const userID = auth.user.id;
     const [favorites, setFavorites] = useState([]);
     const diff = useRef([]);
     //抓 favorites
@@ -54,10 +54,8 @@ export function FavoritesProvider(props) {
                 (async function () {
                     try {
                         const res = await axios.post(API_POST_FAVORITES, {
-                            params: {
-                                userID,
-                                diff,
-                            },
+                            userID,
+                            diff,
                         });
 
                         if (!res.result) {
@@ -74,88 +72,41 @@ export function FavoritesProvider(props) {
         [favorites]
     );
 
-    // 事件處理器 (加入 刪除)
-
-    // // DidMount
-    // useEffect(function () {}, []);
-    // // DidUpdate
-    // useEffect(
-    //     function () {
-    //         console.log('favorite :>> ', favorites);
-    //     }[favorites]
-    // );
-    // // event handler
-
-    //     class Localfavorites {
-    //         constructor(key) {
-    //             this._key = key;
-    //             this._value = JSON.parse(localStorage.getItem(key)); // 存wishlist的陣列
-    //             if (!this._value) this._value = [];
-    //             if (!Array.isArray(this._value))
-    //                 console.log(
-    //                     __filename,
-    //                     ' :>> webstorage : value mest be a array'
-    //                 );
-    //         }
-
-    //         // 取得資料（已從 string 轉成 JSON 物件）
-    //         goods() {
-    //             return this._value;
-    //         }
-
-    //         // 放入一筆資料
-    //         add(goods) {
-    //             this._value.push(goods);
-    //             return this;
-    //         }
-
-    //         // 放入多筆資料
-    //         apply(arr) {
-    //             const that = this;
-    //             arr.forEach(function (a) {
-    //                 if (!that._value.some((b) => b.id === a.id)) {
-    //                     that._value.push(a);
-    //                 }
-    //             });
-    //             return this;
-    //         }
-
-    //         // 刪除一筆資料
-    //         remove(product) {
-    //             this._value = this._value.filter(function (e) {
-    //                 return e.id != product.id;
-    //             });
-    //             return this;
-    //         }
-
-    //         removeById(id) {
-    //             this._value = this._value.filter(function (e) {
-    //                 return e.id != id;
-    //             });
-    //             return this;
-    //         }
-
-    //         // 檢視資料
-    //         log() {
-    //             console.log(`localStorage ${this._key}:>> `, this._value);
-    //         }
-
-    //         // 儲存至 localStorage
-    //         save() {
-    //             localStorage.setItem(this._key, JSON.stringify(this._value));
-    //         }
-
-    //         // 清除所有
-    //         clear() {
-    //             localStorage.removeItem(this._key);
-    //         }
-    //     }
-    // }
+    // 事件處理器
+    //加入
+    const addFavorites = async (product) => {
+        if (diff.includes(product.id)) {
+            diff = diff.filter((e) => {
+                return e != -1 * product.id;
+            });
+        } else {
+            diff.push(product.id);
+        }
+        const response = await axios.post(API_POST_FAVORITES, {
+            userID,
+            diff,
+        });
+    };
+    //刪除
+    const removeFavorites = async (product) => {
+        if (diff.includes(product.id)) {
+            diff = diff.filter((e) => {
+                return e != product.id;
+            });
+        } else {
+            diff.push(-1 * product.id);
+        }
+        const response = await axios.post(API_POST_FAVORITES, {
+            userID,
+            diff,
+        });
+    };
 }
 // Product
-export function FavoritesConsumer(props) {
-    return <ProductsContext.id></ProductsContext.id>;
-}
+
+// export function FavoritesConsumer(props) {
+//     return <ProductsContext.id></ProductsContext.id>;
+// }
 
 // useFavoritestext
 export function useFavoritesContext() {
