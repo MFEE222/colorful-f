@@ -30,7 +30,7 @@ function ReviewDetailContent(props) {
     const formRef = useRef();
     // console.log('oneReview.img :>> ', oneReview.reviews_img);
     //狀態
-    const [modalShow, setModalShow] = useState(false);
+    // const [modalShow, setModalShow] = useState(false);
     const [starCurrent, setStarCurrent] = useState(0); //星星評分
     const [reviewtTitle, setTitle] = useState(oneReview.title); //標題
     const [reviewContent, setCotent] = useState(oneReview.content); //內文
@@ -38,11 +38,10 @@ function ReviewDetailContent(props) {
     const [files, setFiles] = useState([]); //照片傳給後端
     const collect = useRef([]); //接收照片
     const filesCollect = useRef([]); //接收照片
-    const [message, setMessage] = useState(false); //編輯成功顯示
+    // const [message, setMessage] = useState(false); //編輯成功顯示
     const [oldImg, setOldImg] = useState([]);
     const hi = useHistory();
     // console.log('hi :>> ', hi);
-
     let history = useHistory();
     function handleClick() {
         history.push('/member/review');
@@ -125,7 +124,10 @@ function ReviewDetailContent(props) {
     }
 
     //TODO:顯示星星,更改星星評分（第一次評分）
-    useEffect(() => {}, [reviewtTitle, reviewContent, imgs, oldImg]);
+    useEffect(() => {
+        // setImgs([]);
+        // featchImg();
+    }, [reviewtTitle, reviewContent, imgs, oldImg]);
     //imgs, files, oldImg
 
     // 刪圖片

@@ -53,15 +53,16 @@ $-form-label-width: auto;
         border: 1px solid silver;
         display: inline-block;
         text-align: center;
-        @include mix.media(width, $xs: 6rem, $lg: 7.2rem);
-        @include mix.media(line-height, $xs: 6rem, $lg: 7.2rem);
-        @include mix.media(height, $xs: 6rem, $lg: 7.2rem);
+        @include mix.media(width, $xs: 6rem, $lg: 6rem);
+        @include mix.media(line-height, $xs: 2rem, $lg: 2rem);
+        @include mix.media(height, $xs: 2rem, $lg: 2rem);
         cursor: pointer;
     }
     .upload-box {
+        margin-top: 10px;
         position: relative;
-        max-width: 115px;
-        @include mix.media(width, $xs: 6rem, $lg: 7.2rem);
+        // max-width: 115px;
+        @include mix.media(width, $xs: 15rem, $lg: 20rem);
         .delete-btn {
             position: absolute;
             top: 2%;
@@ -105,7 +106,7 @@ $-form-label-width: auto;
     .form-control:focus {
         color: #212529;
         background-color: #fff;
-        border-color: silver;
+        border-color: sli;
 
         outline: 0;
         box-shadow: none;
