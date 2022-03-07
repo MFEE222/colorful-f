@@ -15,10 +15,8 @@ import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
 
-import page4 from '../../images/b0.jpg';
-import page2 from '../../images/home-p2.jpg';
-
 import Slideshow from './slider';
+import Game from '../Game';
 
 function Home() {
     return (
@@ -40,13 +38,49 @@ function Home() {
             </div>
             {/* before/after */}
             <div className="h-page2" id="page2">
-                <img className="pic" src={page2} alt="" />
+                <div className="container">
+                    <div className="row ">
+                        <div className="col-12 h-text">
+                            <div>
+                                <h4 className="h-p2-title">
+                                    還在擔心拍不出好看的照片嗎
+                                </h4>
+                                <h4 className="h-p2-title">
+                                    沒關係！因為老馬識途，新手小白也能輕鬆濾圖
+                                </h4>
+                            </div>
+                            <div>
+                                <p className="h-p2-text">
+                                    你羨慕 IG 上那些看起來很厲害的攝影作品嗎？
+                                    <br />
+                                    但礙於繁瑣的修圖令人退卻
+                                    <br />
+                                    美感直覺更是望天興嘆
+                                    <br />
+                                    別擔心！ 在 COLORFUL
+                                    肯定能找到最適合你的濾鏡
+                                </p>
+                            </div>
+                            <div>
+                                <p className="h-p2-text">
+                                    我行我色，讓你輕鬆玩色
+                                    <br />
+                                    什麼 color 都能 cover
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             {/* slide 系列圖 */}
             <div className="h-page3">
                 <Slideshow />
             </div>
 
+            {/* 心理測驗 */}
+            <div className="h-page5">
+                
+            </div>
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">
