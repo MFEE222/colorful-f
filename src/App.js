@@ -32,10 +32,10 @@ import Product from './pages/Product';
 import Member from './pages/Member';
 import Team from './pages/Team';
 import Teach from './pages/Teach';
+import Game from './pages/Game';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Error from './pages/Error';
-
 
 import {
     ProductsProvider,
@@ -79,6 +79,10 @@ function App() {
                                 {/* 教學頁 */}
                                 <Route path={routes.teach}>
                                     <Teach />
+                                </Route>
+                                {/* 教學頁 */}
+                                <Route path={routes.game}>
+                                    <Game />
                                 </Route>
                                 {/* 購物車 */}
                                 <Route path={routes.cart}>
