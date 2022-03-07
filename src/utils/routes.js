@@ -34,7 +34,7 @@ export const routes = {
     _mailDetail: '/mail-detail',
     _collect: '/collect',
     // test
-    _test: '/test',
+    _game: '/game',
     // cart
     _checkout: '/checkout',
 
@@ -134,8 +134,8 @@ export const routes = {
     get collect() {
         return this._member + this._collect;
     },
-    get test() {
-        return this._test;
+    get game() {
+        return this._game;
     },
     // cart
     get checkout() {

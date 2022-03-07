@@ -99,67 +99,25 @@ function OurNavbar(props) {
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
-                        <NavDropdown
-                            title="About us"
-                            id="colorful-aboutus-dropdown"
-                        >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Another action
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                        </NavDropdown>
+                        <LinkContainer to={routes.team}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-aboutus-link"
+                            >
+                                About us
+                            </Nav.Link>
+                        </LinkContainer>
+
                         <NavDropdown
                             title="Tutorial"
                             id="colorful-tutorial-dropdown"
                         >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
+                            <LinkContainer to={routes.teach}>
+                                <NavDropdown.Item>Teach</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.member}>
+                            <LinkContainer to={routes.game}>
                                 <NavDropdown.Item>
-                                    Another action
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                        </NavDropdown>
-
-                        <NavDropdown
-                            title="Support"
-                            id="colorful-support-dropdown"
-                        >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Another action
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
+                                    Psychological test
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
