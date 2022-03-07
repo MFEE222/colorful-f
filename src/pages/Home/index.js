@@ -19,21 +19,21 @@ import circle1 from '../../images/colorful_1.svg';
 
 import page4 from '../../images/b0.jpg';
 import page2 from '../../images/home-p2.jpg';
-import video from '../../images/home/bg-banner-index.mp4';
+// import video from '../../images/home/bg-banner-index.mp4';
 
 import Slideshow from './slider';
 
 function Home() {
     return (
         <div className="home">
-            {/* 影片 */}
-            <div className="h-page1" id="page1">
+            {/* 影片(暫隱藏) */}
+            {/* <div className="h-page1" id="page1">
                 <video className="w-100" autoPlay muted loop preload="true">
                     <source src={video} alt="food-banner" type="video/mp4" />
-                </video>
+                </video> */}
 
-                {/* <div className="scroll-down"></div> */}
-            </div>
+            {/* <div className="scroll-down"></div> */}
+            {/* </div> */}
             {/* before/after */}
             <div className="h-page2" id="page2">
                 <img className="pic" src={page2} alt="" />

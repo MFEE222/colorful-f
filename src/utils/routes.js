@@ -109,8 +109,8 @@ export const routes = {
     get download() {
         return this._member + this._download;
     },
-    get favorite() {
-        return this._member + this._favorite;
+    get favorites() {
+        return this._member + this._favorites;
     },
     get payment() {
         return this._member + this._payment;
