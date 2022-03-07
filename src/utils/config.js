@@ -209,3 +209,84 @@ export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 //
 export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
     API_URL + '/member/review/update/detail';
+
+// 獲取訂單資料
+// Req
+// {
+//     sessionID, (header 會自動帶過去)
+//     userID,
+//     orderStatus,
+//     date,
+//     sortBy,
+//     sortType,
+//     limit,
+//     offset
+// }
+// Res
+// {
+//     sessionID,
+//     userID,
+//     orderID / orderNumber,
+//     sortBy,
+//     sortType,
+//     limit,
+//     offset
+// }
+export const API_GET_ORDERS = API_URL + '/orders';
+// 獲取訂單細節資料
+// Req
+// {
+//     sessionID, (header 會自動帶過去)
+//     userID,
+//     orderID / orderNumber,
+//     sortBy,
+//     sortType,
+//     limit,
+//     offset
+// }
+// Res
+// {
+//     statusCode,
+//     orderDetailID,
+//     productName,
+//     productPrice,
+//     createdAt,
+//     orderID,
+//     productID
+// }
+export const API_GET_ORDER_DETAIL = API_URL + '/order-detail';
+// 請求訂單成立
+// Req
+// {
+//     sessionID,
+//     userID,
+//     productIDs,
+// }
+// Res
+// {
+//     statusCode,
+//     allowPayment,
+//     orderID,
+//     orderNumber,
+//     orderStatus, // 7: mount 待確認, 1: pending 待付款, 2: cancel 已取消, 3: paid 已付款, 4: refund 退款中, 5: refunded 已退款, 6: close 已關閉
+// }
+export const API_POST_ORDER = API_URL + '/order';
+// 付款請求
+// Req
+// {
+//     sessionID,
+//     userID,
+//     orderID,
+//     paymentID,
+//     creditCard,
+//     csv,
+
+// }
+// Res
+// {
+//     statusCode,
+//     resultPayment,
+//     orderID,
+//     orderNumber
+// }
+export const API_POST_ORDER_PAYMENT = API_URL + '/order/payment';
