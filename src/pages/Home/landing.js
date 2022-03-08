@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import 'animate.css';
 
 function Landing(props) {
     return (
-        <>
-            <div class="container">
+        <div className="landing animate__animated animate__bounce animate__faster">
+            <div class="container animated bounceInDown">
                 <div class="container__item landing-page-container">
                     <div class="content__wrapper">
                         <p class="coords">
@@ -11,7 +13,7 @@ function Landing(props) {
                         </p>
 
                         <div class="ellipses-container">
-                            <h2 class="greeting">Hello</h2>
+                            <h2 class="greeting">Hello colorful</h2>
 
                             <div class="ellipses ellipses__outer--thin">
                                 <div class="ellipses ellipses__orbit"></div>
@@ -21,7 +23,9 @@ function Landing(props) {
                         </div>
 
                         <div class="scroller">
-                            <p class="page-title">home</p>
+                            <a href="#page1">
+                                <p class="page-title">home</p>
+                            </a>
 
                             <div class="timeline">
                                 <span class="timeline__unit"></span>
@@ -32,7 +36,7 @@ function Landing(props) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

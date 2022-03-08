@@ -1,14 +1,19 @@
-$tiber: #09383E;
-$elephant: #0C383E;
+$tiber: #041d20;
+$elephant: #041c1f;
 $white: #fff;
 
-// rem font sizing.
 html {
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.4rem;
+}
+
+.animate__animated {
+    animation: bounce;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
 }
 
 /* =14px */
@@ -156,13 +161,14 @@ h1 {
     top: 10.5rem;
 
     .greeting {
+        text-align: center;
         position: absolute;
         top: 11.6rem;
-        left: 13rem;
+        left: 5rem;
         right: 0;
         margin: 0 auto;
         text-transform: uppercase;
-        letter-spacing: 4rem;
+        letter-spacing: 3rem;
         font-size: 2.2rem;
         font-weight: 400;
         opacity: 0.5;
@@ -319,3 +325,6 @@ h1 {
         transform: rotate(360deg);
     }
 }
+
+
+// rem font sizing.
