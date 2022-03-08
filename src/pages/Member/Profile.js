@@ -6,7 +6,6 @@ import {
     API_POST_MEMBER_PROFILE_PHOTO,
     API_POST_MEMBER_PROFILE,
     IMG_URL2,
-    API_GET_MEMBER_PROFILE_FIGURE,
 } from '../../utils/config';
 
 //
@@ -15,31 +14,13 @@ import { useAuthContext } from '../../utils/context/AuthContext';
 function Profile(props) {
     // if(auth.current)
     const auth = useAuthContext();
-    console.log('auth.user :>> ', auth.user);
     const user = auth.user;
-    //TODO:拿到登入會員的詳細資料[1]
-    // const uprofile= auth.user{
-    //     uid: 1,
-    //     name: 'queena',
-    //     gender: 'female',
-    //     birthDay: '1998/12/1',
-    //     phone: '0123456789',
-    //     email: '123@gmail.com',
-    //     avator: '',
-    // }
-    //狀態
     //TODO:設定進狀態[2]
     const [profile, setProfile] = useState({
-        // uid: 1,
         name: user.name,
-        // name: 'queena',
         birthDay: user.birthday,
-        // birthDay: '1998/12/1',
         phone: user.phone,
-        // phone: '0123456789',
         email: user.email,
-        // email: '123@gmail.com',
-        // photo:user.figure,
         photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
     });
 
