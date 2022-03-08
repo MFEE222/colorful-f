@@ -60,7 +60,10 @@ function TeamContent(props) {
                             <div className="left">
                                 <h2 className="d-block text-n">陶靖宇</h2>
                                 <h5 className="text-n2">組長</h5>
-                                <a href="https://github.com/queena40723" target="_blank">
+                                <a
+                                    href="https://github.com/queena40723"
+                                    target="_blank"
+                                >
                                     <img
                                         className="github"
                                         src={Github}
@@ -68,13 +71,14 @@ function TeamContent(props) {
                                     />
                                 </a>
                                 <p className="d-block">
-                                    <b>前端</b> 商品列表、商品細節、Navbar一、會員下載區、會員評論區二
+                                    <b>前端</b>{' '}
+                                    商品列表、商品細節、Navbar一、會員下載區、會員評論區二
                                     <br />
-                                    <b>後端</b> API串接、資料庫建立、資料庫更新：會員下載功能、評論上傳圖檔功能
+                                    <b>後端</b>{' '}
+                                    API串接、資料庫建立、資料庫更新：會員下載功能、評論上傳圖檔功能
                                     <br />
                                     <b>其他</b> 資料蒐集、文案撰寫、企劃書撰寫
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -91,7 +95,10 @@ function TeamContent(props) {
                             <div className="left">
                                 <h2 className="d-block text-n">陳博榆</h2>
                                 <h5 className="text-n2">技術長</h5>
-                                <a href="https://github.com/pyshif" target="_blank">
+                                <a
+                                    href="https://github.com/pyshif"
+                                    target="_blank"
+                                >
                                     <img
                                         className="github"
                                         src={Github}
@@ -99,13 +106,14 @@ function TeamContent(props) {
                                     />
                                 </a>
                                 <p className="d-block">
-                                    <b>前端</b> 會員訂單區、會員個人資料區  Navbar二
+                                    <b>前端</b> 會員訂單區、會員個人資料區
+                                    Navbar二
                                     <br />
-                                    <b>後端</b> API串接、資料庫建立、資料庫更新：會員下載功能、評論上傳圖檔功能
+                                    <b>後端</b>{' '}
+                                    API串接、資料庫建立、資料庫更新：會員下載功能、評論上傳圖檔功能
                                     <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -122,7 +130,10 @@ function TeamContent(props) {
                             <div className="left">
                                 <h2 className="d-block text-n">梁詩葶</h2>
                                 <h5 className="text-n2">美術長</h5>
-                                <a href="https://github.com/Art-liang" target="_blank">
+                                <a
+                                    href="https://github.com/Art-liang"
+                                    target="_blank"
+                                >
                                     <img
                                         className="github"
                                         src={Github}
@@ -130,13 +141,14 @@ function TeamContent(props) {
                                     />
                                 </a>
                                 <p className="d-block">
-                                    <b>前端</b> 會員下載區一、會員付款區、使用教學、心理測驗
+                                    <b>前端</b>{' '}
+                                    會員下載區一、會員付款區、使用教學、心理測驗
                                     <br />
                                     <b>後端</b> 資料庫建立
                                     <br />
-                                    <b>其他</b> 資料蒐集、文案撰寫、企劃書撰寫、簡報、商品素材數據製作、Banner設計、主頁影片剪輯、使用教學影片剪輯、
+                                    <b>其他</b>{' '}
+                                    資料蒐集、文案撰寫、企劃書撰寫、簡報、商品素材數據製作、Banner設計、主頁影片剪輯、使用教學影片剪輯、
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -153,7 +165,10 @@ function TeamContent(props) {
                             <div className="left">
                                 <h2 className="d-block text-n">蔣頌蓮</h2>
                                 <h5 className="text-n2">組員</h5>
-                                <a href="https://github.com/chiang-song-lang" target="_blank">
+                                <a
+                                    href="https://github.com/chiang-song-lang"
+                                    target="_blank"
+                                >
                                     <img
                                         className="github"
                                         src={Github}
@@ -161,13 +176,14 @@ function TeamContent(props) {
                                     />
                                 </a>
                                 <p className="d-block">
-                                    <b>前端</b> 首頁、團隊介紹、會員登入、會員忘記密碼、會員註冊、會員信箱區、會員評論區一、購物車二、Footer
+                                    <b>前端</b>{' '}
+                                    首頁、團隊介紹、會員登入、會員忘記密碼、會員註冊、會員信箱區、會員評論區一、購物車二、Footer
                                     <br />
-                                    <b>後端</b> API串接、資料庫建立、資料庫更新：首頁、會員註冊、會員登入、會員忘記密碼、會員信箱區
+                                    <b>後端</b>{' '}
+                                    API串接、資料庫建立、資料庫更新：首頁、會員註冊、會員登入、會員忘記密碼、會員信箱區
                                     <br />
                                     <b>其他</b> 資料蒐集、文案撰寫、企劃書撰寫
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -184,7 +200,10 @@ function TeamContent(props) {
                             <div className="left">
                                 <h2 className="d-block text-n">江致緯</h2>
                                 <h5 className="text-n2">組員</h5>
-                                <a href="https://github.com/jim60702" target="_blank">
+                                <a
+                                    href="https://github.com/jim60702"
+                                    target="_blank"
+                                >
                                     <img
                                         className="github"
                                         src={Github}
@@ -194,11 +213,11 @@ function TeamContent(props) {
                                 <p className="d-block">
                                     <b>前端</b> 購物車一、會員蒐藏區
                                     <br />
-                                    <b>後端</b> API串接、資料庫建立、資料庫更新：會員蒐藏區
+                                    <b>後端</b>{' '}
+                                    API串接、資料庫建立、資料庫更新：會員蒐藏區
                                     <br />
                                     資料蒐集、文案撰寫、企劃書撰寫、簡報
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -219,7 +238,7 @@ function TeamContent(props) {
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7441.974339534148!2d121.54158120775575!3d25.032108628815774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd379a5ec97%3A0xedc006d25a9e35df!2z6LOH5bGV5ZyL6Zqb6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1645680791896!5m2!1szh-TW!2stw"
                                 className="t-map"
-                                allowfullscreen=""
+                                allowFullScreen=""
                                 loading="lazy"
                             ></iframe>
                         </div>
