@@ -12,15 +12,16 @@ function Card(props) {
     // 屬性
     const { product, to, onEvent } = props;
     // 狀態
-    const [isInCart, setIsInCart] = useState(false);
+    const [isCart, setIsCart] = useState(false);
+    const [isHeart, setIsHeart] = useState(false);
 
     // 測試
     // useEffect(
     //     function () {
     //         console.log('product.id :>> ', product.id);
-    //         console.log('isInCart :>> ', isInCart);
+    //         console.log('isCart :>> ', isCart);
     //     },
-    //     [isInCart]
+    //     [isCart]
     // );
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
@@ -47,12 +48,12 @@ function Card(props) {
                         <i
                             className="fas fa-shopping-cart"
                             onClick={function () {
-                                if (isInCart) {
-                                    // cart.handleRemove(product);
-                                    setIsInCart(false);
+                                if (isCart) {
+                                    cart.handleRemove(product);
+                                    setIsCart(false);
                                 } else {
-                                    // cart.handleAdd(product);
-                                    setIsInCart(true);
+                                    cart.handleAdd(product);
+                                    setIsCart(true);
                                 }
                             }}
                         ></i>

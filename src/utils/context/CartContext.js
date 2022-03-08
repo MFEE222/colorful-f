@@ -59,10 +59,9 @@ export function CartProvider(props) {
     // 保存購物車資料
     useEffect(
         function () {
-            // syncTo();
+            syncTo();
             console.log('cart :>> ', cart);
-            console.log('diffRef :>> ', diffRef);
-            // console.log('diffRef.current :>> ', diffRef.current);
+            // console.log('diffRef :>> ', diffRef);
         },
         [cart]
     );
@@ -136,7 +135,7 @@ export function CartProvider(props) {
                 const res = await axios.get(API_GET_CART, {
                     params: {
                         userId: auth.user.id,
-                        // option,
+                        option,
                     },
                 });
                 console.log('res :>> ', res);
@@ -173,7 +172,7 @@ export function CartProvider(props) {
             // to Database
             const res = await axios.post(API_POST_CART, {
                 userId: auth.user.id,
-                diff: diffRef.current,
+                diff: diffRef,
             });
             // console.log('res :>> ', res);
             console.log('res.status :>> ', res.status);

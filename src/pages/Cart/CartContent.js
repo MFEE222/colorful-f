@@ -9,6 +9,7 @@ import RecommendCard from '../../components/Product/RecommendCard';
 import { useCartContext } from '../../utils/context/CartContext';
 
 //圖片
+import { IMG_URL2 } from '../../utils/config';
 import LoginPic from '../../images/film005.jpg';
 import product from '../../images/film003.jpg';
 
@@ -49,27 +50,6 @@ function CartContent(props) {
                         <span className="light"> &rarr; </span>
                         <span className="light">訂單結算</span>
                     </div>
-                    <button
-                        onClick={function () {
-                            cart.handleAdd({ id: 3 });
-                        }}
-                    >
-                        add cart
-                    </button>
-                    <button
-                        onClick={function () {
-                            cart.handleRemove({ id: 3 });
-                        }}
-                    >
-                        remove cart
-                    </button>
-                    <button
-                        onClick={function () {
-                            console.log('cart.diffRef :>> ', cart.diffRef);
-                        }}
-                    >
-                        print ref
-                    </button>
                 </div>
                 {/* 商品清單 title */}
                 <div className="row cart-list">
@@ -89,32 +69,55 @@ function CartContent(props) {
                     </div>
                 </div>
                 {/* 商品列表 */}
-                <div className="row cart-body">
-                    <div className="col-1">
-                        <input
-                            className="checkbox"
-                            type="checkbox"
-                            name="c"
-                            id=""
-                        />
-                    </div>
-                    <div className="col-auto  col-md-10 review-card-img me-4">
-                        <div className="ratios">
-                            <img src={product} alt="" />
-                        </div>
-                    </div>
-                    <div className="col row ps-0 align-items-center align-content-center">
-                        <h2>米其林五星級</h2>
-                        <p>Duis aliquam convallis nunc.</p>
-                    </div>
-                    <div className="col-2 me-auto  d-md-block">
-                        <h3>$99</h3>
-                    </div>
-                    <div className="col-1">
-                        <i className="fas fa-trash-alt icon"></i>
-                        <i className="far fa-heart icon"></i>
-                    </div>
-                </div>
+                {cart.current &&
+                    cart.current.map(function (e) {
+                        return (
+                            <div className="row cart-body" key={e.id}>
+                                <div className="col-1">
+                                    <input
+                                        className="checkbox"
+                                        type="checkbox"
+                                        name="c"
+                                        id=""
+                                    />
+                                </div>
+                                <div className="col-auto  col-md-10 review-card-img me-4">
+                                    <div className="ratios">
+                                        <img
+                                            src={
+                                                IMG_URL2 +
+                                                '/' +
+                                                e.img +
+                                                '/a1.jpg'
+                                            }
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col row ps-0 align-items-center align-content-center">
+                                    <h2>{e.name}</h2>
+                                    <p>{e.descp}</p>
+                                </div>
+                                <div className="col-2 me-auto  d-md-block">
+                                    <h3>{e.price}</h3>
+                                </div>
+                                <div className="col-1">
+                                    <i
+                                        className="fas fa-trash-alt icon"
+                                        onClick={function () {
+                                            cart.handleRemove(e);
+                                        }}
+                                    ></i>
+                                    {/* <i
+                                        className="far fa-heart icon"
+                                        onClick={function () {
+                                            cart.handleAdd(e);
+                                        }}
+                                    ></i> */}
+                                </div>
+                            </div>
+                        );
+                    })}
 
                 {/* 總共 */}
                 <div className="row cart-total justify-content-end">
