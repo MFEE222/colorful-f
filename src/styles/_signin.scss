@@ -1,21 +1,22 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "variables"as var;
+@use "mixins"as mix;
 
 // 內容
 .signin-main {
     // all
     color: #fff;
+    height: 100vh;
     background-size: cover;
-    @include mix.media(
-        background-image,
+    @include mix.media(background-image,
         $xs: url("../images/婚禮_5.jpg"),
-        $lg: url("../images/login.jpg")
-    );
+        $lg: url("../images/login.jpg"));
+    padding-top: 100px;
+
+
 
     // form 框框
     .form-box {
         background: rgba(255, 255, 255, 10%);
-        margin: 1rem;
         @include mix.media(margin-left, $xs: 0, $sm: 1rem);
         @include mix.media(margin-right, $xs: 0, $sm: 1rem);
         padding: 2rem;
@@ -28,14 +29,16 @@
         .box-title {
             text-align: center;
             font-size: calc(2rem + 0.2vmin);
-            @include mix.media(font-size, $xs: 18px, $lg: 30px);
+            @include mix.media(font-size, $xs: 24px, $lg: 30px);
         }
 
         // 帳號/密碼輸入框
         .form-floating {
+            margin: 20px 16px 20px 16px;
+
             input {
-                color: #fff;
-                // width: 99%;
+                @include mix.media(font-size, $xs: 14px, $lg: 20px);
+                color: #ebebeb;
                 outline-style: none;
                 border: 0px;
                 border-radius: 0;
@@ -43,11 +46,13 @@
                 background-color: transparent;
                 -webkit-appearance: none;
             }
+
             input:focus {
                 border-bottom: 1px solid #fff;
                 box-shadow: none;
                 -webkit-box-shadow: none;
             }
+
             //  取消input 預設樣式
             input::-webkit-search-decoration,
             input::-webkit-search-cancel-button {
@@ -57,48 +62,103 @@
 
         // 忘記密碼
         .forgot {
-            /* position: relative; */
+            @include mix.media(font-size, $xs: 14px, $lg: 18px);
             text-align: right;
-            margin: 0 16px 30px auto;
+            margin: 20px 16px 20px 20px;
+
             a {
                 color: #fff;
                 text-decoration: none;
             }
         }
 
-        // icon框框
-        .l-icon {
-            display: flex;
-            margin: 20px;
-            @extend .px-4;
-            @extend .justify-content-between;
+        //記住我 按鈕
+        .checkbox {
+            margin-top: 30px;
+            #check-box-slide {
+                background-color: rgb(158, 158, 158);
+                width: 40px;
+                height: 20px;
+                margin-left: 65%;
+                -moz-border-radius: 40px;
+                -webkit-border-radius: 90px;
+                border-radius: 90px;
+                position: relative;
+                -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+                -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+                box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
 
-            // icon 圓框框
-            .l-icon-link {
-                @extend .col-auto;
-                // @include mix.ratio(1, 1, ">i");
-                color: #fff;
-                border: solid 1px rgba(255, 255, 255, 50%);
-                border-radius: 50%;
-                width: 70px;
-                height: 70px;
-                padding-top: 10px;
+            }
 
-                i {
-                    font-size: 50px;
-                    // @extend .mx-auto;
-                }
+            #check-box-slide>input[type="checkbox"] {
+                display: none;
+            }
+
+            #check-box-slide>label {
+                left: 0;
+                -webkit-border-radius: 30px;
+                -moz-border-radius: 30px;
+                border-radius: 50px;
+                background-color: #fcf9f9;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                -webkit-transition: all 0.3s;
+                -o-transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                transition: all 0.3s;
+
+            }
+
+            #check-box-slide>input:checked+label {
+                left: 20px;
+            }
+
+            .remember-me {
+                font-size: 13px;
+                position: relative;
+                // top: 60%;
+                left: 120%;
+                vertical-align: center;
             }
         }
 
+
+        // icon框框
+        // .l-icon {
+        //     display: flex;
+        //     margin: 10px;
+        //     @extend .px-4;
+        //     @extend .justify-content-between;
+
+        //     // icon 圓框框
+        //     .l-icon-link {
+        //         @extend .col-auto;
+        //         // @include mix.ratio(1, 1, ">i");
+        //         color: #fff;
+        //         border: solid 1px rgba(255, 255, 255, 50%);
+        //         border-radius: 50%;
+        //         width: 70px;
+        //         height: 70px;
+        //         padding-top: 10px;
+
+        //         i {
+        //             font-size: 50px;
+        //             // @extend .mx-auto;
+        //         }
+        //     }
+        // }
+
         //送出按鈕
         .form-btn {
+            padding-top: 50px;
             font-size: 26px;
+            text-align: center;
 
             button {
                 color: #fff;
                 background: #c4c4c47e;
-                width: 100%;
+                width: 70%;
                 height: 50px;
                 border: 0;
                 border-radius: 20px;
@@ -115,4 +175,6 @@
             }
         }
     }
+
+
 }

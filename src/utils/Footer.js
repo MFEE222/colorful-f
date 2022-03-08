@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { routes } from './routes';
 
 function Footer(props) {
     return (
@@ -7,12 +9,12 @@ function Footer(props) {
                 <div className="row">
                     <div className="col-md-6 col-xs-auto f-left">
                         <h4 className="f-logo">COLORFUL</h4>
-                        <p className="f-text">
+                        <p className="f-text mb-4">
                             老馬識途，新手小白也能輕鬆濾圖
                             <br />
                             色調濾鏡自由配，隨心所欲當個高端調色player
                         </p>
-                        <form className="row g-3">
+                        <form className="row mt-3">
                             <div className="form-floating">
                                 <input
                                     type="email"
@@ -20,7 +22,7 @@ function Footer(props) {
                                     id="floatingInput"
                                     placeholder="Your email address"
                                 />
-                                <button type="submit" className="f-btn">
+                                <button type="submit" className="f-btn ms-4">
                                     Subscribe
                                 </button>
                             </div>
@@ -28,50 +30,51 @@ function Footer(props) {
                     </div>
                     <div className="col-md-2 col-xs-auto f-right">
                         <h5 className="f-project">Services</h5>
-                        <a href="" className="f-link">
+                        <Link to={routes.productFood} className="f-link">
                             客戶服務
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
+                        <Link to={routes.productNewest} className="f-link">
                             照片調色
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
+                        <Link to={routes.productNewest} className="f-link">
                             產品目錄
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
+                        <Link to={routes.teach} className="f-link">
                             教學頁面
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
-                            熱門色調
-                        </a>
+                        <Link to={routes.game} className="f-link">
+                            心理測驗
+                        </Link>
+
                     </div>
                     <div className="col-md-2 col-xs-auto f-right">
                         <h5 className="f-project">About us</h5>
-                        <a href="" className="f-link">
+                        <Link to={routes.team} className="f-link">
                             團隊介紹
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
+                        <Link to="/" className="f-link">
                             網站介紹
-                        </a>
+                        </Link>
                         <br />
                     </div>
                     <div className="col-md-2 col-xs-auto f-right">
                         <h5 className="f-project">Support</h5>
-                        <a href="" className="f-link">
+                        {/* <Link to="" className="f-link">
                             專人客服
-                        </a>
-                        <br />
-                        <a href="" className="f-link">
+                        </Link>
+                        <br /> */}
+                        <Link to={routes.team} className="f-link">
                             聯絡我們
-                        </a>
+                        </Link>
                         <br />
-                        <a href="" className="f-link">
+                        <Link to={routes.team} className="f-link">
                             追蹤我們
-                        </a>
+                        </Link>
                         <br />
                     </div>
                 </div>

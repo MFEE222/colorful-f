@@ -5,46 +5,56 @@
     // 1.
     .pd-1 {
         // margin: 3rem auto;
-        .img-big {
-            .ratios {
-                @media (max-width: 767.98px) {
-                    @include mix.ratio(3, 4);
-                }
-                @media (min-width: 768px) {
-                    @include mix.ratio(3, 2);
-                }
-                // @include mix.ratio(3, 2);
-                img {
-                    border-radius: 8px;
-                }
+
+        .ratios {
+            @media (max-width: 767.98px) {
+                @include mix.ratio(3, 4);
             }
+            @media (min-width: 768px) {
+                @include mix.ratio(3, 2);
+            }
+        }
+
+        .rba-afterPosition {
+            border: 1px solid $light;
+            border-radius: 20px;
+            color: $light;
+            opacity: 0.6;
+            background-color: transparent;
+            padding: 5px 8px;
+            text-align: center;
+        }
+        .rba-beforePosition {
+            display: none;
         }
         .img-list {
             margin: 0;
             > div:first-child {
                 margin-left: -0.25rem;
             }
-
             > div:last-child {
                 margin-right: -0.25rem;
             }
             .img-small {
                 .ratios {
                     @include mix.ratio(1, 1);
-                    img {
-                        border-radius: 8px;
-                    }
                 }
             }
         }
-
+        .descp {
+            border: 1px solid rgba(80, 93, 104, 0.18);
+            box-sizing: border-box;
+            padding: 15px;
+            box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+            border-radius: 8px;
+        }
         .reviews-text {
             margin: 0;
             @media (max-width: 768px) {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
             @media (min-width: 992px) {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
         }
         .review-box {
@@ -67,11 +77,11 @@
             //     margin: 0;
             // }
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-            font-size: calc(0.7rem + 1.5vw);
+            font-size: calc(0.5rem + 1.2vw);
         }
         %wish-list {
             i {
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
                 color: #63727e;
                 &:hover {
                     color: #ef2f2f;
@@ -106,10 +116,10 @@
             //     display: none;
             // }
             @media (min-width: 768px) {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
             @media (min-width: 992px) {
-                font-size: 2rem;
+                font-size: 1rem;
             }
         }
         .wish-list {
@@ -118,16 +128,18 @@
         .wish-list-2 {
             @extend %wish-list;
             @media (max-width: 767.98px) {
+                font-size: 1rem;
                 display: none;
             }
         }
         .detail-text {
             line-height: 1.75rem;
             display: -webkit-box;
-            -webkit-line-clamp: 8;
+            -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             white-space: normal;
-            // overflow: hidden;
+            overflow: hidden;
+
             @media (max-width: 768px) {
                 font-size: 0.75rem;
             }
@@ -135,6 +147,7 @@
                 font-size: 1rem;
                 line-height: 2rem;
                 width: 99%;
+                margin-bottom: 2rem;
             }
             @media (min-width: 1440px) {
                 font-size: 1rem;
@@ -144,18 +157,21 @@
         }
         .add-cart {
             filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-            background-color: $gold;
+            background-color: transparent;
+            color: black;
             &:hover {
-                background-color: $dark-blue;
+                background-color: black;
+                color: $light;
                 transition: 0.3s;
+                border: 0;
             }
             // &::after {
             //     content: "已加入購物車";
             // }
             border-radius: 20px;
-            color: $light;
+            // color: $light;
             // 消除預設
-            border: 0;
+
             @media (max-width: 767.98px) {
                 font-size: 12px;
                 width: 100px;
@@ -191,11 +207,6 @@
     // 2.
     .pd-2 {
         .recommend {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
             @include mix.md {
                 padding-top: 2rem;
                 padding-bottom: 2rem;
@@ -203,12 +214,6 @@
             .recommend-title {
                 margin-top: 3rem;
                 .text-box {
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        overflow: hidden;
-                    }
                     @extend %title-box;
                     .phone-title {
                         color: $gray-blue;
@@ -217,15 +222,50 @@
                     @include mix.media(
                         border-left,
                         $xs: 6px solid transparent,
-                        $md: 6px solid $gold,
-                        $lg: 10px solid $gold
+                        $md: 6px solid black,
+                        $lg: 10px solid black
                     );
+                }
+            }
+            .recommend-card {
+                .link {
+                    color: black;
+                    text-decoration: none;
+                    &:link {
+                        color: black;
+                    }
+                }
+                .card-border {
+                    .card-img {
+                        .ratios {
+                            @include mix.ratio(3.5, 4);
+                        }
+                        overflow: hidden;
+                        img {
+                            filter: drop-shadow(
+                                2px 4px 4px rgba(0, 0, 0, 0.25)
+                            );
+                            max-height: 100%;
+                            max-width: 100%;
+                            object-fit: cover;
+                            transition: 0.5s;
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    .adding-card {
+                        border: 1px solid black;
+                        padding: 3px 6px;
+                    }
                 }
             }
         }
     }
     // 3.
     .pd-3 {
+        margin-top: 5rem;
+
         .text-box {
             @extend %title-box;
             .phone-title {
@@ -233,7 +273,7 @@
                     color: $gray-blue;
                     @include mix.md {
                         border-top: 1px solid $gray;
-                        padding-top: 1rem;
+                        padding-top: 1.4rem;
                         font-size: 1.5rem;
                     }
                 }
@@ -250,13 +290,12 @@
         }
         .add-review {
             // 消除預設
-            border: 2px solid $gray-blue;
+            border: 2px solid black;
             border-radius: 20px;
             background-color: transparent;
             &:hover {
-                // background-color: $dark-blue;
-                border-color: $gold;
-                color: $gold;
+                background-color: black;
+                color: $light;
                 filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
                 transition: 0.3s;
             }
@@ -300,16 +339,17 @@
             }
         }
         .add-review {
+            background-color: transparent;
+            color: black;
             // 消除預設
-            border: 2px solid $gray-blue;
             border-radius: 20px;
             background-color: transparent;
             &:hover {
-                // background-color: $dark-blue;
-                border-color: $gold;
-                color: $gold;
-                filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+                background-color: black;
+                color: $light;
                 transition: 0.3s;
+                border: 0;
+                // filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
             }
             @media (max-width: 767.98px) {
                 font-size: 12px;
@@ -326,7 +366,8 @@
     // 5.
     .pd-5 {
         p {
-            color: $gray;
+            color: black;
+            font-size: 14px;
         }
         border-top: 1px solid $gray;
         border-bottom: 1px solid $gray;
@@ -336,6 +377,9 @@
             }
             > div {
                 padding-left: 1px;
+            }
+            .solve-padding {
+                border: 15px solid transparent;
             }
         }
     }
@@ -418,19 +462,31 @@
                         line-height: 2rem;
                     }
                 }
-                .box {
-                    margin-right: 0.4rem;
-                    padding: 0;
-                    @media (max-width: 767.98px) {
-                        width: 6.35rem;
-                        height: 6.35rem;
+                .review-list-img {
+                    overflow: scroll;
+                    .box {
+                        margin-right: 0.4rem;
+                        padding: 0;
+                        @media (max-width: 767.89px) {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                        @media (max-width: 767.98px) {
+                            width: 5.35rem;
+                            height: 5.35rem;
+                        }
+                        @media (min-width: 768px) {
+                            font-size: 1rem;
+                            line-height: 2rem;
+                            width: 3.75rem;
+                            height: 3.75rem;
+                        }
+                        > div {
+                        }
                     }
-                    @media (min-width: 768px) {
-                        font-size: 1rem;
-                        line-height: 2rem;
-                        width: 3.75rem;
-                        height: 3.75rem;
-                    }
+                    // .modal-bg .modal-content {
+                    //     background-color: black;
+                    // }
                 }
             }
             .thumbs-list {
@@ -483,6 +539,7 @@
 
 //共用 消除 ul預設
 .ul-unstyle {
+    font-size: 12px;
     margin: 0;
     list-style: none;
     // display: flex;
@@ -490,7 +547,10 @@
     // align-items:flex-end;
     > li {
         padding: 2px;
-        color: $yellow;
+        color: $gray;
+        > i.active {
+            color: $yellow;
+        }
     }
 }
 //圖片

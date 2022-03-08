@@ -3,45 +3,77 @@
 
 .filter {
     font-family: "Tenor Sans", sans-serif;
-    font-size: 12px;
-    color: #ffffff;
+    font-size: gray;
+    color: black;
     margin-top: 20px auto;
     .sort-series {
         padding-left: 11px;
         /* padding-bottom: 8px; */
         float: left;
         li {
+            cursor: pointer;
             margin: 0 5px;
             width: 15%;
             display: inline;
             // padding: 8px 15px;
-            background-color: #cf9d3f;
-            border-radius: 20px;
+            // background-color: black;
+            // border-radius: 8px;
             // margin-right: 15px;
+            // border-color: black;
+            // border: 1px solid black;
+            // box-sizing: border-box;
+            // border: 1px solid $gray;
+            // box-sizing: border-box;
+            // box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+            // border-radius: 15px;
+            color: $gray;
+            &:hover {
+                // border-color: black;
+                color: black;
+            }
         }
         .active {
-            background-color: #0e1829;
+            color: black;
+            // background-color: #0e1829;
+            border-radius: 15px;
+            border-color: black;
+            box-shadow: 2px 2px 10px rgba(138, 149, 158, 0.25);
         }
     }
     .sort-icon {
         input {
             width: 80%;
             // 取消input 預設樣式
-            border: none;
+            border: 1px solid $gray;
+            border-radius: 20px;
             background-color: transparent;
             outline: none;
             -webkit-appearance: none;
         }
+        // .price-input {
+        //     width: 10%;
+        // }
         //  取消input 預設樣式
         input::-webkit-search-decoration,
         input::-webkit-search-cancel-button {
             display: none;
         }
+        .input-sm {
+            width: 20%;
+        }
         li {
+            cursor: pointer;
             padding: 0;
             margin: auto 8px;
             > i {
-                color: #0e1829;
+                color: $gray;
+                &:hover {
+                    color: black;
+                    // box-shadow: 2px 2px 10px rgba(138, 149, 158, 0.25);
+                }
+            }
+            .active {
+                color: black;
             }
         }
         // li {
@@ -65,7 +97,8 @@
         font-size: 14px;
         .line {
             width: 100%;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $gray;
+            box-shadow: 2px 2px 10px rgba(138, 149, 158, 0.25);
         }
         .sort-icon {
             margin-right: 10px;

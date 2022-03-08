@@ -12,7 +12,25 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
+import { useProductsContext } from '../utils/context/ProductsContext';
+import { useAuthContext } from '../utils/context/AuthContext';
+
+// import CartCard from '../components/Cart/CartCard';
+
 function OurNavbar(props) {
+    // Context
+    const products = useProductsContext();
+    const auth = useAuthContext();
+
+    // 函數
+    // 生成 Click 事件處理器
+    function controlProductsSeries(series_id) {
+        return function (e) {
+            products.optionSeries(e, series_id);
+        };
+    }
+
+    // 渲染
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
@@ -31,86 +49,75 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Wedding</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Food</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Sencery</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Portrait</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>Flim</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.product}>
-                                <NavDropdown.Item>All</NavDropdown.Item>
-                            </LinkContainer>
-                        </NavDropdown>
-                        <NavDropdown
-                            title="About us"
-                            id="colorful-aboutus-dropdown"
-                        >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Another action
+                            <LinkContainer to={routes.productNewest}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 1)}
+                                >
+                                    最新
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
+                            <LinkContainer to={routes.productFood}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 2)}
+                                >
+                                    食物
+                                </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
+                            <LinkContainer to={routes.productWedding}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 3)}
+                                >
+                                    婚禮
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.productFilm}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 4)}
+                                >
+                                    復古
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.productScenery}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 5)}
+                                >
+                                    風景
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.productPortrait}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 6)}
+                                >
+                                    人像
+                                </NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to={routes.product}>
+                                <NavDropdown.Item
+                                    onClick={(e) => products.optionSeries(e, 0)}
+                                >
+                                    全系列
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
+                        <LinkContainer to={routes.team}>
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-aboutus-link"
+                            >
+                                About us
+                            </Nav.Link>
+                        </LinkContainer>
+
                         <NavDropdown
                             title="Tutorial"
                             id="colorful-tutorial-dropdown"
                         >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
+                            <LinkContainer to={routes.teach}>
+                                <NavDropdown.Item>Teach</NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.member}>
+                            <LinkContainer to={routes.game}>
                                 <NavDropdown.Item>
-                                    Another action
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                        </NavDropdown>
-
-                        <NavDropdown
-                            title="Support"
-                            id="colorful-support-dropdown"
-                        >
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Action</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Another action
-                                </NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>Something</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to={routes.member}>
-                                <NavDropdown.Item>
-                                    Separated link
+                                    Psychological test
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
@@ -135,7 +142,9 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to={routes.member}>
+                        <LinkContainer
+                            to={auth.current ? routes.member : routes.signin}
+                        >
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-member-link"
@@ -145,7 +154,7 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to={routes.member}>
+                        <LinkContainer to={routes.cart}>
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-cart-link"
@@ -157,6 +166,7 @@ function OurNavbar(props) {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
+            {/* <CartCard /> */}
         </Navbar>
     );
 }

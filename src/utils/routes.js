@@ -12,23 +12,31 @@ export const routes = {
     _signin: '/signin',
     _signup: '/signup',
     _forgot: '/forgot',
+    _resetPassword: '/reset-passeord',
     // product
     _productDetail: '/detail',
-    _productList: '/list',
+    _food: '/food',
+    _wedding: '/wedding',
+    _film: '/film',
+    _scenery: '/scenery',
+    _portrait: '/portrait',
+    _newest: '/newest',
     // member
     _profile: '/profile',
-    _orderList: '/orderlist',
-    _orderDetail: '/orderdetail',
+    _orderList: '/order-list',
+    _orderDetail: '/order-detail',
     _download: '/download',
-    _wishList: '/wishlist',
+    _favorite: '/favorite',
     _review: '/review',
-    _reviewDetail: '/reviewDetail',
-    _mail: '/mail',
-    _mailDetail: '/mailDetail',
+    _reviewDetail: '/review-detail',
     _payment: '/payment',
+    _mail: '/mail',
+    _mailDetail: '/mail-detail',
     _collect: '/collect',
     // test
-    _test: '/test',
+    _game: '/game',
+    // cart
+    _checkout: '/checkout',
 
     // 第一層路由
     get home() {
@@ -66,12 +74,31 @@ export const routes = {
     get forgot() {
         return this._auth + this._forgot;
     },
-    // product
-    get productDetail() {
-        return this._product + this._productDetail;
+    get resetPassword() {
+        return this._auth + this._resetPassword;
     },
-    get productList() {
-        return this._product + this._productList;
+    // product
+    productDetail: function (id = '') {
+        if (id === '') return this._product + this._productDetail + '/:id';
+        else return this._product + this._productDetail + '/' + id;
+    },
+    get productFood() {
+        return this._product + this._food;
+    },
+    get productWedding() {
+        return this._product + this._wedding;
+    },
+    get productFilm() {
+        return this._product + this._film;
+    },
+    get productScenery() {
+        return this._product + this._scenery;
+    },
+    get productPortrait() {
+        return this._product + this._portrait;
+    },
+    get productNewest() {
+        return this._product + this._newest;
     },
     // member
     get profile() {
@@ -86,8 +113,11 @@ export const routes = {
     get download() {
         return this._member + this._download;
     },
-    get wishList() {
-        return this._member + this._wishList;
+    get favorite() {
+        return this._member + this._favorite;
+    },
+    get payment() {
+        return this._member + this._payment;
     },
     get review() {
         return this._member + this._review;
@@ -101,32 +131,14 @@ export const routes = {
     get mailDetail() {
         return this._member + this._mailDetail;
     },
-    get payment() {
-        return this._member + this._payment;
-    },
     get collect() {
         return this._member + this._collect;
     },
-    get test() {
-        return this._test;
+    get game() {
+        return this._game;
+    },
+    // cart
+    get checkout() {
+        return this._cart + this._checkout;
     },
 };
-
-// console.log('routes.home :>> ', routes.home);
-// console.log('routes.auth :>> ', routes.auth);
-// console.log('routes.product :>> ', routes.product);
-// console.log('routes.member :>> ', routes.member);
-// console.log('routes.team :>> ', routes.team);
-// console.log('routes.teach :>> ', routes.teach);
-// console.log('routes.error :>> ', routes.error);
-// console.log('routes.signin :>> ', routes.signin);
-// console.log('routes.signup :>> ', routes.signup);
-// console.log('routes.forgot :>> ', routes.forgot);
-// console.log('routes.productDetail :>> ', routes.productDetail);
-// console.log('routes.productList :>> ', routes.productList);
-// console.log('routes.profile :>> ', routes.profile);
-// console.log('routes.orderList :>> ', routes.orderList);
-// console.log('routes.orderDetail :>> ', routes.orderDetail);
-// console.log('routes.wishList :>> ', routes.wishList);
-// console.log('routes.review :>> ', routes.review);
-// console.log('routes.mail :>> ', routes.mail);

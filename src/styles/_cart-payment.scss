@@ -1,0 +1,189 @@
+@use "mixins"as mix;
+@use "variables"as var;
+
+.cart-payment {
+
+    .header {
+        padding: 20px 0;
+
+        h2 {
+            font-weight: bold;
+            @include mix.media(font-size, $xs: 20px, $lg: 30px);
+        }
+
+        .process {
+            @include mix.media(letter-spacing, $xs: 0, $md: 10px);
+            @include mix.media(opacity, $xs: 0, $md: 1);
+            @include mix.media(font-size, $xs: 16px, $lg: 20px);
+
+            .bold {
+                font-weight: bold;
+                padding-top: 10px;
+                letter-spacing: 10px;
+            }
+
+            .light {
+                color: #ccc;
+            }
+        }
+    }
+
+    .cart-list {
+        padding: 20px;
+        border-top: solid 2px #000;
+        @include mix.media(box-shadow, $xs: none, $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
+        @include mix.media(border-radius, $xs: 0, $md: 8px);
+        @include mix.media(margin, $md: 1.5rem 0);
+
+        h2 {
+            @include mix.media(font-size, $xs: 18px, $lg: 24px);
+        }
+
+        .price {
+            padding-left: 60px;
+        }
+    }
+
+    .review-card-img {
+        @include mix.media(width, $xs: 7rem, $md: 150px);
+
+        .ratios {
+            @include mix.ratio(1, 1);
+
+            img {
+                border-radius: 8px;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .review-card {
+        position: relative;
+        @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
+        @include mix.media(border-radius, $xs: 0, $md: 8px);
+        @include mix.media(box-shadow,
+            $xs: 0,
+            $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
+        @include mix.media(padding, $xs: 1.5rem 0, $md: 20px);
+        @include mix.media(padding-bottom, $xs: 10px);
+        @include mix.media(margin, $md: 1.5rem 0);
+
+        h4 {
+            @include mix.media(padding-bottom, $xs: 0px, $lg: 10px);
+            @include mix.media(font-size, $xs: 14px, $lg: 20px);
+        }
+
+        .title {
+            @include mix.media(font-size, $xs: 20px, $lg: 24px);
+            color: $gray-blue;
+        }
+
+        .review-card-text {
+            @include mix.media(text-align, $xs: center, $lg: right);
+        }
+
+        .content {
+            // color: red;
+            height: calc(24px * 2);
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2; //行數
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+
+    }
+
+    .cart-payment {
+
+        margin-top: 80px;
+        // text-align: center;
+
+        .title {
+            border-bottom: solid 2px rgb(221, 219, 219);
+            font-weight: bold;
+            padding-top: 20px;
+            font-size: 20px;
+        }
+
+        .payment-card {
+            padding-top: 30px;
+
+            .icon {
+                font-size: 40px;
+            }
+
+            span {
+                font-size: 20px;
+                padding-left: 30px;
+                letter-spacing: 5px;
+            }
+        }
+    }
+
+    .cart-total {
+        padding-top: 50px;
+        text-align: right;
+
+        .price {
+            @include mix.media(border-radius, $xs: 0, $md: 8px);
+            @include mix.media(box-shadow,
+                $xs: 0,
+                $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
+            border-top: solid 2px #000;
+            padding-top: 20px;
+
+            h4 {
+                @include mix.media(font-size, $xs: 18px, $lg: 20px);
+            }
+
+            .payment-price {
+                color: rgb(209, 82, 82);
+            }
+        }
+    }
+
+    .button {
+        margin-top: 100px;
+        @include mix.media(text-align, $xs: center, $lg: right);
+
+        .checkout {
+            @include mix.media(width, $xs: 150px, $md: 200px);
+
+            height: 50px;
+            background: #000;
+            color: #fff;
+            border-radius: 20px;
+            margin-right: 20px;
+        }
+
+        .checkout:hover {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            box-shadow: 5px 5px 5px #000;
+            cursor: pointer;
+
+        }
+
+        .shopping {
+            @include mix.media(width, $xs: 150px, $md: 200px);
+            height: 50px;
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border-radius: 20px;
+        }
+
+        .shopping:hover {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            box-shadow: 5px 5px 5px rgb(180, 180, 180);
+            cursor: pointer;
+
+        }
+
+
+    }
+
+
+}

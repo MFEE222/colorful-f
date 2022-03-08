@@ -1,0 +1,19 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
+.game {
+    // padding: 3rem ;
+    margin: 6rem 0;
+    .t-center {
+        text-align: center;
+        @include mix.media(font-size, $xs: 24px, $lg: 30px);
+    }
+
+    .text-center {
+        text-align: center;
+        @include mix.media(font-size, $xs: 12px, $lg: 20px);
+    }
+    .our-modal {
+        background-color: #fff;
+    }
+}
