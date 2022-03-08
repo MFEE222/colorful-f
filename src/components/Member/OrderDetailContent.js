@@ -3,8 +3,11 @@ import ImgProduct from '../../images/product-img.jpeg';
 
 import FilterBar from './FilterBar';
 import StepProgressBar from './StepProgressBar';
+import { useOrderContext } from '../../utils/context/OrderContext';
 
 function OrderDetailContent(props) {
+    const order = useOrderContext();
+
     return (
         <div className="col-12 col-md-10 member-order-detail-main">
             {/* <!-- filter bar --> */}

@@ -2,7 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import { API_GET_PRODUCT } from '../config';
-import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_CART } from '../config';
+import {
+    API_GET_ORDERS,
+    API_GET_ORDER_DETAIL,
+    API_POST_ORDER,
+    API_POST_ORDER_PAYMENT,
+} from '../config';
 import { STATUS_MSG } from '../others/status';
 import { useAuthContext } from './AuthContext';
 
@@ -27,13 +32,18 @@ export function OrderProvider(props) {
             ? props
             : {
                   option: {
-                      orderby: 'created_at',
-                      order: 1,
-                      limit: 8,
+                      orderBy: '',
+                      sortBy: '',
+                      limit: '',
                       offset: 0,
                   },
               };
+
     const shared = {
+        orders,
+        orderDetail,
+        fetchOrderList,
+        fetchOrderDetail,
         paymentCart,
         checkout: function () {},
     };
@@ -41,7 +51,7 @@ export function OrderProvider(props) {
     // 生命週期
     // 初始化購物車資料
     useEffect(function () {
-        syncFrom();
+        fetchOrderList();
     }, []);
 
     // 保存購物車資料
@@ -59,20 +69,41 @@ export function OrderProvider(props) {
     // 從 Database or WebStorage 更新資料進來（覆蓋）
     // 請求會員訂單列表資料
     async function fetchOrderList() {
-        let;
         try {
+            if (auth.isLogin) {
+                const res = await axios.get(API_GET_ORDERS, {
+                    params: {
+                        userID: auth.user.id,
+                    },
+                });
+                console.log('res :>> ', res);
+
+                setOrders(res.orders);
+            }
+        } catch (err) {
+            console.log('err :>> ', err);
+        }
+    }
+
+    async function fetchOrderDetail(orderID) {
+        try {
+            if (auth.isLogin) {
+                const res = await axios.get(API_GET_ORDER_DETAIL, {
+                    params: {
+                        userID: auth.user.id,
+                        orderID,
+                    },
+                });
+                console.log('res :>> ', res);
+                setOrderDetail(res.orderDetail);
+            }
         } catch (err) {
             console.log('err :>> ', err);
         }
     }
 }
 
-// Consumer
-export function CartConsumer(props) {
-    return <OrderContext.Consumer>{props.children}</OrderContext.Consumer>;
-}
-
 // useContext
-export function useCartContext() {
+export function useOrderContext() {
     return React.useContext(OrderContext);
 }
