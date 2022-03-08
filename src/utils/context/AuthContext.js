@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { Redirect, useRouteMatch } from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
     API_POST_AUTH_LOGIN,
@@ -10,8 +11,11 @@ import {
 } from '../config';
 import { STATUS_MSG } from '../others/status';
 
+//圖
+import login from '../../images/film001.jpg';
+
 // 通用元件
-// import routes from '../routes';
+import { routes } from '../routes';
 
 // Context
 const AuthContext = React.createContext(
@@ -178,20 +182,20 @@ function LoginModal(props) {
 
     const temp = (
         <div>
-            <div className="d-flex align-content-center">
-                <label htmlFor="account" className="col">
+            <div className="d-flex align-content-center mt-2">
+                <label htmlFor="email" className="col-3 labal">
                     帳號
                 </label>
                 <input
                     className="col mb-2"
-                    type="text"
-                    name="account"
-                    value={user.account}
+                    type="email"
+                    name="email"
+                    value={user.email}
                     onChange={handleChange}
                 />
             </div>
-            <div className="d-flex align-content-center">
-                <label htmlFor="password" className="col">
+            <div className="d-flex align-content-center mt-2">
+                <label htmlFor="password" className="col-3 labal">
                     密碼
                 </label>
                 <input
@@ -216,39 +220,51 @@ function LoginModal(props) {
                 }}
             >
                 <div
-                    className="box"
+                    className="box row"
                     onClick={function (e) {
                         e.stopPropagation();
                     }}
                 >
-                    <div className="header d-flex my-3 align-content-center justify-content-center">
-                        <div className="text-center ">您有會員嗎？</div>
-                        <i className="far fa-times-circle align-self-center text-end"></i>
+                    <div className="col-12 col-md-9 modal-left">
+                        <div className="header d-flex my-3 align-content-center justify-content-center">
+                            <div className="text-center">您有會員嗎？</div>
+                        </div>
+                        <div className="border-top w-100 my-3"></div>
+                        <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
+                            <div className="col-12">
+                                {temp}
+                                
+                            </div>
+                            <button
+                                    type="submit"
+                                    className="col-auto justify-content-end 
+                                    align-items-end login"
+                                    // type="submit"
+                                    onClick={handleSubmit}
+                                >
+                                    <p className="m-0">登入</p>
+                                </button>
+                            <div className="col-12">
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <Link
+                                        className="signup mt-2"
+                                        onClick={function (e) {
+                                            setShowLoginModal(false);
+                                        }}
+                                        to={routes.signup}
+                                    >
+                                        前往註冊
+                                        <i className="ps-2 fas fa-long-arrow-alt-right"></i>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center mt-2">
+                                擁有會員能享有更多專屬功能
+                            </div>
+                        </div>
                     </div>
-                    <div className="border-top w-100 my-3"></div>
-                    <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
-                        <div className="col-auto">
-                            {temp}
-                            <div
-                                className="d-flex justify-content-center align-items-center"
-                                // type="submit"
-                                onClick={handleSubmit}
-                            >
-                                <i className="fas fa-sign-in-alt  me-2"></i>
-                                <p className="login m-0">登入</p>
-                            </div>
-                        </div>
-
-                        <div className="col-auto">
-                            <img src="../images/輪播03.jpg" alt="" />
-                            <div className="d-flex justify-content-center align-items-center">
-                                <i className="fas fa-user-plus me-2"></i>
-                                <p className="singup m-0">註冊</p>
-                            </div>
-                        </div>
-                        <div className="row justify-content-center mt-2">
-                            擁有會員能享有更多專屬功能
-                        </div>
+                    <div className="d-none d-md-block col-md-3 modal-right justify-content-end">
+                        <img className="right-pic" src={login} alt="" />
                     </div>
                 </div>
             </div>

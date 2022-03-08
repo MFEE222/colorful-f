@@ -8,6 +8,8 @@ import ReactBeforeAfter from 'react-before-after';
 // 共用
 import { IMG_URL, API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useAuthContext } from '../../utils/context/AuthContext';
+
 
 // 自己
 // import { imgName } from '../../utils/imageName';
@@ -22,6 +24,8 @@ import { routes } from '../../utils/routes';
 function ProductDetailContent(props) {
     // 狀態、勾子
     const products = useProductsContext();
+    const auth = useAuthContext();
+
     const product = products.current;
     const [current, setCurrent] = useState('');
     // console.log('product :>> ', product);
@@ -77,17 +81,21 @@ function ProductDetailContent(props) {
                             <div className="col-12 row p-0 m-0 align-items-center justify-content-between mt-md-3">
                                 <div className="col-auto  mb-xl-2">
                                     <div className="wish-list-2 mb-xl-1">
-                                        <i className="far fa-heart"></i>
+                                        <i className="far fa-heart"
+                                         onClick={function () {
+                            if(!auth.current){auth.setShowLoginModal(true);}
+                            }}></i>
                                     </div>
                                     <p className="price my-1 mb-xxl-4">
                                         NT. {product.price}
                                     </p>
                                 </div>
                                 <div className="col-auto col-xl-12">
-                                    <button className="add-cart">
+                                    <button className="add-cart"  onClick={function () {
+                            if(!auth.current){auth.setShowLoginModal(true);}
+                            }}>
                                         加入購物車
                                     </button>
-                                    {/*//TODO:react bootstrap Modals 加入成功 */}
                                 </div>
                             </div>
                         </div>
