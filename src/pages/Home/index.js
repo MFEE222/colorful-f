@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { routes } from '../../utils/routes';
 import Slideshow from './slider';
+import Game from '../../pages/Game';
 
 //圖片
 import portrait from '../../images/人像B.jpg';
@@ -43,7 +44,12 @@ function Home() {
                 <Slideshow />
             </div>
             {/* <Game /> */}
-            <img className="h-game" src={game} alt="" />
+            <Link to={routes.game}>
+                <button className='game-btn'>
+                    <img className="h-game" src={game} alt="" />
+                </button>
+            </Link>
+
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">

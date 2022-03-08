@@ -66,6 +66,7 @@
 
     .h-page2 {
         margin-top: -8px;
+
         // height: 100vh;
         .p2-pic {
             // height: 100vh;
@@ -141,9 +142,17 @@
         }
     }
 
-    .h-game {
+
+    .game-btn {
+        border: 0;
+        padding: 0;
+        margin: 0;
         width: 100%;
-        object-fit: cover;
+
+        .h-game {
+            width: 100%;
+
+        }
     }
 
     .h-page4 {
