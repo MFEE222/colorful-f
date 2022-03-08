@@ -80,32 +80,16 @@ function Favorites(props) {
     return (
         <div className="col-12 col-md-10 box">
             <div className="list-border">
-                <div className="member1-comment download">
+                <div className="member1-comment download product-list">
                     <div className="filter mt-sm-3 my-sm-3 my-md-3">
-                        <div className="filter-box d-flex">
-                            <ul className="sort-series p-0">
-                                <li className="active py-2 px-3">全部</li>
-                                <li className="py-2 px-3">未下載</li>
-                                <li className="py-2 px-3">已下載</li>
-                            </ul>
-                        </div>
                         <div className="line"></div>
                     </div>
                     <div className="d-flex justify-content-center justify-content-md-end my-4">
-                        <div
-                            className="text-center py-2 download-btn me-3"
-                            onClick={favorites.handleCheckAll}
-                        >
+                        <div className="text-center py-2 download-btn me-3">
                             勾選全部
                         </div>
-                        <div
-                            className="text-center py-2 px-3 download-btn"
-                            onClick={favorites.handleDownload}
-                        >
-                            取消收藏
-                        </div>
                         <div className="text-center py-2 px-3 download-btn">
-                            test
+                            取消收藏
                         </div>
                     </div>
                     {/* <!-- card --> */}
@@ -144,16 +128,19 @@ function Favorites(props) {
                             </div>
                         </div> */}
                         {/* 測試 */}
-                        <h1>{favorites.current}</h1>
+                        {/* <h1>{favorites.current}</h1> */}
                         {/* {favorites.current.map(function (e) {
                             return (
                                 <div key={e.id}>
                                     <h1>{`ID: ${e.id}`}</h1>
+                                    <h2>{`DATE: ${e.creat_at}`}</h2>
+                                    <h2>{`userid: ${e.user_id}`}</h2>
                                 </div>
                             );
                         })} */}
 
-                        {/* {favorites.current.map(function(e) {
+                        {favorites.current.map(function (e) {
+                            const img = `${IMG_URL2}/${e.products_img}/a1.jpg`;
                             return (
                                 <div
                                     className="col-6 col-md-4 mt-2 px-3 mb-2"
@@ -164,20 +151,19 @@ function Favorites(props) {
                                             <div className="ratios">
                                                 <img
                                                     className="img-fluid"
-                                                    src={img}
+                                                    src={cardDemo}
                                                     alt=""
                                                 />
                                             </div>
                                         </div>
                                         <div className="card-body text-start p-0 my-2 my-md-4">
                                             <label
-                                                htmlFor={v.id}
+                                                // htmlFor={e.id}
                                                 className="d-flex justify-content-between align-items-center"
                                             >
-    
                                                 <div>
                                                     <p className="card-title fw-bold">
-                                                        {v.name}
+                                                        {/* {e.name} */}婚禮
                                                     </p>
                                                     <i className="fas fa-heart"></i>
                                                 </div>
@@ -186,7 +172,7 @@ function Favorites(props) {
                                     </div>
                                 </div>
                             );
-                        })} */}
+                        })}
                         {/* {favorites.current.display.map((v, i) => {
                             const img = `${IMG_URL2}/${v.products_img}/a1.jpg`;
                             {
@@ -247,12 +233,12 @@ function Favorites(props) {
                             );
                         })} */}
                     </div>
-                    <Pagination
+                    {/* <Pagination
                         total={favorites.counts}
                         limit={8}
                         offset={favorites.offset}
                         setOffset={favorites.setOffset}
-                    />
+                    /> */}
                     {/* pagination樣式 */}
                     {/* <div className="container">
                         <div className="pagination">

@@ -51,19 +51,19 @@ export function FavoritesProvider(props) {
                       userid: 14,
                       orderby: 'created_at',
                       order: 1,
-                      limit: 8,
-                      offset: 0,
+                      //   limit: 8,
+                      //   offset: 0,
                   },
               };
     const shared = {
         current: favorites,
-        addFavorites,
-        removeFavorites,
-        handleCheck,
-        handleCheckAll,
-        handleDownload,
-        fetchfavorites,
-        display,
+        // addFavorites,
+        // removeFavorites,
+        // handleCheck,
+        // handleCheckAll,
+        // handleDownload,
+        // fetchfavorites,
+        // display,
         option,
     };
 
@@ -72,14 +72,14 @@ export function FavoritesProvider(props) {
         if (auth.isLogin) {
             let getfavorites = async () => {
                 try {
-                    console.log(333);
+                    // console.log(333);
                     let response = await axios.get(API_GET_FAVORITES, {
                         params: {
                             userId: 14,
                             // auth.user.id,
                         },
                     });
-                    console.log('123 :>> ', ' 123');
+                    // console.log('123 :>> ', ' 123');
                     console.log('res :>> ', response);
                     setFavorites(response.data.favorites);
                 } catch (err) {
@@ -122,88 +122,88 @@ export function FavoritesProvider(props) {
 
     // 事件處理器
     //加入
-    function addFavorites(product) {
-        const newFavorites = [...favorites];
-        newFavorites.push(product.id);
-        setFavorites(newFavorites);
+    // function addFavorites(product) {
+    //     const newFavorites = [...favorites];
+    //     newFavorites.push(product.id);
+    //     setFavorites(newFavorites);
 
-        if (diff.includes(product.id)) {
-            diff = diff.filter((e) => {
-                return e != -1 * product.id;
-            });
-        } else {
-            diff.push(product.id);
-        }
-        // const response = await axios.post(API_POST_FAVORITES, {
-        //     userID,
-        //     diff,
-        // });
-    }
+    //     if (diff.includes(product.id)) {
+    //         diff = diff.filter((e) => {
+    //             return e != -1 * product.id;
+    //         });
+    //     } else {
+    //         diff.push(product.id);
+    //     }
+    //     // const response = await axios.post(API_POST_FAVORITES, {
+    //     //     userID,
+    //     //     diff,
+    //     // });
+    // }
     //刪除
-    function removeFavorites(product) {
-        const deleteFavorites = [...favorites];
-        deleteFavorites.push(product.id);
-        setFavorites(deleteFavorites);
-        if (diff.includes(product.id)) {
-            diff = diff.filter((e) => {
-                return e != product.id;
-            });
-        } else {
-            diff.push(-1 * product.id);
-        }
-    }
+    // function removeFavorites(product) {
+    //     const deleteFavorites = [...favorites];
+    //     deleteFavorites.push(product.id);
+    //     setFavorites(deleteFavorites);
+    //     if (diff.includes(product.id)) {
+    //         diff = diff.filter((e) => {
+    //             return e != product.id;
+    //         });
+    //     } else {
+    //         diff.push(-1 * product.id);
+    //     }
+    // }
 
-    async function fetchfavorites(option = shared.option) {
-        let response = await axios.get(API_GET_FAVORITES, {
-            params: {
-                userid: auth.user.id,
-                productid: product.productid,
-            },
-        });
-        // console.log('response.data.data :>> ', response.data);
-        const newDisplay = response.data.data.map(function (e) {
-            e.check = false;
-            return e;
-        });
-        console.log('newDisplay :>> ', newDisplay);
-        setCounts(response.data.rows);
-        // setDisplay(response.data.data);
-        setDisplay(newDisplay);
-    }
+    // async function fetchfavorites(option = shared.option) {
+    //     let response = await axios.get(API_GET_FAVORITES, {
+    //         params: {
+    //             userid: auth.user.id,
+    //             productid: product.productid,
+    //         },
+    //     });
+    //     // console.log('response.data.data :>> ', response.data);
+    //     const newDisplay = response.data.data.map(function (e) {
+    //         e.check = false;
+    //         return e;
+    //     });
+    //     console.log('newDisplay :>> ', newDisplay);
+    //     setCounts(response.data.rows);
+    //     // setDisplay(response.data.data);
+    //     setDisplay(newDisplay);
+    // }
 
     //checkbox
     //all
-    function handleCheckAll() {
-        const c = !checked;
-        const newDisplay = [...display];
+    // function handleCheckAll() {
+    //     const c = !checked;
+    //     const newDisplay = [...display];
 
-        newDisplay.map((v, i) => {
-            v.check = c;
-        });
-        setChecked(c);
-        setDisplay(newDisplay);
-    }
+    //     newDisplay.map((v, i) => {
+    //         v.check = c;
+    //     });
+    //     setChecked(c);
+    //     setDisplay(newDisplay);
+    // }
 
     //alone
-    function handleCheck(event, index) {
-        const newDisplay = [...display];
-        newDisplay[index].check = event.target.checked;
-        setDisplay(newDisplay);
-    }
+    // function handleCheck(event, index) {
+    //     const newDisplay = [...display];
+    //     newDisplay[index].check = event.target.checked;
+    //     setDisplay(newDisplay);
+    // }
 
-    async function handleDownload() {
-        const d = display.filter((v, i) => {
-            return v.check === true;
-        });
-        const dngId = d.map((v) => {
-            return v.product_id;
-        });
-        console.log('here :>> ', 'here');
-        const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
-            uid,
-            dngId,
-        });
-    }
+    // async function handleDownload() {
+    //     const d = display.filter((v, i) => {
+    //         return v.check === true;
+    //     });
+    //     const dngId = d.map((v) => {
+    //         return v.product_id;
+    //     });
+    //     console.log('here :>> ', 'here');
+    //     const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
+    //         uid,
+    //         dngId,
+    //     });
+    // }
 
     // 渲染
     return (
