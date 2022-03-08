@@ -12,6 +12,8 @@ import {
     API_GET_FAVORITES,
 } from '../../utils/config';
 import { useFavoritesContext } from '../../utils/context/FavoritesContext';
+import { useAuthContext } from '../../utils/context/AuthContext';
+import { useProductsContext } from '../../utils/context/ProductsContext';
 
 //Components
 // import FilterBarContent from '../../components/Filterbar/FilterBarContent';
@@ -29,53 +31,52 @@ import Pagination from '../../utils/Pagination';
 import Img1 from '../../images/婚禮_5.jpg';
 import Img2 from '../../images/wed001.jpg';
 import Auth from '../../pages/Auth';
+
 function Favorites(props) {
+    const favorites = useFavoritesContext();
     //TODO:1.連接資料庫拿下載資料; 2.用按鈕判斷要哪種 3.用狀態紀錄勾選哪些
     // auth.current
-    let uid = 1;
-    const [checked, setChecked] = useState(false); //核取方塊
-    const [statusId, setStatusId] = useState(0); // filter 狀態
-    // const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
-    const [counts, setCounts] = useState(); //資料總計
-    const [offset, setOffset] = useState(1); //分頁
-    const [display, setDisplay] = useState([]); //呈現
-    //測試
-    console.log(123);
-    const favorites = useFavoritesContext.favorites;
 
-    //checkbox
-    //all
-    const handleCheckAll = () => {
-        const c = !checked;
-        const newDisplay = [...display];
+    // favorites.handleCheckAll();
+    // favorites.handleDownload();
+    // favorites.handleCheck();
 
-        newDisplay.map((v, i) => {
-            v.check = c;
-            setDisplay(newDisplay);
-        });
-        setChecked(c);
-    };
+    // onClick={favorites.handleCheck};
+    // onClick = {
+    //     function(e) {
+    //         favorites.handleCheck(e, 12, 3, 4);
+    //     },
+    // };
 
-    //alone
-    const handleCheck = (event, index) => {
-        const newDisplay = [...display];
-        newDisplay[index].check = event.target.checked;
-        setDisplay(newDisplay);
-    };
+    // onClick = {
+    //     function() {
+    //         favorites.option = {
+    //             userId: 5,
+    //         };
+    //         favorites.synFrom({ userId: 5 });
+    //     },
+    // };
+    //顯現
+    // favorites.current;
+    // const auth = useAuthContext();
+    const product = useProductsContext();
 
-    const handleDownload = async () => {
-        const d = display.filter((v, i) => {
-            return v.check === true;
-        });
-        const dngId = d.map((v) => {
-            return v.product_id;
-        });
-        console.log('here :>> ', 'here');
-        const response = await axios.post(API_POST_MEMBER_DOWNLOAD_DNG, {
-            uid,
-            dngId,
-        });
-    };
+    // const test = (product) => {
+    //     let setFavorites = async () => {
+    //         try {
+    //             let response = await axios.post(API_GET_FAVORITES, {
+    //                 params: {
+    //                     userid: auth.user_id,
+    //                     productid: product.productid,
+    //                 },
+    //             });
+    //             console.log(response.data);
+    //         } catch (err) {
+    //             console.log('err :>>', err);
+    //         }
+    //     };
+    //     setFavorites;
+    // };
     return (
         <div className="col-12 col-md-10 box">
             <div className="list-border">
@@ -86,8 +87,8 @@ function Favorites(props) {
                                 <li
                                     className="active py-2 px-3"
                                     onClick={function () {
-                                        setStatusId(0);
-                                        setOffset(1);
+                                        favorites.setStatusId(0);
+                                        favorites.setOffset(1);
                                     }}
                                 >
                                     全部
@@ -95,8 +96,8 @@ function Favorites(props) {
                                 <li
                                     className="py-2 px-3"
                                     onClick={function () {
-                                        setStatusId(1);
-                                        setOffset(1);
+                                        favorites.setStatusId(1);
+                                        favorites.setOffset(1);
                                     }}
                                 >
                                     未下載
@@ -104,8 +105,8 @@ function Favorites(props) {
                                 <li
                                     className="py-2 px-3"
                                     onClick={function () {
-                                        setStatusId(2);
-                                        setOffset(1);
+                                        favorites.setStatusId(2);
+                                        favorites.setOffset(1);
                                     }}
                                 >
                                     已下載
@@ -117,15 +118,21 @@ function Favorites(props) {
                     <div className="d-flex justify-content-center justify-content-md-end my-4">
                         <div
                             className="text-center py-2 download-btn me-3"
-                            onClick={handleCheckAll}
+                            onClick={favorites.handleCheckAll}
                         >
                             勾選全部
                         </div>
                         <div
                             className="text-center py-2 px-3 download-btn"
-                            onClick={handleDownload}
+                            onClick={favorites.handleDownload}
                         >
                             取消收藏
+                        </div>
+                        <div
+                            className="text-center py-2 px-3 download-btn"
+                            onClick={favorites.current}
+                        >
+                            test
                         </div>
                     </div>
                     {/* <!-- card --> */}
@@ -163,13 +170,15 @@ function Favorites(props) {
                                 </div>
                             </div>
                         </div> */}
-                        {favorites.map(function (e) {
+                        {favorites.display.map((v, i) => {
                             const img = `${IMG_URL2}/${v.products_img}/a1.jpg`;
-                            console.log('img :>> ', img);
+                            {
+                                /* console.log('img :>> ', img); */
+                            }
                             return (
                                 <div
                                     className="col-6 col-md-4 mt-2 px-3 mb-2"
-                                    key={e.id}
+                                    key={v.id}
                                 >
                                     <div className="card-border ">
                                         <div className="card-img position-relative">
@@ -180,7 +189,7 @@ function Favorites(props) {
                                                     alt=""
                                                 />
                                             </div>
-                                            {e.status == 2 ? (
+                                            {v.status == 2 ? (
                                                 <span className="position-absolute top-0  translate-middle p-2  border-light rounded-circle download-badge">
                                                     <span className="badge bg-secondary">
                                                         已下載
@@ -192,22 +201,25 @@ function Favorites(props) {
                                         </div>
                                         <div className="card-body text-start p-0 my-2 my-md-4">
                                             <label
-                                                htmlFor={e.id}
+                                                htmlFor={v.id}
                                                 className="d-flex justify-content-between align-items-center"
                                             >
                                                 <input
                                                     className="form-check-input m-0"
                                                     type="checkbox"
-                                                    value={e.id}
-                                                    id={e.id}
+                                                    value={v.id}
+                                                    id={v.id}
                                                     checked={v.check}
                                                     onChange={function (e) {
-                                                        handleCheck(e, i);
+                                                        favorites.handleCheck(
+                                                            e,
+                                                            i
+                                                        );
                                                     }}
                                                 />
                                                 <div>
                                                     <p className="card-title fw-bold">
-                                                        {e.name}
+                                                        {v.name}
                                                     </p>
                                                     <i className="fas fa-heart"></i>
                                                 </div>
@@ -219,10 +231,10 @@ function Favorites(props) {
                         })}
                     </div>
                     <Pagination
-                        total={counts}
+                        total={favorites.counts}
                         limit={8}
-                        offset={offset}
-                        setOffset={setOffset}
+                        offset={favorites.offset}
+                        setOffset={favorites.setOffset}
                     />
                     {/* pagination樣式 */}
                     {/* <div className="container">
