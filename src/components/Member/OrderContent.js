@@ -4,7 +4,6 @@
 import OrderCard from './OrderCard';
 import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
-
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
@@ -26,7 +25,6 @@ function OrderContent(props) {
     const order = useOrderContext();
 
     //TODO: 登入狀態
-    let uid = 1; //改成auth.current
 
     const match = useRouteMatch();
     const [statusId, setStatusId] = useState(1);
