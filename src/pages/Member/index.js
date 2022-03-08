@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Switch,
     Route,
@@ -24,12 +24,15 @@ import MailDetail from './MailDetail';
 import Payment from './Payment';
 import Collect from './Collect';
 import Content from '../../components/Member/Content';
+import auth, { useAuthContext } from '../../utils/context/AuthContext';
 // 會員主頁（巢狀路由 or 單純函式解決）
 function Member(props) {
     const match = useRouteMatch();
+    const auth = useAuthContext;
     //TODO:判斷是否登入 -> madol[需有會員才能使用會中心更多功能 -> 去登入 或 註冊 ]
     return (
         <>
+            {!auth.current && <Redirect to={routes.signin} />}
             <Main>
                 <SideBarLeft />
                 <Content>
