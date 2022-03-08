@@ -19,59 +19,24 @@ import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
 
 import page4 from '../../images/b0.jpg';
-import page2 from '../../images/home-p2.jpg';
+import page2 from '../../images/home/home-page2.jpg';
 import video from '../../images/home/bg-banner-index.mp4';
-import game from '../../images/home/2.jpg';
-
+import game from '../../images/home/home-page4.jpg';
 
 function Home() {
     return (
         <div className="home">
             {/* 影片 */}
             <div className="h-page1" id="page1">
-
                 <video className="w-100" autoPlay muted loop preload="true">
-                    <source src={video} alt="home-video" type="video/mp4"/>
-
+                    <source src={video} alt="home-video" type="video/mp4" />
                 </video>
 
                 {/* <div className="scroll-down"></div> */}
             </div>
             {/* before/after */}
             <div className="h-page2" id="page2">
-                <div className="container">
-                    <div className="row ">
-                        <div className="col-12 h-text">
-                            <div>
-                                <h4 className="h-p2-title">
-                                    還在擔心拍不出好看的照片嗎
-                                </h4>
-                                <h4 className="h-p2-title">
-                                    拯救廢片！手殘也能修出大片！
-                                </h4>
-                            </div>
-                            <div>
-                                {/* <p className="h-p2-text">
-                                    你羨慕 IG 上那些看起來很厲害的攝影作品嗎？
-                                    <br />
-                                    但礙於繁瑣的修圖令人退卻
-                                    <br />
-                                    美感直覺更是望天興嘆
-                                    <br />
-                                    別擔心！ 在 COLORFUL
-                                    肯定能找到最適合你的濾鏡
-                                </p> */}
-                            </div>
-                            <div>
-                                <p className="h-p2-text">
-                                    我行我色，讓你輕鬆玩色
-                                    <br />
-                                    什麼 color 都能 cover
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <img className="p2-pic" src={page2} alt="" />
             </div>
             {/* slide 系列圖 */}
             <div className="h-page3">
