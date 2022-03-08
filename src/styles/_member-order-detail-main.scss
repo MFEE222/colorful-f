@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "variables"as var;
+@use "mixins"as mix;
 
 $-margin-top-for-breadcrumb-boxshadow: 16px;
 $-background-color: var.$light;
@@ -15,15 +15,17 @@ $-border-radius: 20px;
 
     // 訂單細節牆 :>> 階段進度條（獨立檔案）,訂單卡片, 訂單資訊, 控制按鈕
     .order-detail-wall {
-        background-color: var.$gray;
+        // background-color: var.$gray;
         @include mix.media(border-radius, $xs: 5px, $md: 20px);
         @include mix.media(padding, $xs: 0, $md: 0.25rem);
 
         // 訂單卡片
         .order-detail-card {
-            margin-bottom: 0.5rem;
-            @include mix.media(padding-left, $xs: 0.75rem, $md: 1.5rem);
-            @include mix.media(padding-right, $xs: 0.75rem, $md: 1.5rem);
+            border-radius: $-border-radius;
+            @include mix.media(background-color,
+                $xs: none,
+                $md: $-background-color);
+            padding: 20px 0;
 
             // body
             .order-detail-card-body {
@@ -31,6 +33,7 @@ $-border-radius: 20px;
 
                 .order-detail-card-img {
                     width: 154px;
+
                     img {
                         border-radius: $-border-radius;
                         object-fit: cover;
@@ -68,33 +71,36 @@ $-border-radius: 20px;
                         border-radius: $-border-radius;
                         background-color: $-button-bg-color;
                         // color: $-button-color;
-                        @include mix.media(
-                            color,
+                        @include mix.media(color,
                             $xs: var.$light,
-                            $md: var.$gray
-                        );
+                            $md: var.$gray);
                         font-size: 0.75rem;
                     }
                 }
             }
         }
+
         // 訂單資訊
         .order-detail-info {
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
+
             .row {
                 @extend .mx-0;
             }
+
             // 右側訂單價格資料
             .info-price {
                 .info-data {
                     text-align: end;
                     padding-right: 1.5rem;
+
                     .payment-method {
                         text-align: start;
                     }
                 }
             }
+
             // 左側訂單價格狀態
             .info-status {
                 .info-data {
@@ -102,6 +108,7 @@ $-border-radius: 20px;
                 }
             }
         }
+
         // 控制按鈕（聯絡客服、評論）
         .order-detail-button {
             margin-top: 1.5rem;
@@ -110,10 +117,11 @@ $-border-radius: 20px;
 
             button {
                 border-radius: 20px;
-                background-color: var.$gold;
+                background-color: #000;
                 color: var.$light;
                 padding-left: 1rem;
                 padding-right: 1rem;
+
                 &:not(:first-child) {
                     margin-left: 1rem;
                 }
