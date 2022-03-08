@@ -21,7 +21,7 @@ export function OrderProvider(props) {
     // context
     const auth = useAuthContext();
     // state, hook
-    const [orders, setOrders] = useState([]);
+    const [order, setOrder] = useState([]);
     const [orderDetail, setOrderDetail] = useState([]);
     const [paymentCart, setPaymentCart] = useState([]);
     const [creditCard, setCreditCard] = useState({});
@@ -40,7 +40,7 @@ export function OrderProvider(props) {
               };
 
     const shared = {
-        orders,
+        order,
         orderDetail,
         fetchOrderList,
         fetchOrderDetail,
@@ -71,6 +71,7 @@ export function OrderProvider(props) {
     async function fetchOrderList() {
         try {
             if (auth.isLogin) {
+                console.log('here');
                 const res = await axios.get(API_GET_ORDERS, {
                     params: {
                         userID: auth.user.id,
@@ -78,7 +79,7 @@ export function OrderProvider(props) {
                 });
                 console.log('res :>> ', res);
 
-                setOrders(res.orders);
+                setOrder(res.data.order);
             }
         } catch (err) {
             console.log('err :>> ', err);

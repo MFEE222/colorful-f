@@ -24,40 +24,6 @@ import { useOrderContext } from '../../utils/context/OrderContext';
 function OrderContent(props) {
     const order = useOrderContext();
 
-    //TODO: 登入狀態
-
-    const match = useRouteMatch();
-    const [statusId, setStatusId] = useState(1);
-    const [display, setDisplay] = useState([]);
-    const [counts, setCounts] = useState();
-    const [offset, setOffset] = useState(1);
-    const fetchReview = async () => {
-        const response = await axios.get(API_GET_MEMBER_REVIEW, {
-            params: {
-                uid,
-                statusId, //e=1（發布,草稿）,2（草稿）,3（發布）
-                limit: 4,
-                offset,
-            },
-        });
-        setDisplay(response.data.data);
-        setCounts(response.data.rows);
-    };
-
-    //掛載
-    useEffect(() => {
-        fetchReview(); // 下載評論資料
-        // console.log('counts :>> ', counts);
-    }, []);
-
-    //更新
-    useEffect(() => {
-        fetchReview();
-        // console.log('status :>> ', statusId);
-    }, [statusId, uid, offset]);
-
-    //TODO: 拿到訂單
-    //TODO: 根據評論狀態去拿對應資料
     return (
         <>
             <div className=" member-comment">
@@ -68,52 +34,20 @@ function OrderContent(props) {
                         <ul className="sort-series p-0">
                             <li
                                 className="active py-2 px-3"
-                                onClick={function () {
-                                    setStatusId(1);
-                                    setOffset(1);
-                                    // console.log('1 :>> ', statusId);
-                                }}
+                                onClick={function () {}}
                             >
                                 全部
                             </li>
-                            <li
-                                className="py-2 px-3 "
-                                onClick={function () {
-                                    setStatusId(2);
-                                    setOffset(1);
-                                    // console.log('2 :>> ', statusId);
-                                }}
-                            >
+                            <li className="py-2 px-3 " onClick={function () {}}>
                                 未付款
                             </li>
-                            <li
-                                className="py-2 px-3"
-                                onClick={function () {
-                                    setStatusId(3);
-                                    setOffset(1);
-                                    // console.log('3 :>> ', statusId);
-                                }}
-                            >
+                            <li className="py-2 px-3" onClick={function () {}}>
                                 已付款
                             </li>
-                            <li
-                                className="py-2 px-3 "
-                                onClick={function () {
-                                    setStatusId(2);
-                                    setOffset(1);
-                                    // console.log('2 :>> ', statusId);
-                                }}
-                            >
+                            <li className="py-2 px-3 " onClick={function () {}}>
                                 完成
                             </li>
-                            <li
-                                className="py-2 px-3 "
-                                onClick={function () {
-                                    setStatusId(2);
-                                    setOffset(1);
-                                    // console.log('2 :>> ', statusId);
-                                }}
-                            >
+                            <li className="py-2 px-3 " onClick={function () {}}>
                                 不成立
                             </li>
                         </ul>
@@ -124,17 +58,18 @@ function OrderContent(props) {
                 {/* <div className="row"> */}
 
                 <div className="col-12 member-order-main p-0">
-                    {[1, 2, 3].map(function (e, i) {
-                        return <OrderCard key={i} />;
-                    })}
+                    {order.orders &&
+                        order.orders.map(function (e, i) {
+                            return <OrderCard key={i} />;
+                        })}
                 </div>
             </div>
-            <Pagination
+            {/* <Pagination
                 total={counts}
                 limit={4}
                 offset={offset}
                 setOffset={setOffset}
-            />
+            /> */}
         </>
     );
 }
