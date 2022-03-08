@@ -1,0 +1,134 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+.teach {
+    .page-one {
+        // @include mix.media(margin-top, $xs: 2rem);
+        // @include mix.media(margin-bottom, $xs: 2rem);
+        padding: 0;
+        width: 100%;
+
+        .page-one-right {
+            .iphone {
+                // 給手機螢幕內容定位用
+                position: relative;
+
+                .iphone-screen {
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                    }
+                }
+
+                .screen-content {
+                    position: absolute;
+                    left: 0;
+                    top: calc(22%);
+
+                    img {
+                        object-fit: cover;
+                        width: calc(100% - 24px - 11%);
+                    }
+                }
+
+                &:nth-child(2) {
+                    @include mix.media(display, $xs: none, $sm: block);
+                }
+            }
+        }
+    }
+
+    //第二頁的css樣式寫入區
+    .page-two {
+        background: rgb(19, 27, 24);
+        width: 100%;
+        color: #fff;
+
+        .test {
+            object-fit: cover;
+        }
+
+        // 按鈕特效
+        .shape-ex3 {
+            max-width: 200px;
+            max-height: 50px;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            line-height: 50px;
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+            border: 1px solid #000;
+            position: relative;
+            transition: all 0.3s linear;
+        }
+
+        .shape-ex3>p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .shape-ex3::before {
+            content: "";
+            width: 0%;
+            height: 100%;
+            display: block;
+            background-color: rgb(230, 204, 59);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .shape-ex3:hover {
+            color: #fff;
+        }
+
+        .shape-ex3:hover::before {
+            width: 100%;
+        }
+    }
+
+    .page-three {
+        background-color: #303030;
+        width: 100%;
+
+        .video-teach {
+            color: #fff;
+        }
+
+        .video {
+            width: 100%;
+        }
+
+        .t-v-text {
+            max-height: 25vh;
+            padding-left: 10px;
+        }
+
+        .box {
+            border-radius: 20px;
+
+            h1 {
+                color: #000;
+            }
+
+            h4 {
+                color: #666666;
+            }
+        }
+
+        .ratios {
+            @include mix.ratio(3, 2, ">iframe");
+        }
+    }
+
+    .page-four {
+        width: 100%;
+
+        .video {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
