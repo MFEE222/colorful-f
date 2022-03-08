@@ -6,6 +6,8 @@ import { routes } from '../../utils/routes';
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
+//
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 // 先檢查 url 是否跟 productDetail.id 一致
 
@@ -18,7 +20,10 @@ import Pagination from './Pagination';
 
 function ReviewContent(props) {
     //TODO: 登入狀態
-    let uid = 1; //改成auth.current
+
+    const auth = useAuthContext();
+    console.log('auth.user :>> ', auth.user);
+    const user = auth.user;
 
     const match = useRouteMatch();
     const [statusId, setStatusId] = useState(1);
@@ -28,7 +33,7 @@ function ReviewContent(props) {
     const fetchReview = async () => {
         const response = await axios.get(API_GET_MEMBER_REVIEW, {
             params: {
-                uid,
+                uid: user.id,
                 statusId, //e=1（發布,草稿）,2（草稿）,3（發布）
                 limit: 4,
                 offset,
@@ -48,7 +53,7 @@ function ReviewContent(props) {
     useEffect(() => {
         fetchReview();
         // console.log('status :>> ', statusId);
-    }, [statusId, uid, offset]);
+    }, [statusId, user.id, offset]);
 
     //TODO: 拿到訂單
     //TODO: 根據評論狀態去拿對應資料

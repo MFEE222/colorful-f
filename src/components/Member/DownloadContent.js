@@ -10,11 +10,15 @@ import {
     API_POST_MEMBER_DOWNLOAD_DNG,
 } from '../../utils/config';
 import Pagination from './Pagination';
+//
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 function DownloadContent(props) {
-    //TODO:1.連接資料庫拿下載資料; 2.用按鈕判斷要哪種 3.用狀態紀錄勾選哪些
+
+    const auth = useAuthContext();
+    const user = auth.user;
     // auth.current
-    let uid = 1;
+    
     const [checked, setChecked] = useState(false); //核取方塊
     const [statusId, setStatusId] = useState(0); // filter 狀態
     // const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
@@ -26,7 +30,7 @@ function DownloadContent(props) {
     const fetchDownload = async () => {
         const response = await axios.get(API_GET_MEMBER_DOWNLOAD, {
             params: {
-                uid,
+                uid=user.id,
                 statusId, //all->0->status 1 & 2 //未下載status = 1 // 已下載 status = 2
                 offset,
             },
@@ -81,12 +85,11 @@ function DownloadContent(props) {
             url: API_POST_MEMBER_DOWNLOAD_DNG, //your url
             method: 'POST',
             data: {
-                userId: uid,
+                userId: user.id,
                 dngId,
             },
             responseType: 'blob', // important
             // responseType: 'stream',
-
         });
         // console.log('response :>> ', response);
         // console.log('response.headers :>> ', response.headers);
