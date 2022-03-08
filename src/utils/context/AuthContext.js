@@ -178,20 +178,30 @@ function LoginModal(props) {
 
     const temp = (
         <div>
-            <input
-                className="row mb-2"
-                type="text"
-                name="account"
-                value={user.account}
-                onChange={handleChange}
-            />
-            <input
-                className="row mb-2"
-                type="text"
-                name="password"
-                value={user.password}
-                onChange={handleChange}
-            />
+            <div className="d-flex align-content-center">
+                <label htmlFor="account" className="col">
+                    帳號
+                </label>
+                <input
+                    className="col mb-2"
+                    type="text"
+                    name="account"
+                    value={user.account}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="d-flex align-content-center">
+                <label htmlFor="password" className="col">
+                    密碼
+                </label>
+                <input
+                    className="col mb-2"
+                    type="text"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange}
+                />
+            </div>
             {/* <button type="submit" onClick={handleSubmit} className="row">
                 send
             </button> */}
@@ -221,7 +231,7 @@ function LoginModal(props) {
                             {temp}
                             <div
                                 className="d-flex justify-content-center align-items-center"
-                                type="submit"
+                                // type="submit"
                                 onClick={handleSubmit}
                             >
                                 <i className="fas fa-sign-in-alt  me-2"></i>
@@ -236,7 +246,7 @@ function LoginModal(props) {
                                 <p className="singup m-0">註冊</p>
                             </div>
                         </div>
-                        <div className="row justify-content-center mt-5">
+                        <div className="row justify-content-center mt-2">
                             擁有會員能享有更多專屬功能
                         </div>
                     </div>

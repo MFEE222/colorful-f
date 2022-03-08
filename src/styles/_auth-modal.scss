@@ -17,16 +17,16 @@
         // margin-top: 500px;
         align-self: center;
         background-color: white;
-        @include mix.media(width, $xs: 300px, $lg: 500px);
+        @include mix.media(width, $xs: 500px, $lg: 500px);
         @include mix.media(line-height, $xs: 2rem, $lg: 2rem);
-        @include mix.media(height, $xs: 200px, $lg: 300px);
+        @include mix.media(height, $xs: 400px, $lg: 400px);
         .login {
-            padding: 0.5rem 1.5rem;
+            padding: 0.3rem 1rem;
             border: 1px solid black;
             border-radius: 20px;
         }
         .singup {
-            padding: 0.5rem 1.5rem;
+            padding: 0.3rem 1rem;
             border: 1px solid black;
             border-radius: 15px;
         }
