@@ -1,35 +1,37 @@
-@use "mixins"as mix;
-@use "variables"as var;
+@use "mixins" as mix;
+@use "variables" as var;
 
 #PaymentForm {
-    @include mix.media(text-align, $xs:center, $md: right, $lg:left);
-    @include mix.media(padding, $xs: 50px 0, $lg:20px 0px);
+    @include mix.media(text-align, $xs: center, $md: right, $lg: left);
+    @include mix.media(padding, $xs: 50px 0, $lg: 20px 0px);
     position: relative;
     left: -25%;
     @include mix.media(left, $xs: 0, $md: -28%, $lg: -25%);
 
     .rccs__card--front {
         text-align: left;
-        @include mix.media(width, $xs: 100%, $md: 160%);
-        @include mix.media(height, $xs: 100%, $md: 150%);
+        @include mix.media(width, $xs: 100%, $md: 100%);
+        @include mix.media(height, $xs: 100%, $md: 100%);
         background: rgb(0, 0, 0);
+        margin-top: 10px;
         // color: #fff;
     }
 
     .rccs__card--back {
         text-align: left;
-        @include mix.media(width, $xs: 100%, $md: 130%);
-        @include mix.media(height, $xs: 100%, $md: 120%);
+        @include mix.media(width, $xs: 100%, $md: 100%);
+        @include mix.media(height, $xs: 100%, $md: 100%);
         background: rgb(0, 0, 0);
+        margin-top: 10px;
     }
 
     .from {
         position: relative;
-        @include mix.media(left, $xs: 10px, $md: 28%, $lg:90%);
+        @include mix.media(left, $xs: 10px, $md: 28%, $lg: 90%);
         @include mix.media(top, $xs: 0px, $md: -200px);
 
         input {
-            @include mix.media(width, $xs: 70%, $md:30%);
+            @include mix.media(width, $xs: 70%, $md: 30%);
             @include mix.media(margin-left, $xs: 0px, $sm: 0px, $lg: 0);
             display: inline;
             padding: 25px 0;
@@ -42,32 +44,27 @@
             background-color: transparent;
             -webkit-appearance: none;
             font-size: 16px;
-
         }
 
         .pay-form {
-            @include mix.media(width, $xs: 70%, $md:30%);
-
+            @include mix.media(width, $xs: 70%, $md: 30%);
         }
 
         .pay-form-d {
-            @include mix.media(width, $xs: 70%, $md:30%);
-            margin-top: 20px;
+            @include mix.media(width, $xs: 70%, $md: 30%);
+            //margin-top: 20px;
         }
 
         .month-input {
             @include mix.media(margin-left, $xs: 0px, $sm: 0px, $lg: 0);
 
-
             .pay-form-p {
-                @include mix.media(width, $xs: 35%, $md:15%);
+                @include mix.media(width, $xs: 35%, $md: 15%);
                 // width: 14.5%;
                 margin: 0 5px;
             }
         }
     }
-
-
 
     input:focus {
         border-bottom: 1px solid rgb(0, 0, 0);
