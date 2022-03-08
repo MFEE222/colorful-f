@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //
-import page1 from '../../images/教學頁/lr使用塗.jpg';
+import page1 from '../../images/教學頁/teach-p1.jpg';
 import page2 from '../../images/teach-p2.jpg';
 import page4 from '../../images/教學頁/teach-p4.mp4';
 import video from '../../images/英文版手機教學.mpg';
@@ -23,12 +23,12 @@ function Teach() {
                 <div className="row">
                     <div className="col-12 col-lg-7 pt-5 page-two-headline overflow-hidden">
                         <h1 className="teach-font fs-1 fw-bold m-5">
-                            How to Install Lightroom Presets for Desktop and
-                            Mobile?
+                            如何在桌機及行動裝置上使用
+                            <br /> Lightroom 濾鏡包<br />
+                            點選下載按鈕，教您如何快速上手
                         </h1>
                         <p className="m-5 pe-5">
-                            Build your site in a few seconds based on
-                            ready-to-use blocks and sections, it's a lot of fun.
+                            修圖不求人！新手小白也能輕鬆上手！附件為文件說明檔‧
                         </p>
                         <div className="shape-ex3 m-5 overflow-hidden">
                             <p>PDF download ↗</p>
@@ -80,20 +80,20 @@ function Teach() {
                                     className="video"
                                     src="https://www.youtube.com/embed/-EKH1f1DdC8"
                                     frameborder="0"
+                                    title="YouTube video player"
                                     allowfullscreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
                                 <h2 className="my-3 fw-bold">
-                                    Photographer's retouching process
+                                    專業攝影師修圖過程
                                 </h2>
                                 <p>
-                                    Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Eveniet natus expedita
-                                    laboriosam ratione atque sapiente porro
-                                    numquam enim neque dolor rem, fuga eos,
-                                    maxime velit quibusdam veritatis recusandae
-                                    harum voluptatum.
+                                    1.步驟繁雜
+                                    <br />
+                                    2.需要長時間累積經驗
+                                    <br />
+                                    3.新手無法立即上手
                                 </p>
                             </div>
                         </div>
@@ -104,22 +104,23 @@ function Teach() {
                             <div className="ratios">
                                 <iframe
                                     className="video"
-                                    src="https://www.youtube.com/embed/-EKH1f1DdC8"
+                                    src="https://www.youtube.com/embed/6hPpFZKeaIY"
+                                    title="YouTube video player"
                                     frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
                                 <h2 className="my-3 fw-bold">
-                                    Photographer's retouching process
+                                    新手攝影師修圖過程
                                 </h2>
                                 <p>
-                                    Lorem ipsum dolor, sit amet consectetur
-                                    adipisicing elit. Eveniet natus expedita
-                                    laboriosam ratione atque sapiente porro
-                                    numquam enim neque dolor rem, fuga eos,
-                                    maxime velit quibusdam veritatis recusandae
-                                    harum voluptatum.
+                                    1.任何程度都能輕易上手
+                                    <br />
+                                    2.多款濾鏡隨時切換
+                                    <br />
+                                    3.全國最完整的中英文教學
                                 </p>
                             </div>
                         </div>
