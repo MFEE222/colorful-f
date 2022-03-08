@@ -41,7 +41,7 @@ function Test(props) {
             </p>
 
             <div className="d-flex flex-wrap w-100 text-center px-5 py-3 justify-content-evenly">
-                {/* <div
+                <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
                     data-bs-target="#redResult"
@@ -106,7 +106,7 @@ function Test(props) {
                         className="img-thumbnail"
                         alt=""
                     />
-                </div> */}
+                </div>
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"

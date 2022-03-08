@@ -54,7 +54,7 @@ function Home() {
             <div className="h-page4">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-5">
+                        <div className="col-12 col-md-6 col-lg-5 page4-text">
                             <h2 className="title">COLORFUL</h2>
                             <div className="text">
                                 <p>

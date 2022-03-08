@@ -80,6 +80,10 @@ function App() {
                                     <Route path={routes.teach}>
                                         <Teach />
                                     </Route>
+                                    {/* 心理測驗頁 */}
+                                    <Route path={routes.game}>
+                                        <Game />
+                                    </Route>
                                     {/* 購物車 */}
                                     <Route path={routes.cart}>
                                         <Cart />

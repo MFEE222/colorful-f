@@ -157,7 +157,7 @@
 
     .h-page4 {
         background-image: url("../images/test_banner.jpg");
-        background-repeat: no-repeat;
+        // background-repeat: no-repeat;
         background-size: cover;
         // background-position: right;
         @include mix.media(background-position, $xs: center, $lg: right);
@@ -180,6 +180,12 @@
             100% {
                 opacity: 1;
             }
+        }
+
+        .page4-text {
+            margin-top: 50px;
+            background-color: rgb(255, 255, 255, 0.2);
+            border-radius: 20px;
         }
 
         .title {
