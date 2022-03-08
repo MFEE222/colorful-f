@@ -14,7 +14,7 @@ import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
-import video from '../../images/home/bg-banner-home.mp4';
+import video from '../../images/home/bg-banner-index.mp4';
 import Slideshow from './slider';
 import Game from '../Game';
 
