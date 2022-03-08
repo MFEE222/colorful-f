@@ -13,7 +13,7 @@ $white: #fff;
         font-size: 62.5%;
     }
 
-    height: 100vh;
+    // height: 100vh;
 
 }
 
@@ -260,6 +260,8 @@ h1 {
     }
 }
 
+
+
 .scroller {
     width: 7.5rem;
     display: inline-block;
@@ -276,6 +278,7 @@ h1 {
         display: inline-block;
         float: left;
         margin-top: 1rem;
+        color: #000;
     }
 
     .timeline {

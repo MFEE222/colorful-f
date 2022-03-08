@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import 'animate.css';
+import { routes } from '../../utils/routes';
 
 function Landing(props) {
     return (
@@ -23,9 +24,9 @@ function Landing(props) {
                         </div>
 
                         <div class="scroller">
-                            <a href="#page1">
+                            <Link to={routes.home}>
                                 <p class="page-title">home</p>
-                            </a>
+                            </Link>
 
                             <div class="timeline">
                                 <span class="timeline__unit"></span>

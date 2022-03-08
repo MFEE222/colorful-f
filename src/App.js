@@ -36,6 +36,8 @@ import Game from './pages/Game';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import Landing from './pages/Landing';
+
 
 import { ProductsProvider } from './utils/context/ProductsContext';
 
@@ -87,6 +89,10 @@ function App() {
                                     {/* 主頁 */}
                                     <Route exact path={routes.home}>
                                         <Home />
+                                    </Route>
+                                    {/* 前導頁 */}
+                                    <Route exact path={routes.landing}>
+                                        <Landing />
                                     </Route>
                                     {/* 404 */}
                                     <Route path={routes.error}>

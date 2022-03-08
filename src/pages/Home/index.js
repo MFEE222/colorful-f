@@ -29,7 +29,6 @@ import Slideshow from './slider';
 function Home() {
     return (
         <div className="home">
-            <Landing />
             {/* 影片 */}
             <div className="h-page1" id="page1">
                 <video className="w-100" autoPlay muted loop preload="true">
