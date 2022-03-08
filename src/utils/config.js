@@ -1,5 +1,3 @@
-
-
 export const API_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
 
@@ -211,6 +209,9 @@ export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 //
 export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
     API_URL + '/member/review/update/detail';
+
+//member-[profile] (get照片)
+export const API_GET_MEMBER_PROFILE_FIGURE = API_URL + '/member/profile-figure';
 
 //member-[profile] (上傳照片)
 export const API_POST_MEMBER_PROFILE_PHOTO = API_URL + '/member/profile-photo';

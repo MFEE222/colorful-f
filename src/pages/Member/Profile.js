@@ -6,11 +6,17 @@ import {
     API_POST_MEMBER_PROFILE_PHOTO,
     API_POST_MEMBER_PROFILE,
     IMG_URL2,
+    API_GET_MEMBER_PROFILE_FIGURE,
 } from '../../utils/config';
+
+//
+import { useAuthContext } from '../../utils/context/AuthContext';
 
 function Profile(props) {
     // if(auth.current)
-    // auth.user
+    const auth = useAuthContext();
+    console.log('auth.user :>> ', auth.user);
+    const user = auth.user;
     //TODO:拿到登入會員的詳細資料[1]
     // const uprofile= auth.user{
     //     uid: 1,
@@ -24,17 +30,17 @@ function Profile(props) {
     //狀態
     //TODO:設定進狀態[2]
     const [profile, setProfile] = useState({
-        uid: 1,
-        // name:user.name,
-        name: 'queena',
-        //birthDay:user.birthday,
-        birthDay: '1998/12/1',
-        //phone:user.phone,
-        phone: '0123456789',
-        //email:user.email,
-        email: '123@gmail.com',
-        //photo:user.figure,
-        photo: `${IMG_URL2}/uploads/profile/u-1/1.jpg`,
+        // uid: 1,
+        name: user.name,
+        // name: 'queena',
+        birthDay: user.birthday,
+        // birthDay: '1998/12/1',
+        phone: user.phone,
+        // phone: '0123456789',
+        email: user.email,
+        // email: '123@gmail.com',
+        // photo:user.figure,
+        photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
     });
 
     // 設定回狀態函式
@@ -51,13 +57,13 @@ function Profile(props) {
             formData.append('photo', profile.photo);
             //上傳照片
             let response = await axios.post(
-                API_POST_MEMBER_PROFILE_PHOTO + `?uid=${profile.uid}`,
+                API_POST_MEMBER_PROFILE_PHOTO + `?uid=${user.id}`,
                 formData
             );
 
             //更新資料庫
             let responseDetail = await axios.post(
-                API_POST_MEMBER_PROFILE + `?uid=${profile.uid}`,
+                API_POST_MEMBER_PROFILE + `?uid=${user.id}`,
                 {
                     name: profile.name,
                     birthDay: profile.birthDay,
