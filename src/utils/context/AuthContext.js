@@ -29,8 +29,8 @@ export function AuthProvider(props) {
     //     gender: null,
     //     birthday: null,
     // }
-    const [isLogin, setIsLogin] = useState(false);
-    const [user, setUser] = useState({});
+    const [isLogin, setIsLogin] = useState(true);
+    const [user, setUser] = useState({ id: 3 });
     const [allowReset, setAllowReset] = useState(false);
 
     // 共享狀態

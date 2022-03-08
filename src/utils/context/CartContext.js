@@ -21,7 +21,8 @@ export function CartProvider(props) {
     // const [remove, setRemove] = useState([]); // 紀錄需要寫入資料庫 or WebStorage 資料
     // const add = useRef([]);
     // const remove = useRef([]);
-    const diff = useRef([]);
+    // const diffRef = useRef([]);
+    let diffRef = useRef([]).current;
     const [checkAll, setCheckAll] = useState(false); // 紀錄是否勾選全選框框
     const [total, setTotal] = useState(0); // 紀錄查詢結果總數量（和 cart 陣列沒有一定一樣，返回的是資料庫中符合總數）
 
@@ -46,6 +47,7 @@ export function CartProvider(props) {
         handleCheckAll,
         syncFrom,
         option,
+        diffRef,
     };
 
     // 生命週期
@@ -57,11 +59,13 @@ export function CartProvider(props) {
     // 保存購物車資料
     useEffect(
         function () {
-            syncTo();
+            // syncTo();
+            console.log('cart :>> ', cart);
+            console.log('diffRef :>> ', diffRef);
+            // console.log('diffRef.current :>> ', diffRef.current);
         },
         [cart]
     );
-
     // 渲染
     return (
         <CartContext.Provider value={shared}>
@@ -72,31 +76,34 @@ export function CartProvider(props) {
     // 函數
     // 將商品資料寫入蒐藏清單（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local storage）
     function handleAdd(product) {
-        const newCart = [...cart];
-        const item = { ...product, check: false };
-        newCart.push(item);
-        // 紀錄差異
-        if (diff.includes(-item)) {
-            diff = diff.filter((e) => e != -item);
-            return;
+        // 原有購物車沒有，則加入
+        if (!cart.some((e) => e.id === product.id)) {
+            const newItem = { ...product, check: false };
+            const newCart = [...cart];
+            newCart.push(newItem);
+            setCart(newCart);
+
+            // 比對差異 FIXME
+            if (!diffRef.some((e) => e === product.id)) {
+                diffRef.push(product.id);
+            }
         }
-        diff.push(item);
-        // 設回狀態
-        setCart(newCart);
     }
 
     // 將商品資料從蒐藏清單排除（有登入的話同時發 axios 更新到後端，沒登入的話更新到 local stroage）
     function handleRemove(product) {
-        const newCart = [...cart];
-        const item = { ...product, check: false };
-        newCart.push(item);
-        // 紀錄差異
-        if (diff.includes(item)) {
-            diff = diff.filter((e) => e != item);
+        // 原有購物車有，則排除
+        if (cart.some((e) => e.id === product.id)) {
+            const newCart = cart.filter(function (e) {
+                return e.id != product.id;
+            });
+            setCart(newCart);
+
+            // 比對差異 FIXME
+            if (!diffRef.some((e) => e === -product.id)) {
+                diffRef.push(-product.id);
+            }
         }
-        diff.push(-item);
-        // 設回狀態
-        setCart(newCart);
     }
 
     function handleCheck(pid) {
@@ -125,13 +132,14 @@ export function CartProvider(props) {
         if (auth.isLogin) {
             // from Database
             try {
+                console.log('auth :>> ', auth);
                 const res = await axios.get(API_GET_CART, {
                     params: {
                         userId: auth.user.id,
-                        option,
+                        // option,
                     },
                 });
-                // console.log('res :>> ', res);
+                console.log('res :>> ', res);
                 if (!res.data) {
                     new Error(STATUS_MSG[res.status]);
                 }
@@ -165,7 +173,7 @@ export function CartProvider(props) {
             // to Database
             const res = await axios.post(API_POST_CART, {
                 userId: auth.user.id,
-                diff,
+                diff: diffRef.current,
             });
             // console.log('res :>> ', res);
             console.log('res.status :>> ', res.status);

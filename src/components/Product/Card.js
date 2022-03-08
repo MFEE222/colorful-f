@@ -1,15 +1,27 @@
 // 內建
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { ProductsConsumer } from '../../utils/context/ProductsContext';
-
+import { useCartContext } from '../../utils/context/CartContext';
 // 通用
 import { routes } from '../../utils/routes';
 
 function Card(props) {
+    // Context
+    const cart = useCartContext();
     // 屬性
     const { product, to, onEvent } = props;
+    // 狀態
+    const [isInCart, setIsInCart] = useState(false);
 
+    // 測試
+    // useEffect(
+    //     function () {
+    //         console.log('product.id :>> ', product.id);
+    //         console.log('isInCart :>> ', isInCart);
+    //     },
+    //     [isInCart]
+    // );
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
     // console.log('cover :>> ', cover);
@@ -32,7 +44,18 @@ function Card(props) {
                     </div>
                     <div className="text-start d-flex  justify-content-between">
                         NT. {product.price}
-                        <i className="fas fa-shopping-cart"></i>
+                        <i
+                            className="fas fa-shopping-cart"
+                            onClick={function () {
+                                if (isInCart) {
+                                    // cart.handleRemove(product);
+                                    setIsInCart(false);
+                                } else {
+                                    // cart.handleAdd(product);
+                                    setIsInCart(true);
+                                }
+                            }}
+                        ></i>
                     </div>
                 </div>
             </div>

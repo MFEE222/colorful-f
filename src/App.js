@@ -37,13 +37,10 @@ import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Error from './pages/Error';
 
+// Context
 import { ProductsProvider } from './utils/context/ProductsContext';
-
 import { RWDProvider } from './utils/context/RWDContext';
-
 import { CartProvider } from './utils/context/CartContext';
-import CitiesSlider from './pages/Home/slider';
-
 import { AuthProvider } from './utils/context/AuthContext';
 
 function App() {
