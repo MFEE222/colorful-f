@@ -30,7 +30,7 @@ export function AuthProvider(props) {
     //     birthday: null,
     // }
     const [isLogin, setIsLogin] = useState(true);
-    const [user, setUser] = useState({ id: 3 });
+    const [user, setUser] = useState({ id: 1 });
     const [allowReset, setAllowReset] = useState(false);
 
     // 共享狀態

@@ -14,11 +14,10 @@ import Pagination from './Pagination';
 import { useAuthContext } from '../../utils/context/AuthContext';
 
 function DownloadContent(props) {
-
     const auth = useAuthContext();
     const user = auth.user;
     // auth.current
-    
+
     const [checked, setChecked] = useState(false); //核取方塊
     const [statusId, setStatusId] = useState(0); // filter 狀態
     // const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
@@ -30,12 +29,12 @@ function DownloadContent(props) {
     const fetchDownload = async () => {
         const response = await axios.get(API_GET_MEMBER_DOWNLOAD, {
             params: {
-                uid=user.id,
+                uid: user.id,
                 statusId, //all->0->status 1 & 2 //未下載status = 1 // 已下載 status = 2
                 offset,
             },
         });
-        // console.log('response.data.data :>> ', response.data);
+        console.log('response.data.data :>> ', response.data);
         const newDisplay = response.data.data.map(function (e) {
             e.check = false;
             return e;
@@ -106,7 +105,7 @@ function DownloadContent(props) {
 
     useEffect(() => {
         fetchDownload();
-    }, [statusId, uid, offset]);
+    }, [statusId, auth.user, offset]);
 
     return (
         <>
