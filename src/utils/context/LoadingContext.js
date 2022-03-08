@@ -14,12 +14,20 @@ export function LoadingProvider(props) {
     // context
     const auth = useAuthContext();
     // state, hook
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     // 變數 (shared)
     const shared = {
-        start: '',
-        end: '',
+        start: function () {
+            setLoading(true);
+            // 自動關閉時間
+            setTimeout(function () {
+                setLoading(false);
+            }, 300);
+        },
+        end: function () {
+            setLoading(false);
+        },
         current: loading,
     };
 
