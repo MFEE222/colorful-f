@@ -7,7 +7,7 @@ import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
-import { useOrderContext } from '../../utils/context/OrderContext';
+// import { useOrderContext } from '../../utils/context/OrderContext';
 
 // function OrderContent(props) {
 //     return (
@@ -22,7 +22,7 @@ import { useOrderContext } from '../../utils/context/OrderContext';
 // }
 
 function OrderContent(props) {
-    const order = useOrderContext();
+    // const order = useOrderContext();
 
     return (
         <>
@@ -58,18 +58,21 @@ function OrderContent(props) {
                 {/* <div className="row"> */}
 
                 <div className="col-12 member-order-main p-0">
-                    {order.orders &&
+                    {[1, 2, 3].map(function (e, i) {
+                        return <OrderCard key={i} />;
+                    })}
+                    {/* {order.orders &&
                         order.orders.map(function (e, i) {
                             return <OrderCard key={i} />;
-                        })}
+                        })} */}
                 </div>
             </div>
-            {/* <Pagination
-                total={counts}
-                limit={4}
-                offset={offset}
-                setOffset={setOffset}
-            /> */}
+            <Pagination
+            // total={counts}
+            // limit={4}
+            // offset={offset}
+            // setOffset={setOffset}
+            />
         </>
     );
 }
