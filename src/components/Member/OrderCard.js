@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import {routes} from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
 
 function OrderCard(props) {
@@ -40,7 +42,8 @@ function OrderCard(props) {
                     <div className="d-none d-md-block">
                         <hr />
                     </div>
-                    <button className="ms-auto d-block btn">Pending</button>
+
+                    <LinkContainer to={routes.orderDetail}><button className="ms-auto d-block btn">Pending</button></LinkContainer>
                 </div>
             </div>
         </div>
