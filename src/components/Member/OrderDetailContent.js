@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { LinkContainer } from 'react-router-bootstrap';
-
-import {routes} from '../../utils/routes';
+import { routes } from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
 
-
+//共用
 import FilterBar from './FilterBar';
 import StepProgressBar from './StepProgressBar';
 
 function OrderDetailContent(props) {
     return (
-        <div className="col-12 col-md-10 member-order-detail-main">
+        <div className="col-12 member-order-detail-main">
             {/* <!-- filter bar --> */}
-            <FilterBar />
+            <div className="filter my-3">
+                <div className="filter-box d-flex">
+                    <ul className="sort-series p-0">
+                        <li
+                            className="active py-2 px-3"
+
+                            // console.log('1 :>> ', statusId);
+                        >
+                            全部
+                        </li>
+                        <li className="py-2 px-3 ">未付款</li>
+                        <li className="py-2 px-3">已付款</li>
+                        <li className="py-2 px-3 ">完成</li>
+                        <li className="py-2 px-3 ">不成立</li>
+                    </ul>
+                </div>
+                <div className="line d-none d-md-block"></div>
+            </div>
 
             <div className="order-detail-wall">
                 {/* <!-- step progress bar --> */}
