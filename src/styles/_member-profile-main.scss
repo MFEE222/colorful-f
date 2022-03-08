@@ -62,7 +62,7 @@ $-form-label-width: auto;
         margin-top: 10px;
         position: relative;
         // max-width: 115px;
-        @include mix.media(width, $xs: 15rem, $lg: 20rem);
+        @include mix.media(width, $xs: 15rem, $lg: 16rem);
         .delete-btn {
             position: absolute;
             top: 2%;

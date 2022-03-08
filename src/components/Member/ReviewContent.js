@@ -21,6 +21,8 @@ function ReviewContent(props) {
     let uid = 1; //改成auth.current
 
     const match = useRouteMatch();
+    //style active
+    const [active, setActive] = useState(1);
     const [statusId, setStatusId] = useState(1);
     const [display, setDisplay] = useState([]);
     const [counts, setCounts] = useState();
@@ -61,32 +63,47 @@ function ReviewContent(props) {
                     <div className="filter-box d-flex">
                         <ul className="sort-series p-0">
                             <li
-                                className="active py-2 px-3"
                                 onClick={function () {
+                                    setActive(1);
                                     setStatusId(1);
                                     setOffset(1);
                                     // console.log('1 :>> ', statusId);
                                 }}
+                                className={
+                                    active === 1
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3 '
+                                }
                             >
                                 全部
                             </li>
                             <li
-                                className="py-2 px-3 "
                                 onClick={function () {
+                                    setActive(2);
                                     setStatusId(2);
                                     setOffset(1);
                                     // console.log('2 :>> ', statusId);
                                 }}
+                                className={
+                                    active === 2
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3'
+                                }
                             >
                                 未評論
                             </li>
                             <li
-                                className="py-2 px-3"
                                 onClick={function () {
+                                    setActive(3);
                                     setStatusId(3);
                                     setOffset(1);
                                     // console.log('3 :>> ', statusId);
                                 }}
+                                className={
+                                    active === 3
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3'
+                                }
                             >
                                 已評論
                             </li>
@@ -111,9 +128,11 @@ function ReviewContent(props) {
                                 <h4 className="col-10 col-md-8  align-self-center m-0">
                                     {oneReview.name}
                                 </h4>
-                                <h5 className="title mt-3 mt-md-0">
-                                    {oneReview.title}
-                                </h5>
+                                <>
+                                    <h5 className="title mt-3 mt-md-0">
+                                        {oneReview.title}
+                                    </h5>
+                                </>
                                 {/* <p className="col-4 col-md-4 review-card-text ">
                             2件商品
                         </p> */}

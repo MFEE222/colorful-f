@@ -32,7 +32,7 @@ function Member(props) {
     //TODO:判斷是否登入 -> madol[需有會員才能使用會中心更多功能 -> 去登入 或 註冊 ]
     return (
         <>
-            {!auth.current && <Redirect to={routes.signin} />}
+            {/* {!auth.current && <Redirect to={routes.signin} />} */}
             <Main>
                 <SideBarLeft />
                 <Content>

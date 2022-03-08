@@ -143,7 +143,7 @@ function OurNavbar(props) {
                         </LinkContainer>
 
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={!auth.current ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
