@@ -238,3 +238,8 @@ export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
 //member-[profile] (上傳照片)
 export const API_POST_MEMBER_PROFILE_PHOTO = API_URL + '/member/profile-photo';
 export const API_POST_MEMBER_PROFILE = API_URL + '/member/profile';
+
+export const API_GET_ORDERS = API_URL + '/order';
+export const API_GET_ORDER_DETAIL = API_URL + '/order/detail';
+export const API_POST_ORDER = API_URL + '/order';
+export const API_POST_ORDER_PAYMENT = API_URL + '/order/payment';
