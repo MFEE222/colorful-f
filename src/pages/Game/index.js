@@ -35,7 +35,7 @@ function Test(props) {
     return (
         <div className="game">
             <h1 className="t-center mt-3">你的靈魂是什麼顏色?</h1>
-            <p className="text-center mt-3 mb-4">
+            <p className="text-center mt-3">
                 在 12
                 個顏色當中，依照直覺選出自己最喜愛的，就能分析出自己的性格！
             </p>
@@ -44,76 +44,10 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#redResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2001/image/half_a5fc2600-a219-4275-aead-958168432ec8.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#pinkResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2002/image/half_5f5d3b99-8a13-4a5a-9ac1-b22d23834cd7.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#orangeResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2003/image/half_69aeebca-f51d-4121-b18b-fd753dd68dce.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#yellowResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2004/image/half_ed05426a-b5f4-4062-8a40-6d715c0550cc.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#greenResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2005/image/half_94e231d4-fb66-4377-8b16-1e5a803c0998.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#blueResult"
-                >
-                    <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2006/image/half_cbbc8167-0bfa-4d02-ba2b-6933b1d9011d.jpg"
-                        className="img-thumbnail"
-                        alt=""
-                    />
-                </div>
-                <div
-                    className="w-25 mx-1 my-3"
-                    data-bs-toggle="modal"
                     data-bs-target="#coffeeResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2010/image/half_81ef5ab2-cd3b-458e-bd41-cb2e4ae25ede.jpg"
+                        src="http://localhost/colorful-f/src/images/07%e8%8c%b6%e8%89%b2.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
@@ -124,7 +58,7 @@ function Test(props) {
                     data-bs-target="#greyResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2011/image/half_2328f0d4-f77c-4f40-9338-2b59b38e12c4.jpg"
+                        src="http://localhost/colorful-f/src/images/08%e7%81%b0.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
@@ -135,7 +69,7 @@ function Test(props) {
                     data-bs-target="#blackResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2012/image/half_7c26e2d7-e519-4371-9b41-28308e0cc4da.jpg"
+                        src="http://localhost/colorful-f/src/images/09%e9%bb%91.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
@@ -146,7 +80,7 @@ function Test(props) {
                     data-bs-target="#whiteResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2015/image/half_9c267346-5b62-4809-a05d-a624075c99af.jpg"
+                        src="http://localhost/colorful-f/src/images/010%e7%99%bd.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
@@ -157,7 +91,7 @@ function Test(props) {
                     data-bs-target="#silverResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2013/image/half_5739a909-905a-4bec-972d-54ddf2d6ddc1.jpg"
+                        src="http://localhost/colorful-f/src/images/011%e9%8a%80.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
@@ -168,7 +102,73 @@ function Test(props) {
                     data-bs-target="#goldResult"
                 >
                     <img
-                        src="https://hoyme.s3.amazonaws.com/images/uploads/shindan_question_choice/2014/image/half_b7582bf2-ad31-4a5c-a668-3bb386cd1d13.jpg"
+                        src="http://localhost/colorful-f/src/images/012%e9%87%91.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#redResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/01%e7%b4%85%e8%89%b2.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#pinkResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/02%e7%b2%89%e7%b4%85.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orangeResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/03%e6%a9%99.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#yellowResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/04%e9%bb%83.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#greenResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/05%e7%b6%a0.jpg"
+                        className="img-thumbnail"
+                        alt=""
+                    />
+                </div>
+                <div
+                    className="w-25 mx-1 my-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#blueResult"
+                >
+                    <img
+                        src="http://localhost/colorful-f/src/images/06%e6%b0%b4%e8%89%b2.jpg"
                         className="img-thumbnail"
                         alt=""
                     />
