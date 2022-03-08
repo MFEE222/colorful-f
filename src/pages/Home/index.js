@@ -10,18 +10,19 @@ import Slider from 'react-slick';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { routes } from '../../utils/routes';
-import Game from '../Game';
+import Slideshow from './slider';
+import Game from '../../pages/Game';
 
+//圖片
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
 
 import page4 from '../../images/b0.jpg';
-import page2 from '../../images/home-p2.jpg';
+import page2 from '../../images/home/home-page2.jpg';
 import video from '../../images/home/bg-banner-index.mp4';
-
-import Slideshow from './slider';
+import game from '../../images/home/home-page4.jpg';
 
 function Home() {
     return (
@@ -29,25 +30,31 @@ function Home() {
             {/* 影片 */}
             <div className="h-page1" id="page1">
                 <video className="w-100" autoPlay muted loop preload="true">
-                    <source src={video} alt="food-banner" type="video/mp4" />
+                    <source src={video} alt="home-video" type="video/mp4" />
                 </video>
 
                 {/* <div className="scroll-down"></div> */}
             </div>
             {/* before/after */}
             <div className="h-page2" id="page2">
-                <img className="pic" src={page2} alt="" />
+                <img className="p2-pic" src={page2} alt="" />
             </div>
             {/* slide 系列圖 */}
             <div className="h-page3">
                 <Slideshow />
             </div>
-            <Game />
+            {/* <Game /> */}
+            <Link to={routes.game}>
+                <button className='game-btn'>
+                    <img className="h-game" src={game} alt="" />
+                </button>
+            </Link>
+
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 col-md-6 col-lg-5">
+                        <div className="col-12 col-md-6 col-lg-5 page4-text">
                             <h2 className="title">COLORFUL</h2>
                             <div className="text">
                                 <p>
