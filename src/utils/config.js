@@ -8,6 +8,11 @@ export const API_URL =
 // 圖片
 export const IMG_URL =
     (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/images';
+//圖片 去掉images （因為資料庫有寫）
+export const IMG_URL2 =
+    process.env.REACT_APP_API_URL || 'http://localhost:3006';
+export const IMG_URL_UPLOAD =
+    process.env.REACT_APP_API_URL || 'http://localhost:3006';
 // 系列圖
 export const IMG_PRODUCTS_ALL = IMG_URL + '/all';
 export const IMG_PRODUCTS_NEWEST = IMG_URL + '/newest';
@@ -16,6 +21,13 @@ export const IMG_PRODUCTS_WEDDING = IMG_URL + '/wedding';
 export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
 export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
 export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
+// Home
+export const IMG_HOME_PORTRAIT_BANNER = IMG_URL + '/home/輪播01.jpg';
+export const IMG_HOME_SCENERY_BANNER = IMG_URL + '/home/輪播02.jpg';
+export const IMG_HOME_FILM_BANNER = IMG_URL + '/home/輪播03.jpg';
+export const IMG_HOME_WEDDING_BANNER = IMG_URL + '/home/輪播04.jpg';
+export const IMG_HOME_FOOD_BANNER = IMG_URL + '/home/輪播05.jpg';
+
 // Banner
 export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner.jpg';
 export const IMG_PRODUCTS_NEWEST_BANNER =
@@ -165,5 +177,35 @@ export const API_GET_PRODUCT = API_URL + '/product';
 // req:
 // {
 //     user_id,    :>> 使用者 id
+
 // }
 export const API_GET_CART = API_URL + '/cart';
+
+//member
+//member review (get)
+export const API_GET_MEMBER_REVIEW = API_URL + '/member/review';
+export const API_GET_MEMBER_REVIEW_IMG = API_URL + '/member/review/img';
+
+//member review (post) 更新 （formdata=>files)
+export const API_GET_MEMBER_REVIEW_UPDATE = API_URL + '/member/review/update';
+
+//member-download (get 要資料)
+export const API_GET_MEMBER_DOWNLOAD = API_URL + '/member/review/download';
+//member-dowmload (post 勾選pid)
+// req {
+//     uid,
+//     dngId,
+// }
+// res {
+//     statusCode,
+//     result: boolean
+// }
+export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
+// API_URL + '/member/review/download/dng';
+// {
+//     uid:
+//     dngId:[1,2...]
+// }
+//
+export const API_GET_MEMBER_REVIEW_UPDATE_DETAIL =
+    API_URL + '/member/review/update/detail';

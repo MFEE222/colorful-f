@@ -33,7 +33,7 @@
 
 // member
 @import "member-sidebar-left";
-@import "member-sidebar-right";
+@import "member-content";
 
 // member profile page
 @import "member-profile-main";
@@ -95,3 +95,6 @@
 @import "utils-pagination";
 
 @import "game";
+// home page
+@import "home";
+@import "slideshow";
