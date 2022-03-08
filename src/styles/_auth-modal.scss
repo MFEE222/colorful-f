@@ -1,0 +1,34 @@
+@use "mixins" as mix;
+
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    justify-content: center;
+    z-index: 1050;
+
+    .box {
+        z-index: 1055;
+        border-radius: 20px;
+        // margin-top: 500px;
+        align-self: center;
+        background-color: white;
+        @include mix.media(width, $xs: 300px, $lg: 500px);
+        @include mix.media(line-height, $xs: 2rem, $lg: 2rem);
+        @include mix.media(height, $xs: 200px, $lg: 300px);
+        .login {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+        .singup {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+    }
+}

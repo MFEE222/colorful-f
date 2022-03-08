@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { Redirect, useRouteMatch } from 'react-router-dom';
-
+import { Modal } from 'react-bootstrap';
 import axios from 'axios';
 import {
     API_POST_AUTH_LOGIN,
@@ -9,6 +9,7 @@ import {
     API_POST_AUTH_RESET_PASSWORD,
 } from '../config';
 import { STATUS_MSG } from '../others/status';
+
 // 通用元件
 // import routes from '../routes';
 
@@ -50,6 +51,7 @@ export function AuthProvider(props) {
         allowReset,
         setAllowReset,
         setShowLoginModal,
+        showLoginModal,
         // reset,  // 發送重設密碼請求，重設成功後要記得把 allowReset 設為 false
     };
 
@@ -140,10 +142,7 @@ export function AuthProvider(props) {
     return (
         <AuthContext.Provider value={shared}>
             {/* {props.children} */}
-            <LoginModal
-                showLoginModal={showLoginModal}
-                setShowLoginModal={setShowLoginModal}
-            >
+            <LoginModal shared={shared} onHide={() => setShowLoginModal(false)}>
                 {props.children}
             </LoginModal>
         </AuthContext.Provider>
@@ -162,31 +161,111 @@ export function useAuthContext() {
 
 // 內部元件
 function LoginModal(props) {
-    const { showLoginModal, setShowLoginModal } = props;
+    const { showLoginModal, setShowLoginModal } = props.shared;
+    // console.log('props.shared :>> ', props.shared);
+    const [user, setUser] = useState({ account: '', password: '' });
 
-    return showLoginModal ? (
+    function handleChange(e) {
+        const newUser = { ...user };
+        newUser[e.target.name] = e.target.value;
+        setUser(newUser);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.shared.login(user);
+    }
+
+    const temp = (
         <div>
-            {/* 你這個要用 position: absolute */}
+            <input
+                className="row mb-2"
+                type="text"
+                name="account"
+                value={user.account}
+                onChange={handleChange}
+            />
+            <input
+                className="row mb-2"
+                type="text"
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+            />
+            {/* <button type="submit" onClick={handleSubmit} className="row">
+                send
+            </button> */}
+        </div>
+    );
+    return showLoginModal ? (
+        <>
             <div
-                style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                    width: '300px',
-                    height: '300px',
+                className="auth-modal"
+                onClick={function (e) {
+                    setShowLoginModal(false);
                 }}
-                className="position-absoulte top-0 left-0 right-0 bottom-0"
             >
-                <h1>請登入</h1>
-                <h2
-                    onClick={function () {
-                        setShowLoginModal(false);
+                <div
+                    className="box"
+                    onClick={function (e) {
+                        e.stopPropagation();
                     }}
                 >
-                    取消
-                </h2>
+                    <div className="header d-flex my-3 align-content-center justify-content-center">
+                        <div className="text-center ">您有會員嗎？</div>
+                        <i className="far fa-times-circle align-self-center text-end"></i>
+                    </div>
+                    <div className="border-top w-100 my-3"></div>
+                    <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
+                        <div className="col-auto">
+                            {temp}
+                            <div
+                                className="d-flex justify-content-center align-items-center"
+                                type="submit"
+                                onClick={handleSubmit}
+                            >
+                                <i className="fas fa-sign-in-alt  me-2"></i>
+                                <p className="login m-0">登入</p>
+                            </div>
+                        </div>
+
+                        <div className="col-auto">
+                            <img src="../images/輪播03.jpg" alt="" />
+                            <div className="d-flex justify-content-center align-items-center">
+                                <i className="fas fa-user-plus me-2"></i>
+                                <p className="singup m-0">註冊</p>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center mt-5">
+                            擁有會員能享有更多專屬功能
+                        </div>
+                    </div>
+                </div>
             </div>
             {props.children}
-        </div>
+        </>
     ) : (
+        // <div>
+        //     {/* 你這個要用 position: absolute */}
+        //     <div
+        //         style={{
+        //             backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        //             width: '300px',
+        //             height: '300px',
+        //         }}
+        //         className="position-absoulte top-0 left-0 right-0 bottom-0"
+        //     >
+        //         <h1>請登入</h1>
+        //         <h2
+        //             onClick={function () {
+        //                 setShowLoginModal(false);
+        //             }}
+        //         >
+        //             取消
+        //         </h2>
+        //     </div>
+        //     {props.children}
+        // </div>
         <>{props.children}</>
     );
 }
