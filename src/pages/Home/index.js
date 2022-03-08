@@ -21,7 +21,7 @@ import circle1 from '../../images/colorful_1.svg';
 import page4 from '../../images/b0.jpg';
 import page2 from '../../images/home-p2.jpg';
 import video from '../../images/home/bg-banner-index.mp4';
-import game from '../../images/home/靈魂顏色.jpg';
+import game from '../../images/home/2.jpg';
 
 
 function Home() {
