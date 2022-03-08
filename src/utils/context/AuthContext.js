@@ -16,7 +16,7 @@ const AuthContext = React.createContext(
 export function AuthProvider(props) {
     // 狀態
     const [auth, setAuth] = useState({
-        isLogin: false,
+        isLogin: true,
         user: {
             id: null,
             email: null,
@@ -30,12 +30,12 @@ export function AuthProvider(props) {
     const shared = auth;
 
     // 函數
-    useEffect(
-        function () {
-            // 轉址？
-        },
-        [isLogin]
-    );
+    // useEffect(
+    //     function () {
+    //         // 轉址？
+    //     },
+    //     [auth]
+    // );
 
     // 渲染
     return (

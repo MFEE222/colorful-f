@@ -122,7 +122,7 @@ export function CartProvider(props) {
     async function syncFrom(option = shared.option) {
         let newCart = [];
         let newTotal = 0;
-        if (auth.current) {
+        if (auth.isLogin) {
             // from Database
             try {
                 const res = await axios.get(API_GET_CART, {
@@ -161,7 +161,7 @@ export function CartProvider(props) {
     }
     // 將資料更新到 Database or Webstorage (發送差異)
     async function syncTo() {
-        if (auth.current) {
+        if (auth.isLogin) {
             // to Database
             const res = await axios.post(API_POST_CART, {
                 userId: auth.user.id,
@@ -177,8 +177,8 @@ export function CartProvider(props) {
         // clear
         // setAdd([]);
         // setRemove([]);
-        add = [];
-        remove = [];
+        handleAdd = [];
+        handleRemove = [];
     }
 }
 
