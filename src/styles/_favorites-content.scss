@@ -1,0 +1,302 @@
+@use "mixins" as mix;
+@use "variables" as var;
+body {
+    background-color: $light;
+    height: 100vh;
+}
+// .list-border {
+//     border: 1px solid rgba(80, 93, 104, 0.18);
+//     box-sizing: border-box;
+//     box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+//     border-radius: 20px;
+//     .product-list {
+//         @media (min-width: 768px) {
+//             .md-order-1 {
+//                 order: 2;
+//             }
+//             .banner {
+//                 order: 1;
+//             }
+//         }
+//         .phone-search {
+//             margin: 0.2rem;
+//             @include mix.xs {
+//                 input {
+//                     border: none;
+//                     background-color: transparent;
+//                     outline: none;
+//                     width: 70%;
+//                 }
+//                 // 去除預設樣式
+//                 input::-webkit-search-decoration,
+//                 input::-webkit-search-cancel-button {
+//                     display: none;
+//                 }
+//             }
+//             @include mix.md {
+//                 width: 50%;
+//             }
+//             border-bottom: 1px solid $gray-blue;
+//             // background-color: aqua;
+//             .search-icon {
+//                 div:nth-child(1) {
+//                     width: 2.5rem;
+//                     height: 2.5rem;
+//                     border: 1px solid $gray-blue;
+//                     border-radius: 999em;
+//                 }
+//                 .icon-img {
+//                     display: block;
+//                     margin: 0.6rem auto;
+//                     max-width: 100%;
+//                     max-height: 100%;
+//                     object-fit: contain;
+//                 }
+//             }
+//         }
+//         .phone-filter {
+//             p {
+//                 @include mix.xs {
+//                     size: 0.75rem;
+//                     color: $gray-blue;
+//                 }
+//             }
+//             .dropdown-style {
+//                 padding: 0 0.2rem;
+//                 border: 1px solid $gray-blue;
+//                 border-radius: 36px;
+//                 display: inline-block;
+//                 overflow: hidden;
+//                 .filter-select {
+//                     text-align: center;
+//                     width: 4rem;
+//                     height: 40px;
+//                     border: 0px;
+//                     outline: none;
+//                 }
+//             }
+//             .icon-g {
+//                 > div {
+//                     width: 2.5rem;
+//                     height: 2.5rem;
+//                     border: 1px solid $gray-blue;
+//                     border-radius: 999em;
+//                 }
+//                 .icon-img {
+//                     display: block;
+//                     margin: 0.6rem auto;
+//                     max-width: 100%;
+//                     max-height: 100%;
+//                     object-fit: contain;
+//                 }
+//             }
+//         }
+
+//         // .title-block {
+//         //     position: absolute;
+//         //     top: 27%;
+//         //     left: 3%;
+//         //     width: 100%;
+//         //     height: 50%;
+//         // }
+//     }
+//     .wishlist-group {
+//         .card-group {
+//             font-size: 0.8rem;
+//             @include mix.md {
+//                 font-size: 0.8rem;
+//             }
+//             @include mix.lg {
+//                 font-size: 1.2rem;
+//             }
+//             .card-border {
+//                 border: 1px solid rgba(80, 93, 104, 0.18);
+//                 box-sizing: border-box;
+//                 box-shadow: 7px 7px 15px rgba(138, 149, 158, 0.25);
+//                 border-radius: 20px;
+//                 .card-img {
+//                     // width: 25%;
+//                     // 圖片比例 RWD
+//                     .ratios {
+//                         @include mix.ratio(3.5, 4);
+//                     }
+//                     overflow: hidden;
+//                     img {
+//                         filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+//                         border-radius: 8px;
+//                         max-height: 100%;
+//                         max-width: 100%;
+//                         object-fit: cover;
+//                         transition: 0.5s;
+//                         &:hover {
+//                             transform: scale(1.1);
+//                         }
+//                     }
+//                 }
+//                 .card-body {
+//                     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+//                     .btn {
+//                         float: right;
+//                         margin: 0 5px;
+//                         color: #fff;
+//                         // padding: 8px 15px;
+//                         background-color: #cf9d3f;
+//                         border-radius: 20px;
+//                     }
+//                     div i {
+//                         margin-top: -0.5rem;
+//                         color: #63727e;
+//                         &:hover {
+//                             color: #ef2f2f;
+//                             animation: shake 0.82s
+//                                 cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+//                             transform: translate3d(0, 0, 0);
+//                         }
+//                         @keyframes shake {
+//                             10%,
+//                             90% {
+//                                 transform: translate3d(-1px, 0, 0);
+//                             }
+
+//                             20%,
+//                             80% {
+//                                 transform: translate3d(2px, 0, 0);
+//                             }
+
+//                             30%,
+//                             50%,
+//                             70% {
+//                                 transform: translate3d(-4px, 0, 0);
+//                             }
+
+//                             40%,
+//                             60% {
+//                                 transform: translate3d(4px, 0, 0);
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .pagination {
+//         @include mix.md {
+//             margin: 2rem 0 4rem 0;
+//         }
+//         ul {
+//             position: relative;
+//             width: 100%;
+//             padding: 0;
+//             list-style: none;
+//             display: flex;
+//             justify-content: center;
+//             li {
+//                 margin: 0 0.8rem;
+//                 text-align: center;
+//                 color: #fff;
+//                 width: 1.2rem;
+//                 height: 1.2rem;
+//                 font-size: 0.8rem;
+//                 background-color: $gray;
+//                 background: rgba(196, 196, 196, 0.72);
+//                 border-radius: 50%;
+//             }
+//         }
+//     }
+//     .recommend-title {
+//         margin-top: 3rem;
+//         .text-box {
+//             border-left: 6px solid transparent;
+//             @include mix.md {
+//                 border-left: 6px solid $gold;
+//             }
+//             @include mix.lg {
+//                 border-left: 10px solid $gold;
+//             }
+//             .phone-title {
+//                 padding: 0 10px;
+//                 @media (max-width: 767px) {
+//                     text-align: center;
+//                 }
+//             }
+//             h3 {
+//                 font-size: 1.5rem;
+//                 color: $gold;
+//                 @include mix.md {
+//                     font-size: 1.7rem;
+//                 }
+//                 @include mix.lg {
+//                     font-size: 2rem;
+//                 }
+//             }
+//             p {
+//                 font-size: 0.8rem;
+//                 @include mix.lg {
+//                     font-size: 1rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+.member1-comment {
+    .download-btn {
+        color: black;
+        border: solid 1px black;
+        border-radius: 20px;
+        font-size: 14px;
+        @include mix.media(width, $xs: 85px, $md: 80px);
+        @include mix.media(font-size, $xs: 12px, $md: 16px);
+
+        height: auto;
+        &:hover {
+            background-color: black;
+            color: #fff;
+        }
+    }
+    .box {
+        width: 300px;
+        height: 300px;
+        background-color: deepskyblue;
+    }
+    // .onecard {
+    //     height: 300px;
+    //     width: 200px;
+    // }
+
+    .card-house {
+        .form-check-input {
+            &:checked {
+                background-color: black;
+                border-color: silver;
+            }
+            &:focus {
+                border-color: silver;
+                outline: none;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+        .card-title {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
+            margin: 0;
+        }
+        .card-img {
+            .ratios {
+                @include mix.ratio(3, 4);
+
+                // @include xs {
+                //     @include mix.ratio(1, 1);
+                // }
+
+                // @include md {
+                //     @include mix.ratio(3, 5);
+                // }
+            }
+            .download-badge {
+                left: 90%;
+            }
+        }
+        .already-text {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
+        }
+    }
+}
