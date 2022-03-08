@@ -1,65 +1,41 @@
-// 1. nesting 巢狀
-// 2. variable
-// 3. mixin 函數
-
-// 1rem: 16px;
-// 0.5rem: 8px;
-// 0.25rem: 4px;
-// 2rem: 32px;
-// h1: 2.25rem;
-// h2: 2rem;
-// h3: 1.75rem;
-// h4: 1.5rem;
-// h5: 1.25rem;
-// h6: 1rem;
-
-$text-padding: 1rem;
-
-// at-rule @
-
-// @mixin padd($value) {
-//     padding: $value;
-//     @content;
-// }
-
 @use "variables" as v;
 @use "mixins" as mix;
 
-.wishlist {
-    // all
-    background-color: red;
+.favorite {
+    .card-house {
+        .form-check-input {
+            &:checked {
+                background-color: black;
+                border-color: silver;
+            }
+            &:focus {
+                border-color: silver;
+                outline: none;
+                box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+        .card-title {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
+            margin: 0;
+        }
+        .card-img {
+            .ratios {
+                @include mix.ratio(3, 4);
 
-    .hi {
-        // color: blue;
-        display: block;
-        // padding: $text-padding;
-        // @include padd($text-padding) {
-        //     margin: 10px;
-        // }
+                // @include xs {
+                //     @include mix.ratio(1, 1);
+                // }
 
-        // padding: 1rem;
-        // margin: 10px;
-        @include mix.media(
-            color,
-            $xs: black,
-            // $lg: yellow,
-            $md: white,
-            // $xs: white,
-            // $sm: aqua,
-            // $xl: brown,
-            // $xxl: white
-        );
-
-        // @include mix.media(color, yellow, black, white)
-
-        // @media (min-width: 576px) {
-        //     color: white;
-        // }
-        // @media (min-width: 768px) {
-        //     color: aqua;
-        // }
-        // @media (min-width: 992px) {
-        //     color: black;
-        // }
+                // @include md {
+                //     @include mix.ratio(3, 5);
+                // }
+            }
+            .download-badge {
+                left: 90%;
+            }
+        }
+        .already-text {
+            @include mix.media(font-size, $xs: 12px, $md: 16px);
+        }
     }
 }
