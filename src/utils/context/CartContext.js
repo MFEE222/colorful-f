@@ -60,7 +60,7 @@ export function CartProvider(props) {
     useEffect(
         function () {
             syncTo();
-            console.log('cart :>> ', cart);
+            // console.log('cart :>> ', cart);
             // console.log('diffRef :>> ', diffRef);
         },
         [cart]
@@ -175,7 +175,7 @@ export function CartProvider(props) {
                 diff: diffRef,
             });
             // console.log('res :>> ', res);
-            console.log('res.status :>> ', res.status);
+            // console.log('res.status :>> ', res.status);
             // clear
         } else {
             // to LocalStorage (直接覆蓋)
