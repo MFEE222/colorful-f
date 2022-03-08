@@ -1,5 +1,9 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+
+import {routes} from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
+
 
 import FilterBar from './FilterBar';
 import StepProgressBar from './StepProgressBar';
@@ -106,6 +110,9 @@ function OrderDetailContent(props) {
                         <div className="col-auto p-0">
                             <button className="btn">聯絡客服</button>
                             <button className="btn">評論</button>
+                            <LinkContainer to={routes.orderList}>
+                                <button className="btn">返回</button>
+                            </LinkContainer>
                         </div>
                     </div>
                 </div>
