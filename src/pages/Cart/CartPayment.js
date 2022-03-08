@@ -119,7 +119,7 @@ function CartPayment(props) {
                     <div className="title">
                         <h2>付款方式</h2>
                     </div>
-                    <div className="col-12 col-lg-3 payment-left">
+                    <div className="col-12 col-lg-3 payment-left text-center">
                         <div className="payment-card">
                             <i className="icon fab fa-cc-mastercard"></i>
                             <span>**** 1234</span>

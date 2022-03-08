@@ -270,6 +270,11 @@
         }
     }
 
+    .h-game {
+        width: 100%;
+        object-fit: cover;
+    }
+
     .h-page4 {
         background-image: url("../images/test_banner.jpg");
         background-repeat: no-repeat;

@@ -13,6 +13,7 @@ import { routes } from '../../utils/routes';
 import Signin from './Signin';
 import Signup from './Signup';
 import Forgot from './Forgot';
+import ResetPassword from './ResetPassword';
 
 function Auth(props) {
     const match = useRouteMatch();
@@ -22,7 +23,6 @@ function Auth(props) {
         <>
             {/* <Signin /> */}
             {/* <Signup /> */}
-
             {/* The Topics page has its own <Switch> with more routes
                 that build on the /topics URL path. You can think of the
                 2nd <Route> here as an "index" page for all topics, or
@@ -36,6 +36,9 @@ function Auth(props) {
                 </Route>
                 <Route path={routes.forgot}>
                     <Forgot />
+                </Route>
+                <Route path={routes.resetPassword}>
+                    <ResetPassword />
                 </Route>
                 <Route path={match.path}>
                     <div className="box">
@@ -64,6 +67,14 @@ function Auth(props) {
                                     to={routes.forgot}
                                 >
                                     Forgot
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="btn btn-primary text-light"
+                                    to={routes.resetPassword}
+                                >
+                                    Reset Password
                                 </Link>
                             </li>
                         </ul>

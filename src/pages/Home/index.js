@@ -10,13 +10,19 @@ import Slider from 'react-slick';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
 import { routes } from '../../utils/routes';
+import Slideshow from './slider';
+
+//圖片
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
-import video from '../../images/home/bg-banner-home.mp4';
-import Slideshow from './slider';
-import Game from '../Game';
+
+import page4 from '../../images/b0.jpg';
+import page2 from '../../images/home-p2.jpg';
+import video from '../../images/home/bg-banner-index.mp4';
+import game from '../../images/home/靈魂顏色.jpg';
+
 
 function Home() {
     return (
@@ -71,8 +77,8 @@ function Home() {
             <div className="h-page3">
                 <Slideshow />
             </div>
-
-        
+            {/* <Game /> */}
+            <img className="h-game" src={game} alt="" />
             {/* 網站介紹 */}
             <div className="h-page4">
                 <div className="container">
