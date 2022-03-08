@@ -172,7 +172,7 @@ export const API_GET_PRODUCT = API_URL + '/product';
 export const API_GET_CART = API_URL + '/cart';
 
 export const API_GET_FAVORITES = API_URL + '/favorites';
-export const API_POST_FAVORITES = API_URL + '/favorites';
+export const API_POST_FAVORITES = API_URL + '/favorites/update';
 //暫加
 export const API_POST_MEMBER_DOWNLOAD_DNG = API_URL + '/download';
 export const API_GET_MEMBER_DOWNLOAD = API_URL + '/member/review/download';

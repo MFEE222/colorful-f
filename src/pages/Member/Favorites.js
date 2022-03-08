@@ -84,33 +84,9 @@ function Favorites(props) {
                     <div className="filter mt-sm-3 my-sm-3 my-md-3">
                         <div className="filter-box d-flex">
                             <ul className="sort-series p-0">
-                                <li
-                                    className="active py-2 px-3"
-                                    onClick={function () {
-                                        favorites.setStatusId(0);
-                                        favorites.setOffset(1);
-                                    }}
-                                >
-                                    全部
-                                </li>
-                                <li
-                                    className="py-2 px-3"
-                                    onClick={function () {
-                                        favorites.setStatusId(1);
-                                        favorites.setOffset(1);
-                                    }}
-                                >
-                                    未下載
-                                </li>
-                                <li
-                                    className="py-2 px-3"
-                                    onClick={function () {
-                                        favorites.setStatusId(2);
-                                        favorites.setOffset(1);
-                                    }}
-                                >
-                                    已下載
-                                </li>
+                                <li className="active py-2 px-3">全部</li>
+                                <li className="py-2 px-3">未下載</li>
+                                <li className="py-2 px-3">已下載</li>
                             </ul>
                         </div>
                         <div className="line"></div>
@@ -128,10 +104,7 @@ function Favorites(props) {
                         >
                             取消收藏
                         </div>
-                        <div
-                            className="text-center py-2 px-3 download-btn"
-                            onClick={favorites.current}
-                        >
+                        <div className="text-center py-2 px-3 download-btn">
                             test
                         </div>
                     </div>
@@ -170,10 +143,54 @@ function Favorites(props) {
                                 </div>
                             </div>
                         </div> */}
-                        {favorites.display.map((v, i) => {
+                        {/* 測試 */}
+                        <h1>{favorites.current}</h1>
+                        {/* {favorites.current.map(function (e) {
+                            return (
+                                <div key={e.id}>
+                                    <h1>{`ID: ${e.id}`}</h1>
+                                </div>
+                            );
+                        })} */}
+
+                        {/* {favorites.current.map(function(e) {
+                            return (
+                                <div
+                                    className="col-6 col-md-4 mt-2 px-3 mb-2"
+                                    key={e.id}
+                                >
+                                    <div className="card-border ">
+                                        <div className="card-img position-relative">
+                                            <div className="ratios">
+                                                <img
+                                                    className="img-fluid"
+                                                    src={img}
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="card-body text-start p-0 my-2 my-md-4">
+                                            <label
+                                                htmlFor={v.id}
+                                                className="d-flex justify-content-between align-items-center"
+                                            >
+    
+                                                <div>
+                                                    <p className="card-title fw-bold">
+                                                        {v.name}
+                                                    </p>
+                                                    <i className="fas fa-heart"></i>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })} */}
+                        {/* {favorites.current.display.map((v, i) => {
                             const img = `${IMG_URL2}/${v.products_img}/a1.jpg`;
                             {
-                                /* console.log('img :>> ', img); */
+                                console.log('img :>> ', img); 
                             }
                             return (
                                 <div
@@ -228,7 +245,7 @@ function Favorites(props) {
                                     </div>
                                 </div>
                             );
-                        })}
+                        })} */}
                     </div>
                     <Pagination
                         total={favorites.counts}

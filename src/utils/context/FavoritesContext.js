@@ -20,7 +20,14 @@ const FavoritesContext = React.createContext(
 );
 
 export function FavoritesProvider(props) {
-    const auth = useAuthContext();
+    // const auth = useAuthContext();
+    console.log(4588);
+    const auth = {
+        isLogin: true,
+        user: {
+            name: 'rosa',
+        },
+    };
     const product = useProductsContext();
     const userID = auth.user.id;
     const [favorites, setFavorites] = useState([]);
@@ -65,13 +72,16 @@ export function FavoritesProvider(props) {
         if (auth.isLogin) {
             let getfavorites = async () => {
                 try {
-                    let response = await axios.post(API_GET_FAVORITES, {
+                    console.log(333);
+                    let response = await axios.get(API_GET_FAVORITES, {
                         params: {
-                            userid: auth.user.id,
+                            userId: 14,
+                            // auth.user.id,
                         },
                     });
+                    console.log('123 :>> ', ' 123');
                     console.log('res :>> ', response);
-                    setFavorites(response.data);
+                    setFavorites(response.data.favorites);
                 } catch (err) {
                     console.log('err :>> ', err);
                 }
@@ -86,33 +96,33 @@ export function FavoritesProvider(props) {
     }, []);
 
     // 寫入 Favorite
-    useEffect(
-        function () {
-            if (auth.isLogin) {
-                (async function () {
-                    try {
-                        const res = await axios.post(API_POST_FAVORITES, {
-                            userID,
-                            diff,
-                        });
+    // useEffect(
+    //     function () {
+    //         if (auth.isLogin) {
+    //             (async function () {
+    //                 try {
+    //                     const res = await axios.post(API_POST_FAVORITES, {
+    //                         userID,
+    //                         diff,
+    //                     });
 
-                        if (!res.result) {
-                            new Error('failed write favorites...');
-                        }
-                    } catch (err) {
-                        console.log('err :>> ', err);
-                    }
-                })();
-            } else {
-                localStorage.setItem('colorful-favorites', favorites);
-            }
-        },
-        [favorites]
-    );
+    //                     if (!res.result) {
+    //                         new Error('failed write favorites...');
+    //                     }
+    //                 } catch (err) {
+    //                     console.log('err :>> ', err);
+    //                 }
+    //             })();
+    //         } else {
+    //             localStorage.setItem('colorful-favorites', favorites);
+    //         }
+    //     },
+    //     [favorites]
+    // );
 
     // 事件處理器
     //加入
-    const addFavorites = async (product) => {
+    function addFavorites(product) {
         const newFavorites = [...favorites];
         newFavorites.push(product.id);
         setFavorites(newFavorites);
@@ -128,9 +138,9 @@ export function FavoritesProvider(props) {
         //     userID,
         //     diff,
         // });
-    };
+    }
     //刪除
-    const removeFavorites = async (product) => {
+    function removeFavorites(product) {
         const deleteFavorites = [...favorites];
         deleteFavorites.push(product.id);
         setFavorites(deleteFavorites);
@@ -141,7 +151,7 @@ export function FavoritesProvider(props) {
         } else {
             diff.push(-1 * product.id);
         }
-    };
+    }
 
     async function fetchfavorites(option = shared.option) {
         let response = await axios.get(API_GET_FAVORITES, {
