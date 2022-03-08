@@ -9,7 +9,7 @@ import {
     IMG_URL2,
     API_POST_MEMBER_DOWNLOAD_DNG,
 } from '../../utils/config';
-import Pagination from './Pagination';
+import Pagination from '../../utils/Pagination';
 //
 import { useAuthContext } from '../../utils/context/AuthContext';
 
