@@ -34,7 +34,7 @@ export function AuthProvider(props) {
     //     gender: null,
     //     birthday: null,
     // }
-    const [isLogin, setIsLogin] = useState(true);
+    const [isLogin, setIsLogin] = useState(false);
     const [user, setUser] = useState({ id: 1 });
     const [allowReset, setAllowReset] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -233,19 +233,16 @@ function LoginModal(props) {
                         </div>
                         <div className="border-top w-100 my-3"></div>
                         <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
-                            <div className="col-12">
-                                {temp}
-                                
-                            </div>
+                            <div className="col-12">{temp}</div>
                             <button
-                                    type="submit"
-                                    className="col-auto justify-content-end 
+                                type="submit"
+                                className="col-auto justify-content-end 
                                     align-items-end login"
-                                    // type="submit"
-                                    onClick={handleSubmit}
-                                >
-                                    <p className="m-0">登入</p>
-                                </button>
+                                // type="submit"
+                                onClick={handleSubmit}
+                            >
+                                <p className="m-0">登入</p>
+                            </button>
                             <div className="col-12">
                                 <div className="d-flex justify-content-center align-items-center">
                                     <Link
