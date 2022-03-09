@@ -38,7 +38,7 @@ function ProfileContent(props) {
             <div className="member-comment  member-profile-main row justify-content-between">
                 {/* <!-- title --> */}
                 <div className="col-12 col-md-6">
-                    <div className=" mb-5">
+                    <div className="text-center mb-5">
                         <div className="col-12 col-md-auto me-md-3">
                             <h5>個人資料</h5>
                             <p>完成填寫個人資料可享有更多會員專屬權益</p>
@@ -47,7 +47,7 @@ function ProfileContent(props) {
                     {/* <!-- form --> */}
                     <form className="mt-5 ">
                         {/* <!-- name --> */}
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
                                 <div className="row">
                                     <label
@@ -68,9 +68,9 @@ function ProfileContent(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
-                                <div className="row">
+                                <div className="row justify-content-center">
                                     <label
                                         id="birthday"
                                         className="col-auto col-md-1 col-form-label"
@@ -94,9 +94,9 @@ function ProfileContent(props) {
                         </div>
 
                         {/* <!-- birthday --> */}
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
-                                <div className="row">
+                                <div className="row justify-content-center">
                                     <label
                                         htmlFor="phone"
                                         className="col-auto col-md-1 col-form-label"
@@ -118,9 +118,9 @@ function ProfileContent(props) {
                             </div>
                         </div>
                         {/* <!-- mail --> */}
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
-                                <div className="row">
+                                <div className="row ">
                                     <label
                                         htmlFor="email"
                                         className="col-auto col-md-1 col-form-label"
@@ -144,9 +144,9 @@ function ProfileContent(props) {
                     </form>
                 </div>
 
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 text-center">
                     {/* <div className="row"> */}
-                    <label htmlFor="photo" className="custom-file-upload me-4">
+                    <label htmlFor="photo" className="custom-file-upload mb-4">
                         上傳圖片
                     </label>
                     <input
@@ -162,7 +162,7 @@ function ProfileContent(props) {
                             });
                         }}
                     />
-                    <div className="upload-box p-0 me-2 col-6 border">
+                    <div className="upload-box p-0 m-auto col-6 border">
                         <div className=" ratio ratio-1x1">
                             {profile.photo && <img src={profile.photo} />}
                             {/* 即時顯示圖片 */}
@@ -172,12 +172,14 @@ function ProfileContent(props) {
                     {/* </div> */}
                 </div>
                 {/* <!-- submit --> */}
-                <span
-                    className="btn submit mt-5 text-center"
-                    onClick={handleSubmit}
-                >
-                    完成
-                </span>
+                <div className="col-12 text-center">
+                    <span
+                        className="btn submit mt-5 text-center"
+                        onClick={handleSubmit}
+                    >
+                        完成
+                    </span>
+                </div>
             </div>
         </>
         // </Content>

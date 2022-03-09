@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Pagination(props) {
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(0);
     const { limit, total, offset, setOffset } = props;
 
     // console.log('limit :>> ', limit);
@@ -24,11 +24,11 @@ function Pagination(props) {
                                 }
                                 return (
                                     <li
-                                        className="active"
+                                        className={active == ++i && 'active'}
                                         key={i + 1}
                                         onClick={function () {
                                             setOffset(i * limit);
-                                            setActive(true);
+                                            setActive(++i);
                                         }}
                                     >
                                         {i + 1}

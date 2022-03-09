@@ -17,14 +17,9 @@ function Card(props) {
     const [isCart, setIsCart] = useState(false);
     const [isHeart, setIsHeart] = useState(false);
 
-    // 測試
-    // useEffect(
-    //     function () {
-    //         console.log('product.id :>> ', product.id);
-    //         console.log('isCart :>> ', isCart);
-    //     },
-    //     [isCart]
-    // );
+    //style
+    const [active, setActive] = useState(0);
+
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
     // console.log('cover :>> ', cover);
@@ -45,11 +40,13 @@ function Card(props) {
                     <div className="d-flex justify-content-between align-items-baseline mb-1">
                         <p className="card-title mb-0">{product.name}</p>
                         <i
-                            className="fas fa-heart heart"
-                            onClick={function () {
-                                if (!auth.current) {
-                                    auth.setShowLoginModal(true);
-                                }
+                            className={
+                                active == product.id
+                                    ? 'fas fa-heart heart active'
+                                    : 'fas fa-heart '
+                            }
+                            onClick={() => {
+                                setActive(product.id);
                             }}
                         ></i>
                     </div>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 function Pagination(props) {
+    //style
+    const [active, setActive] = useState('');
+
     const { onEvent, limit, total } = props;
     // console.log('limit :>> ', limit);
     // console.log('total :>> ', total);
@@ -22,9 +25,13 @@ function Pagination(props) {
                                 }
                                 return (
                                     <li
+                                        // style="color:red"
+                                        // className="active"
+                                        className={active == i ? 'active' : ''}
                                         key={i + 1}
                                         onClick={function (e) {
                                             onEvent(e, limit, i * limit);
+                                            setActive(i);
                                         }}
                                     >
                                         {i + 1}

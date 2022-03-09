@@ -17,7 +17,7 @@ function DownloadContent(props) {
     const auth = useAuthContext();
     const user = auth.user;
     // auth.current
-
+    const [active, setActive] = useState(1);
     const [checked, setChecked] = useState(false); //核取方塊
     const [statusId, setStatusId] = useState(0); // filter 狀態
     // const [download, setDownload] = useState([]); //給後端的{uid,pid....}要下載的東西
@@ -114,8 +114,13 @@ function DownloadContent(props) {
                     <div className="filter-box d-flex">
                         <ul className="sort-series p-0">
                             <li
-                                className="active py-2 px-3"
+                                className={
+                                    active === 1
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3 '
+                                }
                                 onClick={function () {
+                                    setActive(1);
                                     setStatusId(0);
                                     setOffset(1);
                                 }}
@@ -123,8 +128,13 @@ function DownloadContent(props) {
                                 全部
                             </li>
                             <li
-                                className="py-2 px-3"
+                                className={
+                                    active === 2
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3 '
+                                }
                                 onClick={function () {
+                                    setActive(2);
                                     setStatusId(1);
                                     setOffset(1);
                                 }}
@@ -132,8 +142,13 @@ function DownloadContent(props) {
                                 未下載
                             </li>
                             <li
-                                className="py-2 px-3"
+                                className={
+                                    active === 3
+                                        ? 'py-2 px-3 active'
+                                        : 'py-2 px-3 '
+                                }
                                 onClick={function () {
+                                    setActive(3);
                                     setStatusId(2);
                                     setOffset(1);
                                 }}

@@ -1,5 +1,5 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "variables" as var;
+@use "mixins" as mix;
 
 $-margin-top-for-breadcrumb-boxshadow: 20px;
 $-background-color: var.$gray;
@@ -32,13 +32,22 @@ $-link-color: var.$dark-blue;
                 @include mix.media(padding-left, $xs: 0.25rem);
                 color: rgb(143, 143, 143);
                 list-style: none;
-
             }
 
-            .nav-link:hover {
+            .nav-link {
+                &:hover {
+                    color: rgb(90, 90, 90);
+                    // background-color: rgb(143, 143, 143);
+                    border: dashed 1px rgb(122, 122, 122);
+                    border-radius: 20px;
+                    transition: 0.5s;
+                    box-shadow: 5px 5px 5px #ccc;
+                }
+            }
+            .active {
                 color: rgb(90, 90, 90);
                 // background-color: rgb(143, 143, 143);
-                border: dashed 1px rgb(122, 122, 122);
+                border: solid 1px rgb(122, 122, 122);
                 border-radius: 20px;
                 transition: 0.5s;
                 box-shadow: 5px 5px 5px #ccc;
