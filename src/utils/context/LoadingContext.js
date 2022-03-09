@@ -49,7 +49,7 @@ export function LoadingProvider(props) {
     // 元件
     function LoadingUI(props) {
         const { current } = props.shared;
-        console.log('current :>> ', current);
+        // console.log('current :>> ', current);
         return current ? (
             <div className="boxLoadingBackground">
                 <div className="boxLoading"></div>

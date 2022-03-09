@@ -402,12 +402,13 @@ body {
     div .heart {
         // margin-right: 10px;
         margin-top: -0.5rem;
-        color: #63727e;
-        &:hover {
-            color: #ef2f2f;
-            animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-            transform: translate3d(0, 0, 0);
-        }
+        // color: #63727e;
+        color: red;
+        // &:hover {
+        //     color: #ef2f2f;
+        //     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        //     transform: translate3d(0, 0, 0);
+        // }
         @keyframes shake {
             10%,
             90% {

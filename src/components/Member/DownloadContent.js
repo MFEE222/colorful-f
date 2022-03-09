@@ -90,8 +90,8 @@ function DownloadContent(props) {
             responseType: 'blob', // important
             // responseType: 'stream',
         });
-        // console.log('response :>> ', response);
-        // console.log('response.headers :>> ', response.headers);
+        console.log('response :>> ', response);
+        console.log('response.headers :>> ', response.headers);
         const url = window.URL.createObjectURL(
             new Blob([response.data], { type: 'application/zip' })
         );
@@ -231,8 +231,9 @@ function DownloadContent(props) {
                 <Pagination
                     total={counts}
                     limit={8}
-                    offset={offset}
-                    setOffset={setOffset}
+                    onEvent={function (limit, page) {
+                        setOffset(limit * (page - 1));
+                    }}
                 />
             </div>
             {/* 下載 */}

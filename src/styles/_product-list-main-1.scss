@@ -262,11 +262,11 @@ body {
         div i {
             margin-top: -0.5rem;
             color: #63727e;
-            &:hover {
-                color: #ef2f2f;
-                animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-                transform: translate3d(0, 0, 0);
-            }
+            // &:hover {
+            //     color: #ef2f2f;
+            //     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            //     transform: translate3d(0, 0, 0);
+            // }
             @keyframes shake {
                 10%,
                 90% {
@@ -288,6 +288,9 @@ body {
                 60% {
                     transform: translate3d(4px, 0, 0);
                 }
+            }
+            &.active {
+                color: #ef2f2f;
             }
         }
     }
@@ -317,7 +320,8 @@ body {
                 cursor: pointer;
             }
             &.active {
-                color: black;
+                // color: black;
+                color: red;
                 background-color: transparent;
                 border: 1px solid black;
             }

@@ -24,11 +24,11 @@ function Pagination(props) {
                                 }
                                 return (
                                     <li
-                                        className={active == ++i && 'active'}
-                                        key={i + 1}
+                                        className={active == i && 'active'}
+                                        key={i}
                                         onClick={function () {
                                             setOffset(i * limit);
-                                            setActive(++i);
+                                            setActive(i);
                                         }}
                                     >
                                         {i + 1}

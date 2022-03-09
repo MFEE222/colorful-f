@@ -92,7 +92,7 @@ export function ProductsProvider(props) {
 
         // willUnMount
         return function () {
-            console.log('Here is WillUnMount');
+            // console.log('Here is WillUnMount');
         };
     }, []);
 

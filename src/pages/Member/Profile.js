@@ -17,12 +17,25 @@ function Profile(props) {
     const user = auth.user;
     //TODO:設定進狀態[2]
     const [profile, setProfile] = useState({
-        name: user.name,
-        birthDay: user.birthday,
-        phone: user.phone,
-        email: user.email,
-        photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
+        name: '',
+        birthDay: '',
+        phone: '',
+        email: '',
+        photo: '',
     });
+
+    useEffect(
+        function () {
+            setProfile({
+                name: user.name,
+                birthDay: user.birthday,
+                phone: user.phone,
+                email: user.email,
+                photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
+            });
+        },
+        [auth]
+    );
 
     // 設定回狀態函式
     function handleChange(e) {

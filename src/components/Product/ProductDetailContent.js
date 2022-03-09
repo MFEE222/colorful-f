@@ -34,7 +34,7 @@ function ProductDetailContent(props) {
         `${IMG_URL2}/${product.img}/a2.jpg`,
         `${IMG_URL2}/${product.img}/a3.jpg`,
     ];
-    console.log('imgUrlAfter :>> ', imgUrlAfter);
+    // console.log('imgUrlAfter :>> ', imgUrlAfter);
     const imgUrlBefore = `${IMG_URL2}/${product.img}/b0.jpg`;
     useEffect(() => {
         setCurrent(`${IMG_URL2}/${product.img}/a1.jpg`);
@@ -116,10 +116,10 @@ function ProductDetailContent(props) {
                                                 className="ratios "
                                                 onClick={function () {
                                                     setCurrent(v);
-                                                    console.log(
-                                                        'current :>> ',
-                                                        current
-                                                    );
+                                                    // console.log(
+                                                    //     'current :>> ',
+                                                    //     current
+                                                    // );
                                                 }}
                                             >
                                                 <img src={v} alt="" />

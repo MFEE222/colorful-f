@@ -18,7 +18,7 @@ function Card(props) {
     const [isHeart, setIsHeart] = useState(false);
 
     //style
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState(false);
 
     // 商品封面圖
     const cover = process.env.REACT_APP_API_URL + '/' + product.img + '/a1.jpg';
@@ -41,19 +41,20 @@ function Card(props) {
                         <p className="card-title mb-0">{product.name}</p>
                         <i
                             className={
-                                active == product.id
+                                active
                                     ? 'fas fa-heart heart active'
                                     : 'fas fa-heart '
                             }
                             onClick={() => {
-                                setActive(product.id);
+                                // console.log('active :>> ', active);
+                                setActive(!active);
+                                if (!auth.current) {
+                                    auth.setShowLoginModal(true);
+                                }
                             }}
                         ></i>
                     </div>
-                    <div
-                        className="text-start d-flex  justify-content-between"
-                        onClick={!auth.current}
-                    >
+                    <div className="text-start d-flex  justify-content-between">
                         NT. {product.price}
                         <i
                             className="fas fa-shopping-cart"
