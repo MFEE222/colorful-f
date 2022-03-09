@@ -208,7 +208,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
@@ -232,13 +231,8 @@ function Test(props) {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
             >
-<<<<<<< HEAD
-                <div className="modal-dialog modal-dialog-centered ">
-                    <div className="modal-content  our-modal">
-=======
                 <div className="modal-dialog d-flex align-content-center">
                     <div className="modal-content  our-modal align-self-center">
->>>>>>> feature/test
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                                 粉色
@@ -263,7 +257,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productWedding}>
                                     <button
                                         type="button"
@@ -313,7 +306,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
@@ -363,7 +355,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
@@ -413,7 +404,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productScenery}>
                                     <button
                                         type="button"
@@ -463,7 +453,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productScenery}>
                                     <button
                                         type="button"
@@ -513,7 +502,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFilm}>
                                     <button
                                         type="button"
@@ -563,7 +551,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFilm}>
                                     <button
                                         type="button"
@@ -613,7 +600,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productFood}>
                                     <button
                                         type="button"
@@ -663,7 +649,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productWedding}>
                                     <button
                                         type="button"
@@ -713,7 +698,6 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                
                                 <LinkContainer to={routes.productPortrait}>
                                     <button
                                         type="button"
