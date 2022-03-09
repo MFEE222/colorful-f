@@ -15,12 +15,11 @@ function Signin(props) {
     });
     const [rememberMe, setRememberMe] = useState(false);
 
-    useEffect(function(){
+    useEffect(function () {
         const r = JSON.parse(localStorage.getItem('rememberMe'));
 
-        if (r)
-            setUser(r);
-    },[]);
+        if (r) setUser(r);
+    }, []);
 
     function handleChange(e) {
         const l = { ...user };
@@ -30,6 +29,7 @@ function Signin(props) {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        console.log('user :>> ', user);
         auth.login(user);
 
         if (rememberMe) {
@@ -37,12 +37,10 @@ function Signin(props) {
         }
     }
 
-
     function handleRememberMe(e) {
         console.log('e.target.checked :>> ', e.target.checked);
         setRememberMe(!rememberMe);
     }
-
 
     // 用來測試輸入帳號密碼是否會確實存入狀態
     // useEffect(
@@ -81,7 +79,6 @@ function Signin(props) {
     // useEffect(function () {
     //     console.log('user :>> ', user);
     // }, [user]);
-
 
     return auth.current ? (
         <Redirect to={routes.home} />
@@ -141,7 +138,6 @@ function Signin(props) {
                                         />
                                         <label htmlFor="checkbox"></label>
                                         <p className="remember-me">記住我</p>
-                                   
                                     </div>
                                 </div>
 
