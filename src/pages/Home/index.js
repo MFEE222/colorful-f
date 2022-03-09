@@ -14,11 +14,16 @@ import Slideshow from './slider';
 import Game from '../../pages/Game';
 
 //圖片
+
+//
+// import Game from '../Game';
+import Landing from './landing';
+
+//
 import portrait from '../../images/人像B.jpg';
 import portrait1 from '../../images/人像A.jpg';
 import circle from '../../images/colorful.svg';
 import circle1 from '../../images/colorful_1.svg';
-
 import page4 from '../../images/b0.jpg';
 import page2 from '../../images/home/home-page2.jpg';
 import video from '../../images/home/bg-banner-index.mp4';
@@ -45,7 +50,7 @@ function Home() {
             </div>
             {/* <Game /> */}
             <Link to={routes.game}>
-                <button className='game-btn'>
+                <button className="game-btn">
                     <img className="h-game" src={game} alt="" />
                 </button>
             </Link>

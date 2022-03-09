@@ -1,6 +1,7 @@
 export const routes = {
     // main
-    _home: '/',
+    _home: '/home',
+    _landing: '/',
     _auth: '/auth',
     _product: '/product',
     _member: '/member',
@@ -39,6 +40,9 @@ export const routes = {
     _checkout: '/checkout',
 
     // 第一層路由
+    get landing() {
+        return this._landing;
+    },
     get home() {
         return this._home;
     },
