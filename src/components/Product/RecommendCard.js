@@ -10,11 +10,13 @@ import {
 
 // 第三方
 import axios from 'axios';
-
 import Slider from 'react-slick';
+
 // 共用
+import { routes } from '../../utils/routes';
 import { API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
+
 // 自己
 import Card from './Card';
 
@@ -28,7 +30,7 @@ function RecommendCard(props) {
     const match = useRouteMatch();
     const products = useProductsContext();
     const recommend = props.recommend.recommend;
-    // console.log('recommend :>> ', recommend);
+    //設定slider
     var settings = {
         centerPadding: 30,
         dots: false,
@@ -90,10 +92,12 @@ function RecommendCard(props) {
                                             className="col-6 col-md-3 solve-padding"
                                         >
                                             <Card
-                                                product={v}
-                                                goTo={goTo}
                                                 className="mx-4"
-                                                find={products.find}
+                                                product={v}
+                                                to={routes.productDetail(v.id)}
+                                                onEvent={function () {
+                                                    products.find(v);
+                                                }}
                                             />
                                         </div>
                                     );

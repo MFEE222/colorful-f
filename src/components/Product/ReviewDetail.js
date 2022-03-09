@@ -7,9 +7,8 @@ import { Modal, Button } from 'react-bootstrap';
 import Slider from 'react-slick';
 
 // 共用
-import { API_URL, IMG_URL } from '../../utils/config';
+import { API_URL, IMG_URL, IMG_URL2 } from '../../utils/config';
 import { useAuthContext } from '../../utils/context/AuthContext';
-
 
 // 圖片
 import DemoImgFigure from '../../images/portrait01.jpg';
@@ -17,7 +16,7 @@ import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
 
 // 自己
-// import ReviewThumbUp from './ReviewThumbUp';
+import ReviewThumbUp from './ReviewThumbUp';
 import ShowStar from './ShowStar';
 import ReviewSlider from './ReviewSlider';
 // import ReviewImgs from './ReviwImgs';
@@ -27,12 +26,17 @@ function ReviewDetail(props) {
 
     //鉤子
     const [modalShow, setModalShow] = useState(false);
+    const [showImg, setShowImg] = useState([]);
     const reviews = props.reviews;
-    console.log('reviews :>> ', reviews);
-    const counts = reviews.length; //評論數
+    // console.log('reviews :>> ', reviews);
 
-    const img = props.img;
-    console.log('props :>> ', img);
+    const counts = reviews.length; //評論數
+    const all = reviews.map((v) => {
+        return v.photos;
+    });
+    const allImg = all.flat();
+
+    //設定slider
     var settings = {
         dots: true,
         infinite: false,
@@ -60,6 +64,7 @@ function ReviewDetail(props) {
             },
         ],
     };
+    //彈跳視窗
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal
@@ -71,10 +76,16 @@ function ReviewDetail(props) {
             >
                 <ReviewSlider
                     // imgArray={} 照片數組
-                    img={'../../images/portrait01.jpg'}
+                    // img={allImg}
+                    img={props.imgs}
                 ></ReviewSlider>
             </Modal>
         );
+    }
+
+    function handleModalShow(show, imgs) {
+        setModalShow(show);
+        setShowImg(imgs);
     }
 
     //TODO:撰寫評論先判斷是否登入(react.semantic-ui=>Multiple Modals)
@@ -120,10 +131,16 @@ function ReviewDetail(props) {
                                     </ul>
 
                                     <div className="col-auto align-self-center mt-3">
-                                        <button className="add-review"
-                                         onClick={function () {
-                            if(!auth.current){auth.setShowLoginModal(true);}
-                            }}>
+                                        <button
+                                            className="add-review"
+                                            onClick={function () {
+                                                if (!auth.current) {
+                                                    auth.setShowLoginModal(
+                                                        true
+                                                    );
+                                                }
+                                            }}
+                                        >
                                             撰寫評論
                                         </button>
                                         {/* 判斷是否登入->導向登入會員 */}
@@ -138,44 +155,19 @@ function ReviewDetail(props) {
                     <div className="row flex-nowrap review-img-slider mx-0">
                         <Slider {...settings}>
                             {/* props 圖片數組.map */}
-                            <div
-                                className=" ratio ratio-1x1 solve-padding"
-                                onClick={() => setModalShow(true)}
-                            >
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding ">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
-
-                            <div className=" ratio ratio-1x1 solve-padding">
-                                <img src={DemoImgProduct} alt="" />
-                            </div>
+                            {allImg.map((v, i, arr) => {
+                                return (
+                                    <div
+                                        key={i}
+                                        className=" ratio ratio-1x1 solve-padding"
+                                        onClick={() => {
+                                            handleModalShow(true, arr);
+                                        }}
+                                    >
+                                        <img src={v} alt="" />
+                                    </div>
+                                );
+                            })}
                         </Slider>
                     </div>
                 </div>
@@ -184,7 +176,7 @@ function ReviewDetail(props) {
                     {reviews.map((v) => {
                         return (
                             <>
-                                <div className="review-card" key={v.r_id}>
+                                <div className="review-card" key={v.id}>
                                     <div className="d-flex ">
                                         <div className="col-md-auto figure">
                                             <img
@@ -197,87 +189,78 @@ function ReviewDetail(props) {
                                         <div className="review-card-detail col">
                                             <div className="d-flex justify-content-between justify-content-start align-items-start">
                                                 <p className="review-name me-3 p-0 mb-0">
-                                                    {v.u_name}
+                                                    {v.name}
                                                 </p>
                                                 <p className="review-day align-self-center mb-0">
-                                                    {v.r_created_at}
+                                                    發表於 {v.edited_at}
                                                 </p>
                                             </div>
                                             <div>
                                                 <ul className="d-flex align-items-center ul-unstyle mb-3">
                                                     <ShowStar>
-                                                        {v.r_stars}
+                                                        {v.stars}
                                                     </ShowStar>
                                                 </ul>
                                             </div>
                                             <div>
                                                 <p className="review-card-text">
-                                                    {v.r_content}
+                                                    {v.content}
                                                 </p>
                                             </div>
 
                                             <div className="row m-0 review-list-img ">
-                                                <div
-                                                    className="box"
-                                                    onClick={() =>
-                                                        setModalShow(true)
-                                                    }
-                                                >
+                                                <div className="box">
                                                     <div className=" d-flex flex-nowrap ">
                                                         {/* map 照片數組｀ */}
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
-                                                        <img
-                                                            src={DemoImgProduct}
-                                                            alt=""
-                                                            className="object-fit me-3"
-                                                        />
+                                                        {v.photos.map(
+                                                            (a, i, arr) => {
+                                                                return (
+                                                                    <img
+                                                                        key={i}
+                                                                        src={a}
+                                                                        alt=""
+                                                                        className="object-fit me-3"
+                                                                        onClick={() => {
+                                                                            handleModalShow(
+                                                                                true,
+                                                                                arr
+                                                                            );
+                                                                        }}
+                                                                    />
+                                                                );
+                                                            }
+                                                        )}
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div className="thumbs-list">
+                                                <ul className="">
+                                                    <li>這則評論有幫助嗎？</li>
+
+                                                    <ReviewThumbUp>
+                                                        {v.likes}
+                                                    </ReviewThumbUp>
+                                                    <li>
+                                                        {/* 按過顯示fas */}
+                                                        <i className="fas fa-thumbs-up"></i>
+                                                        {/* <i className="far fa-thumbs-up "></i> */}
+                                                        {v.likes}
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                     {/* //TODO:按讚小功能 */}
-                                    {/* <div className="thumbs-list">
-                                        <ul className="">
-                                            <li>這則評論有幫助嗎？</li>
-
-                                            <ReviewThumbUp>
-                                                {data.r_likes}
-                                            </ReviewThumbUp>
-                                            {/* <li onClick={isLike()}> */}
-                                    {/* 按過顯示fas */}
-                                    {/* <i className="fas fa-thumbs-up"></i>
-                                            <i className="far fa-thumbs-up "></i>
-                                            {data.likes}
-                                        </li> */}
-                                    {/* </ul>  */}
-                                    {/* </div> */}
                                 </div>
                             </>
                         );
                     })}
                     <MyVerticallyCenteredModal
                         show={modalShow}
-                        onHide={() => setModalShow(false)}
+                        onHide={() => {
+                            handleModalShow(false, showImg);
+                        }}
+                        imgs={showImg}
                     />
                 </div>
             </div>
