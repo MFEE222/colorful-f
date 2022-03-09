@@ -19,7 +19,7 @@ function ProductDetail(props) {
     const [review, setReview] = useState([]); //商品評論區
     const product = useProductsContext();
     //函數
-
+    console.log('product.current.id :>> ', product.current.id);
     useEffect(() => {
         (async () => {
             const response = await axios.get(
@@ -36,6 +36,7 @@ function ProductDetail(props) {
             });
             setReview(response.data.newReviewDetail);
         })();
+        console.log('review :>> ', review);
     }, [product.current]);
 
     // 渲染

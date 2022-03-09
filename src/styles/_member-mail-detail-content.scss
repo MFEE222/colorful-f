@@ -1,26 +1,27 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "variables" as var;
+@use "mixins" as mix;
 
 .member-mail-detail {
-    @include mix.media(padding, $xs: 0.8rem, $md: 1.5rem);
+    @include mix.media(padding, $xs: 1rem, $md: 1.5rem);
 
     .mail-card {
-        height: 200vh;
+        // height: 200vh;
         @include mix.media(border, $xs: none, $md: solid 1px #ccc);
         @include mix.media(border-bottom, $xs: solid 1px #ccc, $md: none);
         @include mix.media(border-radius, $xs: 0, $md: 20px);
-        @include mix.media(box-shadow,
+        @include mix.media(
+            box-shadow,
             $xs: 0,
-            $md: 3px 3px 15px rgba(80, 93, 104, 0.18));
-        @include mix.media(padding, $md: 10px 15px);
+            $md: 3px 3px 15px rgba(80, 93, 104, 0.18)
+        );
+        @include mix.media(padding, $md: 1rem 15px);
         @include mix.media(margin, $md: 1.5rem 0);
 
         h4 {
-            color: #63727E;
+            color: #63727e;
             padding-top: 10px;
             padding-bottom: 10px;
             @include mix.media(font-size, $xs: 16px, $md: 20px);
-
         }
 
         p {
@@ -40,5 +41,4 @@
             color: #fff;
         }
     }
-
 }

@@ -112,7 +112,7 @@ function SideBarLeft(props) {
                     </Link>
                 </li>
 
-                <li className="col-6 col-md-12 nav-item">
+                <li className="col-6 col-md-9 nav-item">
                     <Link to="" className="nav-link" onClick={auth.clear}>
                         登出
                     </Link>

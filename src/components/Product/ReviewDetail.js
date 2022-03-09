@@ -28,23 +28,23 @@ function ReviewDetail(props) {
     const [modalShow, setModalShow] = useState(false);
     const [showImg, setShowImg] = useState([]);
     const reviews = props.reviews;
-    // console.log('reviews :>> ', reviews);
+    console.log('reviews :>> ', reviews);
 
     const counts = reviews.length; //評論數
     const all = reviews.map((v) => {
         return v.photos;
     });
     const allImg = all.flat();
-    const demoImg = [
-        'http://localhost:3003/images/scenery/a1/a1.jpg',
-        'http://localhost:3003/images/scenery/b1/a1.jpg',
-        'http://localhost:3003/images/scenery/c1/a1.jpg',
-        'http://localhost:3003/images/scenery/d1/a1.jpg',
-        'http://localhost:3003/images/scenery/e1/a1.jpg',
-        'http://localhost:3003/images/scenery/f1/a1.jpg',
-        'http://localhost:3003/images/scenery/g1/a1.jpg',
-        'http://localhost:3003/images/scenery/h1/a1.jpg',
-    ];
+    // const demoImg = [
+    //     'http://localhost:3003/images/scenery/a1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/b1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/c1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/d1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/e1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/f1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/g1/a1.jpg',
+    //     'http://localhost:3003/images/scenery/h1/a1.jpg',
+    // ];
 
     //設定slider
     var settings = {
@@ -165,7 +165,7 @@ function ReviewDetail(props) {
                     <div className="row flex-nowrap review-img-slider mx-0">
                         <Slider {...settings}>
                             {/* props 圖片數組.map */}
-                            {/* {allImg.map((v, i, arr) => {
+                            {allImg.map((v, i, arr) => {
                                 return (
                                     <div
                                         key={i}
@@ -177,8 +177,8 @@ function ReviewDetail(props) {
                                         <img src={v} alt="" />
                                     </div>
                                 );
-                            })} */}
-                            {demoImg.map(function (v, i, arr) {
+                            })}
+                            {/* {demoImg.map(function (v, i, arr) {
                                 return (
                                     <div
                                         key={i}
@@ -190,13 +190,14 @@ function ReviewDetail(props) {
                                         <img src={v} alt="" />
                                     </div>
                                 );
-                            })}
+                            })} */}
                         </Slider>
                     </div>
                 </div>
                 {/* 評論卡 */}
                 <div className="pd-6 pd-shared">
                     {reviews.map((v) => {
+                        console.log(`${IMG_URL2}/${v.figure}`);
                         return (
                             <>
                                 <div className="review-card" key={v.id}>
@@ -204,7 +205,7 @@ function ReviewDetail(props) {
                                         <div className="col-md-auto figure">
                                             <img
                                                 // 換成資料庫圖片
-                                                src={DemoImgFigure}
+                                                src={`${IMG_URL2}/${v.figure}/${v.user_id}.jpg`}
                                                 alt=""
                                                 className="object-fit "
                                             />
@@ -213,9 +214,6 @@ function ReviewDetail(props) {
                                             <div className="d-flex justify-content-between justify-content-start align-items-start">
                                                 <p className="review-name me-3 p-0 mb-0">
                                                     {v.name}
-                                                </p>
-                                                <p className="review-day align-self-center mb-0">
-                                                    發表於 {v.edited_at}
                                                 </p>
                                             </div>
                                             <div>

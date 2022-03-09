@@ -13,7 +13,7 @@ function MailContent(props) {
             <div className="container">
                 {/* title */}
                 <div className="row">
-                    <div className="col-auto mail-title">
+                    <div className="col-auto mail-title mb-3">
                         <h2 className="title">信件總覽</h2>
                     </div>
                 </div>
@@ -23,7 +23,6 @@ function MailContent(props) {
                         <h4>會員通知</h4>
                         <p>
                             Hi！恭喜您成功註冊會員，歡迎加入輕鬆修圖的行列，可以立即享受購物的樂趣!
-                            
                         </p>
                         <p>2022/03/09</p>
                         <Link
