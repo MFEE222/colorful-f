@@ -17,7 +17,7 @@ import Game from '../../pages/Game';
 
 //
 // import Game from '../Game';
-import Landing from './landing';
+// import Landing from './landing';
 
 //
 import portrait from '../../images/人像B.jpg';
