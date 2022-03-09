@@ -10,7 +10,6 @@ import { IMG_URL2, API_URL } from '../../utils/config';
 import { useProductsContext } from '../../utils/context/ProductsContext';
 import { useAuthContext } from '../../utils/context/AuthContext';
 
-
 // 自己
 // import { imgName } from '../../utils/imageName';
 import ShowStar from './ShowStar';
@@ -35,7 +34,7 @@ function ProductDetailContent(props) {
         `${IMG_URL2}/${product.img}/a2.jpg`,
         `${IMG_URL2}/${product.img}/a3.jpg`,
     ];
-    // console.log('imgUrlAfter :>> ', imgUrlAfter);
+    console.log('imgUrlAfter :>> ', imgUrlAfter);
     const imgUrlBefore = `${IMG_URL2}/${product.img}/b0.jpg`;
     useEffect(() => {
         setCurrent(`${IMG_URL2}/${product.img}/a1.jpg`);
@@ -78,19 +77,30 @@ function ProductDetailContent(props) {
                             <div className="col-12 row p-0 m-0 align-items-center justify-content-between mt-md-3">
                                 <div className="col-auto  mb-xl-2">
                                     <div className="wish-list-2 mb-xl-1">
-                                        <i className="far fa-heart"
-                                         onClick={function () {
-                            if(!auth.current){auth.setShowLoginModal(true);}
-                            }}></i>
+                                        <i
+                                            className="far fa-heart"
+                                            onClick={function () {
+                                                if (!auth.current) {
+                                                    auth.setShowLoginModal(
+                                                        true
+                                                    );
+                                                }
+                                            }}
+                                        ></i>
                                     </div>
                                     <p className="price my-1 mb-xxl-4">
                                         NT. {product.price}
                                     </p>
                                 </div>
                                 <div className="col-auto col-xl-12">
-                                    <button className="add-cart"  onClick={function () {
-                            if(!auth.current){auth.setShowLoginModal(true);}
-                            }}>
+                                    <button
+                                        className="add-cart"
+                                        onClick={function () {
+                                            if (!auth.current) {
+                                                auth.setShowLoginModal(true);
+                                            }
+                                        }}
+                                    >
                                         加入購物車
                                     </button>
                                 </div>

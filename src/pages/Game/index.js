@@ -58,7 +58,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#coffeeResult"
+                    data-bs-target="#redResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/07%e8%8c%b6%e8%89%b2.jpg"

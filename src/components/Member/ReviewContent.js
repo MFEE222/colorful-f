@@ -22,7 +22,7 @@ function ReviewContent(props) {
     //TODO: 登入狀態
 
     const auth = useAuthContext();
-    console.log('auth.user :>> ', auth.user);
+    // console.log('auth.user :>> ', auth.user);
     const user = auth.user;
 
     const match = useRouteMatch();
