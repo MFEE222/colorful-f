@@ -35,6 +35,16 @@ function ReviewDetail(props) {
         return v.photos;
     });
     const allImg = all.flat();
+    const demoImg = [
+        'http://localhost:3003/images/scenery/a1/a1.jpg',
+        'http://localhost:3003/images/scenery/b1/a1.jpg',
+        'http://localhost:3003/images/scenery/c1/a1.jpg',
+        'http://localhost:3003/images/scenery/d1/a1.jpg',
+        'http://localhost:3003/images/scenery/e1/a1.jpg',
+        'http://localhost:3003/images/scenery/f1/a1.jpg',
+        'http://localhost:3003/images/scenery/g1/a1.jpg',
+        'http://localhost:3003/images/scenery/h1/a1.jpg',
+    ];
 
     //設定slider
     var settings = {
@@ -155,11 +165,24 @@ function ReviewDetail(props) {
                     <div className="row flex-nowrap review-img-slider mx-0">
                         <Slider {...settings}>
                             {/* props 圖片數組.map */}
-                            {allImg.map((v, i, arr) => {
+                            {/* {allImg.map((v, i, arr) => {
                                 return (
                                     <div
                                         key={i}
                                         className=" ratio ratio-1x1 solve-padding"
+                                        onClick={() => {
+                                            handleModalShow(true, arr);
+                                        }}
+                                    >
+                                        <img src={v} alt="" />
+                                    </div>
+                                );
+                            })} */}
+                            {demoImg.map(function (v, i, arr) {
+                                return (
+                                    <div
+                                        key={i}
+                                        className="ratio ratio-1x1 solve-padding"
                                         onClick={() => {
                                             handleModalShow(true, arr);
                                         }}
