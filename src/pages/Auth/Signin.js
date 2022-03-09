@@ -3,6 +3,10 @@ import { Link, Redirect } from 'react-router-dom';
 import { useAuthContext } from '../../utils/context/AuthContext';
 import { routes } from '../../utils/routes';
 
+//
+import success from '../../images/成功.png';
+import fail from '../../images/失敗.png';
+
 // Q: React 重新整理狀態會消失，那上一頁會嗎？
 // A: 經測試，上一頁下一頁不會使狀態消失 (應該吧)
 
@@ -14,6 +18,7 @@ function Signin(props) {
         password: '',
     });
     const [rememberMe, setRememberMe] = useState(false);
+    const [login ,setLogin] = useState(false);
 
     useEffect(function () {
         const r = JSON.parse(localStorage.getItem('rememberMe'));
@@ -35,12 +40,17 @@ function Signin(props) {
         if (rememberMe) {
             localStorage.setItem('rememberMe', JSON.stringify(user));
         }
+
+
+
     }
 
     function handleRememberMe(e) {
         console.log('e.target.checked :>> ', e.target.checked);
         setRememberMe(!rememberMe);
     }
+
+
 
     // 用來測試輸入帳號密碼是否會確實存入狀態
     // useEffect(
@@ -159,6 +169,9 @@ function Signin(props) {
                                     <button
                                         type="submit"
                                         onClick={handleSubmit}
+                                        // className="btn btn-primary"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"
                                     >
                                         Sign in
                                     </button>
@@ -175,6 +188,73 @@ function Signin(props) {
                                     </p>
                                 </div>
                             </form>
+                        </div>
+                        
+                        {/* Modal  */}
+                        <div
+                            className="modal fade"
+                            id="staticBackdrop"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabindex="-1"
+                            aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true"
+                        >
+                            <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button
+                                            type="button"
+                                            className="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <img
+                                            className="modal-pic"
+                                            src={success}
+                                            alt=""
+                                        />
+                                        <h5 className="body-text mt-3">
+                                            您已成功登入
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Modal  */}
+                        <div
+                            className="modal fade"
+                            id="staticBackdrop"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabindex="-1"
+                            aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true"
+                        >
+                            <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <button
+                                            type="button"
+                                            className="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <img
+                                            className="modal-pic"
+                                            src={fail}
+                                            alt=""
+                                        />
+                                        <h5 className="body-text mt-3">
+                                            您登入失敗
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

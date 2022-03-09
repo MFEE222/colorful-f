@@ -1,0 +1,20 @@
+@use "variables"as var;
+@use "mixins"as mix;
+
+.modal {
+    .modal-content {
+        background: #fff;
+        color: #000;
+    }
+
+    .modal-pic {
+        width: 200px;
+        display: block;
+        margin: auto;
+    }
+    .body-text {
+        font-size: 24px;
+        text-align: center;
+        
+    }
+}
