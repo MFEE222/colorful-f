@@ -1,0 +1,70 @@
+@use "mixins"as mix;
+
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    justify-content: center;
+    z-index: 1050;
+
+    .labal {
+        text-align: center;
+    }
+
+    .box {
+        z-index: 1055;
+        border-radius: 15px;
+        align-self: center;
+        background-color: white;
+        @include mix.media(width, $xs: 500px, $lg: 600px);
+        @include mix.media(line-height, $xs: 2rem, $lg: 2rem);
+        @include mix.media(height, $xs: 400px, $lg: 400px);
+
+        .login {
+            padding: 0 1rem;
+            border: 1px solid black;
+            border-radius: 15px;
+            margin-top: 1rem;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .signup {
+            padding: 0.3rem 1rem;
+            text-decoration: none;
+            color: #000;
+
+            &:link {
+                color: #000
+            }
+
+            &:active {
+                color: #000
+            }
+        }
+
+
+        .modal-left {
+            @include mix.media(width, $xs: 95%, $md:60%);
+            text-align: center;
+        }
+
+        .modal-right {
+            // width: 50%;
+            
+
+            .right-pic {
+                object-fit: cover;
+                height: 400px;
+                @include mix.media(height, $xs: 300px, $md:400px);
+
+                @include mix.media(opacity, $xs: 0, $md:1);
+                border-radius: 0 15px 15px 0;
+            }
+        }
+    }
+}

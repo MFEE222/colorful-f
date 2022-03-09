@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { Redirect, useRouteMatch } from 'react-router-dom';
-
+import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
     API_POST_AUTH_LOGIN,
@@ -9,8 +10,12 @@ import {
     API_POST_AUTH_RESET_PASSWORD,
 } from '../config';
 import { STATUS_MSG } from '../others/status';
+
+//圖
+import login from '../../images/film001.jpg';
+
 // 通用元件
-// import routes from '../routes';
+import { routes } from '../routes';
 
 // Context
 const AuthContext = React.createContext(
@@ -32,6 +37,7 @@ export function AuthProvider(props) {
     const [isLogin, setIsLogin] = useState(true);
     const [user, setUser] = useState({ id: 1 });
     const [allowReset, setAllowReset] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     // 共享狀態
     const { option } =
@@ -50,6 +56,8 @@ export function AuthProvider(props) {
         forget, // axios
         allowReset,
         setAllowReset,
+        setShowLoginModal,
+        showLoginModal,
         // reset,  // 發送重設密碼請求，重設成功後要記得把 allowReset 設為 false
     };
 
@@ -139,7 +147,10 @@ export function AuthProvider(props) {
     // 渲染
     return (
         <AuthContext.Provider value={shared}>
-            {props.children}
+            {/* {props.children} */}
+            <LoginModal shared={shared} onHide={() => setShowLoginModal(false)}>
+                {props.children}
+            </LoginModal>
         </AuthContext.Provider>
     );
 }
@@ -152,4 +163,137 @@ export function AuthConsumer(props) {
 // useContext
 export function useAuthContext() {
     return React.useContext(AuthContext);
+}
+
+// 內部元件
+function LoginModal(props) {
+    const { showLoginModal, setShowLoginModal } = props.shared;
+    // console.log('props.shared :>> ', props.shared);
+    const [user, setUser] = useState({ account: '', password: '' });
+
+    function handleChange(e) {
+        const newUser = { ...user };
+        newUser[e.target.name] = e.target.value;
+        setUser(newUser);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.shared.login(user);
+    }
+
+    const temp = (
+        <div>
+            <div className="d-flex align-content-center mt-2">
+                <label htmlFor="email" className="col-3 labal">
+                    帳號
+                </label>
+                <input
+                    className="col mb-2"
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="d-flex align-content-center mt-2">
+                <label htmlFor="password" className="col-3 labal">
+                    密碼
+                </label>
+                <input
+                    className="col mb-2"
+                    type="text"
+                    name="password"
+                    value={user.password}
+                    onChange={handleChange}
+                />
+            </div>
+            {/* <button type="submit" onClick={handleSubmit} className="row">
+                send
+            </button> */}
+        </div>
+    );
+    return showLoginModal ? (
+        <>
+            <div
+                className="auth-modal"
+                onClick={function (e) {
+                    setShowLoginModal(false);
+                }}
+            >
+                <div
+                    className="box row"
+                    onClick={function (e) {
+                        e.stopPropagation();
+                    }}
+                >
+                    <div className="col-12 col-md-9 modal-left">
+                        <div className="header d-flex my-3 align-content-center justify-content-center">
+                            <div className="text-center">您有會員嗎？</div>
+                        </div>
+                        <div className="border-top w-100 my-3"></div>
+                        <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
+                            <div className="col-12">
+                                {temp}
+                                
+                            </div>
+                            <button
+                                    type="submit"
+                                    className="col-auto justify-content-end 
+                                    align-items-end login"
+                                    // type="submit"
+                                    onClick={handleSubmit}
+                                >
+                                    <p className="m-0">登入</p>
+                                </button>
+                            <div className="col-12">
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <Link
+                                        className="signup mt-2"
+                                        onClick={function (e) {
+                                            setShowLoginModal(false);
+                                        }}
+                                        to={routes.signup}
+                                    >
+                                        前往註冊
+                                        <i className="ps-2 fas fa-long-arrow-alt-right"></i>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="row justify-content-center mt-2">
+                                擁有會員能享有更多專屬功能
+                            </div>
+                        </div>
+                    </div>
+                    <div className="d-none d-md-block col-md-3 modal-right justify-content-end">
+                        <img className="right-pic" src={login} alt="" />
+                    </div>
+                </div>
+            </div>
+            {props.children}
+        </>
+    ) : (
+        // <div>
+        //     {/* 你這個要用 position: absolute */}
+        //     <div
+        //         style={{
+        //             backgroundColor: 'rgba(0, 0, 0, 0.2)',
+        //             width: '300px',
+        //             height: '300px',
+        //         }}
+        //         className="position-absoulte top-0 left-0 right-0 bottom-0"
+        //     >
+        //         <h1>請登入</h1>
+        //         <h2
+        //             onClick={function () {
+        //                 setShowLoginModal(false);
+        //             }}
+        //         >
+        //             取消
+        //         </h2>
+        //     </div>
+        //     {props.children}
+        // </div>
+        <>{props.children}</>
+    );
 }

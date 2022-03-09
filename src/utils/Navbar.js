@@ -131,17 +131,6 @@ function OurNavbar(props) {
                                 <i className="fas fa-bell"></i>
                             </Nav.Link>
                         </LinkContainer>
-
-                        <LinkContainer to={routes.member}>
-                            <Nav.Link
-                                className="link-item"
-                                id="colorful-favorite-link"
-                            >
-                                <span className="text">Favorite</span>
-                                <i className="fas fa-heart"></i>
-                            </Nav.Link>
-                        </LinkContainer>
-
                         <LinkContainer
                             to={auth.current ? routes.member : routes.signin}
                         >
@@ -150,19 +139,47 @@ function OurNavbar(props) {
                                 id="colorful-member-link"
                             >
                                 <span className="text">User</span>
-                                <i className="fas fa-user"></i>
+
+                                <i className="fas fa-user ">
+                                    {auth.current && `hi,${auth.user.name}`}
+                                </i>
+                            </Nav.Link>
+                        </LinkContainer>
+                        {/* (auth.current?) */}
+                        <LinkContainer to={auth.current?routes.member:routes.signin} >
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-favorite-link"
+                            >
+                                <span className="text">Favorite</span>
+                                <i className="fas fa-heart"
+                            
+                            >
+                                
+                            </i>
                             </Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to={routes.cart}>
+                        <LinkContainer to={(auth.current)?routes.cart:routes.signin}>
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-cart-link"
                             >
                                 <span className="text">Cart</span>
-                                <i className="fas fa-shopping-cart"></i>
+                                <i className="fas fa-shopping-cart"
+                                  onClick={function () {
+                            if(!auth.current){auth.setShowLoginModal(true);}
+                            }}></i>
                             </Nav.Link>
                         </LinkContainer>
+                        {/* <button
+                            onClick={function () {
+                                auth.setShowLoginModal(true);
+                            }}
+                        >
+                            show modal
+                            <i className="fas fa-heart"></i>
+                        </button> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

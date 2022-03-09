@@ -8,6 +8,8 @@ import Slider from 'react-slick';
 
 // 共用
 import { API_URL, IMG_URL } from '../../utils/config';
+import { useAuthContext } from '../../utils/context/AuthContext';
+
 
 // 圖片
 import DemoImgFigure from '../../images/portrait01.jpg';
@@ -21,6 +23,8 @@ import ReviewSlider from './ReviewSlider';
 // import ReviewImgs from './ReviwImgs';
 
 function ReviewDetail(props) {
+    const auth = useAuthContext();
+
     //鉤子
     const [modalShow, setModalShow] = useState(false);
     const reviews = props.reviews;
@@ -116,7 +120,10 @@ function ReviewDetail(props) {
                                     </ul>
 
                                     <div className="col-auto align-self-center mt-3">
-                                        <button className="add-review">
+                                        <button className="add-review"
+                                         onClick={function () {
+                            if(!auth.current){auth.setShowLoginModal(true);}
+                            }}>
                                             撰寫評論
                                         </button>
                                         {/* 判斷是否登入->導向登入會員 */}
