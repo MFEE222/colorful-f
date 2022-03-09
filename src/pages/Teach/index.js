@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 //
 import page1 from '../../images/教學頁/teach-p1.jpg';
-import page2 from '../../images/teach-p2.jpg';
+import page2 from '../../images/教學頁/teach-p2.jpg';
 import page4 from '../../images/教學頁/teach-p4.mp4';
-import video from '../../images/英文版手機教學.mpg';
+import video from '../../images/教學頁/英文版手機教學.mpg';
 import Download from '../../images/教學頁/教學文件檔案.pdf';
 
 function Teach() {
@@ -24,7 +24,8 @@ function Teach() {
                     <div className="col-12 col-lg-7 pt-5 page-two-headline overflow-hidden">
                         <h1 className="teach-font fs-1 fw-bold m-5">
                             如何在桌機及行動裝置上使用
-                            <br /> Lightroom 濾鏡包<br />
+                            <br /> Lightroom 濾鏡包
+                            <br />
                             點選下載按鈕，教您如何快速上手
                         </h1>
                         <p className="m-5 pe-5">
@@ -79,9 +80,9 @@ function Teach() {
                                 <iframe
                                     className="video"
                                     src="https://www.youtube.com/embed/-EKH1f1DdC8"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     title="YouTube video player"
-                                    allowfullscreen
+                                    allowFullScreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
@@ -106,9 +107,9 @@ function Teach() {
                                     className="video"
                                     src="https://www.youtube.com/embed/6hPpFZKeaIY"
                                     title="YouTube video player"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
+                                    allowFullScreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
