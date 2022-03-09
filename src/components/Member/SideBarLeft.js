@@ -23,24 +23,24 @@ function SideBarLeft(props) {
                         訂單管理
                     </Link>
                 </li>
-                <li className="col-6 col-md-12 nav-item">
-                    <Link to={routes.collect} className="nav-link">
-                        {/* <i className="fas fa-caret-right"></i> */}
-                        我的最愛
-                    </Link>
-                </li>
+                {/* <li className="col-6 col-md-12 nav-item"> */}
+                {/* <Link to={routes.collect} className="nav-link"> */}
+                {/* <i className="fas fa-caret-right"></i> */}
+                {/* 我的最愛 */}
+                {/* </Link> */}
+                {/* </li> */}
                 <li className="col-6 col-md-12 nav-item">
                     <Link to={routes.mail} className="nav-link">
                         {/* <i className="fas fa-caret-right"></i> */}
                         我的信箱
                     </Link>
                 </li>
-                <li className="col-6 col-md-12 nav-item">
-                    <Link to={routes.payment} className="nav-link">
-                        {/* <i className="fas fa-caret-right"></i> */}
-                        付款資訊
-                    </Link>
-                </li>
+                {/* <li className="col-6 col-md-12 nav-item"> */}
+                {/* <Link to={routes.payment} className="nav-link"> */}
+                {/* <i className="fas fa-caret-right"></i> */}
+                {/* 付款資訊 */}
+                {/* </Link> */}
+                {/* </li> */}
                 <li className="col-6 col-md-12 nav-item">
                     <Link to={routes.download} className="nav-link">
                         {/* <i className="fas fa-caret-right"></i> */}
