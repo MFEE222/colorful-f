@@ -80,9 +80,9 @@ function Teach() {
                                 <iframe
                                     className="video"
                                     src="https://www.youtube.com/embed/-EKH1f1DdC8"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     title="YouTube video player"
-                                    allowfullscreen
+                                    allowFullScreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
@@ -107,9 +107,9 @@ function Teach() {
                                     className="video"
                                     src="https://www.youtube.com/embed/6hPpFZKeaIY"
                                     title="YouTube video player"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
+                                    allowFullScreen
                                 ></iframe>
                             </div>
                             <div className="overflow-hidden t-v-text">
