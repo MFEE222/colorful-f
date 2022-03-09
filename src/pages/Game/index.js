@@ -16,6 +16,20 @@ const imgs = [
     'http://localhost/colorful-f/src/images/film008.jpg',
     'http://localhost/colorful-f/src/images/film009.jpg',
 ];
+
+// import Img1 from '../../images/game/1.jpg';
+// import Img2 from '../../images/game/2.jpg';
+// import Img3 from '../../images/game/3.jpg';
+// import Img4 from '../../images/game/4.jpg';
+// import Img5 from '../../images/game/5.jpg';
+// import Img6 from '../../images/game/6.jpg';
+// import Img7 from '../../images/game/7.jpg';
+// import Img8 from '../../images/game/8.jpg';
+// import Img9 from '../../images/game/9.jpg';
+// import Img10 from '../../images/game/10.jpg';
+// import Img11 from '../../images/game/11.jpg';
+// import Img12 from '../../images/game/12.jpg';
+
 function Test(props) {
     // const imgs = [
 
@@ -47,7 +61,8 @@ function Test(props) {
                     data-bs-target="#coffeeResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/07%e8%8c%b6%e8%89%b2.jpg"
+                        // src="http://localhost/colorful-f/src/images/07%e8%8c%b6%e8%89%b2.jpg"
+                        src={require('../../images/game/1.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -58,7 +73,8 @@ function Test(props) {
                     data-bs-target="#greyResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/08%e7%81%b0.jpg"
+                        // src="http://localhost/colorful-f/src/images/08%e7%81%b0.jpg"
+                        src={require('../../images/game/2.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -69,7 +85,8 @@ function Test(props) {
                     data-bs-target="#blackResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/09%e9%bb%91.jpg"
+                        // src="http://localhost/colorful-f/src/images/09%e9%bb%91.jpg"
+                        src={require('../../images/game/3.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -80,7 +97,8 @@ function Test(props) {
                     data-bs-target="#whiteResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/010%e7%99%bd.jpg"
+                        // src="http://localhost/colorful-f/src/images/010%e7%99%bd.jpg"
+                        src={require('../../images/game/4.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -91,7 +109,8 @@ function Test(props) {
                     data-bs-target="#silverResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/011%e9%8a%80.jpg"
+                        // src="http://localhost/colorful-f/src/images/011%e9%8a%80.jpg"
+                        src={require('../../images/game/5.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -102,7 +121,8 @@ function Test(props) {
                     data-bs-target="#goldResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/012%e9%87%91.jpg"
+                        // src="http://localhost/colorful-f/src/images/012%e9%87%91.jpg"
+                        src={require('../../images/game/6.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -113,7 +133,8 @@ function Test(props) {
                     data-bs-target="#redResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/01%e7%b4%85%e8%89%b2.jpg"
+                        // src="http://localhost/colorful-f/src/images/01%e7%b4%85%e8%89%b2.jpg"
+                        src={require('../../images/game/7.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -124,7 +145,8 @@ function Test(props) {
                     data-bs-target="#pinkResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/02%e7%b2%89%e7%b4%85.jpg"
+                        // src="http://localhost/colorful-f/src/images/02%e7%b2%89%e7%b4%85.jpg"
+                        src={require('../../images/game/8.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -135,7 +157,8 @@ function Test(props) {
                     data-bs-target="#orangeResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/03%e6%a9%99.jpg"
+                        // src="http://localhost/colorful-f/src/images/03%e6%a9%99.jpg"
+                        src={require('../../images/game/9.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -146,7 +169,8 @@ function Test(props) {
                     data-bs-target="#yellowResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/04%e9%bb%83.jpg"
+                        // src="http://localhost/colorful-f/src/images/04%e9%bb%83.jpg"
+                        src={require('../../images/game/10.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -157,7 +181,8 @@ function Test(props) {
                     data-bs-target="#greenResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/05%e7%b6%a0.jpg"
+                        // src="http://localhost/colorful-f/src/images/05%e7%b6%a0.jpg"
+                        src={require('../../images/game/11.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
@@ -168,7 +193,8 @@ function Test(props) {
                     data-bs-target="#blueResult"
                 >
                     <img
-                        src="http://localhost/colorful-f/src/images/06%e6%b0%b4%e8%89%b2.jpg"
+                        // src="http://localhost/colorful-f/src/images/06%e6%b0%b4%e8%89%b2.jpg"
+                        src={require('../../images/game/12.jpg')}
                         className="img-thumbnail"
                         alt=""
                     />
