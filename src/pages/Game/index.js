@@ -70,7 +70,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#greyResult"
+                    data-bs-target="#pinkResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/08%e7%81%b0.jpg"
@@ -82,7 +82,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#blackResult"
+                    data-bs-target="#orangeResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/09%e9%bb%91.jpg"
@@ -94,7 +94,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#whiteResult"
+                    data-bs-target="#yellowResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/010%e7%99%bd.jpg"
@@ -106,7 +106,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#silverResult"
+                    data-bs-target="#greenResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/011%e9%8a%80.jpg"
@@ -118,7 +118,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#goldResult"
+                    data-bs-target="#blueResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/012%e9%87%91.jpg"
@@ -130,7 +130,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#redResult"
+                    data-bs-target="#coffeeResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/01%e7%b4%85%e8%89%b2.jpg"
@@ -142,7 +142,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#pinkResult"
+                    data-bs-target="#greyResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/02%e7%b2%89%e7%b4%85.jpg"
@@ -154,7 +154,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#orangeResult"
+                    data-bs-target="#blackResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/03%e6%a9%99.jpg"
@@ -166,7 +166,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#yellowResult"
+                    data-bs-target="#whiteResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/04%e9%bb%83.jpg"
@@ -178,7 +178,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#greenResult"
+                    data-bs-target="#silverResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/05%e7%b6%a0.jpg"
@@ -190,7 +190,7 @@ function Test(props) {
                 <div
                     className="w-25 mx-1 my-3"
                     data-bs-toggle="modal"
-                    data-bs-target="#blueResult"
+                    data-bs-target="#goldResult"
                 >
                     <img
                         // src="http://localhost/colorful-f/src/images/06%e6%b0%b4%e8%89%b2.jpg"
