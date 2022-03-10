@@ -39,6 +39,9 @@ export const routes = {
     // cart
     _checkout: '/checkout',
 
+    //email
+    _email: '/email',
+
     // 第一層路由
     get landing() {
         return this._landing;
@@ -140,6 +143,9 @@ export const routes = {
     },
     get game() {
         return this._game;
+    },
+    get email() {
+        return this._email;
     },
     // cart
     get checkout() {

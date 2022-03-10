@@ -37,6 +37,8 @@ import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import Landing from './pages/Landing';
+// import Email from './pages/Email';
+import Email from './components/Email/email';
 
 // Context
 import { ProductsProvider } from './utils/context/ProductsContext';
@@ -87,6 +89,10 @@ function App() {
                                     {/* 心理測驗頁 */}
                                     <Route path={routes.game}>
                                         <Game />
+                                    </Route>
+                                    {/* email */}
+                                    <Route path={routes.email}>
+                                        <Email />
                                     </Route>
                                     {/* 購物車 */}
                                     <Route path={routes.cart}>

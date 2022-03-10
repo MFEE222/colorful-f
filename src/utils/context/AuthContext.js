@@ -140,6 +140,11 @@ export function AuthProvider(props) {
         function () {
             // console.log('isLogin :>> ', isLogin);
             // console.log('user :>> ', user);
+
+
+
+
+            
         },
         [isLogin, user]
     );

@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from './routes';
+import emailjs, { init } from '@emailjs/browser';
+init(process.env.REACT_APP_EMAILJS_USER_ID);
 
-function Footer(props) {
+function Footer() {
+    const form = useRef();
+    // console.log('Hi emailjs');
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm(
+                process.env.REACT_APP_EMAILJS_SERVICE_ID,
+                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+                form.current
+            )
+            .then(
+                (result) => {
+                    console.log('result :>> ', result);
+                    console.log('form :>> ', form);
+                    console.log(result.text);
+                },
+                (error) => {
+                    // console.log('error :>> ', error);
+                    console.log(error.text);
+                }
+            );
+    };
+
     return (
         <footer className="footer">
             <div className="container">
@@ -14,14 +40,16 @@ function Footer(props) {
                             <br />
                             色調濾鏡自由配，隨心所欲當個高端調色player
                         </p>
-                        <form className="row mt-3">
+                        <form className="row mt-3"  ref={form} onSubmit={sendEmail}>
                             <div className="form-floating">
                                 <input
                                     type="email"
+                                    name="email"
                                     className="f-form-control"
                                     id="floatingInput"
                                     placeholder="Your email address"
                                 />
+                                <textarea className='d-none' name="message" />
                                 <button type="submit" className="f-btn ms-4">
                                     Subscribe
                                 </button>
