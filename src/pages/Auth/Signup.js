@@ -34,7 +34,6 @@ const Signup = (props) => {
         // e.preventDefault();
         console.log(123);
         console.log('formRef :>> ', formRef);
-        
     };
 
     const message = '歡迎您加入colorful！';
@@ -70,12 +69,11 @@ const Signup = (props) => {
             if (!response) {
                 throw new Error(STATUS_MSG[response.data.statusCode]);
             }
-            await emailjs
-            .sendForm(
+            await emailjs.sendForm(
                 process.env.REACT_APP_EMAILJS_SERVICE_ID,
                 process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
                 formRef.current
-            )
+            );
             console.log('formRef :>> ', formRef);
             setRegister(true);
         } catch (err) {
@@ -113,10 +111,7 @@ const Signup = (props) => {
                 <div className="row justify-content-center justify-content-lg-start">
                     <div className="col-12 col-sm-auto ">
                         <div className="form-box">
-                            <form
-                                className="signin-form"
-                                action=""
-                            >
+                            <form className="signin-form" action="">
                                 <h4 className="box-title">Sign up</h4>
                                 <div className="form-floating">
                                     <input
@@ -131,27 +126,7 @@ const Signup = (props) => {
                                     />
                                     <label htmlFor="floatingName">Name</label>
                                 </div>
-                                <form
-                                    className="d-none"
-                                    ref={formRef}
-                                    onSubmit={sendEmail}
-                                >
-                                    <label>Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        value={member.name}
-                                    />
-                                    <label>Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={member.email}
-                                    />
-                                    <label>Message</label>
-                                    <textarea name="message" />
-                                    <input type="submit" value="Send" />
-                                </form>
+
                                 <div className="form-floating">
                                     <input
                                         type="email"
@@ -223,6 +198,27 @@ const Signup = (props) => {
                                         Sign up
                                     </button>
                                 </div>
+                            </form>
+                            <form
+                                className="d-none"
+                                ref={formRef}
+                                onSubmit={sendEmail}
+                            >
+                                <label>Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={member.name}
+                                />
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={member.email}
+                                />
+                                <label>Message</label>
+                                <textarea name="message" />
+                                <input type="submit" value="Send" />
                             </form>
                         </div>
                     </div>
