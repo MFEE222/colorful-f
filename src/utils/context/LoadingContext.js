@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import axios from 'axios';
-import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_CART } from '../config';
-import { useAuthContext } from './AuthContext';
-
 // Context
 const LoadingContext = React.createContext(
     'please wrap element in <LoadingContext></LoadingContext>'
@@ -11,62 +7,75 @@ const LoadingContext = React.createContext(
 
 // Provider
 export function LoadingProvider(props) {
-    // context
-    const auth = useAuthContext();
-    // state, hook
     const [loading, setLoading] = useState(false);
 
-    // 變數 (shared)
-    const shared = {
-        start: function () {
-            setLoading(true);
-            // 自動關閉時間
-            setTimeout(function () {
-                setLoading(false);
-            }, 300);
-        },
-        end: function () {
-            setLoading(false);
-        },
-        current: loading,
+    const option = {
+        autoCloseLoading: true,
+        maxLoadingSec: 3,
     };
 
-    // 生命週期
-    // 初始化購物車資料
-    useEffect(function () {}, []);
+    const shared = {
+        current: loading, // 當前 loading 狀態
+        start, // loading 開始
+        end, // loading 結束
+        option, // option 設定值
+        enableAutoClose,
+        disableAutoClose,
+        maxLoadingSec,
+    };
 
-    // 保存購物車資料
-    // useEffect(function () {}, [loading]);
     // 渲染
     return (
         <LoadingContext.Provider value={shared}>
-            <LoadingUI shared={shared}>{props.children}</LoadingUI>
+            <LoadingScreen current={shared.current}>
+                {props.children}
+            </LoadingScreen>
         </LoadingContext.Provider>
     );
 
-    // 函數
-
-    // 元件
-    function LoadingUI(props) {
-        const { current } = props.shared;
-        // console.log('current :>> ', current);
-        return current ? (
-            <div className="boxLoadingBackground">
-                <div className="boxLoading"></div>
-                {props.children}
-            </div>
-        ) : (
-            <>{props.children}</>
-        );
+    // 載入開始
+    function start() {
+        setLoading(true);
+        if (option.autoCloseLoading) {
+            setTimeout(() => {
+                setLoading(false);
+            }, sec(option.maxLoadingSec));
+        }
+    }
+    // 載入結束
+    function end() {
+        setLoading(false);
+    }
+    // 毫秒轉換
+    function sec(millSec) {
+        return millSEc * 1000;
+    }
+    // 允許/禁止 自動關閉
+    function enableAutoClose() {
+        option.autoCloseLoading = true;
+    }
+    function disableAutoClose() {
+        option.autoCloseLoading = false;
+    }
+    // 設定自動關閉秒數
+    function maxLoadingSec(sec) {
+        option.maxLoadingSec = sec > 1 ? sec : 1;
     }
 }
 
-// Consumer
-export function CartConsumer(props) {
-    return <LoadingContext.Consumer>{props.children}</LoadingContext.Consumer>;
+// useContext
+export function useLoadingContext() {
+    return React.useContext(LoadingContext);
 }
 
-// useContext
-export function useCartContext() {
-    return React.useContext(LoadingContext);
+// Loading 畫面
+function LoadingScreen({ current, children }) {
+    return !current ? (
+        <>{children}</>
+    ) : (
+        <div className="loading-background">
+            <div className="loading"></div>
+            {children}
+        </div>
+    );
 }
