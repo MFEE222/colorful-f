@@ -124,32 +124,3 @@ function App() {
 }
 
 export default App;
-
-// function PrivateRoute(props) {
-//     const auth = useAuthContext();
-
-//     if (auth.current) {
-//         return <Route path={props.path}>{props.children}</Route>;
-//     } else {
-//         Modal.setShow();
-//         return <></>;
-//     }
-// }
-
-// function handleButton() {
-//     const auth = useAuthContext();
-
-//     if (auth.current) {
-//         cart.add(product);
-//     } else {
-//         Modal.setShow();
-//     }
-// }
-
-// function Modal(props) {
-//     cosnt[(show, setShow)] = useState();
-
-//     return show ? <div onClick={function (e) {
-
-//     }}></div> : <></>;
-// }
