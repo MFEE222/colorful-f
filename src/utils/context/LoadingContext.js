@@ -48,7 +48,7 @@ export function LoadingProvider(props) {
     }
     // 毫秒轉換
     function sec(millSec) {
-        return millSEc * 1000;
+        return millSec * 1000;
     }
     // 允許/禁止 自動關閉
     function enableAutoClose() {
