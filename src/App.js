@@ -37,6 +37,7 @@ import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import Landing from './pages/Landing';
+import Try from './pages/Try';
 // import Email from './pages/Email';
 import Email from './components/Email/email';
 
@@ -97,6 +98,10 @@ function App() {
                                     {/* 購物車 */}
                                     <Route path={routes.cart}>
                                         <Cart />
+                                    </Route>
+                                    {/* 測試頁 */}
+                                    <Route path="/try">
+                                        <Try />
                                     </Route>
                                     {/* 主頁 */}
                                     <Route exact path={routes.home}>
