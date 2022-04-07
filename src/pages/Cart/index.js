@@ -13,6 +13,7 @@ function Cart(props) {
                 <Route path={routes.checkout}>
                     <CartPayment />
                 </Route>
+
                 {/* 購物車主頁 */}
                 <Route path={routes.cart}>
                     <CartContent />

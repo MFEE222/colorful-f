@@ -122,18 +122,8 @@ function CartContent(props) {
                 {/* 總共 */}
                 <div className="row cart-total justify-content-end">
                     <div className="col-6 col-lg-4 price">
-                        <h4>
-                            商品總共件數：{' '}
-                            {cart.current.reduce(function (acc, curr) {
-                                return acc + 1;
-                            }, 0)}
-                        </h4>
-                        <h4>
-                            金額：{' '}
-                            {cart.current.reduce(function (acc, curr) {
-                                return acc + curr.price;
-                            }, 0)}
-                        </h4>
+                        <h4>商品總共件數： </h4>
+                        <h4>金額： </h4>
                         {/* <h4>折扣：</h4> */}
                         {/* <hr /> */}
                         {/* <h4>總金額：</h4> */}
