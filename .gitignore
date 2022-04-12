@@ -8,7 +8,6 @@ tmp/
 *.css.map
 .env
 /src/images
-/images/
 # dependencies
 /node_modules
 /.pnp
