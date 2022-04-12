@@ -7,12 +7,11 @@ import { Modal, Button } from 'react-bootstrap';
 import Slider from 'react-slick';
 
 // 共用
-import { API_URL, IMG_URL, IMG_URL2 } from '../../utils/config';
+import { IMG_URL2 } from '../../utils/config';
+// import { useAuthContext } from '../../utils/context/AuthContext';
 import { useAuthContext } from '../../utils/context/AuthContext';
 
 // 圖片
-import DemoImgFigure from '../../images/portrait01.jpg';
-import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
 
 // 自己
@@ -27,24 +26,18 @@ function ReviewDetail(props) {
     //鉤子
     const [modalShow, setModalShow] = useState(false);
     const [showImg, setShowImg] = useState([]);
-    const reviews = props.reviews;
-    console.log('reviews :>> ', reviews);
+    const { reviews, product } = props;
+    if (product.stars.endsWith('0')) {
+        const starScore = product.stars.split('.');
+        console.log('starScore[0] :>> ', starScore[0]);
+        product.stars = starScore[0];
+    }
 
     const counts = reviews.length; //評論數
     const all = reviews.map((v) => {
         return v.photos;
     });
     const allImg = all.flat();
-    // const demoImg = [
-    //     'http://localhost:3003/images/scenery/a1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/b1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/c1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/d1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/e1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/f1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/g1/a1.jpg',
-    //     'http://localhost:3003/images/scenery/h1/a1.jpg',
-    // ];
 
     //設定slider
     var settings = {
@@ -102,9 +95,6 @@ function ReviewDetail(props) {
 
     return (
         <>
-            {/* 所有上傳的照片slider => 套件 react-slick*/}
-            {/* 輪播照片換資料庫 */}
-
             <div className="product-detail ">
                 <div className="pt-md-3 pd-3 pd-shared">
                     <div className="review-title">
@@ -130,7 +120,7 @@ function ReviewDetail(props) {
                                         </li>
                                         <li>
                                             <p className="m-0">
-                                                {reviews.stars}/5
+                                                {product.stars}/5
                                             </p>
                                         </li>
                                         <li>
@@ -143,7 +133,7 @@ function ReviewDetail(props) {
                                     <div className="col-auto align-self-center mt-3">
                                         <button
                                             className="add-review"
-                                            onClick={function () {
+                                            onClick={() => {
                                                 if (!auth.current) {
                                                     auth.setShowLoginModal(
                                                         true
@@ -153,18 +143,45 @@ function ReviewDetail(props) {
                                         >
                                             撰寫評論
                                         </button>
-                                        {/* 判斷是否登入->導向登入會員 */}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="d-none d-md-block pd-4 pd-shared">
+                    <div className="review-box row justify-content-between mt-3 ">
+                        <div className="col-auto">
+                            <h3 className="mb-3 d-md-none">{reviews.name}</h3>
+                            <h3 className="m-0 text-center score ">
+                                {product.stars}/5
+                            </h3>
+                            <ul className="d-flex align-items-center justify-content-center pb-2 pb-md-1 mb-1 ul-unstyle">
+                                <ShowStar>{product.stars}</ShowStar>
+                            </ul>
+                            <p className="text-center review-count">
+                                {counts} 則評論
+                            </p>
+                        </div>
+                        <div className="col-auto align-self-center">
+                            <button
+                                className="add-review"
+                                // onClick={() => {
+                                //     if (!auth.current) {
+                                //         auth.setShowLoginModal(true);
+                                //     }
+                                // }}
+                            >
+                                撰寫評論
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="py-4 my-4 pd-5 pd-shared">
                     <p>已有{counts}位顧客上傳照片</p>
                     <div className="row flex-nowrap review-img-slider mx-0">
                         <Slider {...settings}>
-                            {/* props 圖片數組.map */}
                             {allImg.map((v, i, arr) => {
                                 return (
                                     <div
@@ -178,19 +195,6 @@ function ReviewDetail(props) {
                                     </div>
                                 );
                             })}
-                            {/* {demoImg.map(function (v, i, arr) {
-                                return (
-                                    <div
-                                        key={i}
-                                        className="ratio ratio-1x1 solve-padding"
-                                        onClick={() => {
-                                            handleModalShow(true, arr);
-                                        }}
-                                    >
-                                        <img src={v} alt="" />
-                                    </div>
-                                );
-                            })} */}
                         </Slider>
                     </div>
                 </div>
@@ -204,7 +208,6 @@ function ReviewDetail(props) {
                                     <div className="d-flex ">
                                         <div className="col-md-auto figure">
                                             <img
-                                                // 換成資料庫圖片
                                                 src={`${IMG_URL2}/${v.figure}/${v.user_id}.jpg`}
                                                 alt=""
                                                 className="object-fit "
@@ -257,10 +260,9 @@ function ReviewDetail(props) {
                                             <div className="thumbs-list">
                                                 <ul className="">
                                                     <li>這則評論有幫助嗎？</li>
-
-                                                    <ReviewThumbUp>
-                                                        {v.likes}
-                                                    </ReviewThumbUp>
+                                                    {/* <ReviewThumbUp> */}
+                                                    {/* {v.likes} */}
+                                                    {/* </ReviewThumbUp> */}
                                                     <li>
                                                         {/* 按過顯示fas */}
                                                         <i className="fas fa-thumbs-up"></i>
