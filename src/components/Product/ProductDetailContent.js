@@ -79,13 +79,13 @@ function ProductDetailContent(props) {
                                     <div className="wish-list-2 mb-xl-1">
                                         <i
                                             className="far fa-heart"
-                                            onClick={function () {
-                                                if (!auth.current) {
-                                                    auth.setShowLoginModal(
-                                                        true
-                                                    );
-                                                }
-                                            }}
+                                            // onClick={function () {
+                                            //     if (!auth.current) {
+                                            //         auth.setShowLoginModal(
+                                            //             true
+                                            //         );
+                                            //     }
+                                            // }}
                                         ></i>
                                     </div>
                                     <p className="price my-1 mb-xxl-4">
@@ -95,11 +95,11 @@ function ProductDetailContent(props) {
                                 <div className="col-auto col-xl-12">
                                     <button
                                         className="add-cart"
-                                        onClick={function () {
-                                            if (!auth.current) {
-                                                auth.setShowLoginModal(true);
-                                            }
-                                        }}
+                                        // onClick={function () {
+                                        //     if (!auth.current) {
+                                        //         auth.setShowLoginModal(true);
+                                        //     }
+                                        // }}
                                     >
                                         加入購物車
                                     </button>

@@ -133,13 +133,13 @@ function ReviewDetail(props) {
                                     <div className="col-auto align-self-center mt-3">
                                         <button
                                             className="add-review"
-                                            onClick={() => {
-                                                if (!auth.current) {
-                                                    auth.setShowLoginModal(
-                                                        true
-                                                    );
-                                                }
-                                            }}
+                                            // onClick={() => {
+                                            //     if (!auth.current) {
+                                            //         auth.setShowLoginModal(
+                                            //             true
+                                            //         );
+                                            //     }
+                                            // }}
                                         >
                                             撰寫評論
                                         </button>
@@ -201,7 +201,7 @@ function ReviewDetail(props) {
                 {/* 評論卡 */}
                 <div className="pd-6 pd-shared">
                     {reviews.map((v) => {
-                        console.log(`${IMG_URL2}/${v.figure}`);
+                        // console.log(`${IMG_URL2}/${v.figure}`);
                         return (
                             <>
                                 <div className="review-card" key={v.id}>
