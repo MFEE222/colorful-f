@@ -43,12 +43,12 @@ import Email from './components/Email/email';
 // Context
 import { ProductsProvider } from './utils/context/ProductsContext';
 import { RWDProvider } from './utils/context/RWDContext';
-import { CartProvider } from './utils/context/CartContext';
+// import { CartProvider } from './utils/context/CartContext';
 import { AuthProvider } from './utils/context/AuthContext';
 import { LoadingProvider } from './utils/context/LoadingContext';
 // import { OrderProvider } from './utils/context/OrderContext';
 
-import { Modal } from '../node_modules/bootstrap/dist/js/bootstrap';
+// import { Modal } from '../node_modules/bootstrap/dist/js/bootstrap';
 
 function App() {
     return (

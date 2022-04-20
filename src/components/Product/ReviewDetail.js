@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 
 // 第三方
-import axios from 'axios';
 import { Modal, Button } from 'react-bootstrap';
 import Slider from 'react-slick';
 
@@ -15,10 +14,9 @@ import { useAuthContext } from '../../utils/context/AuthContext';
 import ImgIcon from '../../icons/dec-bar.png';
 
 // 自己
-import ReviewThumbUp from './ReviewThumbUp';
+// import ReviewThumbUp from './ReviewThumbUp';
 import ShowStar from './ShowStar';
 import ReviewSlider from './ReviewSlider';
-// import ReviewImgs from './ReviwImgs';
 
 function ReviewDetail(props) {
     const auth = useAuthContext();
@@ -90,8 +88,6 @@ function ReviewDetail(props) {
         setModalShow(show);
         setShowImg(imgs);
     }
-
-    //TODO:撰寫評論先判斷是否登入(react.semantic-ui=>Multiple Modals)
 
     return (
         <>
@@ -292,3 +288,5 @@ function ReviewDetail(props) {
     // }
 }
 export default ReviewDetail;
+
+//TODO:撰寫評論先判斷是否登入(react.semantic-ui=>Multiple Modals)

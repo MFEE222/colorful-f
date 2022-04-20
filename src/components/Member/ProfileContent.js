@@ -6,10 +6,6 @@ function ProfileContent(props) {
     const { profile, setProfile, handleChange, handleSubmit } = props;
     const [imgs, setImgs] = useState([]); //照片顯示
     const collect = useRef([]); //接收照片
-    // const filesCollect = useRef([]); //接收照片
-    // const [files, setFiles] = useState([]); //照片傳給後端
-
-    // console.log('props :>> ', props);
 
     //把圖片顯示出來（建立在狀態）
     const handleUploadFile = (e) => {
@@ -23,11 +19,9 @@ function ProfileContent(props) {
             });
             // console.log('collect :>> ', collect);
             const newImgs = [...collect.current]; //接收照片在設定給state
-            // const newFiles = [...filesCollect.current];
             // console.log('newImgs :>> ', newImgs);
             setImgs(newImgs);
             // console.log('imgs :>> ', imgs);
-            // setFiles(newFiles);
         });
     };
     useEffect(() => {
