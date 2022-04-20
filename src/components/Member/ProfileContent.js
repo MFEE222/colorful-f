@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ProductImg from '../../images/product-img.jpeg';
-import Content from './Content';
 
 function ProfileContent(props) {
     const { profile, setProfile, handleChange, handleSubmit } = props;
@@ -62,6 +60,7 @@ function ProfileContent(props) {
                                 </div>
                             </div>
                         </div>
+                        {/* <!-- birthday --> */}
                         <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
                                 <div className="row justify-content-center">
@@ -73,7 +72,7 @@ function ProfileContent(props) {
                                     </label>
                                     <div className="col">
                                         <input
-                                            value={profile.birthDay}
+                                            value={profile.birthday}
                                             // type="date"
                                             name="birthday"
                                             id="birthday"
@@ -87,7 +86,7 @@ function ProfileContent(props) {
                             </div>
                         </div>
 
-                        {/* <!-- birthday --> */}
+                        {/* <!-- phone --> */}
                         <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
                                 <div className="row justify-content-center">
