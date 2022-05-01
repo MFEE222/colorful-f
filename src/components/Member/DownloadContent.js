@@ -1,7 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Img1 from '../../images/婚禮_5.jpg';
-import Img2 from '../../images/wed001.jpg';
-import Auth from '../../pages/Auth';
 import axios from 'axios';
 //共用
 import {

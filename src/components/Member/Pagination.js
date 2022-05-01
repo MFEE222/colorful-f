@@ -19,9 +19,6 @@ function Pagination(props) {
                     <ul>
                         {pages &&
                             pages.map(function (e, i) {
-                                {
-                                    /* console.log('i :>>', i); */
-                                }
                                 return (
                                     <li
                                         className={active == i && 'active'}

@@ -1,33 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import ImgProduct from '../../images/product-img.jpeg';
-import { Link, useRouteMatch, useParams } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import axios from 'axios';
-import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
-import Pagination from './Pagination';
 //
+// import Pagination from './Pagination';
+import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
+//
+import Pagination from '../../utils/Pagination';
 import { useAuthContext } from '../../utils/context/AuthContext';
 
-// 先檢查 url 是否跟 productDetail.id 一致
-
-// url : /product/detail/3
-// 點擊卡片進來 (卡片本身就有商品資料) setProductDetail
-
-// 直接 url (第一個先去 produtcs, 第二個再去發 axios)
-
-// axios request id = 3
-
 function ReviewContent(props) {
-    //TODO: 登入狀態
-
     const auth = useAuthContext();
     // console.log('auth.user :>> ', auth.user);
     const user = auth.user;
 
-    const match = useRouteMatch();
-    //style active
-    const [active, setActive] = useState(1);
+    const [active, setActive] = useState(1); //style active
     const [statusId, setStatusId] = useState(1);
     const [display, setDisplay] = useState([]);
     const [counts, setCounts] = useState();
@@ -56,13 +44,9 @@ function ReviewContent(props) {
         fetchReview();
         // console.log('status :>> ', statusId);
     }, [statusId, user.id, offset]);
-
-    //TODO: 拿到訂單
-    //TODO: 根據評論狀態去拿對應資料
     return (
         <>
             <div className="member-comment">
-                {/* <div className="container"> */}
                 {/* filterbar */}
                 <div className="filter my-3">
                     <div className="filter-box d-flex">
@@ -117,7 +101,6 @@ function ReviewContent(props) {
                     <div className="line d-none d-md-block"></div>
                 </div>
                 {/* card */}
-                {/* <div className="row"> */}
                 {display.map((oneReview) => {
                     const goTo = `${routes.reviewDetail}/${oneReview.id}`;
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
@@ -138,9 +121,6 @@ function ReviewContent(props) {
                                         {oneReview.title}
                                     </h5>
                                 </>
-                                {/* <p className="col-4 col-md-4 review-card-text ">
-                            2件商品
-                        </p> */}
                                 <p className="col-md-12 me-auto d-none d-md-block content">
                                     {oneReview.content == null
                                         ? '尚未評論'
@@ -162,14 +142,13 @@ function ReviewContent(props) {
                         </div>
                     );
                 })}
-                {/* </div> */}
-                {/* </div> */}
             </div>
             <Pagination
                 total={counts}
                 limit={4}
-                offset={offset}
-                setOffset={setOffset}
+                onEvent={function (limit, page) {
+                    setOffset(limit * (page - 1));
+                }}
             />
         </>
     );

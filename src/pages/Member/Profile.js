@@ -18,7 +18,7 @@ function Profile(props) {
     //TODO:設定進狀態[2]
     const [profile, setProfile] = useState({
         name: '',
-        birthDay: '',
+        birthday: '',
         phone: '',
         email: '',
         photo: '',
@@ -28,7 +28,7 @@ function Profile(props) {
         function () {
             setProfile({
                 name: user.name,
-                birthDay: user.birthday,
+                birthday: user.birthday,
                 phone: user.phone,
                 email: user.email,
                 photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
@@ -60,7 +60,7 @@ function Profile(props) {
                 API_POST_MEMBER_PROFILE + `?uid=${user.id}`,
                 {
                     name: profile.name,
-                    birthDay: profile.birthDay,
+                    birthday: profile.birthday,
                     phone: profile.phone,
                     email: profile.email,
                 }

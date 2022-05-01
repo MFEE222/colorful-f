@@ -1,15 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ProductImg from '../../images/product-img.jpeg';
-import Content from './Content';
 
 function ProfileContent(props) {
     const { profile, setProfile, handleChange, handleSubmit } = props;
     const [imgs, setImgs] = useState([]); //照片顯示
     const collect = useRef([]); //接收照片
-    // const filesCollect = useRef([]); //接收照片
-    // const [files, setFiles] = useState([]); //照片傳給後端
-
-    // console.log('props :>> ', props);
 
     //把圖片顯示出來（建立在狀態）
     const handleUploadFile = (e) => {
@@ -23,11 +17,9 @@ function ProfileContent(props) {
             });
             // console.log('collect :>> ', collect);
             const newImgs = [...collect.current]; //接收照片在設定給state
-            // const newFiles = [...filesCollect.current];
             // console.log('newImgs :>> ', newImgs);
             setImgs(newImgs);
             // console.log('imgs :>> ', imgs);
-            // setFiles(newFiles);
         });
     };
     useEffect(() => {
@@ -68,6 +60,7 @@ function ProfileContent(props) {
                                 </div>
                             </div>
                         </div>
+                        {/* <!-- birthday --> */}
                         <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
                                 <div className="row justify-content-center">
@@ -79,7 +72,7 @@ function ProfileContent(props) {
                                     </label>
                                     <div className="col">
                                         <input
-                                            value={profile.birthDay}
+                                            value={profile.birthday}
                                             // type="date"
                                             name="birthday"
                                             id="birthday"
@@ -93,7 +86,7 @@ function ProfileContent(props) {
                             </div>
                         </div>
 
-                        {/* <!-- birthday --> */}
+                        {/* <!-- phone --> */}
                         <div className="row justify-content-center">
                             <div className="col-12 col-md-10 mb-3">
                                 <div className="row justify-content-center">

@@ -130,7 +130,7 @@ function FilterBar(props) {
                         </div>
                     </div>
                 </div>
-                <div className="row px-3 mt-3 tags">
+                {/* <div className="row px-3 mt-3 tags">
                     {display.tags &&
                         display.tags.map(function (e) {
                             return (
@@ -146,7 +146,7 @@ function FilterBar(props) {
                                 </div>
                             );
                         })}
-                </div>
+                </div> */}
             </div>
         </div>
     );
