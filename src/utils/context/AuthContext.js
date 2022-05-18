@@ -35,7 +35,7 @@ export function AuthProvider(props) {
     //     birthday: null,
     // }
     const [isLogin, setIsLogin] = useState(false);
-    const [user, setUser] = useState({ id: 1 });
+    const [user, setUser] = useState({ id: 6 });
     const [allowReset, setAllowReset] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -140,11 +140,6 @@ export function AuthProvider(props) {
         function () {
             // console.log('isLogin :>> ', isLogin);
             // console.log('user :>> ', user);
-
-
-
-
-            
         },
         [isLogin, user]
     );

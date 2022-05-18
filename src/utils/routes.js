@@ -36,6 +36,7 @@ export const routes = {
     _collect: '/collect',
     // test
     _game: '/game',
+    _test: '/test',
     // cart
     _checkout: '/checkout',
 
@@ -69,6 +70,9 @@ export const routes = {
     },
     get error() {
         return this._error;
+    },
+    get test() {
+        return this._test;
     },
     // 第二層路由
     // auth
