@@ -12,7 +12,7 @@ import Main from '../../components/Product/Main';
 import ProductDetailContent from '../../components/Product/ProductDetailContent';
 import ReviewDetail from '../../components/Product/ReviewDetail';
 //context
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 function ProductDetail(props) {
     //勾子

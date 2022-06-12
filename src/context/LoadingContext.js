@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
-import { API_GET_CART, API_POST_CART, API_LOCAL_STORAGE_CART } from '../config';
+import {
+    API_GET_CART,
+    API_POST_CART,
+    API_LOCAL_STORAGE_CART,
+} from '../utils/config';
 import { useAuthContext } from './AuthContext';
 
 // Context

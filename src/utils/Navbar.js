@@ -12,8 +12,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
-import { useProductsContext } from '../utils/context/ProductsContext';
-import { useAuthContext } from '../utils/context/AuthContext';
+import { useProductsContext } from '../context/ProductsContext';
+import { useAuthContext } from '../context/AuthContext';
 
 // import CartCard from '../components/Cart/CartCard';
 

@@ -9,7 +9,7 @@ import {
     matchPath,
 } from 'react-router-dom';
 //共用
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 //自己
 import Card from './Card';

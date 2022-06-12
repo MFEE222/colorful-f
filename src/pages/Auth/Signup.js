@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { API_POST_AUTH_SIGNUP } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
 import { routes } from '../../utils/routes';
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 import emailjs, { init } from '@emailjs/browser';
 init(process.env.REACT_APP_EMAILJS_USER_ID);
 

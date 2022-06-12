@@ -15,7 +15,7 @@ import Slider from 'react-slick';
 // 共用
 import { routes } from '../../utils/routes';
 import { API_URL } from '../../utils/config';
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 // 自己
 import Card from './Card';
@@ -25,7 +25,6 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function RecommendCard(props) {
-
     // 狀態、勾子
     const match = useRouteMatch();
     const products = useProductsContext();
@@ -67,7 +66,7 @@ function RecommendCard(props) {
                     <div className="recommend-title">
                         <div className="text-box">
                             <div className="phone-title">
-                                <h3 className=""   >熱銷排行</h3>
+                                <h3 className="">熱銷排行</h3>
                                 <div className="mb-2">
                                     <img
                                         className="d-md-none"

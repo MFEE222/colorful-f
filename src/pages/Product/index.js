@@ -18,7 +18,7 @@ import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
 // context
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 // 自己
 import ReviewDetail from '../../components/Product/ReviewDetail';

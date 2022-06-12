@@ -21,7 +21,7 @@ import IMG_PRODUCTS_PORTRAIT_BANNER from '../../images/banner/portrait-banner.mp
 import { routes } from '../../utils/routes';
 
 // Context
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 function Banner(props) {
     // hook

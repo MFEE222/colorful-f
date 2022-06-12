@@ -8,7 +8,7 @@ import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 //
 import Pagination from '../../utils/Pagination';
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 function ReviewContent(props) {
     const auth = useAuthContext();

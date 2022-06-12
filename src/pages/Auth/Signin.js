@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 import { routes } from '../../utils/routes';
 
 // Q: React 重新整理狀態會消失，那上一頁會嗎？

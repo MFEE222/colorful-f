@@ -8,7 +8,7 @@ import {
 } from '../../utils/config';
 
 //
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 function Profile(props) {
     // if(auth.current)

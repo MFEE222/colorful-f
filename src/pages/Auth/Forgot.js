@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_POST_AUTH_FORGOT_PASSWORD } from '../../utils/config';
 import { STATUS_MSG } from '../../utils/others/status';
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 import { Redirect } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 
@@ -30,7 +30,6 @@ function Forgot(props) {
     async function handleSubmit(e) {
         e.preventDefault();
         auth.forget(forgot);
-        
     }
 
     // try {

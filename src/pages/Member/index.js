@@ -25,7 +25,7 @@ import Payment from './Payment';
 import Collect from './Collect';
 import Content from '../../components/Member/Content';
 //
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 // 會員主頁（巢狀路由 or 單純函式解決）
 function Member(props) {
