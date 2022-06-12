@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+require('dotenv').config();
 
 module.exports = {
     mode: 'development', // "production", "none"
@@ -14,8 +15,12 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ProvidePlugin({
-            process: 'process/browser',
+        // new webpack.ProvidePlugin({
+        //     process: 'process/browser',
+        // }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env),
+            // process: JSON.stringify(process),
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html'),
@@ -67,12 +72,15 @@ module.exports = {
     output: {
         filename: 'static/js/main.[chunkhash].js',
         path: path.resolve(__dirname, 'build'),
-        clean: true,
+        publicPath: '/', // 靜態資源起始位置
+        // clean: true,
     },
 
     devtool: 'source-map',
 
     devServer: {
         port: 3000,
+        compress: true,
+        historyApiFallback: true, // 指定所有 404 由 index.html 處理
     },
 };
