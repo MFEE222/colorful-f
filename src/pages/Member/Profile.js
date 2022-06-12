@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { format } from 'prettier';
 import React, { useState, useEffect } from 'react';
 import ProfileContent from '../../components/Member/ProfileContent';
 import {
