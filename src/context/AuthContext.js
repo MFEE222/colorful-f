@@ -18,10 +18,11 @@ import login from '../images/film001.jpg';
 import {
     POST_AUTH_SIGNIN,
     POST_AUTH_SIGNUP,
-    DELETE_AUTH_SIGNOUT,
     POST_AUTH_FORGOT_PASSWORD,
+    DELETE_AUTH_SIGNOUT,
     GET_AUTH,
     GET_AUTH_TOKEN,
+    GET_AUTH_HEALTH,
 } from '../utils/config';
 
 // routes
@@ -37,45 +38,45 @@ const AuthContext = React.createContext('wrap not correct');
 // TODO: /api/auth/forgot
 
 // Provider
-export function AuthProvider(props) {
-    // state
-    function reducer(state, action) {
-        switch (action) {
-            default:
-                throw new Error();
-        }
-    }
+// export function AuthProvider(props) {
+//     // state
+//     function reducer(state, action) {
+//         switch (action) {
+//             default:
+//                 throw new Error();
+//         }
+//     }
 
-    const [state, dispatch] = useReducer(reducer, {
-        accessToken: '',
-        userEmail: '',
-        userName: '',
-        userBirthday: '',
-        userGender: '',
-        isSignin: false,
-    });
+//     const [state, dispatch] = useReducer(reducer, {
+//         accessToken: '',
+//         userEmail: '',
+//         userName: '',
+//         userBirthday: '',
+//         userGender: '',
+//         isSignin: false,
+//     });
 
-    const [isLogin, setIsLogin] = useState(false);
-    const [user, setUser] = useState({ id: 1 });
-    const [allowReset, setAllowReset] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
+//     const [isLogin, setIsLogin] = useState(false);
+//     const [user, setUser] = useState({ id: 1 });
+//     const [allowReset, setAllowReset] = useState(false);
+//     const [showLoginModal, setShowLoginModal] = useState(false);
 
-    // share
-    const share = {
-        state,
-        dispatch,
-    };
+//     // share
+//     const share = {
+//         state,
+//         dispatch,
+//     };
 
-    // render
-    return (
-        <AuthContext.Provider value={shared}>
-            {/* {props.children} */}
-            <LoginModal shared={shared} onHide={() => setShowLoginModal(false)}>
-                {props.children}
-            </LoginModal>
-        </AuthContext.Provider>
-    );
-}
+//     // render
+//     return (
+//         <AuthContext.Provider value={shared}>
+//             {/* {props.children} */}
+//             <LoginModal shared={shared} onHide={() => setShowLoginModal(false)}>
+//                 {props.children}
+//             </LoginModal>
+//         </AuthContext.Provider>
+//     );
+// }
 
 // Consumer (old version)
 // export function AuthConsumer(props) {
@@ -356,5 +357,25 @@ export async function requsetAccessToken() {
     } catch (err) {
         console.log('err :>>', err);
         return null;
+    }
+}
+
+export async function requestHealthCheck() {
+    try {
+        const response = await axios({
+            method: 'get',
+            url: GET_AUTH_HEALTH,
+        });
+
+        console.log('response :>> ', response);
+
+        if (response.status != 200) {
+            throw new Error();
+        }
+
+        return true;
+    } catch (err) {
+        console.log('err :>>', err);
+        return false;
     }
 }
