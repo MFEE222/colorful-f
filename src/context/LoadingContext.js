@@ -1,60 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-import axios from 'axios';
-import {
-    API_GET_CART,
-    API_POST_CART,
-    API_LOCAL_STORAGE_CART,
-} from '../utils/config';
-import { useAuthContext } from './AuthContext';
+import React, { useState, useEffect } from 'react';
 
 // Context
-const LoadingContext = React.createContext(
-    'please wrap element in <LoadingContext></LoadingContext>'
-);
+const LoadingContext = React.createContext();
 
 // Provider
 export function LoadingProvider(props) {
-    // context
-    const auth = useAuthContext();
     // state, hook
     const [loading, setLoading] = useState(false);
 
-    // 變數 (shared)
-    const shared = {
-        start: function () {
-            setLoading(true);
-            // 自動關閉時間
+    // max loading time
+    const maxTime = 500;
+    useEffect(
+        function () {
+            if (!loading) {
+                return;
+            }
+
             setTimeout(function () {
                 setLoading(false);
-            }, 300);
+            }, maxTime);
         },
-        end: function () {
+        [loading]
+    );
+
+    // shared
+    const shared = {
+        start: () => {
+            setLoading(true);
+        },
+        end: () => {
             setLoading(false);
         },
-        current: loading,
     };
 
-    // 生命週期
-    // 初始化購物車資料
-    useEffect(function () {}, []);
-
-    // 保存購物車資料
-    // useEffect(function () {}, [loading]);
-    // 渲染
+    // render
     return (
         <LoadingContext.Provider value={shared}>
-            <LoadingUI shared={shared}>{props.children}</LoadingUI>
+            <LoadingUI loading={loading}>{props.children}</LoadingUI>
         </LoadingContext.Provider>
     );
 
-    // 函數
-
-    // 元件
-    function LoadingUI(props) {
-        const { current } = props.shared;
-        // console.log('current :>> ', current);
-        return current ? (
+    // component
+    function LoadingUI({ loading }) {
+        return loading ? (
             <div className="boxLoadingBackground">
                 <div className="boxLoading"></div>
                 {props.children}
@@ -66,9 +54,9 @@ export function LoadingProvider(props) {
 }
 
 // Consumer
-export function CartConsumer(props) {
-    return <LoadingContext.Consumer>{props.children}</LoadingContext.Consumer>;
-}
+// export function CartConsumer(props) {
+//     return <LoadingContext.Consumer>{props.children}</LoadingContext.Consumer>;
+// }
 
 // useContext
 export function useCartContext() {
