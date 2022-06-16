@@ -53,6 +53,7 @@ import { LoadingProvider } from './context/LoadingContext';
 // 時常思考元件（不要習慣集中管理資料思維）、單向資料流、屬性唯讀、狀態概念！！
 // 不要在同步代碼中，編寫非同步代碼，且該非同步代碼會需要作為同步代碼的相依
 // UI 元件加載在畫面上時會進入生命週期 Mount，卸載時會進入生命週期 UnMount
+// useEffect 也可以監控別的元件的狀態
 
 function App() {
     return (

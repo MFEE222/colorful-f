@@ -27,12 +27,12 @@ export function LoadingProvider(props) {
     // shared
     const share = {
         start: () => {
-            console.log('loading start');
+            // console.log('loading start');
             setLoading(true);
         },
         end: () => {
             setTimeout(() => {
-                console.log('loading end');
+                // console.log('loading end');
                 setLoading(false);
             }, minTime);
         },

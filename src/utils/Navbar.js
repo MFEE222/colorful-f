@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // 庫
-import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -14,21 +14,29 @@ import { routes } from './routes';
 
 import { useProductsContext } from '../context/ProductsContext';
 import { useAuthContext } from '../context/AuthContext';
-
+import { useLoadingContext } from '../context/LoadingContext';
 // import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
-    // Context
+    // context
     const products = useProductsContext();
-    const auth = useAuthContext();
+    const { user, isAllowed, requestSignOut } = useAuthContext();
+    const load = useLoadingContext();
+    // state
+    const [query, setQuery] = useState({ signout: false });
 
-    // 函數
-    // 生成 Click 事件處理器
-    function controlProductsSeries(series_id) {
-        return function (e) {
-            products.optionSeries(e, series_id);
-        };
-    }
+    // side effect
+    useEffect(async () => {
+        if (!query.signout) {
+            return;
+        }
+
+        load.start();
+        const result = await requestSignOut();
+        load.end();
+
+        setQuery({ ...query, signout: false });
+    }, [query.signout]);
 
     // 渲染
     return (
@@ -107,7 +115,6 @@ function OurNavbar(props) {
                                 About us
                             </Nav.Link>
                         </LinkContainer>
-
                         <NavDropdown
                             title="Tutorial"
                             id="colorful-tutorial-dropdown"
@@ -121,7 +128,6 @@ function OurNavbar(props) {
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
-
                         <LinkContainer to={routes.member}>
                             <Nav.Link
                                 className="link-item"
@@ -132,7 +138,7 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isAllowed() ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -141,14 +147,13 @@ function OurNavbar(props) {
                                 <span className="text">User</span>
 
                                 <i className="fas fa-user ">
-                                    {auth.current &&
-                                        `  hi, ${auth.user.name || 'Liz'}`}
+                                    {isAllowed() &&
+                                        `  Hi, ${user.name || 'User'}`}
                                 </i>
                             </Nav.Link>
                         </LinkContainer>
-                        {/* (auth.current?) */}
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isAllowed() ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -158,9 +163,8 @@ function OurNavbar(props) {
                                 <i className="fas fa-heart"></i>
                             </Nav.Link>
                         </LinkContainer>
-
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isAllowed() ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -170,16 +174,29 @@ function OurNavbar(props) {
                                 <i
                                     className="fas fa-shopping-cart"
                                     onClick={function () {
-                                        if (!auth.current) {
-                                            auth.setShowLoginModal(true);
-                                        }
+                                        // FIXME: fix cart handle
+                                        // if (!isAllowed()) {
+                                        //     setShowLoginModal(true);
+                                        // }
                                     }}
                                 ></i>
                             </Nav.Link>
                         </LinkContainer>
+                        {isAllowed() && (
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-sign-out"
+                            >
+                                <span className="text">Sign Out</span>
+                                <i
+                                    className="fas fa-sign-out-alt"
+                                    onClick={eventSignOut}
+                                ></i>
+                            </Nav.Link>
+                        )}
                         {/* <button
                             onClick={function () {
-                                auth.setShowLoginModal(true);
+                                setShowLoginModal(true);
                             }}
                         >
                             show modal
@@ -191,6 +208,10 @@ function OurNavbar(props) {
             {/* <CartCard /> */}
         </Navbar>
     );
+
+    function eventSignOut() {
+        setQuery({ ...query, signout: true });
+    }
 }
 
 export default OurNavbar;

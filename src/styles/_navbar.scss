@@ -120,8 +120,7 @@
                         $lg: 0.5rem 0.75rem
                     );
                 }
-                &:nth-last-child(3) {
-                    // &:nth-child(5) {
+                &:nth-child(3) {
                     @include mix.media(margin-left, $lg: 2rem);
                 }
                 // 斷點以下，用文字顯示，以上，用 icon 顯示
