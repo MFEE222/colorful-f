@@ -9,7 +9,8 @@ export function LoadingProvider(props) {
     const [loading, setLoading] = useState(false);
 
     // max loading time
-    const maxTime = 500;
+    const minTime = 600;
+    const maxTime = 3000;
     useEffect(
         function () {
             if (!loading) {
@@ -24,19 +25,26 @@ export function LoadingProvider(props) {
     );
 
     // shared
-    const shared = {
+    const share = {
         start: () => {
+            console.log('loading start');
             setLoading(true);
         },
         end: () => {
-            setLoading(false);
+            setTimeout(() => {
+                console.log('loading end');
+                setLoading(false);
+            }, minTime);
         },
+        UILoading,
+        current: loading,
     };
 
     // render
     return (
-        <LoadingContext.Provider value={shared}>
-            <LoadingUI loading={loading}>{props.children}</LoadingUI>
+        <LoadingContext.Provider value={share}>
+            {props.children}
+            {/* <LoadingUI loading={loading}>{props.children}</LoadingUI> */}
         </LoadingContext.Provider>
     );
 
@@ -51,14 +59,17 @@ export function LoadingProvider(props) {
             <>{props.children}</>
         );
     }
+
+    function UILoading() {
+        return (
+            <div className="boxLoadingBackground">
+                <div className="boxLoading"></div>
+            </div>
+        );
+    }
 }
 
-// Consumer
-// export function CartConsumer(props) {
-//     return <LoadingContext.Consumer>{props.children}</LoadingContext.Consumer>;
-// }
-
 // useContext
-export function useCartContext() {
+export function useLoadingContext() {
     return React.useContext(LoadingContext);
 }

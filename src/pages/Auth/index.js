@@ -10,15 +10,20 @@ import {
 // https://www.sailpoint.com/identity-library/difference-between-authentication-and-authorization/
 
 import { routes } from '../../utils/routes';
-import Signin from './Signin';
+import SignIn from './SignIn';
 import Signup from './Signup';
 import Forgot from './Forgot';
 import ResetPassword from './ResetPassword';
 
-function Auth(props) {
-    const match = useRouteMatch();
-    // console.log('match :>> ', match);
+import { useAuthContext } from '../../context/AuthContext';
 
+function Auth(props) {
+    // context
+    const auth = useAuthContext();
+    // url param
+    const match = useRouteMatch();
+
+    // second router
     return (
         <>
             {/* <Signin /> */}
@@ -29,7 +34,7 @@ function Auth(props) {
                 the page that is shown when no topic is selected */}
             <Switch>
                 <Route path={routes.signin}>
-                    <Signin />
+                    <SignIn auth={auth} />
                 </Route>
                 <Route path={routes.signup}>
                     <Signup />

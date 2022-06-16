@@ -1,20 +1,6 @@
-import { Link } from 'react-router-dom';
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-
-// FIXME: remove
-import {
-    API_POST_AUTH_LOGIN,
-    API_POST_AUTH_SIGNUP,
-    API_POST_AUTH_FORGOT_PASSWORD,
-    API_POST_AUTH_RESET_PASSWORD,
-} from '../utils/config';
-// FIXME: remove
-import { STATUS_MSG } from '../utils/others/status';
-
-// image
-import login from '../images/film001.jpg';
 
 // API
 import {
@@ -27,49 +13,263 @@ import {
     GET_AUTH_HEALTH,
 } from '../utils/config';
 
+import login from '../images/film001.jpg';
+
 // routes
 import { routes } from '../utils/routes';
+import { useLoadingContext } from './LoadingContext';
 
 // Context
 const AuthContext = React.createContext('wrap not correct');
 
 // Provider
 export function AuthProvider(props) {
+    const load = useLoadingContext();
     // state
-    function reducer(state, action) {
-        switch (action) {
-            default:
-                throw new Error();
-        }
-    }
-
-    const [state, dispatch] = useReducer(reducer, {
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        expiration: 0,
         accessToken: '',
-        userEmail: '',
-        userName: '',
-        isSignin: false,
     });
 
-    const [isLogin, setIsLogin] = useState(false);
-    const [user, setUser] = useState({ id: 1 });
-    const [allowReset, setAllowReset] = useState(false);
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    // useEffect(() => {
+    //     console.log('user :>> ', user);
+    // }, [user]);
+
+    useEffect(async () => {
+        await requsetAccessToken();
+    }, []);
 
     // share
     const share = {
-        state,
-        dispatch,
+        requestSignIn,
+        requestSignUp,
+        requestForgotPassword,
+        requestSignOut,
+        requestAuth,
+        requsetAccessToken,
+        requestHealthCheck,
+        user,
+        isAllowed,
+        isDenied,
     };
 
     // render
     return (
-        <AuthContext.Provider value={shared}>
+        <AuthContext.Provider value={share}>
             {/* {props.children} */}
-            <LoginModal shared={shared} onHide={() => setShowLoginModal(false)}>
-                {props.children}
-            </LoginModal>
+            {/* <LoginModal share={share} onHide={() => setShowLoginModal(false)}> */}
+            {props.children}
+            {/* </LoginModal> */}
         </AuthContext.Provider>
     );
+
+    // event handle
+    async function requestAuth() {
+        const { accessToken } = user;
+
+        try {
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH,
+                headers: { Authorization: 'Bearer ' + accessToken },
+                withCredentials: true,
+            });
+
+            // console.log('response :>> ', response);
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    async function requestSignIn(email, password) {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_SIGNIN,
+                data: {
+                    account: email,
+                    password: password,
+                },
+                withCredentials: true,
+            });
+
+            const { access_token } = response.data;
+            console.log('access_token :>> ', access_token);
+
+            if (response.status != 200 || !access_token) {
+                throw new Error();
+            }
+
+            const payload = jwt_decode(access_token);
+
+            setUser({
+                name: payload.name,
+                email: payload.email,
+                expiration: payload.exp,
+                accessToken: access_token,
+            });
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    async function requestSignOut() {
+        try {
+            const response = await axios({
+                method: 'delete',
+                url: DELETE_AUTH_SIGNOUT,
+                withCredentials: true,
+            });
+
+            if (response.status != 204) {
+                throw new Error();
+            }
+
+            // set state
+            setUser({
+                name: '',
+                email: '',
+                expiration: 0,
+                accessToken: '',
+            });
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    async function requestSignUp(
+        name,
+        email,
+        password,
+        confirm_password,
+        hint
+    ) {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_SIGNUP,
+                data: {
+                    name: name,
+                    account: email,
+                    password: password,
+                    confirm_password: confirm_password,
+                    hint: hint,
+                },
+            });
+
+            // console.log('response :>> ', response);
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            // if success, meaning email has sent to user
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+
+            return false;
+        }
+    }
+
+    async function requestForgotPassword(email, hint) {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_FORGOT_PASSWORD,
+                data: {
+                    email: email,
+                    hint: hint,
+                },
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            // 'true' means reset password email has sent.
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    async function requsetAccessToken() {
+        // attention: don't use beofre sign in (not yet get refresh token)
+        try {
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH_TOKEN,
+                withCredentials: true,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            const { access_token } = response.data;
+            console.log('access_token :>> ', access_token);
+
+            const payload = jwt_decode(access_token);
+
+            setUser({
+                name: payload.name,
+                email: payload.email,
+                expiration: payload.exp,
+                accessToken: access_token,
+            });
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    async function requestHealthCheck() {
+        try {
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH_HEALTH,
+                withCredentials: true,
+            });
+
+            console.log('health response :>> ', response);
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            return false;
+        }
+    }
+
+    function isAllowed() {
+        // timestamp (sesmills)
+        const now = Date.now() / 1000;
+        return now < user.expiration;
+    }
+
+    function isDenied() {
+        return !isAllowed();
+    }
 }
 
 // Consumer (old version)
@@ -82,297 +282,167 @@ export function useAuthContext() {
     return React.useContext(AuthContext);
 }
 
-// 內部元件
-// function LoginModal(props) {
-//     const { showLoginModal, setShowLoginModal } = props.shared;
-//     // console.log('props.shared :>> ', props.shared);
-//     const [user, setUser] = useState({ account: '', password: '' });
+// Testing
+// export async function requestAuth(access_token) {
+//     try {
+//         const response = await axios({
+//             method: 'get',
+//             url: GET_AUTH,
+//             headers: { Authorization: 'Bearer ' + access_token },
+//         });
 
-//     function handleChange(e) {
-//         const newUser = { ...user };
-//         newUser[e.target.name] = e.target.value;
-//         setUser(newUser);
+//         // console.log('response :>> ', response);
+
+//         if (response.status != 200) {
+//             throw new Error();
+//         }
+
+//         return true;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return false;
 //     }
+// }
+//
+// export async function requestSignIn(account, password) {
+//     try {
+//         const response = await axios({
+//             method: 'post',
+//             url: POST_AUTH_SIGNIN,
+//             data: {
+//                 account: account,
+//                 password: password,
+//             },
+//         });
 
-//     function handleSubmit(e) {
-//         e.preventDefault();
-//         props.shared.login(user);
+//         const { access_token } = response.data;
+
+//         if (response.status != 200 || !access_token) {
+//             throw new Error();
+//         }
+
+//         // const user = jwt_decode(access_token);
+//         // console.log('user :>> ', user);
+
+//         return access_token;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return null;
 //     }
-
-//     const temp = (
-//         <div>
-//             <div className="d-flex align-content-center mt-2">
-//                 <label htmlFor="email" className="col-3 labal">
-//                     帳號
-//                 </label>
-//                 <input
-//                     className="col mb-2"
-//                     type="email"
-//                     name="email"
-//                     value={user.email}
-//                     onChange={handleChange}
-//                 />
-//             </div>
-//             <div className="d-flex align-content-center mt-2">
-//                 <label htmlFor="password" className="col-3 labal">
-//                     密碼
-//                 </label>
-//                 <input
-//                     className="col mb-2"
-//                     type="text"
-//                     name="password"
-//                     value={user.password}
-//                     onChange={handleChange}
-//                 />
-//             </div>
-//             {/* <button type="submit" onClick={handleSubmit} className="row">
-//                 send
-//             </button> */}
-//         </div>
-//     );
-//     return showLoginModal ? (
-//         <>
-//             <div
-//                 className="auth-modal"
-//                 onClick={function (e) {
-//                     setShowLoginModal(false);
-//                 }}
-//             >
-//                 <div
-//                     className="box row"
-//                     onClick={function (e) {
-//                         e.stopPropagation();
-//                     }}
-//                 >
-//                     <div className="col-12 col-md-9 modal-left">
-//                         <div className="header d-flex my-3 align-content-center justify-content-center">
-//                             <div className="text-center">您有會員嗎？</div>
-//                         </div>
-//                         <div className="border-top w-100 my-3"></div>
-//                         <div className="row d-flex justify-content-center  gx-5 align-items-stretch mt-5">
-//                             <div className="col-12">{temp}</div>
-//                             <button
-//                                 type="submit"
-//                                 className="col-auto justify-content-end
-//                                     align-items-end login"
-//                                 // type="submit"
-//                                 onClick={handleSubmit}
-//                             >
-//                                 <p className="m-0">登入</p>
-//                             </button>
-//                             <div className="col-12">
-//                                 <div className="d-flex justify-content-center align-items-center">
-//                                     <Link
-//                                         className="signup mt-2"
-//                                         onClick={function (e) {
-//                                             setShowLoginModal(false);
-//                                         }}
-//                                         to={routes.signup}
-//                                     >
-//                                         前往註冊
-//                                         <i className="ps-2 fas fa-long-arrow-alt-right"></i>
-//                                     </Link>
-//                                 </div>
-//                             </div>
-//                             <div className="row justify-content-center mt-2">
-//                                 擁有會員能享有更多專屬功能
-//                             </div>
-//                         </div>
-//                     </div>
-//                     <div className="d-none d-md-block col-md-3 modal-right justify-content-end">
-//                         <img className="right-pic" src={login} alt="" />
-//                     </div>
-//                 </div>
-//             </div>
-//             {props.children}
-//         </>
-//     ) : (
-//         // <div>
-//         //     {/* 你這個要用 position: absolute */}
-//         //     <div
-//         //         style={{
-//         //             backgroundColor: 'rgba(0, 0, 0, 0.2)',
-//         //             width: '300px',
-//         //             height: '300px',
-//         //         }}
-//         //         className="position-absoulte top-0 left-0 right-0 bottom-0"
-//         //     >
-//         //         <h1>請登入</h1>
-//         //         <h2
-//         //             onClick={function () {
-//         //                 setShowLoginModal(false);
-//         //             }}
-//         //         >
-//         //             取消
-//         //         </h2>
-//         //     </div>
-//         //     {props.children}
-//         // </div>
-//         <>{props.children}</>
-//     );
 // }
 
-// API to backend
-export async function requestAuth(access_token) {
-    try {
-        const response = await axios({
-            method: 'get',
-            url: GET_AUTH,
-            headers: { Authorization: 'Bearer ' + access_token },
-        });
+// export async function requestSignOut() {
+//     try {
+//         const response = await axios({
+//             method: 'delete',
+//             url: DELETE_AUTH_SIGNOUT,
+//         });
 
-        // console.log('response :>> ', response);
+//         if (response.status != 204) {
+//             throw new Error();
+//         }
 
-        if (response.status != 200) {
-            throw new Error();
-        }
+//         return true;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return false;
+//     }
+// }
 
-        return true;
-    } catch (err) {
-        console.log('err :>>', err);
-        return false;
-    }
-}
+// export async function requestSignUp(
+//     name,
+//     account,
+//     password,
+//     confirm_password,
+//     hint
+// ) {
+//     try {
+//         const response = await axios({
+//             method: 'post',
+//             url: POST_AUTH_SIGNUP,
+//             data: {
+//                 name: name,
+//                 account: account,
+//                 password: password,
+//                 confirm_password: confirm_password,
+//                 hint: hint,
+//             },
+//         });
 
-export async function requestSignIn(account, password) {
-    try {
-        const response = await axios({
-            method: 'post',
-            url: POST_AUTH_SIGNIN,
-            data: {
-                account: account,
-                password: password,
-            },
-        });
+//         // console.log('response :>> ', response);
+//         if (response.status != 200) {
+//             throw new Error();
+//         }
 
-        const { access_token } = response.data;
+//         // if success, meaning email has sent to user
+//         return true;
+//     } catch (err) {
+//         console.log('err :>>', err);
 
-        if (response.status != 200 || !access_token) {
-            throw new Error();
-        }
+//         return false;
+//     }
+// }
 
-        // const user = jwt_decode(access_token);
-        // console.log('user :>> ', user);
+// export async function requestForgotPassword(account, hint) {
+//     try {
+//         const response = await axios({
+//             method: 'post',
+//             url: POST_AUTH_FORGOT_PASSWORD,
+//             data: {
+//                 email: account,
+//                 hint: hint,
+//             },
+//         });
 
-        return access_token;
-    } catch (err) {
-        console.log('err :>>', err);
-        return null;
-    }
-}
+//         if (response.status != 200) {
+//             throw new Error();
+//         }
 
-export async function requestSignOut() {
-    try {
-        const response = await axios({
-            method: 'delete',
-            url: DELETE_AUTH_SIGNOUT,
-        });
+//         // 'true' means reset password email has sent.
+//         return true;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return false;
+//     }
+// }
 
-        if (response.status != 204) {
-            throw new Error();
-        }
+// export async function requsetAccessToken() {
+//     // attention: don't use beofre sign in (not yet get refresh token)
+//     try {
+//         const response = await axios({
+//             method: 'get',
+//             url: GET_AUTH_TOKEN,
+//         });
 
-        return true;
-    } catch (err) {
-        console.log('err :>>', err);
-        return false;
-    }
-}
+//         if (response.status != 200) {
+//             throw new Error();
+//         }
 
-export async function requestSignUp(
-    name,
-    account,
-    password,
-    confirm_password,
-    hint
-) {
-    try {
-        const response = await axios({
-            method: 'post',
-            url: POST_AUTH_SIGNUP,
-            data: {
-                name: name,
-                account: account,
-                password: password,
-                confirm_password: confirm_password,
-                hint: hint,
-            },
-        });
+//         const { access_token } = response.data;
 
-        // console.log('response :>> ', response);
-        if (response.status != 200) {
-            throw new Error();
-        }
+//         return access_token;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return null;
+//     }
+// }
 
-        // if success, meaning email has sent to user
-        return true;
-    } catch (err) {
-        console.log('err :>>', err);
+// export async function requestHealthCheck() {
+//     try {
+//         const response = await axios({
+//             method: 'get',
+//             url: GET_AUTH_HEALTH,
+//         });
 
-        return false;
-    }
-}
+//         // console.log('response :>> ', response);
 
-export async function requestForgotPassword(account, hint) {
-    try {
-        const response = await axios({
-            method: 'post',
-            url: POST_AUTH_FORGOT_PASSWORD,
-            data: {
-                email: account,
-                hint: hint,
-            },
-        });
+//         if (response.status != 200) {
+//             throw new Error();
+//         }
 
-        if (response.status != 200) {
-            throw new Error();
-        }
-
-        // 'true' means reset password email has sent.
-        return true;
-    } catch (err) {
-        console.log('err :>>', err);
-        return false;
-    }
-}
-
-export async function requsetAccessToken() {
-    // attention: don't use beofre sign in (not yet get refresh token)
-    try {
-        const response = await axios({
-            method: 'get',
-            url: GET_AUTH_TOKEN,
-        });
-
-        if (response.status != 200) {
-            throw new Error();
-        }
-
-        const { access_token } = response.data;
-
-        return access_token;
-    } catch (err) {
-        console.log('err :>>', err);
-        return null;
-    }
-}
-
-export async function requestHealthCheck() {
-    try {
-        const response = await axios({
-            method: 'get',
-            url: GET_AUTH_HEALTH,
-        });
-
-        // console.log('response :>> ', response);
-
-        if (response.status != 200) {
-            throw new Error();
-        }
-
-        return true;
-    } catch (err) {
-        console.log('err :>>', err);
-        return false;
-    }
-}
+//         return true;
+//     } catch (err) {
+//         console.log('err :>>', err);
+//         return false;
+//     }
+// }
