@@ -3,11 +3,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import { useLoadingContext } from '../../context/LoadingContext';
 
-// FIXME: complete loading, isExpired
-// 時常思考元件（不要習慣集中管理資料思維）、單向資料流、屬性唯讀、狀態概念！！
-// 不要在同步代碼中，編寫非同步代碼，且該非同步代碼會需要作為同步代碼的相依
-// UI 元件加載在畫面上時會進入生命週期 Mount，卸載時會進入生命週期 UnMount
-
 function SignIn(props) {
     const load = useLoadingContext();
     // event handler
@@ -21,11 +16,6 @@ function SignIn(props) {
     });
 
     useEffect(async () => {
-        // FIXME: replace isAllowed() ... to this
-        // if (isDenied()) {
-        //     await requestAccessToken();
-        // }
-        // return <Redirect to={routes.home}/>;
         if (isAllowed()) {
             return <Redirect to={routes.home} />;
         }
