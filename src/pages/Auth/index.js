@@ -16,10 +16,12 @@ import Forgot from './Forgot';
 import ResetPassword from './ResetPassword';
 
 import { useAuthContext } from '../../context/AuthContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 function Auth(props) {
     // context
     const auth = useAuthContext();
+    const load = useLoadingContext();
     // url param
     const match = useRouteMatch();
 
@@ -34,10 +36,10 @@ function Auth(props) {
                 the page that is shown when no topic is selected */}
             <Switch>
                 <Route path={routes.signin}>
-                    <SignIn auth={auth} />
+                    <SignIn auth={auth} load={load} />
                 </Route>
                 <Route path={routes.signup}>
-                    <Signup />
+                    <Signup auth={auth} load={load} />
                 </Route>
                 <Route path={routes.forgot}>
                     <Forgot />

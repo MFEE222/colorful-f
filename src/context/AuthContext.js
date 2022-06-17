@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+// TODO: 生日、手機、大頭照、密碼 修改
+
 // API
 import {
     POST_AUTH_SIGNIN,

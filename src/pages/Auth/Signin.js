@@ -1,10 +1,14 @@
+// standard module
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+
+// internal global variable
 import { routes } from '../../utils/routes';
-import { useLoadingContext } from '../../context/LoadingContext';
+
+// TODO: 增加新註冊未驗證 email 提示（增加推播元件）
 
 function SignIn(props) {
-    const load = useLoadingContext();
+    const { load } = props;
     // event handler
     const { requestSignIn, requestAccessToken, isAllowed, isDenied } =
         props.auth;
