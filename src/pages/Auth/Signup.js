@@ -6,7 +6,7 @@ import { routes } from '../../utils/routes';
 
 // TODO: 新增註冊成功 推播訊息
 
-function Signup(props) {
+function SignUp(props) {
     // context
     const { requestSignUp } = props.auth;
     const { load } = props;
@@ -150,4 +150,4 @@ function Signup(props) {
     }
 }
 
-export default Signup;
+export default SignUp;

@@ -210,9 +210,11 @@ export function AuthProvider(props) {
             }
 
             // 'true' means reset password email has sent.
+            toast.default('👍 Reset Password Mail Has Been Sent!');
             return true;
         } catch (err) {
             console.log('err :>>', err);
+            toast.error('Uncorrect Email or Hint');
             return false;
         }
     }
