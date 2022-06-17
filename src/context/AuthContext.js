@@ -3,6 +3,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 // TODO: 生日、手機、大頭照、密碼 修改
+// TODO: 將共通 UI 畫面包在 Context 裡面 (Loading, Toast)
 
 // API
 import {
@@ -19,14 +20,14 @@ import login from '../images/film001.jpg';
 
 // routes
 import { routes } from '../utils/routes';
-import { useLoadingContext } from './LoadingContext';
+import { useToastContext } from './ToastContext';
 
 // Context
 const AuthContext = React.createContext('wrap not correct');
 
 // Provider
 export function AuthProvider(props) {
-    const load = useLoadingContext();
+    const toast = useToastContext();
     // state
     const [user, setUser] = useState({
         name: '',
@@ -119,9 +120,11 @@ export function AuthProvider(props) {
                 accessToken: access_token,
             });
 
+            toast.default('👍 Sign In Successful!');
             return true;
         } catch (err) {
             console.log('err :>>', err);
+            toast.error('Uncorrect Account or Password!');
             return false;
         }
     }
@@ -146,6 +149,7 @@ export function AuthProvider(props) {
                 accessToken: '',
             });
 
+            toast.default('👍 Sign Out Successful!');
             return true;
         } catch (err) {
             console.log('err :>>', err);
@@ -179,10 +183,13 @@ export function AuthProvider(props) {
             }
 
             // if success, meaning email has sent to user
+            toast.default(
+                '👍 Sign Up Successful. Please Check Your Confirmation Email'
+            );
             return true;
         } catch (err) {
             console.log('err :>>', err);
-
+            toast.error('Sign Up Failed');
             return false;
         }
     }

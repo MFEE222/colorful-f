@@ -14,14 +14,12 @@ import { routes } from './routes';
 
 import { useProductsContext } from '../context/ProductsContext';
 import { useAuthContext } from '../context/AuthContext';
-import { useLoadingContext } from '../context/LoadingContext';
 // import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
     // context
     const products = useProductsContext();
     const { user, isAllowed, requestSignOut } = useAuthContext();
-    const load = useLoadingContext();
     // state
     const [query, setQuery] = useState({ signout: false });
 
@@ -31,9 +29,7 @@ function OurNavbar(props) {
             return;
         }
 
-        load.start();
         const result = await requestSignOut();
-        load.end();
 
         setQuery({ ...query, signout: false });
     }, [query.signout]);

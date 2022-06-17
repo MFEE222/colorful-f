@@ -44,22 +44,11 @@ export function LoadingProvider(props) {
     return (
         <LoadingContext.Provider value={share}>
             {props.children}
-            {/* <LoadingUI loading={loading}>{props.children}</LoadingUI> */}
+            {/* {loading ? <UILoading /> : props.children} */}
         </LoadingContext.Provider>
     );
 
     // component
-    function LoadingUI({ loading }) {
-        return loading ? (
-            <div className="boxLoadingBackground">
-                <div className="boxLoading"></div>
-                {props.children}
-            </div>
-        ) : (
-            <>{props.children}</>
-        );
-    }
-
     function UILoading() {
         return (
             <div className="boxLoadingBackground">

@@ -8,6 +8,7 @@ import { routes } from '../../utils/routes';
 // TODO: 增加新註冊未驗證 email 提示（增加推播元件）
 
 function SignIn(props) {
+    // context
     const { load } = props;
     // event handler
     const { requestSignIn, requestAccessToken, isAllowed, isDenied } =
@@ -20,17 +21,10 @@ function SignIn(props) {
     });
 
     useEffect(async () => {
-        if (isAllowed()) {
-            return <Redirect to={routes.home} />;
-        }
-    }, []);
-
-    useEffect(async () => {
         if (!query.submit) {
             return;
         }
         load.start();
-        // send http-request to backend
         const result = await requestSignIn(query.email, query.password);
         load.end();
 
@@ -41,6 +35,7 @@ function SignIn(props) {
     if (!load.current && isAllowed()) {
         return <Redirect to={routes.home} />;
     }
+
     // render
     return load.current ? (
         <load.UILoading />

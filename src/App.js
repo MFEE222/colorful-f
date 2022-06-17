@@ -43,6 +43,7 @@ import Email from './components/Email/email';
 // Context
 import { ProductsProvider } from './context/ProductsContext';
 import { RWDProvider } from './context/RWDContext';
+import { UIToastProvider } from './context/ToastContext';
 // import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import { LoadingProvider } from './context/LoadingContext';
@@ -59,70 +60,72 @@ function App() {
     return (
         <>
             <RWDProvider>
-                <LoadingProvider>
-                    <AuthProvider>
-                        <ProductsProvider>
-                            {/* <CartProvider> */}
-                            {/* <OrderProvider> */}
-                            <div className="web-content">
-                                {/* 導覽列 */}
-                                <Navbar />
-                                <ScrollToTop />
-                                {/* 麵包屑 */}
-                                {/* <Breadcrumb /> */}
-                                <Switch>
-                                    {/* 驗證頁：登入、註冊、忘記密碼 */}
-                                    <Route path={routes.auth}>
-                                        <Auth />
-                                    </Route>
-                                    {/* 商品頁：商品列表、商品細節 */}
-                                    <Route path={routes.product}>
-                                        <Product />
-                                    </Route>
-                                    {/* 會員頁：個人資料、訂單列表、訂單細節、蒐藏、評論、信件、付款 */}
-                                    <Route path={routes.member}>
-                                        <Member />
-                                    </Route>
-                                    {/* 團隊介紹頁 */}
-                                    <Route path={routes.team}>
-                                        <Team />
-                                    </Route>
-                                    {/* 教學頁 */}
-                                    <Route path={routes.teach}>
-                                        <Teach />
-                                    </Route>
-                                    {/* 心理測驗頁 */}
-                                    <Route path={routes.game}>
-                                        <Game />
-                                    </Route>
-                                    {/* email */}
-                                    <Route path={routes.email}>
-                                        <Email />
-                                    </Route>
-                                    {/* 購物車 */}
-                                    <Route path={routes.cart}>
-                                        <Cart />
-                                    </Route>
-                                    {/* 主頁 */}
-                                    <Route exact path={routes.home}>
-                                        <Home />
-                                    </Route>
-                                    {/* 前導頁 */}
-                                    <Route exact path={routes.landing}>
-                                        <Landing />
-                                    </Route>
-                                    {/* 404 */}
-                                    <Route path={routes.error}>
-                                        <Error />
-                                    </Route>
-                                </Switch>
-                            </div>
-                            <Footer />
-                            {/* </OrderProvider> */}
-                            {/* </CartProvider> */}
-                        </ProductsProvider>
-                    </AuthProvider>
-                </LoadingProvider>
+                <UIToastProvider>
+                    <LoadingProvider>
+                        <AuthProvider>
+                            <ProductsProvider>
+                                {/* <CartProvider> */}
+                                {/* <OrderProvider> */}
+                                <div className="web-content">
+                                    {/* 導覽列 */}
+                                    <Navbar />
+                                    <ScrollToTop />
+                                    {/* 麵包屑 */}
+                                    {/* <Breadcrumb /> */}
+                                    <Switch>
+                                        {/* 驗證頁：登入、註冊、忘記密碼 */}
+                                        <Route path={routes.auth}>
+                                            <Auth />
+                                        </Route>
+                                        {/* 商品頁：商品列表、商品細節 */}
+                                        <Route path={routes.product}>
+                                            <Product />
+                                        </Route>
+                                        {/* 會員頁：個人資料、訂單列表、訂單細節、蒐藏、評論、信件、付款 */}
+                                        <Route path={routes.member}>
+                                            <Member />
+                                        </Route>
+                                        {/* 團隊介紹頁 */}
+                                        <Route path={routes.team}>
+                                            <Team />
+                                        </Route>
+                                        {/* 教學頁 */}
+                                        <Route path={routes.teach}>
+                                            <Teach />
+                                        </Route>
+                                        {/* 心理測驗頁 */}
+                                        <Route path={routes.game}>
+                                            <Game />
+                                        </Route>
+                                        {/* email */}
+                                        <Route path={routes.email}>
+                                            <Email />
+                                        </Route>
+                                        {/* 購物車 */}
+                                        <Route path={routes.cart}>
+                                            <Cart />
+                                        </Route>
+                                        {/* 主頁 */}
+                                        <Route exact path={routes.home}>
+                                            <Home />
+                                        </Route>
+                                        {/* 前導頁 */}
+                                        <Route exact path={routes.landing}>
+                                            <Landing />
+                                        </Route>
+                                        {/* 404 */}
+                                        <Route path={routes.error}>
+                                            <Error />
+                                        </Route>
+                                    </Switch>
+                                </div>
+                                <Footer />
+                                {/* </OrderProvider> */}
+                                {/* </CartProvider> */}
+                            </ProductsProvider>
+                        </AuthProvider>
+                    </LoadingProvider>
+                </UIToastProvider>
             </RWDProvider>
         </>
     );
