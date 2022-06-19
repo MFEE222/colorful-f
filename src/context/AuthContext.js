@@ -233,7 +233,7 @@ export function AuthProvider(props) {
             }
 
             const { access_token } = response.data;
-            console.log('access_token :>> ', access_token);
+            // console.log('access_token :>> ', access_token);
 
             const payload = jwt_decode(access_token);
 
@@ -291,4 +291,354 @@ export function AuthProvider(props) {
 // Consumer
 export function useAuthContext() {
     return React.useContext(AuthContext);
+}
+
+// useAuth
+export function useAuth(accessToken, dependencies) {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    async function handleAuth() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH,
+                headers: { Authorization: 'Bearer ' + accessToken },
+                withCredentials: true,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState({
+                result: false,
+                loading: false,
+                error: err.message,
+            });
+        }
+    }
+
+    useEffect(() => {
+        handleAuth();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useSignIn
+export function useSignIn([email, password], dependencies) {
+    const [dataState, setDataState] = useStaet({
+        user: {},
+        accessToken: '',
+        loading: false,
+        error: null,
+    });
+
+    async function handleSignIn() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_SIGNIN,
+                data: {
+                    account: email,
+                    password: password,
+                },
+                withCredentials: true,
+            });
+
+            // console.log('response :>> ', response);
+            if (response.status != 200) {
+                throw new Error();
+            }
+            const { access_token } = response.data;
+            const payload = jwt_decode(access_token);
+
+            setDataState({
+                ...dataState,
+                data: payload,
+                accessToken: access_token,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState((prev) => ({
+                ...prev,
+                loading: false,
+                error: err.message,
+            }));
+        }
+    }
+
+    useEffect(() => {
+        handleSignIn();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useSignOut
+export function useSignOut(dependencies) {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    async function handleSignOut() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'delete',
+                url: DELETE_AUTH_SIGNOUT,
+                withCredential: true,
+            });
+
+            if (response.status != 204) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState((prev) => ({
+                result: false,
+                loading: false,
+                error: err.message,
+            }));
+        }
+    }
+
+    useEffect(() => {
+        handleSignOut();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useSignUp
+export async function useSignUp(
+    [name, email, password, confirmPassword, hint],
+    dependencies
+) {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    async function handleSignUp() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_SIGNUP,
+                data: {
+                    name: name,
+                    account: email,
+                    password: password,
+                    confirm_password: confirmPassword,
+                    hint: hint,
+                },
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState({
+                result: false,
+                loading: false,
+                error: err.message,
+            });
+        }
+    }
+
+    useEffect(() => {
+        handleSignUp();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useForgotPassword
+export function useForgotPassword([email, hint], dependencies) {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    async function handleForgotPassword() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_FORGOT_PASSWORD,
+                data: {
+                    email: email,
+                    hint: hint,
+                },
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState({
+                result: false,
+                loading: false,
+                error: err.message,
+            });
+        }
+    }
+
+    useEffect(() => {
+        handleForgotPassword();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useAccessToken
+export function useAccessToken(dependencies) {
+    const [dataState, setDataState] = useState({
+        user: {},
+        accessToken: '',
+        loading: false,
+        error: null,
+    });
+
+    async function handleAccessToken() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH_TOKEN,
+                withCredentials: true,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            const { access_token } = response.data;
+            const payload = jwt_decode(access_token);
+
+            setDataState({
+                user: payload,
+                accessToken: access_token,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState((prev) => ({
+                ...prev,
+                loading: false,
+                error: err.message,
+            }));
+        }
+    }
+
+    useEffect(() => {
+        handleAccessToken();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useHealth
+export function useHealth(dependencies) {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    async function handleHealth() {
+        try {
+            setDataState({ ...dataState, loading: true });
+
+            const response = await axios({
+                method: 'get',
+                url: GET_AUTH_HEALTH,
+                withCredentials: true,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState({
+                result: false,
+                loading: false,
+                error: null,
+            });
+        }
+    }
+
+    useEffect(() => {
+        handleHealth();
+    }, dependencies);
+
+    return {
+        ...dataState,
+    };
 }
