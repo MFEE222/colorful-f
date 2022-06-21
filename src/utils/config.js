@@ -41,6 +41,7 @@ export const IMG_PRODUCTS_PORTRAIT_BANNER =
 export const POST_AUTH_SIGNIN = API_URL + '/auth/signin';
 export const POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 export const POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
+export const POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset-password';
 export const DELETE_AUTH_SIGNOUT = API_URL + '/auth/signout';
 export const GET_AUTH = API_URL + '/auth';
 export const GET_AUTH_TOKEN = API_URL + '/auth/token';

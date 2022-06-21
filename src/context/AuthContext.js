@@ -7,12 +7,14 @@ import jwt_decode from 'jwt-decode';
 
 // FIXME: improve custom hook with callback
 // FIXME: test each custom hook
+// FIXME: can't set authState correct ?
 
 // API
 import {
     POST_AUTH_SIGNIN,
     POST_AUTH_SIGNUP,
     POST_AUTH_FORGOT_PASSWORD,
+    POST_AUTH_RESET_PASSWORD,
     DELETE_AUTH_SIGNOUT,
     GET_AUTH,
     GET_AUTH_TOKEN,
@@ -49,7 +51,7 @@ export function AuthProvider(props) {
     // render
     return (
         <AuthContext.Provider value={share}>
-            {props.children}
+            <AutomaticSignIn>{props.children}</AutomaticSignIn>
         </AuthContext.Provider>
     );
 }
@@ -59,28 +61,32 @@ export function useAuthContext() {
     return React.useContext(AuthContext);
 }
 
+// Automatic Sign In
+export function AutomaticSignIn(props) {
+    const data = useAccessToken();
+    return <>{props.children}</>;
+}
+
 // useAuth
-export function useAuth(accessToken, dependencies) {
+export function useAuth() {
     // context
-    const auth = useAuthContext();
+    const { accessToken } = useAuthContext();
     // state
     const [dataState, setDataState] = useState({
         result: false,
-        loading: false,
+        loading: true,
         error: null,
     });
 
-    async function handleAuth() {
+    const handleAuth = useCallback(async () => {
         try {
-            setDataState({ ...dataState, loading: true });
-
             const response = await axios({
                 method: 'get',
                 url: GET_AUTH,
                 headers: { Authorization: 'Bearer ' + accessToken },
                 withCredentials: true,
             });
-
+            console.log('accessToken :>> ', accessToken);
             if (response.status != 200) {
                 throw new Error();
             }
@@ -98,13 +104,12 @@ export function useAuth(accessToken, dependencies) {
                 error: err.message,
             });
         }
-    }
+    }, []);
 
     useEffect(() => {
         handleAuth();
-    }, dependencies);
+    }, []);
 
-    console.log('useAuth return :>> ', dataState);
     return {
         ...dataState,
     };
@@ -166,7 +171,7 @@ export function useSignIn({ email, password, submit }, setQuery) {
                 accessToken: access_token,
             });
 
-            toast('👍 Sign In Successful!');
+            toast(`👍 Sign In Successful! Welcome, ${payload.name}`);
 
             return true;
         } catch (err) {
@@ -415,8 +420,6 @@ export function useAccessToken() {
 
     const handleAccessToken = useCallback(async () => {
         try {
-            setDataState({ ...dataState, loading: true });
-
             const response = await axios({
                 method: 'get',
                 url: GET_AUTH_TOKEN,
@@ -442,6 +445,10 @@ export function useAccessToken() {
                 user: payload,
                 accessToken: access_token,
             });
+
+            toast(`👍 Sign In Successful! Welcome, ${payload.name}`);
+
+            return true;
         } catch (err) {
             console.log('err :>>', err);
             setDataState((prev) => ({
@@ -449,6 +456,8 @@ export function useAccessToken() {
                 loading: false,
                 error: err.message,
             }));
+
+            return false;
         }
     }, []);
 
@@ -461,18 +470,83 @@ export function useAccessToken() {
     };
 }
 
-// useHealth
-export function useHealth(dependencies) {
+// useResetPassword
+export function useResetPassword(
+    { password, confirmPassword, submit },
+    setQuery
+) {
+    // context
+    const { accessToken } = useAuthContext();
+
+    // local state
     const [dataState, setDataState] = useState({
         result: false,
         loading: false,
         error: null,
     });
 
-    async function handleHealth() {
+    const handleResetPassword = useCallback(async () => {
         try {
             setDataState({ ...dataState, loading: true });
 
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_RESET_PASSWORD,
+                headers: { Authorization: 'Bearer ' + accessToken },
+                data: {
+                    password: password,
+                    confirm_password: confirmPassword,
+                },
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+            // local state
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+
+            toast('👍 Reset Password Successful!');
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState({
+                result: false,
+                loading: false,
+                error: err.message,
+            });
+
+            toast('❌ Oops, something wrong! Please Try Again.');
+
+            return false;
+        }
+    }, [submit]);
+
+    useEffect(() => {
+        if (!submit) return;
+        handleResetPassword();
+    }, [submit]);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useHealth
+export function useHealth() {
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: true,
+        error: null,
+    });
+
+    const handleHealth = useCallback(async () => {
+        try {
             const response = await axios({
                 method: 'get',
                 url: GET_AUTH_HEALTH,
@@ -496,11 +570,11 @@ export function useHealth(dependencies) {
                 error: null,
             });
         }
-    }
+    }, []);
 
     useEffect(() => {
         handleHealth();
-    }, dependencies);
+    }, []);
 
     return {
         ...dataState,

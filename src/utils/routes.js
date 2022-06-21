@@ -13,7 +13,7 @@ export const routes = {
     _signin: '/signin',
     _signup: '/signup',
     _forgot: '/forgot',
-    _resetPassword: '/reset-passeord',
+    _resetPassword: '/reset-password',
     // product
     _productDetail: '/detail',
     _food: '/food',

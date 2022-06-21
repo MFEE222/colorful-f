@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 // internal global variable
 import { routes } from '../../utils/routes';
 
-import { useSignIn } from '../../context/AuthContext';
+import { useAccessToken, useSignIn } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 function SignIn(props) {
@@ -19,10 +19,10 @@ function SignIn(props) {
         password: '',
         submit: false,
     });
-    // const { user } = useAccessToken();
     const data = useSignIn(query, setQuery);
 
     const render = () => {
+        // data
         if (data.loading) {
             return <UILoading />;
         }
