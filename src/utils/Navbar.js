@@ -13,28 +13,22 @@ import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
 import { useProductsContext } from '../context/ProductsContext';
-import { useAuthContext } from '../context/AuthContext';
+import { useAuthContext, useAuth, useSignOut } from '../context/AuthContext';
 // import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
     // context
+    const { user, accessToken, isSignIn } = useAuthContext();
     const products = useProductsContext();
-    const { user, isAllowed, requestSignOut } = useAuthContext();
-    // state
-    const [query, setQuery] = useState({ signout: false });
+    // hook
+    const [query, setQuery] = useState({ submit: false });
+    const data = useSignOut(query, setQuery);
+    // event
+    function eventSignOut() {
+        setQuery({ ...query, submit: true });
+    }
 
-    // side effect
-    useEffect(async () => {
-        if (!query.signout) {
-            return;
-        }
-
-        const result = await requestSignOut();
-
-        setQuery({ ...query, signout: false });
-    }, [query.signout]);
-
-    // 渲染
+    // render
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
@@ -134,7 +128,7 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isAllowed() ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -143,13 +137,12 @@ function OurNavbar(props) {
                                 <span className="text">User</span>
 
                                 <i className="fas fa-user ">
-                                    {isAllowed() &&
-                                        `  Hi, ${user.name || 'User'}`}
+                                    {isSignIn && `  Hi, ${user.name || 'User'}`}
                                 </i>
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isAllowed() ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -160,34 +153,24 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isAllowed() ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-cart-link"
                             >
                                 <span className="text">Cart</span>
-                                <i
-                                    className="fas fa-shopping-cart"
-                                    onClick={function () {
-                                        // FIXME: fix cart handle
-                                        // if (!isAllowed()) {
-                                        //     setShowLoginModal(true);
-                                        // }
-                                    }}
-                                ></i>
+                                <i className="fas fa-shopping-cart"></i>
                             </Nav.Link>
                         </LinkContainer>
-                        {isAllowed() && (
+                        {isSignIn && (
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-sign-out"
+                                onClick={eventSignOut}
                             >
                                 <span className="text">Sign Out</span>
-                                <i
-                                    className="fas fa-sign-out-alt"
-                                    onClick={eventSignOut}
-                                ></i>
+                                <i className="fas fa-sign-out-alt"></i>
                             </Nav.Link>
                         )}
                         {/* <button
@@ -204,10 +187,6 @@ function OurNavbar(props) {
             {/* <CartCard /> */}
         </Navbar>
     );
-
-    function eventSignOut() {
-        setQuery({ ...query, signout: true });
-    }
 }
 
 export default OurNavbar;

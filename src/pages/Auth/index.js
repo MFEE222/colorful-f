@@ -11,26 +11,18 @@ import SignUp from './SignUp';
 import ForgotPassword from './ForgotPassword';
 import ResetPassword from './ResetPassword';
 
-// context
-import { useAuthContext } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
-
 function Auth(props) {
-    // context
-    const auth = useAuthContext();
-    const load = useLoadingContext();
-
     // second router
     return (
         <Switch>
             <Route path={routes.signin}>
-                <SignIn auth={auth} load={load} />
+                <SignIn />
             </Route>
             <Route path={routes.signup}>
-                <SignUp auth={auth} load={load} />
+                <SignUp />
             </Route>
             <Route path={routes.forgot}>
-                <ForgotPassword auth={auth} load={load} />
+                <ForgotPassword />
             </Route>
             <Route path={routes.resetPassword}>
                 <ResetPassword />

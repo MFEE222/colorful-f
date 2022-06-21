@@ -8,7 +8,7 @@ const ToastContext = createContext();
 export function UIToastProvider(props) {
     // context data
     const share = {
-        default: toast,
+        toast,
         info: toast.info,
         success: toast.success,
         warning: toast.warning,
@@ -17,7 +17,7 @@ export function UIToastProvider(props) {
 
     // side effect
     useEffect(() => {
-        share.default('😄 Welcom to Color4 Me!');
+        toast('😄 Welcom to Color4 Me!');
     }, []);
 
     // render
