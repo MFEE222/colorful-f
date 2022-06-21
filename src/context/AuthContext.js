@@ -24,6 +24,7 @@ import login from '../images/film001.jpg';
 // routes
 import { routes } from '../utils/routes';
 import { useToastContext } from './ToastContext';
+import { toast } from 'react-toastify';
 
 // Context
 const AuthContext = React.createContext('wrap not correct');
@@ -267,9 +268,9 @@ export function useSignOut({ submit }, setQuery) {
 }
 
 // useSignUp
-export async function useSignUp(
-    { name, email, password, confirmPassword, hint },
-    dependencies
+export function useSignUp(
+    { name, email, password, confirmPassword, hint, submit },
+    setQuery
 ) {
     const [dataState, setDataState] = useState({
         result: false,
@@ -277,7 +278,7 @@ export async function useSignUp(
         error: null,
     });
 
-    async function handleSignUp() {
+    const handleSignUp = useCallback(async () => {
         try {
             setDataState({ ...dataState, loading: true });
 
@@ -302,6 +303,10 @@ export async function useSignUp(
                 loading: false,
                 error: null,
             });
+
+            toast('👍 Sing Up Successful! Confirmation Eamil Has Been Sent.');
+
+            return true;
         } catch (err) {
             console.log('err :>>', err);
             setDataState({
@@ -309,12 +314,23 @@ export async function useSignUp(
                 loading: false,
                 error: err.message,
             });
+
+            toast('❌ Uncorrect Personal Data Format!');
+
+            return false;
         }
-    }
+    }, [submit]);
 
     useEffect(() => {
-        handleSignUp();
-    }, dependencies);
+        if (!submit) return;
+        handleSignUp().then((result) => {
+            if (!result)
+                setQuery((prev) => ({
+                    ...prev,
+                    submit: false,
+                }));
+        });
+    }, [submit]);
 
     return {
         ...dataState,
