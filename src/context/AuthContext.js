@@ -338,14 +338,14 @@ export function useSignUp(
 }
 
 // useForgotPassword
-export function useForgotPassword({ email, hint }, dependencies) {
+export function useForgotPassword({ email, hint, submit }, setQuery) {
     const [dataState, setDataState] = useState({
         result: false,
         loading: false,
         error: null,
     });
 
-    async function handleForgotPassword() {
+    const handleForgotPassword = useCallback(async () => {
         try {
             setDataState({ ...dataState, loading: true });
 
@@ -367,6 +367,10 @@ export function useForgotPassword({ email, hint }, dependencies) {
                 loading: false,
                 error: null,
             });
+
+            toast('👍 Reset Password Email Has Been Sent!');
+
+            return true;
         } catch (err) {
             console.log('err :>>', err);
             setDataState({
@@ -374,12 +378,23 @@ export function useForgotPassword({ email, hint }, dependencies) {
                 loading: false,
                 error: err.message,
             });
+
+            toast('❌ Uncorrect Email or Password Hint!');
+
+            return false;
         }
-    }
+    }, [submit]);
 
     useEffect(() => {
-        handleForgotPassword();
-    }, dependencies);
+        if (!submit) return;
+        handleForgotPassword().then((result) => {
+            if (!result)
+                setQuery((prev) => ({
+                    ...prev,
+                    submit: false,
+                }));
+        });
+    }, [submit]);
 
     return {
         ...dataState,
