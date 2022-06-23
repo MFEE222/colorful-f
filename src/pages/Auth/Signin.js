@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 // internal global variable
 import { routes } from '../../utils/routes';
 
-import { useAccessToken, useSignIn } from '../../context/AuthContext';
+import { useSignIn } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 function SignIn(props) {

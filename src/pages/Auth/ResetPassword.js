@@ -27,6 +27,7 @@ const ResetPassword = (props) => {
     }
 
     function eventSubmit(e) {
+        e.preventDefault();
         setQuery({ ...query, submit: true });
     }
 

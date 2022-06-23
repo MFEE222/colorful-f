@@ -18,7 +18,7 @@ import { useAuthContext, useAuth, useSignOut } from '../context/AuthContext';
 
 function OurNavbar(props) {
     // context
-    const { user, accessToken, isSignIn } = useAuthContext();
+    const { user, isSignIn } = useAuthContext();
     const products = useProductsContext();
     // hook
     const [query, setQuery] = useState({ submit: false });

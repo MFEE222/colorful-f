@@ -2,13 +2,6 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-// TODO: 生日、手機、大頭照、密碼 修改
-// TODO: 將共通 UI 畫面包在 Context 裡面 (Loading, Toast)
-
-// FIXME: improve custom hook with callback
-// FIXME: test each custom hook
-// FIXME: can't set authState correct ?
-
 // API
 import {
     POST_AUTH_SIGNIN,
@@ -19,6 +12,9 @@ import {
     GET_AUTH,
     GET_AUTH_TOKEN,
     GET_AUTH_HEALTH,
+    POST_AUTH_EDIT_PERSONAL_INFO,
+    POST_AUTH_EDIT_EMAIL,
+    POST_AUTH_EDIT_AVATAR,
 } from '../utils/config';
 
 import login from '../images/film001.jpg';
@@ -86,7 +82,7 @@ export function useAuth() {
                 headers: { Authorization: 'Bearer ' + accessToken },
                 withCredentials: true,
             });
-            console.log('accessToken :>> ', accessToken);
+
             if (response.status != 200) {
                 throw new Error();
             }
@@ -182,7 +178,8 @@ export function useSignIn({ email, password, submit }, setQuery) {
                 loading: false,
                 error: err.message,
             }));
-            toast('❌ Uncorrect Email or Password!');
+
+            // toast('❌ Uncorrect Email or Password!');
 
             return false;
         }
@@ -530,6 +527,155 @@ export function useResetPassword(
     useEffect(() => {
         if (!submit) return;
         handleResetPassword();
+    }, [submit]);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useEditPersonalInfo
+export function useEditPersonalInfo(
+    { name, birthday, phone, submit },
+    setQuery
+) {}
+
+// useEditEmail
+export function useEditEmail({ email, submit }, setQuery) {
+    // context
+    const { accessToken } = useAuthContext();
+    const { toast } = useToastContext();
+    // state
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    const handleEditEmail = useCallback(async () => {
+        try {
+            setDataState((prev) => ({ ...prev, loading: true }));
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_EDIT_EMAIL,
+                headers: {
+                    Authorization: 'Bearer ' + accessToken,
+                },
+                data: {
+                    email,
+                },
+            });
+
+            console.log('response :>> ', response);
+            setDataState((prev) => ({
+                ...prev,
+                result: true,
+                loading: false,
+                error: null,
+            }));
+
+            toast('👍 Accept Email Edit. Confirmation Email has been Sent!');
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            setDataState((prev) => ({
+                ...prev,
+                result: false,
+                loading: false,
+                error: err.message,
+            }));
+
+            toast('❌ Reject Email Edit. Please Try Again!');
+
+            return false;
+        }
+    }, [email]);
+
+    useEffect(() => {
+        if (!submit || !email) return;
+        handleEditEmail().then((result) => {
+            setQuery((prev) => ({
+                ...prev,
+                submit: false,
+            }));
+        });
+    }, [submit]);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useEditAvatar
+export function useEditAvatar({ avatar, submit }, setQuery) {
+    // context
+    const { accessToken } = useAuthContext();
+    const { toast } = useToastContext();
+    // state
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    const handleEditAvatar = useCallback(async () => {
+        try {
+            setDataState((prev) => ({ ...prev, loading: true }));
+
+            const formData = new FormData();
+            formData.append('avatar', avatar);
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_EDIT_AVATAR,
+                headers: {
+                    Authorization: 'Bearer ' + accessToken,
+                    'Content-Type': 'multipart/form-data',
+                },
+                data: formData,
+            });
+
+            // console.log('response :>> ', response);
+            if (response.status != 200) {
+                throw new Error();
+            }
+            // local state
+            setDataState((prev) => ({
+                ...prev,
+                result: true,
+                loading: false,
+                error: null,
+            }));
+
+            toast('👍 Avatar Edit Successful!');
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+            // local state
+            setDataState((prev) => ({
+                ...prev,
+                result: false,
+                loading: false,
+                error: err.message,
+            }));
+
+            toast('❌ Avatar Edit Failed. Please Try Again!');
+
+            return false;
+        }
+    }, [avatar]);
+
+    useEffect(() => {
+        if (!submit || !avatar) return;
+        handleEditAvatar().then((result) => {
+            setQuery((prev) => ({
+                ...prev,
+                submit: false,
+            }));
+        });
     }, [submit]);
 
     return {

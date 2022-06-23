@@ -1,89 +1,218 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import ProfileContent from '../../components/Member/ProfileContent';
+// standarad library
+import { useState, useEffect } from 'react';
+
+// internal library
 import {
-    API_POST_MEMBER_PROFILE_PHOTO,
-    API_POST_MEMBER_PROFILE,
-    IMG_URL2,
-} from '../../utils/config';
+    useAuthContext,
+    useEditAvatar,
+    useEditEmail,
+} from '../../context/AuthContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
-//
-import { useAuthContext } from '../../context/AuthContext';
-
+// components
 function Profile(props) {
-    // if(auth.current)
-    const auth = useAuthContext();
-    const user = auth.user;
-    //TODO:設定進狀態[2]
-    const [profile, setProfile] = useState({
+    // context
+    const { user, accessToken } = useAuthContext();
+    const { UILoading } = useLoadingContext();
+    // state
+    const [query, setQuery] = useState({
         name: '',
+        email: '',
         birthday: '',
         phone: '',
-        email: '',
-        photo: '',
+        avatar: '',
+        avatarPreview: '',
+        submit: false,
     });
+    // hook
+    const data = {
+        email: useEditEmail(query, setQuery),
+        avatar: useEditAvatar(query, setQuery),
+    };
 
-    useEffect(
-        function () {
-            setProfile({
-                name: user.name,
-                birthday: user.birthday,
-                phone: user.phone,
-                email: user.email,
-                photo: `${IMG_URL2}/uploads/profile/u-${user.id}/${user.id}.jpg`,
+    // event
+    function eventInput(e) {
+        const newQuery = { ...query };
+        newQuery[e.target.name] = e.target.value;
+        setQuery(newQuery);
+    }
+
+    function eventFile(e) {
+        const avatar = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            setQuery({
+                ...query,
+                avatar: avatar,
+                avatarPreview: reader.result,
             });
-        },
-        [auth]
-    );
-
-    // 設定回狀態函式
-    function handleChange(e) {
-        setProfile({ ...profile, [e.target.name]: e.target.value });
+        };
+        reader.readAsDataURL(e.target.files[0]);
     }
-    //送出 發api
-    async function handleSubmit(e) {
-        //關掉預設
+
+    function eventSubmit(e) {
         e.preventDefault();
-        // console.log('here :>> ', 'here');
-        try {
-            let formData = new FormData();
-            formData.append('photo', profile.photo);
-            //上傳照片
-            let response = await axios.post(
-                API_POST_MEMBER_PROFILE_PHOTO + `?uid=${user.id}`,
-                formData
-            );
-
-            //更新資料庫
-            let responseDetail = await axios.post(
-                API_POST_MEMBER_PROFILE + `?uid=${user.id}`,
-                {
-                    name: profile.name,
-                    birthday: profile.birthday,
-                    phone: profile.phone,
-                    email: profile.email,
-                }
-            );
-            //圖片上傳
-            //細節資訊
-        } catch (err) {
-            console.error(err);
-        }
+        setQuery({ ...query, submit: true });
     }
 
-    //
-    useEffect(() => {
-        // console.log('profile :>> ', profile);
-    }, [profile]);
-    //更新完成要發送api
-    return (
-        <ProfileContent
-            profile={profile}
-            setProfile={setProfile}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-        />
-    );
+    // render
+    const render = () => {
+        if (data.avatar.loading || data.email.loading) {
+            return <UILoading />;
+        }
+
+        return (
+            <div className="member-comment  member-profile-main row justify-content-between">
+                <div className="col-12 col-md-6">
+                    <div className="text-center mb-5">
+                        <div className="col-12 col-md-auto me-md-3">
+                            <h5>個人資料</h5>
+                            <p>完成填寫個人資料可享有更多會員專屬權益</p>
+                        </div>
+                    </div>
+                    {/* <!-- form --> */}
+                    <form className="mt-5 ">
+                        <div className="row justify-content-center">
+                            <div className="col-12 col-md-10 mb-3">
+                                <div className="row">
+                                    <label
+                                        htmlFor="member-name"
+                                        className="col-auto col-md-1 col-form-label"
+                                    >
+                                        姓名
+                                    </label>
+                                    <div className="col">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="name"
+                                            value={query.name}
+                                            placeholder={user.name}
+                                            onChange={eventInput}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="col-12 col-md-10 mb-3">
+                                <div className="row justify-content-center">
+                                    <label
+                                        id="birthday"
+                                        className="col-auto col-md-1 col-form-label"
+                                    >
+                                        生日
+                                    </label>
+                                    <div className="col">
+                                        <input
+                                            id="birthday"
+                                            type="text"
+                                            className="form-control"
+                                            name="birthday"
+                                            value={query.birthday}
+                                            placeholder={
+                                                user.birthday
+                                                    ? user.birthday
+                                                    : 'YYYY-MM-DD'
+                                            }
+                                            onChange={eventInput}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row justify-content-center">
+                            <div className="col-12 col-md-10 mb-3">
+                                <div className="row justify-content-center">
+                                    <label
+                                        htmlFor="phone"
+                                        className="col-auto col-md-1 col-form-label"
+                                    >
+                                        手機
+                                    </label>
+                                    <div className="col">
+                                        <input
+                                            type="text"
+                                            id="phone"
+                                            maxLength="10"
+                                            className="form-control"
+                                            name="phone"
+                                            value={query.phone}
+                                            placeholder={
+                                                user.phone
+                                                    ? user.phone
+                                                    : '0910000000'
+                                            }
+                                            onChange={eventInput}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="col-12 col-md-10 mb-3">
+                                <div className="row ">
+                                    <label
+                                        htmlFor="email"
+                                        className="col-auto col-md-1 col-form-label"
+                                    >
+                                        Email
+                                    </label>
+                                    <div className="col  ps-0">
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            className="form-control"
+                                            name="email"
+                                            value={query.email}
+                                            placeholder={
+                                                user.email
+                                                    ? user.email
+                                                    : 'example@gmail.com'
+                                            }
+                                            onChange={eventInput}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="col-12 col-md-6 text-center">
+                    <label htmlFor="photo" className="custom-file-upload mb-4">
+                        上傳圖片
+                    </label>
+                    <input
+                        id="photo"
+                        type="file"
+                        name="avatar" // must be naming 'avatar'
+                        onChange={eventFile}
+                    />
+                    <div className="upload-box p-0 m-auto col-6 border">
+                        <div className=" ratio ratio-1x1">
+                            {query.avatarPreview ? (
+                                <img src={query.avatarPreview} alt="avatar" />
+                            ) : (
+                                <img src={user.avatar} alt="avatar" />
+                            )}
+                        </div>
+                    </div>
+                </div>
+                <div className="col-12 text-center">
+                    <span
+                        className="btn submit mt-5 text-center"
+                        onClick={eventSubmit}
+                    >
+                        完成
+                    </span>
+                </div>
+            </div>
+        );
+    };
+
+    return <>{render()}</>;
 }
 
 export default Profile;
