@@ -6,7 +6,7 @@ import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 import RecommendCard from '../../components/Product/RecommendCard';
 
 // Context
-import { useCartContext } from '../../utils/context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 //圖片
 import { IMG_URL2 } from '../../utils/config';

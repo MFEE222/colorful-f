@@ -7,8 +7,8 @@ import sortImg from '../../icons/Sortbar/Sort.png';
 import deleteImg from '../../icons/Sortbar/Delete.png';
 
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
-import { useRWDContext } from '../../utils/context/RWDContext';
-import { useProductsContext } from '../../utils/context/ProductsContext';
+import { useRWDContext } from '../../context/RWDContext';
+import { useProductsContext } from '../../context/ProductsContext';
 
 function FilterBar(props) {
     // Context

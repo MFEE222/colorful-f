@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
     Switch,
     Route,
@@ -25,20 +24,28 @@ import Payment from './Payment';
 import Collect from './Collect';
 import Content from '../../components/Member/Content';
 //
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
-// 會員主頁（巢狀路由 or 單純函式解決）
+// FIXME: error redirect to home after refresh member page.
+// 生命週期：定義每隔階段要做什麼，函式元件的內部作用域代碼則是 render 階段會執行
+
 function Member(props) {
-    const match = useRouteMatch();
-    const auth = useAuthContext();
-    //TODO:判斷是否登入 -> madol[需有會員才能使用會中心更多功能 -> 去登入 或 註冊 ]
-    return (
-        <>
-            {/* {auth.current ? (
-                <Redirect to={routes.profile} />
-            ) : (
-                <Redirect to={routes.signin} />
-            )} */}
+    // context
+    const { UILoading } = useLoadingContext();
+    // hook
+    const auth = useAuth();
+    // render
+    const render = () => {
+        if (auth.loading) {
+            return <UILoading />;
+        }
+
+        if (!auth.result) {
+            return <Redirect to={routes.home} />;
+        }
+
+        return (
             <Main>
                 <SideBarLeft />
                 <Content>
@@ -46,7 +53,7 @@ function Member(props) {
                         <Route path={routes.profile}>
                             <Profile />
                         </Route>
-                        <Route path={routes.orderList}>
+                        {/* <Route path={routes.orderList}>
                             <Order />
                         </Route>
                         <Route path={routes.orderDetail}>
@@ -75,18 +82,18 @@ function Member(props) {
                         </Route>
                         <Route path={routes.collect}>
                             <Collect />
-                        </Route>
+                        </Route> */}
 
                         <Route path={routes.member}>
-                            {/* {auth.current ? <Redirect to={routes.profile}/>} */}
                             <Profile />
-                            {/* 檢查有沒有登入，有登入直接跳轉到 profile 頁 */}
                         </Route>
                     </Switch>
                 </Content>
             </Main>
-        </>
-    );
+        );
+    };
+
+    return <>{render()}</>;
 }
 
 export default Member;

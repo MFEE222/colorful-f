@@ -7,7 +7,7 @@ import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
-// import { useOrderContext } from '../../utils/context/OrderContext';
+// import { useOrderContext } from '../../context/OrderContext';
 
 // function OrderContent(props) {
 //     return (

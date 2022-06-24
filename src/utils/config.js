@@ -37,6 +37,20 @@ export const IMG_PRODUCTS_SCENERY_BANNER =
 export const IMG_PRODUCTS_PORTRAIT_BANNER =
     IMG_PRODUCTS_PORTRAIT + '/portrait-banner.mp4';
 
+// Auth
+export const POST_AUTH_SIGNIN = API_URL + '/auth/signin';
+export const POST_AUTH_SIGNUP = API_URL + '/auth/signup';
+export const POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
+export const POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset-password';
+export const DELETE_AUTH_SIGNOUT = API_URL + '/auth/signout';
+export const GET_AUTH = API_URL + '/auth';
+export const GET_AUTH_TOKEN = API_URL + '/auth/token';
+export const POST_AUTH_EDIT_PERSONAL_INFO =
+    API_URL + '/auth/edit/personal-info';
+export const POST_AUTH_EDIT_EMAIL = API_URL + '/auth/edit/email';
+export const POST_AUTH_EDIT_AVATAR = API_URL + '/auth/edit/avatar';
+export const GET_AUTH_HEALTH = API_URL + '/auth/health';
+
 // Post Login 登入
 // req
 // {

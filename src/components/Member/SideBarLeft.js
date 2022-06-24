@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 //
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 function SideBarLeft(props) {
     const auth = useAuthContext();

@@ -1,27 +1,26 @@
-// standard module
-import React, { useState } from 'react';
+// standard
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-// internal global variable
+
+// internal utility
 import { routes } from '../../utils/routes';
-import { useSignUp } from '../../context/AuthContext';
+import { useForgotPassword } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
-function SignUp(props) {
+// main component
+function ForgotPassword(props) {
     // context
     const { UILoading } = useLoadingContext();
     // state
     const [query, setQuery] = useState({
-        name: '',
         email: '',
-        password: '',
-        confirmPassword: '',
         hint: '',
         submit: false,
     });
 
-    const data = useSignUp(query, setQuery);
+    const data = useForgotPassword(query, setQuery);
 
-    // event
+    // event handler
     function eventInput(e) {
         const newQuery = { ...query };
         newQuery[e.target.name] = e.target.value;
@@ -47,29 +46,15 @@ function SignUp(props) {
         }
 
         return (
-            <div className="signup-main">
+            <div className="signin-forgot-main">
                 <div className="container">
                     <div className="row justify-content-center justify-content-lg-start">
                         <div className="col-12 col-sm-auto ">
                             <div className="form-box">
                                 <form className="signin-form" action="">
-                                    <h4 className="box-title">Sign up</h4>
-                                    <div className="form-floating">
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="name"
-                                            name="name"
-                                            placeholder="Name"
-                                            value={query.name}
-                                            onChange={eventInput}
-                                            required
-                                        />
-                                        <label htmlFor="floatingName">
-                                            Name
-                                        </label>
-                                    </div>
-
+                                    <h4 className="box-title">
+                                        Fotgot Password ?
+                                    </h4>
                                     <div className="form-floating">
                                         <input
                                             type="email"
@@ -87,46 +72,16 @@ function SignUp(props) {
                                     </div>
                                     <div className="form-floating">
                                         <input
-                                            type="password"
-                                            className="form-control"
-                                            id="password"
-                                            name="password"
-                                            placeholder="Password"
-                                            value={query.password}
-                                            onChange={eventInput}
-                                            pattern="[a-zA-Z0-9]{7,}"
-                                        />
-                                        <label htmlFor="password">
-                                            Password
-                                        </label>
-                                    </div>
-                                    <div className="form-floating">
-                                        <input
-                                            type="password"
-                                            className="form-control"
-                                            id="confirmPassword"
-                                            name="confirmPassword"
-                                            placeholder="Password"
-                                            value={query.confirmPassword}
-                                            onChange={eventInput}
-                                            pattern="[a-zA-Z0-9]{7,}"
-                                        />
-                                        <label htmlFor="confirmPassword">
-                                            Confirm Password
-                                        </label>
-                                    </div>
-                                    <div className="form-floating">
-                                        <input
                                             type="text"
                                             className="form-control"
-                                            id="passwordHint"
+                                            id="hint"
                                             name="hint"
                                             placeholder="hint"
                                             value={query.hint}
                                             onChange={eventInput}
                                             required
                                         />
-                                        <label htmlFor="passwordHint">
+                                        <label htmlFor="password-hint">
                                             Password Hint
                                         </label>
                                     </div>
@@ -135,7 +90,7 @@ function SignUp(props) {
                                             type="submit"
                                             onClick={eventSubmit}
                                         >
-                                            Sign up
+                                            Submit
                                         </button>
                                     </div>
                                 </form>
@@ -150,4 +105,4 @@ function SignUp(props) {
     return <>{render()}</>;
 }
 
-export default SignUp;
+export default ForgotPassword;

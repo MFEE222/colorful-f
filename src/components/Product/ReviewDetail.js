@@ -7,8 +7,8 @@ import Slider from 'react-slick';
 
 // 共用
 import { IMG_URL2 } from '../../utils/config';
-// import { useAuthContext } from '../../utils/context/AuthContext';
-import { useAuthContext } from '../../utils/context/AuthContext';
+// import { useAuthContext } from '../../context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 // 圖片
 import ImgIcon from '../../icons/dec-bar.png';

@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
-import { API_GET_PRODUCT } from '../config';
+import { API_GET_PRODUCT } from '../utils/config';
 import {
     API_GET_ORDERS,
     API_GET_ORDER_DETAIL,
     API_POST_ORDER,
     API_POST_ORDER_PAYMENT,
-} from '../config';
-import { STATUS_MSG } from '../others/status';
+} from '../utils/config';
+import { STATUS_MSG } from '../utils/others/status';
 import { useAuthContext } from './AuthContext';
 
 // Context

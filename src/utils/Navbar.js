@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // 庫
-import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -12,25 +12,23 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Menu from '../images/dot-menu.svg';
 import { routes } from './routes';
 
-import { useProductsContext } from '../utils/context/ProductsContext';
-import { useAuthContext } from '../utils/context/AuthContext';
-
+import { useProductsContext } from '../context/ProductsContext';
+import { useAuthContext, useAuth, useSignOut } from '../context/AuthContext';
 // import CartCard from '../components/Cart/CartCard';
 
 function OurNavbar(props) {
-    // Context
+    // context
+    const { user, isSignIn } = useAuthContext();
     const products = useProductsContext();
-    const auth = useAuthContext();
-
-    // 函數
-    // 生成 Click 事件處理器
-    function controlProductsSeries(series_id) {
-        return function (e) {
-            products.optionSeries(e, series_id);
-        };
+    // hook
+    const [query, setQuery] = useState({ submit: false });
+    const data = useSignOut(query, setQuery);
+    // event
+    function eventSignOut() {
+        setQuery({ ...query, submit: true });
     }
 
-    // 渲染
+    // render
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
             <Container>
@@ -107,7 +105,6 @@ function OurNavbar(props) {
                                 About us
                             </Nav.Link>
                         </LinkContainer>
-
                         <NavDropdown
                             title="Tutorial"
                             id="colorful-tutorial-dropdown"
@@ -121,7 +118,6 @@ function OurNavbar(props) {
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
-
                         <LinkContainer to={routes.member}>
                             <Nav.Link
                                 className="link-item"
@@ -132,7 +128,7 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -141,14 +137,12 @@ function OurNavbar(props) {
                                 <span className="text">User</span>
 
                                 <i className="fas fa-user ">
-                                    {auth.current &&
-                                        `  hi, ${auth.user.name || 'Liz'}`}
+                                    {isSignIn && `  Hi, ${user.name || 'User'}`}
                                 </i>
                             </Nav.Link>
                         </LinkContainer>
-                        {/* (auth.current?) */}
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
@@ -158,28 +152,30 @@ function OurNavbar(props) {
                                 <i className="fas fa-heart"></i>
                             </Nav.Link>
                         </LinkContainer>
-
                         <LinkContainer
-                            to={auth.current ? routes.member : routes.signin}
+                            to={isSignIn ? routes.member : routes.signin}
                         >
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-cart-link"
                             >
                                 <span className="text">Cart</span>
-                                <i
-                                    className="fas fa-shopping-cart"
-                                    onClick={function () {
-                                        if (!auth.current) {
-                                            auth.setShowLoginModal(true);
-                                        }
-                                    }}
-                                ></i>
+                                <i className="fas fa-shopping-cart"></i>
                             </Nav.Link>
                         </LinkContainer>
+                        {isSignIn && (
+                            <Nav.Link
+                                className="link-item"
+                                id="colorful-sign-out"
+                                onClick={eventSignOut}
+                            >
+                                <span className="text">Sign Out</span>
+                                <i className="fas fa-sign-out-alt"></i>
+                            </Nav.Link>
+                        )}
                         {/* <button
                             onClick={function () {
-                                auth.setShowLoginModal(true);
+                                setShowLoginModal(true);
                             }}
                         >
                             show modal

@@ -7,8 +7,8 @@ import axios from 'axios';
 import ReactBeforeAfter from 'react-before-after';
 // 共用
 import { IMG_URL2, API_URL } from '../../utils/config';
-import { useProductsContext } from '../../utils/context/ProductsContext';
-import { useAuthContext } from '../../utils/context/AuthContext';
+import { useProductsContext } from '../../context/ProductsContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 // 自己
 // import { imgName } from '../../utils/imageName';
