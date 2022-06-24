@@ -6,8 +6,12 @@ import {
     useAuthContext,
     useEditAvatar,
     useEditEmail,
+    useEditPersonalInfo,
 } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+
+// TODO: 網路請求修改資料後，自動刷新
+// FIXME: 當 useAuth 失敗時，自動檢查 accessToken 時效性並進行更新
 
 // components
 function Profile(props) {
@@ -26,6 +30,7 @@ function Profile(props) {
     });
     // hook
     const data = {
+        person: useEditPersonalInfo(query, setQuery),
         email: useEditEmail(query, setQuery),
         avatar: useEditAvatar(query, setQuery),
     };

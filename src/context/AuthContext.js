@@ -538,7 +538,77 @@ export function useResetPassword(
 export function useEditPersonalInfo(
     { name, birthday, phone, submit },
     setQuery
-) {}
+) {
+    // context
+    const { accessToken } = useAuthContext();
+    const { toast } = useToastContext();
+    // state
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    const handleEditPersonalInfo = useCallback(async () => {
+        try {
+            setDataState((prev) => ({ ...prev, loading: true }));
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_EDIT_PERSONAL_INFO,
+                headers: { Authorization: 'Bearer ' + accessToken },
+                data: {
+                    name,
+                    birthday,
+                    phone,
+                },
+            });
+
+            console.log('response :>> ', response);
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState((prev) => ({
+                ...prev,
+                result: true,
+                loading: false,
+                error: null,
+            }));
+
+            toast('👍 Personal Info Update Successful!');
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState((prev) => ({
+                ...prev,
+                result: false,
+                loading: false,
+                error: err.message,
+            }));
+
+            toast('❌ Personal Info Update Failed. Please Try Again!');
+
+            return false;
+        }
+    }, [name, birthday, phone]);
+
+    useEffect(() => {
+        if (!submit || (!name && !birthday && !phone)) return;
+        handleEditPersonalInfo().then((result) => {
+            setQuery((prev) => ({
+                ...prev,
+                submit: false,
+            }));
+        });
+    }, [submit]);
+
+    return {
+        ...dataState,
+    };
+}
 
 // useEditEmail
 export function useEditEmail({ email, submit }, setQuery) {
