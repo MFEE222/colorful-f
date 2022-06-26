@@ -51,6 +51,10 @@ export const POST_AUTH_EDIT_EMAIL = API_URL + '/auth/edit/email';
 export const POST_AUTH_EDIT_AVATAR = API_URL + '/auth/edit/avatar';
 export const GET_AUTH_HEALTH = API_URL + '/auth/health';
 
+export const GOOGLE_SIGNIN_CDN = process.env.REACT_APP_GOOGLE_SIGNIN_CDN;
+export const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+export const POST_AUTH_GOOGLE = API_URL + '/auth/google';
+
 // Post Login 登入
 // req
 // {

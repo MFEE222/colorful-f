@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+// FIXME: Navbar.js 和 Index.js (Member) 側邊欄登出功能修正（登出後跳轉到首頁）
+// FIXME: Footer 會跑版蓋住登入方框
+
 // API
 import {
     POST_AUTH_SIGNIN,
@@ -15,11 +18,15 @@ import {
     POST_AUTH_EDIT_PERSONAL_INFO,
     POST_AUTH_EDIT_EMAIL,
     POST_AUTH_EDIT_AVATAR,
+    POST_AUTH_GOOGLE,
+    GOOGLE_CLIENT_ID,
+    GOOGLE_SIGNIN_CDN,
 } from '../utils/config';
 
 import login from '../images/film001.jpg';
 
-// routes
+// intern library
+import { useScript } from '../hooks/useScript';
 import { routes } from '../utils/routes';
 import { useToastContext } from './ToastContext';
 import { toast } from 'react-toastify';
@@ -179,7 +186,7 @@ export function useSignIn({ email, password, submit }, setQuery) {
                 error: err.message,
             }));
 
-            // toast('❌ Uncorrect Email or Password!');
+            toast('❌ Uncorrect Email or Password!');
 
             return false;
         }
@@ -791,6 +798,147 @@ export function useHealth() {
     useEffect(() => {
         handleHealth();
     }, []);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useGoogleSignIn
+export function useGoogleSignIn(buttonID) {
+    // context
+    const { setAuthState } = useAuthContext();
+    // load gsi library
+    const script = useScript(GOOGLE_SIGNIN_CDN);
+
+    // state
+    const [dataState, setDataState] = useState({
+        user: {},
+        accessToken: '',
+        loading: false,
+        error: null,
+    });
+
+    // flow: handleDisplayGoogleButton -> handleAccessToken
+    const handleAccessToken = useCallback(async (data) => {
+        console.log('data :>> ', data);
+
+        try {
+            setDataState((prev) => ({ ...prev, loading: true }));
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_GOOGLE,
+                data: data,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            const user = jwt_decode(data.credential);
+            // local
+            setDataState({
+                user: user,
+                accessToken: data.credential,
+                loading: false,
+                error: null,
+            });
+            // global
+            setAuthState((prev) => ({
+                ...prev,
+                user: user,
+                accessToken: data.credential,
+            }));
+
+            toast('👍 Google Sign In Successful!');
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState({
+                user: {},
+                accessToken: '',
+                loading: false,
+                error: err.message,
+            });
+
+            toast('❌ Google Sign In Failed!');
+        }
+    }, []);
+
+    const handleDisplayGoogleButton = useCallback(() => {
+        // init
+        google.accounts.id.initialize({
+            client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+            callback: handleAccessToken,
+            ux_mode: 'popup',
+            auto_select: true,
+        });
+
+        // render
+        google.accounts.id.renderButton(document.getElementById(buttonID), {
+            type: 'standard',
+            size: 'large',
+            theme: 'outline',
+            text: 'sign_in_with',
+            shape: 'pill',
+            logo_alignment: 'center',
+            locale: 'en',
+        });
+    }, []);
+
+    useEffect(() => {
+        if (!script.result) return;
+        handleDisplayGoogleButton();
+    }, [script.result]);
+
+    return {
+        ...dataState,
+    };
+}
+
+export function useGoogleSignOut({ submit }, setQuery) {
+    // context
+    const { user } = useAuthContext();
+    // state
+    const [dataState, setDataState] = useState({
+        result: false,
+        loading: false,
+        error: null,
+    });
+
+    const handleGoogleSignOut = useCallback(() => {
+        setDataState((prev) => ({ ...prev, loading: true }));
+
+        google.accounts.id.revoke(user.email, (done) => {
+            console.log('done :>> ', done);
+
+            if (done.error) {
+                // fail
+                console.log('done.error :>> ', done.error);
+                setDataState({
+                    result: false,
+                    loading: false,
+                    error: done.error,
+                });
+            } else {
+                // success
+                setDataState((prev) => ({
+                    ...prev,
+                    result: true,
+                    loading: false,
+                    error: null,
+                }));
+            }
+
+            setQuery((prev) => ({ ...prev, submit: false }));
+        });
+    }, []);
+
+    useEffect(() => {
+        if (!submit) return;
+        handleGoogleSignOut();
+    }, [submit]);
 
     return {
         ...dataState,

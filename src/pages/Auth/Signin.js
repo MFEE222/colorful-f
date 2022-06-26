@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 // internal global variable
+import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
-import { useSignIn } from '../../context/AuthContext';
+import { useSignIn, useGoogleSignIn } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+
+// TODO: improve CDN import with webpack
 
 function SignIn(props) {
     // context
@@ -20,6 +23,7 @@ function SignIn(props) {
         submit: false,
     });
     const data = useSignIn(query, setQuery);
+    const google = useGoogleSignIn('google_signin');
 
     const render = () => {
         // data
@@ -121,6 +125,10 @@ function SignIn(props) {
                                         >
                                             Sign in
                                         </button>
+                                    </div>
+                                    {/* google sign in */}
+                                    <div className="mt-3 d-flex justify-content-center">
+                                        <div id="google_signin"></div>
                                     </div>
                                     <div>
                                         <p className="signup">
