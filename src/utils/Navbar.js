@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 // 庫
-// import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -22,7 +21,7 @@ function OurNavbar(props) {
     const products = useProductsContext();
     // hook
     const [query, setQuery] = useState({ submit: false });
-    const data = useSignOut(query, setQuery);
+    const signout = useSignOut(query, setQuery);
     // event
     function eventSignOut() {
         setQuery({ ...query, submit: true });

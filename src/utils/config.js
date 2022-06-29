@@ -54,6 +54,7 @@ export const GET_AUTH_HEALTH = API_URL + '/auth/health';
 export const GOOGLE_SIGNIN_CDN = process.env.REACT_APP_GOOGLE_SIGNIN_CDN;
 export const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 export const POST_AUTH_GOOGLE = API_URL + '/auth/google';
+export const POST_AUTH_GOOGLE_SIGNIN = API_URL + '/auth/google/signin';
 
 // Post Login 登入
 // req

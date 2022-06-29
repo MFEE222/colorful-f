@@ -19,6 +19,7 @@ import {
     POST_AUTH_EDIT_EMAIL,
     POST_AUTH_EDIT_AVATAR,
     POST_AUTH_GOOGLE,
+    POST_AUTH_GOOGLE_SIGNIN,
     GOOGLE_CLIENT_ID,
     GOOGLE_SIGNIN_CDN,
 } from '../utils/config';
@@ -51,6 +52,11 @@ export function AuthProvider(props) {
         isSignIn: authState.accessToken !== '',
     };
 
+    // hook
+    useEffect(() => {
+        console.log('authState :>> ', authState);
+    }, [authState]);
+
     // render
     return (
         <AuthContext.Provider value={share}>
@@ -66,14 +72,14 @@ export function useAuthContext() {
 
 // Automatic Sign In
 export function AutomaticSignIn(props) {
-    const data = useAccessToken();
+    useAccessToken();
     return <>{props.children}</>;
 }
 
-// useAuth
+// authenticate token for regular, google, ...
 export function useAuth() {
     // context
-    const { accessToken } = useAuthContext();
+    const { user, accessToken } = useAuthContext();
     // state
     const [dataState, setDataState] = useState({
         result: false,
@@ -81,7 +87,7 @@ export function useAuth() {
         error: null,
     });
 
-    const handleAuth = useCallback(async () => {
+    const authenticateRegularToken = async () => {
         try {
             const response = await axios({
                 method: 'get',
@@ -107,18 +113,65 @@ export function useAuth() {
                 error: err.message,
             });
         }
-    }, []);
+    };
+
+    const authenticateGoogleToken = async () => {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_GOOGLE,
+                headers: { Authorization: 'Bearer ' + accessToken },
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState({
+                result: false,
+                loading: false,
+                error: err.message,
+            });
+        }
+    };
+
+    const handleAuth = useCallback(() => {
+        switch (user.iss) {
+            case process.env.REACT_APP_REGULAR_TOKEN_ISS:
+                authenticateRegularToken();
+                break;
+            case process.env.REACT_APP_GOOGLE_TOKEN_ISS:
+                authenticateGoogleToken();
+                break;
+            // sign out
+            default:
+                setDataState({
+                    result: false,
+                    loading: false,
+                    error: null,
+                });
+                break;
+        }
+    }, [user]);
 
     useEffect(() => {
         handleAuth();
-    }, []);
+    }, [user]);
 
     return {
         ...dataState,
     };
 }
 
-// useSignIn
+// sign in for regular
 export function useSignIn({ email, password, submit }, setQuery) {
     // context
     const { authState, setAuthState } = useAuthContext();
@@ -209,10 +262,10 @@ export function useSignIn({ email, password, submit }, setQuery) {
     };
 }
 
-// useSignOut
+// sign out for regular, google, ...
 export function useSignOut({ submit }, setQuery) {
     // context
-    const { authState, setAuthState } = useAuthContext();
+    const { user, setAuthState } = useAuthContext();
     const { toast } = useToastContext();
     // state
     const [dataState, setDataState] = useState({
@@ -221,19 +274,20 @@ export function useSignOut({ submit }, setQuery) {
         error: null,
     });
 
-    const handleSignOut = useCallback(async () => {
+    const regularSignOut = async () => {
         try {
-            setDataState({ ...dataState, loading: true });
+            setDataState((prev) => ({ ...dataState, loading: true }));
 
             const response = await axios({
                 method: 'delete',
                 url: DELETE_AUTH_SIGNOUT,
-                withCredentials: true,
+                withCredentials: true, // for cookies to backend
             });
 
             if (response.status != 204) {
                 throw new Error();
             }
+
             // local state
             setDataState({
                 result: true,
@@ -241,13 +295,12 @@ export function useSignOut({ submit }, setQuery) {
                 error: null,
             });
             // global state
-            setAuthState({ ...authState, user: {}, accessToken: '' });
+            setAuthState((prev) => ({ ...prev, user: {}, accessToken: '' }));
 
             toast('👍 Sign Out Successful!');
-
-            return true;
         } catch (err) {
             console.log('err :>>', err);
+
             setDataState((prev) => ({
                 result: false,
                 loading: false,
@@ -255,20 +308,64 @@ export function useSignOut({ submit }, setQuery) {
             }));
 
             toast('❌ Sign Out Failed. Please Try Again!');
-
-            return false;
         }
-    }, [submit]);
+
+        // reset submit query
+        setQuery((prev) => ({
+            ...prev,
+            submit: false,
+        }));
+    };
+
+    const googleSignOut = () => {
+        setDataDtate((prev) => ({
+            ...prev,
+            loading: true,
+        }));
+
+        google.account.id.revoke(user.email, (done) => {
+            if (done.error) {
+                console.log('done.error :>> ', done.error);
+                setDataState({
+                    result: false,
+                    loading: false,
+                    error: done.error,
+                });
+
+                toast('❌ Sign Out Failed. Please Try Again!');
+            } else {
+                localStorage.removeItem('g_access_token');
+
+                setDataState((prev) => ({
+                    ...prev,
+                    result: true,
+                    loading: false,
+                    error: null,
+                }));
+
+                toast('👍 Sign Out Successful!');
+            }
+        });
+
+        setQuery((prev) => ({ ...prev, submit: false }));
+    };
+
+    const handleSignOut = useCallback(() => {
+        switch (user.iss) {
+            case process.env.REACT_APP_REGULAR_TOKEN_ISS:
+                regularSignOut();
+                break;
+            case process.env.REACT_APP_GOOGLE_TOKEN_ISS:
+                googleSignOut();
+                break;
+            default:
+                break;
+        }
+    }, [user]);
 
     useEffect(() => {
         if (!submit) return;
-        handleSignOut().then((result) => {
-            // Navbar always in the scrren, so reset submit whatever successful/failed
-            setQuery((prev) => ({
-                ...prev,
-                submit: false,
-            }));
-        });
+        handleSignOut();
     }, [submit]);
 
     return {
@@ -276,7 +373,7 @@ export function useSignOut({ submit }, setQuery) {
     };
 }
 
-// useSignUp
+// sign up for regular
 export function useSignUp(
     { name, email, password, confirmPassword, hint, submit },
     setQuery
@@ -346,7 +443,7 @@ export function useSignUp(
     };
 }
 
-// useForgotPassword
+// forgot password service for regular
 export function useForgotPassword({ email, hint, submit }, setQuery) {
     const [dataState, setDataState] = useState({
         result: false,
@@ -410,10 +507,10 @@ export function useForgotPassword({ email, hint, submit }, setQuery) {
     };
 }
 
-// useAccessToken
+// refresh access token for regular, google
 export function useAccessToken() {
     // context
-    const { authState, setAuthState } = useAuthContext();
+    const { setAuthState } = useAuthContext();
     // state
     const [dataState, setDataState] = useState({
         user: {},
@@ -422,12 +519,13 @@ export function useAccessToken() {
         error: null,
     });
 
-    const handleAccessToken = useCallback(async () => {
+    // regular
+    const refreshRegularAccessToken = async () => {
         try {
             const response = await axios({
                 method: 'get',
                 url: GET_AUTH_TOKEN,
-                withCredentials: true,
+                withCredentials: true, // for cookies to backend
             });
 
             if (response.status != 200) {
@@ -444,13 +542,11 @@ export function useAccessToken() {
                 error: null,
             });
             // global state
-            setAuthState({
-                ...authState,
+            setAuthState((prev) => ({
+                ...prev,
                 user: payload,
                 accessToken: access_token,
-            });
-
-            toast(`👍 Sign In Successful! Welcome, ${payload.name}`);
+            }));
 
             return true;
         } catch (err) {
@@ -463,6 +559,64 @@ export function useAccessToken() {
 
             return false;
         }
+    };
+
+    // google
+    const refreshGoogleAccessToken = () => {
+        try {
+            const token = localStorage.getItem('g_access_token');
+            if (!token) {
+                throw new Error();
+            }
+
+            const payload = jwt_decode(token);
+            payload.avatar = user.picture; // alias name
+            // local state
+            setDataState({
+                result: true,
+                loading: false,
+                error: null,
+            });
+            // global state
+            setAuthState((prev) => ({
+                ...prev,
+                user: payload,
+                accessToken: token,
+            }));
+
+            return true;
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState({
+                result: false,
+                loading: false,
+                error: null,
+            });
+
+            return false;
+        }
+    };
+
+    // facebook ...
+
+    // TODO: improve flow (store sign in type in localstorage ?)
+    const handleAccessToken = useCallback(async () => {
+        if (await refreshRegularAccessToken()) {
+            return;
+        }
+
+        if (refreshGoogleAccessToken()) {
+            return;
+        }
+
+        // sign out
+        setDataState({
+            user: {},
+            accessToken: '',
+            loading: false,
+            error: null,
+        });
     }, []);
 
     useEffect(() => {
@@ -819,17 +973,21 @@ export function useGoogleSignIn(buttonID) {
         error: null,
     });
 
+    const storeAccessToken = (token) => {
+        localStorage.setItem('g_access_token', token);
+    };
+
     // flow: handleDisplayGoogleButton -> handleAccessToken
     const handleAccessToken = useCallback(async (data) => {
-        console.log('data :>> ', data);
+        // console.log('data :>> ', data);
 
         try {
             setDataState((prev) => ({ ...prev, loading: true }));
 
             const response = await axios({
                 method: 'post',
-                url: POST_AUTH_GOOGLE,
-                data: data,
+                url: POST_AUTH_GOOGLE_SIGNIN,
+                headers: { Authorization: 'Bearer ' + data.credential },
             });
 
             if (response.status != 200) {
@@ -837,6 +995,8 @@ export function useGoogleSignIn(buttonID) {
             }
 
             const user = jwt_decode(data.credential);
+            user.avatar = user.picture; // for alias name
+
             // local
             setDataState({
                 user: user,
@@ -850,6 +1010,8 @@ export function useGoogleSignIn(buttonID) {
                 user: user,
                 accessToken: data.credential,
             }));
+            // store to localstorage
+            storeAccessToken(data.credential);
 
             toast('👍 Google Sign In Successful!');
         } catch (err) {
@@ -884,6 +1046,7 @@ export function useGoogleSignIn(buttonID) {
             shape: 'pill',
             logo_alignment: 'center',
             locale: 'en',
+            auto_select: true,
         });
     }, []);
 
@@ -891,54 +1054,6 @@ export function useGoogleSignIn(buttonID) {
         if (!script.result) return;
         handleDisplayGoogleButton();
     }, [script.result]);
-
-    return {
-        ...dataState,
-    };
-}
-
-export function useGoogleSignOut({ submit }, setQuery) {
-    // context
-    const { user } = useAuthContext();
-    // state
-    const [dataState, setDataState] = useState({
-        result: false,
-        loading: false,
-        error: null,
-    });
-
-    const handleGoogleSignOut = useCallback(() => {
-        setDataState((prev) => ({ ...prev, loading: true }));
-
-        google.accounts.id.revoke(user.email, (done) => {
-            console.log('done :>> ', done);
-
-            if (done.error) {
-                // fail
-                console.log('done.error :>> ', done.error);
-                setDataState({
-                    result: false,
-                    loading: false,
-                    error: done.error,
-                });
-            } else {
-                // success
-                setDataState((prev) => ({
-                    ...prev,
-                    result: true,
-                    loading: false,
-                    error: null,
-                }));
-            }
-
-            setQuery((prev) => ({ ...prev, submit: false }));
-        });
-    }, []);
-
-    useEffect(() => {
-        if (!submit) return;
-        handleGoogleSignOut();
-    }, [submit]);
 
     return {
         ...dataState,
