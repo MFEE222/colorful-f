@@ -6,7 +6,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
-import { useSignIn, useGoogleSignIn } from '../../context/AuthContext';
+import { useSignIn, useGSIScript } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 // TODO: improve CDN import with webpack
@@ -22,19 +22,25 @@ function SignIn(props) {
         password: '',
         submit: false,
     });
-    const data = useSignIn(query, setQuery);
-    const google = useGoogleSignIn('google_signin');
+
+    const [googleQuery, setGoogleQuery] = useState({
+        button: '#google_signin',
+    });
+
+    // FIXME: use ui submit state to distinguish google sign in or regular sign in
+    const regular = useSignIn(query, setQuery);
+    const gsi = useGSIScript(googleQuery);
 
     const render = () => {
         // data
-        if (data.loading) {
+        if (regular.loading || gsi.loading) {
             return <UILoading />;
         }
 
-        if (data.error) {
+        if (regular.error || gsi.error) {
         }
 
-        if (data.accessToken !== '') {
+        if (regular.accessToken !== '' || gsi.accessToken !== '') {
             return <Redirect to={routes.home} />;
         }
 
