@@ -50,49 +50,56 @@ function OurNavbar(props) {
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 1)}
                                 >
-                                    最新
+                                    {/* 最新 */}
+                                    New
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productFood}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 2)}
                                 >
-                                    食物
+                                    {/* 食物 */}
+                                    Food
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productWedding}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 3)}
                                 >
-                                    婚禮
+                                    {/* 婚禮 */}
+                                    Wedding
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productFilm}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 4)}
                                 >
-                                    復古
+                                    {/* 復古 */}
+                                    Film
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productScenery}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 5)}
                                 >
-                                    風景
+                                    {/* 風景 */}
+                                    Scenery
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.productPortrait}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 6)}
                                 >
-                                    人像
+                                    {/* 人像 */}
+                                    Portrait
                                 </NavDropdown.Item>
                             </LinkContainer>
                             <LinkContainer to={routes.product}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 0)}
                                 >
-                                    全系列
+                                    {/* 全系列 */}
+                                    All
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>

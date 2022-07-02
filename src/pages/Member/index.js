@@ -36,6 +36,7 @@ function Member(props) {
     const { UILoading } = useLoadingContext();
     // hook
     const auth = useAuth();
+    console.log('auth | index.js Member :>> ', auth);
     // render
     const render = () => {
         if (auth.loading) {

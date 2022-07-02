@@ -116,7 +116,7 @@ export function useAuth() {
 
     useEffect(() => {
         handleAuth();
-    }, []);
+    }, [accessToken]);
 
     return {
         ...dataState,
