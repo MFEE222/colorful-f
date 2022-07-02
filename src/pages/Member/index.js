@@ -24,8 +24,9 @@ import Payment from './Payment';
 import Collect from './Collect';
 import Content from '../../components/Member/Content';
 //
-import { useAuth } from '../../context/AuthContext';
+import { useAuth, useGoogleAuth } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+import { useEffect } from 'react';
 
 // FIXME: error redirect to home after refresh member page.
 // 生命週期：定義每隔階段要做什麼，函式元件的內部作用域代碼則是 render 階段會執行
@@ -35,6 +36,7 @@ function Member(props) {
     const { UILoading } = useLoadingContext();
     // hook
     const auth = useAuth();
+    console.log('auth | index.js Member :>> ', auth);
     // render
     const render = () => {
         if (auth.loading) {

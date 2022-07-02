@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 // internal global variable
+import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
 
-import { useSignIn } from '../../context/AuthContext';
+import { useSignIn, useGSIScript } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+
+// TODO: improve CDN import with webpack
 
 function SignIn(props) {
     // context
@@ -19,18 +22,25 @@ function SignIn(props) {
         password: '',
         submit: false,
     });
-    const data = useSignIn(query, setQuery);
+
+    const [googleQuery, setGoogleQuery] = useState({
+        button: '#google_signin',
+    });
+
+    // FIXME: use ui submit state to distinguish google sign in or regular sign in
+    const regular = useSignIn(query, setQuery);
+    const gsi = useGSIScript(googleQuery);
 
     const render = () => {
         // data
-        if (data.loading) {
+        if (regular.loading || gsi.loading) {
             return <UILoading />;
         }
 
-        if (data.error) {
+        if (regular.error || gsi.error) {
         }
 
-        if (data.accessToken !== '') {
+        if (regular.accessToken !== '' || gsi.accessToken !== '') {
             return <Redirect to={routes.home} />;
         }
 
@@ -121,6 +131,10 @@ function SignIn(props) {
                                         >
                                             Sign in
                                         </button>
+                                    </div>
+                                    {/* google sign in */}
+                                    <div className="mt-3 d-flex justify-content-center">
+                                        <div id="google_signin"></div>
                                     </div>
                                     <div>
                                         <p className="signup">

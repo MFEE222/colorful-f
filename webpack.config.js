@@ -30,6 +30,9 @@ module.exports = {
         }),
     ],
 
+    // externalsType: 'script',
+    // externals: ['https://accounts.google.com/gsi/client'],
+
     module: {
         rules: [
             {

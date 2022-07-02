@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+// FIXME: Navbar.js 和 Index.js (Member) 側邊欄登出功能修正（登出後跳轉到首頁）
+// FIXME: Footer 會跑版蓋住登入方框
+
 // API
 import {
     POST_AUTH_SIGNIN,
@@ -15,11 +18,15 @@ import {
     POST_AUTH_EDIT_PERSONAL_INFO,
     POST_AUTH_EDIT_EMAIL,
     POST_AUTH_EDIT_AVATAR,
+    POST_AUTH_GOOGLE_SIGNIN,
+    GOOGLE_CLIENT_ID,
+    GOOGLE_SIGNIN_CDN,
 } from '../utils/config';
 
 import login from '../images/film001.jpg';
 
-// routes
+// intern library
+import { useScript } from '../hooks/useScript';
 import { routes } from '../utils/routes';
 import { useToastContext } from './ToastContext';
 import { toast } from 'react-toastify';
@@ -44,6 +51,11 @@ export function AuthProvider(props) {
         isSignIn: authState.accessToken !== '',
     };
 
+    // hook
+    useEffect(() => {
+        console.log('authState :>> ', authState);
+    }, [authState]);
+
     // render
     return (
         <AuthContext.Provider value={share}>
@@ -59,11 +71,11 @@ export function useAuthContext() {
 
 // Automatic Sign In
 export function AutomaticSignIn(props) {
-    const data = useAccessToken();
+    useAccessToken();
     return <>{props.children}</>;
 }
 
-// useAuth
+// authenticate token for regular, google, ...
 export function useAuth() {
     // context
     const { accessToken } = useAuthContext();
@@ -100,18 +112,18 @@ export function useAuth() {
                 error: err.message,
             });
         }
-    }, []);
+    }, [accessToken]);
 
     useEffect(() => {
         handleAuth();
-    }, []);
+    }, [accessToken]);
 
     return {
         ...dataState,
     };
 }
 
-// useSignIn
+// sign in for regular
 export function useSignIn({ email, password, submit }, setQuery) {
     // context
     const { authState, setAuthState } = useAuthContext();
@@ -179,7 +191,7 @@ export function useSignIn({ email, password, submit }, setQuery) {
                 error: err.message,
             }));
 
-            // toast('❌ Uncorrect Email or Password!');
+            toast('❌ Uncorrect Email or Password!');
 
             return false;
         }
@@ -202,10 +214,10 @@ export function useSignIn({ email, password, submit }, setQuery) {
     };
 }
 
-// useSignOut
+// sign out for regular, google, ...
 export function useSignOut({ submit }, setQuery) {
     // context
-    const { authState, setAuthState } = useAuthContext();
+    const { user, setAuthState } = useAuthContext();
     const { toast } = useToastContext();
     // state
     const [dataState, setDataState] = useState({
@@ -214,19 +226,20 @@ export function useSignOut({ submit }, setQuery) {
         error: null,
     });
 
-    const handleSignOut = useCallback(async () => {
+    const regularSignOut = async () => {
         try {
-            setDataState({ ...dataState, loading: true });
+            setDataState((prev) => ({ ...dataState, loading: true }));
 
             const response = await axios({
                 method: 'delete',
                 url: DELETE_AUTH_SIGNOUT,
-                withCredentials: true,
+                withCredentials: true, // for cookies to backend
             });
 
             if (response.status != 204) {
                 throw new Error();
             }
+
             // local state
             setDataState({
                 result: true,
@@ -234,13 +247,12 @@ export function useSignOut({ submit }, setQuery) {
                 error: null,
             });
             // global state
-            setAuthState({ ...authState, user: {}, accessToken: '' });
+            setAuthState((prev) => ({ ...prev, user: {}, accessToken: '' }));
 
             toast('👍 Sign Out Successful!');
-
-            return true;
         } catch (err) {
             console.log('err :>>', err);
+
             setDataState((prev) => ({
                 result: false,
                 loading: false,
@@ -248,20 +260,84 @@ export function useSignOut({ submit }, setQuery) {
             }));
 
             toast('❌ Sign Out Failed. Please Try Again!');
-
-            return false;
         }
-    }, [submit]);
+
+        // reset submit query
+        setQuery((prev) => ({
+            ...prev,
+            submit: false,
+        }));
+    };
+
+    const googleSignOut = () => {
+        setDataState((prev) => ({
+            ...prev,
+            loading: true,
+        }));
+
+        google.accounts.id.revoke(user.email, async (done) => {
+            if (done.error) {
+                console.log('done.error :>> ', done.error);
+                setDataState({
+                    result: false,
+                    loading: false,
+                    error: done.error,
+                });
+
+                toast('❌ Sign Out Failed. Please Try Again!');
+            }
+
+            try {
+                const response = await axios({
+                    method: 'delete',
+                    url: DELETE_AUTH_SIGNOUT,
+                    withCredentials: true,
+                });
+
+                if (response.status != 204) {
+                    throw new Error();
+                }
+
+                setDataState((prev) => ({
+                    ...prev,
+                    result: true,
+                    loading: false,
+                    error: null,
+                }));
+
+                toast('👍 Sign Out Successful!');
+            } catch (err) {
+                console.log('err :>>', err);
+
+                setDataState({
+                    result: false,
+                    loading: false,
+                    error: done.error,
+                });
+
+                toast('❌ Sign Out Failed. Please Try Again!');
+            }
+        });
+
+        setQuery((prev) => ({ ...prev, submit: false }));
+    };
+
+    const handleSignOut = useCallback(() => {
+        switch (user.iss) {
+            case process.env.REACT_APP_REGULAR_TOKEN_ISS:
+                regularSignOut();
+                break;
+            case process.env.REACT_APP_GOOGLE_TOKEN_ISS:
+                googleSignOut();
+                break;
+            default:
+                break;
+        }
+    }, [user]);
 
     useEffect(() => {
         if (!submit) return;
-        handleSignOut().then((result) => {
-            // Navbar always in the scrren, so reset submit whatever successful/failed
-            setQuery((prev) => ({
-                ...prev,
-                submit: false,
-            }));
-        });
+        handleSignOut();
     }, [submit]);
 
     return {
@@ -269,7 +345,7 @@ export function useSignOut({ submit }, setQuery) {
     };
 }
 
-// useSignUp
+// sign up for regular
 export function useSignUp(
     { name, email, password, confirmPassword, hint, submit },
     setQuery
@@ -339,7 +415,7 @@ export function useSignUp(
     };
 }
 
-// useForgotPassword
+// forgot password service for regular
 export function useForgotPassword({ email, hint, submit }, setQuery) {
     const [dataState, setDataState] = useState({
         result: false,
@@ -403,10 +479,10 @@ export function useForgotPassword({ email, hint, submit }, setQuery) {
     };
 }
 
-// useAccessToken
+// refresh access token for regular, google
 export function useAccessToken() {
     // context
-    const { authState, setAuthState } = useAuthContext();
+    const { setAuthState } = useAuthContext();
     // state
     const [dataState, setDataState] = useState({
         user: {},
@@ -415,6 +491,7 @@ export function useAccessToken() {
         error: null,
     });
 
+    // regular
     const handleAccessToken = useCallback(async () => {
         try {
             const response = await axios({
@@ -429,6 +506,7 @@ export function useAccessToken() {
 
             const { access_token } = response.data;
             const payload = jwt_decode(access_token);
+
             // local state
             setDataState({
                 user: payload,
@@ -437,15 +515,11 @@ export function useAccessToken() {
                 error: null,
             });
             // global state
-            setAuthState({
-                ...authState,
+            setAuthState((prev) => ({
+                ...prev,
                 user: payload,
                 accessToken: access_token,
-            });
-
-            toast(`👍 Sign In Successful! Welcome, ${payload.name}`);
-
-            return true;
+            }));
         } catch (err) {
             console.log('err :>>', err);
             setDataState((prev) => ({
@@ -453,8 +527,6 @@ export function useAccessToken() {
                 loading: false,
                 error: err.message,
             }));
-
-            return false;
         }
     }, []);
 
@@ -791,6 +863,103 @@ export function useHealth() {
     useEffect(() => {
         handleHealth();
     }, []);
+
+    return {
+        ...dataState,
+    };
+}
+
+// useGoogleSignIn
+export function useGSIScript({ button }, setQuery) {
+    // context
+    const { setAuthState } = useAuthContext();
+    // load gsi library
+    const script = useScript(GOOGLE_SIGNIN_CDN);
+
+    // state
+    const [dataState, setDataState] = useState({
+        user: {},
+        accessToken: '',
+        loading: false,
+        error: null,
+    });
+
+    // flow: handleDisplayGoogleButton -> handleAccessToken
+    const handleAccessToken = useCallback(async (data) => {
+        // console.log('data :>> ', data);
+
+        try {
+            setDataState((prev) => ({ ...prev, loading: true }));
+
+            const response = await axios({
+                method: 'post',
+                url: POST_AUTH_GOOGLE_SIGNIN,
+                headers: { Authorization: 'Bearer ' + data.credential },
+                withCredentials: true,
+            });
+
+            if (response.status != 200) {
+                throw new Error();
+            }
+
+            const { access_token } = response.data;
+            const payload = jwt_decode(access_token);
+
+            // local
+            setDataState({
+                user: payload,
+                accessToken: access_token,
+                loading: false,
+                error: null,
+            });
+            // global
+            setAuthState((prev) => ({
+                ...prev,
+                user: payload,
+                accessToken: access_token,
+            }));
+
+            toast('👍 Google Sign In Successful!');
+        } catch (err) {
+            console.log('err :>>', err);
+
+            setDataState({
+                user: {},
+                accessToken: '',
+                loading: false,
+                error: err.message,
+            });
+
+            toast('❌ Google Sign In Failed!');
+        }
+    }, []);
+
+    const handleDisplayGoogleButton = useCallback(() => {
+        // init
+        google.accounts.id.initialize({
+            client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+            callback: handleAccessToken,
+            ux_mode: 'popup',
+            auto_select: true,
+        });
+
+        // render
+        google.accounts.id.renderButton(document.querySelector(button), {
+            type: 'standard',
+            size: 'large',
+            theme: 'outline',
+            text: 'sign_in_with',
+            shape: 'pill',
+            logo_alignment: 'center',
+            locale: 'en',
+            auto_select: true,
+        });
+    }, []);
+
+    useEffect(() => {
+        if (!script.result) return;
+        handleDisplayGoogleButton();
+    }, [script.result]);
 
     return {
         ...dataState,

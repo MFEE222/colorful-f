@@ -147,7 +147,7 @@ function Profile(props) {
                                             placeholder={
                                                 user.phone
                                                     ? user.phone
-                                                    : '0910000000'
+                                                    : '09xxxxxxxx'
                                             }
                                             onChange={eventInput}
                                         />
