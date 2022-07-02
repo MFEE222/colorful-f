@@ -51,11 +51,6 @@ export function AuthProvider(props) {
         isSignIn: authState.accessToken !== '',
     };
 
-    // hook
-    useEffect(() => {
-        console.log('authState :>> ', authState);
-    }, [authState]);
-
     // render
     return (
         <AuthContext.Provider value={share}>
