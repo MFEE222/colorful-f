@@ -66,15 +66,22 @@
 
 ## 功能概覽
 
+### 環境 env
+
+環境變數，由 `.env` 存儲，`/src/utils/config.js` 管理，使用前匯入該檔即可。
+
 ### 路由 Router
 
-共 2 層路由，第一層在 `src/App.js` 通向各主頁，第二層在 `src/pages/something/index.js` 為各主頁自行管理路由
+共 2 層路由，第一層在 `src/App.js` 通向各主頁，第二層在 `src/pages/something/index.js` 為各主頁自行管理路由。
+
+另外，路由的名稱由 `/src/utils/routes.js` 管理；新名稱請至該檔案註冊，使用則先匯入該檔即可。
 
 舉例：
 
 1. `http://localhost:3000/auth` 為第一層路由，通向驗證頁面，由 `src/pages/auth/index.js` 元件負責管理
 2. `https://localhost:3000/auth/signin` 為第二層路由，通向登入頁面，由 `src/pages/auth/SignIn.js` 元件負責管理
 3. `https://localhost:3000/auth/signup` 為第二層路由，通向註冊頁面，由 `src/pages/auth/SignUp.js` 元件負責管理，以此類推
+
 
 ### 狀態 State
 
