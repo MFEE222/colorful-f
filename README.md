@@ -130,11 +130,19 @@ function Foo () {
     - 修改個人資料：使用者持 access token 向後端請求修改個人基本資料。
     - 修改 Email：使用者持 access token 向後端請求修改個人基本資料，請求成功則後端發送 email 驗證信至新的信箱（有效時限 30 分鐘），待使用者進行確認。
 
+- Navbar 導覽列
+
+    - 
+
 - Landing 前導頁
 
-    
+    - css 的 animation 完成時鐘旋轉相關特效。
 
 - Home 主頁
+
+    - 品牌影片自動播放：使用 react 的 Ref Hook 修改 `<video>` 標籤屬性。
+    - 輪播效果：react 生命週期搭配 `setTimeout` 和 css 的 `transform` 完成各商品主題介紹輪播效果。
+    - 圖片文字排版：依照 Bootstrap 格線系統進行，手機、平板、電腦 RWD 排版。
 
 - Member 會員
 
@@ -150,7 +158,15 @@ function Foo () {
 
 - Cart 購物車 
 
+    待開發
+
 - Checkout 結帳
+
+    待開發
+
+- Toast 通知彈跳
+    
+    使用 'react-toastify' 套件完成
 
 
 ### 待優化
