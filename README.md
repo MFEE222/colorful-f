@@ -31,13 +31,16 @@
 |   |- /utils        # 共用 UI 元件、工具
 |   |- App.js        # 根元件
 |   |- index.js      # 渲染根元件
-|- .env              # 環境變數
+|- .env.dev          # 開發模式環境變數
+|- .env.prod         # 發佈模式環境變數
 |- .env.example      # 環境變數範例
 |- .gitignore        # 版控忽略對象
 |- .prettierrc       # 代碼格式風格設定
 |- babel.config.json    # babel 編譯環境設定
 |- jest.config.js       # jest 環境設定
-|- webpack.config.js    # webpack 設定
+|- webpack.common.js    # webpack 基本共用設定
+|- webpack.dev.js       # webpack 開發模式設定檔
+|- webpack.prod.js      # webpack 發佈模式設定檔
 |- package-lock.json    # npm 套件依賴項
 |- package.json         # npm 套件設定
 |- READEME.md           # 專案說明
@@ -45,7 +48,7 @@
 
 注意事項：
 
-- `/src/images` 和 `.env` 並不進入版控，檔案內容請向開發者索取
+- `/src/images` 和 `.env.dev`, `.env.prod` 並不進入版控，檔案內容請向開發者索取
 - 專案於 `2022-06-13` 後捨棄 CRA (create-react-app)，改用 webpack、babel... 設定檔編寫開發環境配置，若有相容性問題請聯絡開發者
 
 ## 版本控制
@@ -68,7 +71,7 @@
 
 ### 環境 env
 
-環境變數，由 `.env` 存儲，`/src/utils/config.js` 管理，使用前匯入該檔即可。
+環境變數，由 `.env.dev`/`.env.prod`(開發模式/發佈模式) 存儲，`/src/utils/config.js` 管理，使用前匯入該檔即可。
 
 ### 路由 Router
 
@@ -115,7 +118,21 @@ function Foo () {
 
 - Auth 驗證
 
+    身份驗證採用 JWT 模式開發，refresh token 和 access token 存儲方式分別採用 http-only 的 Cookie 和 記憶體方式，來增強安全性。
+
+    功能概覽：
+
+    - 註冊：一般註冊，填寫資料向後端請求註冊，後端發送系統信至 email 信箱，待使用者確認後開通帳號（有效時限 30 分鐘）。
+    - 登入：一般登入，輸入先前註冊之帳密，向後端取得 refresh token 和 access token 來進行登入。
+    - 登出：一般登出，向後端請求登出，並消滅存儲於 Cookie 的 refresh token。
+    - 忘記密碼：輸入註冊時提供的密碼提示，後端發送密碼修改頁面連結至使用者信箱（有效實限 30 分鐘）。
+    - Google 第三方登入：使用 Google 登入按鈕的 popup 模式，使用者於彈跳視窗登入 Google 帳號後，前端獲取 token 後，向後端請求驗證 token 有效性（後端在和 Google 請求驗證），驗證通過後資料庫存儲狀態，轉而生成新的 refresh token 和 access token 給前端，登入成功。
+    - 修改個人資料：使用者持 access token 向後端請求修改個人基本資料。
+    - 修改 Email：使用者持 access token 向後端請求修改個人基本資料，請求成功則後端發送 email 驗證信至新的信箱（有效時限 30 分鐘），待使用者進行確認。
+
 - Landing 前導頁
+
+    
 
 - Home 主頁
 
@@ -136,6 +153,16 @@ function Foo () {
 - Checkout 結帳
 
 
+### 待優化
 
+- 代碼分割：目前檔案打包後的大小超過建議值 244KiB；`webpack-bundle-analzyer` 對最後打包檔案分析出的結果，部分套件過大。
+- 減少媒體檔案大小：首頁、商品頁的影片、照片，需要再減少檔案大小。避免網頁載入過慢。
+
+### 待修正
+
+- 商品列表頁：將頁面邏輯包成 Custom Hook
+- 商品細節頁：將頁面邏輯包成 Custom Hook
+- 購物車頁：待開發
+- 蒐藏頁：待開發
 
 
