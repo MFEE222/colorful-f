@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const { merge } = require('webpack-merge');
 
 module.exports = (env) => {
-    // console.log('env :>> ', env);
+    console.log('env :>> ', env);
 
     return merge(common, {
         mode: 'development',
