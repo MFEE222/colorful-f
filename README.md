@@ -81,9 +81,26 @@
 
 ## 功能概覽
 
-### 環境 env
+### 環境變數 .env
 
 環境變數，由 `.env.dev`/`.env.prod`(開發模式/發佈模式) 存儲，`/src/utils/config.js` 管理，使用前匯入該檔即可。
+
+### 打包、編譯工具 Webpack、Babel
+
+共有三個檔案 `webpack.common.js`、`webpack.dev.js`、`webpack.prod.js` 來編寫整個前端專案打包設定。
+
+- `webpack.common.js`：基本 webpack 設定，Entry、Loader、Plugins...。
+- `webpack.dev.js`：開發環境下 webpack 設定，Dev Server、OutPut、Plugins...。
+- `webpack.prod.js`：發布環境下 webpack 設定，Optimization、OutPut、Plugins...。
+
+> `webpack.common.js` 設定檔 為 `webpack.dev.js` 和 `webpack.prod.js` 共用。
+
+> `babel-loader` 的相關設定單獨拉出於，`baebl.config.json` 檔中。
+
+會依照 `package.json` 中編寫的 `script` 來決定採用 開發環境 or 發佈環境 的設定。
+
+- `npm start`：使用 `webpack.common.js` 和 `webpack.dev.js` 設定
+- `npm run build`：使用 `webpack.common.js` 和 `webpack.prod.js` 設定
 
 ### 路由 Router
 
