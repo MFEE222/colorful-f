@@ -149,6 +149,8 @@ function Foo () {
 
     身份驗證採用 JWT 模式開發，refresh token 和 access token 存儲方式分別採用 http-only 的 Cookie 和 記憶體方式，來增強安全性。
 
+    頁面均採用 `Bootstrap` 網格系統，進行 RWD 切版（手機、平板、電腦）。
+
     功能概覽：
 
     - 註冊：
@@ -191,29 +193,47 @@ function Foo () {
 
 - Navbar 導覽列
 
-    - 
+    使用 `react-bootstrap` 提供 `Navbar` 元件進行修改；Icon 使用 `fontawesome`；React 狀態管理，使用 Custom Hook 將邏輯獨立區隔。
 
 - Landing 前導頁
 
-    - css 的 animation 完成時鐘旋轉相關特效。
+    使用 `css` 的 `animation` 完成時鐘旋轉相關特效。
 
 - Home 主頁
 
-    - 品牌影片自動播放：使用 react 的 Ref Hook 修改 `<video>` 標籤屬性。
+    品牌影片、輪播效果、RWD。
+
+    - 品牌影片：使用 react 的 Ref Hook 操控 `<video>` 標籤屬性。
     - 輪播效果：react 生命週期搭配 `setTimeout` 和 css 的 `transform` 完成各商品主題介紹輪播效果。
     - 圖片文字排版：依照 Bootstrap 格線系統進行，手機、平板、電腦 RWD 排版。
 
 - Member 會員
 
+    個人資料、訂單管理、我的最愛、我的信箱、付款資訊、下載區、評論區
+
+    功能概覽：
+
+    - 下載區
+
 - Product 商品
+
+    商品列表、商品細節。
 
 - Teach 教學
 
+    單一頁面，介紹商品使用方式。使用 `Bootstrap` 網格系統，進行 RWD 切版（手機、平板、電腦）
+
 - Team 團隊介紹
+
+    單一頁面，介紹專案成員。使用 `Bootstrap` 網格系統，進行 RWD 切版（手機、平板、電腦）
 
 - Game 心理測驗
 
+    單一頁面，小遊戲，輔助使用者選擇適合自己的濾鏡商品。使用 `Bootstrap` 網格系統，進行 RWD 切版（手機、平板、電腦）
+
 - Error 錯誤
+
+    404 錯誤頁面。
 
 - Cart 購物車 
 
@@ -226,7 +246,6 @@ function Foo () {
 - Toast 通知彈跳
     
     使用 'react-toastify' 套件完成
-
 
 ### 待優化
 
