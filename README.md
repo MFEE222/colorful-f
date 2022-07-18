@@ -15,6 +15,18 @@
 - 蔣頌蓮
 - 江致偉
 
+## 專案發佈
+
+使用 AWS 服務架設，前端（React）、後端（Express）、資料庫（MariaDB）。
+
+> 專案網站入口：`https://color4.me`
+
+- DNS：使用 AWS Route53
+- CDN：使用 AWS CloundFront 做 CDN 和 SSL 憑證 
+- 前端：使用 AWS S3 架設靜態網站
+- ELB：使用 AWS EC2 提供 Load Balance 做負載平衡 和 SSL 憑證
+- 後端：使用 AWS EC2 架設後端 Node.js 伺服器
+- 資料庫：使用 AWS RDS 架設 MariaDB 資料庫伺服器
 
 ## 專案架構
 ```
