@@ -63,6 +63,59 @@
 - `/src/images` 和 `.env.dev`, `.env.prod` 並不進入版控，檔案內容請向開發者索取
 - 專案於 `2022-06-13` 後捨棄 CRA (create-react-app)，改用 webpack、babel... 設定檔編寫開發環境配置，若有相容性問題請聯絡開發者
 
+## 專案腳本
+
+`package.json` 中 `script` 指令說明
+
+- 指令 `npm start`：編譯、運行『開發環境』下前端專案
+
+    ```
+    "scripts": {
+        "start": "webpack serve --env env=dev --open --config webpack.dev.json.js"
+    }
+    ```
+
+- 指令 `npm run build`：編譯、生成『發佈環境』下前端專案（打包檔案會輸出於 `/build`）
+
+    > 由於有使用 `webpack-bundle-analyzer` 分析打包結果，所以於打包完成時會跳出分析結果（`Ctrl + C` 即可結束）
+
+    ```
+    "scripts": {
+        "build": "webpack --env env=prod --config webpack.prod.js"
+    }
+    ```
+
+- 指令 `npm run prod`：運行『發佈環境』下前端專案
+
+    ```
+    "scripts": {
+        "prod": "http-server build -p 3000"
+    }
+    ```
+
+- 指令 `npm run analyse`：webpack 內建打包檔案分析工具，輸出 stats.json 以供使用
+
+    ```
+    "scripts": {
+        "analyse": "webpack --profile --json > stats.json"
+    }
+    ```
+
+- 指令 `npm run jest`：運行 `__test__` 資料夾中測試檔案
+
+    ```
+    "scripts": {
+        "test": "jest"
+    }
+    ```
+
+- 指令 `npm run test-coverage`：運行 `__test__` 資料夾中測試檔案，並輸出圖表分析結果
+
+    ```
+    "scripts": {
+        "test-coverage": "jest --coverage"
+    }
+    ```
 ## 版本控制
 
 本專案採 GitHub Flow 版本控制流程，進行開發時請確保『再分支中進行更動』和『使用 GitHub PullRequest』提交合併
@@ -79,30 +132,36 @@
     - 新建一個 PullRequest 並指定 CodeReview 組員
     - 直至修改完成，CodeReview 通過，則 `feat/something` 會在遠端褲和 `main` 進行合併
 
-## 功能概覽
+## 環境變數 .env
 
-### 環境變數 .env
+環境變數檔案
 
-環境變數，由 `.env.dev`/`.env.prod`(開發模式/發佈模式) 存儲，`/src/utils/config.js` 管理，使用前匯入該檔即可。
+- `.env.dev`：應用於開發環境
+- `.env.prod`：應用於發佈環境
 
-### 打包、編譯工具 Webpack、Babel
+根據 `package.json` 中編寫的腳本，來決定採用 開發 or 發佈 環境設定。
 
-共有三個檔案 `webpack.common.js`、`webpack.dev.js`、`webpack.prod.js` 來編寫整個前端專案打包設定。
+- `npm start`：使用 `.env.dev` 開發環境檔案
+- `npm run build`：使用 `.env.prod` 發佈環境檔案
+
+    > 本專案中，環境變數通常情況下會經由 `/src/utils/config.js` 處理過，再由其他元件匯入。
+
+## 打包、編譯工具 Webpack、Babel
+
+共有三個檔案，來編寫整個前端專案於『開發環境』和『發佈環境』的打包設定。
 
 - `webpack.common.js`：基本 webpack 設定，Entry、Loader、Plugins...。
 - `webpack.dev.js`：開發環境下 webpack 設定，Dev Server、OutPut、Plugins...。
 - `webpack.prod.js`：發布環境下 webpack 設定，Optimization、OutPut、Plugins...。
-
-> `webpack.common.js` 設定檔 為 `webpack.dev.js` 和 `webpack.prod.js` 共用。
-
-> `babel-loader` 的相關設定單獨拉出於，`baebl.config.json` 檔中。
+    
+    > `babel-loader` 的相關設定單獨拉出於，`baebl.config.json` 檔中。
 
 會依照 `package.json` 中編寫的 `script` 來決定採用 開發環境 or 發佈環境 的設定。
 
-- `npm start`：使用 `webpack.common.js` 和 `webpack.dev.js` 設定
-- `npm run build`：使用 `webpack.common.js` 和 `webpack.prod.js` 設定
+- `npm start`：套用 `webpack.common.js` 和 `webpack.dev.js` 設定
+- `npm run build`：套用 `webpack.common.js` 和 `webpack.prod.js` 設定
 
-### 路由 Router
+## 路由 Router
 
 共 2 層路由，第一層在 `src/App.js` 通向各主頁，第二層在 `src/pages/something/index.js` 為各主頁自行管理路由。
 
@@ -115,7 +174,7 @@
 3. `https://localhost:3000/auth/signup` 為第二層路由，通向註冊頁面，由 `src/pages/auth/SignUp.js` 元件負責管理，以此類推
 
 
-### 狀態 State
+## 狀態 State
 
 除個頁面本身 UI 狀態外，大部分需要共享的狀態皆由 `useContext` 勾子進行狀態共享，各主頁 Context 元件放置於 `src/context`。
 
@@ -143,7 +202,7 @@ function Foo () {
 }
 ```
 
-### 各主頁概述 Pages
+## 各主頁概覽 Pages
 
 - Auth 驗證
 
@@ -269,12 +328,12 @@ function Foo () {
     
     使用 'react-toastify' 套件完成
 
-### 待優化
+## 待優化
 
 - 代碼分割：目前檔案打包後的大小超過建議值 244KiB；`webpack-bundle-analzyer` 對最後打包檔案分析出的結果，部分套件過大。
 - 減少媒體檔案大小：首頁、商品頁的影片、照片，需要再減少檔案大小。避免網頁載入過慢。
 
-### 待修正
+## 待修正
 
 - 商品列表頁：將頁面邏輯包成 Custom Hook
 - 商品細節頁：將頁面邏輯包成 Custom Hook
