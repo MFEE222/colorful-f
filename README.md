@@ -19,7 +19,7 @@
 
 使用 AWS 服務架設，前端（React）、後端（Express）、資料庫（MariaDB）。
 
-> 專案網站入口：`https://color4.me`
+> 專案網站入口：[https://color4.me](https://color4.me)
 
 - DNS：使用 AWS Route53
 - CDN：使用 AWS CloundFront 做 CDN 和 SSL 憑證 
@@ -217,60 +217,60 @@ function Foo () {
 
     - 註冊：
 
-        前端 將使用者填寫資料使用 `axios` 向 後端 發起請求。
-        後端 驗證通過後，使用 `AWS SES` 服務發送『email 確認信』給使用者。
-        使用者點選『確認信中連結』來開通帳號（有效時限 30 分鐘）。
+        1. 前端 將使用者填寫資料使用 `axios` 向 後端 發起請求。
+        2. 後端 驗證通過後，使用 `AWS SES` 服務發送『email 確認信』給使用者。
+        3. 使用者點選『確認信中連結』來開通帳號（有效時限 30 分鐘）。
 
     - 登入：
 
-        前端 將使用者輸入帳密使用 `axios` 向 後端 發起請求。
-        後端 驗證通過後 返回 `refresh token` 和 `access token`。
-        `refresh token` 存儲在 `http-only` 的 `cookie`；`access token` 存在記憶體。
+        1. 前端 將使用者輸入帳密使用 `axios` 向 後端 發起請求。
+        2. 後端 驗證通過後 返回 `refresh token` 和 `access token`。
+        3. `refresh token` 存儲在 `http-only` 的 `cookie`；`access token` 存在記憶體。
 
     - 登出：
 
-        前端 使用 `axios` 向後端發起請求（`refresh token` 於 `cookie` 中帶給後端）。
-        後端 驗證 使用者身份 以及 `refresh token`。
-        後端 驗證通過後 消滅存於前端 `cookie` 中的 `refresh token`。
+        1. 前端 使用 `axios` 向後端發起請求（`refresh token` 於 `cookie` 中帶給後端）。
+        2. 後端 驗證 使用者身份 以及 `refresh token`。
+        3. 後端 驗證通過後 消滅存於前端 `cookie` 中的 `refresh token`。
 
     - 忘記密碼：
 
-        前端 將使用者填寫帳號、密碼提示 使用 `axios` 向 後端 發起請求。 
-        後端 驗證通過後，使用 `AWS SES` 服務發送『密碼重設信』給使用者。
-        使用者點選『密碼重設信 中 獨有連結』來進行密碼修改（有效時限 30 分鐘）。
+        1. 前端 將使用者填寫帳號、密碼提示 使用 `axios` 向 後端 發起請求。 
+        2. 後端 驗證通過後，使用 `AWS SES` 服務發送『密碼重設信』給使用者。
+        3. 使用者點選『密碼重設信 中 獨有連結』來進行密碼修改（有效時限 30 分鐘）。
 
     - Google 第三方登入：
 
-        前端 嵌入 Google 登入按鈕（選用彈跳視窗模式），提供給使用者以 Google 帳密登入。
-        登入成功後，前端 接收 Google 回傳之 `JWT Token`，並使用 `axios` 向 後端發送請求。
-        後端 取的 `JWT Token` 後，向 Google 驗證伺服器進行驗證。
-        後端 驗證成功後，生成 `refresh token` 和 `access token` 返回 前端。
-        `refresh token` 存儲在 `http-only` 的 `cookie`；`access token` 存在記憶體。
+        1. 前端 嵌入 Google 登入按鈕（選用彈跳視窗模式），提供給使用者以 Google 帳密登入。
+        2. 登入成功後，前端 接收 Google 回傳之 `JWT Token`，並使用 `axios` 向 後端發送請求。
+        3. 後端 取的 `JWT Token` 後，向 Google 驗證伺服器進行驗證。
+        4. 後端 驗證成功後，生成 `refresh token` 和 `access token` 返回 前端。
+        5. `refresh token` 存儲在 `http-only` 的 `cookie`；`access token` 存在記憶體。
 
     - 修改個人資料：
 
-        前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
-        後端 驗證身份通過後，向資料庫進行修改，返回 前端。
+        1. 前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
+        2. 後端 驗證身份通過後，向資料庫進行修改，返回 前端。
 
     - 修改 Email：
 
-        前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
-        後端 驗證身份通過後，向資料庫進行修改，返回 前端。
+        1. 前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
+        2. 後端 驗證身份通過後，向資料庫進行修改，返回 前端。
 
     - 修改個人頭貼：
 
-        前端 使用 HTML API 將使用者上傳圖片，以 `axios` 向 後端 發送請求（`JWT` 模式；標頭帶 `access token`）
-        後端 驗證身份通過後，向資料庫進行修改，返回 前端。
+        1. 前端 使用 HTML API 將使用者上傳圖片，以 `axios` 向 後端 發送請求（`JWT` 模式；標頭帶 `access token`）
+        2. 後端 驗證身份通過後，向資料庫進行修改，返回 前端。
 
     - 驗證 access token：
 
-        前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
-        後端 驗證分份通過後，返回 前端。
+        1. 前端 使用 `axios` 向 後端 發送請求（`JWT` 模式；`access token` 於 Header 中的 Authorization）。
+        2. 後端 驗證分份通過後，返回 前端。
 
     - 刷新 access token：
 
-        前端 使用 `axios` 向 後端 發送請求（`refresh token` 於 `cookie` 中帶給後端）。
-        後端 驗證 `refresh token` 通過後，返回新的 `access token` 給前端。
+        1. 前端 使用 `axios` 向 後端 發送請求（`refresh token` 於 `cookie` 中帶給後端）。
+        2. 後端 驗證 `refresh token` 通過後，返回新的 `access token` 給前端。
 
 - Navbar 導覽列
 
