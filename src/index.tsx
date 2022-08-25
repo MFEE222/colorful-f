@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <Router>
-            <App />
-        </Router>
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const root = document.getElementById('root');
+
+if (root) {
+    ReactDOM.render(
+        <React.StrictMode>
+            <Router>
+                <App />
+            </Router>
+        </React.StrictMode>,
+        root
+    );
+} else {
+    console.log("Root Element Missing.");
+}
+
+

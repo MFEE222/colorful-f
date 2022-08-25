@@ -4,7 +4,7 @@ import { Route, Link, Switch } from 'react-router-dom';
 
 // 引入樣式、庫
 import './styles/global.scss';
-import '../node_modules/bootstrap/dist/js/bootstrap';
+import 'bootstrap';
 // import '../node_modules/vanilla-tilt/dist/vanilla-tilt';
 
 // 通用元件
