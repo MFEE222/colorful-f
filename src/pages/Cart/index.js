@@ -19,7 +19,7 @@ function Cart(props) {
 
                 {/* 購物車主頁 */}
                 <Route path={Routes.CART.INDEX}>
-                    <Cart />
+                    <CartContent />
                 </Route>
             </Switch>
         </>
