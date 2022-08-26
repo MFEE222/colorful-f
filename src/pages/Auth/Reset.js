@@ -5,8 +5,9 @@ import { Redirect } from 'react-router-dom';
 import { useAuth, useResetPassword } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import { routes } from '../../utils/routes';
+import Routes from '../../utils/ts-routes';
 
-const ResetPassword = (props) => {
+const Reset = (props) => {
     // context
     const { UILoading } = useLoadingContext();
     // state
@@ -39,7 +40,7 @@ const ResetPassword = (props) => {
         }
 
         if (!auth.result) {
-            return <Redirect to={routes.signin} />;
+            return <Redirect to={Routes.AUTH.SIGNIN} />;
         }
         // resest
         if (data.loading) {
@@ -50,7 +51,7 @@ const ResetPassword = (props) => {
         }
 
         if (data.result) {
-            return <Redirect to={routes.member} />;
+            return <Redirect to={Routes.MEMBER.INDEX} />;
         }
 
         return (
@@ -129,4 +130,4 @@ const ResetPassword = (props) => {
     return <>{render()}</>;
 };
 
-export default ResetPassword;
+export default Reset;

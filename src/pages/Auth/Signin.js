@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 // internal global variable
 import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
 import { routes } from '../../utils/routes';
+import Routes from '../../utils/ts-routes';
 
 import { useSignIn, useGSIScript } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
@@ -41,7 +42,7 @@ function SignIn(props) {
         }
 
         if (regular.accessToken !== '' || gsi.accessToken !== '') {
-            return <Redirect to={routes.home} />;
+            return <Redirect to={Routes.HOME.INDEX} />;
         }
 
         return (
@@ -90,7 +91,7 @@ function SignIn(props) {
                                     </div>
                                     <div className="forgot mt-3">
                                         <Link
-                                            to={routes.forgot}
+                                            to={Routes.AUTH.FORGOT}
                                             className="l-link"
                                         >
                                             forgot password ?
@@ -112,13 +113,13 @@ function SignIn(props) {
 
                                     {/* <div className="l-icon mt-4 mb-3">
                                     <Link
-                                        to={routes.home}
+                                        to={Routes.HOME.INDEX}
                                         className="l-icon-link"
                                     >
                                         <i className="fab fa-facebook-f fa-fw"></i>
                                     </Link>
                                     <Link
-                                        to={routes.home}
+                                        to={Routes.HOME.INDEX}
                                         className="l-icon-link"
                                     >
                                         <i className="fab fa-google fa-fw"></i>
@@ -140,7 +141,7 @@ function SignIn(props) {
                                         <p className="signup">
                                             Don't you no account ?<span> </span>
                                             <Link
-                                                to={routes.signup}
+                                                to={Routes.AUTH.SIGNUP}
                                                 className="l-link"
                                             >
                                                 Sign up

@@ -4,11 +4,12 @@ import { Redirect } from 'react-router-dom';
 
 // internal utility
 import { routes } from '../../utils/routes';
+import Routes from '../../utils/ts-routes';
 import { useForgotPassword } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 // main component
-function ForgotPassword(props) {
+function Forgot(props) {
     // context
     const { UILoading } = useLoadingContext();
     // state
@@ -42,7 +43,7 @@ function ForgotPassword(props) {
         }
 
         if (data.result) {
-            return <Redirect to={routes.signin} />;
+            return <Redirect to={Routes.AUTH.SIGNIN} />;
         }
 
         return (
@@ -105,4 +106,4 @@ function ForgotPassword(props) {
     return <>{render()}</>;
 }
 
-export default ForgotPassword;
+export default Forgot;
