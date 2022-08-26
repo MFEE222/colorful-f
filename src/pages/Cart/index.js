@@ -6,7 +6,6 @@ import Routes from '../../utils/ts-routes';
 import CartContent from './CartContent';
 import CartPayment from './CartPayment';
 import Checkout from './Checkout';
-import Cart from './Cart';
 
 function Cart(props) {
     return (
