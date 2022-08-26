@@ -8,6 +8,7 @@ import 'bootstrap';
 // import '../node_modules/vanilla-tilt/dist/vanilla-tilt';
 
 // 通用元件
+import Routes from './utils/ts-routes';
 import Navbar from './utils/Navbar';
 import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
@@ -74,47 +75,47 @@ function App() {
                                     {/* <Breadcrumb /> */}
                                     <Switch>
                                         {/* 驗證頁：登入、註冊、忘記密碼 */}
-                                        <Route path={routes.auth}>
+                                        <Route path={Routes.AUTH.INDEX}>
                                             <Auth />
                                         </Route>
                                         {/* 商品頁：商品列表、商品細節 */}
-                                        <Route path={routes.product}>
+                                        <Route path={Routes.PRODUCT.INDEX}>
                                             <Product />
                                         </Route>
                                         {/* 會員頁：個人資料、訂單列表、訂單細節、蒐藏、評論、信件、付款 */}
-                                        <Route path={routes.member}>
+                                        <Route path={Routes.MEMBER.INDEX}>
                                             <Member />
                                         </Route>
                                         {/* 團隊介紹頁 */}
-                                        <Route path={routes.team}>
+                                        <Route path={Routes.TEAM.INDEX}>
                                             <Team />
                                         </Route>
                                         {/* 教學頁 */}
-                                        <Route path={routes.teach}>
+                                        <Route path={Routes.TEACH.INDEX}>
                                             <Teach />
                                         </Route>
                                         {/* 心理測驗頁 */}
-                                        <Route path={routes.game}>
+                                        <Route path={Routes.GAME.INDEX}>
                                             <Game />
                                         </Route>
                                         {/* email */}
-                                        <Route path={routes.email}>
+                                        <Route path={Routes.MEMBER.MAILS}>
                                             <Email />
                                         </Route>
                                         {/* 購物車 */}
-                                        <Route path={routes.cart}>
+                                        <Route path={Routes.CART.INDEX}>
                                             <Cart />
                                         </Route>
                                         {/* 主頁 */}
-                                        <Route exact path={routes.home}>
+                                        <Route exact path={Routes.HOME.INDEX}>
                                             <Home />
                                         </Route>
                                         {/* 前導頁 */}
-                                        <Route exact path={routes.landing}>
+                                        <Route exact path={Routes.LANDING.INDEX}>
                                             <Landing />
                                         </Route>
                                         {/* 404 */}
-                                        <Route path={routes.error}>
+                                        <Route path={Routes.ERROR.INDEX}>
                                             <Error />
                                         </Route>
                                     </Switch>

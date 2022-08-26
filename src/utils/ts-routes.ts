@@ -4,6 +4,10 @@
 const Routes = {
     LANDING: include('/'),
     HOME: include('/home'),
+    TEAM: include('/team'),
+    TEACH: include('/teach'),
+    GAME: include('/game'),
+    ERROR: include('*'),
     AUTH: include('/auth', {
         SIGNIN: 'signin/',
         SIGNUP: 'signup/',
@@ -53,7 +57,7 @@ function include(index: string, route: R = {}): R {
     res.INDEX = index;
     for (const key in route) {
         // absolute path
-        if (route[key].at(0) === '/')
+        if (route[key].charAt(0) === '/')
             res[key] = route[key];
         // prefiex with index (relative)
         else
