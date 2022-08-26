@@ -94,6 +94,7 @@
     },
     "include": [
         "./src/**/*.tsx",
+        "./src/**/*.ts",
         "./custom.d.ts"
     ]
 }
