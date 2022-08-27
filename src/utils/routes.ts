@@ -9,13 +9,14 @@ const routes = {
     game: '/game',
     error: '*',
     auth: include('/auth', {
+        self: '',
         signin: 'signin/',
         signup: 'signup/',
         forgot: 'forgot/',
         reset: 'reset/'
     }),
     product: include('/product', {
-        all: '',
+        self: '',
         id: ':id',
         food: 'food/',
         wedding: 'wedding/',
@@ -25,32 +26,32 @@ const routes = {
         newest: 'newest/'
     }),
     member: include('/member', {
-        all: '',
+        self: '',
         profile: 'profile/',
         order: include('order/', {
-            all: '',
+            self: '',
             id: ':id'
         }),
         download: include('download/', {
-            all: '',
+            self: '',
             id: ':id'
         }),
         favorite: include('favorite/', {
-            all: '',
+            self: '',
             id: ':id'
         }),
         review: include('review/', {
-            all: '',
+            self: '',
             id: ':id'
         }),
         mail: include('mail/', {
-            all: '',
+            self: '',
             id: ':id',
         }),
         payment: 'payment/',
     }),
     cart: include('/cart', {
-        all: '',
+        self: '',
         checkout: 'checkout/'
     }),
 } as const;

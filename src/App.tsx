@@ -8,12 +8,11 @@ import 'bootstrap';
 // import '../node_modules/vanilla-tilt/dist/vanilla-tilt';
 
 // 通用元件
-import Routes from './utils/ts-routes';
+import routes from './utils/routes';
 import Navbar from './utils/Navbar';
 import Breadcrumb from './utils/Breadcrumb';
 import Footer from './utils/Footer';
 import ScrollToTop from './utils/ScrollToTop';
-import { routes } from './utils/routes';
 import { API_URL, IMG_URL } from './utils/config';
 
 // 路由
@@ -75,47 +74,43 @@ function App() {
                                     {/* <Breadcrumb /> */}
                                     <Switch>
                                         {/* 驗證頁：登入、註冊、忘記密碼 */}
-                                        <Route path={Routes.AUTH.INDEX}>
+                                        <Route path={routes.auth.self}>
                                             <Auth />
                                         </Route>
                                         {/* 商品頁：商品列表、商品細節 */}
-                                        <Route path={Routes.PRODUCT.INDEX}>
+                                        <Route path={routes.product.self}>
                                             <Product />
                                         </Route>
                                         {/* 會員頁：個人資料、訂單列表、訂單細節、蒐藏、評論、信件、付款 */}
-                                        <Route path={Routes.MEMBER.INDEX}>
+                                        <Route path={routes.member.self}>
                                             <Member />
                                         </Route>
+                                        {/* 購物車 */}
+                                        <Route path={routes.cart.self}>
+                                            <Cart />
+                                        </Route>
                                         {/* 團隊介紹頁 */}
-                                        <Route path={Routes.TEAM.INDEX}>
+                                        <Route path={routes.team}>
                                             <Team />
                                         </Route>
                                         {/* 教學頁 */}
-                                        <Route path={Routes.TEACH.INDEX}>
+                                        <Route path={routes.teach}>
                                             <Teach />
                                         </Route>
                                         {/* 心理測驗頁 */}
-                                        <Route path={Routes.GAME.INDEX}>
+                                        <Route path={routes.game}>
                                             <Game />
                                         </Route>
-                                        {/* email */}
-                                        <Route path={Routes.MEMBER.MAILS}>
-                                            <Email />
-                                        </Route>
-                                        {/* 購物車 */}
-                                        <Route path={Routes.CART.INDEX}>
-                                            <Cart />
-                                        </Route>
                                         {/* 主頁 */}
-                                        <Route exact path={Routes.HOME.INDEX}>
+                                        <Route exact path={routes.home}>
                                             <Home />
                                         </Route>
                                         {/* 前導頁 */}
-                                        <Route exact path={Routes.LANDING.INDEX}>
+                                        <Route exact path={routes.landing}>
                                             <Landing />
                                         </Route>
                                         {/* 404 */}
-                                        <Route path={Routes.ERROR.INDEX}>
+                                        <Route path={routes.error}>
                                             <Error />
                                         </Route>
                                     </Switch>
