@@ -4,8 +4,7 @@ import { Redirect } from 'react-router-dom';
 // internal library
 import { useAuth, useResetPassword } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
-import { routes } from '../../utils/routes';
-import Routes from '../../utils/ts-routes';
+import routes from '../../utils/routes';
 
 const Reset = (props) => {
     // context
@@ -40,7 +39,7 @@ const Reset = (props) => {
         }
 
         if (!auth.result) {
-            return <Redirect to={Routes.AUTH.SIGNIN} />;
+            return <Redirect to={routes.auth.signin} />;
         }
         // resest
         if (data.loading) {
@@ -51,7 +50,7 @@ const Reset = (props) => {
         }
 
         if (data.result) {
-            return <Redirect to={Routes.MEMBER.INDEX} />;
+            return <Redirect to={routes.member.self} />;
         }
 
         return (

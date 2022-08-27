@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import {routes} from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
 
 function OrderCard(props) {
@@ -42,8 +42,12 @@ function OrderCard(props) {
                     <div className="d-none d-md-block">
                         <hr />
                     </div>
-
-                    <LinkContainer to={routes.orderDetail}><button className="ms-auto d-block btn">Pending</button></LinkContainer>
+                    {/* FIXME: fix id */}
+                    <LinkContainer
+                        to={reverse(routes.member.order.id, { id: 1 })}
+                    >
+                        <button className="ms-auto d-block btn">Pending</button>
+                    </LinkContainer>
                 </div>
             </div>
         </div>

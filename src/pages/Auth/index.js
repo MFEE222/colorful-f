@@ -3,8 +3,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // internal utility
-import Routes from '../../utils/ts-routes';
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 
 // internal components of page
 import SignIn from './SignIn';
@@ -16,16 +15,16 @@ function Auth(props) {
     // second router
     return (
         <Switch>
-            <Route path={Routes.AUTH.SIGNIN}>
+            <Route path={routes.auth.signin}>
                 <SignIn />
             </Route>
-            <Route path={Routes.AUTH.SIGNUP}>
+            <Route path={routes.auth.signup}>
                 <SignUp />
             </Route>
-            <Route path={Routes.AUTH.FORGOT}>
+            <Route path={routes.auth.forgot}>
                 <Forgot />
             </Route>
-            <Route path={Routes.AUTH.RESET}>
+            <Route path={routes.auth.reset}>
                 <Reset />
             </Route>
         </Switch>

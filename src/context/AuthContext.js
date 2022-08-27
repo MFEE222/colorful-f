@@ -27,7 +27,6 @@ import login from '../images/film001.jpg';
 
 // intern library
 import { useScript } from '../hooks/useScript';
-import { routes } from '../utils/routes';
 import { useToastContext } from './ToastContext';
 import { toast } from 'react-toastify';
 

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { API_GET_PRODUCTS } from '../utils/config';
 import '../utils/others/status';
 import { STATUS_MSG } from '../utils/others/status';
-import { routes } from '../utils/routes';
+import routes from '../utils/routes';
 
 // Context
 const ProductsContext = React.createContext(
@@ -59,27 +59,26 @@ export function ProductsProvider(props) {
         (async function () {
             // 初始化系列
             // console.log('location.pathname :>> ', location.pathname);
-            // console.log('routes.productFood :>> ', routes.productFood);
             switch (location.pathname) {
-                case routes.productNewest:
+                case routes.product.newset:
                     optionSeries(null, 1);
                     break;
-                case routes.productFood:
+                case routes.product.food:
                     optionSeries(null, 2);
                     break;
-                case routes.productWedding:
+                case routes.product.wedding:
                     optionSeries(null, 3);
                     break;
-                case routes.productFilm:
+                case routes.product.film:
                     optionSeries(null, 4);
                     break;
-                case routes.productScenery:
+                case routes.product.scenery:
                     optionSeries(null, 5);
                     break;
-                case routes.productPortrait:
+                case routes.product.portrait:
                     optionSeries(null, 6);
                     break;
-                case routes.product:
+                case routes.product.self:
                     optionSeries(null, 0);
                     break;
                 default:

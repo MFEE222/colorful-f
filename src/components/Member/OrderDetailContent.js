@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { LinkContainer } from 'react-router-bootstrap';
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
 
 //共用
@@ -130,7 +130,7 @@ function OrderDetailContent(props) {
                         <div className="col-auto p-0">
                             <button className="btn">聯絡客服</button>
                             <button className="btn">評論</button>
-                            <LinkContainer to={routes.orderList}>
+                            <LinkContainer to={routes.member.order.self}>
                                 <button className="btn">返回</button>
                             </LinkContainer>
                         </div>

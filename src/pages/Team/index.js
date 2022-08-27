@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import TeamContent from '../../components/Team/TeamContent';
-import { routes } from '../../utils/routes';
 
 function Team(props) {
     const match = useRouteMatch();

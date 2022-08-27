@@ -15,7 +15,7 @@ import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 // import { PlaceholderLine } from 'semantic-ui-react';
 
 // 通用庫
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 
 // context
 import { useProductsContext } from '../../context/ProductsContext';
@@ -65,42 +65,42 @@ function Product(props) {
         <>
             <Switch>
                 {/* 細節 */}
-                <Route path={routes.productDetail()}>
+                <Route path={routes.product.id}>
                     <ProductDetail />
                 </Route>
                 {/* 食物 */}
-                <Route path={routes.productFood}>
+                <Route path={routes.product.food}>
                     <ProductList />
                 </Route>
                 {/* 婚禮 */}
-                <Route path={routes.productWedding}>
+                <Route path={routes.product.wedding}>
                     <ProductList />
                 </Route>
                 {/* 復古 */}
-                <Route path={routes.productFilm}>
+                <Route path={routes.product.film}>
                     <ProductList />
                 </Route>
                 {/* 風景 */}
-                <Route path={routes.productScenery}>
+                <Route path={routes.product.scenery}>
                     <ProductList />
                 </Route>
                 {/* 人像 */}
-                <Route path={routes.productPortrait}>
+                <Route path={routes.product.portrait}>
                     <ProductList />
                 </Route>
                 {/* 最新 */}
-                <Route path={routes.productNewest}>
+                <Route path={routes.product.newest}>
                     <ProductList />
                 </Route>
                 {/* 全部 */}
-                <Route path={routes.product}>
+                <Route path={routes.product.self}>
                     <ProductList />
                 </Route>
             </Switch>
             {/* 推薦區 */}
             <RecommendCard recommend={recommend} />
             {/* 評論區 */}
-            {match.path === routes.productDetail && <ReviewDetail />}
+            {match.path === routes.product.id && <ReviewDetail />}
         </>
     );
 }

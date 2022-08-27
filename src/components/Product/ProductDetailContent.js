@@ -18,7 +18,6 @@ import ShowStar from './ShowStar';
 import DemoImgProduct from '../../images/navbar-ex-1.jpg';
 import DemoImgFigure from '../../images/portrait01.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
-import { routes } from '../../utils/routes';
 
 function ProductDetailContent(props) {
     // 狀態、勾子

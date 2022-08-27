@@ -7,7 +7,6 @@ import {
     useHistory,
     Router,
 } from 'react-router-dom';
-import { routes } from '../../utils/routes';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Modal, Button } from 'react-bootstrap';
 // import Slider from 'react-slick';

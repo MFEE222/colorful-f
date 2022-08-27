@@ -13,7 +13,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 
 // 共用
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 import { API_URL } from '../../utils/config';
 import { useProductsContext } from '../../context/ProductsContext';
 
@@ -93,7 +93,9 @@ function RecommendCard(props) {
                                             <Card
                                                 className="mx-4"
                                                 product={v}
-                                                to={routes.productDetail(v.id)}
+                                                to={reverse(routes.product.id, {
+                                                    id: v.id,
+                                                })}
                                                 onEvent={function () {
                                                     products.find(v);
                                                 }}

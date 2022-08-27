@@ -6,7 +6,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 
 // 通用
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
 import { useProductsContext } from '../../context/ProductsContext';
 // 自己
@@ -37,7 +37,9 @@ function ProductList(props) {
                                 <div key={e.id} className="col-6 col-md-3">
                                     <Card
                                         product={e}
-                                        to={routes.productDetail(e.id)}
+                                        to={reverse(routes.product.id, {
+                                            id: e.id,
+                                        })}
                                         onEvent={function () {
                                             products.find(e);
                                         }}

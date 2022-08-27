@@ -7,7 +7,7 @@ import {
     useParams,
 } from 'react-router-dom';
 
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 
 import ErrorContent from '../../components/Error/ErrorContent';
 
@@ -18,7 +18,7 @@ function Error(props) {
     return (
         <>
             <Switch>
-                <Route path={match.path}>
+                <Route path={routes.error}>
                     <ErrorContent />
                 </Route>
             </Switch>

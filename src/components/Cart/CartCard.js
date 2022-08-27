@@ -1,7 +1,7 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import CartPic from '../../images/navbar-ex.jpg';
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 //頁面
 import CartContent from '../../pages/Cart/CartContent';
 
@@ -51,7 +51,11 @@ function CartCard(props) {
                     <div className="col-6 text">Total</div>
                     <div className="col-6 price">$228</div>
                 </div>
-                <LinkContainer to={routes.cart} type="submit" className="btn">
+                <LinkContainer
+                    to={routes.cart.self}
+                    type="submit"
+                    className="btn"
+                >
                     <button className="cart-btn">查看購物車</button>
                 </LinkContainer>
             </div>

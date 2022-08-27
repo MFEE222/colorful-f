@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from './routes';
+import routes from './routes';
 import emailjs, { init } from '@emailjs/browser';
 init(process.env.REACT_APP_EMAILJS_USER_ID);
 
@@ -40,7 +40,11 @@ function Footer() {
                             <br />
                             色調濾鏡自由配，隨心所欲當個高端調色player
                         </p>
-                        <form className="row mt-3"  ref={form} onSubmit={sendEmail}>
+                        <form
+                            className="row mt-3"
+                            ref={form}
+                            onSubmit={sendEmail}
+                        >
                             <div className="form-floating">
                                 <input
                                     type="email"
@@ -49,7 +53,7 @@ function Footer() {
                                     id="floatingInput"
                                     placeholder="Your email address"
                                 />
-                                <textarea className='d-none' name="message" />
+                                <textarea className="d-none" name="message" />
                                 <button type="submit" className="f-btn ms-4">
                                     Subscribe
                                 </button>
@@ -58,15 +62,15 @@ function Footer() {
                     </div>
                     <div className="col-md-2 col-xs-auto f-right">
                         <h5 className="f-project">Services</h5>
-                        <Link to={routes.productFood} className="f-link">
+                        <Link to={routes.product.food} className="f-link">
                             客戶服務
                         </Link>
                         <br />
-                        <Link to={routes.productNewest} className="f-link">
+                        <Link to={routes.product.newest} className="f-link">
                             照片調色
                         </Link>
                         <br />
-                        <Link to={routes.productNewest} className="f-link">
+                        <Link to={routes.product.newest} className="f-link">
                             產品目錄
                         </Link>
                         <br />
@@ -77,7 +81,6 @@ function Footer() {
                         <Link to={routes.game} className="f-link">
                             心理測驗
                         </Link>
-
                     </div>
                     <div className="col-md-2 col-xs-auto f-right">
                         <h5 className="f-project">About us</h5>

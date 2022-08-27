@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 // internal global variable
-import { routes } from '../../utils/routes';
-import Routes from '../../utils/ts-routes';
+import routes from '../../utils/routes';
 import { useSignUp } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
@@ -44,7 +43,7 @@ function SignUp(props) {
         }
 
         if (data.result) {
-            return <Redirect to={Routes.AUTH.SIGNIN} />;
+            return <Redirect to={routes.auth.signin} />;
         }
 
         return (

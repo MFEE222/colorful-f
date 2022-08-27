@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useRouteMatch } from 'react-router-dom';
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 import axios from 'axios';
 //
 // import Pagination from './Pagination';
@@ -102,7 +102,9 @@ function ReviewContent(props) {
                 </div>
                 {/* card */}
                 {display.map((oneReview) => {
-                    const goTo = `${routes.reviewDetail}/${oneReview.id}`;
+                    const goTo = reverse(routes.member.review.id, {
+                        id: oneReview.id,
+                    });
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
                     // console.log('object :>> ', img);
                     return (

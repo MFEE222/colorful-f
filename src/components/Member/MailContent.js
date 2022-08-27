@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useRouteMatch, useParams } from 'react-router-dom';
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 
 // import MailDetail from './mailDetail';
 
@@ -27,7 +27,8 @@ function MailContent(props) {
                         <p>2022/03/09</p>
                         <Link
                             className="btn me-2 align-self-end"
-                            to={routes.mailDetail}
+                            // FIXME: fix id
+                            to={reverse(routes.member.mail.id, { id: '1' })}
                         >
                             <span>查看信件</span>
                         </Link>

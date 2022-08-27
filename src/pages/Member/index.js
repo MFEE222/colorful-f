@@ -10,7 +10,7 @@ import {
 import Main from '../../components/Member/Main';
 import SideBarLeft from '../../components/Member/SideBarLeft';
 
-import { routes } from '../../utils/routes';
+import routes, { reverse } from '../../utils/routes';
 import Profile from './Profile';
 import Order from './Order';
 import OrderDetail from './OrderDetail';
@@ -51,41 +51,38 @@ function Member(props) {
                 <SideBarLeft />
                 <Content>
                     <Switch>
-                        <Route path={routes.profile}>
+                        <Route path={routes.member.profile}>
                             <Profile />
                         </Route>
-                        {/* <Route path={routes.orderList}>
+                        {/* <Route path={routes.member.order.self}>
                             <Order />
                         </Route>
-                        <Route path={routes.orderDetail}>
+                        <Route path={reverse(routes.member.order.id, { id: 'fixme'})}>
                             <OrderDetail />
                         </Route>
-                        <Route path={routes.download}>
+                        <Route path={routes.member.download.self}>
                             <Download />
                         </Route>
-                        <Route path={routes.review}>
+                        <Route path={routes.member.review.self}>
                             <Review />
                         </Route>
-                        <Route path={routes.reviewDetail}>
+                        <Route path={reverse(routes.member.review.id, { id: 'fixme'})}>
                             <ReviewDetail />
                         </Route>
-                        <Route path={routes.favorite}>
+                        <Route path={routes.member.favorite.self}>
                             <WishList />
                         </Route>
-                        <Route path={routes.mail}>
+                        <Route path={routes.member.mail.self}>
                             <Mail />
                         </Route>
-                        <Route path={routes.mailDetail}>
+                        <Route path={reverse(routes.member.mail.id, {id : 'fixme'})}>
                             <MailDetail />
                         </Route>
-                        <Route path={routes.payment}>
+                        <Route path={routes.member.payment}>
                             <Payment />
-                        </Route>
-                        <Route path={routes.collect}>
-                            <Collect />
-                        </Route> */}
+                        </Route>*/}
 
-                        <Route path={routes.member}>
+                        <Route path={routes.member.self}>
                             <Profile />
                         </Route>
                     </Switch>

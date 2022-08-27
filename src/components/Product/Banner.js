@@ -18,7 +18,7 @@ import IMG_PRODUCTS_WEDDING_BANNER from '../../images/banner/wedding-banner.mp4'
 import IMG_PRODUCTS_FILM_BANNER from '../../images/banner/film-banner.mp4';
 import IMG_PRODUCTS_SCENERY_BANNER from '../../images/banner/scenery-banner.mp4';
 import IMG_PRODUCTS_PORTRAIT_BANNER from '../../images/banner/portrait-banner.mp4';
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 
 // Context
 import { useProductsContext } from '../../context/ProductsContext';
@@ -42,14 +42,14 @@ function Banner(props) {
     // 選擇要顯示的 Banner (是否可以做一個 OnEvent 在 ProductsContext 中，讓個元件註冊 option didupdate 後要執行的 callback)
     // FIXME: 影片播放中途路由切換，無法正確變更成新的影片
     switch (match.path) {
-        case routes.productNewest:
+        case routes.product.newest:
             imgBanner = (
                 <div className="ratios">
                     <img src={IMG_PRODUCTS_NEWEST_BANNER} alt="newest-banner" />
                 </div>
             );
             break;
-        case routes.productFood:
+        case routes.product.food:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
                 <video
@@ -68,7 +68,7 @@ function Banner(props) {
                 </video>
             );
             break;
-        case routes.productWedding:
+        case routes.product.wedding:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
                 <video
@@ -87,7 +87,7 @@ function Banner(props) {
                 </video>
             );
             break;
-        case routes.productFilm:
+        case routes.product.film:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
                 <video
@@ -106,7 +106,7 @@ function Banner(props) {
                 </video>
             );
             break;
-        case routes.productScenery:
+        case routes.product.scenery:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
                 <video className="w-100" autoPlay muted loop ref={videoRef}>
@@ -118,7 +118,7 @@ function Banner(props) {
                 </video>
             );
             break;
-        case routes.productPortrait:
+        case routes.product.portrait:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
                 <video
@@ -137,7 +137,7 @@ function Banner(props) {
                 </video>
             );
             break;
-        case routes.product:
+        case routes.product.self:
         default:
             imgBanner = (
                 <div className="ratios">

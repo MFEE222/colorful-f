@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import 'animate.css';
-import { routes } from '../../utils/routes';
+import routes from '../../utils/routes';
 
 function Landing(props) {
     return (
