@@ -1,7 +1,7 @@
 //==================================================
 // Object 
 //==================================================
-const Routes = {
+const routes = {
     landing: '/',
     home: '/home',
     team: '/team',
@@ -53,13 +53,13 @@ const Routes = {
         all: '',
         checkout: 'checkout/'
     }),
-};
+} as const;
 
 //==================================================
 // Type
 //==================================================
 type R = {
-    [key: string]: string | R | any;
+    [key: string]: any;
 };
 
 //==================================================
@@ -86,12 +86,7 @@ function include(index: string, route: R = {}): R {
                 break;
         }
     }
-    // un writable
-    for (const key in res) {
-        Object.defineProperty(res, key, {
-            writable: false,
-        });
-    }
+
     return res;
 }
 export function reverse(url: string, params: R): string {
@@ -104,6 +99,6 @@ export function reverse(url: string, params: R): string {
 //==================================================
 // Export
 //================================================== 
-// console.log('Routes :>> ', Routes);
-export default Routes;
+// console.log('routes :>> ', routes);
+export default routes;
 
