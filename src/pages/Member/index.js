@@ -10,7 +10,7 @@ import {
 import Main from '../../components/Member/Main';
 import SideBarLeft from '../../components/Member/SideBarLeft';
 
-import routes, { reverse } from '../../utils/routes';
+import routes from '../../utils/routes';
 import Profile from './Profile';
 import Order from './Order';
 import OrderDetail from './OrderDetail';
@@ -57,7 +57,7 @@ function Member(props) {
                         {/* <Route path={routes.member.order.self}>
                             <Order />
                         </Route>
-                        <Route path={reverse(routes.member.order.id, { id: 'fixme'})}>
+                        <Route path={routes.member.order.id}>
                             <OrderDetail />
                         </Route>
                         <Route path={routes.member.download.self}>
@@ -66,7 +66,7 @@ function Member(props) {
                         <Route path={routes.member.review.self}>
                             <Review />
                         </Route>
-                        <Route path={reverse(routes.member.review.id, { id: 'fixme'})}>
+                        <Route path={routes.member.review.id}>
                             <ReviewDetail />
                         </Route>
                         <Route path={routes.member.favorite.self}>
@@ -75,7 +75,7 @@ function Member(props) {
                         <Route path={routes.member.mail.self}>
                             <Mail />
                         </Route>
-                        <Route path={reverse(routes.member.mail.id, {id : 'fixme'})}>
+                        <Route path={routes.member.mail.id}>
                             <MailDetail />
                         </Route>
                         <Route path={routes.member.payment}>

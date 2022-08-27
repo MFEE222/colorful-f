@@ -15,7 +15,7 @@ import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
 // import { PlaceholderLine } from 'semantic-ui-react';
 
 // 通用庫
-import routes, { reverse } from '../../utils/routes';
+import routes from '../../utils/routes';
 
 // context
 import { useProductsContext } from '../../context/ProductsContext';
