@@ -2,51 +2,64 @@
 // Object 
 //==================================================
 const Routes = {
-    LANDING: include('/'),
-    HOME: include('/home'),
-    TEAM: include('/team'),
-    TEACH: include('/teach'),
-    GAME: include('/game'),
-    ERROR: include('*'),
-    AUTH: include('/auth', {
-        SIGNIN: 'signin/',
-        SIGNUP: 'signup/',
-        FORGOT: 'forgot/',
-        RESET: 'reset/'
+    landing: '/',
+    home: '/home',
+    team: '/team',
+    teach: '/teach',
+    game: '/game',
+    error: '*',
+    auth: include('/auth', {
+        signin: 'signin/',
+        signup: 'signup/',
+        forgot: 'forgot/',
+        reset: 'reset/'
     }),
-    PRODUCT: include('/product', {
-        DETAIL: 'detail/:id',
-        FOOD: 'food/',
-        WEDDING: 'wedding/',
-        FILM: 'film/',
-        SCENERY: 'scenery/',
-        PORTRAIT: 'portrait/',
-        NEWEST: 'newest/'
+    product: include('/product', {
+        all: '',
+        id: ':id',
+        food: 'food/',
+        wedding: 'wedding/',
+        film: 'film/',
+        scenery: 'scenery/',
+        portrait: 'portrait/',
+        newest: 'newest/'
     }),
-    MEMBER: include('/member', {
-        PROFILE: 'profile/',
-        ORDERS: 'orders/',
-        ORDER: 'order/',
-        DOWNLOAD: 'download/',
-        FAVORITE: 'favorite/',
-        REVIEWS: 'reviews/',
-        REVIEW: 'review/:id',
-        PAYMENT: 'payment/',
-        MAILS: 'mails/',
-        MAIL: 'mail/:id',
+    member: include('/member', {
+        all: '',
+        profile: 'profile/',
+        order: include('order/', {
+            all: '',
+            id: ':id'
+        }),
+        download: include('download/', {
+            all: '',
+            id: ':id'
+        }),
+        favorite: include('favorite/', {
+            all: '',
+            id: ':id'
+        }),
+        review: include('review/', {
+            all: '',
+            id: ':id'
+        }),
+        mail: include('mail/', {
+            all: '',
+            id: ':id',
+        }),
+        payment: 'payment/',
     }),
-    CART: include('/cart', {
-        CHECKOUT: 'checkout/'
+    cart: include('/cart', {
+        all: '',
+        checkout: 'checkout/'
     }),
 };
-
-console.log('Routes :>> ', Routes);
 
 //==================================================
 // Type
 //==================================================
 type R = {
-    [key: string]: string
+    [key: string]: string | R | any;
 };
 
 //==================================================
@@ -54,15 +67,26 @@ type R = {
 //==================================================
 function include(index: string, route: R = {}): R {
     const res: R = {};
-    res.INDEX = index;
     for (const key in route) {
-        // absolute path
-        if (route[key].charAt(0) === '/')
-            res[key] = route[key];
-        // prefiex with index (relative)
-        else
-            res[key] = index.concat('/', route[key]);
+        switch (typeof route[key]) {
+            case 'string':
+                const p = route[key] as string;
+                if (p.charAt(0) === '/') {
+                    res[key] = p;
+                }
+                else if (index.charAt(0) === '/') {
+                    res[key] = index.concat('/', p);
+                }
+                else if (index.charAt(index.length - 1) === '/') {
+                    res[key] = index.concat(p);
+                }
+                break;
+            case 'object':
+                res[key] = include(index, route[key] as R);
+                break;
+        }
     }
+    // un writable
     for (const key in res) {
         Object.defineProperty(res, key, {
             writable: false,
@@ -70,7 +94,16 @@ function include(index: string, route: R = {}): R {
     }
     return res;
 }
+export function reverse(url: string, params: R): string {
+    let res = '';
+    for (const key in params) {
+        res = url.replace(`:${key}`, params[key] as string);
+    }
+    return res;
+}
 //==================================================
 // Export
 //================================================== 
+// console.log('Routes :>> ', Routes);
 export default Routes;
+
