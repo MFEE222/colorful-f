@@ -59,13 +59,12 @@ function Product(props) {
     //         setLoading(false);
     //     }
     // }, [loading]); // 更新 loading
-
     //渲染
     return (
         <>
             <Switch>
                 {/* 細節 */}
-                <Route path={routes.product.id}>
+                <Route path={routes.product.detail}>
                     <ProductDetail />
                 </Route>
                 {/* 食物 */}
@@ -100,7 +99,7 @@ function Product(props) {
             {/* 推薦區 */}
             <RecommendCard recommend={recommend} />
             {/* 評論區 */}
-            {match.path === routes.product.id && <ReviewDetail />}
+            {match.path === routes.product.detail && <ReviewDetail />}
         </>
     );
 }

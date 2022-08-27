@@ -93,9 +93,12 @@ function RecommendCard(props) {
                                             <Card
                                                 className="mx-4"
                                                 product={v}
-                                                to={reverse(routes.product.id, {
-                                                    id: v.id,
-                                                })}
+                                                to={reverse(
+                                                    routes.product.detail,
+                                                    {
+                                                        detail: v.id,
+                                                    }
+                                                )}
                                                 onEvent={function () {
                                                     products.find(v);
                                                 }}

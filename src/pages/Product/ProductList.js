@@ -37,8 +37,8 @@ function ProductList(props) {
                                 <div key={e.id} className="col-6 col-md-3">
                                     <Card
                                         product={e}
-                                        to={reverse(routes.product.id, {
-                                            id: e.id,
+                                        to={reverse(routes.product.detail, {
+                                            detail: e.id,
                                         })}
                                         onEvent={function () {
                                             products.find(e);

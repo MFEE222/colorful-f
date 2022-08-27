@@ -26,7 +26,6 @@ function OurNavbar(props) {
     function eventSignOut() {
         setQuery({ ...query, submit: true });
     }
-
     // render
     return (
         <Navbar bg="dark" expand="lg" sticky="top" className="colorful-navbar">
@@ -137,7 +136,7 @@ function OurNavbar(props) {
                             to={
                                 isSignIn
                                     ? routes.member.self
-                                    : routes.member.signin
+                                    : routes.auth.signin
                             }
                         >
                             <Nav.Link
@@ -155,7 +154,7 @@ function OurNavbar(props) {
                             to={
                                 isSignIn
                                     ? routes.member.self
-                                    : routes.member.signin
+                                    : routes.auth.signin
                             }
                         >
                             <Nav.Link
@@ -170,7 +169,7 @@ function OurNavbar(props) {
                             to={
                                 isSignIn
                                     ? routes.member.self
-                                    : routes.member.signin
+                                    : routes.auth.signin
                             }
                         >
                             <Nav.Link

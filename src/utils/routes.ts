@@ -17,13 +17,13 @@ const routes = {
     }),
     product: include('/product', {
         self: '',
-        id: ':id',
         food: 'food/',
         wedding: 'wedding/',
         film: 'film/',
         scenery: 'scenery/',
         portrait: 'portrait/',
-        newest: 'newest/'
+        newest: 'newest/',
+        detail: 'detail/:detail'
     }),
     member: include('/member', {
         self: '',
