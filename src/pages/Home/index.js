@@ -34,7 +34,14 @@ function Home() {
         <div className="home">
             {/* 影片 */}
             <div className="h-page1" id="page1">
-                <video className="w-100" autoPlay muted loop preload="true">
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="true"
+                >
                     <source src={video} alt="home-video" type="video/mp4" />
                 </video>
 
@@ -63,14 +70,28 @@ function Home() {
                             <h2 className="title">COLORFUL</h2>
                             <div className="text">
                                 <p>
-                                    無論你是部落客、Vlogger，或只是喜歡在社群上與朋友分享生活<br />為照片套上屬於你的專屬濾鏡，都可以讓照片從平凡晉升為非凡！<br />
-                                    你還可以直接使用熱門的照片濾鏡 ，它能讓你的照片快速變成專業<br />攝影照， 不論任何程度的使用者都適合，介面簡單且濾鏡功能強大<br />能夠協助創作者快速製作出精美的圖像作品。
-                                    讓您充分展現自我， <br />我們提供照片濾鏡工具以及靈感，讓您有個地方做自己。
-                                    </p>
+                                    無論你是部落客、Vlogger，或只是喜歡在社群上與朋友分享生活
+                                    <br />
+                                    為照片套上屬於你的專屬濾鏡，都可以讓照片從平凡晉升為非凡！
+                                    <br />
+                                    你還可以直接使用熱門的照片濾鏡
+                                    ，它能讓你的照片快速變成專業
+                                    <br />
+                                    攝影照，
+                                    不論任何程度的使用者都適合，介面簡單且濾鏡功能強大
+                                    <br />
+                                    能夠協助創作者快速製作出精美的圖像作品。
+                                    讓您充分展現自我， <br />
+                                    我們提供照片濾鏡工具以及靈感，讓您有個地方做自己。
+                                </p>
                                 <br />
                                 <p>
-                                    COLORFUL的定位就是讓新手小白在不費力的過程中一鍵套用<br />
-                                    也能輕鬆濾出滿意的數位圖像，將您的攝影技巧提升到更高境界<br />【美化圖片 – 輕鬆玩出質感照】多款風格濾鏡，怎麼選都好看！
+                                    COLORFUL的定位就是讓新手小白在不費力的過程中一鍵套用
+                                    <br />
+                                    也能輕鬆濾出滿意的數位圖像，將您的攝影技巧提升到更高境界
+                                    <br />
+                                    【美化圖片 –
+                                    輕鬆玩出質感照】多款風格濾鏡，怎麼選都好看！
                                 </p>
                             </div>
                         </div>

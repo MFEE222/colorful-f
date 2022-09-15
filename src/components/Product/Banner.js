@@ -57,6 +57,7 @@ function Banner(props) {
                     autoPlay
                     muted
                     loop
+                    playsInline
                     preload="true"
                     ref={videoRef}
                 >
@@ -76,6 +77,7 @@ function Banner(props) {
                     autoPlay
                     muted
                     loop
+                    playsInline
                     preload="true"
                     ref={videoRef}
                 >
@@ -95,6 +97,7 @@ function Banner(props) {
                     autoPlay
                     muted
                     loop
+                    playsInline
                     preload="true"
                     ref={videoRef}
                 >
@@ -109,7 +112,15 @@ function Banner(props) {
         case routes.productScenery:
             imgBanner = (
                 // <video className="w-100" controls autoPlay muted loop preload="true">
-                <video className="w-100" autoPlay muted loop ref={videoRef}>
+                <video
+                    className="w-100"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="true"
+                    ref={videoRef}
+                >
                     <source
                         src={IMG_PRODUCTS_SCENERY_BANNER}
                         alt="food-banner"
@@ -126,6 +137,7 @@ function Banner(props) {
                     autoPlay
                     muted
                     loop
+                    playsInline
                     preload="true"
                     ref={videoRef}
                 >
