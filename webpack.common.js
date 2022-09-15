@@ -62,4 +62,11 @@ module.exports = {
             },
         ],
     },
+
+    output: {
+        filename: 'static/js/[name].[contenthash].bundle.js',
+        path: path.resolve(__dirname, 'build'),
+        publicPath: '/',
+        clean: true,
+    },
 };

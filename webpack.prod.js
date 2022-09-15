@@ -24,14 +24,5 @@ module.exports = (env) => {
             minimize: true,
             minimizer: ['...', new CssMinimizerPlugin(), new TerserPlugin()],
         },
-
-        output: {
-            filename: 'static/js/[name].[contenthash].bundle.js',
-            path: path.resolve(__dirname, 'build'),
-            publicPath: '/',
-            clean: true,
-        },
-
-        // devtool: 'source-map',
     });
 };
