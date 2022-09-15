@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useRouteMatch } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 import axios from 'axios';
+import { reverse } from 'named-urls';
 //
 // import Pagination from './Pagination';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
@@ -102,7 +102,13 @@ function ReviewContent(props) {
                 </div>
                 {/* card */}
                 {display.map((oneReview) => {
-                    const goTo = `${routes.reviewDetail}/${oneReview.id}`;
+                    {
+                        /* const goTo = `${routes.reviewDetail}/${oneReview.id}`; */
+                    }
+                    const goTo = reverse(routes.review.id, {
+                        id: oneReview.id,
+                    });
+                    // FIXME: routes
                     const img = `${IMG_URL2}/${oneReview.products_img}/a1.jpg`;
                     // console.log('object :>> ', img);
                     return (

@@ -1,6 +1,5 @@
 // 內建庫
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation, Redirect } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';

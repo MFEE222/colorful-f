@@ -1,29 +1,7 @@
-//import React from 'react';
-
-//import FilterBar from './FilterBar';
 import OrderCard from './OrderCard';
-import React, { useEffect, useState } from 'react';
-import { Link, useRouteMatch, useParams } from 'react-router-dom';
-import axios from 'axios';
-import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
 import Pagination from './Pagination';
-// import { useOrderContext } from '../../context/OrderContext';
-
-// function OrderContent(props) {
-//     return (
-//         <div className="col-12 col-md-10 member-order-main">
-//             <FilterBar />
-
-//             {[1, 2, 3].map(function (e, i) {
-//                 return <OrderCard key={i} />;
-//             })}
-//         </div>
-//     );
-// }
 
 function OrderContent(props) {
-    // const order = useOrderContext();
-
     return (
         <>
             <div className=" member-comment">

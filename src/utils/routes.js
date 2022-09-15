@@ -10,7 +10,7 @@ export const routes = {
     team: '/team',
     teach: '/teach',
     game: '/game',
-    error: '*',
+    error: '/*',
     auth: include('/auth', {
         self: '',
         signin: 'signin/',
@@ -52,6 +52,10 @@ export const routes = {
             id: ':id',
         }),
         payment: 'payment/',
+    }),
+    review: include('review/', {
+        self: '',
+        id: ':id',
     }),
     cart: include('/cart', {
         self: '',

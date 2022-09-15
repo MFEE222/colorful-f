@@ -1,6 +1,6 @@
 // standard
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 // internal utility
 import { routes } from '../../utils/routes';
@@ -42,7 +42,7 @@ function ForgotPassword(props) {
         }
 
         if (data.result) {
-            return <Redirect to={routes.signin} />;
+            return <Navigate to={routes.auth.signin} />;
         }
 
         return (

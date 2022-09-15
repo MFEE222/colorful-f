@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link, useRouteMatch, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import {routes} from '../../utils/routes';
+import { routes } from '../../utils/routes';
 import ImgProduct from '../../images/product-img.jpeg';
 
 function OrderCard(props) {
-    const match = useRouteMatch();
-
     return (
         <div className="container p-0">
             {/* <!-- header --> */}
@@ -43,7 +41,9 @@ function OrderCard(props) {
                         <hr />
                     </div>
 
-                    <LinkContainer to={routes.orderDetail}><button className="ms-auto d-block btn">Pending</button></LinkContainer>
+                    <LinkContainer to={routes.member.order.id}>
+                        <button className="ms-auto d-block btn">Pending</button>
+                    </LinkContainer>
                 </div>
             </div>
         </div>

@@ -234,7 +234,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFood}>
+                                <LinkContainer to={routes.product.food}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -283,7 +283,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productWedding}>
+                                <LinkContainer to={routes.product.wedding}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -332,7 +332,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFood}>
+                                <LinkContainer to={routes.product.food}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -381,7 +381,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFood}>
+                                <LinkContainer to={routes.product.food}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -430,7 +430,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productScenery}>
+                                <LinkContainer to={routes.product.scenery}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -479,7 +479,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productScenery}>
+                                <LinkContainer to={routes.product.scenery}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -528,7 +528,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFilm}>
+                                <LinkContainer to={routes.product.film}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -577,7 +577,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFilm}>
+                                <LinkContainer to={routes.product.film}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -626,7 +626,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productFood}>
+                                <LinkContainer to={routes.product.food}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -675,7 +675,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productWedding}>
+                                <LinkContainer to={routes.product.wedding}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -724,7 +724,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productPortrait}>
+                                <LinkContainer to={routes.product.portrait}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"
@@ -776,7 +776,7 @@ function Test(props) {
                                 alt="..."
                             />
                             <div className="row justify-content-evenly">
-                                <LinkContainer to={routes.productWedding}>
+                                <LinkContainer to={routes.product.wedding}>
                                     <button
                                         type="button"
                                         className="btn btn-dark w-25"

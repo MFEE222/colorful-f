@@ -1,6 +1,6 @@
 // standard library
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 // internal library
 import { useAuth, useResetPassword } from '../../context/AuthContext';
 import { useLoadingContext } from '../../context/LoadingContext';
@@ -39,7 +39,7 @@ const ResetPassword = (props) => {
         }
 
         if (!auth.result) {
-            return <Redirect to={routes.signin} />;
+            return <Navigate to={routes.auth.signin} />;
         }
         // resest
         if (data.loading) {
@@ -50,7 +50,7 @@ const ResetPassword = (props) => {
         }
 
         if (data.result) {
-            return <Redirect to={routes.member} />;
+            return <Navigate to={routes.member.self} />;
         }
 
         return (

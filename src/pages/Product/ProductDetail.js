@@ -1,6 +1,6 @@
 // 內建
 import React, { useEffect, useState } from 'react';
-import { useParams, useRouteMatch, useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 // 通用元件

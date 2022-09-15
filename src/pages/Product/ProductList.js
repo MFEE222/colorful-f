@@ -1,6 +1,6 @@
 // 內建
 import React, { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { reverse } from 'named-urls';
 
 // 第三方庫
 import axios from 'axios';
@@ -21,8 +21,6 @@ function ProductList(props) {
     // Context
     const products = useProductsContext();
 
-    const match = useRouteMatch();
-
     //渲染
     return (
         <>
@@ -37,7 +35,9 @@ function ProductList(props) {
                                 <div key={e.id} className="col-6 col-md-3">
                                     <Card
                                         product={e}
-                                        to={routes.productDetail(e.id)}
+                                        to={reverse(routes.product.detail, {
+                                            detail: e.id,
+                                        })}
                                         onEvent={function () {
                                             products.find(e);
                                         }}
@@ -63,10 +63,3 @@ function ProductList(props) {
 }
 
 export default ProductList;
-
-// products.reset(); //預設8筆
-// products.reset({}); // 抓到全部商品
-// product.reset({ limit: 30 });
-//[]=> 監控狀態
-
-// 四個表單元素的處理方法

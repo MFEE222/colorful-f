@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-    Switch,
     Route,
     Link,
-    useRouteMatch,
+    useLocation,
     useParams,
     useNavigate,
-    matchPath,
 } from 'react-router-dom';
 //共用
 import { useProductsContext } from '../../context/ProductsContext';
@@ -15,7 +13,7 @@ import { useProductsContext } from '../../context/ProductsContext';
 import Card from './Card';
 
 function ProductListContent(props) {
-    const match = useRouteMatch();
+    const location = useLocation();
     const products = useProductsContext();
     const { show } = props; //物件解構
     // console.log('show :>> ', show);
@@ -25,7 +23,7 @@ function ProductListContent(props) {
             <div className="container">
                 <div className="card-group row my-4 mt-md-5 my-2">
                     {show.map((v) => {
-                        const goTo = `${match.path}/detail/${v.id}`;
+                        const goTo = `${location.pathname}/detail/${v.id}`;
                         return (
                             <div key={v.id} className="col-6 col-md-3">
                                 <Card

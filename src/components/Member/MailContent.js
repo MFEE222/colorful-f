@@ -1,13 +1,10 @@
 import React from 'react';
-import { Link, useRouteMatch, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { routes } from '../../utils/routes';
 
 // import MailDetail from './mailDetail';
 
 function MailContent(props) {
-    const match = useRouteMatch();
-    // console.log('match :>> ', match);
-
     return (
         <div className="col-12 col-md-12 member-mail">
             <div className="container">
@@ -27,7 +24,7 @@ function MailContent(props) {
                         <p>2022/03/09</p>
                         <Link
                             className="btn me-2 align-self-end"
-                            to={routes.mailDetail}
+                            to={routes.member.mail.self}
                         >
                             <span>查看信件</span>
                         </Link>

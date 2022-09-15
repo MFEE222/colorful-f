@@ -1,33 +1,28 @@
-// standard
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-// internal utility
-import { routes } from '../../utils/routes';
-
-// internal components of page
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { routes, route } from '../../utils/routes';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import ForgotPassword from './ForgotPassword';
-import ResetPassword from './ResetPassword';
+import Forgot from './ForgotPassword';
+import Reset from './ResetPassword';
 
-function Auth(props) {
-    // second router
+function Auth() {
     return (
-        <Switch>
-            <Route path={routes.signin}>
-                <SignIn />
-            </Route>
-            <Route path={routes.signup}>
-                <SignUp />
-            </Route>
-            <Route path={routes.forgot}>
-                <ForgotPassword />
-            </Route>
-            <Route path={routes.resetPassword}>
-                <ResetPassword />
-            </Route>
-        </Switch>
+        <Routes>
+            <Route
+                path={route(routes.auth.signin).pop()}
+                element={<SignIn />}
+            />
+            <Route
+                path={route(routes.auth.signup).pop()}
+                element={<SignUp />}
+            />
+            <Route
+                path={route(routes.auth.forgot).pop()}
+                element={<Forgot />}
+            />
+            <Route path={route(routes.auth.reset).pop()} element={<Reset />} />
+            <Route path="*" element={<Navigate to={routes.error} />} />
+        </Routes>
     );
 }
 

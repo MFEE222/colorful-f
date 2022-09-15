@@ -137,7 +137,7 @@ function CartContent(props) {
                     </div> */}
                 </div>
                 <div className="button">
-                    <LinkContainer to={routes.checkout}>
+                    <LinkContainer to={routes.cart.checkout}>
                         <button
                             className="checkout"
                             type="button"
@@ -148,7 +148,7 @@ function CartContent(props) {
                         </button>
                     </LinkContainer>
 
-                    <LinkContainer to={routes.product}>
+                    <LinkContainer to={routes.product.self}>
                         <button className="shopping" type="button">
                             繼續購物
                         </button>

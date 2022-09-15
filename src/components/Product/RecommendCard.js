@@ -1,19 +1,9 @@
-// 內建
-import React, { useEffect, useState } from 'react';
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams,
-} from 'react-router-dom';
-
-// 第三方
-import axios from 'axios';
 import Slider from 'react-slick';
+import { useLocation } from 'react-router-dom';
 
 // 共用
 import { routes } from '../../utils/routes';
+import { reverse } from 'named-urls';
 import { API_URL } from '../../utils/config';
 import { useProductsContext } from '../../context/ProductsContext';
 
@@ -25,8 +15,7 @@ import cardDemo from '../../images/navbar-ex-1.jpg';
 import decBar from '../../icons/dec-bar.png';
 
 function RecommendCard(props) {
-    // 狀態、勾子
-    const match = useRouteMatch();
+    const location = useLocation();
     const products = useProductsContext();
     const recommend = props.recommend.recommend;
     //設定slider
@@ -84,7 +73,7 @@ function RecommendCard(props) {
                         <Slider {...settings}>
                             {recommend &&
                                 recommend.map((v) => {
-                                    const goTo = `${match.path}/detail/${v.id}`;
+                                    const goTo = `${location.pathname}/detail/${v.id}`;
                                     return (
                                         <div
                                             key={v.id}
@@ -93,7 +82,10 @@ function RecommendCard(props) {
                                             <Card
                                                 className="mx-4"
                                                 product={v}
-                                                to={routes.productDetail(v.id)}
+                                                to={reverse(
+                                                    routes.product.detail,
+                                                    { detail: v.id }
+                                                )}
                                                 onEvent={function () {
                                                     products.find(v);
                                                 }}

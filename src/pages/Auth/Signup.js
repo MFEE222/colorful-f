@@ -1,6 +1,6 @@
 // standard module
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 // internal global variable
 import { routes } from '../../utils/routes';
 import { useSignUp } from '../../context/AuthContext';
@@ -43,7 +43,7 @@ function SignUp(props) {
         }
 
         if (data.result) {
-            return <Redirect to={routes.signin} />;
+            return <Navigate to={routes.auth.signin} />;
         }
 
         return (

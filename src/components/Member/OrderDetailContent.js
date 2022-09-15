@@ -130,7 +130,7 @@ function OrderDetailContent(props) {
                         <div className="col-auto p-0">
                             <button className="btn">聯絡客服</button>
                             <button className="btn">評論</button>
-                            <LinkContainer to={routes.orderList}>
+                            <LinkContainer to={routes.member.order.self}>
                                 <button className="btn">返回</button>
                             </LinkContainer>
                         </div>
