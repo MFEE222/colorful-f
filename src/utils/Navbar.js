@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // 庫
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
@@ -26,6 +26,15 @@ function OurNavbar(props) {
     function eventSignOut() {
         setQuery({ ...query, submit: true });
     }
+
+    const toggleRef = useRef();
+
+    useEffect(() => {
+        toggleRef.current = document.querySelector('.navbar-toggler');
+        if (!toggleRef.current.classList.contains('collapsed')) {
+            toggleRef.current.click();
+        }
+    }, [location.pathname]);
 
     // render
     return (

@@ -67,7 +67,12 @@ function App() {
                                 <div className="web-content">
                                     {/* 導覽列 */}
                                     <Navbar />
-                                    {/* <ScrollRestoration /> */}
+                                    {/* <ScrollRestoration
+                                        getKey={(locations, matches) => {
+                                            // default behavior
+                                            return locations.key;
+                                        }}
+                                    /> */}
                                     {/* 麵包屑 */}
                                     {/* <Breadcrumb /> */}
                                     <Routes>
@@ -88,7 +93,7 @@ function App() {
                                             element={page(Member)}
                                         />
                                         <Route
-                                            path={routes.team}
+                                            path={routes.team.concat('*')}
                                             element={page(Team)}
                                         />
                                         <Route

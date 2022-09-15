@@ -6,10 +6,10 @@ export function route(url) {
 
 export const routes = {
     landing: '/',
-    home: '/home',
-    team: '/team',
-    teach: '/teach',
-    game: '/game',
+    home: '/home/',
+    team: '/team/',
+    teach: '/teach/',
+    game: '/game/',
     error: '/*',
     auth: include('/auth', {
         self: '',
