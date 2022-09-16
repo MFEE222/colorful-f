@@ -17,6 +17,7 @@ export const IMG_PRODUCTS_WEDDING = IMG_URL + '/wedding';
 export const IMG_PRODUCTS_FILM = IMG_URL + '/film';
 export const IMG_PRODUCTS_SCENERY = IMG_URL + '/scenery';
 export const IMG_PRODUCTS_PORTRAIT = IMG_URL + '/portrait';
+// FIXME: Remove
 // Home
 export const IMG_HOME_PORTRAIT_BANNER = IMG_URL + '/home/輪播01.jpg';
 export const IMG_HOME_SCENERY_BANNER = IMG_URL + '/home/輪播02.jpg';
@@ -73,7 +74,7 @@ export const POST_AUTH_GOOGLE_SIGNIN = API_URL + '/auth/google/signin';
 //         birthday,
 //     }    :>> undefined: 登入失敗 | 使用者資料：登入成功
 // }
-export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
+// export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
 
 // Post Signin 註冊
 // req
@@ -86,7 +87,7 @@ export const API_POST_AUTH_LOGIN = API_URL + '/auth/login';
 // {
 //     statusCode, :>> 4004: 註冊成功，寄發電子郵件通知（就不驗證）| 4005: Email 格式錯誤 | 4007: 密碼不符合規定
 // }
-export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
+// export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 
 // export const API_GET_AUTH_COMFIRM_EMAIL = ; url 用雜湊生成
 
@@ -100,9 +101,9 @@ export const API_POST_AUTH_SIGNUP = API_URL + '/auth/signup';
 // {
 //     statusCode, :>> 4006: 重設密碼信已經寄到您的電子郵箱 | 4009: 無效提示或帳號 | 4011:密碼提示嘗試已達上限 |
 // }
-export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
+// export const API_POST_AUTH_FORGOT_PASSWORD = API_URL + '/auth/forgot';
 
-export const API_POST_AUTH_LOGOUT = API_URL + '/auth/logout';
+// export const API_POST_AUTH_LOGOUT = API_URL + '/auth/logout';
 // 用雜湊生成網址寄到對方信箱，後端接收到特定網址的 GET 的請求即可將對應的帳號密碼重設?
 
 // Post Reset Password 修改密碼
@@ -116,7 +117,7 @@ export const API_POST_AUTH_LOGOUT = API_URL + '/auth/logout';
 // {
 //
 // }
-export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
+// export const API_POST_AUTH_RESET_PASSWORD = API_URL + '/auth/reset';
 
 // GET Products
 // req :
