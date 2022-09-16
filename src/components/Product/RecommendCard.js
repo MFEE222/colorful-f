@@ -2,8 +2,7 @@ import Slider from 'react-slick';
 import { useLocation } from 'react-router-dom';
 
 // 共用
-import { routes } from 'utils/routes';
-import { reverse } from 'named-urls';
+import { routes, reverse } from 'utils/routes';
 import { API_URL } from 'utils/config';
 import { useProductsContext } from 'contexts/ProductsContext';
 
@@ -12,7 +11,7 @@ import Card from './Card';
 
 // 圖片
 import cardDemo from 'images/navbar-ex-1.jpg';
-import decBar from '../../icons/dec-bar.png';
+import decBar from 'images/dec-bar.png';
 
 function RecommendCard(props) {
     const location = useLocation();

@@ -11,7 +11,7 @@ import { IMG_URL2 } from 'utils/config';
 import { useAuthContext } from 'contexts/AuthContext';
 
 // 圖片
-import ImgIcon from '../../icons/dec-bar.png';
+import ImgIcon from 'images/dec-bar.png';
 
 // 自己
 // import ReviewThumbUp from './ReviewThumbUp';
@@ -27,7 +27,7 @@ function ReviewDetail(props) {
     const { reviews, product } = props;
     if (product.stars.endsWith('0')) {
         const starScore = product.stars.split('.');
-        console.log('starScore[0] :>> ', starScore[0]);
+        // console.log('starScore[0] :>> ', starScore[0]);
         product.stars = starScore[0];
     }
 

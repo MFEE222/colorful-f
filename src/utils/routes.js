@@ -1,4 +1,5 @@
 import { include } from 'named-urls';
+export { reverse } from 'named-urls';
 
 export function route(url) {
     return url.split('/').filter((r) => r !== '');

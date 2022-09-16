@@ -1,12 +1,11 @@
 // 內建
 import React, { useState, useEffect } from 'react';
-import { reverse } from 'named-urls';
 
 // 第三方庫
 import axios from 'axios';
 
 // 通用
-import { routes } from 'utils/routes';
+import { routes, reverse } from 'utils/routes';
 import { API_GET_PRODUCT_TAGS_SERIES } from 'utils/config';
 import { useProductsContext } from 'contexts/ProductsContext';
 // 自己

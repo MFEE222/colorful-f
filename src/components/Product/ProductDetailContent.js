@@ -3,43 +3,44 @@ import React, { useEffect, useState } from 'react';
 
 // 第三方庫
 import axios from 'axios';
-import ReactBeforeAfter from 'react-before-after';
 // 共用
-import { IMG_URL2, API_URL } from 'utils/config';
+import { IMG_URL2 } from 'utils/config';
+import { domain, asset } from 'utils/api';
+import { compile } from 'path-to-regexp';
 import { useProductsContext } from 'contexts/ProductsContext';
 import { useAuthContext } from 'contexts/AuthContext';
 
-// 自己
-// import { imgName } from 'utils/imageName';
 import ShowStar from './ShowStar';
 
-// 圖片
 import DemoImgProduct from 'images/navbar-ex-1.jpg';
 import DemoImgFigure from 'images/portrait01.jpg';
-import ImgIcon from '../../icons/dec-bar.png';
-import { routes } from 'utils/routes';
 
 function ProductDetailContent(props) {
-    // 狀態、勾子
     const products = useProductsContext();
-    const auth = useAuthContext();
 
     const product = products.current;
     const [current, setCurrent] = useState('');
-    // console.log('product :>> ', product.img);
-    // 變數
+
     const imgUrlAfter = [
-        `${IMG_URL2}/${product.img}/a1.jpg`,
-        `${IMG_URL2}/${product.img}/a2.jpg`,
-        `${IMG_URL2}/${product.img}/a3.jpg`,
+        domain + asset.static.replace(':static', product.img + '/a1.jpg'),
+        domain + asset.static.replace(':static', product.img + '/a2.jpg'),
+        domain + asset.static.replace(':static', product.img + '/a3.jpg'),
     ];
-    // console.log('imgUrlAfter :>> ', imgUrlAfter);
-    const imgUrlBefore = `${IMG_URL2}/${product.img}/b0.jpg`;
+
+    const imgUrlBefore =
+        domain + asset.static.replace(':static', product.img + '/b0.jpg');
+
     useEffect(() => {
-        setCurrent(`${IMG_URL2}/${product.img}/a1.jpg`);
+        const img =
+            domain + asset.static.replace(':static', product.img + '/a1.jpg');
+        setCurrent(img);
     }, [products.current]);
-    const imgName = '';
-    // 渲染
+
+    useEffect(() => {
+        console.log('current :>> ', current);
+        console.log('imgUrlBefore :>> ', imgUrlBefore);
+    }, [current]);
+
     return (
         product && (
             <>
@@ -48,10 +49,15 @@ function ProductDetailContent(props) {
                         {/* 大張商品示意圖 */}
                         <div className="col-12 col-md-6 order-1">
                             {/* <div className="img-big"> */}
-                            <ReactBeforeAfter
-                                className="w-25"
+                            {/* <ReactBeforeAfter
+                                // className="w-25"
                                 beforeSrc={imgUrlBefore}
                                 afterSrc={current}
+                            /> */}
+                            <img
+                                src={imgUrlBefore}
+                                alt=""
+                                className="w-100 ratio-1x1"
                             />
                         </div>
                         {/* 商品詳細描述 */}

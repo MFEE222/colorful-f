@@ -30,7 +30,7 @@ function Product(props) {
         <>
             <Routes>
                 <Route
-                    path={route(routes.product.detail).pop()}
+                    path={route(routes.product.detail).slice(1).join('/')}
                     element={<ProductDetail />}
                 />
                 <Route

@@ -1,12 +1,10 @@
-// import { include } from 'named-urls';
-const { include } = require('named-urls');
+import { include, reverse } from 'named-urls';
+export { reverse } from 'named-urls';
 
-// export
-const base =
-    (process.env.REACT_APP_API_URL || 'http://localhost:3006') + '/api';
-// 結尾 post, get, option, delete, static
-// export
-const api = include(base, {
+export const domain = process.env.REACT_APP_API_URL || 'http://localhost:3006';
+
+export const asset = include('/', {
+    static: ':static',
     images: include('images/', {
         static: ':static',
         all: include('all/', {
@@ -31,6 +29,17 @@ const api = include(base, {
             static: ':static',
         }),
     }),
+    uploads: include('uploads/', {
+        profile: include('profile/', {
+            static: ':static',
+        }),
+        reviews: include('reviews/', {
+            static: ':static',
+        }),
+    }),
+});
+
+export const api = include('/api', {
     auth: include('auth/', {
         get: '',
         health: include('health/', {
@@ -122,25 +131,26 @@ const api = include(base, {
     }),
 });
 
-// export
-const secret = {
+export function url(route, params) {
+    return domain + reverse(route, params);
+}
+
+export const secret = {
     google: {
         client: process.env.REACT_APP_GOOGLE_CLIENT_ID,
     },
 };
 
-// export
-const cdn = {
+export const cdn = {
     google: {
         gsi: process.env.REACT_APP_GOOGLE_SIGNIN_CDN,
     },
 };
 
-// export
-const local = {
+export const local = {
     cart: 'colorful-cart',
 };
 
-Object.keys(api).forEach((key) => {
-    console.log('api[key] :>> ', api[key]);
-});
+// Object.keys(api).forEach((key) => {
+//     console.log('api[key] :>> ', api[key]);
+// });

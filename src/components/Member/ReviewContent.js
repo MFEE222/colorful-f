@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { routes } from 'utils/routes';
+import { routes, reverse } from 'utils/routes';
 import axios from 'axios';
-import { reverse } from 'named-urls';
-//
+
 // import Pagination from './Pagination';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from 'utils/config';
 //
