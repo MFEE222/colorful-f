@@ -15,7 +15,8 @@ import Navbar from './utils/Navbar';
 import Footer from './utils/Footer';
 import { routes } from './utils/routes';
 
-const Auth = lazy(() => import('./pages/Auth'));
+// const Auth = lazy(() => import('./pages/Auth'));
+const Auth = lazy(() => import('pages/Auth'));
 const Product = lazy(() => import('./pages/Product'));
 const Member = lazy(() => import('./pages/Member'));
 const Team = lazy(() => import('./pages/Team'));

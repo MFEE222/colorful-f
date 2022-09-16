@@ -63,6 +63,18 @@ module.exports = {
         ],
     },
 
+    resolve: {
+        alias: {
+            components: path.resolve(__dirname, 'src/components'),
+            hooks: path.resolve(__dirname, 'src/hooks'),
+            pages: path.resolve(__dirname, 'src/pages'),
+            utils: path.resolve(__dirname, 'src/utils'),
+            styles: path.resolve(__dirname, 'src/styles'),
+            images: path.resolve(__dirname, 'src/images'),
+        },
+        extensions: ['.tsx', '.ts', '.js'],
+    },
+
     output: {
         filename: 'static/js/[name].[contenthash].bundle.js',
         path: path.resolve(__dirname, 'build'),
