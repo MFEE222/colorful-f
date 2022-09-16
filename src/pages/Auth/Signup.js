@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 // internal global variable
-import { routes } from '../../utils/routes';
-import { useSignUp } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
+import { routes } from 'utils/routes';
+import { useSignUp } from 'contexts/AuthContext';
+import { useLoadingContext } from 'contexts/LoadingContext';
 
 function SignUp(props) {
     // context

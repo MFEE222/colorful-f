@@ -7,7 +7,7 @@ import {
     useNavigate,
 } from 'react-router-dom';
 //共用
-import { useProductsContext } from '../../context/ProductsContext';
+import { useProductsContext } from 'contexts/ProductsContext';
 
 //自己
 import Card from './Card';

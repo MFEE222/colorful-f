@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from '../../utils/others/config';
-import { ERR_MSG } from '../../utils/others/errors';
+import { API_URL } from 'utils/others/config';
+import { ERR_MSG } from 'utils/others/errors';
 
 const SignupContent = () => {
     const [member, setMember] = useState({

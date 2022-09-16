@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { routes } from '../../utils/routes';
+import { routes } from 'utils/routes';
 
 const imgs = [
     'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad01.jpg',

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import img from '../../images/navbar-ex-1.jpg';
+import img from 'images/navbar-ex-1.jpg';
 function MemberSlider(props) {
     //傳圖片陣列進來
     const { imgs } = props;

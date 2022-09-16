@@ -6,16 +6,16 @@ import { reverse } from 'named-urls';
 import axios from 'axios';
 
 // 通用
-import { routes } from '../../utils/routes';
-import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
-import { useProductsContext } from '../../context/ProductsContext';
+import { routes } from 'utils/routes';
+import { API_GET_PRODUCT_TAGS_SERIES } from 'utils/config';
+import { useProductsContext } from 'contexts/ProductsContext';
 // 自己
-import Banner from '../../components/Product/Banner';
-import FilterBar from '../../components/Product/FilterBar';
+import Banner from 'components/Product/Banner';
+import FilterBar from 'components/Product/FilterBar';
 
-import ProductListContent from '../../components/Product/ProductListContent';
-import Pagination from '../../utils/Pagination';
-import Card from '../../components/Product/Card';
+import ProductListContent from 'components/Product/ProductListContent';
+import Pagination from 'utils/Pagination';
+import Card from 'components/Product/Card';
 
 function ProductList(props) {
     // Context

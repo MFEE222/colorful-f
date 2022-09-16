@@ -1,6 +1,6 @@
 import React from 'react';
 
-import OrderDetailContent from '../../components/Member/OrderDetailContent';
+import OrderDetailContent from 'components/Member/OrderDetailContent';
 
 function OrderDetail(props) {
     return <OrderDetailContent />;

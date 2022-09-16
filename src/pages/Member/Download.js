@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DownloadContent from '../../components/Member/DownloadContent';
+import DownloadContent from 'components/Member/DownloadContent';
 
 function Download(props) {
     return <DownloadContent />;

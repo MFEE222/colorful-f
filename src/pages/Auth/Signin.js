@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 
 // internal global variable
-import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
-import { routes } from '../../utils/routes';
+import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from 'utils/config';
+import { routes } from 'utils/routes';
 
-import { useSignIn, useGSIScript } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
+import { useSignIn, useGSIScript } from 'contexts/AuthContext';
+import { useLoadingContext } from 'contexts/LoadingContext';
 
 // TODO: improve CDN import with webpack
 

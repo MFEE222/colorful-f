@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { routes, route } from '../../utils/routes';
+import { routes, route } from 'utils/routes';
 
 import CartContent from './CartContent';
 import CartPayment from './CartPayment';

@@ -1,9 +1,9 @@
 import { Routes, Route, Link, useParams, Navigate } from 'react-router-dom';
 
-import Main from '../../components/Member/Main';
-import SideBarLeft from '../../components/Member/SideBarLeft';
+import Main from 'components/Member/Main';
+import SideBarLeft from 'components/Member/SideBarLeft';
 
-import { routes, route } from '../../utils/routes';
+import { routes, route } from 'utils/routes';
 import Profile from './Profile';
 import Order from './Order';
 import OrderDetail from './OrderDetail';
@@ -15,10 +15,10 @@ import Mail from './Mail';
 import MailDetail from './MailDetail';
 import Payment from './Payment';
 import Collect from './Collect';
-import Content from '../../components/Member/Content';
+import Content from 'components/Member/Content';
 //
-import { useAuth, useGoogleAuth } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
+import { useAuth, useGoogleAuth } from 'contexts/AuthContext';
+import { useLoadingContext } from 'contexts/LoadingContext';
 import { useEffect } from 'react';
 
 // FIXME: error redirect to home after refresh member page.

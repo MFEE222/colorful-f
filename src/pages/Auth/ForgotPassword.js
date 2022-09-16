@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 
 // internal utility
-import { routes } from '../../utils/routes';
-import { useForgotPassword } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
+import { routes } from 'utils/routes';
+import { useForgotPassword } from 'contexts/AuthContext';
+import { useLoadingContext } from 'contexts/LoadingContext';
 
 // main component
 function ForgotPassword(props) {

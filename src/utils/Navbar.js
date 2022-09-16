@@ -5,15 +5,15 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 // 圖
-// import Logo from '../images/colorful-logo-h100.png';
-// import Logo from '../images/colorful-logo.png';
-// import Logo from '../images/colorful-logo-800.png';
-import Menu from '../images/dot-menu.svg';
+// import Logo from 'images/colorful-logo-h100.png';
+// import Logo from 'images/colorful-logo.png';
+// import Logo from 'images/colorful-logo-800.png';
+import Menu from 'images/dot-menu.svg';
 import { routes } from './routes';
 
-import { useProductsContext } from '../context/ProductsContext';
-import { useAuthContext, useAuth, useSignOut } from '../context/AuthContext';
-// import CartCard from '../components/Cart/CartCard';
+import { useProductsContext } from 'contexts/ProductsContext';
+import { useAuthContext, useAuth, useSignOut } from 'contexts/AuthContext';
+// import CartCard from 'components/Cart/CartCard';
 
 function OurNavbar(props) {
     // context

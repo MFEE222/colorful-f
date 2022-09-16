@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import axios from 'axios';
-import { routes } from '../../utils/routes';
-import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
-import RecommendCard from '../../components/Product/RecommendCard';
+import { routes } from 'utils/routes';
+import { API_GET_PRODUCT_RECOMMEND } from 'utils/config';
+import RecommendCard from 'components/Product/RecommendCard';
 
 // Context
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from 'contexts/CartContext';
 
 //圖片
-import { IMG_URL2 } from '../../utils/config';
-import LoginPic from '../../images/film005.jpg';
-import product from '../../images/film003.jpg';
+import { IMG_URL2 } from 'utils/config';
+import LoginPic from 'images/film005.jpg';
+import product from 'images/film003.jpg';
 
 //頁面
 // API_GET_PRODUCTS

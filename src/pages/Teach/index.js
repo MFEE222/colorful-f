@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //
-import page1 from '../../images/教學頁/teach-p1.jpg';
-import page2 from '../../images/教學頁/teach-p2.jpg';
-import page4 from '../../images/教學頁/teach-p4.mp4';
-import video from '../../images/教學頁/英文版手機教學.mpg';
-import Download from '../../images/教學頁/教學文件檔案.pdf';
+import page1 from 'images/教學頁/teach-p1.jpg';
+import page2 from 'images/教學頁/teach-p2.jpg';
+import page4 from 'images/教學頁/teach-p4.mp4';
+import video from 'images/教學頁/英文版手機教學.mpg';
+import Download from 'images/教學頁/教學文件檔案.pdf';
 
 function Teach() {
     return (

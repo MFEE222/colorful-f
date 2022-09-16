@@ -1,9 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import CartPic from '../../images/navbar-ex.jpg';
-import { routes } from '../../utils/routes';
+import CartPic from 'images/navbar-ex.jpg';
+import { routes } from 'utils/routes';
 //頁面
-import CartContent from '../../pages/Cart/CartContent';
+import CartContent from 'pages/Cart/CartContent';
 
 function CartCard(props) {
     return (

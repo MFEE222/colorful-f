@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import axios from 'axios';
-import { API_GET_PRODUCTS } from '../utils/config';
-import '../utils/others/status';
-import { STATUS_MSG } from '../utils/others/status';
-import { routes } from '../utils/routes';
+import { API_GET_PRODUCTS } from 'utils/config';
+import 'utils/others/status';
+import { STATUS_MSG } from 'utils/others/status';
+import { routes } from 'utils/routes';
 
 // Context
 const ProductsContext = React.createContext(

@@ -8,7 +8,7 @@ import {
     API_GET_MEMBER_REVIEW_IMG,
     API_GET_MEMBER_REVIEW_UPDATE,
     API_GET_MEMBER_REVIEW_UPDATE_DETAIL,
-} from '../../utils/config';
+} from 'utils/config';
 
 function ReviewDetailContent(props) {
     const location = useLocation();

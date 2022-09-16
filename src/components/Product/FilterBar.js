@@ -6,9 +6,9 @@ import searchImg from '../../icons/Sortbar/Search.png';
 import sortImg from '../../icons/Sortbar/Sort.png';
 import deleteImg from '../../icons/Sortbar/Delete.png';
 
-import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
-import { useRWDContext } from '../../context/RWDContext';
-import { useProductsContext } from '../../context/ProductsContext';
+import { API_GET_PRODUCT_TAGS_SERIES } from 'utils/config';
+import { useRWDContext } from 'contexts/RWDContext';
+import { useProductsContext } from 'contexts/ProductsContext';
 
 function FilterBar(props) {
     // Context

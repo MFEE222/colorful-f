@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { LinkContainer } from 'react-router-bootstrap';
-import { routes } from '../../utils/routes';
-import ImgProduct from '../../images/product-img.jpeg';
+import { routes } from 'utils/routes';
+import ImgProduct from 'images/product-img.jpeg';
 
 //共用
 import FilterBar from './FilterBar';
 import StepProgressBar from './StepProgressBar';
-// import { useOrderContext } from '../../context/OrderContext';
+// import { useOrderContext } from 'contexts/OrderContext';
 
 function OrderDetailContent(props) {
     // const order = useOrderContext();

@@ -5,10 +5,10 @@ import {
     API_GET_MEMBER_DOWNLOAD,
     IMG_URL2,
     API_POST_MEMBER_DOWNLOAD_DNG,
-} from '../../utils/config';
-import Pagination from '../../utils/Pagination';
+} from 'utils/config';
+import Pagination from 'utils/Pagination';
 //
-import { useAuthContext } from '../../context/AuthContext';
+import { useAuthContext } from 'contexts/AuthContext';
 
 function DownloadContent(props) {
     const auth = useAuthContext();

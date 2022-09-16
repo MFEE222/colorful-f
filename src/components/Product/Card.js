@@ -1,12 +1,12 @@
 // 內建
 import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { ProductsConsumer } from '../../context/ProductsContext';
-import { useCartContext } from '../../context/CartContext';
+import { ProductsConsumer } from 'contexts/ProductsContext';
+import { useCartContext } from 'contexts/CartContext';
 // 通用
-import { routes } from '../../utils/routes';
+import { routes } from 'utils/routes';
 //
-import { useAuthContext } from '../../context/AuthContext';
+import { useAuthContext } from 'contexts/AuthContext';
 
 function Card(props) {
     // Context

@@ -5,19 +5,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactBeforeAfter from 'react-before-after';
 // 共用
-import { IMG_URL2, API_URL } from '../../utils/config';
-import { useProductsContext } from '../../context/ProductsContext';
-import { useAuthContext } from '../../context/AuthContext';
+import { IMG_URL2, API_URL } from 'utils/config';
+import { useProductsContext } from 'contexts/ProductsContext';
+import { useAuthContext } from 'contexts/AuthContext';
 
 // 自己
-// import { imgName } from '../../utils/imageName';
+// import { imgName } from 'utils/imageName';
 import ShowStar from './ShowStar';
 
 // 圖片
-import DemoImgProduct from '../../images/navbar-ex-1.jpg';
-import DemoImgFigure from '../../images/portrait01.jpg';
+import DemoImgProduct from 'images/navbar-ex-1.jpg';
+import DemoImgFigure from 'images/portrait01.jpg';
 import ImgIcon from '../../icons/dec-bar.png';
-import { routes } from '../../utils/routes';
+import { routes } from 'utils/routes';
 
 function ProductDetailContent(props) {
     // 狀態、勾子

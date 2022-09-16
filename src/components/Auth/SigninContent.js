@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, Navigate } from 'react-router-dom';
-import { API_URL } from '../../utils/others/config';
-import { ERR_MSG } from '../../utils/others/errors';
+import { API_URL } from 'utils/others/config';
+import { ERR_MSG } from 'utils/others/errors';
 
 const SigninContent = () => {
     // const [loginMember, setLoginMember] = useState({

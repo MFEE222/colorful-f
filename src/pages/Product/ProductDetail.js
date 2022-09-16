@@ -5,14 +5,14 @@ import { withRouter } from 'react-router-dom';
 
 // 通用元件
 import axios from 'axios';
-import { API_URL, API_GET_PRODUCT_REVIEW, IMG_URL2 } from '../../utils/config';
+import { API_URL, API_GET_PRODUCT_REVIEW, IMG_URL2 } from 'utils/config';
 
 // 自用元件
-import Main from '../../components/Product/Main';
-import ProductDetailContent from '../../components/Product/ProductDetailContent';
-import ReviewDetail from '../../components/Product/ReviewDetail';
+import Main from 'components/Product/Main';
+import ProductDetailContent from 'components/Product/ProductDetailContent';
+import ReviewDetail from 'components/Product/ReviewDetail';
 //context
-import { useProductsContext } from '../../context/ProductsContext';
+import { useProductsContext } from 'contexts/ProductsContext';
 
 function ProductDetail(props) {
     //勾子

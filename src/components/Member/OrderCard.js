@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import { routes } from '../../utils/routes';
-import ImgProduct from '../../images/product-img.jpeg';
+import { routes } from 'utils/routes';
+import ImgProduct from 'images/product-img.jpeg';
 
 function OrderCard(props) {
     return (

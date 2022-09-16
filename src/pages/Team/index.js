@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import TeamContent from '../../components/Team/TeamContent';
+import TeamContent from 'components/Team/TeamContent';
 
 function Team(props) {
     return (

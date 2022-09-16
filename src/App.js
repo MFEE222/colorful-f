@@ -7,34 +7,34 @@ import {
 } from 'react-router-dom';
 
 // 引入樣式、庫
-import './styles/global.scss';
+import 'styles/global.scss';
 // import '../node_modules/bootstrap/dist/js/bootstrap';
 // import 'bootstrap/dist/js/bootstrap';
 
-import Navbar from './utils/Navbar';
-import Footer from './utils/Footer';
-import { routes } from './utils/routes';
+import Navbar from 'utils/Navbar';
+import Footer from 'utils/Footer';
+import { routes } from 'utils/routes';
 
-// const Auth = lazy(() => import('./pages/Auth'));
+// const Auth = lazy(() => import('pages/Auth'));
 const Auth = lazy(() => import('pages/Auth'));
-const Product = lazy(() => import('./pages/Product'));
-const Member = lazy(() => import('./pages/Member'));
-const Team = lazy(() => import('./pages/Team'));
-const Teach = lazy(() => import('./pages/Teach'));
-const Game = lazy(() => import('./pages/Game'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Home = lazy(() => import('./pages/Home'));
-const Error = lazy(() => import('./pages/Error'));
-const Landing = lazy(() => import('./pages/Landing'));
+const Product = lazy(() => import('pages/Product'));
+const Member = lazy(() => import('pages/Member'));
+const Team = lazy(() => import('pages/Team'));
+const Teach = lazy(() => import('pages/Teach'));
+const Game = lazy(() => import('pages/Game'));
+const Cart = lazy(() => import('pages/Cart'));
+const Home = lazy(() => import('pages/Home'));
+const Error = lazy(() => import('pages/Error'));
+const Landing = lazy(() => import('pages/Landing'));
 
 // Context
-import { ProductsProvider } from './context/ProductsContext';
-import { RWDProvider } from './context/RWDContext';
-import { UIToastProvider } from './context/ToastContext';
-// import { CartProvider } from './context/CartContext';
-import { AuthProvider } from './context/AuthContext';
-import { LoadingProvider } from './context/LoadingContext';
-// import { OrderProvider } from './context/OrderContext';
+import { ProductsProvider } from 'contexts/ProductsContext';
+import { RWDProvider } from 'contexts/RWDContext';
+import { UIToastProvider } from 'contexts/ToastContext';
+// import { CartProvider } from 'contexts/CartContext';
+import { AuthProvider } from 'contexts/AuthContext';
+import { LoadingProvider } from 'contexts/LoadingContext';
+// import { OrderProvider } from 'contexts/OrderContext';
 
 // 時常思考元件（不要習慣集中管理資料思維）、單向資料流、屬性唯讀、狀態概念！！
 // 不要在同步代碼中，編寫非同步代碼，且該非同步代碼會需要作為同步代碼的相依

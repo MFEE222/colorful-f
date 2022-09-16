@@ -4,14 +4,14 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
-import { API_GET_PRODUCT_RECOMMEND } from '../../utils/config';
+import { API_GET_PRODUCT_RECOMMEND } from 'utils/config';
 
-import { routes, route } from '../../utils/routes';
+import { routes, route } from 'utils/routes';
 
-import ReviewDetail from '../../components/Product/ReviewDetail';
+import ReviewDetail from 'components/Product/ReviewDetail';
 import ProductDetail from './ProductDetail';
 import ProductList from './ProductList';
-import RecommendCard from '../../components/Product/RecommendCard';
+import RecommendCard from 'components/Product/RecommendCard';
 import Error from '../Error';
 
 function Product(props) {

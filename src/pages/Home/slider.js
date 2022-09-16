@@ -8,8 +8,8 @@ import {
     IMG_HOME_FILM_BANNER,
     IMG_HOME_WEDDING_BANNER,
     IMG_HOME_FOOD_BANNER,
-} from '../../utils/config';
-import { routes } from '../../utils/routes';
+} from 'utils/config';
+import { routes } from 'utils/routes';
 
 const slides = [
     {
