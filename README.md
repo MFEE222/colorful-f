@@ -14,45 +14,42 @@ git clone https://github.com/MFEE222/colorful-f.git
 ```
 ### 創建環境變數檔案
 
-按照 `.env.example` 檔案內容，建立 `.env.dev` 和 `.env.prod` 兩種檔案
+- 建立 `.env.dev` 和 `.env.prod` 2 種環境檔用於開發、正式環境。
+- 參照 `.env.example` 內容進行編寫
 
 ### 下載媒體檔案
 
-由於媒體檔案容量較大，不放入版控當中，請自行至小組 Google 雲端印碟下載後放入 `src/images/` 資料夾中。
+- 自行至小組 Google 雲端硬碟下載 媒體檔案。
+- 下載、解壓縮後放入 `src/images/` 資料夾中。
 
 ### 安裝模組
 
-開啟終端機，於專案目錄下運行 `npm i`，將依賴模組安裝完畢。
+- 運行 `npm i` 命令，安裝依賴模組。(終端機開啟後，記得切換至專案資料夾下)
 
 ### 運行開發環境
 
-開啟終端機，於專案目錄下運行 `npm start`。等待編譯完成後，伺服器預設啟動於 `http://localhost:3000`。
+- 運行 `npm start` 命令，運行開發環境於本地伺服器（預設 Prot 3000）。
 
-> 如有更改需求，開啟 `webpack.dev.js` 編輯 `devServer` 屬性即可
+    > 如有更改需求，開啟 `webpack.dev.js` 編輯 `devServer` 屬性即可
 
 ### 生成正式環境
 
-開啟終端機，於專案目錄下運行 `npm run build`。等待編譯完成後，會自動運行 webpack 分析工具，可以直接關掉。
+- 運行 `npm run build` 命令，生成正式環境（預設於專案目錄下 `/build` 資料夾）。
 
-正式環境會生成在專案目錄下的 `build` 資料夾。
-
+    > 命令運行後，會自動開啟 `webpack-bundle-analyzer` 分析工具，不需要可以直接關掉
 ### 測試正式環境
 
-首先安裝 `http-server` 模組
+- 安裝伺服器模組（如：`npm i -g http-server`）
 
-```
-npm i -g http-server
-```
+- 運行 `npm run prod` 命令，運行正式環境於本地伺服器（預設 Port 3000）。
 
-運行 `npm run prod`，伺服器預設啟動於 `http://localhost:3000`。
-
-> 如有更改需求，開啟 `package.json` 編輯 `scripts` 內 `prod` 屬性即可
+    > 如有更改需求，開啟 `package.json` 編輯 `scripts` 內 `prod` 屬性即可
 
 ### 單元測試
 
-運行 `npm test` 即可。
+- 運行 `npm test` 命令。
 
-> 目前尚未編寫相關測試檔
+    > 目前尚未編寫相關測試檔
 
 ## 專案介紹
 
