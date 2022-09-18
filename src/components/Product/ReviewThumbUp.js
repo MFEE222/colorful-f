@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../../utils/config';
+import { API_URL } from 'utils/config';
 
 function ReviewThumbUp(props) {
     const likes = props.children;

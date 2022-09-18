@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CollectContent from '../../components/Member/CollectContent';
+import CollectContent from 'components/Member/CollectContent';
 
 function Collect(props) {
     return (

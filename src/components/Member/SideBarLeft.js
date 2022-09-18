@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from '../../utils/routes';
+import { routes } from 'utils/routes';
 //
-import { useAuthContext } from '../../context/AuthContext';
+import { useAuthContext } from 'contexts/AuthContext';
 
 function SideBarLeft(props) {
     const auth = useAuthContext();
@@ -15,7 +15,7 @@ function SideBarLeft(props) {
             <ul className="nav">
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.profile}
+                        to={routes.member.profile}
                         onClick={() => {
                             setActive(1);
                         }}
@@ -29,7 +29,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.orderList}
+                        to={routes.member.order.self}
                         onClick={() => {
                             setActive(2);
                         }}
@@ -43,7 +43,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.collect}
+                        to={routes.member.favorite.self}
                         onClick={() => {
                             setActive(3);
                         }}
@@ -57,7 +57,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.mail}
+                        to={routes.member.mail.self}
                         onClick={() => {
                             setActive(4);
                         }}
@@ -71,7 +71,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.payment}
+                        to={routes.member.payment}
                         onClick={() => {
                             setActive(5);
                         }}
@@ -85,7 +85,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.download}
+                        to={routes.member.download.self}
                         onClick={() => {
                             setActive(6);
                         }}
@@ -99,7 +99,7 @@ function SideBarLeft(props) {
                 </li>
                 <li className="col-6 col-md-9 nav-item">
                     <Link
-                        to={routes.review}
+                        to={routes.member.review.self}
                         onClick={() => {
                             setActive(7);
                         }}

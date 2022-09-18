@@ -1,13 +1,13 @@
 // standard module
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 // internal global variable
-import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from '../../utils/config';
-import { routes } from '../../utils/routes';
+import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from 'utils/config';
+import { routes } from 'utils/routes';
 
-import { useSignIn, useGSIScript } from '../../context/AuthContext';
-import { useLoadingContext } from '../../context/LoadingContext';
+import { useSignIn, useGSIScript } from 'contexts/AuthContext';
+import { useLoadingContext } from 'contexts/LoadingContext';
 
 // TODO: improve CDN import with webpack
 
@@ -41,7 +41,7 @@ function SignIn(props) {
         }
 
         if (regular.accessToken !== '' || gsi.accessToken !== '') {
-            return <Redirect to={routes.home} />;
+            return <Navigate to={routes.home} />;
         }
 
         return (
@@ -90,7 +90,7 @@ function SignIn(props) {
                                     </div>
                                     <div className="forgot mt-3">
                                         <Link
-                                            to={routes.forgot}
+                                            to={routes.auth.forgot}
                                             className="l-link"
                                         >
                                             forgot password ?
@@ -140,7 +140,7 @@ function SignIn(props) {
                                         <p className="signup">
                                             Don't you no account ?<span> </span>
                                             <Link
-                                                to={routes.signup}
+                                                to={routes.auth.signup}
                                                 className="l-link"
                                             >
                                                 Sign up

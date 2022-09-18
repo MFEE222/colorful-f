@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { routes } from '../../utils/routes';
+import { Routes, Route } from 'react-router-dom';
+import { routes, route } from 'utils/routes';
 
 import CartContent from './CartContent';
 import CartPayment from './CartPayment';
@@ -8,17 +8,15 @@ import CartPayment from './CartPayment';
 function Cart(props) {
     return (
         <>
-            <Switch>
+            <Routes>
                 {/* 結帳付款頁 */}
-                <Route path={routes.checkout}>
-                    <CartPayment />
-                </Route>
-
+                <Route
+                    path={route(routes.cart.checkout).pop()}
+                    element={<CartPayment />}
+                ></Route>
                 {/* 購物車主頁 */}
-                <Route path={routes.cart}>
-                    <CartContent />
-                </Route>
-            </Switch>
+                <Route index element={<CartContent />}></Route>
+            </Routes>
         </>
     );
 }

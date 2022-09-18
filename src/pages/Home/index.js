@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-    useParams,
-} from 'react-router-dom';
+import { Route, Link, useParams } from 'react-router-dom';
 import Slider from 'react-slick';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';
-import { routes } from '../../utils/routes';
+import { routes } from 'utils/routes';
 import Slideshow from './slider';
-import Game from '../../pages/Game';
+import Game from 'pages/Game';
 
 //圖片
 
@@ -20,14 +14,14 @@ import Game from '../../pages/Game';
 // import Landing from './landing';
 
 //
-import portrait from '../../images/人像B.jpg';
-import portrait1 from '../../images/人像A.jpg';
-import circle from '../../images/colorful.svg';
-import circle1 from '../../images/colorful_1.svg';
-import page4 from '../../images/b0.jpg';
-import page2 from '../../images/home/home-page2.jpg';
-import video from '../../images/home/bg-banner-index.mp4';
-import game from '../../images/home/home-page4.jpg';
+import portrait from 'images/人像B.jpg';
+import portrait1 from 'images/人像A.jpg';
+import circle from 'images/colorful.svg';
+import circle1 from 'images/colorful_1.svg';
+import page4 from 'images/b0.jpg';
+import page2 from 'images/home/home-page2.jpg';
+import video from 'images/home/bg-banner-index.mp4';
+import game from 'images/home/home-page4.jpg';
 
 function Home() {
     return (

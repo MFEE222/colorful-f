@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
-import { API_URL } from '../../utils/others/config';
-import { ERR_MSG } from '../../utils/others/errors';
+import { Link, Navigate } from 'react-router-dom';
+import { API_URL } from 'utils/others/config';
+import { ERR_MSG } from 'utils/others/errors';
 
 const SigninContent = () => {
     // const [loginMember, setLoginMember] = useState({
@@ -40,7 +40,7 @@ const SigninContent = () => {
     }
     if (isLogin) {
         // 轉頁效果
-        return <Redirect to="/" />;
+        return <Navigate to="/" />;
     }
     return (
         <div className="signin-main">

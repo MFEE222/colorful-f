@@ -1,27 +1,24 @@
 // 內建
 import React, { useState, useEffect } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
 
 // 第三方庫
 import axios from 'axios';
 
 // 通用
-import { routes } from '../../utils/routes';
-import { API_GET_PRODUCT_TAGS_SERIES } from '../../utils/config';
-import { useProductsContext } from '../../context/ProductsContext';
+import { routes, reverse } from 'utils/routes';
+import { API_GET_PRODUCT_TAGS_SERIES } from 'utils/config';
+import { useProductsContext } from 'contexts/ProductsContext';
 // 自己
-import Banner from '../../components/Product/Banner';
-import FilterBar from '../../components/Product/FilterBar';
+import Banner from 'components/Product/Banner';
+import FilterBar from 'components/Product/FilterBar';
 
-import ProductListContent from '../../components/Product/ProductListContent';
-import Pagination from '../../utils/Pagination';
-import Card from '../../components/Product/Card';
+import ProductListContent from 'components/Product/ProductListContent';
+import Pagination from 'utils/Pagination';
+import Card from 'components/Product/Card';
 
 function ProductList(props) {
     // Context
     const products = useProductsContext();
-
-    const match = useRouteMatch();
 
     //渲染
     return (
@@ -37,7 +34,9 @@ function ProductList(props) {
                                 <div key={e.id} className="col-6 col-md-3">
                                     <Card
                                         product={e}
-                                        to={routes.productDetail(e.id)}
+                                        to={reverse(routes.product.detail, {
+                                            detail: e.id,
+                                        })}
                                         onEvent={function () {
                                             products.find(e);
                                         }}
@@ -63,10 +62,3 @@ function ProductList(props) {
 }
 
 export default ProductList;
-
-// products.reset(); //預設8筆
-// products.reset({}); // 抓到全部商品
-// product.reset({ limit: 30 });
-//[]=> 監控狀態
-
-// 四個表單元素的處理方法

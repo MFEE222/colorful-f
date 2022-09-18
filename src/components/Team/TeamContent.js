@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Teamdo from '../../images/多多.jpeg';
-import Teamji from '../../images/致緯.jpeg';
-import Teamla from '../../images/頌蓮.jpeg';
-import Teamfi from '../../images/博榆.jpeg';
-import Teamti from '../../images/詩葶.jpeg';
-import SkillPic from '../../images/圓餅圖.png';
-import Github from '../../images/git.png';
+import Teamdo from 'images/多多.jpeg';
+import Teamji from 'images/致緯.jpeg';
+import Teamla from 'images/頌蓮.jpeg';
+import Teamfi from 'images/博榆.jpeg';
+import Teamti from 'images/詩葶.jpeg';
+import SkillPic from 'images/圓餅圖.png';
+import Github from 'images/git.png';
 
 function TeamContent(props) {
     function typeEffect(element, speed) {

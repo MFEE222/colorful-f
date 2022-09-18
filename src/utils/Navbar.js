@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // 庫
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 // 圖
-// import Logo from '../images/colorful-logo-h100.png';
-// import Logo from '../images/colorful-logo.png';
-// import Logo from '../images/colorful-logo-800.png';
-import Menu from '../images/dot-menu.svg';
+// import Logo from 'images/colorful-logo-h100.png';
+// import Logo from 'images/colorful-logo.png';
+// import Logo from 'images/colorful-logo-800.png';
+import Menu from 'images/dot-menu.svg';
 import { routes } from './routes';
 
-import { useProductsContext } from '../context/ProductsContext';
-import { useAuthContext, useAuth, useSignOut } from '../context/AuthContext';
-// import CartCard from '../components/Cart/CartCard';
+import { useProductsContext } from 'contexts/ProductsContext';
+import { useAuthContext, useAuth, useSignOut } from 'contexts/AuthContext';
+// import CartCard from 'components/Cart/CartCard';
 
 function OurNavbar(props) {
     // context
@@ -26,6 +26,15 @@ function OurNavbar(props) {
     function eventSignOut() {
         setQuery({ ...query, submit: true });
     }
+
+    const toggleRef = useRef();
+
+    useEffect(() => {
+        toggleRef.current = document.querySelector('.navbar-toggler');
+        if (!toggleRef.current.classList.contains('collapsed')) {
+            toggleRef.current.click();
+        }
+    }, [location.pathname]);
 
     // render
     return (
@@ -46,7 +55,7 @@ function OurNavbar(props) {
                             title="Product"
                             id="colorful-product-dropdown"
                         >
-                            <LinkContainer to={routes.productNewest}>
+                            <LinkContainer to={routes.product.newest}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 1)}
                                 >
@@ -54,7 +63,7 @@ function OurNavbar(props) {
                                     New
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.productFood}>
+                            <LinkContainer to={routes.product.food}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 2)}
                                 >
@@ -62,7 +71,7 @@ function OurNavbar(props) {
                                     Food
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.productWedding}>
+                            <LinkContainer to={routes.product.wedding}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 3)}
                                 >
@@ -70,7 +79,7 @@ function OurNavbar(props) {
                                     Wedding
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.productFilm}>
+                            <LinkContainer to={routes.product.film}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 4)}
                                 >
@@ -78,7 +87,7 @@ function OurNavbar(props) {
                                     Film
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.productScenery}>
+                            <LinkContainer to={routes.product.scenery}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 5)}
                                 >
@@ -86,7 +95,7 @@ function OurNavbar(props) {
                                     Scenery
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.productPortrait}>
+                            <LinkContainer to={routes.product.portrait}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 6)}
                                 >
@@ -94,7 +103,7 @@ function OurNavbar(props) {
                                     Portrait
                                 </NavDropdown.Item>
                             </LinkContainer>
-                            <LinkContainer to={routes.product}>
+                            <LinkContainer to={routes.product.self}>
                                 <NavDropdown.Item
                                     onClick={(e) => products.optionSeries(e, 0)}
                                 >
@@ -124,7 +133,7 @@ function OurNavbar(props) {
                                 </NavDropdown.Item>
                             </LinkContainer>
                         </NavDropdown>
-                        <LinkContainer to={routes.member}>
+                        <LinkContainer to={routes.member.self}>
                             <Nav.Link
                                 className="link-item"
                                 id="colorful-mail-link"
@@ -134,7 +143,11 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isSignIn ? routes.member : routes.signin}
+                            to={
+                                isSignIn
+                                    ? routes.member.self
+                                    : routes.auth.signin
+                            }
                         >
                             <Nav.Link
                                 className="link-item"
@@ -148,7 +161,11 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isSignIn ? routes.member : routes.signin}
+                            to={
+                                isSignIn
+                                    ? routes.member.self
+                                    : routes.auth.signin
+                            }
                         >
                             <Nav.Link
                                 className="link-item"
@@ -159,7 +176,11 @@ function OurNavbar(props) {
                             </Nav.Link>
                         </LinkContainer>
                         <LinkContainer
-                            to={isSignIn ? routes.member : routes.signin}
+                            to={
+                                isSignIn
+                                    ? routes.member.self
+                                    : routes.auth.signin
+                            }
                         >
                             <Nav.Link
                                 className="link-item"

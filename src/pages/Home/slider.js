@@ -8,39 +8,39 @@ import {
     IMG_HOME_FILM_BANNER,
     IMG_HOME_WEDDING_BANNER,
     IMG_HOME_FOOD_BANNER,
-} from '../../utils/config';
-import { routes } from '../../utils/routes';
+} from 'utils/config';
+import { routes } from 'utils/routes';
 
 const slides = [
     {
         city: 'Scenery',
         country: '24+ Adventure Lightroom Presets',
         img: 'https://tour.taitung.gov.tw/image/26555/1024x768',
-        to: routes.productScenery,
+        to: routes.product.scenery,
     },
     {
         city: 'Food',
         country: 'Make their shots tasty and powerful',
         img: 'https://as.chdev.tw/web/article/c/f/4/c13e2895-f32f-40da-be70-38ef46142e431571737530.jpg',
-        to: routes.productFood,
+        to: routes.product.food,
     },
     {
         city: 'Wedding',
         country: 'Light and airy photography style',
         img: 'https://wedding.esdlife.com/timthumb.php?src=https://wedding.esdlife.com/uploads/2020/10/%E8%A5%BF%E5%BC%8F%E5%A9%9A%E7%A6%AE.jpg',
-        to: routes.productWedding,
+        to: routes.product.wedding,
     },
     {
         city: 'Film',
         country: 'Classic Film Presets',
         img: 'https://www.wdreamcastle.com/wp-content/uploads/2020/06/JJJ_1676-scaled.jpg',
-        to: routes.productFilm,
+        to: routes.product.film,
     },
     {
         city: 'Portrait',
         country: 'The Perfect Skin Tone Presets',
         img: 'https://www.cafephoto.pro/wp4/wp-content/uploads/2018/11/2018-11-14-17.51.32-1-1067x700.jpg',
-        to: routes.productPortrait,
+        to: routes.product.portrait,
     },
 ];
 // const slides = [

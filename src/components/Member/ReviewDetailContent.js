@@ -1,30 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {
-    Link,
-    useRouteMatch,
-    useParams,
-    useLocation,
-    useHistory,
-    Router,
-} from 'react-router-dom';
-import { routes } from '../../utils/routes';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Modal, Button } from 'react-bootstrap';
-// import Slider from 'react-slick';
+import { useLocation } from 'react-router-dom';
 import ClickStar from './ClickStar';
 import ShowStar from '../Product/ShowStar';
-// import MemberSlider from './MemberSlider';
 import axios from 'axios';
 import {
     IMG_URL_UPLOAD,
     API_GET_MEMBER_REVIEW_IMG,
     API_GET_MEMBER_REVIEW_UPDATE,
     API_GET_MEMBER_REVIEW_UPDATE_DETAIL,
-} from '../../utils/config';
-import { set } from 'immutable';
+} from 'utils/config';
 
 function ReviewDetailContent(props) {
-    const match = useRouteMatch();
     const location = useLocation();
     const { oneReview } = location.state;
     const formRef = useRef();
@@ -40,12 +26,6 @@ function ReviewDetailContent(props) {
     const filesCollect = useRef([]); //接收照片
     // const [message, setMessage] = useState(false); //編輯成功顯示
     const [oldImg, setOldImg] = useState([]);
-    const hi = useHistory();
-    // console.log('hi :>> ', hi);
-    let history = useHistory();
-    function handleClick() {
-        history.push('/member/review');
-    }
 
     //函式 拿照片
     const featchImg = async () => {
@@ -120,7 +100,6 @@ function ReviewDetailContent(props) {
         setImgs([]);
         featchImg();
         formRef.current.reset();
-        // handleClick();
     }
 
     //TODO:顯示星星,更改星星評分（第一次評分）

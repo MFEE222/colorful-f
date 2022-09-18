@@ -21,13 +21,13 @@ import {
     POST_AUTH_GOOGLE_SIGNIN,
     GOOGLE_CLIENT_ID,
     GOOGLE_SIGNIN_CDN,
-} from '../utils/config';
+} from 'utils/config';
 
-import login from '../images/film001.jpg';
+import login from 'images/film001.jpg';
 
 // intern library
 import { useScript } from '../hooks/useScript';
-import { routes } from '../utils/routes';
+import { routes } from 'utils/routes';
 import { useToastContext } from './ToastContext';
 import { toast } from 'react-toastify';
 

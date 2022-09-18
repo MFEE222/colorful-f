@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
-import { API_GET_PRODUCT } from '../utils/config';
+import { API_GET_PRODUCT } from 'utils/config';
 import {
     API_GET_CART,
     API_POST_CART,
     API_LOCAL_STORAGE_CART,
-} from '../utils/config';
-import { STATUS_MSG } from '../utils/others/status';
+} from 'utils/config';
+import { STATUS_MSG } from 'utils/others/status';
 import { useAuthContext } from './AuthContext';
 
 // Context

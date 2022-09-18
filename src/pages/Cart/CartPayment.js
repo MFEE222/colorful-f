@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import CartPaymentCard from '../../components/Cart/CartPaymentCard';
-import Product from '../../images/film001.jpg';
-import { Link, useRouteMatch, useParams } from 'react-router-dom';
-import { routes } from '../../utils/routes';
+import CartPaymentCard from 'components/Cart/CartPaymentCard';
+import Product from 'images/film001.jpg';
+import { routes } from 'utils/routes';
 import axios from 'axios';
-import { API_GET_MEMBER_REVIEW, IMG_URL2 } from '../../utils/config';
+import { API_GET_MEMBER_REVIEW, IMG_URL2 } from 'utils/config';
 import { Button, Modal } from 'react-bootstrap';
-import ImgProduct from '../../images/product-img.jpeg';
+import ImgProduct from 'images/product-img.jpeg';
 
 function CartPayment(props) {
     const [display, setDisplay] = useState([]);
@@ -165,7 +164,7 @@ function CartPayment(props) {
                         提交訂單
                     </button>
 
-                    <LinkContainer to={routes.cart}>
+                    <LinkContainer to={routes.cart.self}>
                         <button className="shopping" type="button">
                             返回購物車
                         </button>
