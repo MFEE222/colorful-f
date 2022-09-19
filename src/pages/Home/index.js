@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, useParams } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import classNames from 'classnames';
 import ReactDOM from 'react-dom';

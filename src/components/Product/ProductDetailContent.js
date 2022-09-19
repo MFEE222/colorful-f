@@ -1,19 +1,7 @@
-// 內建庫
 import React, { useEffect, useState } from 'react';
-
-// 第三方庫
-import axios from 'axios';
-// 共用
-import { IMG_URL2 } from 'utils/config';
 import { domain, asset } from 'utils/api';
-import { compile } from 'path-to-regexp';
 import { useProductsContext } from 'contexts/ProductsContext';
-import { useAuthContext } from 'contexts/AuthContext';
-
 import ShowStar from './ShowStar';
-
-import DemoImgProduct from 'images/navbar-ex-1.jpg';
-import DemoImgFigure from 'images/portrait01.jpg';
 
 function ProductDetailContent(props) {
     const products = useProductsContext();
@@ -27,19 +15,14 @@ function ProductDetailContent(props) {
         domain + asset.static.replace(':static', product.img + '/a3.jpg'),
     ];
 
-    const imgUrlBefore =
-        domain + asset.static.replace(':static', product.img + '/b0.jpg');
+    // const imgUrlBefore =
+    //     domain + asset.static.replace(':static', product.img + '/b0.jpg');
 
     useEffect(() => {
         const img =
             domain + asset.static.replace(':static', product.img + '/a1.jpg');
         setCurrent(img);
     }, [products.current]);
-
-    useEffect(() => {
-        console.log('current :>> ', current);
-        console.log('imgUrlBefore :>> ', imgUrlBefore);
-    }, [current]);
 
     return (
         product && (
@@ -48,14 +31,8 @@ function ProductDetailContent(props) {
                     <div className="row pd-1 pd-shared">
                         {/* 大張商品示意圖 */}
                         <div className="col-12 col-md-6 order-1">
-                            {/* <div className="img-big"> */}
-                            {/* <ReactBeforeAfter
-                                // className="w-25"
-                                beforeSrc={imgUrlBefore}
-                                afterSrc={current}
-                            /> */}
                             <img
-                                src={imgUrlBefore}
+                                src={current}
                                 alt=""
                                 className="w-100 ratio-1x1"
                             />
@@ -119,13 +96,7 @@ function ProductDetailContent(props) {
                                         <div className="img-small">
                                             <div
                                                 className="ratios "
-                                                onClick={function () {
-                                                    setCurrent(v);
-                                                    // console.log(
-                                                    //     'current :>> ',
-                                                    //     current
-                                                    // );
-                                                }}
+                                                onClick={() => setCurrent(v)}
                                             >
                                                 <img src={v} alt="" />
                                             </div>
