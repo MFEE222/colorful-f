@@ -8,7 +8,6 @@ tmp/
 *.css.map
 .env
 .env.*
-/src/images
 NOTE.md
 # dependencies
 /node_modules
