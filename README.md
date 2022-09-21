@@ -17,11 +17,6 @@ git clone https://github.com/MFEE222/colorful-f.git
 - 建立 `.env.dev` 和 `.env.prod` 2 種環境檔用於開發、正式環境。
 - 參照 `.env.example` 內容進行編寫
 
-### 下載媒體檔案
-
-- 自行至小組 Google 雲端硬碟下載 媒體檔案。
-- 下載、解壓縮後放入 `src/images/` 資料夾中。
-
 ### 安裝模組
 
 - 運行 `npm i` 命令，安裝依賴模組。(終端機開啟後，記得切換至專案資料夾下)
