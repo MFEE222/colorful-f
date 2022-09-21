@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { LinkContainer } from 'react-router-bootstrap';
 import { routes } from 'utils/routes';
-import ImgProduct from 'images/product-img.jpeg';
+import ImgProduct from 'images/product-img.jpg';
 
 //共用
 import FilterBar from './FilterBar';

@@ -8,8 +8,7 @@
     height: 100vh;
 
     @include mix.media(background-image,
-        $xs: url("../images/404-1.jpg"),
-        $lg: url("../images/404.jpg"));
+        $xs: url("../images/404.jpg"));
 
     .er-text {
         .er-title {
