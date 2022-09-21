@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-// import img from 'images/navbar-ex-1.jpg';
 import { API_URL, IMG_URL, IMG_URL2 } from 'utils/config';
 
 function ReviewSlider(props) {

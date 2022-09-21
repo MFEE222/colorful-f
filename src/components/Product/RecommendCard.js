@@ -10,7 +10,6 @@ import { useProductsContext } from 'contexts/ProductsContext';
 import Card from './Card';
 
 // 圖片
-import cardDemo from 'images/navbar-ex-1.jpg';
 import decBar from 'images/dec-bar.png';
 
 function RecommendCard(props) {

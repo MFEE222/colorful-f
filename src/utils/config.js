@@ -25,19 +25,6 @@ export const IMG_HOME_FILM_BANNER = IMG_URL + '/home/輪播03.jpg';
 export const IMG_HOME_WEDDING_BANNER = IMG_URL + '/home/輪播04.jpg';
 export const IMG_HOME_FOOD_BANNER = IMG_URL + '/home/輪播05.jpg';
 
-// Banner
-export const IMG_PRODUCTS_ALL_BANNER = IMG_PRODUCTS_ALL + '/all-banner.jpg';
-export const IMG_PRODUCTS_NEWEST_BANNER =
-    IMG_PRODUCTS_NEWEST + '/newest-banner.jpg';
-export const IMG_PRODUCTS_FOOD_BANNER = IMG_PRODUCTS_FOOD + '/food-banner.mp4';
-export const IMG_PRODUCTS_WEDDING_BANNER =
-    IMG_PRODUCTS_WEDDING + '/wedding-banner.mp4';
-export const IMG_PRODUCTS_FILM_BANNER = IMG_PRODUCTS_FILM + '/film-banner.mp4';
-export const IMG_PRODUCTS_SCENERY_BANNER =
-    IMG_PRODUCTS_SCENERY + '/scenery-banner.mp4';
-export const IMG_PRODUCTS_PORTRAIT_BANNER =
-    IMG_PRODUCTS_PORTRAIT + '/portrait-banner.mp4';
-
 // Auth
 export const POST_AUTH_SIGNIN = API_URL + '/auth/signin';
 export const POST_AUTH_SIGNUP = API_URL + '/auth/signup';

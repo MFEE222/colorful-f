@@ -6,7 +6,7 @@ import { routes } from 'utils/routes';
 import axios from 'axios';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from 'utils/config';
 import { Button, Modal } from 'react-bootstrap';
-import ImgProduct from 'images/product-img.jpeg';
+import ImgProduct from 'images/product-img.jpg';
 
 function CartPayment(props) {
     const [display, setDisplay] = useState([]);
