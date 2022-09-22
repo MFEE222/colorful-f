@@ -23,6 +23,16 @@ module.exports = (env) => {
         optimization: {
             minimize: true,
             minimizer: ['...', new CssMinimizerPlugin(), new TerserPlugin()],
+            splitChunks: {
+                cacheGroups: {
+                    vendorReact: {
+                        test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+                        chunks: 'all',
+                        name: 'vendor~react',
+                        enforce: true,
+                    },
+                },
+            },
         },
     });
 };

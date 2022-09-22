@@ -49,7 +49,7 @@
     },
     "scripts": {
         "start": "webpack serve --env env=dev --open --config webpack.dev.js",
-        "build": "webpack --env env=prod --config webpack.prod.js",
+        "build": "webpack --env env=prod --config webpack.prod.js --progress",
         "prod": "http-server build -p 3000",
         "analyse": "webpack --profile --json > stats.json",
         "test": "jest",
