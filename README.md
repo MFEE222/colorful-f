@@ -1,6 +1,6 @@
 # Colorful
 
-**Colorful** 是一個前端 React 專案，用於建置濾鏡電商網站前台。
+**Colorful** 是一個使用 React 框架的單頁應用（SPA），用來建置濾鏡電商網站。
 
 > 網站目前部署於： https://color4.me
 
