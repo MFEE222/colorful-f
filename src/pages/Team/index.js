@@ -5,6 +5,7 @@ import Teamla from 'images/頌蓮.jpg';
 import Teamfi from 'images/博榆.jpg';
 import Teamti from 'images/詩葶.jpg';
 import Github from 'images/git.png';
+import './index.scss';
 
 function Team(props) {
     const render = () => (

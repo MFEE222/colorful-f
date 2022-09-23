@@ -1,5 +1,5 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "styles/variables"as var;
+@use "styles/mixins"as mix;
 
 // @include mix.media(margin-left, $xs: 0, $sm: 1rem);
 

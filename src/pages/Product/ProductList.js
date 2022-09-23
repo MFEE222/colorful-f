@@ -1,18 +1,12 @@
 // 內建
 import React, { useState, useEffect } from 'react';
 
-// 第三方庫
-import axios from 'axios';
-
 // 通用
 import { routes, reverse } from 'utils/routes';
-import { API_GET_PRODUCT_TAGS_SERIES } from 'utils/config';
 import { useProductsContext } from 'contexts/ProductsContext';
 // 自己
 import Banner from 'components/Product/Banner';
 import FilterBar from 'components/Product/FilterBar';
-
-import ProductListContent from 'components/Product/ProductListContent';
 import Pagination from 'components/Pagination';
 import Card from 'components/Product/Card';
 

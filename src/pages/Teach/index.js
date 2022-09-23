@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-//
 import page1 from 'images/教學頁/teach-p1.jpg';
 import page2 from 'images/教學頁/teach-p2.jpg';
 import page4 from 'images/教學頁/teach-p4.mp4';
+import './index.scss';
 
 function Teach() {
     return (
