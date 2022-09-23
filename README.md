@@ -9,7 +9,7 @@
 ## 安裝
 
 ### 下載專案
-```
+```sh
 git clone https://github.com/MFEE222/colorful-f.git
 ```
 ### 創建環境變數檔案
@@ -113,6 +113,52 @@ import Navbar from '../components/Navbar';
 import Navbar from 'components/Navbar';
 ```
 
+## 路由
+
+路由使用 `react-router-dom` v6.4，搭配 `named-urls` 套件管理路由名稱。 
+
+> 前端路由統一由 `src/utils/routes.js` 管理
+### 主要頁面
+
+主要頁面（元件）處於路由第一層。該層元件除 Layout 元件外，皆使用 lazy-load，在使用者需要時才載入，加快網頁響應。
+
+| Component | Description | Nested Routes | Lazy-Load |
+|-----------|-------------|:-------------:|:---------:|
+| Layout    | 共用版面     | ❌ | ❌ |
+| Landing   | 前導頁       | ❌ | ✅ |
+| Error     | 404頁       | ❌ | ✅ |
+| Home      | 主頁        | ❌ | ✅ |
+| Game      | 遊戲頁       | ❌ | ✅ |
+| Teach     | 教學頁       | ❌ | ✅ |
+| Team      | 關於我們     | ❌ | ✅ |
+| Auth      | 身份驗證     | ✅ | ✅ |
+| Product   | 商品頁       | ✅ | ✅ |
+| Member    | 會員頁       | ✅ | ✅ |
+| Cart      | 購物車       | ✅ | ✅ |
+
+> Nested Routes: 巢狀路由
+
+### 其他分頁
+
+分頁 與 主要頁面 的路由關係如下：
+
+| Parent  | Component | Description |
+|---------|-----------|-------------|
+| Auth    | Signin    | 登入頁面     | 
+|         | Signup    | 註冊頁面     |
+|         | Forgot    | 忘記密碼     |
+|         | Reset     | 重設密碼     |
+| Product | ProductList | 商品系列頁 |
+|         | ProductDetail | 商品細節頁 |
+| Member  | Profile   | 個人資料     |
+|         | Download  | 濾鏡包下載   |
+|         | Favorite  | 商品蒐藏頁   |
+|         | Review    | 評論管理     |
+|         | Mail      | 信件管理     |
+|         | Payment   | 付款方式     |
+| Cart    | index     | 購物車主頁   |
+|         | Checkout  | 結帳頁面     |
+
 ## 貢獻
 iSpan 資展國際 MFEE22 小組成員
 
@@ -123,31 +169,6 @@ iSpan 資展國際 MFEE22 小組成員
 | 美術  | 粱詩葶 | 教學、小遊戲頁。網頁設計、素材、企劃文案製作 |
 | 美術  | 蔣頌蓮 | 首頁、關於我、驗證（前、後、資料庫）、企劃文案製作 |
 | 技術  | 江志偉 | 資料庫管理、更新，企劃文案、簡報製作       |
-
-## 待優化
-
-### 優化 Webpack
-
-- webpack 最佳化設定編寫
-
-### 引入 TypeScript
-
-- 編譯器、定義檔下載
-- webpack、ts 設定檔編寫
-### 引入 PostCSS
-
-- 下載、設定檔編寫
-- 插件下載、設定檔編寫
-- 更換 CSS 框架為 TailwindCSS
-
-### Jest
-
-- 下載、設定檔編寫
-- 撰寫元件單元測試
-
-### CI/CD
-
-- GitHub Action 設定檔編寫
 
 ## FAQ
 - 前端路由要去哪裡修改、新增？
