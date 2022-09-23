@@ -1,19 +1,7 @@
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import classNames from 'classnames';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import { routes } from 'utils/routes';
 import Slideshow from './slider';
-import Game from 'pages/Game';
 
-//圖片
-
-//
-// import Game from '../Game';
-// import Landing from './landing';
-
-//
 import page2 from 'images/home/home-page2.jpg';
 import video from 'images/home/bg-banner-index.mp4';
 import game from 'images/home/home-page4.jpg';

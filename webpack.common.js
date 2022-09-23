@@ -22,7 +22,9 @@ module.exports = {
             favicon: path.resolve(__dirname, 'public/favicon.png'),
         }),
         new MiniCssExtractPlugin({
-            filename: 'static/css/main.[contenthash].css',
+            // filename: 'static/css/main.[contenthash].css',
+            filename: 'static/css/[name].[contenthash].css',
+            chunkFilename: 'static/css/[id].[contenthash].css',
         }),
     ],
 
