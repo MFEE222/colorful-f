@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from './routes';
+import { routes } from 'utils/routes';
 import emailjs, { init } from '@emailjs/browser';
 init(process.env.REACT_APP_EMAILJS_USER_ID);
+import './index.scss';
 
 function Footer() {
     const form = useRef();

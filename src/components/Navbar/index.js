@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-// 庫
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-// 圖
 import Menu from 'images/dot-menu.svg';
-import { routes } from './routes';
+import { routes } from 'utils/routes';
 
 import { useProductsContext } from 'contexts/ProductsContext';
-import { useAuthContext, useAuth, useSignOut } from 'contexts/AuthContext';
-// import CartCard from 'components/Cart/CartCard';
+import { useAuthContext, useSignOut } from 'contexts/AuthContext';
+
+import './index.scss';
 
 function OurNavbar(props) {
     // context

@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "styles/variables" as var;
+@use "styles/mixins" as mix;
 
 .footer {
     // all
@@ -60,10 +60,10 @@
             height: 40px;
             outline-style: none;
             // border: 0px;
-            border-color: $light;
+            border-color: var.$light;
             background: transparent;
             border-radius: 20px;
-            color: $light;
+            color: var.$light;
         }
     }
 

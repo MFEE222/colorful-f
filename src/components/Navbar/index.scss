@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "styles/variables" as var;
+@use "styles/mixins" as mix;
 
 .colorful-navbar {
     // 底色
@@ -72,7 +72,7 @@
                 .dropdown-menu {
                     background-color: white;
                     border: 0;
-                    @include lg {
+                    @include mix.lg {
                         border-top-left-radius: 0;
                         border-top-right-radius: 0;
                         border-left: 1px solid rgba(0, 0, 0, 0.1);

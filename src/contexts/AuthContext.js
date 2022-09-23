@@ -2,9 +2,6 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-// FIXME: Navbar.js 和 Index.js (Member) 側邊欄登出功能修正（登出後跳轉到首頁）
-// FIXME: Footer 會跑版蓋住登入方框
-
 // API
 import {
     POST_AUTH_SIGNIN,
