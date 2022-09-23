@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 import axios from 'axios';
 import { API_GET_PRODUCT } from 'utils/config';
@@ -11,7 +11,7 @@ import { STATUS_MSG } from 'utils/status';
 import { useAuthContext } from './AuthContext';
 
 // Context
-const CartContext = React.createContext(
+const CartContext = createContext(
     'please wrap element in <CartContext></CartContext>'
 );
 
@@ -200,5 +200,5 @@ export function CartConsumer(props) {
 
 // useContext
 export function useCartContext() {
-    return React.useContext(CartContext);
+    return useContext(CartContext);
 }

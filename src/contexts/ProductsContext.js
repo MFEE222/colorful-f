@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import axios from 'axios';
@@ -7,7 +7,7 @@ import { STATUS_MSG } from 'utils/status';
 import { routes } from 'utils/routes';
 
 // Context
-const ProductsContext = React.createContext(
+const ProductsContext = createContext(
     'please wrap element in <ProductProvider></ProductProvider>'
 );
 
@@ -259,19 +259,5 @@ export function ProductsConsumer(props) {
 
 // useContext
 export function useProductsContext() {
-    return React.useContext(ProductsContext);
+    return useContext(ProductsContext);
 }
-
-// State Format
-// products = {
-//     id,
-//     name,
-//     price,
-// }
-
-// shared (此設計允許使用者加入共享資料，但若同名時會被預設值覆蓋)
-// let { shared } = props;
-// if (shared === undefined) {
-//     shared = {};
-// }
-// shared.say = 'Hey, Good Night';

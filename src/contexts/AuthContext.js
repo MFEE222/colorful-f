@@ -1,4 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import {
+    createContext,
+    useContext,
+    useState,
+    useRef,
+    useEffect,
+    useCallback,
+} from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
@@ -20,16 +27,13 @@ import {
     GOOGLE_SIGNIN_CDN,
 } from 'utils/config';
 
-import login from 'images/film001.jpg';
-
 // intern library
 import { useScript } from '../hooks/useScript';
-import { routes } from 'utils/routes';
 import { useToastContext } from './ToastContext';
 import { toast } from 'react-toastify';
 
 // Context
-const AuthContext = React.createContext('wrap not correct');
+const AuthContext = createContext('wrap not correct');
 
 // Provider
 export function AuthProvider(props) {
@@ -58,7 +62,7 @@ export function AuthProvider(props) {
 
 // Consumer
 export function useAuthContext() {
-    return React.useContext(AuthContext);
+    return useContext(AuthContext);
 }
 
 // Automatic Sign In
