@@ -13,7 +13,7 @@ import './Signin.scss';
 
 function SignIn(props) {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // const { toast } = useToastContext();
 
     // state
@@ -34,7 +34,7 @@ function SignIn(props) {
     const render = () => {
         // data
         if (regular.loading || gsi.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (regular.error || gsi.error) {

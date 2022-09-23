@@ -17,7 +17,7 @@ import { useLoadingContext } from 'contexts/LoadingContext';
 function Profile(props) {
     // context
     const { user, accessToken } = useAuthContext();
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // state
     const [query, setQuery] = useState({
         name: '',
@@ -63,7 +63,7 @@ function Profile(props) {
     // render
     const render = () => {
         if (data.avatar.loading || data.email.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         return (

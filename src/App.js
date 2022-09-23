@@ -5,6 +5,7 @@ import 'styles/global.scss';
 import { routes } from 'utils/routes';
 
 import Layout from 'pages/Layout';
+import Loading from 'components/Loading';
 const Auth = lazy(() => import('pages/Auth'));
 const Product = lazy(() => import('pages/Product'));
 const Member = lazy(() => import('pages/Member'));
@@ -24,13 +25,7 @@ const Landing = lazy(() => import('pages/Landing'));
 function App() {
     function page(Lazy) {
         return (
-            <Suspense
-                fallback={
-                    <div className="boxLoadingBackground">
-                        <div className="boxLoading"></div>
-                    </div>
-                }
-            >
+            <Suspense fallback={<Loading />}>
                 <Lazy />
             </Suspense>
         );

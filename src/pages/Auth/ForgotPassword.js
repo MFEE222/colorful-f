@@ -11,7 +11,7 @@ import './ForgotPassword.scss';
 // main component
 function ForgotPassword(props) {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // state
     const [query, setQuery] = useState({
         email: '',
@@ -36,7 +36,7 @@ function ForgotPassword(props) {
     // render
     const render = () => {
         if (data.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (data.error !== null) {

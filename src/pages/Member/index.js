@@ -26,13 +26,13 @@ import { useEffect } from 'react';
 
 function Member(props) {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // hook
     const auth = useAuth();
     // render
     const render = () => {
         if (auth.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (!auth.result) {

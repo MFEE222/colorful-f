@@ -9,7 +9,7 @@ import './ResetPassword.scss';
 
 const ResetPassword = (props) => {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // state
     const [query, setQuery] = useState({
         password: '',
@@ -36,7 +36,7 @@ const ResetPassword = (props) => {
     const render = () => {
         // auth
         if (auth.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (!auth.result) {
@@ -44,7 +44,7 @@ const ResetPassword = (props) => {
         }
         // resest
         if (data.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (data.error) {

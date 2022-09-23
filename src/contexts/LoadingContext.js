@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-
+import { createContext, useContext, useState, useEffect } from 'react';
+import Loading from 'components/Loading';
 // Context
-const LoadingContext = React.createContext();
+const LoadingContext = createContext();
 
 // Provider
 export function LoadingProvider(props) {
@@ -36,7 +36,7 @@ export function LoadingProvider(props) {
                 setLoading(false);
             }, minTime);
         },
-        UILoading,
+        Loading,
         current: loading,
     };
 
@@ -44,21 +44,11 @@ export function LoadingProvider(props) {
     return (
         <LoadingContext.Provider value={share}>
             {props.children}
-            {/* {loading ? <UILoading /> : props.children} */}
         </LoadingContext.Provider>
     );
-
-    // component
-    function UILoading() {
-        return (
-            <div className="boxLoadingBackground">
-                <div className="boxLoading"></div>
-            </div>
-        );
-    }
 }
 
 // useContext
 export function useLoadingContext() {
-    return React.useContext(LoadingContext);
+    return useContext(LoadingContext);
 }

@@ -9,7 +9,7 @@ import './Signup.scss';
 
 function SignUp(props) {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoadingContext();
     // state
     const [query, setQuery] = useState({
         name: '',
@@ -37,7 +37,7 @@ function SignUp(props) {
     // render
     const render = () => {
         if (data.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (data.error !== null) {
