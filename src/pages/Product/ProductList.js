@@ -13,7 +13,7 @@ import Banner from 'components/Product/Banner';
 import FilterBar from 'components/Product/FilterBar';
 
 import ProductListContent from 'components/Product/ProductListContent';
-import Pagination from 'utils/Pagination';
+import Pagination from 'components/Pagination';
 import Card from 'components/Product/Card';
 
 function ProductList(props) {

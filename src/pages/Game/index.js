@@ -1,6 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { routes } from 'utils/routes';
+import './index.scss';
+
+// FIXME: fix imgs url path
 
 const imgs = [
     'http://localhost/colorful-f/src/images/%e8%bc%aa%e6%92%ad01.jpg',
@@ -16,19 +19,6 @@ const imgs = [
     'http://localhost/colorful-f/src/images/film008.jpg',
     'http://localhost/colorful-f/src/images/film009.jpg',
 ];
-
-// import Img1 from '../../images/game/1.jpg';
-// import Img2 from '../../images/game/2.jpg';
-// import Img3 from '../../images/game/3.jpg';
-// import Img4 from '../../images/game/4.jpg';
-// import Img5 from '../../images/game/5.jpg';
-// import Img6 from '../../images/game/6.jpg';
-// import Img7 from '../../images/game/7.jpg';
-// import Img8 from '../../images/game/8.jpg';
-// import Img9 from '../../images/game/9.jpg';
-// import Img10 from '../../images/game/10.jpg';
-// import Img11 from '../../images/game/11.jpg';
-// import Img12 from '../../images/game/12.jpg';
 
 function Test(props) {
     // const imgs = [

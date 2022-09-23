@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import CartPaymentCard from 'components/Cart/CartPaymentCard';
+import CartPaymentCard from './CartPaymentCard';
 import Product from 'images/film001.jpg';
 import { routes } from 'utils/routes';
 import axios from 'axios';

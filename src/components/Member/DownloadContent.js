@@ -6,7 +6,7 @@ import {
     IMG_URL2,
     API_POST_MEMBER_DOWNLOAD_DNG,
 } from 'utils/config';
-import Pagination from 'utils/Pagination';
+import Pagination from 'components/Pagination';
 //
 import { useAuthContext } from 'contexts/AuthContext';
 

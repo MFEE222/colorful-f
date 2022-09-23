@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './index.scss';
 
 function Pagination(props) {
     //style

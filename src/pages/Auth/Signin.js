@@ -8,7 +8,7 @@ import { routes } from 'utils/routes';
 
 import { useSignIn, useGSIScript } from 'contexts/AuthContext';
 import { useLoadingContext } from 'contexts/LoadingContext';
-
+import './Signin.scss';
 // TODO: improve CDN import with webpack
 
 function SignIn(props) {

@@ -5,6 +5,7 @@ import Slideshow from './slider';
 import page2 from 'images/home/home-page2.jpg';
 import video from 'images/home/bg-banner-index.mp4';
 import game from 'images/home/home-page4.jpg';
+import './index.scss';
 
 function Home() {
     return (

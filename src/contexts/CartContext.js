@@ -7,7 +7,7 @@ import {
     API_POST_CART,
     API_LOCAL_STORAGE_CART,
 } from 'utils/config';
-import { STATUS_MSG } from 'utils/others/status';
+import { STATUS_MSG } from 'utils/status';
 import { useAuthContext } from './AuthContext';
 
 // Context

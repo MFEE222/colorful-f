@@ -1,5 +1,5 @@
-@use "variables"as var;
-@use "mixins"as mix;
+@use "styles/variables"as var;
+@use "styles/mixins"as mix;
 
 .home {
     background-color: #ffffff;
@@ -96,23 +96,23 @@
             }
 
             .slide1 {
-                background-image: url("../images/輪播01.jpg");
+                background-image: url("/src/images/輪播01.jpg");
             }
 
             .slide2 {
-                background-image: url("../images/輪播02.jpg");
+                background-image: url("/src/images/輪播02.jpg");
             }
 
             .slide3 {
-                background-image: url("../images/輪播03.jpg");
+                background-image: url("/src/images/輪播03.jpg");
             }
 
             .slide4 {
-                background-image: url("../images/輪播04.jpg");
+                background-image: url("/src/images/輪播04.jpg");
             }
 
             .slide5 {
-                background-image: url("../images/輪播05.jpg");
+                background-image: url("/src/images/輪播05.jpg");
             }
 
             .arrow {
@@ -156,7 +156,7 @@
     }
 
     .h-page4 {
-        background-image: url("../images/test_banner.jpg");
+        background-image: url("/src/images/test_banner.jpg");
         // background-repeat: no-repeat;
         background-size: cover;
         // background-position: right;

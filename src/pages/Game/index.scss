@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "styles/variables" as var;
+@use "styles/mixins" as mix;
 
 .game {
     .modal-dialog {

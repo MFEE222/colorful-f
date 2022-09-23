@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 import { routes } from 'utils/routes';
 import { useForgotPassword } from 'contexts/AuthContext';
 import { useLoadingContext } from 'contexts/LoadingContext';
+import './ForgotPassword.scss';
 
 // main component
 function ForgotPassword(props) {
