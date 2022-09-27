@@ -5,12 +5,13 @@ import { Navigate } from 'react-router-dom';
 // internal utility
 import { routes } from 'utils/routes';
 import { useForgotPassword } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
+import './ForgotPassword.scss';
 
 // main component
 function ForgotPassword(props) {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoading();
     // state
     const [query, setQuery] = useState({
         email: '',
@@ -35,7 +36,7 @@ function ForgotPassword(props) {
     // render
     const render = () => {
         if (data.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (data.error !== null) {

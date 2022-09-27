@@ -27,10 +27,10 @@
 @import "utilities";
 
 // shared
-@import "navbar";
+// @import "navbar";
 @import "breadcrumb";
 @import "filterbar";
-@import "footer";
+// @import "footer";
 @import "auth-modal";
 
 // member
@@ -73,18 +73,18 @@
 @import "review-slider";
 
 // signin page
-@import "signin";
+// @import "signin";
 
 // signup page
-@import "signup";
+// @import "signup";
 
 // signin forgot password page
-@import "signin-forgot";
-@import "reset-password";
+// @import "signin-forgot";
+// @import "reset-password";
 
 // team page
 
-@import "team";
+// @import "team";
 
 // 404 page
 @import "error-content";
@@ -95,17 +95,11 @@
 @import "cart-payment-form";
 @import "cart-payment";
 
-// utils pagination
-@import "utils-pagination";
-
-@import "game";
+// @import "game";
 // home page
-@import "home";
+// @import "home";
 @import "slideshow";
 
-// loading
-@import "loading";
-
 // teach
-@import "teach";
-@import "home-landing";
+// @import "teach";
+// @import "home-landing";

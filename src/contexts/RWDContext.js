@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 // Context
-const RWDContext = React.createContext(
+const RWDContext = createContext(
     'please wrap element in <RWDContext></RWDContext>'
 );
 
@@ -98,5 +98,5 @@ export function RWDConsumer(props) {
 }
 // useContext
 export function useRWDContext(props) {
-    return React.useContext(RWDContext);
+    return useContext(RWDContext);
 }

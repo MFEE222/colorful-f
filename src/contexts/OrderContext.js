@@ -1,18 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 import axios from 'axios';
-import { API_GET_PRODUCT } from 'utils/config';
-import {
-    API_GET_ORDERS,
-    API_GET_ORDER_DETAIL,
-    API_POST_ORDER,
-    API_POST_ORDER_PAYMENT,
-} from 'utils/config';
-import { STATUS_MSG } from 'utils/others/status';
+import { API_GET_ORDERS, API_GET_ORDER_DETAIL } from 'utils/config';
 import { useAuthContext } from './AuthContext';
 
 // Context
-const OrderContext = React.createContext(
+const OrderContext = createContext(
     'please wrap element in <OrderContext></OrderContext>'
 );
 
@@ -106,5 +99,5 @@ export function OrderProvider(props) {
 
 // useContext
 export function useOrderContext() {
-    return React.useContext(OrderContext);
+    return useContext(OrderContext);
 }

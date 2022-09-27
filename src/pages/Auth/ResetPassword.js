@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 // internal library
 import { useAuth, useResetPassword } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
 import { routes } from 'utils/routes';
+import './ResetPassword.scss';
 
 const ResetPassword = (props) => {
     // context
-    const { UILoading } = useLoadingContext();
+    const { Loading } = useLoading();
     // state
     const [query, setQuery] = useState({
         password: '',
@@ -35,7 +36,7 @@ const ResetPassword = (props) => {
     const render = () => {
         // auth
         if (auth.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (!auth.result) {
@@ -43,7 +44,7 @@ const ResetPassword = (props) => {
         }
         // resest
         if (data.loading) {
-            return <UILoading />;
+            return <Loading />;
         }
 
         if (data.error) {

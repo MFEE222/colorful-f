@@ -4,13 +4,11 @@
 tmp.*
 *.tmp
 tmp/
-*.css
-*.css.map
 .env
 .env.*
 NOTE.md
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -18,7 +16,7 @@ NOTE.md
 /coverage
 
 # production
-/build
+build
 
 # misc
 .DS_Store

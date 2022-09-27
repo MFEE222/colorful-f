@@ -6,7 +6,7 @@ import axios from 'axios';
 // import Pagination from './Pagination';
 import { API_GET_MEMBER_REVIEW, IMG_URL2 } from 'utils/config';
 //
-import Pagination from 'utils/Pagination';
+import Pagination from 'components/Pagination';
 import { useAuthContext } from 'contexts/AuthContext';
 
 function ReviewContent(props) {
