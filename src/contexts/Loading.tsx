@@ -26,22 +26,22 @@ export function LoadingProvider(props: Options) {
         ...props,
     };
 
-    const [loaded, setLoaded] = useState<number>(0);
+    const [loaded, setLoaded] = useState<boolean>(true);
 
     useEffect(() => {
         if (loaded) {
             setTimeout(() => {
-                setLoaded(loaded - 1);
+                setLoaded(true);
             }, options.maxTime);
         }
     }, [loaded]);
 
     const start = () => {
-        setLoaded(loaded + 1);
+        setLoaded(false);
     };
     const end = () => {
         setTimeout(() => {
-            setLoaded(loaded - 1);
+            setLoaded(true);
         }, options.minTime);
     };
 
@@ -54,7 +54,7 @@ export function LoadingProvider(props: Options) {
                 loaded,
             }}
         >
-            <Loading complete={loaded === 0} />
+            <Loading complete={loaded} />
             {props.children}
         </Context.Provider>
     );
