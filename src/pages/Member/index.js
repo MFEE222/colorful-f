@@ -18,7 +18,7 @@ import Collect from './Collect';
 import Content from 'components/Member/Content';
 //
 import { useAuth, useGoogleAuth } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
 import { useEffect } from 'react';
 
 // FIXME: error redirect to home after refresh member page.
@@ -26,7 +26,7 @@ import { useEffect } from 'react';
 
 function Member(props) {
     // context
-    const { Loading } = useLoadingContext();
+    const { Loading } = useLoading();
     // hook
     const auth = useAuth();
     // render

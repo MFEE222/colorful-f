@@ -3,7 +3,7 @@ import { ProductsProvider } from 'contexts/ProductsContext';
 import { RWDProvider } from 'contexts/RWDContext';
 import { UIToastProvider } from 'contexts/ToastContext';
 import { AuthProvider } from 'contexts/AuthContext';
-import { LoadingProvider } from 'contexts/LoadingContext';
+import { LoadingProvider } from 'contexts/Loading';
 // import { CartProvider } from 'contexts/CartContext';
 // import { OrderProvider } from 'contexts/OrderContext';
 import Navbar from 'components/Navbar';

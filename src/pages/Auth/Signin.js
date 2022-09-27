@@ -7,13 +7,13 @@ import { GOOGLE_CLIENT_ID, POST_AUTH_GOOGLE_SIGNIN } from 'utils/config';
 import { routes } from 'utils/routes';
 
 import { useSignIn, useGSIScript } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
 import './Signin.scss';
 // TODO: improve CDN import with webpack
 
 function SignIn(props) {
     // context
-    const { Loading } = useLoadingContext();
+    const { Loading } = useLoading();
     // const { toast } = useToastContext();
 
     // state

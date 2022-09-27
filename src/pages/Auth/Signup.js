@@ -4,12 +4,12 @@ import { Navigate } from 'react-router-dom';
 // internal global variable
 import { routes } from 'utils/routes';
 import { useSignUp } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
 import './Signup.scss';
 
 function SignUp(props) {
     // context
-    const { Loading } = useLoadingContext();
+    const { Loading } = useLoading();
     // state
     const [query, setQuery] = useState({
         name: '',

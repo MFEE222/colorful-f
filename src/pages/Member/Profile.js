@@ -8,7 +8,7 @@ import {
     useEditEmail,
     useEditPersonalInfo,
 } from 'contexts/AuthContext';
-import { useLoadingContext } from 'contexts/LoadingContext';
+import { useLoading } from 'contexts/Loading';
 
 // TODO: 網路請求修改資料後，自動刷新
 // FIXME: 當 useAuth 失敗時，自動檢查 accessToken 時效性並進行更新
@@ -17,7 +17,7 @@ import { useLoadingContext } from 'contexts/LoadingContext';
 function Profile(props) {
     // context
     const { user, accessToken } = useAuthContext();
-    const { Loading } = useLoadingContext();
+    const { Loading } = useLoading();
     // state
     const [query, setQuery] = useState({
         name: '',
