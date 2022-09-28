@@ -7,6 +7,7 @@ import {
 } from "react";
 export { default as Loading } from "components/Loading";
 import Loading from "components/Loading";
+import { debounce } from "lodash";
 
 const Context = createContext<{}>("");
 
@@ -15,7 +16,7 @@ type Options = {
     minTime?: number;
     maxTime?: number;
 };
-// FIXME: loaded can't plus more times -> state seem can't share between components ? useRef ?
+
 export function LoadingProvider(props: Options) {
     const defaults = {
         minTime: 200,
@@ -29,10 +30,10 @@ export function LoadingProvider(props: Options) {
     const [loaded, setLoaded] = useState<boolean>(true);
 
     useEffect(() => {
-        if (loaded) {
-            setTimeout(() => {
+        if (!loaded) {
+            debounce(() => {
                 setLoaded(true);
-            }, options.maxTime);
+            }, options.maxTime)();
         }
     }, [loaded]);
 
