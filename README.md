@@ -46,6 +46,14 @@ git clone https://github.com/MFEE222/colorful-f.git
 
     > 目前尚未編寫相關測試檔
 
+### 沙盒模式
+
+用於開發過程中需要以當前環境進行實驗時。
+
+- 運行 `npm run sandbox` 命令。
+  
+    > Webpack 會將打包入口由 `src/index.js` 改為 `src/sandbox.js`，並且套用 development 下的設定
+
 ## 專案介紹
 
 採用前後端分離
