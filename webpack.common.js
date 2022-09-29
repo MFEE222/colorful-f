@@ -34,6 +34,9 @@ module.exports = {
     module: {
         rules: [
             {
+                sideEffects: false,
+            },
+            {
                 test: /\.m?jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -54,6 +57,7 @@ module.exports = {
             {
                 test: /\.s?[ac]ss$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+                sideEffects: true,
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif|mp4|pdf|mpg)$/i,

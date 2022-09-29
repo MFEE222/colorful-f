@@ -22,7 +22,13 @@ module.exports = (env) => {
 
         optimization: {
             minimize: true,
-            minimizer: ['...', new CssMinimizerPlugin(), new TerserPlugin()],
+            minimizer: [
+                new CssMinimizerPlugin(),
+                new TerserPlugin({
+                    parallel: true,
+                }),
+                // '...', // ... means default settings
+            ],
             splitChunks: {
                 cacheGroups: {
                     react: {

@@ -7,7 +7,7 @@ import {
 } from "react";
 export { default as Loading } from "components/Loading";
 import Loading from "components/Loading";
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
 
 const Context = createContext<{}>("");
 
