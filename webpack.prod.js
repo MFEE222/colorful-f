@@ -27,7 +27,6 @@ module.exports = (env) => {
                 new TerserPlugin({
                     parallel: true,
                 }),
-                // '...', // ... means default settings
             ],
             splitChunks: {
                 cacheGroups: {

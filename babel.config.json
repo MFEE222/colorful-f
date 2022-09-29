@@ -2,6 +2,7 @@
     "presets": [
         [
             "@babel/preset-env"
+            // ,
             // {
             //     "modules": false // for tree shaking, but breaking jest (need fix)
             // }
