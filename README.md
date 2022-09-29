@@ -50,9 +50,31 @@ git clone https://github.com/MFEE222/colorful-f.git
 
 用於開發過程中需要以當前環境進行實驗時。
 
+- 建立 `/src/sandbox.js` 檔案，並寫入 React 渲染代碼（參考下方）
 - 運行 `npm run sandbox` 命令。
   
     > Webpack 會將打包入口由 `src/index.js` 改為 `src/sandbox.js`，並且套用 development 下的設定
+
+  ```jsx
+  // react v18.2.0
+  import React from 'react';
+  import { createRoot } from 'react-dom/client';
+
+  const element = document.createElement('div');
+  document.body.append(element);
+  element.id = 'sandbox';
+
+  const root = createRoot(element);
+  root.render(
+      <React.StrictMode>
+          <Sandbox />
+      </React.StrictMode>
+  );
+
+  function Sandbox(props) {
+    return <div>Your Experiment</div>
+  }
+  ```
 
 ## 專案介紹
 
