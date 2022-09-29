@@ -14,6 +14,7 @@ node_modules
 
 # testing
 /coverage
+/src/sandbox.js
 
 # production
 build
